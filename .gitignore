@@ -1,0 +1,32 @@
+# Datasett og avledede data; behold mappestrukturen.
+/data/**
+!/data/**/
+!/data/**/.gitkeep
+
+# Lagrede modeller og checkpoints.
+/models/**
+!/models/**/
+!/models/**/.gitkeep
+
+# Genererte innsendingsfiler.
+/submissions/**
+!/submissions/**/
+!/submissions/**/.gitkeep
+
+# Virtuelle miljøer.
+.venv/
+venv/
+env/
+venvs/
+.env/
+.tox/
+.nox/
+
+# Notebook-checkpoints og Python-cache.
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Lokale OS-filer.
+.DS_Store
