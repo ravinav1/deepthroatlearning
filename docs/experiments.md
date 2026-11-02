@@ -45,3 +45,42 @@ archive; they are not silently weakened for relocation.
 New experiments should append a dated entry here or link a structured report.
 Record the details required by AGENTS.md, including failures and the actual
 selection/confirmation chronology. Do not overwrite imported manifests.
+
+### Migration verification outcomes
+
+The source was integrated and pushed as `0ab7df44e5b53895aaf8d0eb512d0ba9c333e93c`.
+All 975 pre-existing source/config/scorer/report files checked against the base
+revision remain byte-identical. The merged score ledger is an intentional update.
+All 643 frozen source files and 159,566 transferred artifact files passed hashes.
+
+The imported suite passed 419 tests; the root suite passed 26, including 21 Codex
+startup regressions. The first imported run had five missing code-only fixture
+errors; the original fixtures were added to research archive 09 and the suite passed.
+The source files themselves were not edited to make the tests pass.
+
+The first two CPU replay attempts failed at XGBoost608. Four LightGBM components
+matched exactly, but local CPU XGBoost 3.2.0 differed from the recorded CUDA 3.4.1
+outputs (maximum absolute error 1.4007091522216797e-6). This motivated a **new
+adapter-only** 1e-5 CPU portability threshold, selected after that observation.
+It does not alter original validators, model selection, training or probabilities.
+
+Full migration replay 003 subsequently checked all 98 models in 83.235s: all 70
+LightGBM checkpoints matched bitwise; GPU608/GPU664 CPU differences were
+1.4007091522216797e-6 /1.1622905731201172e-6. The exact submission uses the
+hash-verified original CUDA arrays after these checks. Its SHA256 matches the
+original best. The executed adapter snapshot and both failed attempts are retained
+in `reports/hydraulic_surrogate/verification/`. The official scorer independently
+reproduced both recorded fold AUCs, including reversed-ID alignment.
+
+Two independent review/setup agents were explicitly requested as GPT-6 Astra with
+ultra reasoning. Their review found and corrected missing child-model setting
+validation and failure-provenance gaps. The separate nested CLI metadata startup
+could not complete under sandbox/project-trust restrictions; that limitation is
+recorded rather than treated as model availability. Offline startup checks passed
+all 10 input and 504 best-artifact hashes; no personal trust/auth state was changed.
+
+Release `hydraulic-surrogate-20261102` was published at 2026-11-02T23:06:58Z with
+20 archives and 2 compressed inventories. All 22 server-reported sizes/SHA256s match
+the committed index. The release targets the integration commit. Fresh remote
+checkout, anonymous release download and recovery verification are recorded in
+the final migration verification report.

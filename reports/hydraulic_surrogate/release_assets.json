@@ -1,0 +1,189 @@
+{
+  "assets": [
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-best-01.tar.gz",
+      "digest": "sha256:8286f5cceb15c3e447e4166396791b9b48d2ce22adb1f05692c96480c9dc160f",
+      "id": 703439070,
+      "name": "hydraulic-best-01.tar.gz",
+      "size": 343615610,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-best-02.tar.gz",
+      "digest": "sha256:0e7528b38f7054cce0ea202c937eba89c6928a4350eaa7c357d2886c5176b617",
+      "id": 703461897,
+      "name": "hydraulic-best-02.tar.gz",
+      "size": 8354057,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-physics-01.tar.gz",
+      "digest": "sha256:2a1fc88b40d203b5a1827b05c67db348e6c247f2c9e3b4d7cc6fedb870630eb9",
+      "id": 703439115,
+      "name": "hydraulic-physics-01.tar.gz",
+      "size": 489616250,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-physics-02.tar.gz",
+      "digest": "sha256:9ed86eb4fafe0057295505dd80edc832a652ae0bd0eda545746c30619662f236",
+      "id": 703461946,
+      "name": "hydraulic-physics-02.tar.gz",
+      "size": 483937550,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-physics-03.tar.gz",
+      "digest": "sha256:7f02cdc302a6156ceb6b3d4e1682badb76dd08b0cdc8920d81f665818723b48c",
+      "id": 703466158,
+      "name": "hydraulic-physics-03.tar.gz",
+      "size": 489558382,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-physics-04.tar.gz",
+      "digest": "sha256:02cf89224b43ebf3161edd8afe33f86aeb6c5073c28104730edc59607389a08b",
+      "id": 703466196,
+      "name": "hydraulic-physics-04.tar.gz",
+      "size": 439202266,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-physics-05.tar.gz",
+      "digest": "sha256:54fee28027aad4a4a09f4117208adbeafcb639d433cfeafd50ddd1534c99f212",
+      "id": 703466225,
+      "name": "hydraulic-physics-05.tar.gz",
+      "size": 491842602,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-physics-06.tar.gz",
+      "digest": "sha256:b01a477720544174e103428e50b8ffb740b8bc1587a7f26797823c7514d1b99c",
+      "id": 703472984,
+      "name": "hydraulic-physics-06.tar.gz",
+      "size": 513061098,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-physics-07.tar.gz",
+      "digest": "sha256:2a7f66f5885da6b8c41f930b9641a7367e87ecb53d69d223e2a7e5aa3e5ff7f8",
+      "id": 703473033,
+      "name": "hydraulic-physics-07.tar.gz",
+      "size": 513659056,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-physics-08.tar.gz",
+      "digest": "sha256:daf4b406807a70df4ebd7186f4dc96bc49d902202af8814099e2c79be9bc71e8",
+      "id": 703482675,
+      "name": "hydraulic-physics-08.tar.gz",
+      "size": 510372462,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-physics-09.tar.gz",
+      "digest": "sha256:b2e8315c94b0366730fbda4870aa1caf4f5bd0768b0fcf3d224d1981987a468a",
+      "id": 703482722,
+      "name": "hydraulic-physics-09.tar.gz",
+      "size": 193766792,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-physics-inventory.json.gz",
+      "digest": "sha256:7b9778eab17ad0a28fea70629b0cadc42473783fb6e2acdeac109cbcc8a42d0a",
+      "id": 703441293,
+      "name": "hydraulic-physics-inventory.json.gz",
+      "size": 4662836,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-research-01.tar.gz",
+      "digest": "sha256:b8bb7386a2ec411ff576ccf45bcdc19e231125baa422a73a18446d8b4a762407",
+      "id": 703444112,
+      "name": "hydraulic-research-01.tar.gz",
+      "size": 493191602,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-research-02.tar.gz",
+      "digest": "sha256:90ecb697d0f1b26673f3a6c6f9efaca106b1c2dc16dac040eb31ed3576ba46e6",
+      "id": 703444145,
+      "name": "hydraulic-research-02.tar.gz",
+      "size": 235536879,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-research-03.tar.gz",
+      "digest": "sha256:fc99c96145bc93894ba0363220d40ce41fafc1412c3587326cfee152fec8cb75",
+      "id": 703444203,
+      "name": "hydraulic-research-03.tar.gz",
+      "size": 426556493,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-research-04.tar.gz",
+      "digest": "sha256:a5237f0865068f975a0a0333435b2e2255cd944ce519e051b7b019bdea3d166e",
+      "id": 703448983,
+      "name": "hydraulic-research-04.tar.gz",
+      "size": 303474483,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-research-05.tar.gz",
+      "digest": "sha256:120642170d55173c531e1019750996c12c4dd85351e956318566899f07781b80",
+      "id": 703452962,
+      "name": "hydraulic-research-05.tar.gz",
+      "size": 431121165,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-research-06.tar.gz",
+      "digest": "sha256:60d1bb2bf1ccb8f4ba9b056ae81733ccf1ef395e2ffc6fb6b9f34d24071b2a9b",
+      "id": 703453007,
+      "name": "hydraulic-research-06.tar.gz",
+      "size": 368027254,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-research-07.tar.gz",
+      "digest": "sha256:6b90836bb5041905a9464690bf6b5898a5918400e9eb00a8ab8879bae8777497",
+      "id": 703453059,
+      "name": "hydraulic-research-07.tar.gz",
+      "size": 278372180,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-research-08.tar.gz",
+      "digest": "sha256:72827ff26336e46e272617fee81b5f45b2872fea64376c8b418667115f992bd2",
+      "id": 703461855,
+      "name": "hydraulic-research-08.tar.gz",
+      "size": 139103365,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-research-09.tar.gz",
+      "digest": "sha256:5fc66eb62fc22de4783523ee01025ad2b135e47bd0c9ad64a8d1f663873f7cff",
+      "id": 703482777,
+      "name": "hydraulic-research-09.tar.gz",
+      "size": 133638,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/untagged-ef94c2cb9024781b0c01/hydraulic-research-inventory.json.gz",
+      "digest": "sha256:0f0b8ded864f45e7ca4133362f7eb129e6ddeba2b1ad5a8f99884d2e11cf36d7",
+      "id": 703436713,
+      "name": "hydraulic-research-inventory.json.gz",
+      "size": 560291,
+      "state": "uploaded"
+    }
+  ],
+  "draft": false,
+  "id": 432048907,
+  "tag_name": "hydraulic-surrogate-20261102",
+  "target_commitish": "main",
+  "verified_utc": "2026-11-02T23:06:57.372Z",
+  "source_commit": "0ab7df44e5b53895aaf8d0eb512d0ba9c333e93c",
+  "all_sizes_and_sha256_match": true,
+  "published_at": "2026-11-02T23:06:58Z",
+  "html_url": "https://github.com/ravinav1/deepthroatlearning/releases/tag/hydraulic-surrogate-20261102"
+}

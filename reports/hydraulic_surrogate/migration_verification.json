@@ -1,5 +1,5 @@
 {
-  "status": "local_validation_passed_public_restore_pending",
+  "status": "passed",
   "recorded_utc": "2026-11-02T22:58:07.401493+00:00",
   "operation": "Migrate useful research code/models/predictions/protocols and continuation setup; no model refit or new Kaggle submission",
   "destination": "ravinav1/deepthroatlearning",
@@ -103,7 +103,12 @@
     "archive_count": 20,
     "compressed_archive_bytes": 7152503184,
     "raw_data_published": false,
-    "state": "draft_uploading"
+    "state": "published",
+    "published_at": "2026-11-02T23:06:58Z",
+    "source_commit": "0ab7df44e5b53895aaf8d0eb512d0ba9c333e93c",
+    "assets_verified": 22,
+    "remote_size_and_sha256_checks": "all passed",
+    "url": "https://github.com/ravinav1/deepthroatlearning/releases/tag/hydraulic-surrogate-20261102"
   },
   "all_artifact_hashes_verified": 159566,
   "frozen_source_hashes_verified": 643,
@@ -123,5 +128,27 @@
     "live_cli_metadata_checks": "Two observed attempts failed because nested app-server could not initialize in managed sandbox; project trust was not established. Personal trust/auth were not changed.",
     "runtime_review_evidence": "Two independent agents were explicitly spawned with model=gpt-6-astra and reasoning_effort=ultra; both completed their tasks. This is separate from unverified nested CLI account access.",
     "offline_hash_preflight": "passed:10 raw/topology inputs and504 best files"
+  },
+  "completed_utc": "2026-11-02T23:13:18.938667+00:00",
+  "fresh_checkout_recovery": {
+    "source_commit": "0ab7df44e5b53895aaf8d0eb512d0ba9c333e93c",
+    "checkout": "/private/tmp/deepthroatlearning-release-recovery-20261103",
+    "clean_tracked_worktree": true,
+    "models_obtained_from": "Two public GitHub release URLs, downloaded using curl without authentication options; fetch-artifacts verified and restored cached downloads",
+    "raw_inputs_obtained_from": "Unchanged supplied CSVs copied from the integration checkout with import-data; raw data are not part of the release",
+    "environment_note": "Reused the existing verified Python3.11.15 interpreter/packages. A new network package installation was not tested.",
+    "archives_downloaded": 2,
+    "bytes_downloaded": 351969667,
+    "artifact_files_restored_and_verified": 504,
+    "source_files_verified": 643,
+    "all98_checkpoints_checked": true,
+    "lightgbm_exact_models": 70,
+    "xgboost_cpu_max_absolute_error": 1.4007091522216797e-06,
+    "xgboost_cpu_tolerance": 1e-05,
+    "csv_uses_original_cuda_arrays": true,
+    "exact_submission_sha256": "1c1d173816127997e711d54c8269406830666af66b6f4eb6d24f4f227b70d496",
+    "runtime_seconds": 83.0174806670002,
+    "report": "reports/hydraulic_surrogate/verification/fresh-release-replay-001.json",
+    "report_sha256": "fd3f08b5326ccc670c8fb61f1124863ff7bd06467aff3fa81ee0aef5fc3c8b85"
   }
 }

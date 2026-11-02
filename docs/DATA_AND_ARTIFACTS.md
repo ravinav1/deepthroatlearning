@@ -155,3 +155,10 @@ those locally with the archived packaging code when needed. Historical Round1–
 artifacts not present in the source workspace are not supplied by this release;
 their separate recovery/retraining instructions remain in
 [PRE_HYDRAULIC_REPRODUCING.md](PRE_HYDRAULIC_REPRODUCING.md).
+
+Release recovery was tested from a fresh remote checkout with newly downloaded
+public best-group assets. All 504 restored files passed their checksums and all
+98 checkpoints passed the documented replay checks; the submitted CSV checksum
+was reproduced. See [migration verification](../reports/hydraulic_surrogate/migration_verification.json).
+The check reused the existing pinned Python environment; it does not claim that a
+fresh package installation or a separate Codex account/model login was tested.
