@@ -7,7 +7,7 @@ Run commands from the repository root. Nothing below requires Kaggle test labels
 ## Environment
 
 ```bash
-git clone git@github.com:heaps0rt/deepthroatlearning.git
+git clone git@github.com:ravinav1/deepthroatlearning.git
 cd deepthroatlearning
 python3.12 -m venv .venv
 source .venv/bin/activate
