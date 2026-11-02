@@ -1,0 +1,29 @@
+{
+  "fold_years": [
+    2020,
+    2021,
+    2022
+  ],
+  "evaluation_year": 2022,
+  "source_year": 2021,
+  "profiles": [
+    "price",
+    "sampling",
+    "regularized",
+    "deep_regularized",
+    "recency"
+  ],
+  "xgboost_trees": 600,
+  "cnn_epochs": 20,
+  "probability_clip": 1e-06,
+  "meta": {
+    "C": 0.001,
+    "l1_ratio": 0.0,
+    "solver": "lbfgs",
+    "max_iter": 200,
+    "fit_intercept": false,
+    "class_weight": null
+  },
+  "final_refit": "Use the same meta settings on all historical OOF folds; base models use all supplied labeled cases.",
+  "note": "Chronological development backtest. 2022 influenced earlier project decisions; no new 2022 fitting or model selection for the evaluation meta-model."
+}

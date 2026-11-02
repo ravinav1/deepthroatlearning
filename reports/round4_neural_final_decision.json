@@ -1,0 +1,58 @@
+{
+  "decision": "Export selected lower-learning-rate mean as a candidate; preserve the public incumbent.",
+  "selected_arm": "lr",
+  "selected_variant": "candidate_mean",
+  "learning_rate": 0.0005,
+  "weight_decay": 0.0001,
+  "epochs": 39,
+  "component_rule": "50/50 old/new weighted Transformer within its existing slot. All other components and plant coefficients unchanged.",
+  "selection_report": "reports/round4_neural_selection_2021.json",
+  "comparisons": [
+    {
+      "evaluation": "native_2021",
+      "candidate_auc": 0.9890446183017454,
+      "reference_39_auc": 0.9890192536713462,
+      "candidate_delta_vs_incumbent": 6.055487615119759e-05,
+      "candidate_delta_vs_reference_39": 2.536463039914949e-05
+    },
+    {
+      "evaluation": "native_2022",
+      "candidate_auc": 0.9887134605224414,
+      "reference_39_auc": 0.9886280979368633,
+      "candidate_delta_vs_incumbent": 0.00010680269732432635,
+      "candidate_delta_vs_reference_39": 8.536258557800824e-05
+    },
+    {
+      "evaluation": "native_2022_jan7",
+      "candidate_auc": 0.98862529106303,
+      "reference_39_auc": 0.9885408826459873,
+      "candidate_delta_vs_incumbent": 0.00011262785928012331,
+      "candidate_delta_vs_reference_39": 8.440841704271396e-05
+    },
+    {
+      "evaluation": "frozen_2022_jan7",
+      "candidate_auc": 0.986454617687716,
+      "reference_39_auc": 0.9864363393094425,
+      "candidate_delta_vs_incumbent": 3.559852557188936e-05,
+      "candidate_delta_vs_reference_39": 1.8278378273506313e-05
+    }
+  ],
+  "source_hashes": {
+    "reports/round4_transformer_lr_comparison_2021.json": "3883b49182b7eab173ec3344374875b7c9498b0d5e2c8c9467f4578b13a4e565",
+    "reports/round4_transformer_reference_comparison_2021.json": "a56800aa40629fb70131e5f85094499e06a230309823a7341361d4b812d19e18",
+    "reports/round4_transformer_lr_native_comparison_2022.json": "a84f5a16886dbeec5a2857ff8a7d3098c21403e0a2ddb4137bd924523c8e91d7",
+    "reports/round4_transformer_reference_native_comparison_2022.json": "70d126b85aa5387d751cdbb4d4f31e4af6b8c19dfcf18f879d8433e445407d29",
+    "reports/round4_transformer_lr_frozen_comparison_2022.json": "5caa95f61d6b4f16524f9143a7fd9abfb6ca51d4e3383cddf86d016d157d6150",
+    "reports/round4_transformer_reference_frozen_comparison_2022.json": "744ea0fe958cddf1b6d805cb9bb5d659f0d27c9f204da48b4cff2ad44c0a26ae"
+  },
+  "limits": [
+    "Single seed and fixed 39-epoch budget; best checkpoint at budget end, not proof of convergence.",
+    "2021 and 2022 are reused development years; frozen and native 2022 share labels.",
+    "Paired block-bootstrap intervals for gains over incumbent include zero; selection uncertainty is not included.",
+    "Lio remains mixed; no general repair demonstrated.",
+    "Competition score unknown."
+  ],
+  "rejected_lgb": "reports/round4_lgb_ranks_final_decision.json",
+  "stronger_decay": "Not advanced: lower 2021 ensemble score than selected LR arm. No candidate2022 test.",
+  "combined_change": "Rejected after LightGBM individual native2022 gate failed. No native combined score or full fit."
+}

@@ -1,0 +1,86 @@
+{
+  "status": "passed",
+  "training": "none",
+  "inference_threads": 1,
+  "labels_read": false,
+  "cases": [
+    {
+      "run_id": 1,
+      "starttime": "2015-01-01 00:00:00+00:00"
+    },
+    {
+      "run_id": 166,
+      "starttime": "2015-06-15 00:00:00+00:00"
+    },
+    {
+      "run_id": 2193,
+      "starttime": "2021-01-01 00:00:00+00:00"
+    },
+    {
+      "run_id": 2358,
+      "starttime": "2021-06-15 00:00:00+00:00"
+    },
+    {
+      "run_id": 2723,
+      "starttime": "2022-06-15 00:00:00+00:00"
+    },
+    {
+      "run_id": 3088,
+      "starttime": "2023-06-15 00:00:00+00:00"
+    },
+    {
+      "run_id": 3647,
+      "starttime": "2024-12-25 00:00:00+00:00"
+    }
+  ],
+  "configuration_checks": [
+    {
+      "configuration": "minimal_defaults",
+      "base_features": 17,
+      "default_bitwise_equal": true,
+      "rank_extra": 2,
+      "block_extra": 7,
+      "combined_extra": 9,
+      "base_columns_unchanged": true,
+      "new_columns_unchanged_by_economic_rescaling": true
+    },
+    {
+      "configuration": "selected_tree_defaults",
+      "base_features": 112,
+      "default_bitwise_equal": true,
+      "rank_extra": 2,
+      "block_extra": 7,
+      "combined_extra": 9,
+      "base_columns_unchanged": true,
+      "new_columns_unchanged_by_economic_rescaling": true
+    },
+    {
+      "configuration": "selected_neural_base_defaults",
+      "base_features": 98,
+      "default_bitwise_equal": true,
+      "rank_extra": 2,
+      "block_extra": 7,
+      "combined_extra": 9,
+      "base_columns_unchanged": true,
+      "new_columns_unchanged_by_economic_rescaling": true
+    }
+  ],
+  "row_order_and_independent_rank_block_calculation": "passed for all seven cases and all14generators",
+  "single_case_and_reversed_case_order": "bitwise identical after restoring case positions",
+  "saved_model": "models/round2_xgb_depth8_2021.ubj",
+  "saved_model_sha256": "03491c434b9426798ee028a9e31a912329b61221f0655dd3762174fa7eaf2f70",
+  "saved_model_rounds": 748,
+  "old_new_default_prediction_max_difference": 0.0,
+  "saved_2021_csv_reproduced_at_float32_precision": true,
+  "snapshot_features_sha256": "504956123a8000b60548bb0783262955e7ab2dcfb9fe1ab149977d212929cba7",
+  "current_features_sha256": "6eea354fb4f7c80ff4c495ed3ac958777334b72a93ce1d19c14a4b0f41d66133",
+  "temporal_features_sha256": "0d27872b46236e834e665e6d685520e0b42f1832da94c8f1a1f6813cc776c83a",
+  "unchanged_helper_modules": [
+    "topology_features.py",
+    "price_features.py",
+    "operating_features.py",
+    "hydraulic_features.py",
+    "water_budget_features.py",
+    "tree_preprocessing.py"
+  ]
+}

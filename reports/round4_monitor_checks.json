@@ -1,0 +1,98 @@
+{
+  "passed": true,
+  "no_fitting": true,
+  "year": 2021,
+  "cases": 365,
+  "outputs": 2352,
+  "design": {
+    "mode": "replace_component",
+    "replacement": "transformer_weighted",
+    "expression": "sum(fixed_weight * historical_component) excluding replacement + replacement_weight * current_epoch_prediction",
+    "checkpoint_selection_only": true,
+    "old_transformer_contribution_frozen": true,
+    "legacy_mode_default_preserved": true,
+    "new_cache_float_precision": "round_trip",
+    "training_threads": 4
+  },
+  "synthetic": {
+    "row_alignment_exact": true,
+    "constant_exact": true,
+    "replacement_weight_exact": true,
+    "replacement_cache_not_read": true,
+    "replacement_perturbation_exact": true,
+    "zero_weight_columns_unchanged": true,
+    "invalid_inputs_rejected": [
+      "duplicate_cached_ids",
+      "missing_cached_ids",
+      "extra_cached_ids",
+      "wrong_column_order",
+      "nonfinite_cached_probability",
+      "negative_cached_probability",
+      "over_one_cached_probability",
+      "weights_not_normalized",
+      "negative_component_weight",
+      "nonfinite_component_weight",
+      "missing_constant_source",
+      "unknown_replacement",
+      "missing_plant",
+      "duplicate_validation_ids",
+      "unknown_dispatch_mode"
+    ]
+  },
+  "real_cached_identity": {
+    "array_equal_to_independent_recipe": true,
+    "max_absolute_difference": 0.0,
+    "micro_roc_auc": 0.9889840634255942,
+    "expected_micro_roc_auc": 0.9889840634255942,
+    "reversed_validation_alignment_exact": true,
+    "zero_weight_columns_unchanged": true,
+    "replacement_weights_by_plant": {
+      "Hogga": 0.15,
+      "Tokke": 0.45,
+      "Lio": 0.15,
+      "Byrte": 0.0,
+      "Vinje": 0.25,
+      "Songa": 0.0,
+      "Kjela": 0.1,
+      "Vesle Kjela": 0.0,
+      "Haukeli": 0.0
+    }
+  },
+  "legacy_identity": {
+    "array_equal_to_prechange_function": true,
+    "source": "/private/tmp/tdt4173-round4-source-before/train_cnn.py",
+    "source_sha256": "09f14b1425a76ca9baa7c337c510d6f22bdfa94a0c6ba2266e75f81c14e04bb0"
+  },
+  "config_invariants": {
+    "cloned_from": "configs/round2_transformer_task_weights_2021.json",
+    "epochs": 39,
+    "patience": 40,
+    "seed": 42,
+    "device": "cpu",
+    "architecture_and_loss_weights_unchanged": true,
+    "only_trial_variables": [
+      "learning_rate",
+      "weight_decay"
+    ]
+  },
+  "imports": {
+    "helper_does_not_require_torch": true,
+    "tree_libraries_blocked_and_absent": true
+  },
+  "sha256": {
+    "src/train_cnn.py": "1ad6a191c990e391a7e8fb8907a15a77a2c2454f618e90be2b3c2abdebcced59",
+    "src/component_monitor.py": "bc5582f470cf7cedbc58c6d49d011d2b8e7d228f09021b17d94d83f6e3cd6b40",
+    "src/round4_monitor_checks.py": "b4f082822c53e2153f30d291b3d6875461bd3e9fb92b2a3fb2f317a7dfbd7c4d",
+    "configs/round3_submission_temporal_ranks.json": "a567449724194812fa0252c1b32f7a02fd38da3ddbbc116ead57d5c3e8d82261",
+    "configs/round2_transformer_task_weights_2021.json": "407d23e3ccf5674e7f5f52b853c3b631ededa7769f9fc4544a5750faed15bdfe",
+    "configs/round4_transformer_reference_2021.json": "b12475a9647f47f6c37ffbf3da44530d527affb6f58edc79172a2d209db515b9",
+    "configs/round4_transformer_lr_2021.json": "e8b8ac9e929eb4f7ccbaf1720f77c79074563dcf82331f9958dbf3c71d3fcf96",
+    "configs/round4_transformer_decay_2021.json": "e672c71ef39f013f2cdee6275f35d6ec11d5b944f06121a6568bae6bcdc77191",
+    "data/processed/goal_xgboost_rescaled_2021_validation_predictions.csv": "3f0b8a5a2bcb4034c5de0ac7c526800df475dbee95f108d15d7b76d021c6a661",
+    "data/processed/goal_lightgbm_rescaled_2021_validation_predictions.csv": "c6293900ee822e35913ceed1e03195e9609be95b692af75b2fb664340750fc48",
+    "data/processed/transformer_rescaled_2021_validation_predictions.csv": "3c2a99925d32df75b0526a1ed88dc9f5dfd246e05b2436d0ba3e282001884e2f",
+    "data/processed/round3_xgb_ranks_2021_validation_predictions.csv": "050687f05e860f86cbafb41a9df099e908ff359868cbe34a7e33b2cdec0f0fe7",
+    "data/processed/round2_xgb_haukeli_2021_validation_predictions.csv": "da4fbddde38768640a5c57d690233370c5e7bf2f3b49d5a4560c20c45706e132",
+    "data/processed/round2_transformer_task_weights_2021_validation_predictions.csv": "f7334a3e3c0ec83615a67da440c9732c6f6c781df3a7b3f486b44080cc738726"
+  }
+}

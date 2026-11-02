@@ -1,0 +1,107 @@
+{
+  "config": {
+    "sources": {
+      "xgb_rescaled": "data/processed/goal_submission_xgb_rescaled_predictions.csv",
+      "lightgbm_rescaled": "data/processed/goal_submission_lightgbm_rescaled_predictions.csv",
+      "transformer": "data/processed/submission_transformer_rescaled_predictions.csv"
+    },
+    "plant_weights": {
+      "Hogga": {
+        "xgb_rescaled": 0.35,
+        "lightgbm_rescaled": 0.35,
+        "transformer": 0.3
+      },
+      "Tokke": {
+        "xgb_rescaled": 0.04999999999999999,
+        "lightgbm_rescaled": 0.04999999999999999,
+        "transformer": 0.9
+      },
+      "Lio": {
+        "xgb_rescaled": 0.35,
+        "lightgbm_rescaled": 0.35,
+        "transformer": 0.3
+      },
+      "Byrte": {
+        "xgb_rescaled": 0.5,
+        "lightgbm_rescaled": 0.5
+      },
+      "Vinje": {
+        "xgb_rescaled": 0.25,
+        "lightgbm_rescaled": 0.25,
+        "transformer": 0.5
+      },
+      "Songa": {
+        "xgb_rescaled": 0.5,
+        "lightgbm_rescaled": 0.5
+      },
+      "Kjela": {
+        "xgb_rescaled": 0.4,
+        "lightgbm_rescaled": 0.4,
+        "transformer": 0.2
+      },
+      "Vesle Kjela": {
+        "xgb_rescaled": 0.5,
+        "lightgbm_rescaled": 0.5
+      },
+      "Haukeli": {
+        "xgb_rescaled": 0.5,
+        "lightgbm_rescaled": 0.5
+      }
+    },
+    "historical_report": "reports/goal_lightgbm_comparison.json",
+    "historical_variant": "candidate_equal_tree_mean",
+    "note": "Fixed 50/50 XGBoost/LightGBM mean within the tree component. Plant Transformer weights were selected on 2021 and kept unchanged. Both final trees fit all supplied labeled cases with counts selected on 2022; LightGBM used an 800-tree time cap."
+  },
+  "config_sha256": "5c47a5b4f832a93b1d970a5a4b13e8485ac2e03e2ea14dccb6ceebb7e33bb42b",
+  "historical_source": "reports/goal_lightgbm_comparison.json",
+  "historical_sha256": "3689c59b085162875f74ff4deb5a913336a2112d376c852e793d807323908534",
+  "historical_results": [
+    {
+      "year": 2021,
+      "baseline_micro_roc_auc": 0.9878645643215969,
+      "selected_micro_roc_auc": 0.9882719381376425,
+      "delta_vs_baseline": 0.00040737381604560863
+    },
+    {
+      "year": 2022,
+      "baseline_micro_roc_auc": 0.9877036444789515,
+      "selected_micro_roc_auc": 0.987770674860208,
+      "delta_vs_baseline": 6.703038125643879e-05
+    }
+  ],
+  "test_cases": 725,
+  "outputs_per_case": 2352,
+  "template_sha256": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba",
+  "sources": {
+    "xgb_rescaled": {
+      "path": "data/processed/goal_submission_xgb_rescaled_predictions.csv",
+      "sha256": "98c2ceaee61d12ff8941f8544093349d8e625a746e8ea7afbe457ae862a84f28",
+      "outputs_per_case": 2352
+    },
+    "lightgbm_rescaled": {
+      "path": "data/processed/goal_submission_lightgbm_rescaled_predictions.csv",
+      "sha256": "2e2cd9ed384ae49a5aab78ae78e9705737bcf33dc06a54df0491a6ef2e437566",
+      "outputs_per_case": 2352
+    },
+    "transformer": {
+      "path": "data/processed/submission_transformer_rescaled_predictions.csv",
+      "sha256": "a2a37788c932d5cc7c078ede9fbd3c8aec0c403234514c552eaeff637642b296",
+      "outputs_per_case": 2352
+    }
+  },
+  "submission": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/submissions/submission_rescaled_xgb_lgb_transformer.csv",
+  "submission_sha256": "30ab918cc77a8bd3aa63850a41f92fd633635ce0adbd2900d88f292488fa3a53",
+  "checks": {
+    "unique_case_ids": true,
+    "template_case_order": true,
+    "template_column_order": true,
+    "all_plant_weights_sum_to_one": true,
+    "finite_probabilities_in_unit_interval": true,
+    "improves_both_historical_years": true
+  },
+  "note": "Saved predictions only; no fitting, hard thresholds or weight optimization. Historical results use reused development years, not an untouched holdout. User reported a Kaggle public score of 0.989 on 2026-10-14.",
+  "kaggle_public_score": 0.989,
+  "kaggle_score_source": "user_reported",
+  "reported_score_text": "0.989",
+  "kaggle_score_reported_date": "2026-10-14"
+}

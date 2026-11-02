@@ -1,0 +1,176 @@
+{
+  "checked_utc": "2026-10-14T14:49:24.531512+00:00",
+  "status": "passed",
+  "scope": "Historical recipe reconstruction and the unmodified supplied metric only; no fitting, no full-fit predictions or final submission generated.",
+  "recipe_path": "configs/round2_submission_depth8_haukeli_weighted.json",
+  "recipe_sha256": "af85a137414abdf4b9a8a18fb95bd4cd616d2526b9b215e0fad19fb2d64bb1fb",
+  "historical_report": "reports/round2_depth8_combined_both_comparison.json",
+  "historical_report_sha256": "cc1b96a62beffeaa9d5182ab10a89ebf7374093bced9284045c801888b68aa40",
+  "official_metric": {
+    "path": "evaluation/kaggle_metric.py",
+    "sha256": "6ba062eeb8c2983a490cad411071dfc77831e3f2233278e5a67b68810df90553",
+    "matches_original_protected_hash": true,
+    "function": "score(solution, submission, row_id_column_name=\"Run No\")"
+  },
+  "inputs": {
+    "truth_path": "data/raw/kernel/Unit_commitment_decisions.csv",
+    "truth_sha256": "6d51f8cc6869cb82b44708168808c305c1e007cf79878ca1c1d316d07aae3ab3",
+    "template_path": "data/raw/sample_submission.csv",
+    "template_sha256": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba",
+    "competition_mapping_path": "data/raw/prediction_mapping.csv",
+    "competition_mapping_sha256": "c8b0e5bc500a5f1dec2337f5ac680847f6a7794a7c2b7a8fb19384910a029519"
+  },
+  "independent_guards": {
+    "all_2352_outputs_required_before_metric": true,
+    "exact_365_ids_and_order_required_for_each_year": true,
+    "14_generators_times_168_hours_verified": true,
+    "all_labels_binary": true,
+    "probabilities_finite_in_unit_interval": true,
+    "competition_ids_absent_from_truth": true,
+    "did_not_rely_on_metric_column_intersection": true,
+    "recipe_applied_directly_without_round2_compare_combine": true,
+    "single_cpu_thread_environment": true
+  },
+  "validation_note": "2021 and2022 are reused development years. The Jan7+ subset removes selection-horizon overlap for six cases; it does not create an untouched holdout. This verifies implementation and scores, not generalization to private Kaggle labels.",
+  "results": [
+    {
+      "year": 2021,
+      "variant": "depth8_haukeli_weighted_mean",
+      "cases": 365,
+      "output_columns": 2352,
+      "columns_including_id": 2353,
+      "scored_binary_outputs": 858480,
+      "official_micro_roc_auc": 0.9889184502673686,
+      "expected_auc": 0.9889184502673686,
+      "reported_auc": 0.9889184502673686,
+      "absolute_difference": 0.0,
+      "exact_all_ids_order_and_full_columns": true,
+      "missing_extra_duplicate_ids_or_columns": false,
+      "sources": {
+        "xgb_rescaled": {
+          "validation_path": "data/processed/goal_xgboost_rescaled_2021_validation_predictions.csv",
+          "planned_fullfit_path": "data/processed/goal_submission_xgb_rescaled_predictions.csv",
+          "sha256": "3f0b8a5a2bcb4034c5de0ac7c526800df475dbee95f108d15d7b76d021c6a661",
+          "rows": 365,
+          "output_columns": 2352,
+          "exact_solution_id_and_column_order": true
+        },
+        "lightgbm_rescaled": {
+          "validation_path": "data/processed/goal_lightgbm_rescaled_2021_validation_predictions.csv",
+          "planned_fullfit_path": "data/processed/goal_submission_lightgbm_rescaled_predictions.csv",
+          "sha256": "c6293900ee822e35913ceed1e03195e9609be95b692af75b2fb664340750fc48",
+          "rows": 365,
+          "output_columns": 2352,
+          "exact_solution_id_and_column_order": true
+        },
+        "transformer": {
+          "validation_path": "data/processed/transformer_rescaled_2021_validation_predictions.csv",
+          "planned_fullfit_path": "data/processed/submission_transformer_rescaled_predictions.csv",
+          "sha256": "3c2a99925d32df75b0526a1ed88dc9f5dfd246e05b2436d0ba3e282001884e2f",
+          "rows": 365,
+          "output_columns": 2352,
+          "exact_solution_id_and_column_order": true
+        },
+        "haukeli_specialist": {
+          "validation_path": "data/processed/round2_xgb_haukeli_2021_validation_predictions.csv",
+          "planned_fullfit_path": "data/processed/round2_xgb_haukeli_full_predictions.csv",
+          "sha256": "da4fbddde38768640a5c57d690233370c5e7bf2f3b49d5a4560c20c45706e132",
+          "rows": 365,
+          "output_columns": 2352,
+          "exact_solution_id_and_column_order": true
+        },
+        "xgb_depth8": {
+          "validation_path": "data/processed/round2_xgb_depth8_2021_validation_predictions.csv",
+          "planned_fullfit_path": "data/processed/round2_xgb_depth8_full_predictions.csv",
+          "sha256": "7f1cdf0e49074cc65b436da11994cef0b515ce42a0fad1cc39fb976bc0ef7b93",
+          "rows": 365,
+          "output_columns": 2352,
+          "exact_solution_id_and_column_order": true
+        },
+        "transformer_weighted": {
+          "validation_path": "data/processed/round2_transformer_task_weights_2021_validation_predictions.csv",
+          "planned_fullfit_path": "data/processed/round2_submission_transformer_task_weights_predictions.csv",
+          "sha256": "f7334a3e3c0ec83615a67da440c9732c6f6c781df3a7b3f486b44080cc738726",
+          "rows": 365,
+          "output_columns": 2352,
+          "exact_solution_id_and_column_order": true
+        }
+      },
+      "reconstructed_probability_array_sha256": "044b2518db2676679cc40efed28d36b091211f97b710fb74380831c70838cac2"
+    },
+    {
+      "year": 2022,
+      "variant": "depth8_haukeli_weighted_mean",
+      "cases": 365,
+      "output_columns": 2352,
+      "columns_including_id": 2353,
+      "scored_binary_outputs": 858480,
+      "official_micro_roc_auc": 0.9883755349637956,
+      "expected_auc": 0.9883755349637956,
+      "reported_auc": 0.9883755349637956,
+      "absolute_difference": 0.0,
+      "exact_all_ids_order_and_full_columns": true,
+      "missing_extra_duplicate_ids_or_columns": false,
+      "sources": {
+        "xgb_rescaled": {
+          "validation_path": "data/processed/goal_xgboost_rescaled_2022_validation_predictions.csv",
+          "planned_fullfit_path": "data/processed/goal_submission_xgb_rescaled_predictions.csv",
+          "sha256": "a884a72f6125eeea5f19ff4acb698d4c646940c6632848c67c69020ed507f2c9",
+          "rows": 365,
+          "output_columns": 2352,
+          "exact_solution_id_and_column_order": true
+        },
+        "lightgbm_rescaled": {
+          "validation_path": "data/processed/goal_lightgbm_rescaled_2022_validation_predictions.csv",
+          "planned_fullfit_path": "data/processed/goal_submission_lightgbm_rescaled_predictions.csv",
+          "sha256": "c2b5a67d254afe54a9a311fed933d2a6295a905a934003c2c64033e1350ad71a",
+          "rows": 365,
+          "output_columns": 2352,
+          "exact_solution_id_and_column_order": true
+        },
+        "transformer": {
+          "validation_path": "data/processed/transformer_rescaled_2022_validation_predictions.csv",
+          "planned_fullfit_path": "data/processed/submission_transformer_rescaled_predictions.csv",
+          "sha256": "bef295276b85eb963e427220b08ffd74f4e545613e9ce2b203ddb3841556d4c1",
+          "rows": 365,
+          "output_columns": 2352,
+          "exact_solution_id_and_column_order": true
+        },
+        "haukeli_specialist": {
+          "validation_path": "data/processed/round2_xgb_haukeli_2022_validation_predictions.csv",
+          "planned_fullfit_path": "data/processed/round2_xgb_haukeli_full_predictions.csv",
+          "sha256": "2d4b8b94e4c253fe8e8ff70bbee04c665ffd66707577f6d34a436d7f5861de37",
+          "rows": 365,
+          "output_columns": 2352,
+          "exact_solution_id_and_column_order": true
+        },
+        "xgb_depth8": {
+          "validation_path": "data/processed/round2_xgb_depth8_2022_validation_predictions.csv",
+          "planned_fullfit_path": "data/processed/round2_xgb_depth8_full_predictions.csv",
+          "sha256": "96375369ea38b3a3dc836e46e86e09b2d6d9f11be95349494126e1ea155f9b1f",
+          "rows": 365,
+          "output_columns": 2352,
+          "exact_solution_id_and_column_order": true
+        },
+        "transformer_weighted": {
+          "validation_path": "data/processed/round2_transformer_task_weights_2022_validation_predictions.csv",
+          "planned_fullfit_path": "data/processed/round2_submission_transformer_task_weights_predictions.csv",
+          "sha256": "792e2b10c11783ad7f01d7f3de7a1a9e3ebd8b33d82faadb96d60598b5b0febf",
+          "rows": 365,
+          "output_columns": 2352,
+          "exact_solution_id_and_column_order": true
+        }
+      },
+      "reconstructed_probability_array_sha256": "ceed0414f14e68c78911100574b18627a1fcd16fe9f2744200b6ba6799428a16",
+      "after_2021_selection_horizon": {
+        "first_case_start": "2022-01-07",
+        "cases": 359,
+        "excluded_cases": 6,
+        "official_micro_roc_auc": 0.9882779415435364
+      }
+    }
+  ],
+  "pending": [
+    "Full fitting and final competition-file verification are separate."
+  ]
+}

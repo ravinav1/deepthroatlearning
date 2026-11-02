@@ -1,0 +1,14 @@
+{
+  "selection_year": 2021,
+  "confirmation_year": 2022,
+  "candidate_transformer_weights": [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+  "tree_prefix": "goal_xgboost_rescaled",
+  "transformer_prefix": "transformer_rescaled",
+  "specialist_prefix": "cnn_specialist_haukeli",
+  "specialist_generator": "Haukeli_G1",
+  "initial_haukeli_cnn_weight": 0.3,
+  "initial_plant_weight_source": "reports/plant_blend_refined_comparison.json",
+  "initial_haukeli_weight_source": "reports/haukeli_blend_comparison.json",
+  "old_xgboost_profiles": ["price", "sampling", "regularized", "deep_regularized", "recency"],
+  "note": "Select one coarse uniform Transformer weight for non-Haukeli plants using 2021 pooled micro ROC-AUC, with Haukeli initially at 70% new tree and 30% specialist CNN. Then make one coordinate pass over non-Haukeli plants in CSV order followed by Haukeli last, using the same 0.1 grid. Other plants vary their Transformer share; Haukeli varies its specialist-CNN share. Freeze every selected weight before checking 2022. The initial reference and frozen-old-weights comparison retain Haukeli's old 30% CNN share. Both years are reused development data; no fine refinement, model fitting, competition test labels, or submission export."
+}

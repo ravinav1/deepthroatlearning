@@ -1,0 +1,147 @@
+{
+  "passed": true,
+  "source_report": "reports/round6_l2zero_seed673_full_run.json",
+  "raw_predictions": "data/processed/round6_l2zero_seed673_full_predictions.csv",
+  "cases": 725,
+  "outputs_per_case": 2352,
+  "training_cohort_sha256": "9ea86abb2dfaa9bb06b020cdf00bb50e69e6b95246c1971b31afab0fb230296c",
+  "competition_training_id_overlap": 0,
+  "replay_case_indices": [
+    0,
+    181,
+    362,
+    543,
+    724
+  ],
+  "replay_case_ids": [
+    2923,
+    3104,
+    3285,
+    3466,
+    3647
+  ],
+  "generator_checks": {
+    "Hogga_G1": {
+      "generator_id": 0,
+      "trees": 278,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Tokke_G1": {
+      "generator_id": 1,
+      "trees": 712,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Tokke_G2": {
+      "generator_id": 2,
+      "trees": 464,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Tokke_G3": {
+      "generator_id": 3,
+      "trees": 421,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Tokke_G4": {
+      "generator_id": 4,
+      "trees": 207,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Lio_G1": {
+      "generator_id": 5,
+      "trees": 324,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Byrte_G1": {
+      "generator_id": 6,
+      "trees": 177,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Vinje_G1": {
+      "generator_id": 7,
+      "trees": 664,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Vinje_G2": {
+      "generator_id": 8,
+      "trees": 1250,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Vinje_G3": {
+      "generator_id": 9,
+      "trees": 355,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Haukeli_G1": {
+      "generator_id": 10,
+      "trees": 129,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Songa_G1": {
+      "generator_id": 11,
+      "trees": 246,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Kjela_G1": {
+      "generator_id": 12,
+      "trees": 261,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Vesle Kjela_G1": {
+      "generator_id": 13,
+      "trees": 573,
+      "replay_max_absolute_difference": 0.0
+    }
+  },
+  "blend_check": {
+    "submission": "submissions/submission_round6_lgb_l2zero_experimental.csv",
+    "verified_probabilities": 1705200,
+    "max_absolute_difference": 0.0
+  },
+  "average_check": {
+    "output": "data/processed/round6_l2zero_seeds_full_predictions.csv",
+    "sources": 2,
+    "max_absolute_difference": 0.0
+  },
+  "protected_originals": {
+    "snapshot": "/private/tmp/tdt4173-round6-protection.json",
+    "sha256": "47f3d4c4605266a4165f5e9b2c33e56b910295fd4bd14cfcee4c3eabb297ea2b",
+    "unchanged_files": 1190
+  },
+  "artifact_hashes": {
+    "reports/round6_l2zero_seed673_full_run.json": "174307b138db221b51c48288a0ed4c6ba597937bf71caa680758bd5de878fc13",
+    "data/processed/round6_l2zero_seed673_full_predictions.csv": "ce31bf708b5404e248b7e69dd66e4ae93adef8d526689c0fdf674aaeb201025e",
+    "configs/round6_l2zero_seed673_full.json": "6242d8f4c371df275614b1c480adf1cccfa4ecb7c805897e04bfbf7716368e4e",
+    "data/raw/sample_submission.csv": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba",
+    "data/raw/prediction_mapping.csv": "c8b0e5bc500a5f1dec2337f5ac680847f6a7794a7c2b7a8fb19384910a029519",
+    "data/raw/kernel/Unit_commitment_decisions.csv": "6d51f8cc6869cb82b44708168808c305c1e007cf79878ca1c1d316d07aae3ab3",
+    "src/round6_lightgbm.py": "80ac9637fd2977e45bf85e41f185ec8283f208af74746a0d22de1844bb559ebd",
+    "src/round5_lightgbm.py": "e99c3d4e8bad98b30f3c78b7809fb256b2ac8efd75c6ae01d92551e406759b37",
+    "src/features.py": "6eea354fb4f7c80ff4c495ed3ac958777334b72a93ce1d19c14a4b0f41d66133",
+    "src/tree_preprocessing.py": "21bfa82dce77473bd10faf83f8f72aec8af34246c0195a6062617868ff929235",
+    "models/round6_l2zero_seed673_full/Hogga_G1.txt": "23a5a175c76c7a443ab327d628690a09affd8203a8693d8073f28a347510c1a6",
+    "models/round6_l2zero_seed673_full/Tokke_G1.txt": "211808a06b395e11ed6020cea7bd9f174e91642edb9da26abbde27628d134171",
+    "models/round6_l2zero_seed673_full/Tokke_G2.txt": "dbae2812c2940d063e848071979691d5248e6abcd211ac3d114643d8cce9bdd4",
+    "models/round6_l2zero_seed673_full/Tokke_G3.txt": "5a15245e988917bc519935c003b9fd7425f7e8036a1cf757add3f682fa85a60c",
+    "models/round6_l2zero_seed673_full/Tokke_G4.txt": "d6fd500c70dbe5e119bf1ca4c38ca428a460ef9f5cc34454824cf966530779a3",
+    "models/round6_l2zero_seed673_full/Lio_G1.txt": "2ec81bbb4518e73eb4dcfcd60595e5d3bf72a09115f7d8f035316a608fd3a6b9",
+    "models/round6_l2zero_seed673_full/Byrte_G1.txt": "c99d5ee3adb93d1690ebab67f83688fb8cc79b6c311142351e136a2843844cd1",
+    "models/round6_l2zero_seed673_full/Vinje_G1.txt": "537b474c6b0c080368217413d3e5467e3ece0ce89ffdc8c80ef02a24f358c52b",
+    "models/round6_l2zero_seed673_full/Vinje_G2.txt": "7e716ee3a73853543ce8a82ff01b790638ac56c5812668870caff72894c2258b",
+    "models/round6_l2zero_seed673_full/Vinje_G3.txt": "268568bbc6a681a51a002ce437c04426ad66b630a22f1bd6c4b7f6a0e8c1258a",
+    "models/round6_l2zero_seed673_full/Haukeli_G1.txt": "32b9d58e773f0ce27e94f1e42f8c596d56c4e0b6e7cc06585e458114ffc5c2e4",
+    "models/round6_l2zero_seed673_full/Songa_G1.txt": "05697599e51bc4ad3c8c58612dc8a6ce40d33484cd03be78450cf2a44e95a363",
+    "models/round6_l2zero_seed673_full/Kjela_G1.txt": "8e868eb06db76e69d034b1e459024ea158d7ef603f7c88adf49b485a22e703ca",
+    "models/round6_l2zero_seed673_full/Vesle_Kjela_G1.txt": "607e0a16e4d655387ae26471a563d1facdfbd2f4bb7672213b68f280c301a890",
+    "data/processed/round6_l2zero_seeds_full_predictions.csv": "de1d24518c0ac61846595743d4cb67e470a42a689e8e55bea0734aa08506db48",
+    "data/processed/round6_l2zero_seed299_full_predictions.csv": "681ca0455a20da2056f26cb80bad5f6a700666b9d9d10add4694c984fdcc67ea",
+    "reports/round6_l2zero_seeds_full_mean.json": "ceb36ac06ba30ed9fbdebbb97079e94e9875d778072fa91543c91c2809ee4c4c",
+    "submissions/submission_round6_lgb_l2zero_experimental.csv": "79fa626bf5913ee2385ed9ccf852f7b658a681f7c4d8ff01555d924019891a1a",
+    "submissions/submission_round3_temporal_ranks.csv": "6a19fc33a14e492a25914d678785162a010ec78d42e3e4db3ac06b7379aac4d9",
+    "configs/round6_submission_lgb_tuned.json": "94099d26df549c5805f69367f300ed4dba909a34037c200c8b84f65b18e2e54f",
+    "reports/submission_round6_lgb_l2zero_experimental_run.json": "7db368c0a7cd3f9c116f0925963132713470be39221788e899e05ca25160e580",
+    "reports/round6_selected_historical_comparison.json": "4c4591ef6bdefbe902c3d0ef4b577633a3174034cc574e010f7402bd0802db6d"
+  },
+  "verification_script_sha256": "81f512e10949e0e2905a252b9e488d0120a38ce1daaaf49cb190012d7683d20c",
+  "cpu_threads": 1,
+  "fitting_performed": false
+}

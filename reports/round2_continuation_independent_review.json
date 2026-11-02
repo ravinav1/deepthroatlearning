@@ -1,0 +1,80 @@
+{
+  "scope": "Independent read-only review of LightGBM continuation, submission continuation and frozen-ensemble comparison. No source-code edits or real-data fitting.",
+  "reviewed_files": [
+    "src/train_baseline.py",
+    "src/make_submission.py",
+    "src/round2_compare.py",
+    "src/plant_blend.py",
+    "reports/round2_lgb_continuation_checks.json",
+    "reports/round2_frozen_ensemble_2022_comparison.json"
+  ],
+  "material_issues_found": [],
+  "conclusion": "No material counting, checkpoint retention, default-path or current-cohort alignment bug found for the configured deterministic LightGBM continuation.",
+  "implementation_findings": {
+    "total_vs_additional_rounds": "prepare_continuation treats config n_estimators as TOTAL and passes total-initial.current_iteration() additional rounds. Installed LightGBM engine loops from init_iteration to init_iteration+num_boost_round, confirming this interpretation.",
+    "best_iteration_count": "Installed LightGBM train sets best_iteration from the callback and serializes/reloads with model_to_string() before returning, truncating to selected best trees. current_iteration therefore matches saved tree count in this path.",
+    "source_retention": "Initial Booster is independently loaded, continuation produces a new Booster, and the initial predictions/model are retained when continued standalone validation AUC does not exceed source AUC.",
+    "full_fit": "Full fit continues a model from the identical all-label cohort; config validation boundaries cannot match a historical-fold source, and a selected-total-rounds assertion ensures requested total is reached.",
+    "defaults": "No init_model yields copied unchanged estimator parameters and None provenance. Passing init_model=None and recording evaluation history do not change the fitting algorithm.",
+    "feature_provenance": "All use_* options, feature names/order and all model settings except total cap are checked; binary-only source objective is enforced.",
+    "cohort_provenance": "Split dates, training count, end/start dates where available and stored ordered case hash where available are verified. Source 2021 legacy report lacks full cohort hash; source AUC reproduction and preserved original data add evidence.",
+    "source_identity": "Expected model path is tied to the source report stem or its recorded model_path; source model/report SHA256 values are captured. Relevant original models/data/metric/topology still match the goal-start hash manifest.",
+    "comparison": "Original plant weights are fixed. Prediction IDs/order and all2352columns are checked before arithmetic. Baseline AUC must reproduce the previous winning historical report.",
+    "jan7_subset": "Last2021case starts Dec31 and ends Jan7 exclusive; excluding Jan1-Jan6 starts gives359cases. Baseline and candidate metrics use the same mask. Independent recomputation matches."
+  },
+  "independent_tiny_checks": {
+    "rows": 384,
+    "cpu_threads": 1,
+    "initial_rounds": 9,
+    "additional_rounds": 11,
+    "total_rounds": 20,
+    "max_abs_probability_difference_from_uninterrupted20round_fit": 0.0,
+    "initial_booster_unchanged": true,
+    "source_model_file_unchanged": true,
+    "default_no_init_params_unchanged": true,
+    "guards_rejected": [
+      "total cap not above source",
+      "feature order change",
+      "training cohort order change",
+      "training cutoff change",
+      "num_leaves change"
+    ],
+    "note": "Small synthetic functional test only; no real project model fit."
+  },
+  "frozen_comparison_independently_recomputed": {
+    "all2022": {
+      "baseline": 0.987770674860208,
+      "candidate_replace": 0.9857216607503562,
+      "candidate_mean": 0.9874141707019565
+    },
+    "jan7_onward359cases": {
+      "baseline": 0.9876900893640298,
+      "candidate_replace": 0.9857122593048564,
+      "candidate_mean": 0.9873598834102646
+    },
+    "candidate_replace_delta_all2022": -0.00204901410985181,
+    "candidate_replace_delta_jan7_onward": -0.001977830059173402,
+    "interpretation": "The older frozen ensemble retains strong overall discrimination but loses about0.002AUC on2022 relative to models fitted through2021. The loss persists after excluding selection-horizon overlap. Training recency/size, selected iteration counts and distribution shift change together, so this is not an isolated overfitting measurement.",
+    "largest_same_year_generator_decreases": {
+      "Haukeli_G1": -0.01613137052787883,
+      "Lio_G1": -0.006187270995888671
+    },
+    "neural_context": "Tokke remains near the current ensemble; the standalone frozen Transformer decline is partly concentrated in generators where its final blend weight is zero.",
+    "candidate_mean_caveat": "Only candidate_replace is entirely the frozen2021 model set. candidate_mean includes2022-trained/selected reference models and must not be described as fully frozen forward validation."
+  },
+  "limitations_and_nonblocking_observations": [
+    "Continuation restarts early-stopping patience. The selected initial model is retained, but training trajectory is not guaranteed to stop at the same epoch as one uninterrupted run.",
+    "Current real configs use deterministic mode with no bagging/feature subsampling. Tiny equivalence evidence should not be generalized to every future stochastic LightGBM configuration.",
+    "Legacy source reports lack a full input-matrix fingerprint and ordered-cohort hash. Feature identity, split metadata, original-file preservation and source-score reproduction are strong current checks, but not a universal proof against arbitrary feature-builder changes.",
+    "Retention/selection uses standalone LightGBM AUC, so an alternative checkpoint with slightly lower standalone AUC but better ensemble contribution may be discarded. This is a selection-policy limitation, not a continuation implementation bug.",
+    "The Jan7 subset removes horizon overlap with2021 selection cases; it does not make2022 untouched. Both years have been heavily reused for model development."
+  ],
+  "original_hash_checks": {
+    "models/lightgbm_goal_lightgbm_rescaled_2021.txt": true,
+    "models/lightgbm_goal_submission_lightgbm_rescaled.txt": true,
+    "models/transformer_rescaled_2021.pt": true,
+    "data/raw/kernel/Unit_commitment_decisions.csv": true,
+    "evaluation/kaggle_metric.py": true,
+    "configs/Tokke_Vinje_topology.yaml": true
+  }
+}

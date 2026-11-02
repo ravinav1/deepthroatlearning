@@ -1,0 +1,10 @@
+{
+  "selection_year": 2021,
+  "confirmation_year": 2022,
+  "plant_weight_source": "reports/plant_blend_refined_comparison.json",
+  "baseline_haukeli_weight_source": "reports/haukeli_blend_comparison.json",
+  "target_generator": "Lio_G1",
+  "specialist_prefix": "cnn_specialist_lio",
+  "candidate_cnn_fractions": [0.0, 0.25, 0.5, 0.75, 1.0],
+  "note": "Keep Lio's existing 50% XGBoost share fixed. Replace a coarse fraction of its 50% Transformer component with the saved Lio specialist CNN. Select on 2021 pooled micro ROC-AUC and freeze before evaluating 2022. Other 13 generators remain exactly at refined plant weights plus Haukeli 70/30. Both years are reused development data. No training, no test labels, no final submission export."
+}

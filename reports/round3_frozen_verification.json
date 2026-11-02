@@ -1,0 +1,71 @@
+{
+  "passed": true,
+  "comparison": "reports/round3_frozen_ensemble_comparison.json",
+  "comparison_sha256": "e26e2e77b0aa4be6996110c6c66894e3a4cc9f3d0f66f9e9b562d553aea964cf",
+  "checked_source_hashes": {
+    "configs/round2_submission_depth8_haukeli_weighted.json": "911d51dcdd926a8f276c748848603dd1c474c28834295f005f76af1660a05da3",
+    "configs/goal_submission_rescaled_tree_mean.json": "5c47a5b4f832a93b1d970a5a4b13e8485ac2e03e2ea14dccb6ceebb7e33bb42b",
+    "data/raw/kernel/Unit_commitment_decisions.csv": "6d51f8cc6869cb82b44708168808c305c1e007cf79878ca1c1d316d07aae3ab3",
+    "evaluation/kaggle_metric.py": "6ba062eeb8c2983a490cad411071dfc77831e3f2233278e5a67b68810df90553",
+    "data/processed/goal_xgboost_rescaled_2021_validation_predictions.csv": "3f0b8a5a2bcb4034c5de0ac7c526800df475dbee95f108d15d7b76d021c6a661",
+    "data/processed/goal_lightgbm_rescaled_2021_validation_predictions.csv": "c6293900ee822e35913ceed1e03195e9609be95b692af75b2fb664340750fc48",
+    "data/processed/transformer_rescaled_2021_validation_predictions.csv": "3c2a99925d32df75b0526a1ed88dc9f5dfd246e05b2436d0ba3e282001884e2f",
+    "data/processed/round2_xgb_depth8_2021_validation_predictions.csv": "7f1cdf0e49074cc65b436da11994cef0b515ce42a0fad1cc39fb976bc0ef7b93",
+    "data/processed/round2_xgb_haukeli_2021_validation_predictions.csv": "da4fbddde38768640a5c57d690233370c5e7bf2f3b49d5a4560c20c45706e132",
+    "data/processed/round2_transformer_task_weights_2021_validation_predictions.csv": "f7334a3e3c0ec83615a67da440c9732c6f6c781df3a7b3f486b44080cc738726",
+    "data/processed/round2_frozen_xgb_2022_validation_predictions.csv": "de55844475a2387e7bc6a1b67b326ef2da596d47affc5bd6f561c7c7cb41d035",
+    "data/processed/round2_frozen_lgb_2022_validation_predictions.csv": "c04c56d6ee8b354fc90109c0f54b90792e17a1ac692c700353153ad9ecbeb657",
+    "data/processed/round2_frozen_transformer_2022_validation_predictions.csv": "e0d797a92f97965efbb4b8ecbfe71bba103d3a52d9f844cc86bbb263e4a7c511",
+    "data/processed/round3_frozen_xgb_depth8_2022_validation_predictions.csv": "058a46bc668d02578cbc3be3289ee213cfbacc019d0af5cb14df2b8b79a32e41",
+    "data/processed/round3_frozen_haukeli_specialist_2022_validation_predictions.csv": "9f6f7c1c724c8637edd3b34ee657d15e3e33a6928927d362cc5d501e2ec60dcc",
+    "data/processed/round3_frozen_transformer_weighted_2022_validation_predictions.csv": "20093ccf848ab1473e252aeb0a22c8c8e5a344be5084c04f57510e93a596f0e2",
+    "reports/round3_frozen_xgb_depth8_2022_metrics.json": "a35849433682fc60bbc6b4f174f46ca07bd10d2e5d90ced4fb9ae54f837feff0",
+    "models/round2_xgb_depth8_2021.ubj": "03491c434b9426798ee028a9e31a912329b61221f0655dd3762174fa7eaf2f70",
+    "reports/round2_xgb_depth8_2021_metrics.json": "fa58ae06a49c4df87cb4c8d9c938f899fcc7eae30dc705b85c55cfa3f46017be",
+    "reports/round3_frozen_haukeli_specialist_2022_metrics.json": "ff679aff63705022eab3fb2953aae4e04b016dc84b595164f476c03dd1d26193",
+    "models/round2_xgb_haukeli_2021.ubj": "9047d5111bcceb0e4d4c8ff27530a32e3d08f7f9d63a5a6a7b2416097e0688b6",
+    "reports/round2_xgb_haukeli_2021_metrics.json": "13a91ae73368318f8a3c112af9c01208e373bfb2867992dd060807f52c77f7f3",
+    "reports/round3_frozen_transformer_weighted_2022_metrics.json": "cabcdf47621afe25e2d26f1e7c803475ab62fdd9db52c2ee6365b9023c3549f9",
+    "models/round2_transformer_task_weights_2021.pt": "77a152adb58ccc22a3f0111fd035264185298276e362014b1135bb44c9346b62",
+    "reports/round2_transformer_task_weights_2021_metrics.json": "97de0ad2524e37a840c5fd68e74a827aa05f697f6a604577e163467bdbc9688f",
+    "models/goal_xgboost_rescaled_2021.ubj": "50b705b7ed4905c2a66a813b551d5d30a430634453eb83707ee73d1e87b86af0",
+    "reports/round2_frozen_xgb_2022_metrics.json": "a2bb3e4c82b096918df4c237db00590959035303cf3db8f0e33ba09bde00dea1",
+    "models/lightgbm_goal_lightgbm_rescaled_2021.txt": "67b5b8657ca83462ea8f4513f77646963e7c9ea70677f0f214c95206bd5a6474",
+    "reports/round2_frozen_lgb_2022_metrics.json": "2cf7c5214bba0f02f66f0596e820cbd250da29929a1f979a681a74d02a0aebc6",
+    "models/transformer_rescaled_2021.pt": "536ecf831c513518db10fc1137ed365083fc215395324a60e9a4a3e07105023e",
+    "reports/round2_frozen_transformer_2022_metrics.json": "e1d2e3cf457be55a7e78ea1acbb9eeec82bfcc73b3dfe4b87602ddf587f0d55e",
+    "data/processed/round3_frozen_old_frozen_2022_validation_predictions.csv": "6602bfc502496c3c80792e5ffdf3f8fa8f25ccd98e0c52989522f6d78be18584",
+    "data/processed/round3_frozen_latest_frozen_2022_validation_predictions.csv": "a8fedff2f8c7f9a7b2ff72c3d8ee6f9bd15dd550c32c2be1dfc3cc688c95c566"
+  },
+  "script_sha256": {
+    "src/round3_frozen_evaluation.py": "e70c4b44ab5842c287ea3c91bc1744a482fbf1ddf71938797735256126c99171",
+    "src/round3_frozen_verify.py": "2f0021f8dada4dc2f928d1feb631aa4d805c3a3ae4ab3aac9dbbf6b1d6a7da3f"
+  },
+  "results": [
+    {
+      "variant": "old_frozen",
+      "subset": "all",
+      "cases": 365,
+      "official_micro_roc_auc": 0.9857216607503562
+    },
+    {
+      "variant": "old_frozen",
+      "subset": "jan7_onward",
+      "cases": 359,
+      "official_micro_roc_auc": 0.9857122593048564
+    },
+    {
+      "variant": "latest_frozen",
+      "subset": "all",
+      "cases": 365,
+      "official_micro_roc_auc": 0.9864036339255228
+    },
+    {
+      "variant": "latest_frozen",
+      "subset": "jan7_onward",
+      "cases": 359,
+      "official_micro_roc_auc": 0.9863703837446466
+    }
+  ],
+  "scope": "All new source checkpoints unchanged, existing frozen source model hashes match their prior reports, training boundary/count and saved-scaler inference asserted, exact full-width CSV IDs/order verified, provided metric reproduces all four frozen 2022 scores."
+}

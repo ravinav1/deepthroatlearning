@@ -1,0 +1,20 @@
+{
+  "created_utc": "2026-10-17T18:44:50.673433+00:00",
+  "baseline": "Original Round5: .5 Round3 + .25 relative LightGBM seed299 + .25 seed673",
+  "generators": [
+    "Vinje_G1",
+    "Vinje_G2",
+    "Vinje_G3"
+  ],
+  "hypothesis": "Vinje labels nearly respect G1 >= G2 >= G3; remove inconsistent probabilities.",
+  "variants": [
+    "Sort the three probabilities descending at each case/hour.",
+    "Equal-weight Euclidean nonincreasing isotonic projection at each case/hour."
+  ],
+  "selection": "Best pooled micro-AUC among baseline, sort and isotonic on native 2021; baseline wins ties.",
+  "screen_gate": "At least +0.00005 pooled micro-AUC vs original Round5 on 2021.",
+  "confirmation_gate": "Native 2022 all and Jan7+ gain >=0.00005; frozen 2022 all and Jan7+ gain >=0.",
+  "no_adaptation": "Only selected correction evaluated on 2022; no retries, strengths or alternate selections.",
+  "training": "No models fitted. Training-label diagnostic excludes weeks crossing 2021 boundary.",
+  "scope": "Vinje only. Other generator probabilities stay bit-identical. No Tokke correction."
+}

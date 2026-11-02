@@ -1,0 +1,59 @@
+{
+  "locked_utc": "2026-10-17T18:10:30.277043+00:00",
+  "started_utc": "2026-10-17T18:09:44+00:00",
+  "deadline_utc": "2026-10-17T18:24:44+00:00",
+  "definition": "(1-w)*Round3 + (w/2)*original_Round5_seed299 + (w/2)*original_Round5_seed673",
+  "selection_year": 2021,
+  "candidate_weights": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "trials": [
+    {
+      "lightgbm_weight": 0.25,
+      "micro_roc_auc": 0.990152404037192,
+      "delta_vs_round5": -0.00022244185815434303
+    },
+    {
+      "lightgbm_weight": 0.5,
+      "micro_roc_auc": 0.9903748458953463,
+      "delta_vs_round5": 0.0
+    },
+    {
+      "lightgbm_weight": 0.75,
+      "micro_roc_auc": 0.9900274101055957,
+      "delta_vs_round5": -0.0003474357897506053
+    }
+  ],
+  "selected_lightgbm_weight": 0.5,
+  "selection_rule": "Highest pooled 2021 micro ROC-AUC; exact ties prefer the current 0.5 weight.",
+  "confirmation_gate": {
+    "native_2022_min_gain": 0.0002,
+    "frozen_2022_min_gain": 0,
+    "required_subsets": [
+      "all",
+      "jan7_onward"
+    ]
+  },
+  "stop_rule": "Keep Round5 if 0.5 wins or any confirmation gate fails; no fallback or extra weights.",
+  "2022_candidate_evaluated_before_lock": false,
+  "source_sha256": {
+    "configs/round3_submission_temporal_ranks.json": "a567449724194812fa0252c1b32f7a02fd38da3ddbbc116ead57d5c3e8d82261",
+    "configs/round5_submission_lgb_generators.json": "bf220960c0a63186069e1b1a66983bf4d607afac2ef5f27d0e04e25608a6f703",
+    "data/raw/sample_submission.csv": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba",
+    "data/raw/kernel/Unit_commitment_decisions.csv": "6d51f8cc6869cb82b44708168808c305c1e007cf79878ca1c1d316d07aae3ab3",
+    "data/raw/prediction_mapping.csv": "c8b0e5bc500a5f1dec2337f5ac680847f6a7794a7c2b7a8fb19384910a029519",
+    "data/processed/goal_xgboost_rescaled_2021_validation_predictions.csv": "3f0b8a5a2bcb4034c5de0ac7c526800df475dbee95f108d15d7b76d021c6a661",
+    "data/processed/goal_lightgbm_rescaled_2021_validation_predictions.csv": "c6293900ee822e35913ceed1e03195e9609be95b692af75b2fb664340750fc48",
+    "data/processed/transformer_rescaled_2021_validation_predictions.csv": "3c2a99925d32df75b0526a1ed88dc9f5dfd246e05b2436d0ba3e282001884e2f",
+    "data/processed/round3_xgb_ranks_2021_validation_predictions.csv": "050687f05e860f86cbafb41a9df099e908ff359868cbe34a7e33b2cdec0f0fe7",
+    "data/processed/round2_xgb_haukeli_2021_validation_predictions.csv": "da4fbddde38768640a5c57d690233370c5e7bf2f3b49d5a4560c20c45706e132",
+    "data/processed/round2_transformer_task_weights_2021_validation_predictions.csv": "f7334a3e3c0ec83615a67da440c9732c6f6c781df3a7b3f486b44080cc738726",
+    "data/processed/round5_lgb_peer_relative_seed299_2021_validation_predictions.csv": "0f54e6bb9fb4a1271d7eaa9108663beb9a6ca857ccb4e70db7384298ee5bc9f4",
+    "data/processed/round5_lgb_peer_relative_seed673_2021_validation_predictions.csv": "78d2ed6b9872394c5ab5838d9b9fa7b63f49c7eef0919488a608e1ba9a9bb37f",
+    "evaluation/kaggle_metric.py": "6ba062eeb8c2983a490cad411071dfc77831e3f2233278e5a67b68810df90553",
+    "data/processed/round6_native_2021_baseline.npz": "b7e8422abbd77ba4ec2fcc1c0a8957a1594bc7ac043111f2535ef8e2fc7dd8dd",
+    "src/check_round7_blend_weights.py": "b23eb2e7fb6ed380fec7737458481b39db3539b8aa1a556365166de738076b9b"
+  }
+}

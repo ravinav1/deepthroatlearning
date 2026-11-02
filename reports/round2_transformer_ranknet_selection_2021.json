@@ -1,0 +1,64 @@
+{
+  "created_utc": "2026-10-14T15:07:10.350938+00:00",
+  "selection_year": 2021,
+  "source_metrics": "reports/round2_transformer_ranknet_2021_metrics.json",
+  "comparison_report": "reports/round2_transformer_ranknet_2021_comparison.json",
+  "comparison_basis": "Original frozen ensemble with original XGBoost and LightGBM components. Compare only replacement or 50/50 original/RankNet transformer prediction mean, retaining every plant weight.",
+  "advance_criterion": "Advance to fixed-count 2022 only if the better predeclared RankNet variant exceeds the task-weighted neural mean 2021 AUC of 0.9886489440779661, using the same original tree components.",
+  "advance_threshold_auc": 0.9886489440779661,
+  "selected_variant": "candidate_mean",
+  "selected_epoch_count": 31,
+  "selected_auc": 0.9885078710495153,
+  "delta_vs_advance_threshold": -0.00014107302845078884,
+  "advance_to_2022": false,
+  "status": "not_selected",
+  "candidates": [
+    {
+      "year": 2021,
+      "variant": "candidate_replace",
+      "validation_cases": 365,
+      "delta_vs_baseline": 0.00023591373011877526,
+      "micro_roc_auc": 0.9885078518677612,
+      "generator_auc": {
+        "Hogga_G1": 0.9696161191608013,
+        "Tokke_G1": 0.9900417932027148,
+        "Tokke_G2": 0.992396688483256,
+        "Tokke_G3": 0.9918245944870459,
+        "Tokke_G4": 0.9925326285817356,
+        "Lio_G1": 0.9558377238487198,
+        "Byrte_G1": 0.9983813241649311,
+        "Vinje_G1": 0.9904190782521022,
+        "Vinje_G2": 0.9865981563614248,
+        "Vinje_G3": 0.9814699877587647,
+        "Haukeli_G1": 0.9633766162066998,
+        "Songa_G1": 0.995074153157005,
+        "Kjela_G1": 0.9841724339802537,
+        "Vesle Kjela_G1": 0.9990278342450003
+      }
+    },
+    {
+      "year": 2021,
+      "variant": "candidate_mean",
+      "validation_cases": 365,
+      "delta_vs_baseline": 0.00023593291187284926,
+      "micro_roc_auc": 0.9885078710495153,
+      "generator_auc": {
+        "Hogga_G1": 0.9697755595595934,
+        "Tokke_G1": 0.9899600444128116,
+        "Tokke_G2": 0.992659815759672,
+        "Tokke_G3": 0.9921400871590051,
+        "Tokke_G4": 0.9926391573043359,
+        "Lio_G1": 0.9530189822987482,
+        "Byrte_G1": 0.9983813241649311,
+        "Vinje_G1": 0.9906445490367835,
+        "Vinje_G2": 0.9868318860036985,
+        "Vinje_G3": 0.9812426571909418,
+        "Haukeli_G1": 0.9633766162066998,
+        "Songa_G1": 0.995074153157005,
+        "Kjela_G1": 0.9837903432273787,
+        "Vesle Kjela_G1": 0.9990278342450003
+      }
+    }
+  ],
+  "validation_note": "2021 is reused development data. No 2022 RankNet result has been evaluated by this selection and no 2022 claim is made."
+}

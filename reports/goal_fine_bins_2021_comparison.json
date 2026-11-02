@@ -1,0 +1,137 @@
+{
+  "reference_source": "reports/goal_rescaled_plant_blend_comparison.json",
+  "reference_variant": "selected_plant",
+  "reference_tree_prefix": "goal_xgboost_rescaled",
+  "candidate_prefixes": [
+    "goal_xgboost_fine_bins"
+  ],
+  "years": [
+    2021
+  ],
+  "plant_weights": {
+    "Hogga": 0.3,
+    "Tokke": 0.9,
+    "Lio": 0.3,
+    "Byrte": 0.0,
+    "Vinje": 0.5,
+    "Songa": 0.0,
+    "Kjela": 0.2,
+    "Vesle Kjela": 0.0
+  },
+  "haukeli_cnn_weight": 0.0,
+  "initial_reference_auc": {
+    "2021": 0.9868456865125457,
+    "2022": 0.9843832046746634
+  },
+  "prediction_sources": [
+    "data/processed/goal_xgboost_rescaled_2021_validation_predictions.csv",
+    "data/processed/transformer_rescaled_2021_validation_predictions.csv",
+    "data/processed/goal_xgboost_fine_bins_2021_validation_predictions.csv"
+  ],
+  "test_case_ids_excluded_from_labels": true,
+  "variant_definitions": {
+    "baseline": "Rescaled XGBoost with its 2021-selected plant weights and Haukeli CNN fraction.",
+    "candidate_standalone": "Candidate tree probabilities for all outputs; no neural blend.",
+    "candidate_replace_tree_component": "Replace the rescaled XGBoost with the candidate inside fixed new plant weights.",
+    "candidate_equal_tree_mean": "Use a fixed 50/50 current/candidate tree mean inside the same fixed weights."
+  },
+  "note": "Primary reference is the stronger rescaled-tree selected-plant blend. Initial old-ensemble AUCs are context only. No weight fitting, candidate selection, model training, or submission export. Both historical years are reused development data; competition test labels are excluded.",
+  "results": [
+    {
+      "year": 2021,
+      "candidate_prefix": null,
+      "variant": "baseline",
+      "validation_cases": 365,
+      "delta_vs_baseline": 0.0,
+      "micro_roc_auc": 0.9878645643215969,
+      "generator_auc": {
+        "Hogga_G1": 0.9694240256687625,
+        "Tokke_G1": 0.9895405301937306,
+        "Tokke_G2": 0.9923767442559313,
+        "Tokke_G3": 0.9921038658864906,
+        "Tokke_G4": 0.99227421214698,
+        "Lio_G1": 0.9440511585342093,
+        "Byrte_G1": 0.9980450969518214,
+        "Vinje_G1": 0.9906894475985688,
+        "Vinje_G2": 0.9868733437769244,
+        "Vinje_G3": 0.9804239457598711,
+        "Haukeli_G1": 0.9637095912358984,
+        "Songa_G1": 0.9950994751627609,
+        "Kjela_G1": 0.9830517210285799,
+        "Vesle Kjela_G1": 0.9989042383437545
+      }
+    },
+    {
+      "year": 2021,
+      "candidate_prefix": "goal_xgboost_fine_bins",
+      "variant": "candidate_standalone",
+      "validation_cases": 365,
+      "delta_vs_baseline": -0.0034547034525201914,
+      "micro_roc_auc": 0.9844098608690767,
+      "generator_auc": {
+        "Hogga_G1": 0.9693098605492962,
+        "Tokke_G1": 0.9858353351398899,
+        "Tokke_G2": 0.9816353806854012,
+        "Tokke_G3": 0.9846481486470506,
+        "Tokke_G4": 0.9803918854789391,
+        "Lio_G1": 0.9304686353286288,
+        "Byrte_G1": 0.9983380732501745,
+        "Vinje_G1": 0.9888903030193481,
+        "Vinje_G2": 0.9835122922861225,
+        "Vinje_G3": 0.9796401216540781,
+        "Haukeli_G1": 0.9625461765613345,
+        "Songa_G1": 0.9947677922234888,
+        "Kjela_G1": 0.9813583299178111,
+        "Vesle Kjela_G1": 0.9992891052272772
+      }
+    },
+    {
+      "year": 2021,
+      "candidate_prefix": "goal_xgboost_fine_bins",
+      "variant": "candidate_replace_tree_component",
+      "validation_cases": 365,
+      "delta_vs_baseline": -3.332491594676412e-05,
+      "micro_roc_auc": 0.9878312394056501,
+      "generator_auc": {
+        "Hogga_G1": 0.9696041568390911,
+        "Tokke_G1": 0.9893548604116957,
+        "Tokke_G2": 0.9924304787816124,
+        "Tokke_G3": 0.9920916930939315,
+        "Tokke_G4": 0.9922870048271835,
+        "Lio_G1": 0.9430255501120293,
+        "Byrte_G1": 0.9983380732501745,
+        "Vinje_G1": 0.9906786052893666,
+        "Vinje_G2": 0.9867318633855822,
+        "Vinje_G3": 0.9805010457156108,
+        "Haukeli_G1": 0.9625461765613345,
+        "Songa_G1": 0.9947677922234888,
+        "Kjela_G1": 0.9809623956281522,
+        "Vesle Kjela_G1": 0.9992891052272772
+      }
+    },
+    {
+      "year": 2021,
+      "candidate_prefix": "goal_xgboost_fine_bins",
+      "variant": "candidate_equal_tree_mean",
+      "validation_cases": 365,
+      "delta_vs_baseline": 0.00018675343118235155,
+      "micro_roc_auc": 0.9880513177527792,
+      "generator_auc": {
+        "Hogga_G1": 0.9700370836586701,
+        "Tokke_G1": 0.9894551210678868,
+        "Tokke_G2": 0.9924077088696611,
+        "Tokke_G3": 0.9921014464494602,
+        "Tokke_G4": 0.99228483495671,
+        "Lio_G1": 0.9444004176934071,
+        "Byrte_G1": 0.998291991646545,
+        "Vinje_G1": 0.9907755795880437,
+        "Vinje_G2": 0.9869071447918025,
+        "Vinje_G3": 0.9807043170121288,
+        "Haukeli_G1": 0.9642224179107922,
+        "Songa_G1": 0.9950084035045305,
+        "Kjela_G1": 0.9820737685981488,
+        "Vesle Kjela_G1": 0.9991782671037066
+      }
+    }
+  ]
+}

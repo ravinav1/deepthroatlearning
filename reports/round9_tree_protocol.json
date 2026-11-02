@@ -1,0 +1,21 @@
+{
+  "created_utc": "2026-10-17T18:45:22.777255+00:00",
+  "deadline_utc": "2026-10-17T19:43:16+00:00",
+  "arms": [
+    "no_absolute_scale",
+    "local_context"
+  ],
+  "screen": "Matched .5Round3+.5new299 versus .5Round3+.5old299 on2021. Select best arm only ifgain>=.00005. Onefixedmodelconfiguration,nohyperparametersearch.",
+  "confirmation": "Selectedarm secondseed673 uniformlyaveraged. Require2021 actualRound5gain>=.00005, thenfrozen2022 all+Jan7gain>=0, thennative2022all+Jan7gain>=.00005. No fallback after2022.",
+  "full_fit": "Onlyifallgatespass; fitbothseeds onall2922suppliedlabelledcases andexportcandidatewithfixed50/50blend.",
+  "feature_notes": {
+    "no_absolute_scale": "Drop log_week_price_scale only after currentrelative monetaryscaling. Regularizationablation, notexactphysicalscaleinvariance.",
+    "local_context": "Turnoff all51 detailed system_* reservoirfeatures; keep localfeatures, topology summaries andallconstraints. Canremoveusefulcoupledstate, no claimtheyareirrelevant."
+  },
+  "protected": [
+    "rawdata",
+    "kaggle_metric.py",
+    "allpreviousmodelsandpredictions"
+  ],
+  "other_searches": "Two separatelypredeclared cheap plantblend/order experiments may be combined onlyifbothindividually pass andcombined improves overeach acrosssamehistoricalgates. Nonepassedsofar."
+}

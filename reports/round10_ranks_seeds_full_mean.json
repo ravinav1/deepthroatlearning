@@ -1,0 +1,19 @@
+{
+  "method": "Uniform probability mean; no weight fitting or seed selection.",
+  "sources": [
+    {
+      "path": "data/processed/round10_ranks_seed299_full_predictions.csv",
+      "sha256": "ead657081b83cb0e8493b014d6d2eaa9cb99f02c947ca1682369ce860dc5c356",
+      "weight": 0.5
+    },
+    {
+      "path": "data/processed/round10_ranks_seed673_full_predictions.csv",
+      "sha256": "f5df032cb58919592c59f3befc012f459863d5e1430d1a70a877579de9b4cec4",
+      "weight": 0.5
+    }
+  ],
+  "output": "data/processed/round10_ranks_seeds_full_predictions.csv",
+  "output_sha256": "3a4264290e7e545ef80774a1cff997cc3fe2a9f18dd88100255537c7e78f1ae6",
+  "cases": 725,
+  "outputs_per_case": 2352
+}

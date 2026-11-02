@@ -1,0 +1,33 @@
+{
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "use_economic_rescaling": true,
+  "stable_scaling": true,
+  "model_type": "transformer",
+  "seed": 42,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "model": {
+    "width": 64,
+    "heads": 4,
+    "layers": 4,
+    "feedforward": 128,
+    "dropout": 0.1
+  },
+  "device": "cpu",
+  "plant_loss_weights": {
+    "Hogga": 0.3,
+    "Tokke": 0.9,
+    "Lio": 0.3,
+    "Byrte": 0.0,
+    "Vinje": 0.5,
+    "Songa": 0.0,
+    "Kjela": 0.2,
+    "Vesle Kjela": 0.0,
+    "Haukeli": 0.0
+  },
+  "epochs": 28,
+  "selection_source": "reports/round2_transformer_task_weights_2021_metrics.json",
+  "note": "Prepared conditionally; no fit has been run. Use only if the frozen 2022 comparison supports the preselected recipe. This model contributes half of the neural component alongside the original Transformer; depth-8 XGBoost and the Haukeli specialist are combined separately. Zero-loss output heads are not standalone predictions. Export only an ensemble component to data/processed."
+}

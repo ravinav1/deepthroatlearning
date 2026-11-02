@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "generators": 14,
+  "real_cases": 5,
+  "feature_columns": 113,
+  "single_vs_pooled_features_exact": true,
+  "global_generator_ids_preserved": true,
+  "stride1_identity": true,
+  "stride4_rows_per_case": 42,
+  "four_offsets_cover_all_hours": true
+}

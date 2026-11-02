@@ -1,0 +1,24 @@
+{
+  "validation_start": "2022-01-01",
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "stable_scaling": true,
+  "use_economic_rescaling": true,
+  "model_type": "transformer",
+  "seed": 42,
+  "epochs": 40,
+  "patience": 8,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "early_stopping_metric": "raw",
+  "model": {
+    "width": 64,
+    "heads": 4,
+    "layers": 4,
+    "feedforward": 128,
+    "dropout": 0.1
+  },
+  "rdrop_weight": 1.0,
+  "device": "cpu"
+}

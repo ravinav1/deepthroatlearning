@@ -1,0 +1,7 @@
+{
+  "training_loss_max_difference": 0.0,
+  "standalone_validation_auc_max_difference": 0.0,
+  "original_selected_epoch": 28,
+  "new_selected_epoch": 39,
+  "interpretation": "The fitted trajectory is unchanged; only validation checkpoint selection changed."
+}

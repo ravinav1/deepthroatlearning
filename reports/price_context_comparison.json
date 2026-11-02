@@ -1,0 +1,46 @@
+{
+  "2021": {
+    "original_xgboost": {
+      "micro_roc_auc": 0.9647236638345906,
+      "near_switch_auc": 0.7966221610840217,
+      "near_switch_error_at_0_5": 0.2792047115342874
+    },
+    "price_xgboost": {
+      "micro_roc_auc": 0.9657186899179886,
+      "near_switch_auc": 0.8043666333859764,
+      "near_switch_error_at_0_5": 0.272432604511844
+    },
+    "original_blend": {
+      "micro_roc_auc": 0.9652253805321781,
+      "near_switch_auc": 0.7990388229212804,
+      "near_switch_error_at_0_5": 0.27785897231828904
+    },
+    "price_blend": {
+      "micro_roc_auc": 0.9661685496142844,
+      "near_switch_auc": 0.8050926884785445,
+      "near_switch_error_at_0_5": 0.27141968252130755
+    }
+  },
+  "2022": {
+    "original_xgboost": {
+      "micro_roc_auc": 0.9715271034229882,
+      "near_switch_auc": 0.8378436805874048,
+      "near_switch_error_at_0_5": 0.24704311893287267
+    },
+    "price_xgboost": {
+      "micro_roc_auc": 0.971632643219859,
+      "near_switch_auc": 0.8485996985188651,
+      "near_switch_error_at_0_5": 0.23545116361244983
+    },
+    "original_blend": {
+      "micro_roc_auc": 0.97153527292302,
+      "near_switch_auc": 0.8404477748400644,
+      "near_switch_error_at_0_5": 0.24368626142264013
+    },
+    "price_blend": {
+      "micro_roc_auc": 0.9718738846380622,
+      "near_switch_auc": 0.8490540661945398,
+      "near_switch_error_at_0_5": 0.23450888782010385
+    }
+  }
+}

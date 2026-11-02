@@ -1,0 +1,217 @@
+{
+  "scope": "Read-only diagnosis of the fixed1895-tree2021 continuation. No retraining, checkpoint selection, editing of model/data, or count retuning.",
+  "source_model": "models/lightgbm_goal_lightgbm_rescaled_2021.txt",
+  "continued_model": "models/lightgbm_round2_lgb_converged_2021.txt",
+  "prediction_threads": 1,
+  "source_prefix_checks": {
+    "first1499trees_structurally_identical": true,
+    "feature_names_identical": true,
+    "feature_infos_identical": true,
+    "pandas_categorical_identical": true
+  },
+  "suspect_tree_number_one_based": 1692,
+  "suspect_leaf": {
+    "leaf_index": 10,
+    "leaf_value": -6.588635744114659,
+    "leaf_weight": 0.06025173340458423,
+    "leaf_count": 27
+  },
+  "path_to_suspect_leaf": [
+    {
+      "feature": "system_terminal_water_value_Vinjevatn_week_scaled",
+      "decision": "<=",
+      "threshold": 1.0401392579078677,
+      "default_left": true,
+      "branch": "right"
+    },
+    {
+      "feature": "system_week_inflow_million_m3_Bandak",
+      "decision": "<=",
+      "threshold": 25.36165809631348,
+      "default_left": true,
+      "branch": "left"
+    },
+    {
+      "feature": "generator_id",
+      "decision": "==",
+      "threshold": "5",
+      "default_left": false,
+      "branch": "left"
+    },
+    {
+      "feature": "natural_inflow_m3_s",
+      "decision": "<=",
+      "threshold": 6.654999971389771,
+      "default_left": true,
+      "branch": "left"
+    },
+    {
+      "feature": "min_flow_r_Vest_Vassdraget",
+      "decision": "<=",
+      "threshold": 11.000000000000002,
+      "default_left": true,
+      "branch": "left"
+    },
+    {
+      "feature": "natural_inflow_m3_s",
+      "decision": "<=",
+      "threshold": 4.055000066757203,
+      "default_left": true,
+      "branch": "left"
+    },
+    {
+      "feature": "system_terminal_water_value_Byrtevatn_week_scaled",
+      "decision": "<=",
+      "threshold": 1.2390443086624148,
+      "default_left": true,
+      "branch": "left"
+    },
+    {
+      "feature": "month",
+      "decision": "<=",
+      "threshold": 10.500000000000002,
+      "default_left": true,
+      "branch": "left"
+    },
+    {
+      "feature": "log_week_price_scale",
+      "decision": "<=",
+      "threshold": 3.946090698242188,
+      "default_left": true,
+      "branch": "right"
+    },
+    {
+      "feature": "natural_inflow_m3_s",
+      "decision": "<=",
+      "threshold": 0.5049999952316285,
+      "default_left": true,
+      "branch": "right"
+    }
+  ],
+  "auc_before_suspect_tree": 0.985085577574474,
+  "auc_after_suspect_tree": 0.9843748768736816,
+  "tree_auc_delta": -0.0007107007007923771,
+  "reconstructed_final_vs_cached_max_probability_error": 4.285460875053104e-14,
+  "reconstructed_final_auc": 0.9845960320443071,
+  "cached_final_auc": 0.9845960320443071,
+  "affected_validation_outputs": 1021,
+  "affected_validation_cases": 10,
+  "affected_on_fraction": 0.9363369245837414,
+  "mean_probability_before": 0.8175726184261742,
+  "mean_probability_after": 0.18462262256243792,
+  "median_probability_before": 0.9197155391892053,
+  "median_probability_after": 0.015517504531671495,
+  "affected_by_generator": [
+    {
+      "generator": "Hogga_G1",
+      "affected_outputs": 0,
+      "on_fraction": null
+    },
+    {
+      "generator": "Tokke_G1",
+      "affected_outputs": 0,
+      "on_fraction": null
+    },
+    {
+      "generator": "Tokke_G2",
+      "affected_outputs": 0,
+      "on_fraction": null
+    },
+    {
+      "generator": "Tokke_G3",
+      "affected_outputs": 0,
+      "on_fraction": null
+    },
+    {
+      "generator": "Tokke_G4",
+      "affected_outputs": 0,
+      "on_fraction": null
+    },
+    {
+      "generator": "Lio_G1",
+      "affected_outputs": 1021,
+      "on_fraction": 0.9363369245837414
+    },
+    {
+      "generator": "Byrte_G1",
+      "affected_outputs": 0,
+      "on_fraction": null
+    },
+    {
+      "generator": "Vinje_G1",
+      "affected_outputs": 0,
+      "on_fraction": null
+    },
+    {
+      "generator": "Vinje_G2",
+      "affected_outputs": 0,
+      "on_fraction": null
+    },
+    {
+      "generator": "Vinje_G3",
+      "affected_outputs": 0,
+      "on_fraction": null
+    },
+    {
+      "generator": "Haukeli_G1",
+      "affected_outputs": 0,
+      "on_fraction": null
+    },
+    {
+      "generator": "Songa_G1",
+      "affected_outputs": 0,
+      "on_fraction": null
+    },
+    {
+      "generator": "Kjela_G1",
+      "affected_outputs": 0,
+      "on_fraction": null
+    },
+    {
+      "generator": "Vesle Kjela_G1",
+      "affected_outputs": 0,
+      "on_fraction": null
+    }
+  ],
+  "affected_by_start_month": {
+    "1": 121,
+    "2": 0,
+    "3": 0,
+    "4": 168,
+    "5": 732,
+    "6": 0,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "10": 0,
+    "11": 0,
+    "12": 0
+  },
+  "interpretation": "A large negative Newton leaf update is a concrete late-tree regression mechanism. This is not evidence of categorical remapping or source-tree replacement; source prefix/schema are unchanged. The fixed1895 count remains the declared candidate; do not pick an earlier checkpoint retrospectively from these diagnostics.",
+  "official_parameter_reference": {
+    "url": "https://lightgbm.readthedocs.io/en/v4.7.0/Parameters.html",
+    "relevant_facts": [
+      "min_data_in_leaf/min_child_samples uses a Hessian approximation, so a learned leaf may have fewer observations than the configured minimum. Thus leaf_count27 with min_child_samples100 is not by itself a schema or implementation bug.",
+      "max_delta_step limits leaf output, and the effective post-learning-rate cap is learning_rate*max_delta_step.",
+      "lambda_l2/reg_lambda applies L2 leaf-weight regularization."
+    ]
+  },
+  "future_experiment_recommendation": {
+    "priority": "After the already-prepared inexpensive specialist tests, prioritize this targeted mechanism test over extending a broad uninformed tree grid. No implementation or training was performed here.",
+    "primary_change": {
+      "max_delta_step": 10.0
+    },
+    "effective_update_cap_at_learning_rate_0_05": 0.5,
+    "source_2021_trees": 1499,
+    "source_2022_trees": 800,
+    "fixed_total_trees_both_years": 1895,
+    "comparison": "Same preserved source model, training cohort, features and remaining parameters. Compare the fixed total against both the unmodified1895 continuation and the current winning ensemble; both historical years remain reused.",
+    "provenance_requirement": "Current prepare_continuation rightly disallows parameter changes. A future experiment must explicitly authorize and record the sole old-to-new max_delta_step change, retaining all other provenance guards. Never weaken the entire parameter-match check silently.",
+    "verification_requirement": "Check unchanged source-tree prefix and inspect new-tree leaf outputs to confirm the configured0.5 cap actually applies; check exact final count and full-ensemble performance in both years.",
+    "alternative_not_joint_change": {
+      "lambda_l2": 1.0,
+      "rationale": "Adds1 to leaf-weight denominator, damping updates when Hessian support is tiny, but also changes split scoring more broadly. Test separately if pursued."
+    },
+    "rejection_rule": "Do not promote on2022 gain alone if the final ensemble regresses2021. Do not select an earlier checkpoint retrospectively from this diagnostic."
+  }
+}

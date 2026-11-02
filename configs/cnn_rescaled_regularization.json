@@ -1,0 +1,16 @@
+{
+  "years": [2021, 2022],
+  "baseline_prefix": "cnn_rescaled",
+  "experiments": {
+    "dropout": {"prefix": "cnn_rescaled_dropout", "dropout": 0.25},
+    "recency": {"prefix": "cnn_rescaled_recency", "half_life_years": 4.0}
+  },
+  "seed": 42,
+  "xgboost_weight": 0.8,
+  "cnn_weight": 0.2,
+  "follow_up_average": {
+    "sources": {"cnn_rescaled": 0.5, "cnn_rescaled_dropout": 0.5},
+    "note": "One fixed prediction average added after dropout showed opposite yearly effects. No weight sweep, new feature changes, or meta-model fitting."
+  },
+  "note": "Two separate fixed experiments on the rescaled CNN. Dropout changes only dropout; recency keeps dropout at 0.10 and assigns one training-loss weight to each complete weekly case. No combined change, parameter search, or competition-test fitting. Compare unweighted micro ROC-AUC of the fixed 80/20 blend on both historical years."
+}

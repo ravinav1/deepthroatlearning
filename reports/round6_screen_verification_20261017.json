@@ -1,0 +1,91 @@
+{
+  "passed": true,
+  "runs": [
+    {
+      "report": "reports/round6_combined_seed299_2021_metrics.json",
+      "models": 14,
+      "fitting_performed": true,
+      "training_case_hash": "e5d4ff3d96e4f6bc6b5d9a945c4c628ab156dfdf5e3f295898baaf5733621f99",
+      "features_per_generator": 113,
+      "official_evaluation_report": "reports/round6_combined_screen_2021.json"
+    },
+    {
+      "report": "reports/round6_doublerounds_seed299_2021_metrics.json",
+      "models": 14,
+      "fitting_performed": true,
+      "training_case_hash": "e5d4ff3d96e4f6bc6b5d9a945c4c628ab156dfdf5e3f295898baaf5733621f99",
+      "features_per_generator": 113,
+      "official_evaluation_report": "reports/round6_doublerounds_screen_2021.json"
+    },
+    {
+      "report": "reports/round6_finebins_seed299_2021_metrics.json",
+      "models": 14,
+      "fitting_performed": true,
+      "training_case_hash": "e5d4ff3d96e4f6bc6b5d9a945c4c628ab156dfdf5e3f295898baaf5733621f99",
+      "features_per_generator": 113,
+      "official_evaluation_report": "reports/round6_finebins_screen_2021.json"
+    },
+    {
+      "report": "reports/round6_halfrounds_seed299_2021_metrics.json",
+      "models": 14,
+      "fitting_performed": false,
+      "training_case_hash": "e5d4ff3d96e4f6bc6b5d9a945c4c628ab156dfdf5e3f295898baaf5733621f99",
+      "features_per_generator": 113,
+      "official_evaluation_report": "reports/round6_halfrounds_screen_2021.json"
+    },
+    {
+      "report": "reports/round6_l2strong_seed299_2021_metrics.json",
+      "models": 14,
+      "fitting_performed": true,
+      "training_case_hash": "e5d4ff3d96e4f6bc6b5d9a945c4c628ab156dfdf5e3f295898baaf5733621f99",
+      "features_per_generator": 113,
+      "official_evaluation_report": "reports/round6_l2strong_screen_2021.json"
+    },
+    {
+      "report": "reports/round6_l2zero_seed299_2021_metrics.json",
+      "models": 14,
+      "fitting_performed": true,
+      "training_case_hash": "e5d4ff3d96e4f6bc6b5d9a945c4c628ab156dfdf5e3f295898baaf5733621f99",
+      "features_per_generator": 113,
+      "official_evaluation_report": "reports/round6_l2zero_screen_2021.json"
+    },
+    {
+      "report": "reports/round6_leaves127_seed299_2021_metrics.json",
+      "models": 14,
+      "fitting_performed": true,
+      "training_case_hash": "e5d4ff3d96e4f6bc6b5d9a945c4c628ab156dfdf5e3f295898baaf5733621f99",
+      "features_per_generator": 113,
+      "official_evaluation_report": "reports/round6_leaves127_screen_2021.json"
+    },
+    {
+      "report": "reports/round6_leaves31_seed299_2021_metrics.json",
+      "models": 14,
+      "fitting_performed": true,
+      "training_case_hash": "e5d4ff3d96e4f6bc6b5d9a945c4c628ab156dfdf5e3f295898baaf5733621f99",
+      "features_per_generator": 113,
+      "official_evaluation_report": "reports/round6_leaves31_screen_2021.json"
+    },
+    {
+      "report": "reports/round6_minleaf300_seed299_2021_metrics.json",
+      "models": 14,
+      "fitting_performed": true,
+      "training_case_hash": "e5d4ff3d96e4f6bc6b5d9a945c4c628ab156dfdf5e3f295898baaf5733621f99",
+      "features_per_generator": 113,
+      "official_evaluation_report": "reports/round6_minleaf300_screen_2021.json"
+    },
+    {
+      "report": "reports/round6_reference_seed299_2021_metrics.json",
+      "models": 14,
+      "fitting_performed": false,
+      "training_case_hash": "e5d4ff3d96e4f6bc6b5d9a945c4c628ab156dfdf5e3f295898baaf5733621f99",
+      "features_per_generator": 113,
+      "official_evaluation_report": "reports/round6_reference_screen_2021.json"
+    }
+  ],
+  "checked_models": 140,
+  "same113features": true,
+  "same_training_and_evaluation_cohorts": true,
+  "model_and_prediction_hashes_match": true,
+  "locked_selection_sources_unchanged": true,
+  "note": "Manifest/hash/cohort consistency checks; trial models were not independently replayed here. The reference replay matches all old predictions exactly."
+}

@@ -1,0 +1,286 @@
+{
+  "created_utc": "2026-10-17T19:51:40.484517+00:00",
+  "parent_audit": "reports/audit_20261017_pipeline.json",
+  "parent_audit_sha256": "2570876b0536f2e2768dd313bf84ffd1d3689b7b578a567844a60790e0cb9a6b",
+  "protocol": {
+    "recorded_utc": "2026-10-17T19:49:19.746984+00:00",
+    "scope": "ONE fixed cached-prediction combination. No fitting, grid, weight selection, competition export or promotion.",
+    "baseline": "Actual Round5: 0.5 Round3 + 0.5 uniform seed299/673 separate-generator LGB mean.",
+    "candidate": "0.5 Round4 neural mean recipe + 0.5 same Round5 LGB mean. Round4 is Round3 with only weighted Transformer slot changed to fixed 0.5 old + 0.5 lower-LR model.",
+    "column_formula": "P_candidate = P_round5 + 0.25 * Round3_plant_weight[transformer_weighted] * (P_round4_lr - P_original_weighted_transformer)",
+    "coefficient_source": "configs/round3_submission_temporal_ranks.json",
+    "selected_round4_recipe": "configs/round4_submission_transformer_lr_mean.json",
+    "selection_evidence": "reports/round4_neural_final_decision.json",
+    "scenarios": [
+      "native2021 all",
+      "native2022 all",
+      "native2022 Jan7+",
+      "frozen2022 all",
+      "frozen2022 Jan7+"
+    ],
+    "checks": [
+      "strict ID and all2352-column alignment",
+      "actualRound5 baseline reconstruction reproduces existingreportedAUC",
+      "standaloneRound4 mean matches priorselectedRound4 report",
+      "officialmetric agreement",
+      "unchanged non-neural plants",
+      "no artifacts overwritten"
+    ],
+    "interpretation": "Exploratory integration audit on reused development years. Native/frozen2022 share labels. No clean holdout or causal claim.",
+    "coefficient_source_sha256": "a567449724194812fa0252c1b32f7a02fd38da3ddbbc116ead57d5c3e8d82261",
+    "selected_round4_recipe_sha256": "156e65f975f0d7654fb455ae01aec4cbb2f2a2ed38e016d5b5f375596f7cbea4",
+    "selection_evidence_sha256": "a788ead94e1ac60addbd33ce4f19680593d46bf8a164f8f4740d64d23c8b852b"
+  },
+  "method_source": "src/round2_diagnostics.py:48-118",
+  "method_source_sha256": "b85550fab55d419b54df7e2f1b687b8a91de2113f30e06c2f9352c6f15e508b9",
+  "method": "Paired circular moving-block bootstrap of complete daily-start cases. Every repeated case preserves all14 generators x168 hourly outputs. Exact globally pooled AUC, including cross-case and cross-generator pairs, uses tied-score weighted groups. Same sampled case counts for both models. Original case count retained by truncating last block.",
+  "bootstrap_settings": {
+    "block_lengths_days": [
+      7,
+      14,
+      28
+    ],
+    "repetitions_each": 1000,
+    "seed": 4173,
+    "rng": "np.random.default_rng(4173 + block_length)"
+  },
+  "scenario_preflight": [
+    {
+      "mode": "native",
+      "year": 2021,
+      "subset": "all",
+      "cases": 365,
+      "first_start": "2021-01-01 00:00:00+00:00",
+      "last_start": "2021-12-31 00:00:00+00:00",
+      "consecutive_daily_starts": true,
+      "weighted_auc_independent_small_check_difference": 0.0,
+      "baseline_auc": 0.9903748458953463,
+      "candidate_auc": 0.990400473194313
+    },
+    {
+      "mode": "native",
+      "year": 2022,
+      "subset": "jan7_onward",
+      "cases": 359,
+      "first_start": "2022-01-07 00:00:00+00:00",
+      "last_start": "2022-12-31 00:00:00+00:00",
+      "consecutive_daily_starts": true,
+      "weighted_auc_independent_small_check_difference": 0.0,
+      "baseline_auc": 0.9894111659365935,
+      "candidate_auc": 0.9894542329526229
+    },
+    {
+      "mode": "frozen",
+      "year": 2022,
+      "subset": "jan7_onward",
+      "cases": 359,
+      "first_start": "2022-01-07 00:00:00+00:00",
+      "last_start": "2022-12-31 00:00:00+00:00",
+      "consecutive_daily_starts": true,
+      "weighted_auc_independent_small_check_difference": -1.1102230246251565e-16,
+      "baseline_auc": 0.9870453044407653,
+      "candidate_auc": 0.9870568910685998
+    }
+  ],
+  "results": [
+    {
+      "mode": "native",
+      "year": 2021,
+      "subset": "all",
+      "cases": 365,
+      "bootstrap": [
+        {
+          "block_days": 7,
+          "repetitions": 1000,
+          "reference_auc": 0.9903748458953464,
+          "candidate_auc": 0.9904004731943128,
+          "observed_delta": 2.562729896637972e-05,
+          "bootstrap_delta_mean": 2.601577649311959e-05,
+          "bootstrap_delta_std": 2.0369489450562092e-05,
+          "percentile_interval_95": [
+            -1.4470709872138609e-05,
+            6.46182912434734e-05
+          ],
+          "fraction_positive_draws": 0.9
+        },
+        {
+          "block_days": 14,
+          "repetitions": 1000,
+          "reference_auc": 0.9903748458953464,
+          "candidate_auc": 0.9904004731943128,
+          "observed_delta": 2.562729896637972e-05,
+          "bootstrap_delta_mean": 2.579197364850694e-05,
+          "bootstrap_delta_std": 1.9513601041309114e-05,
+          "percentile_interval_95": [
+            -1.3453347582809138e-05,
+            6.281467275731923e-05
+          ],
+          "fraction_positive_draws": 0.906
+        },
+        {
+          "block_days": 28,
+          "repetitions": 1000,
+          "reference_auc": 0.9903748458953464,
+          "candidate_auc": 0.9904004731943128,
+          "observed_delta": 2.562729896637972e-05,
+          "bootstrap_delta_mean": 2.5846082440033058e-05,
+          "bootstrap_delta_std": 1.9521116058732708e-05,
+          "percentile_interval_95": [
+            -1.4335846386193119e-05,
+            6.237187685166342e-05
+          ],
+          "fraction_positive_draws": 0.906
+        }
+      ]
+    },
+    {
+      "mode": "native",
+      "year": 2022,
+      "subset": "jan7_onward",
+      "cases": 359,
+      "bootstrap": [
+        {
+          "block_days": 7,
+          "repetitions": 1000,
+          "reference_auc": 0.9894111659365936,
+          "candidate_auc": 0.9894542329526229,
+          "observed_delta": 4.3067016029296745e-05,
+          "bootstrap_delta_mean": 4.287087246568078e-05,
+          "bootstrap_delta_std": 2.6322732034824393e-05,
+          "percentile_interval_95": [
+            -1.251962127336026e-05,
+            9.294023652283988e-05
+          ],
+          "fraction_positive_draws": 0.949
+        },
+        {
+          "block_days": 14,
+          "repetitions": 1000,
+          "reference_auc": 0.9894111659365936,
+          "candidate_auc": 0.9894542329526229,
+          "observed_delta": 4.3067016029296745e-05,
+          "bootstrap_delta_mean": 4.406756304566839e-05,
+          "bootstrap_delta_std": 3.083678621779271e-05,
+          "percentile_interval_95": [
+            -1.5214609809624524e-05,
+            0.00010630877558139294
+          ],
+          "fraction_positive_draws": 0.923
+        },
+        {
+          "block_days": 28,
+          "repetitions": 1000,
+          "reference_auc": 0.9894111659365936,
+          "candidate_auc": 0.9894542329526229,
+          "observed_delta": 4.3067016029296745e-05,
+          "bootstrap_delta_mean": 4.2607434666330544e-05,
+          "bootstrap_delta_std": 3.414806627501781e-05,
+          "percentile_interval_95": [
+            -2.2468636645198158e-05,
+            0.00011115903219632847
+          ],
+          "fraction_positive_draws": 0.896
+        }
+      ]
+    },
+    {
+      "mode": "frozen",
+      "year": 2022,
+      "subset": "jan7_onward",
+      "cases": 359,
+      "bootstrap": [
+        {
+          "block_days": 7,
+          "repetitions": 1000,
+          "reference_auc": 0.9870453044407653,
+          "candidate_auc": 0.9870568910685998,
+          "observed_delta": 1.1586627834514474e-05,
+          "bootstrap_delta_mean": 1.1232651334862398e-05,
+          "bootstrap_delta_std": 2.4545554696071593e-05,
+          "percentile_interval_95": [
+            -3.537520077227796e-05,
+            6.046234891478596e-05
+          ],
+          "fraction_positive_draws": 0.678
+        },
+        {
+          "block_days": 14,
+          "repetitions": 1000,
+          "reference_auc": 0.9870453044407653,
+          "candidate_auc": 0.9870568910685998,
+          "observed_delta": 1.1586627834514474e-05,
+          "bootstrap_delta_mean": 1.2395829823921955e-05,
+          "bootstrap_delta_std": 2.599577241502379e-05,
+          "percentile_interval_95": [
+            -3.564645933368527e-05,
+            6.543725996840666e-05
+          ],
+          "fraction_positive_draws": 0.674
+        },
+        {
+          "block_days": 28,
+          "repetitions": 1000,
+          "reference_auc": 0.9870453044407653,
+          "candidate_auc": 0.9870568910685998,
+          "observed_delta": 1.1586627834514474e-05,
+          "bootstrap_delta_mean": 1.0974241499247971e-05,
+          "bootstrap_delta_std": 2.735327568878291e-05,
+          "percentile_interval_95": [
+            -3.950774779956923e-05,
+            6.721798466211293e-05
+          ],
+          "fraction_positive_draws": 0.653
+        }
+      ]
+    }
+  ],
+  "source_hashes": {
+    "data/processed/round2_transformer_task_weights_2021_validation_predictions.csv": "f7334a3e3c0ec83615a67da440c9732c6f6c781df3a7b3f486b44080cc738726",
+    "data/processed/round4_transformer_lr_2021_validation_predictions.csv": "9bfb1fcaa7127c66562bd55a9ef6dd9654de1876b62e28b69fbd7af4d7e5c151",
+    "configs/round3_submission_temporal_ranks.json": "a567449724194812fa0252c1b32f7a02fd38da3ddbbc116ead57d5c3e8d82261",
+    "configs/round5_submission_lgb_generators.json": "bf220960c0a63186069e1b1a66983bf4d607afac2ef5f27d0e04e25608a6f703",
+    "data/raw/sample_submission.csv": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba",
+    "data/raw/kernel/Unit_commitment_decisions.csv": "6d51f8cc6869cb82b44708168808c305c1e007cf79878ca1c1d316d07aae3ab3",
+    "data/raw/prediction_mapping.csv": "c8b0e5bc500a5f1dec2337f5ac680847f6a7794a7c2b7a8fb19384910a029519",
+    "data/processed/goal_xgboost_rescaled_2021_validation_predictions.csv": "3f0b8a5a2bcb4034c5de0ac7c526800df475dbee95f108d15d7b76d021c6a661",
+    "data/processed/goal_lightgbm_rescaled_2021_validation_predictions.csv": "c6293900ee822e35913ceed1e03195e9609be95b692af75b2fb664340750fc48",
+    "data/processed/transformer_rescaled_2021_validation_predictions.csv": "3c2a99925d32df75b0526a1ed88dc9f5dfd246e05b2436d0ba3e282001884e2f",
+    "data/processed/round3_xgb_ranks_2021_validation_predictions.csv": "050687f05e860f86cbafb41a9df099e908ff359868cbe34a7e33b2cdec0f0fe7",
+    "data/processed/round2_xgb_haukeli_2021_validation_predictions.csv": "da4fbddde38768640a5c57d690233370c5e7bf2f3b49d5a4560c20c45706e132",
+    "data/processed/round5_lgb_peer_relative_seed299_2021_validation_predictions.csv": "0f54e6bb9fb4a1271d7eaa9108663beb9a6ca857ccb4e70db7384298ee5bc9f4",
+    "data/processed/round5_lgb_peer_relative_seed673_2021_validation_predictions.csv": "78d2ed6b9872394c5ab5838d9b9fa7b63f49c7eef0919488a608e1ba9a9bb37f",
+    "evaluation/kaggle_metric.py": "6ba062eeb8c2983a490cad411071dfc77831e3f2233278e5a67b68810df90553",
+    "data/processed/round2_transformer_task_weights_2022_validation_predictions.csv": "792e2b10c11783ad7f01d7f3de7a1a9e3ebd8b33d82faadb96d60598b5b0febf",
+    "data/processed/round4_transformer_lr_2022_validation_predictions.csv": "4781a1a20ff6b2c6879b1fc047dc6f7575aa7b63f06b27982817cd9ecd3a1b3e",
+    "data/processed/goal_xgboost_rescaled_2022_validation_predictions.csv": "a884a72f6125eeea5f19ff4acb698d4c646940c6632848c67c69020ed507f2c9",
+    "data/processed/goal_lightgbm_rescaled_2022_validation_predictions.csv": "c2b5a67d254afe54a9a311fed933d2a6295a905a934003c2c64033e1350ad71a",
+    "data/processed/transformer_rescaled_2022_validation_predictions.csv": "bef295276b85eb963e427220b08ffd74f4e545613e9ce2b203ddb3841556d4c1",
+    "data/processed/round3_xgb_ranks_2022_validation_predictions.csv": "b5bf897da43c8575d851192b78f968505c0aef202b30cbce4fe173b3bf91182f",
+    "data/processed/round2_xgb_haukeli_2022_validation_predictions.csv": "2d4b8b94e4c253fe8e8ff70bbee04c665ffd66707577f6d34a436d7f5861de37",
+    "data/processed/round5_lgb_peer_relative_seed299_2022_validation_predictions.csv": "cb94d2adbb6e25fb7980efd144757195c8bda9efa9e5021689d4921fc188b006",
+    "data/processed/round5_lgb_peer_relative_seed673_2022_validation_predictions.csv": "f32dccf4c305e011092bb064b662247a2cea3f1067d1f8168c4855b20e08a3f9",
+    "data/processed/round3_frozen_transformer_weighted_2022_validation_predictions.csv": "20093ccf848ab1473e252aeb0a22c8c8e5a344be5084c04f57510e93a596f0e2",
+    "data/processed/round4_frozen_transformer_lr_2022_validation_predictions.csv": "fb1081594c801f9d3c00c506e814de52175b21ee4d2d095966bd1e1b2a843452",
+    "data/processed/round2_frozen_xgb_2022_validation_predictions.csv": "de55844475a2387e7bc6a1b67b326ef2da596d47affc5bd6f561c7c7cb41d035",
+    "data/processed/round2_frozen_lgb_2022_validation_predictions.csv": "c04c56d6ee8b354fc90109c0f54b90792e17a1ac692c700353153ad9ecbeb657",
+    "data/processed/round2_frozen_transformer_2022_validation_predictions.csv": "e0d797a92f97965efbb4b8ecbfe71bba103d3a52d9f844cc86bbb263e4a7c511",
+    "data/processed/round3_frozen_xgb_ranks_2022_validation_predictions.csv": "013e4e2b7b575018a44d551c15f3dc7d654ed12b8680e30f5266ea3410cfc6da",
+    "data/processed/round3_frozen_haukeli_specialist_2022_validation_predictions.csv": "9f6f7c1c724c8637edd3b34ee657d15e3e33a6928927d362cc5d501e2ec60dcc",
+    "data/processed/round5_frozen_lgb_peer_relative_seed299_2022_validation_predictions.csv": "7096d12908a86c84decf5cc5084987ff92b63499e5e7b97b28fc430a7da60e41",
+    "data/processed/round5_frozen_lgb_peer_relative_seed673_2022_validation_predictions.csv": "868a65482c3140c0cb774c0f4220d91f98ee6ae952b55fe41af558767cc6e35f"
+  },
+  "fitting_performed": false,
+  "submission_exported": false,
+  "candidate_variants": 1,
+  "cpu_threads": 1,
+  "limitations": [
+    "Intervals condition on this one chosen pair of predictions and do not adjust repeated model/feature/weight selection or this adaptive integration hypothesis.",
+    "Native and frozen2022 reuse identical labels; they are deployment scenarios rather than independent replications.",
+    "Circular wrapping joins December to January, an artificial boundary. Equal inclusion probability is preserved, but seasonal nonstationarity and correlations longer than28 days are not resolved.",
+    "Fraction positive bootstrap draws is descriptive, not a posterior probability or a selection-adjusted p-value.",
+    "No historical interval establishes private2024 performance."
+  ],
+  "source_hashes_unchanged": true,
+  "elapsed_seconds": 212.23235201835632,
+  "finished_utc": "2026-10-17T19:55:12.716681+00:00"
+}

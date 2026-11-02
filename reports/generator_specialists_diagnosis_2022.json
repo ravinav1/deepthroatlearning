@@ -1,0 +1,76 @@
+{
+  "training_cases": 2551,
+  "validation_cases": 365,
+  "purged_cases": 6,
+  "last_training_start": "2021-12-25 00:00:00+00:00",
+  "last_training_horizon_end": "2022-01-01 00:00:00+00:00",
+  "first_validation_start": "2022-01-01 00:00:00+00:00",
+  "last_validation_start": "2022-12-31 00:00:00+00:00",
+  "input_channels": 306,
+  "input_generators": [
+    "Hogga_G1",
+    "Tokke_G1",
+    "Tokke_G2",
+    "Tokke_G3",
+    "Tokke_G4",
+    "Lio_G1",
+    "Byrte_G1",
+    "Vinje_G1",
+    "Vinje_G2",
+    "Vinje_G3",
+    "Haukeli_G1",
+    "Songa_G1",
+    "Kjela_G1",
+    "Vesle Kjela_G1"
+  ],
+  "stored_scalers_exactly_equal_to_baseline": true,
+  "cpu_threads": 4,
+  "inference_batch_size": 32,
+  "feature_chunk_cases": 96,
+  "results": [
+    {
+      "generator": "Lio_G1",
+      "baseline": {
+        "model": "cnn_rescaled_2022",
+        "training_auc": 0.9948088268750637,
+        "validation_auc": 0.8871477762643964,
+        "validation_replay_max_abs_error": 2.980117796980153e-08,
+        "gap": 0.10766105061066722
+      },
+      "specialist": {
+        "model": "cnn_specialist_lio_2022",
+        "best_epoch": 14,
+        "training_auc": 0.9963144322417531,
+        "validation_auc": 0.9126530365684548,
+        "validation_replay_max_abs_error": 2.9799652079276484e-08,
+        "gap": 0.08366139567329833
+      },
+      "delta_training_auc": 0.001505605366689422,
+      "delta_validation_auc": 0.025505260304058308,
+      "delta_gap": -0.023999654937368886
+    },
+    {
+      "generator": "Haukeli_G1",
+      "baseline": {
+        "model": "cnn_rescaled_2022",
+        "training_auc": 0.9934620655718431,
+        "validation_auc": 0.9149287910653179,
+        "validation_replay_max_abs_error": 2.980117796980153e-08,
+        "gap": 0.07853327450652525
+      },
+      "specialist": {
+        "model": "cnn_specialist_haukeli_2022",
+        "best_epoch": 13,
+        "training_auc": 0.9939935421253646,
+        "validation_auc": 0.9319163026158133,
+        "validation_replay_max_abs_error": 2.9798889134013962e-08,
+        "gap": 0.06207723950955135
+      },
+      "delta_training_auc": 0.0005314765535214816,
+      "delta_validation_auc": 0.016987511550495382,
+      "delta_gap": -0.0164560349969739
+    }
+  ],
+  "inference_seconds": 17.622465958993416,
+  "note": "Inference only on saved selected historical checkpoints in model.eval() using their stored training-only scalers. No fitting, test-case prediction, or new epoch selection. Training AUC is in-sample; reused historical validation is development data. Target gaps compare the same generator in the shared and specialized CNNs."
+}

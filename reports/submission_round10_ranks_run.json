@@ -1,0 +1,96 @@
+{
+  "config": {
+    "sources": {
+      "incumbent": "submissions/submission_round3_temporal_ranks.csv",
+      "separate_lgb": "data/processed/round10_ranks_seeds_full_predictions.csv"
+    },
+    "plant_weights": {
+      "Hogga": {
+        "incumbent": 0.5,
+        "separate_lgb": 0.5
+      },
+      "Tokke": {
+        "incumbent": 0.5,
+        "separate_lgb": 0.5
+      },
+      "Lio": {
+        "incumbent": 0.5,
+        "separate_lgb": 0.5
+      },
+      "Byrte": {
+        "incumbent": 0.5,
+        "separate_lgb": 0.5
+      },
+      "Vinje": {
+        "incumbent": 0.5,
+        "separate_lgb": 0.5
+      },
+      "Songa": {
+        "incumbent": 0.5,
+        "separate_lgb": 0.5
+      },
+      "Kjela": {
+        "incumbent": 0.5,
+        "separate_lgb": 0.5
+      },
+      "Vesle Kjela": {
+        "incumbent": 0.5,
+        "separate_lgb": 0.5
+      },
+      "Haukeli": {
+        "incumbent": 0.5,
+        "separate_lgb": 0.5
+      }
+    },
+    "historical_report": "reports/round10_ranks_historical_comparison.json",
+    "historical_variant": "candidate",
+    "selection_report": "reports/round10_ranks_pair_gate.json",
+    "frozen_confirmation": "reports/round10_ranks_pair_frozen_2022_comparison.json",
+    "native_confirmation": "reports/round10_ranks_pair_native_2022_comparison.json",
+    "component_mean_report": "reports/round10_ranks_seeds_full_mean.json",
+    "note": "Fixed50/50 Round3 and mean of two separate-generator LightGBM seeds299/673. Only two within-case price-rank features added; no blend tuning. Confirmedpositive aggregate AUC in three reused historical checks, with some quarter/generator regressions. Public/private Kaggle results unknown."
+  },
+  "config_sha256": "3fa61a26ffb52c39976ce36d20918b7024625aea5b9e8f555bf1c7e22c3bd64b",
+  "historical_source": "reports/round10_ranks_historical_comparison.json",
+  "historical_sha256": "e7283bdf0a2eb87a73e083656b6cd85a12f521084652c278beb7a99677ca5ebc",
+  "historical_results": [
+    {
+      "year": 2021,
+      "baseline_micro_roc_auc": 0.9903748458953463,
+      "selected_micro_roc_auc": 0.9904803647225968,
+      "delta_vs_baseline": 0.00010551882725051698
+    },
+    {
+      "year": 2022,
+      "baseline_micro_roc_auc": 0.9894111659365935,
+      "selected_micro_roc_auc": 0.9895671570386659,
+      "delta_vs_baseline": 0.00015599110207242806
+    }
+  ],
+  "test_cases": 725,
+  "outputs_per_case": 2352,
+  "template_sha256": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba",
+  "sources": {
+    "incumbent": {
+      "path": "submissions/submission_round3_temporal_ranks.csv",
+      "sha256": "6a19fc33a14e492a25914d678785162a010ec78d42e3e4db3ac06b7379aac4d9",
+      "outputs_per_case": 2352
+    },
+    "separate_lgb": {
+      "path": "data/processed/round10_ranks_seeds_full_predictions.csv",
+      "sha256": "3a4264290e7e545ef80774a1cff997cc3fe2a9f18dd88100255537c7e78f1ae6",
+      "outputs_per_case": 2352
+    }
+  },
+  "submission": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/submissions/submission_round10_ranks.csv",
+  "submission_sha256": "88a213991268c1952dbb9f4fe56eed2f14ef70646c19aaabd44c1364f0640632",
+  "checks": {
+    "unique_case_ids": true,
+    "template_case_order": true,
+    "template_column_order": true,
+    "all_plant_weights_sum_to_one": true,
+    "finite_probabilities_in_unit_interval": true,
+    "improves_both_historical_years": true
+  },
+  "note": "Saved predictions only; no fitting, hard thresholds or weight optimization. Historical results use reused development years, not an untouched holdout. Kaggle score remains unknown."
+}

@@ -1,0 +1,499 @@
+{
+  "created_utc": "2026-10-14T17:18:11.937902+00:00",
+  "scope": "Read-only protocol review and cached prediction diagnostics. No training, checkpoint inference, existing-file modifications or new candidate2022 inspection. This report is the only newly written artifact.",
+  "current_recipe": {
+    "path": "configs/round3_submission_temporal_ranks.json",
+    "user_reported_public_score": 0.99068,
+    "historical_micro_auc": {
+      "2021": 0.9889840634255942,
+      "2022": 0.988606657825117
+    },
+    "frozen2022_current_rank_baseline": {
+      "all": 0.9864608919020703,
+      "jan7_onward": 0.9864190191308742
+    },
+    "plant_weights_unchanged": {
+      "Hogga": {
+        "lightgbm_rescaled": 0.35,
+        "transformer": 0.15,
+        "xgb_depth8": 0.35,
+        "transformer_weighted": 0.15
+      },
+      "Tokke": {
+        "lightgbm_rescaled": 0.04999999999999999,
+        "transformer": 0.45,
+        "xgb_depth8": 0.04999999999999999,
+        "transformer_weighted": 0.45
+      },
+      "Lio": {
+        "lightgbm_rescaled": 0.35,
+        "transformer": 0.15,
+        "xgb_depth8": 0.35,
+        "transformer_weighted": 0.15
+      },
+      "Byrte": {
+        "lightgbm_rescaled": 0.5,
+        "xgb_depth8": 0.5
+      },
+      "Vinje": {
+        "lightgbm_rescaled": 0.25,
+        "transformer": 0.25,
+        "xgb_depth8": 0.25,
+        "transformer_weighted": 0.25
+      },
+      "Songa": {
+        "lightgbm_rescaled": 0.5,
+        "xgb_depth8": 0.5
+      },
+      "Kjela": {
+        "lightgbm_rescaled": 0.4,
+        "transformer": 0.1,
+        "xgb_depth8": 0.4,
+        "transformer_weighted": 0.1
+      },
+      "Vesle Kjela": {
+        "lightgbm_rescaled": 0.5,
+        "xgb_depth8": 0.5
+      },
+      "Haukeli": {
+        "xgb_rescaled": 0.25,
+        "lightgbm_rescaled": 0.5,
+        "haukeli_specialist": 0.25
+      }
+    }
+  },
+  "recommendations": {
+    "neural": {
+      "arms": [
+        {
+          "name": "matched_reference",
+          "learning_rate": 0.001,
+          "weight_decay": 0.0001
+        },
+        {
+          "name": "lower_learning_rate_only",
+          "learning_rate": 0.0005,
+          "weight_decay": 0.0001
+        },
+        {
+          "name": "higher_weight_decay_only",
+          "learning_rate": 0.001,
+          "weight_decay": 0.01
+        }
+      ],
+      "common": "Same39epochs,seed42,batch32,architecture,features,scaler policy,task loss weights and training data. New monitor reconstructs current full rankXGB ensemble and replaces only transformer_weighted at its existing coefficients. OriginalTransformer stays fixed.",
+      "why_reference": "Changing the ensemble monitor changes checkpoint selection. Compare optimizer arms to a fresh39epoch reference under that identical monitor, and also report gains versus the actual incumbent. A candidate gain solely versus the incumbent does not isolate an optimizer benefit.",
+      "selection": "Select checkpoint by2021 full-ensemble microAUC. If optional old/new means are evaluated, old means the incumbent task-weightedTransformer slot; freeze variant and selected epoch before frozen2022 or native2022 candidate scores. Prefer advancing at most one optimizer candidate.",
+      "gates": "Require a positive2021 incumbent gain and assess gain versus matched reference. Run the pre2021 frozen selected checkpoint on2022 with frozen scaler, preserving the full pre2021 rank ensemble. Use Jan7+ as the primary frozen gate and also report all cases. Advance to native2022 only if the prespecified frozen gate passes.",
+      "native_and_full": "Use fixed2021-selected epochs, no2022 monitor, no adaptive schedule, and retain constantLR. If claiming native2022 optimizer attribution, also fit the matched reference at its own2021-selected epoch. Full fit reuses selected parameters/epoch/variant without labels from competition cases.",
+      "do_not_mix": "Do not combineLR andWD or optimize plant coefficients in this round. A joint intervention would need a separate predeclared test."
+    },
+    "lightgbm": {
+      "verified_saved_tree_counts": {
+        "2021": 1499,
+        "2022": 800,
+        "full": 800
+      },
+      "feature_change": "Use only the same two temporal rank features already adopted forXGBoost; all LightGBM parameters and plant weights remain fixed.",
+      "minimal_2021": "Train one rank-only model at1499 fixed trees, compare against the saved1499 no-rank model. Existing1500 cap saved1499; do not assume1500.",
+      "recommended_count_policy": "Before any2022 candidate score, also evaluate800-tree prefixes of both2021 saved models. This needs inference only, and tests the800-tree full-data deployment budget on2021. Predeclare800 as deployment-primary and1499 as the matched incumbent/frozen sensitivity, or clearly label a1499-selected\u2192800 deployment recipe change.",
+      "frozen_gate": "Apply the pre2021 rank and no-rank models at the predeclared count to2022, with current frozen rankXGB ensemble, and gate on positiveJan7+ ensemble gain. Freeze candidate_replace or candidate_mean on2021; no variant switch after2022.",
+      "native2022_and_full": "For the minimal incumbent-preserving recipe use rank800 vs existing no-rank800 and full-data rank800. If instead using1499 native2022/full-data, require an otherwise-identical no-rank1499 native2022 control to separate count and feature effects.",
+      "excluded_confound": "Do not compare rank1499 against no-rank800 and attribute the total difference to ranks."
+    },
+    "common": [
+      "Both historical years are reused development data; frozen and native2022 are correlated deployment scenarios, not independent replications.",
+      "Use exact full-ensemble pooledAUC as the primary score. Per-generator and transition analyses are diagnostic; threshold.5 error counts do not replace the competition metric.",
+      "Preserve6-case training purge and reportJan7+ selection-horizon purge in2022.",
+      "Keep original artifacts; compare exact IDs/columns and reconstruct the current baseline from cached components. round3_compare.py references the older round2 recipe and must not be treated as current without explicit rankXGB replacement.",
+      "No new blend-weight sweep, threshold shift, or architecture search is needed for this bounded round."
+    ]
+  },
+  "prior_controls_not_to_repeat": {
+    "lightgbm_saved_comparisons": {
+      "convergence": [
+        {
+          "year": 2021,
+          "variant": "candidate_replace",
+          "delta_vs_baseline": -2.0765851447834827e-05
+        },
+        {
+          "year": 2021,
+          "variant": "candidate_mean",
+          "delta_vs_baseline": -2.1437278480140876e-06
+        },
+        {
+          "year": 2022,
+          "variant": "candidate_replace",
+          "delta_vs_baseline": 0.00021315123797049917
+        },
+        {
+          "year": 2022,
+          "variant": "candidate_mean",
+          "delta_vs_baseline": 0.0001500678700196989
+        }
+      ],
+      "capped_continuation": [
+        {
+          "year": 2021,
+          "variant": "candidate_replace",
+          "delta_vs_baseline": -3.20531098693122e-05
+        },
+        {
+          "year": 2021,
+          "variant": "candidate_mean",
+          "delta_vs_baseline": -1.1278854777918568e-05
+        }
+      ]
+    },
+    "interpretation": "Earlier continuation to1895 showed positive2022 but negative2021; capped continuation also lost2021. These used an earlier blend and are descriptive context, not rank-feature controls. Re-running convergence or capped-leaf searches does not isolate the present rank hypothesis.",
+    "neural": "Prior frozen39epoch monitor experiments, task weighting, temperature/averaging and rejected regularization work are already recorded; the newLR-only andWD-only comparisons are distinct because the old monitor and current weighted slot differ."
+  },
+  "cached_Lio_diagnostics": {
+    "selection": "Reuse exactly two prior2022Lio illustrative examples (March14,April6) and fix the same calendar starts in2021 before reading caches. These weeks were not randomly selected and are diagnostic, not generalization evidence.",
+    "important": "Existing report was for round2. Current results below use round3rankXGB with the fixed.35LGB+.35rankXGB+.15originalTF+.15weightedTF Lio mix. Single-class weekAUC is null.",
+    "yearly": [
+      {
+        "year": 2021,
+        "Lio_current_ensemble": {
+          "auc": 0.9550676302013762,
+          "mean_probability": 0.48210165173115954,
+          "mean_probability_ON": 0.7661602033731509,
+          "mean_probability_OFF": 0.14132717303678366,
+          "binary_cross_entropy": 0.2956478018168867,
+          "false_negative_hours": 6995,
+          "false_positive_hours": 1529
+        },
+        "pairs": {
+          "lightgbm__xgb_ranks": {
+            "mean_absolute_probability_difference": 0.05488536630056188,
+            "threshold_disagreement_fraction": 0.05136986301369863
+          },
+          "transformer_original__transformer_weighted": {
+            "mean_absolute_probability_difference": 0.10080944298739235,
+            "threshold_disagreement_fraction": 0.11356816699282453
+          },
+          "xgb_ranks__transformer_weighted": {
+            "mean_absolute_probability_difference": 0.19727083468627987,
+            "threshold_disagreement_fraction": 0.1839204174820613
+          }
+        },
+        "true_ON_hours": 33443,
+        "true_ON_hours_all_four_components_below_half": 3324,
+        "false_negative_hours_with_some_component_above_half": 3671
+      },
+      {
+        "year": 2022,
+        "Lio_current_ensemble": {
+          "auc": 0.9620958629772651,
+          "mean_probability": 0.5425213743525539,
+          "mean_probability_ON": 0.8259593241678398,
+          "mean_probability_OFF": 0.19621132305644665,
+          "binary_cross_entropy": 0.26187797395179196,
+          "false_negative_hours": 4100,
+          "false_positive_hours": 2493
+        },
+        "pairs": {
+          "lightgbm__xgb_ranks": {
+            "mean_absolute_probability_difference": 0.06380316440545897,
+            "threshold_disagreement_fraction": 0.06050228310502283
+          },
+          "transformer_original__transformer_weighted": {
+            "mean_absolute_probability_difference": 0.12993089892248233,
+            "threshold_disagreement_fraction": 0.14859752120026093
+          },
+          "xgb_ranks__transformer_weighted": {
+            "mean_absolute_probability_difference": 0.18424605118934145,
+            "threshold_disagreement_fraction": 0.19111219830397913
+          }
+        },
+        "true_ON_hours": 33721,
+        "true_ON_hours_all_four_components_below_half": 1494,
+        "false_negative_hours_with_some_component_above_half": 2606
+      }
+    ],
+    "examples": [
+      {
+        "date": "2021-03-14",
+        "run_id": 2265,
+        "true_ON_hours": 168,
+        "components": {
+          "lightgbm": {
+            "auc": null,
+            "mean_probability": 0.9840311106677068,
+            "mean_probability_ON": 0.9840311106677068,
+            "mean_probability_OFF": null,
+            "binary_cross_entropy": 0.016546901458783944,
+            "false_negative_hours": 0,
+            "false_positive_hours": 0
+          },
+          "xgb_previous": {
+            "auc": null,
+            "mean_probability": 0.9805606639880952,
+            "mean_probability_ON": 0.9805606639880952,
+            "mean_probability_OFF": null,
+            "binary_cross_entropy": 0.020461177905433052,
+            "false_negative_hours": 0,
+            "false_positive_hours": 0
+          },
+          "xgb_ranks": {
+            "auc": null,
+            "mean_probability": 0.9832036778571429,
+            "mean_probability_ON": 0.9832036778571429,
+            "mean_probability_OFF": null,
+            "binary_cross_entropy": 0.017513824736920734,
+            "false_negative_hours": 0,
+            "false_positive_hours": 0
+          },
+          "transformer_original": {
+            "auc": null,
+            "mean_probability": 0.9267425139285714,
+            "mean_probability_ON": 0.9267425139285714,
+            "mean_probability_OFF": null,
+            "binary_cross_entropy": 0.07843701831490736,
+            "false_negative_hours": 0,
+            "false_positive_hours": 0
+          },
+          "transformer_weighted": {
+            "auc": null,
+            "mean_probability": 0.7039059642857143,
+            "mean_probability_ON": 0.7039059642857143,
+            "mean_probability_OFF": null,
+            "binary_cross_entropy": 0.3605616458262214,
+            "false_negative_hours": 0,
+            "false_positive_hours": 0
+          },
+          "current_ensemble": {
+            "auc": null,
+            "mean_probability": 0.9331294477158403,
+            "mean_probability_ON": 0.9331294477158403,
+            "mean_probability_OFF": null,
+            "binary_cross_entropy": 0.0700971562595805,
+            "false_negative_hours": 0,
+            "false_positive_hours": 0
+          }
+        },
+        "component_probability_range_mean": 0.2817855383047917,
+        "hours_components_straddle_half": 0,
+        "all_components_below_half_true_ON_hours": 0
+      },
+      {
+        "date": "2021-04-06",
+        "run_id": 2288,
+        "true_ON_hours": 135,
+        "components": {
+          "lightgbm": {
+            "auc": 0.9353535353535354,
+            "mean_probability": 0.9401944727575395,
+            "mean_probability_ON": 0.9901783771182779,
+            "mean_probability_OFF": 0.7357148640090649,
+            "binary_cross_entropy": 0.47941356388076856,
+            "false_negative_hours": 0,
+            "false_positive_hours": 23
+          },
+          "xgb_previous": {
+            "auc": 0.9393939393939393,
+            "mean_probability": 0.9389924190833334,
+            "mean_probability_ON": 0.9930910275555556,
+            "mean_probability_OFF": 0.7176799298787878,
+            "binary_cross_entropy": 0.5405386853662603,
+            "false_negative_hours": 0,
+            "false_positive_hours": 23
+          },
+          "xgb_ranks": {
+            "auc": 0.9326599326599326,
+            "mean_probability": 0.9417810558035714,
+            "mean_probability_ON": 0.9927323425925924,
+            "mean_probability_OFF": 0.7333439734848485,
+            "binary_cross_entropy": 0.6052727247201489,
+            "false_negative_hours": 0,
+            "false_positive_hours": 24
+          },
+          "transformer_original": {
+            "auc": 0.969023569023569,
+            "mean_probability": 0.833068601904762,
+            "mean_probability_ON": 0.8776829146666667,
+            "mean_probability_OFF": 0.6505555042424244,
+            "binary_cross_entropy": 0.34507115355058543,
+            "false_negative_hours": 0,
+            "false_positive_hours": 25
+          },
+          "transformer_weighted": {
+            "auc": 0.9584736251402918,
+            "mean_probability": 0.17617251207142856,
+            "mean_probability_ON": 0.18955701488888888,
+            "mean_probability_OFF": 0.1214177278181818,
+            "binary_cross_entropy": 1.3921647566706605,
+            "false_negative_hours": 133,
+            "false_positive_hours": 0
+          },
+          "current_ensemble": {
+            "auc": 0.9530864197530865,
+            "mean_probability": 0.8100776020928173,
+            "mean_probability_ON": 0.8541047413321379,
+            "mean_probability_OFF": 0.6299665779319605,
+            "binary_cross_entropy": 0.3701220065660052,
+            "false_negative_hours": 0,
+            "false_positive_hours": 23
+          }
+        },
+        "component_probability_range_mean": 0.7758091653262346,
+        "hours_components_straddle_half": 158,
+        "all_components_below_half_true_ON_hours": 0
+      },
+      {
+        "date": "2022-03-14",
+        "run_id": 2630,
+        "true_ON_hours": 40,
+        "components": {
+          "lightgbm": {
+            "auc": 0.90234375,
+            "mean_probability": 0.3084371622002441,
+            "mean_probability_ON": 0.4035313313750241,
+            "mean_probability_OFF": 0.2787202343331253,
+            "binary_cross_entropy": 0.47151867417385873,
+            "false_negative_hours": 38,
+            "false_positive_hours": 0
+          },
+          "xgb_previous": {
+            "auc": 0.9181640625,
+            "mean_probability": 0.15682837665476188,
+            "mean_probability_ON": 0.26913618575,
+            "mean_probability_OFF": 0.1217321863125,
+            "binary_cross_entropy": 0.42284524082508834,
+            "false_negative_hours": 39,
+            "false_positive_hours": 0
+          },
+          "xgb_ranks": {
+            "auc": 0.88046875,
+            "mean_probability": 0.2450938661904762,
+            "mean_probability_ON": 0.37420885575000007,
+            "mean_probability_OFF": 0.204745431953125,
+            "binary_cross_entropy": 0.4298662185471693,
+            "false_negative_hours": 34,
+            "false_positive_hours": 1
+          },
+          "transformer_original": {
+            "auc": 0.9953125,
+            "mean_probability": 0.18212310095238096,
+            "mean_probability_ON": 0.37905045,
+            "mean_probability_OFF": 0.120583304375,
+            "binary_cross_entropy": 0.35537980848720063,
+            "false_negative_hours": 33,
+            "false_positive_hours": 0
+          },
+          "transformer_weighted": {
+            "auc": 0.997265625,
+            "mean_probability": 0.40004352437499996,
+            "mean_probability_ON": 0.72214741125,
+            "mean_probability_OFF": 0.29938605972656246,
+            "binary_cross_entropy": 0.36599168134281246,
+            "false_negative_hours": 0,
+            "false_positive_hours": 11
+          },
+          "current_ensemble": {
+            "auc": 0.9740234375,
+            "mean_probability": 0.28106085373585926,
+            "mean_probability_ON": 0.4373887446812583,
+            "mean_probability_OFF": 0.23220838781542197,
+            "binary_cross_entropy": 0.4077692543898093,
+            "false_negative_hours": 33,
+            "false_positive_hours": 0
+          }
+        },
+        "component_probability_range_mean": 0.256011492451628,
+        "hours_components_straddle_half": 50,
+        "all_components_below_half_true_ON_hours": 0
+      },
+      {
+        "date": "2022-04-06",
+        "run_id": 2653,
+        "true_ON_hours": 168,
+        "components": {
+          "lightgbm": {
+            "auc": null,
+            "mean_probability": 0.2843470380116731,
+            "mean_probability_ON": 0.2843470380116731,
+            "mean_probability_OFF": null,
+            "binary_cross_entropy": 1.325278477040791,
+            "false_negative_hours": 155,
+            "false_positive_hours": 0
+          },
+          "xgb_previous": {
+            "auc": null,
+            "mean_probability": 0.3477872626785714,
+            "mean_probability_ON": 0.3477872626785714,
+            "mean_probability_OFF": null,
+            "binary_cross_entropy": 1.094721549658904,
+            "false_negative_hours": 158,
+            "false_positive_hours": 0
+          },
+          "xgb_ranks": {
+            "auc": null,
+            "mean_probability": 0.29399690994047617,
+            "mean_probability_ON": 0.29399690994047617,
+            "mean_probability_OFF": null,
+            "binary_cross_entropy": 1.290241542657183,
+            "false_negative_hours": 161,
+            "false_positive_hours": 0
+          },
+          "transformer_original": {
+            "auc": null,
+            "mean_probability": 0.02767495394940476,
+            "mean_probability_ON": 0.02767495394940476,
+            "mean_probability_OFF": null,
+            "binary_cross_entropy": 4.0061507219314585,
+            "false_negative_hours": 167,
+            "false_positive_hours": 0
+          },
+          "transformer_weighted": {
+            "auc": null,
+            "mean_probability": 0.012902190452380951,
+            "mean_probability_ON": 0.012902190452380951,
+            "mean_probability_OFF": null,
+            "binary_cross_entropy": 4.945587077524244,
+            "false_negative_hours": 167,
+            "false_positive_hours": 0
+          },
+          "current_ensemble": {
+            "auc": null,
+            "mean_probability": 0.2085069534435201,
+            "mean_probability_ON": 0.2085069534435201,
+            "mean_probability_OFF": null,
+            "binary_cross_entropy": 1.636650432141614,
+            "false_negative_hours": 167,
+            "false_positive_hours": 0
+          }
+        },
+        "component_probability_range_mean": 0.2975563749090603,
+        "hours_components_straddle_half": 13,
+        "all_components_below_half_true_ON_hours": 154
+      }
+    ]
+  },
+  "source_hashes": {
+    "configs/round3_submission_temporal_ranks.json": "a567449724194812fa0252c1b32f7a02fd38da3ddbbc116ead57d5c3e8d82261",
+    "configs/goal_lightgbm_rescaled_2021.json": "67eaa5784b67571d586cf2dffb52b606ae208f093e89916e6b3ce6c42749b4e0",
+    "configs/goal_lightgbm_rescaled_2022.json": "2ba60b9b3f7ec312449f9d7799470ff81a0878af24bb53abdcc64284fcb2bdfd",
+    "configs/goal_submission_lightgbm_rescaled.json": "0c7947aae55fff26c2e958fc893870feecf9402d29896d42c526f021ae44b337",
+    "configs/round2_transformer_task_weights_2021.json": "407d23e3ccf5674e7f5f52b853c3b631ededa7769f9fc4544a5750faed15bdfe",
+    "reports/round2_validation_protocol_review.json": "ab21fc82a66f5e066c12182bed544e214c0041fe3b66eeaf711ad1e6daa1ff48",
+    "reports/round2_neural_independent_review.json": "f933599cab19bd6675c3ad152d4aa58a6fbc31418ef8d9e7f27a6cddd9d7e658",
+    "reports/round2_lgb_convergence_both_comparison.json": "07d9bc7cba2ef45bdcbc9cdf89854cb5332786055c0c00a6323119141972d697",
+    "reports/round2_lgb_capped_2021_comparison.json": "3ec093ba518ae0078693c71a5e3810a245f4d6e37c9c437f85dd72d624e975f7",
+    "reports/round3_errors.json": "0a187f2abdd8e9600bf2db2a03949286b5da49c2025f15775f71861cfe4eb9ba",
+    "reports/round3_xgb_ranks_both_comparison.json": "02501ad2bef3ffb93971eb1f35ef00fbd23a9d2075c95525723971893c169861",
+    "reports/round3_frozen_xgb_ranks_2022_comparison.json": "e62a3474ac40befe294bef2bbca70d76f352bbf44969fd0696e8cd9a1d4a5fc3",
+    "data/processed/goal_lightgbm_rescaled_2021_validation_predictions.csv": "c6293900ee822e35913ceed1e03195e9609be95b692af75b2fb664340750fc48",
+    "data/processed/round2_xgb_depth8_2021_validation_predictions.csv": "7f1cdf0e49074cc65b436da11994cef0b515ce42a0fad1cc39fb976bc0ef7b93",
+    "data/processed/round3_xgb_ranks_2021_validation_predictions.csv": "050687f05e860f86cbafb41a9df099e908ff359868cbe34a7e33b2cdec0f0fe7",
+    "data/processed/transformer_rescaled_2021_validation_predictions.csv": "3c2a99925d32df75b0526a1ed88dc9f5dfd246e05b2436d0ba3e282001884e2f",
+    "data/processed/round2_transformer_task_weights_2021_validation_predictions.csv": "f7334a3e3c0ec83615a67da440c9732c6f6c781df3a7b3f486b44080cc738726",
+    "data/processed/goal_lightgbm_rescaled_2022_validation_predictions.csv": "c2b5a67d254afe54a9a311fed933d2a6295a905a934003c2c64033e1350ad71a",
+    "data/processed/round2_xgb_depth8_2022_validation_predictions.csv": "96375369ea38b3a3dc836e46e86e09b2d6d9f11be95349494126e1ea155f9b1f",
+    "data/processed/round3_xgb_ranks_2022_validation_predictions.csv": "b5bf897da43c8575d851192b78f968505c0aef202b30cbce4fe173b3bf91182f",
+    "data/processed/transformer_rescaled_2022_validation_predictions.csv": "bef295276b85eb963e427220b08ffd74f4e545613e9ce2b203ddb3841556d4c1",
+    "data/processed/round2_transformer_task_weights_2022_validation_predictions.csv": "792e2b10c11783ad7f01d7f3de7a1a9e3ebd8b33d82faadb96d60598b5b0febf"
+  },
+  "source_hashes_unchanged_during_review": true
+}

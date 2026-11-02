@@ -1,0 +1,20 @@
+{
+  "seeds": [
+    42,
+    7,
+    21
+  ],
+  "years": [
+    2021,
+    2022
+  ],
+  "averaging_seed": 42,
+  "weight_averaging": {
+    "ema_start_epoch": 6,
+    "ema_decay": 0.99,
+    "swa_start_epoch": 10
+  },
+  "xgboost_weight": 0.8,
+  "cnn_weight": 0.2,
+  "note": "Fixed CNN stability experiments. Features, chronological splits and BCE unchanged. Historical validation is development data."
+}

@@ -1,0 +1,164 @@
+{
+  "passed": true,
+  "submission": "submissions/submission_round3_temporal_ranks.csv",
+  "submission_sha256": "6a19fc33a14e492a25914d678785162a010ec78d42e3e4db3ac06b7379aac4d9",
+  "cases": 725,
+  "outputs_per_case": 2352,
+  "verified_probabilities": 1705200,
+  "full_blend_max_absolute_difference": 0.0,
+  "checkpoint_replay_cases": [
+    2923,
+    2968,
+    3013,
+    3058,
+    3104,
+    3149,
+    3194,
+    3239,
+    3285,
+    3330,
+    3375,
+    3420,
+    3466,
+    3511,
+    3556,
+    3601,
+    3647
+  ],
+  "checkpoint_replay_max_absolute_difference": 2.9797363243488917e-08,
+  "checkpoint_replay_float32_equal": true,
+  "trees": 748,
+  "feature_count": 115,
+  "training_cases": 2922,
+  "training_cohort_sha256": "9ea86abb2dfaa9bb06b020cdf00bb50e69e6b95246c1971b31afab0fb230296c",
+  "competition_training_id_overlap": 0,
+  "first_training_start": "2015-01-01 00:00:00+00:00",
+  "last_training_start": "2022-12-31 00:00:00+00:00",
+  "historical_metric_checks": [
+    {
+      "year": 2021,
+      "variant": "baseline",
+      "official_micro_roc_auc": 0.9889184502673686
+    },
+    {
+      "year": 2021,
+      "variant": "candidate_replace",
+      "official_micro_roc_auc": 0.9889840634255942
+    },
+    {
+      "year": 2022,
+      "variant": "baseline",
+      "official_micro_roc_auc": 0.9883755349637956
+    },
+    {
+      "year": 2022,
+      "variant": "candidate_replace",
+      "official_micro_roc_auc": 0.988606657825117
+    }
+  ],
+  "frozen_promotion_checks": [
+    {
+      "subset": "all",
+      "variant": "candidate_replace",
+      "cases": 365,
+      "micro_roc_auc": 0.9864608919020703,
+      "generator_auc": {
+        "Hogga_G1": 0.9763317461989429,
+        "Tokke_G1": 0.9948978213265864,
+        "Tokke_G2": 0.9928695097946262,
+        "Tokke_G3": 0.9954411320420444,
+        "Tokke_G4": 0.9947956247629918,
+        "Lio_G1": 0.9601310031481233,
+        "Byrte_G1": 0.9955804314367255,
+        "Vinje_G1": 0.9857283386638396,
+        "Vinje_G2": 0.9838297457954045,
+        "Vinje_G3": 0.972734077655062,
+        "Haukeli_G1": 0.9433130484801925,
+        "Songa_G1": 0.9968711576368342,
+        "Kjela_G1": 0.9779166863859414,
+        "Vesle Kjela_G1": 0.9921592469707889
+      },
+      "delta_vs_baseline": 5.725797654754228e-05,
+      "generator_delta_vs_baseline": {
+        "Hogga_G1": 0.00039058628960519925,
+        "Tokke_G1": 7.696125492095973e-05,
+        "Tokke_G2": -6.194510509704987e-05,
+        "Tokke_G3": 6.8613602827172215e-06,
+        "Tokke_G4": -9.738167482953308e-06,
+        "Lio_G1": -0.0004498692919202574,
+        "Byrte_G1": -3.334867364801486e-05,
+        "Vinje_G1": 0.0003570793608314027,
+        "Vinje_G2": 0.0002584656996524881,
+        "Vinje_G3": 0.00045981340312784,
+        "Haukeli_G1": 0.0,
+        "Songa_G1": -9.958025097278611e-05,
+        "Kjela_G1": 2.7695715087983075e-05,
+        "Vesle Kjela_G1": -0.00016861068041296168
+      }
+    },
+    {
+      "subset": "jan7_onward",
+      "variant": "candidate_replace",
+      "cases": 359,
+      "micro_roc_auc": 0.9864190191308742,
+      "generator_auc": {
+        "Hogga_G1": 0.9776375773066366,
+        "Tokke_G1": 0.9948382648393528,
+        "Tokke_G2": 0.9927685457332334,
+        "Tokke_G3": 0.9953791312491341,
+        "Tokke_G4": 0.9947261815927625,
+        "Lio_G1": 0.960429967047989,
+        "Byrte_G1": 0.9955102853083156,
+        "Vinje_G1": 0.9855481024553687,
+        "Vinje_G2": 0.9836276134260158,
+        "Vinje_G3": 0.9719429980491514,
+        "Haukeli_G1": 0.9430617184883626,
+        "Songa_G1": 0.9968423330665044,
+        "Kjela_G1": 0.9777353740097687,
+        "Vesle Kjela_G1": 0.9923203888162636
+      },
+      "delta_vs_baseline": 4.863538622756902e-05,
+      "generator_delta_vs_baseline": {
+        "Hogga_G1": 0.0003280184525024099,
+        "Tokke_G1": 7.869417124661826e-05,
+        "Tokke_G2": -6.32590159730384e-05,
+        "Tokke_G3": 5.633297495033496e-06,
+        "Tokke_G4": -1.016971033374059e-05,
+        "Lio_G1": -0.0005599839351998481,
+        "Byrte_G1": -3.6793381952726634e-05,
+        "Vinje_G1": 0.0003660466406566476,
+        "Vinje_G2": 0.0002603790803817896,
+        "Vinje_G3": 0.00047210960237542565,
+        "Haukeli_G1": 0.0,
+        "Songa_G1": -0.00010136944662109126,
+        "Kjela_G1": 2.8021564782654274e-05,
+        "Vesle Kjela_G1": -0.00016370758834349797
+      }
+    }
+  ],
+  "protected_originals": {
+    "snapshot": "/private/tmp/tdt4173-round3-protection.json",
+    "files_checked": 402,
+    "changed": []
+  },
+  "artifact_hashes": {
+    "configs/round3_xgb_ranks_full.json": "a025c6c44465b2d312e937218c267067f62c9a596de389b774f02f6737832bd5",
+    "models/xgboost_round3_xgb_ranks_full.ubj": "d7e1d2545785c7c11ae5cf02e30501aba392555aca1e2679ed4026a1b5349ba6",
+    "data/processed/round3_xgb_ranks_full_predictions.csv": "06086ff32b2ba46530c334cf9177a934f895cc6aed79dc6b629868f648ce1a33",
+    "reports/round3_xgb_ranks_full_run.json": "94888e3b78a495bbe3baecbced86ac2eeeafaada825f9823c9696cde94cf3ece",
+    "configs/round3_submission_temporal_ranks.json": "a567449724194812fa0252c1b32f7a02fd38da3ddbbc116ead57d5c3e8d82261",
+    "submissions/submission_round3_temporal_ranks.csv": "6a19fc33a14e492a25914d678785162a010ec78d42e3e4db3ac06b7379aac4d9",
+    "reports/submission_round3_temporal_ranks_run.json": "ae4896c4fe1851bfeb9b569520b300a0704cb813c308b68bc00bd4bbb6523696",
+    "reports/round3_xgb_ranks_both_comparison.json": "02501ad2bef3ffb93971eb1f35ef00fbd23a9d2075c95525723971893c169861",
+    "evaluation/kaggle_metric.py": "6ba062eeb8c2983a490cad411071dfc77831e3f2233278e5a67b68810df90553",
+    "reports/round3_xgb_ranks_selection_2021.json": "dc95279618de6f5a9f7549384a7beece9af0bbfb3334a58f02d45f49fa474474",
+    "data/processed/goal_submission_xgb_rescaled_predictions.csv": "98c2ceaee61d12ff8941f8544093349d8e625a746e8ea7afbe457ae862a84f28",
+    "data/processed/goal_submission_lightgbm_rescaled_predictions.csv": "2e2cd9ed384ae49a5aab78ae78e9705737bcf33dc06a54df0491a6ef2e437566",
+    "data/processed/submission_transformer_rescaled_predictions.csv": "a2a37788c932d5cc7c078ede9fbd3c8aec0c403234514c552eaeff637642b296",
+    "data/processed/round2_xgb_haukeli_full_predictions.csv": "eb9d6d8243369519937b2e84d8acfaeb584142da57be9f19836b0586b79e4500",
+    "data/processed/round2_submission_transformer_task_weights_predictions.csv": "8195c185afd201de0bc0104a7834e86d18619e4a2307d97cbd1f67c6a2a6bac2"
+  },
+  "verification_script_sha256": "5e228cc6b3a7fb32abeadaf1599e032bcf5b2b89042afdd6cb597fe025dc9963",
+  "cpu_threads": 1,
+  "scope": "All CSV values independently blended; sampled17-case saved-model replay. Historical native scores reproduced with supplied metric. Reused development years, frozen promotion checks positive; no Kaggle upload or score claim."
+}

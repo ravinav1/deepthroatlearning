@@ -1,0 +1,31 @@
+{
+  "validation_start": "2020-01-01",
+  "validation_end": "2020-12-26",
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "use_price_context": true,
+  "use_economic_rescaling": true,
+  "loss": "binary",
+  "early_stopping_rounds": 100,
+  "model": {
+    "n_estimators": 1800,
+    "learning_rate": 0.04,
+    "num_leaves": 63,
+    "min_child_samples": 100,
+    "max_bin": 63,
+    "random_state": 299,
+    "n_jobs": 4,
+    "deterministic": true,
+    "force_col_wise": true,
+    "verbosity": -1,
+    "reg_alpha": 0.2,
+    "reg_lambda": 4.0,
+    "subsample": 0.85,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.85
+  },
+  "hour_stride": 4,
+  "deadline_utc": "2026-10-14T20:35:07+00:00",
+  "experiment": "Peer parameter bundle, using our existing inputs. Earlier-year count selection excludes startsDec26-31 so complete target weeks end within that year. Absolute=unscaled existingfeatures; relative=weeklyeconomicrescaling withmax(mean(abs(price)),10) andlogscale."
+}

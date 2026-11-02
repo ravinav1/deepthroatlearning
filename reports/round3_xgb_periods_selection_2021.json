@@ -1,0 +1,29 @@
+{
+  "selected_utc": "2026-10-14T16:54:23.443625+00:00",
+  "selected_variant": "candidate_replace",
+  "selected_metrics": {
+    "year": 2021,
+    "variant": "candidate_replace",
+    "cases": 365,
+    "micro_roc_auc": 0.9889831267640371,
+    "generator_auc": {
+      "Hogga_G1": 0.9710132580367501,
+      "Tokke_G1": 0.990562325522033,
+      "Tokke_G2": 0.9926111008268954,
+      "Tokke_G3": 0.9923356664831441,
+      "Tokke_G4": 0.9929308991273276,
+      "Lio_G1": 0.9557794104803455,
+      "Byrte_G1": 0.998547667253691,
+      "Vinje_G1": 0.9910816404995898,
+      "Vinje_G2": 0.9874749593072919,
+      "Vinje_G3": 0.9812890490356719,
+      "Haukeli_G1": 0.9638157046579812,
+      "Songa_G1": 0.9949730907074039,
+      "Kjela_G1": 0.9844178146402685,
+      "Vesle Kjela_G1": 0.9992015222663367
+    },
+    "delta_vs_baseline": 6.467649666852537e-05
+  },
+  "source": "reports/round3_xgb_periods_2021_comparison.json",
+  "protocol": "Locked before native/frozen2022 scores; fixed full-ensemble higher2021 AUC variant. No variant switch after2022."
+}

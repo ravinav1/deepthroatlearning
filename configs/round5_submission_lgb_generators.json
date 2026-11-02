@@ -1,0 +1,51 @@
+{
+  "sources": {
+    "incumbent": "submissions/submission_round3_temporal_ranks.csv",
+    "separate_lgb": "data/processed/round5_lgb_peer_relative_seeds_full_predictions.csv"
+  },
+  "plant_weights": {
+    "Hogga": {
+      "incumbent": 0.5,
+      "separate_lgb": 0.5
+    },
+    "Tokke": {
+      "incumbent": 0.5,
+      "separate_lgb": 0.5
+    },
+    "Lio": {
+      "incumbent": 0.5,
+      "separate_lgb": 0.5
+    },
+    "Byrte": {
+      "incumbent": 0.5,
+      "separate_lgb": 0.5
+    },
+    "Vinje": {
+      "incumbent": 0.5,
+      "separate_lgb": 0.5
+    },
+    "Songa": {
+      "incumbent": 0.5,
+      "separate_lgb": 0.5
+    },
+    "Kjela": {
+      "incumbent": 0.5,
+      "separate_lgb": 0.5
+    },
+    "Vesle Kjela": {
+      "incumbent": 0.5,
+      "separate_lgb": 0.5
+    },
+    "Haukeli": {
+      "incumbent": 0.5,
+      "separate_lgb": 0.5
+    }
+  },
+  "historical_report": "reports/round5_selected_historical_comparison.json",
+  "historical_variant": "candidate_global_mean",
+  "selection_report": "reports/round5_selection_2021.json",
+  "frozen_confirmation": "reports/round5_selected_frozen_2022_comparison.json",
+  "native_confirmation": "reports/round5_selected_native_2022_comparison.json",
+  "component_mean_report": "reports/round5_lgb_peer_relative_seeds_full_mean.json",
+  "note": "50% complete incumbent round3 ensemble and50% uniform mean of two separate-generator LightGBM ensembles (seeds299/673). Relative monetary inputs; per-generator tree counts fixed from2019/2020. Selected on2021 before later2022 checks. Absolute-price components excluded by2021 selection. Reused development years; Kaggle result unknown."
+}

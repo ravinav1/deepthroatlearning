@@ -1,0 +1,21 @@
+{
+  "created_utc": "2026-10-17T18:46:57.982897+00:00",
+  "baseline": ".5 Round3 + .25 original Round5 seed299 + .25 original Round5 seed673",
+  "method": "Binary ridge logistic regression: one common logit slope +14generator offsets",
+  "C": 0.001,
+  "fit_intercept": false,
+  "max_iter": 300,
+  "solver": "lbfgs",
+  "threads": 1,
+  "probability_clip": 1e-06,
+  "require_positive_slope": true,
+  "fit_cases": "2021 starts whose start+7days <=2021-07-01UTC (Jan1-Jun24)",
+  "holdout_cases": "2021-07-01UTC through2021-12-31UTC",
+  "minimum_holdout_micro_auc_gain": 5e-05,
+  "minimum_native_2022_gain_all_and_jan7": 5e-05,
+  "minimum_frozen_2022_gain_all_and_jan7": 0,
+  "refit_after_2021_holdout": false,
+  "fit_2022_labels": false,
+  "retries": false,
+  "source_code_sha256": "cff936dc1ee94b0f4b3db18c2ce49c7f87ccbf41a9f77fb50df95508047f25d8"
+}

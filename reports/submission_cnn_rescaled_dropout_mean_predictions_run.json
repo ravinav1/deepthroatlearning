@@ -1,0 +1,15 @@
+{
+  "sources": [
+    {
+      "file": "data/processed/submission_cnn_rescaled_predictions.csv",
+      "weight": 0.5
+    },
+    {
+      "file": "data/processed/submission_cnn_rescaled_dropout_predictions.csv",
+      "weight": 0.5
+    }
+  ],
+  "test_cases": 725,
+  "outputs_per_case": 2352,
+  "submission": "data/processed/submission_cnn_rescaled_dropout_mean_predictions.csv"
+}

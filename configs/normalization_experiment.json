@@ -1,0 +1,22 @@
+{
+  "years": [
+    2021,
+    2022
+  ],
+  "seed": 42,
+  "profiles": {
+    "legacy": "cnn_{year}",
+    "stable": "cnn_stable_{year}",
+    "normalized": "cnn_normalized_{year}",
+    "rescaled": "cnn_rescaled_{year}"
+  },
+  "other_seeds": [
+    7,
+    21,
+    67,
+    103
+  ],
+  "xgboost_weight": 0.8,
+  "cnn_weight": 0.2,
+  "note": "Stable scaler control, appended weekly economic channels, and one follow-up rescaling existing economic channels with log scale retained. Compare seed42 and a fixed five-member blend replacing only seed42. Historical validation is development data."
+}

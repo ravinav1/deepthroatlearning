@@ -1,0 +1,15 @@
+{
+  "created_utc": "2026-10-17T17:21:51.924795+00:00",
+  "reason": "Reference retains max_bin63. This untested histogram-resolution constraint may limit threshold precision despite higher leaf counts.",
+  "type": "One additional controlled single-factor arm, before any candidate2022 evaluation",
+  "config": "configs/round6_finebins_seed299_2021.json",
+  "only_model_change": {
+    "max_bin": {
+      "reference": 63,
+      "candidate": 255
+    }
+  },
+  "selection": "Add finebins to original single-arm candidates. Choose best matched2021 single-seed ensemble before673 gate and any2022candidateevaluation.",
+  "combination_rule": "Do not add finebins to adaptive combination; keep its previously documented knob rule unchanged. At most one combination and one bin-resolution control.",
+  "limits": "No further search extensions; preserve all2022confirmation and finalfit gates. Reserve final30minutes."
+}

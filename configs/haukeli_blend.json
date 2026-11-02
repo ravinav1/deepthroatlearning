@@ -1,0 +1,10 @@
+{
+  "selection_year": 2021,
+  "confirmation_year": 2022,
+  "baseline_weight_source": "reports/plant_blend_refined_comparison.json",
+  "baseline_specialist_weight": 0.2,
+  "candidate_specialist_weights": [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+  "target_generator": "Haukeli_G1",
+  "specialist_prefix": "cnn_specialist_haukeli",
+  "note": "Tune only Haukeli's XGBoost/specialist-CNN weight on 2021 pooled micro ROC-AUC. Freeze the selected weight before checking 2022. Keep the other 13 generators fixed at the refined plant weights. Saved predictions only; no model training or competition test labels. Both years are reused historical development data."
+}

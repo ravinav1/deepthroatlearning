@@ -1,0 +1,271 @@
+{
+  "started_utc": "2026-10-14T16:41:47.988146+00:00",
+  "status": "completed",
+  "baseline": {
+    "historical_report": "reports/round2_depth8_combined_both_comparison.json",
+    "variant": "depth8_haukeli_weighted_mean",
+    "selection_report": "reports/round2_depth8_combined_selection_2021.json",
+    "recipe": "Depth8 XGBoost except Haukeli retains originalshared/specialistmean; old/task-weighted Transformer mean; unchanged LightGBM and plant weights.",
+    "auc_2021": 0.9889184502673686,
+    "auc_2022": 0.9883755349637956,
+    "status": "exported_and_independently_verified",
+    "full_fit_configs": [
+      "configs/round2_xgb_depth8_full.json",
+      "configs/round2_xgb_haukeli_full.json",
+      "configs/round2_submission_transformer_task_weights.json"
+    ],
+    "submission_config": "configs/round2_submission_depth8_haukeli_weighted.json",
+    "attribution_report": "reports/round2_depth8_attribution.json",
+    "depth8_marginal_caution": "Depth8 has mixed year effects; combined2022 improvement does not establish depth8 improvement. Recipe remains the one frozen on2021.",
+    "official_metric_verification": "reports/round2_official_metric_verification.json",
+    "auc_2022_jan7_onward": 0.9882779415435364,
+    "submission": "submissions/submission_round2_depth8_haukeli_weighted.csv",
+    "export_report": "reports/submission_round2_depth8_haukeli_weighted_run.json",
+    "public_score_user_reported": 0.99053,
+    "current_best_user_reported": false,
+    "best_at_round_start_user_reported": true
+  },
+  "public_score_user_reported": 0.99068,
+  "protection": {
+    "snapshot": "/private/tmp/tdt4173-round3-protection.json",
+    "protected_files": 402,
+    "source_before": "/private/tmp/tdt4173-round3-source-before"
+  },
+  "constraints": {
+    "new_temporal_feature_families_max": 2,
+    "heavy_training": "sequential, CPU4",
+    "raw_data_and_existing_models": "immutable",
+    "competition_labels": "never used",
+    "upload": "manual user",
+    "new_artifact_prefix": "round3_"
+  },
+  "validation": {
+    "current_years": "2021 and2022 are reused development data, not untouched holdouts",
+    "first_required_check": "Same saved pre2021 selected models on2022, no refitting; compare original frozen baseline",
+    "selection_overlap": "Report2022 Jan7+ separately, removing six starts overlapping2021 selection horizons",
+    "training_purge": "Case end <= first validation start",
+    "feature_screens": "Fixed748tree depth8 models, same data/seed/parameters as reference; each feature family separately before combining",
+    "promotion": "Judge full current ensemble pooled micro ROC-AUC, plus second-year frozen generalization and Lio/transition slices; freeze selected variant before2022 confirmation",
+    "competition_input_eda": "Unlabelled2023/2024 only, month-matched descriptive comparisons",
+    "screen_protocol": {
+      "defined_utc": "2026-10-14T16:49:09.326746+00:00",
+      "candidates": [
+        "child100",
+        "ranks",
+        "periods"
+      ],
+      "screen": "Compare replacement and within-component50/50mean on2021; freeze higher full-ensemble AUC variant before2022. Report all screened variants. Current plant coefficients remain fixed.",
+      "confirmation": "Evaluate each positive2021 selected variant in native2022 and frozenpre2021\u21922022, whole-year andJan7+. These share labels and are not independent replications.",
+      "gate": "Positive2021selection plus positive full-ensemble Jan7+delta in BOTH2022deployment scenarios; uncertainty from14day whole-case paired bootstrap. Do not switch to fallback variants using2022.",
+      "combination": "Only consider combining two separately successful feature families. If combined, fix variant on2021 before new2022confirmation. No feature/control stacking in this round."
+    }
+  },
+  "lanes": {
+    "frozen": "round3_frozen",
+    "errors": "round3_errors",
+    "input_shift": "round3_inputs",
+    "implementation_and_experiments": "root"
+  },
+  "experiments": [
+    {
+      "name": "round3_xgb_child100_2021",
+      "status": "completed",
+      "config": "configs/round3_xgb_child100_2021.json",
+      "started_utc": "2026-10-14T16:44:50.543160+00:00",
+      "log": "/private/tmp/round3_xgb_child100_2021.log",
+      "session_id": 21289,
+      "metrics": "reports/round3_xgb_child100_2021_metrics.json",
+      "selection": "candidate_mean",
+      "selection_report": "reports/round3_xgb_child100_selection_2021.json",
+      "comparison": "reports/round3_xgb_child100_2021_comparison.json",
+      "frozen_comparison": "reports/round3_frozen_xgb_child100_2022_comparison.json",
+      "decision": "rejected_frozen_2022_regression",
+      "native_2022": "skipped: frozen check already fails promotion gate",
+      "delta_2021": 5.22273305825216e-07,
+      "delta_frozen_2022_jan7": -4.7572632442e-05
+    },
+    {
+      "name": "round3_xgb_periods_2021",
+      "status": "completed",
+      "config": "configs/round3_xgb_periods_2021.json",
+      "log": "/private/tmp/round3_xgb_periods_2021.log",
+      "started_utc": "2026-10-14T16:50:08.729148+00:00",
+      "note": "Pure feature math checks passed; independent real-data integration checks pending alongside fitting; stop/discard if they fail.",
+      "session_id": 30799,
+      "metrics": "reports/round3_xgb_periods_2021_metrics.json",
+      "comparison": "reports/round3_xgb_periods_2021_comparison.json",
+      "selection": "candidate_replace",
+      "selection_report": "reports/round3_xgb_periods_selection_2021.json",
+      "delta_2021": 6.467649666852537e-05,
+      "decision": "rejected_frozen_2022_regression",
+      "native_2022": "skipped: preselectedreplacement fails frozen2022 promotiongate",
+      "frozen_comparison": "reports/round3_frozen_xgb_periods_2022_comparison.json",
+      "diagnostics": "reports/round3_periods_2021_diagnostics.json"
+    },
+    {
+      "name": "round3_xgb_ranks_2021",
+      "status": "completed",
+      "session_id": 92430,
+      "config": "configs/round3_xgb_ranks_2021.json",
+      "log": "/private/tmp/round3_xgb_ranks_2021.log",
+      "started_utc": "2026-10-14T16:54:15.859477+00:00",
+      "metrics": "reports/round3_xgb_ranks_2021_metrics.json",
+      "comparison": "reports/round3_xgb_ranks_2021_comparison.json",
+      "selection_report": "reports/round3_xgb_ranks_selection_2021.json",
+      "selection": "candidate_replace",
+      "delta_2021": 6.56131582256192e-05,
+      "frozen_comparison": "reports/round3_frozen_xgb_ranks_2022_comparison.json",
+      "diagnostics": "reports/round3_ranks_2021_diagnostics.json",
+      "decision": "frozen_gate_passed; native2022confirmation_required",
+      "frozen_uncertainty": "reports/round3_ranks_frozen_uncertainty.json"
+    },
+    {
+      "name": "round3_xgb_ranks_2022",
+      "status": "completed",
+      "config": "configs/round3_xgb_ranks_2022.json",
+      "log": "/private/tmp/round3_xgb_ranks_2022.log",
+      "started_utc": "2026-10-14T16:59:37.873468+00:00",
+      "selection_source": "reports/round3_xgb_ranks_selection_2021.json",
+      "session_id": 49079,
+      "metrics": "reports/round3_xgb_ranks_2022_metrics.json",
+      "comparison": "reports/round3_xgb_ranks_both_comparison.json",
+      "decision": "native2022 point-estimate gate passed; selectedreplacement remainsfixed"
+    },
+    {
+      "name": "round3_xgb_ranks_full",
+      "status": "completed",
+      "config": "configs/round3_xgb_ranks_full.json",
+      "log": "/private/tmp/round3_xgb_ranks_full.log",
+      "started_utc": "2026-10-14T17:04:29.530418+00:00",
+      "session_id": 37220,
+      "report": "reports/round3_xgb_ranks_full_run.json",
+      "model": "models/xgboost_round3_xgb_ranks_full.ubj",
+      "predictions": "data/processed/round3_xgb_ranks_full_predictions.csv"
+    }
+  ],
+  "batch_reviews": [
+    {
+      "stage": "first frozen and EDA results",
+      "findings": [
+        "Current recipe gains survive into second future year; do not assume recent improvement is only one-year fit.",
+        "Rank movement is relatively stable while normalized volatility shifts.",
+        "Short positive-margin blocks are difficult across both development years.",
+        "Lio far-from-transition errors remain substantial; feature hypotheses are not assumed remedies."
+      ],
+      "decision": "Test two feature families separately, plus one leaf-regularization control. Preserve every current plant coefficient and neural component."
+    },
+    {
+      "stage": "regularization confirmation",
+      "decision": "Reject child100: preselectedmean regresses frozen2022; skip native2022refit because promotiongate already fails.",
+      "interpretation": "Reduced training AUC does not imply improved generalization. Fixed748budget is not a tuned optimum."
+    },
+    {
+      "stage": "period features confirmation",
+      "findings": "Short near-zero-positive-margin blocks improve on2021, but aggregate gain is uncertain, Lio regresses, and frozen2022 loses.",
+      "decision": "Do not promote; do not switch to nearly-flat mean after seeing2022. No native2022 or fullfit. Do not combine rejectedfamily with ranks."
+    },
+    {
+      "stage": "rank frozen confirmation",
+      "findings": "Preselectedreplacement positive in2021 and frozen2022;14day intervals crosszero; Lio worsens while someotherplants improve.",
+      "decision": "Run native2022 fixed748tree confirmation; keepreplacementfrozen. No combinedfamily run becauseperiods failed."
+    }
+  ],
+  "feature_selection": {
+    "status": "two families selected from EDA",
+    "families": [
+      "within-week and remaining-week midranks",
+      "input-defined positive-margin period duration, position and distance"
+    ],
+    "input_evidence": "2024 normalized price volatility shifts substantially; rank movement and top-quartile duration are more stable. Keep magnitude features. Lio/Haukeli positive-margin regimes differ.",
+    "error_evidence": "Short1\u201312hour positive near-zero-margin interior blocks have worse AUC and greater wrong-pair concentration than longer blocks in both years. Lio has many errors away from transitions; no Lio cure claim.",
+    "reports": [
+      "reports/round3_inputs_analysis.json",
+      "reports/round3_errors.json"
+    ],
+    "limitations": "Descriptive, composition-confounded findings, not proof of causal or predictive value; blocks are within-case proxies and censor flags identify horizon boundaries."
+  },
+  "regularization_control": {
+    "model": "XGBoost depth8",
+    "change": "min_child_weight25\u2192100",
+    "fixed": "748trees, learning_rate.05, seed42, all other settings and features unchanged",
+    "rationale": "Isolate stronger leaf regularization at the current depth8 and fixed748tree count: the previous near-perfect training fit and mixed cross-year depth effects justify requiring more Hessian mass per leaf. No feature changes.",
+    "primary_source": "https://xgboost.readthedocs.io/en/stable/parameter.html"
+  },
+  "deliverables": [
+    "input seasonal shift plots",
+    "transition/missed-run/error plots",
+    "full-ensemble comparison table",
+    "experiment and failure ledger",
+    "report",
+    "verified new submission only if warranted"
+  ],
+  "first_required_check": {
+    "status": "completed",
+    "report": "reports/round3_frozen_ensemble_comparison.json",
+    "verification": "reports/round3_frozen_verification.json",
+    "old_frozen_2022": 0.9857216607503562,
+    "current_frozen_2022": 0.9864036339255228,
+    "gain": 0.0006819731751666058,
+    "interpretation": "Improvement survives into second future year;13/14generators improve, including Lio. Native-refit Lio regression is not universal."
+  },
+  "verification": {
+    "temporal_math": "reports/round3_temporal_feature_checks.json",
+    "feature_integration": "reports/round3_feature_integration_checks.json",
+    "baseline_comparator": "reports/round3_comparator_identity.json",
+    "frozen_candidate_identity": "reports/round3_frozen_candidate_identity.json",
+    "default_saved_model_prediction_difference": 0.0,
+    "frozen_candidates_official_metric": "reports/round3_frozen_candidates_verification.json",
+    "final_submission": "reports/round3_final_verification.json"
+  },
+  "selected_candidate": {
+    "name": "temporal_ranks",
+    "variant": "candidate_replace",
+    "selection_report": "reports/round3_xgb_ranks_selection_2021.json",
+    "native_confirmation": "reports/round3_xgb_ranks_both_comparison.json",
+    "frozen_confirmation": "reports/round3_frozen_xgb_ranks_2022_comparison.json",
+    "full_fit_config": "configs/round3_xgb_ranks_full.json",
+    "submission_config": "configs/round3_submission_temporal_ranks.json",
+    "interpretation": "Historical gains followed by user-reported public2023 improvement of0.00015. Private2024 score remains unknown; frozen-year uncertainty and Lio tradeoffs remain.",
+    "native_diagnostics": "reports/round3_ranks_2022_diagnostics.json",
+    "native_2022_auc": 0.988606657825117,
+    "native_2022_jan7_auc": 0.9885126632037499,
+    "native_2022_delta_interval95": [
+      0.000124615,
+      0.000353063
+    ],
+    "status": "exported_and_independently_verified",
+    "submission": "submissions/submission_round3_temporal_ranks.csv",
+    "submission_sha256": "6a19fc33a14e492a25914d678785162a010ec78d42e3e4db3ac06b7379aac4d9",
+    "verification": "reports/round3_final_verification.json",
+    "kaggle_score": 0.99068,
+    "upload": "manual user; no upload performed",
+    "public_score_user_reported": 0.99068,
+    "current_best_user_reported": true
+  },
+  "completed_utc": "2026-10-14T17:10:02.500465+00:00",
+  "report": "reports/round3_report_20261014.md",
+  "deferred": [
+    "Native2022/full fits for failed child100 and periods: stopped after frozen gate failure.",
+    "Combining ranks and periods: periods failed individually.",
+    "Applying temporal features to LightGBM or neural models.",
+    "Further blend-weight searches, new architectures and neural learning-rate/weight-decay controls.",
+    "Additional chronological folds beyond the reused2021/2022 development checks."
+  ],
+  "figures": [
+    "reports/figures/round3_inputs_seasonality.png",
+    "reports/figures/round3_inputs_shift.png",
+    "reports/figures/round3_errors_timing.png",
+    "reports/figures/round3_errors_examples.png"
+  ],
+  "public_score_at_round_start": 0.99053,
+  "public_result_update": {
+    "reported_date": "2026-10-14",
+    "source": "user",
+    "submission": "submissions/submission_round3_temporal_ranks.csv",
+    "public_score": 0.99068,
+    "previous_public_score": 0.99053,
+    "delta": 0.00015,
+    "private_score": null,
+    "note": "Result reported after all round3 model and recipe selections were fixed."
+  }
+}

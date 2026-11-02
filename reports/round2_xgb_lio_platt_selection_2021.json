@@ -1,0 +1,171 @@
+{
+  "fit_year": 2021,
+  "fit_cases": 365,
+  "target_generator": "Lio_G1",
+  "specialist_prefix": "round2_xgb_lio",
+  "source_best_iteration": 692,
+  "first_case_start": "2021-01-01 00:00:00+00:00",
+  "last_case_start": "2021-12-31 00:00:00+00:00",
+  "selection_horizon_end_exclusive": "2022-01-07 00:00:00+00:00",
+  "fit_case_ids_sha256": "a3e1419f191e27d1c1704cf39b610f87d9aebbd7fddc5af8e8676f645d0a738c",
+  "fit_labels_sha256": "fa560e96eb2953b5c326d8553cb7c492f4655e0b720888a7adec6eba5c332549",
+  "slope_bounds_predeclared": [
+    0.25,
+    4.0
+  ],
+  "intercept_bounds_predeclared": [
+    -5.0,
+    5.0
+  ],
+  "probability_clip": 1e-12,
+  "fit_objective": "Mean Lio specialist BCE over2021, no class balancing.",
+  "transformation": "sigmoid(slope * logit(clip(p,1e-12,1-1e-12)) + intercept); exact identity returns original probabilities.",
+  "candidate_parameters": {
+    "slope": 0.5750228956692226,
+    "intercept": -0.4843974651174599
+  },
+  "fit": {
+    "bce_before": 0.2690791099081009,
+    "bce_after": 0.22323687325363276,
+    "optimizer_iterations": 10,
+    "optimizer_evaluations": 12,
+    "gradient_at_solution": [
+      6.146288735918897e-10,
+      2.9321971618894383e-10
+    ],
+    "clipped_prediction_count": 1076
+  },
+  "selected_variant": "identity",
+  "selected_parameters": {
+    "slope": 1.0,
+    "intercept": 0.0
+  },
+  "selection_rule": "Compare identity then fitted Platt on2021 full fixed ensemble micro-AUC; retain identity unless improvement exceeds1e-12.",
+  "baseline_config": "configs/goal_submission_rescaled_tree_mean.json",
+  "plant_weights": {
+    "Hogga": {
+      "xgb_rescaled": 0.35,
+      "lightgbm_rescaled": 0.35,
+      "transformer": 0.3
+    },
+    "Tokke": {
+      "xgb_rescaled": 0.04999999999999999,
+      "lightgbm_rescaled": 0.04999999999999999,
+      "transformer": 0.9
+    },
+    "Lio": {
+      "xgb_rescaled": 0.35,
+      "lightgbm_rescaled": 0.35,
+      "transformer": 0.3
+    },
+    "Byrte": {
+      "xgb_rescaled": 0.5,
+      "lightgbm_rescaled": 0.5
+    },
+    "Vinje": {
+      "xgb_rescaled": 0.25,
+      "lightgbm_rescaled": 0.25,
+      "transformer": 0.5
+    },
+    "Songa": {
+      "xgb_rescaled": 0.5,
+      "lightgbm_rescaled": 0.5
+    },
+    "Kjela": {
+      "xgb_rescaled": 0.4,
+      "lightgbm_rescaled": 0.4,
+      "transformer": 0.2
+    },
+    "Vesle Kjela": {
+      "xgb_rescaled": 0.5,
+      "lightgbm_rescaled": 0.5
+    },
+    "Haukeli": {
+      "xgb_rescaled": 0.5,
+      "lightgbm_rescaled": 0.5
+    }
+  },
+  "changed_component": "Only Lio XGBoost share0.35; LightGBM0.35, Transformer0.30 and all other plants remain fixed.",
+  "original_ensemble_metrics": {
+    "micro_roc_auc": 0.9882719381376425,
+    "generator_auc": {
+      "Hogga_G1": 0.9696893447926744,
+      "Tokke_G1": 0.9894627561921396,
+      "Tokke_G2": 0.9924289036679768,
+      "Tokke_G3": 0.9921447545852833,
+      "Tokke_G4": 0.9923364372895623,
+      "Lio_G1": 0.9496274150107702,
+      "Byrte_G1": 0.9983813241649311,
+      "Vinje_G1": 0.9906998862987294,
+      "Vinje_G2": 0.9868319870646906,
+      "Vinje_G3": 0.9806822805568618,
+      "Haukeli_G1": 0.9633766162066998,
+      "Songa_G1": 0.995074153157005,
+      "Kjela_G1": 0.9834578894840456,
+      "Vesle Kjela_G1": 0.9990278342450003
+    }
+  },
+  "selection_results": [
+    {
+      "micro_roc_auc": 0.9889557320026957,
+      "generator_auc": {
+        "Hogga_G1": 0.9696893447926744,
+        "Tokke_G1": 0.9894627561921396,
+        "Tokke_G2": 0.9924289036679768,
+        "Tokke_G3": 0.9921447545852833,
+        "Tokke_G4": 0.9923364372895623,
+        "Lio_G1": 0.9662296155237818,
+        "Byrte_G1": 0.9983813241649311,
+        "Vinje_G1": 0.9906998862987294,
+        "Vinje_G2": 0.9868319870646906,
+        "Vinje_G3": 0.9806822805568618,
+        "Haukeli_G1": 0.9633766162066998,
+        "Songa_G1": 0.995074153157005,
+        "Kjela_G1": 0.9834578894840456,
+        "Vesle Kjela_G1": 0.9990278342450003
+      },
+      "variant": "identity",
+      "delta_vs_original_ensemble": 0.0006837938650532394,
+      "specialist_lio_auc": 0.9694796196418651
+    },
+    {
+      "micro_roc_auc": 0.9888658483509323,
+      "generator_auc": {
+        "Hogga_G1": 0.9696893447926744,
+        "Tokke_G1": 0.9894627561921396,
+        "Tokke_G2": 0.9924289036679768,
+        "Tokke_G3": 0.9921447545852833,
+        "Tokke_G4": 0.9923364372895623,
+        "Lio_G1": 0.9657427275906275,
+        "Byrte_G1": 0.9983813241649311,
+        "Vinje_G1": 0.9906998862987294,
+        "Vinje_G2": 0.9868319870646906,
+        "Vinje_G3": 0.9806822805568618,
+        "Haukeli_G1": 0.9633766162066998,
+        "Songa_G1": 0.995074153157005,
+        "Kjela_G1": 0.9834578894840456,
+        "Vesle Kjela_G1": 0.9990278342450003
+      },
+      "variant": "platt",
+      "delta_vs_original_ensemble": 0.0005939102132898055,
+      "specialist_lio_auc": 0.9694796196418651
+    }
+  ],
+  "selected_component_predictions": "data/processed/round2_xgb_lio_platt_2021_validation_predictions.csv",
+  "source_sha256": {
+    "configs/goal_submission_rescaled_tree_mean.json": "5c47a5b4f832a93b1d970a5a4b13e8485ac2e03e2ea14dccb6ceebb7e33bb42b",
+    "data/processed/round2_xgb_lio_2021_validation_predictions.csv": "0500ca8361bc652f68a68cb4d234829920034505e8b03a6caf2927294fcef097",
+    "reports/round2_xgb_lio_2021_metrics.json": "6c7dfc9a5fabb57e8fa7c91c1bdd1593901bf3df101b0e8ce06c399da3ead6c0",
+    "data/processed/goal_xgboost_rescaled_2021_validation_predictions.csv": "3f0b8a5a2bcb4034c5de0ac7c526800df475dbee95f108d15d7b76d021c6a661",
+    "data/processed/goal_lightgbm_rescaled_2021_validation_predictions.csv": "c6293900ee822e35913ceed1e03195e9609be95b692af75b2fb664340750fc48",
+    "data/processed/transformer_rescaled_2021_validation_predictions.csv": "3c2a99925d32df75b0526a1ed88dc9f5dfd246e05b2436d0ba3e282001884e2f"
+  },
+  "confirmation_evaluated": false,
+  "limitations": [
+    "This hypothesis was proposed after seeing identity specialist2022 results; 2022 is reused development data, not a fresh holdout.",
+    "Calibration fitting and variant selection share2021 labels, which also selected base-model checkpoints. Training records exclude2021 but this is not nested calibration validation.",
+    "Positive slope preserves single-specialist ordering mathematically; clipping/finite precision may create ties. Full ensemble cross-generator and within-Lio rankings can change.",
+    "No2022 prediction files or label values were loaded. Frozen confirmation requires a separate explicit step after this report is saved.",
+    "No base model was fitted and no competition labels or submission outputs were used."
+  ]
+}

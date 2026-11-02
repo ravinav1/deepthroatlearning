@@ -1,0 +1,74 @@
+{
+  "training_cases": 2551,
+  "validation_cases": 365,
+  "purged_cases": 6,
+  "last_training_start": "2021-12-25 00:00:00+00:00",
+  "last_training_horizon_end": "2022-01-01 00:00:00+00:00",
+  "first_validation_start": "2022-01-01 00:00:00+00:00",
+  "last_validation_start": "2022-12-31 00:00:00+00:00",
+  "baseline_model": "cnn_rescaled_2022",
+  "baseline_training_micro_roc_auc": 0.9941252507989486,
+  "baseline_validation_micro_roc_auc": 0.9638544887777748,
+  "baseline_gap": 0.030270762021173847,
+  "results": [
+    {
+      "variant": "dropout",
+      "model": "cnn_rescaled_dropout_2022",
+      "best_epoch": 18,
+      "trained_epochs": 26,
+      "stop_reason": "patience",
+      "training_micro_roc_auc": 0.9911121008687547,
+      "validation_micro_roc_auc": 0.9609578327118646,
+      "gap": 0.03015426815689004,
+      "delta_training_auc_vs_baseline": -0.00301314993019397,
+      "delta_validation_auc_vs_baseline": -0.0028966560659101637,
+      "delta_gap_vs_baseline": -0.00011649386428380648,
+      "saved_validation_reproduction_max_abs_error": 2.980194091506405e-08,
+      "stored_scaler_exactly_matches_baseline": true,
+      "recency_fit_weights": null,
+      "checkpoint": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/models/cnn_rescaled_dropout_2022.pt"
+    },
+    {
+      "variant": "recency",
+      "model": "cnn_rescaled_recency_2022",
+      "best_epoch": 22,
+      "trained_epochs": 30,
+      "stop_reason": "patience",
+      "training_micro_roc_auc": 0.9926847928508927,
+      "validation_micro_roc_auc": 0.9601907003439952,
+      "gap": 0.0324940925068975,
+      "delta_training_auc_vs_baseline": -0.0014404579480559176,
+      "delta_validation_auc_vs_baseline": -0.003663788433779569,
+      "delta_gap_vs_baseline": 0.0022233304857236513,
+      "saved_validation_reproduction_max_abs_error": 2.980194091506405e-08,
+      "stored_scaler_exactly_matches_baseline": true,
+      "recency_fit_weights": {
+        "half_life_years": 4.0,
+        "reference_date": "2022-01-01 00:00:00+00:00",
+        "training_cases": 2551,
+        "normalization": "mean_1",
+        "minimum": 0.5141671917256295,
+        "maximum": 1.7239158323738444,
+        "mean": 1.0
+      },
+      "checkpoint": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/models/cnn_rescaled_recency_2022.pt"
+    }
+  ],
+  "fixed_pool": {
+    "name": "fixed_equal_mean_baseline_dropout",
+    "members": {
+      "cnn_rescaled_2022": 0.5,
+      "cnn_rescaled_dropout_2022": 0.5
+    },
+    "training_micro_roc_auc": 0.9939221138591489,
+    "validation_micro_roc_auc": 0.9653517579041467,
+    "gap": 0.028570355955002125,
+    "delta_validation_auc_vs_baseline": 0.0014972691263719362,
+    "note": "One fixed 50/50 probability average from the same historical checkpoints; no refit or weight search."
+  },
+  "cpu_threads": 4,
+  "feature_chunk_cases": 96,
+  "inference_batch_size": 32,
+  "inference_seconds": 32.04819075000705,
+  "note": "Inference only on saved selected historical checkpoints using model.eval() and stored training-only scalers. Every AUC is unweighted on the complete original purged cohort, including the recency variant. Training AUC is in-sample; reused historical validation remains development data. No fitting or competition-case prediction. A smaller gap alone does not establish a better final blend."
+}

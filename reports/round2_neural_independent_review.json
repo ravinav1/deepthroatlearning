@@ -1,0 +1,82 @@
+{
+  "scope": "Independent source review and tiny CPU checks only; no real-data fit and no production code edits.",
+  "reviewed_files": {
+    "src/train_cnn.py": "82bcd445b36d023521dcd5702b929fa1ae9b36d9ffc35b650c06f3b0819e61fb",
+    "src/make_sequence_submission.py": "00643c1773d619c62ff6619b7ce2eae63ad94c4181b464e52ec75c8c6bee413a",
+    "src/consistency_regularization.py": "34314c5dc88c2856a52770f8b3f9c4c718688844e296a4885e632f1267f3755f"
+  },
+  "checks": {
+    "default_bce": {
+      "loss_exact": true,
+      "gradients_exact": true,
+      "rng_exact": true
+    },
+    "transition_loss": {
+      "signed_last_axis_exact": true,
+      "case_weighting_exact": true,
+      "no_cross_case_or_generator_edges": true,
+      "one_hour_pulse_penalized": true
+    },
+    "ensemble_monitor": [
+      {
+        "year": 2021,
+        "maximum_formula_difference": 2.220446049250313e-16,
+        "weights_match_actual_winner": true
+      },
+      {
+        "year": 2022,
+        "maximum_formula_difference": 2.220446049250313e-16,
+        "weights_match_actual_winner": true
+      }
+    ],
+    "fixed_main_loop": {
+      "raw_selected_epoch": 1,
+      "raw_stopped_epoch": 2,
+      "fixed_selected_and_saved_epoch": 3,
+      "fixed_saved_auc": 0.6,
+      "saved_state_equals_final_model": true,
+      "rejected_options": [
+        "lr_scheduler",
+        "weight_averaging",
+        "ensemble_monitor"
+      ],
+      "threads": 1
+    },
+    "full_fit_learning_rate_replay": {
+      "historical_rates_replayed": true,
+      "no_scheduler_default_unchanged": true
+    }
+  },
+  "verdict": "No blocking implementation defect found in the new ensemble checkpoint criterion, fixed-epoch mode or signed transition auxiliary loss.",
+  "operational_findings": [
+    {
+      "severity": "action_before_confirmation",
+      "finding": "Prepared round2 Transformer 2022 configs currently retain raw or ensemble checkpoint selection. They are screening templates, not fixed-epoch confirmations.",
+      "action": "Create a new confirmation config using the chosen 2021 best_epoch, early_stopping_metric=fixed, no ensemble_monitor, no lr_scheduler and no weight_averaging. Freeze candidate and blend variant before reviewing the 2022 curve."
+    },
+    {
+      "severity": "scope_limit",
+      "finding": "A 2021 ReduceLROnPlateau trajectory cannot currently be replayed by fixed-mode train_cnn. make_sequence_submission supports historical LR replay, but train_cnn does not.",
+      "action": "Use constant-LR candidates for the current fixed confirmation protocol, or explicitly implement a frozen epoch-rate schedule before confirming a plateau candidate. Simply removing its scheduler changes the intervention."
+    },
+    {
+      "severity": "provenance_note",
+      "finding": "ensemble_monitor.reference_config is descriptive; loader does not enforce it or hash cached predictions. Current monitor weights and formula independently match the actual winner.",
+      "action": "Preserve referenced cached predictions and record source report/config paths in the experiment ledger. No additional guard is required for this checked run."
+    }
+  ],
+  "full_fit_consistency": {
+    "checked": "Epoch count, model architecture, target generator, seed, batch size, initial LR, weight decay, feature options, scaler type, recency policy, R-Drop, pairwise weight/count and transition weight are checked against the selected validation report; channel names also must match. Full fit does not use a validation/test monitor.",
+    "limitation": "Full fit recomputes its scaler on all supplied labeled cases and runs more optimizer steps per epoch; this is expected retraining, not an identical selected checkpoint. Final blend should preserve the weights under which the candidate was selected."
+  },
+  "validation_protocol": [
+    "Chronological training ends no later than validation starts; six adjacent daily case starts are purged because their 168-hour horizons overlap validation.",
+    "A source selected using all 2021 case starts uses labels through January 7, 2022 exclusive. For frozen-source evaluation, report all 365 cases plus the 359 starts from January 7 onward; first six starts overlap source selection horizons.",
+    "For a new 2022 fixed-epoch fit, the training data still includes cases used for 2021 hyperparameter/epoch selection. This is legitimate final-like refitting, but does not create independent model-selection history.",
+    "2021 and 2022 have both been reused repeatedly. Fixing the current candidate epoch removes current per-epoch 2022 checkpoint selection, not earlier development reuse.",
+    "The existing baseline tree/Transformer checkpoints may themselves be selected on 2022. Comparing against that baseline or retaining those components does not make the whole ensemble independent of 2022.",
+    "Logging 2022 curves is observational only in fixed code; human decisions to stop, rerun, change epoch counts or choose another variant based on them turn the year into further development.",
+    "Multiple candidates, weights and old/new averaging variants expand selection multiplicity; temporal-block intervals remain conditional on chosen models and do not correct this search."
+  ],
+  "confirmation_configuration_status": "Prepared 2022 configs were not active confirmation runs at review time. Root confirmed no 2022 confirmation fit had started and will freeze epochs from 2021, set fixed mode, remove ensemble monitoring, and record source report plus selection-horizon purge before launch. Current planned controls use constant learning rates; plateau confirmation is deferred unless frozen schedule replay is explicitly implemented."
+}

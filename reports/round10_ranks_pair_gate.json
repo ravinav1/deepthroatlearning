@@ -1,0 +1,169 @@
+{
+  "created_utc": "2026-10-18T12:41:04.941240+00:00",
+  "two_seed_sign_gate_passed": true,
+  "all_three_primary_bootstrap_intervals_positive": true,
+  "checks": [
+    {
+      "mode": "native",
+      "year": 2021,
+      "subset": "all",
+      "cases": 365,
+      "baseline_micro_auc": 0.9903748458953463,
+      "candidate_micro_auc": 0.9904803647225968,
+      "delta": 0.00010551882725051698,
+      "paired_14day_200draw_bootstrap": {
+        "block_days": 14,
+        "repetitions": 200,
+        "reference_auc": 0.9903748458953464,
+        "candidate_auc": 0.9904803647225967,
+        "observed_delta": 0.00010551882725029493,
+        "bootstrap_delta_mean": 0.00011032328589312801,
+        "bootstrap_delta_std": 4.952420600903183e-05,
+        "percentile_interval_95": [
+          8.826901367359198e-06,
+          0.0002059526337319734
+        ],
+        "fraction_positive_draws": 0.985
+      },
+      "full_year_quarter_deltas": {
+        "1": -4.353720814886941e-05,
+        "2": -2.8589097594289292e-05,
+        "3": 0.0002391752917604295,
+        "4": 0.00031037559299518236
+      },
+      "generator_deltas": {
+        "Hogga_G1": -0.0001965086820858719,
+        "Tokke_G1": 0.0005245385528676039,
+        "Tokke_G2": 1.4165204631710893e-05,
+        "Tokke_G3": 0.0001221592072818689,
+        "Tokke_G4": 2.270472582976968e-05,
+        "Lio_G1": 0.001449446266004184,
+        "Byrte_G1": -2.7368674768379897e-05,
+        "Vinje_G1": 0.0001286538614130306,
+        "Vinje_G2": -4.0320004145000254e-05,
+        "Vinje_G3": -0.00016102378991700306,
+        "Haukeli_G1": -0.00040763988572356524,
+        "Songa_G1": 1.1084211313794334e-05,
+        "Kjela_G1": -9.435709418581517e-06,
+        "Vesle Kjela_G1": 9.625915846078748e-06
+      },
+      "negative_generators": {
+        "Hogga_G1": -0.0001965086820858719,
+        "Byrte_G1": -2.7368674768379897e-05,
+        "Vinje_G2": -4.0320004145000254e-05,
+        "Vinje_G3": -0.00016102378991700306,
+        "Haukeli_G1": -0.00040763988572356524,
+        "Kjela_G1": -9.435709418581517e-06
+      }
+    },
+    {
+      "mode": "native",
+      "year": 2022,
+      "subset": "jan7_onward",
+      "cases": 359,
+      "baseline_micro_auc": 0.9894111659365935,
+      "candidate_micro_auc": 0.9895671570386659,
+      "delta": 0.00015599110207242806,
+      "paired_14day_200draw_bootstrap": {
+        "block_days": 14,
+        "repetitions": 200,
+        "reference_auc": 0.9894111659365936,
+        "candidate_auc": 0.9895671570386659,
+        "observed_delta": 0.00015599110207231703,
+        "bootstrap_delta_mean": 0.0001599199046354599,
+        "bootstrap_delta_std": 3.9789930769001554e-05,
+        "percentile_interval_95": [
+          8.441868263978358e-05,
+          0.00024485418361999136
+        ],
+        "fraction_positive_draws": 1.0
+      },
+      "full_year_quarter_deltas": {
+        "1": 4.068384375843781e-05,
+        "2": 0.0004688980975979806,
+        "3": 4.890556379011368e-05,
+        "4": 0.0001368319634073023
+      },
+      "generator_deltas": {
+        "Hogga_G1": 0.0003093300800713905,
+        "Tokke_G1": 0.00019853996381147265,
+        "Tokke_G2": 8.996338517963665e-05,
+        "Tokke_G3": -6.544412237474706e-05,
+        "Tokke_G4": 3.4501552936605506e-05,
+        "Lio_G1": 0.0004327325150774719,
+        "Byrte_G1": 0.0001104983035611351,
+        "Vinje_G1": 0.00027174396339813,
+        "Vinje_G2": 0.0004569539230173669,
+        "Vinje_G3": 0.0002696950017655464,
+        "Haukeli_G1": 0.0007326380464888205,
+        "Songa_G1": -9.096921152029758e-06,
+        "Kjela_G1": 9.014430194487222e-05,
+        "Vesle Kjela_G1": -9.772341398317508e-06
+      },
+      "negative_generators": {
+        "Tokke_G3": -6.544412237474706e-05,
+        "Songa_G1": -9.096921152029758e-06,
+        "Vesle Kjela_G1": -9.772341398317508e-06
+      }
+    },
+    {
+      "mode": "frozen",
+      "year": 2022,
+      "subset": "jan7_onward",
+      "cases": 359,
+      "baseline_micro_auc": 0.9870453044407653,
+      "candidate_micro_auc": 0.9872051571788332,
+      "delta": 0.00015985273806784495,
+      "paired_14day_200draw_bootstrap": {
+        "block_days": 14,
+        "repetitions": 200,
+        "reference_auc": 0.9870453044407653,
+        "candidate_auc": 0.987205157178833,
+        "observed_delta": 0.0001598527380676229,
+        "bootstrap_delta_mean": 0.0001721130486047523,
+        "bootstrap_delta_std": 5.672377659821325e-05,
+        "percentile_interval_95": [
+          7.231455584222057e-05,
+          0.0002928321532758821
+        ],
+        "fraction_positive_draws": 1.0
+      },
+      "full_year_quarter_deltas": {
+        "1": -1.692351800208769e-05,
+        "2": 0.00043103363384666693,
+        "3": 0.00025752949768331757,
+        "4": 0.00011859501827882202
+      },
+      "generator_deltas": {
+        "Hogga_G1": -3.7045205108277024e-05,
+        "Tokke_G1": 0.0002473134470193372,
+        "Tokke_G2": 8.463692989557625e-05,
+        "Tokke_G3": 9.371872364061229e-05,
+        "Tokke_G4": -1.18593561204694e-05,
+        "Lio_G1": 0.0005314969708234418,
+        "Byrte_G1": -8.934575792618471e-05,
+        "Vinje_G1": 0.00014844044331108197,
+        "Vinje_G2": 5.69081317058906e-05,
+        "Vinje_G3": 0.00027231495789037385,
+        "Haukeli_G1": 0.0009977226251888238,
+        "Songa_G1": 4.773124573276277e-05,
+        "Kjela_G1": 0.00044725978780191245,
+        "Vesle Kjela_G1": -2.25108205886837e-05
+      },
+      "negative_generators": {
+        "Hogga_G1": -3.7045205108277024e-05,
+        "Tokke_G4": -1.18593561204694e-05,
+        "Byrte_G1": -8.934575792618471e-05,
+        "Vesle Kjela_G1": -2.25108205886837e-05
+      }
+    }
+  ],
+  "source_sha256": {
+    "reports/round10_ranks_pair_native_2021_comparison.json": "2a72be887f8e0a9a2f5b9c390e5cb06c386c1653538516615b6ad548586fa8c6",
+    "reports/round10_ranks_pair_native_2022_comparison.json": "86ec7e20a097f9c1d2bb606d3a0e7297bcb14323a9b77a7c5e3f63cb96103616",
+    "reports/round10_ranks_pair_frozen_2022_comparison.json": "f4ae07b990701e9e661fb6aae4264bee431f760b3c3e15e074cbd36dec4d5872"
+  },
+  "evaluation_only": true,
+  "frozen_replay_fitting_performed": false,
+  "limitations": "Reused historical development years; native/frozen2022 share labels. All three overall primary gains and14-day intervals are positive, but2021Q1/Q2 and some generators decline. Quarter diagnostics use full calendar years, so2022Q1 includesJan1-6 while primary2022 score/CI excludes them. No blend tuning, additional fitting or export performed by this evaluation track."
+}

@@ -1,0 +1,34 @@
+{
+  "config": {
+    "baseline": "submissions/submission_xgb_transformer_plant_refined.csv",
+    "xgboost_source": "submissions/submission_xgb_ensemble.csv",
+    "xgboost_weight": 0.7,
+    "cnn_weight": 0.3,
+    "components": {
+      "Haukeli_G1": {
+        "route": "cnn_component",
+        "predictions": "data/processed/submission_cnn_specialist_haukeli_predictions.csv",
+        "report": "reports/submission_cnn_specialist_haukeli_run.json"
+      }
+    },
+    "selection_source": "reports/haukeli_blend_comparison.json",
+    "selected_variant": "selected_haukeli_weight",
+    "note": "Specialist weight selected on 2021 global micro ROC-AUC, then checked unchanged on 2022. Change only Haukeli from 80/20 to 70/30; copy all other probabilities from the current refined submission with public score 0.98726. Saved model predictions only; no new model training or competition test labels."
+  },
+  "output": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/submissions/submission_xgb_transformer_haukeli_70_30.csv",
+  "test_cases": 725,
+  "outputs_per_case": 2352,
+  "untouched_outputs_per_case": 2184,
+  "historical_selection": [
+    {
+      "year": 2021,
+      "micro_roc_auc": 0.9868456865125457,
+      "delta_vs_baseline": 5.571038363982872e-05
+    },
+    {
+      "year": 2022,
+      "micro_roc_auc": 0.9843832046746634,
+      "delta_vs_baseline": 0.0001098335846967391
+    }
+  ]
+}

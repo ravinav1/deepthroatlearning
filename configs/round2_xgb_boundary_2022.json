@@ -1,0 +1,27 @@
+{
+  "validation_start": "2022-01-01",
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "use_price_context": true,
+  "use_economic_rescaling": true,
+  "record_training_auc": true,
+  "boundary_weighting": {
+    "margin_threshold": 0.1,
+    "multiplier": 1.5
+  },
+  "early_stopping_rounds": null,
+  "model": {
+    "n_estimators": 1451,
+    "learning_rate": 0.05,
+    "tree_method": "hist",
+    "max_depth": 6,
+    "min_child_weight": 25,
+    "max_bin": 63,
+    "n_jobs": 4,
+    "random_state": 42
+  },
+  "experiment_status": "prepared_not_run",
+  "experiment_hypothesis": "Optional frozen 2022 confirmation after the 2021 weighting experiment. Same threshold, multiplier and fixed 1451 trees selected from the original 2021 model; no 2022 stopping. This configuration's presence does not imply a completed experiment.",
+  "iteration_selection_source": "reports/goal_xgboost_rescaled_2021_metrics.json"
+}

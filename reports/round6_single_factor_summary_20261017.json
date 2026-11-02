@@ -1,0 +1,61 @@
+{
+  "rule": "reports/round6_combination_protocol_20261017.json",
+  "rule_sha256": "41d3dad00b14117acbfd647c3e349f693094f57dd4c66601f09a7628f5a1ee7b",
+  "single_factor_results": [
+    {
+      "arm": "halfrounds",
+      "micro_roc_auc": 0.9900269817222141,
+      "delta_vs_reference": -0.000247889376052135,
+      "report": "reports/round6_halfrounds_screen_2021.json",
+      "report_sha256": "a67f2cdd97588d861a4842adeae3df9f3435d3e46010edb70f240ab5da329b10"
+    },
+    {
+      "arm": "leaves31",
+      "micro_roc_auc": 0.9902804508384498,
+      "delta_vs_reference": 5.57974018355889e-06,
+      "report": "reports/round6_leaves31_screen_2021.json",
+      "report_sha256": "330596b89b62c4fed5cf26568d83a1a5f532031368f4a4c92756e88e3745a3dc"
+    },
+    {
+      "arm": "leaves127",
+      "micro_roc_auc": 0.9901265242514161,
+      "delta_vs_reference": -0.00014834684685016697,
+      "report": "reports/round6_leaves127_screen_2021.json",
+      "report_sha256": "2d73e2a7ef84576c1acbdf4bee9541b8d95a462a2213e8ee9cbd4578e528e68d"
+    },
+    {
+      "arm": "l2zero",
+      "micro_roc_auc": 0.9902987768977537,
+      "delta_vs_reference": 2.390579948741145e-05,
+      "report": "reports/round6_l2zero_screen_2021.json",
+      "report_sha256": "481322a810159ca62ec186ce53ced5968fbbd6672aa8b676a0d480a0af09d084"
+    },
+    {
+      "arm": "l2strong",
+      "micro_roc_auc": 0.9901031232121734,
+      "delta_vs_reference": -0.00017174788609286562,
+      "report": "reports/round6_l2strong_screen_2021.json",
+      "report_sha256": "9f233f9b4a82eac8b776c8bc801d8bcd2c5cf95e38a691428f56a5fcbb9b2a60"
+    },
+    {
+      "arm": "minleaf300",
+      "micro_roc_auc": 0.9902526398232047,
+      "delta_vs_reference": -2.2231275061623812e-05,
+      "report": "reports/round6_minleaf300_screen_2021.json",
+      "report_sha256": "92095ba9c1903fa91c00ebbbbf21a6a1a6cfc926079963f05260c0dfd18d1237"
+    },
+    {
+      "arm": "doublerounds",
+      "micro_roc_auc": 0.9902688605509943,
+      "delta_vs_reference": -6.010547272006228e-06,
+      "report": "reports/round6_doublerounds_screen_2021.json",
+      "report_sha256": "0326a910cc5c1cd183bc5d4d4baa985779e35ef954e21f9ebf6fa984f0ed8e4e"
+    }
+  ],
+  "beneficial_knobs": {
+    "num_leaves": "leaves31",
+    "reg_lambda": "l2zero"
+  },
+  "combination_required": true,
+  "combination_config": "configs/round6_combined_seed299_2021.json"
+}

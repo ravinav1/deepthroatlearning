@@ -1,0 +1,18 @@
+{
+  "selected_utc": "2026-10-14T17:35:26.954646+00:00",
+  "variant": "candidate_replace",
+  "selection_year": 2021,
+  "score": 0.989093807605835,
+  "delta": 0.00010974418024078947,
+  "candidate_2022_evaluated": false,
+  "status": "Await matched800 positive delta before frozen2022 gate",
+  "deployment_trees": 800,
+  "frozen_trees": 1499,
+  "source_hashes": {
+    "configs/round4_lgb_ranks_2021.json": "5251855e31318179610a7898b66d73e7d9dde29902dede767ffaac7402cf366c",
+    "reports/round4_lgb_ranks_2021_metrics.json": "bc01b0e5ccebf3db5a3c249000b756e7f9633eeb28c45e26c16980ba84ade826",
+    "models/lightgbm_round4_lgb_ranks_2021.txt": "5ed1d6abe2c8dab647f431b9e3eb5da6c26edfda974a74b3dcdc6afaafd7edde",
+    "data/processed/round4_lgb_ranks_2021_validation_predictions.csv": "2d6c8bea628f9349ad52be08363beab9d2e6b9f214d2f3d40d33795574280bd6",
+    "configs/round3_submission_temporal_ranks.json": "a567449724194812fa0252c1b32f7a02fd38da3ddbbc116ead57d5c3e8d82261"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "created_utc": "2026-10-18T12:50:17.782206+00:00",
+  "protected_files_checked": 356,
+  "unchanged_original_files": 354,
+  "allowed_source_edits": {
+    "src/round5_lightgbm.py": {
+      "before": "e99c3d4e8bad98b30f3c78b7809fb256b2ac8efd75c6ae01d92551e406759b37",
+      "after": "e1d29e86f1dab9779206d68715a4011eb32e103e31cb9280e0dc4cd401c501b5"
+    },
+    "src/round6_evaluate.py": {
+      "before": "00a436c9ebf2dacf2cc0f48e10be18d69c36b92882f36b138122f37a84e804b8",
+      "after": "072d11614450abdec417f4512345c5d6f7540daf054defa43d733f317340bf72"
+    }
+  },
+  "unexpected_changes": [],
+  "raw_data_unchanged": true,
+  "kaggle_metric_unchanged": true,
+  "incumbent": "submissions/submission_round5_lgb_generators.csv",
+  "incumbent_sha256": "5b736f51f14028eaee5382124314fd4c368b72f546116d0a6ac053fafa086a29",
+  "incumbent_unchanged": true,
+  "new_verified_submissions": {
+    "submissions/submission_round10_ranks.csv": "88a213991268c1952dbb9f4fe56eed2f14ef70646c19aaabd44c1364f0640632",
+    "submissions/submission_round10_temporal.csv": "4d362d219c97cbb24d13f6a69194d686b81674cb3ece2cb9205ad485a277b688"
+  }
+}

@@ -1,0 +1,1028 @@
+{
+  "created_utc": "2026-10-14T13:17:09.067832+00:00",
+  "scope": "Read-only source/data/formulation review. No model fitting, no code or source-data changes. The only created artifact is this report.",
+  "main_conclusion": "Supplied start/stop economics and evolving water allocation can explain temporal coupling, but no supplied initial generator status or minimum up/down durations establish hidden state carryover. The most direct observed weakness is transition timing; first-day enrichment is modest after accounting for pair availability. No timing or alignment bug was found in the reviewed paths.",
+  "source_review": {
+    "freshly_extracted_pdfs": [
+      "docs/Dataset_definitions_and_explanation.pdf",
+      "docs/ML_Task_TDT4173.pdf",
+      "docs/Tokke_topology.pdf"
+    ],
+    "pdf_method": "Read current PDFs through native PDFKit using the existing /private/tmp/round2_neural_pdf.swift; original PDFs untouched.",
+    "yaml": "configs/Tokke_Vinje_topology.yaml",
+    "archive_inventory": "Read original project materials.zip; 15 substantive files, no solver-generation Python script, command file, warm-start basis, initial commitment or history file.",
+    "generation_version_in_definitions": "Tokke-Vinje watercourse v5_2026_6, SHOP v17.17.0. Current online SHOP docs explain capabilities but do not prove which defaults/options this older generator used."
+  },
+  "supplied_facts": [
+    {
+      "fact": "168 hourly outputs per generator, t0 denotes the first hour,14 generators; daily case starts.",
+      "source": "ML_Task_TDT4173.pdf pages1-2; Dataset_definitions_and_explanation.pdf page3"
+    },
+    {
+      "fact": "Reservoir volume at starttime supplies initial storage; water value at starttime+168hours supplies terminal value.",
+      "source": "Dataset_definitions_and_explanation.pdf page2"
+    },
+    {
+      "fact": "Initial Hyljelihyl and Vatjern storage are assumed50% full because histories were unavailable.",
+      "source": "Dataset_definitions_and_explanation.pdf page1"
+    },
+    {
+      "fact": "Hourly prices,17 reservoir inflows plus r_Vest_Vassdraget inflow,3 minimum-volume series and6 minimum-flow series are supplied.",
+      "source": "CSV headers and Dataset_definitions_and_explanation.pdf pages1-2"
+    },
+    {
+      "fact": "Every generator has static startcost_const and stopcost_const, production limits, efficiency curves and penstock assignment.",
+      "source": "Current YAML parsed directly"
+    },
+    {
+      "fact": "The only non-label columns in Unit_commitment_decisions are Run No,starttime,total_calculation_time. Competition mapping provides only Run No,starttime.",
+      "source": "Current CSV headers"
+    }
+  ],
+  "not_supplied": [
+    "Generator initial_state, pre-horizon production or commitment history, elapsed time in the initial ON/OFF state, committed_in schedules.",
+    "Generator/plant min_uptime,min_downtime or corresponding activation flags; ramping attributes or activation schedules.",
+    "Case-specific MIP activation profile, gen_turn_off_limit override, generator priority schedules, solver tolerances/seeds/time caps, full/incremental iteration commands.",
+    "Actual optimized generator MW/discharge, bypass/spill flows or storage trajectories, solver objective decomposition and optimality gaps.",
+    "Code mapping CSV data into SHOP attributes or carrying state/solver warm starts between cases."
+  ],
+  "unknowns_not_conclusions": [
+    "An absent initial_state field does not prove all generators start OFF, that previous cases carry over, or that variable hidden initial states exist. The generation routine could use constants/defaults or set values externally.",
+    "The term daily rolling horizon does not prove continuity of optimized states across cases. The documents explicitly prescribe a fresh historical reservoir storage lookup for every case.",
+    "SHOP supports minimum dwell times and pre-horizon history, but that capability does not show those constraints were active for this dataset.",
+    "SHOP allows a horizon-dependent binary-versus-relaxed commitment regime. A first-day MIP regime could affect difficulty, but neither the supplied topology nor task documents establish its use.",
+    "Initial unit uncertainty, solver tie-breaking and near-indifferent objective values are plausible causes of some ambiguity; no supplied solver trajectories or gaps quantify irreducible label noise."
+  ],
+  "label_evidence": {
+    "method": "Pure descriptive labels from2020,2021,2022. Interior constant-state runs touching either case boundary are excluded from duration counts. Adjacent case alignment compares prior t24..167 with next t0..143; daily spacing asserted. Overlapping observations are not independent.",
+    "findings": [
+      "Hogga,Lio,Haukeli each have uncensored one-hour ON and OFF runs in2022. Therefore a universal active minimum2-hour ON/OFF requirement is inconsistent with those labels.",
+      "Observed duration preferences can arise from start/stop costs, storage and relative prices without a hard minimum duration.",
+      "Neighboring cases disagree at identical calendar hours:2022 approximately14.23%Hogga,7.24%Lio,7.73%Haukeli. Neighbor labels are not interchangeable targets or directly available competition features.",
+      "Comparing t0 ON fraction with all later hours confounds midnight with horizon position. Same-hour midnight comparisons show no broad t0 depression for Hogga and higher t0 ON fraction for Haukeli.",
+      "Current-winner first-day wrong-pair enrichment is only1.076x/1.084x in2021/2022; transition vicinity is much more enriched. Initial-state speculation should not dominate the next experiment."
+    ],
+    "run_statistics": [
+      {
+        "year": 2020,
+        "generator": "Hogga_G1",
+        "uncensored_on_runs": 22,
+        "uncensored_off_runs": 21,
+        "minimum_on_run_hours": 5,
+        "minimum_off_run_hours": 1,
+        "one_hour_on_runs": 0,
+        "one_hour_off_runs": 1,
+        "on_fraction_at_each_midnight": [
+          0.7814207650273224,
+          0.7704918032786885,
+          0.773224043715847,
+          0.7868852459016393,
+          0.8087431693989071,
+          0.8142076502732241,
+          0.8114754098360656
+        ],
+        "switch_rate_first_day": 0.0011879306248515087,
+        "switch_rate_later_days": 0.0019106576483625664,
+        "adjacent_case_same_calendar_hour_disagreement": 0.0773972602739726,
+        "new_case_t0_vs_previous_case_t24_disagreement": 0.07671232876712329
+      },
+      {
+        "year": 2020,
+        "generator": "Lio_G1",
+        "uncensored_on_runs": 28,
+        "uncensored_off_runs": 42,
+        "minimum_on_run_hours": 11,
+        "minimum_off_run_hours": 5,
+        "one_hour_on_runs": 0,
+        "one_hour_off_runs": 0,
+        "on_fraction_at_each_midnight": [
+          0.7978142076502732,
+          0.8005464480874317,
+          0.7923497267759563,
+          0.8005464480874317,
+          0.8060109289617486,
+          0.8032786885245902,
+          0.8142076502732241
+        ],
+        "switch_rate_first_day": 0.001663102874792112,
+        "switch_rate_later_days": 0.0023501089074859567,
+        "adjacent_case_same_calendar_hour_disagreement": 0.054471080669710806,
+        "new_case_t0_vs_previous_case_t24_disagreement": 0.049315068493150684
+      },
+      {
+        "year": 2020,
+        "generator": "Haukeli_G1",
+        "uncensored_on_runs": 28,
+        "uncensored_off_runs": 19,
+        "minimum_on_run_hours": 1,
+        "minimum_off_run_hours": 1,
+        "one_hour_on_runs": 4,
+        "one_hour_off_runs": 2,
+        "on_fraction_at_each_midnight": [
+          0.24863387978142076,
+          0.23770491803278687,
+          0.23770491803278687,
+          0.22950819672131148,
+          0.23224043715846995,
+          0.23497267759562843,
+          0.24043715846994534
+        ],
+        "switch_rate_first_day": 0.0007127583749109052,
+        "switch_rate_later_days": 0.0013565669303374221,
+        "adjacent_case_same_calendar_hour_disagreement": 0.079337899543379,
+        "new_case_t0_vs_previous_case_t24_disagreement": 0.07397260273972603
+      },
+      {
+        "year": 2020,
+        "generator": "Tokke_G1",
+        "uncensored_on_runs": 154,
+        "uncensored_off_runs": 125,
+        "minimum_on_run_hours": 3,
+        "minimum_off_run_hours": 4,
+        "one_hour_on_runs": 0,
+        "one_hour_off_runs": 0,
+        "on_fraction_at_each_midnight": [
+          0.7158469945355191,
+          0.7377049180327869,
+          0.7786885245901639,
+          0.8005464480874317,
+          0.7896174863387978,
+          0.773224043715847,
+          0.7595628415300546
+        ],
+        "switch_rate_first_day": 0.006177239249227845,
+        "switch_rate_later_days": 0.007088539875425122,
+        "adjacent_case_same_calendar_hour_disagreement": 0.1204337899543379,
+        "new_case_t0_vs_previous_case_t24_disagreement": 0.12602739726027398
+      },
+      {
+        "year": 2020,
+        "generator": "Tokke_G2",
+        "uncensored_on_runs": 83,
+        "uncensored_off_runs": 57,
+        "minimum_on_run_hours": 1,
+        "minimum_off_run_hours": 4,
+        "one_hour_on_runs": 1,
+        "one_hour_off_runs": 0,
+        "on_fraction_at_each_midnight": [
+          0.587431693989071,
+          0.5737704918032787,
+          0.5819672131147541,
+          0.5683060109289617,
+          0.587431693989071,
+          0.5683060109289617,
+          0.5382513661202186
+        ],
+        "switch_rate_first_day": 0.004514136374435733,
+        "switch_rate_later_days": 0.00445183232068478,
+        "adjacent_case_same_calendar_hour_disagreement": 0.1655441400304414,
+        "new_case_t0_vs_previous_case_t24_disagreement": 0.14794520547945206
+      },
+      {
+        "year": 2020,
+        "generator": "Vinje_G1",
+        "uncensored_on_runs": 230,
+        "uncensored_off_runs": 240,
+        "minimum_on_run_hours": 1,
+        "minimum_off_run_hours": 3,
+        "one_hour_on_runs": 1,
+        "one_hour_off_runs": 0,
+        "on_fraction_at_each_midnight": [
+          0.4890710382513661,
+          0.5163934426229508,
+          0.49453551912568305,
+          0.5218579234972678,
+          0.5491803278688525,
+          0.5491803278688525,
+          0.5491803278688525
+        ],
+        "switch_rate_first_day": 0.012235685435970539,
+        "switch_rate_later_days": 0.010546830218961366,
+        "adjacent_case_same_calendar_hour_disagreement": 0.1441400304414003,
+        "new_case_t0_vs_previous_case_t24_disagreement": 0.1726027397260274
+      },
+      {
+        "year": 2021,
+        "generator": "Hogga_G1",
+        "uncensored_on_runs": 466,
+        "uncensored_off_runs": 443,
+        "minimum_on_run_hours": 1,
+        "minimum_off_run_hours": 2,
+        "one_hour_on_runs": 9,
+        "one_hour_off_runs": 0,
+        "on_fraction_at_each_midnight": [
+          0.4849315068493151,
+          0.4876712328767123,
+          0.4712328767123288,
+          0.4657534246575342,
+          0.4657534246575342,
+          0.4712328767123288,
+          0.4767123287671233
+        ],
+        "switch_rate_first_day": 0.01834425253126861,
+        "switch_rate_later_days": 0.018641632340262476,
+        "adjacent_case_same_calendar_hour_disagreement": 0.17454594017094016,
+        "new_case_t0_vs_previous_case_t24_disagreement": 0.2032967032967033
+      },
+      {
+        "year": 2021,
+        "generator": "Lio_G1",
+        "uncensored_on_runs": 255,
+        "uncensored_off_runs": 244,
+        "minimum_on_run_hours": 1,
+        "minimum_off_run_hours": 1,
+        "one_hour_on_runs": 11,
+        "one_hour_off_runs": 3,
+        "on_fraction_at_each_midnight": [
+          0.5123287671232877,
+          0.5205479452054794,
+          0.5178082191780822,
+          0.5095890410958904,
+          0.5150684931506849,
+          0.5123287671232877,
+          0.5123287671232877
+        ],
+        "switch_rate_first_day": 0.012388326384752828,
+        "switch_rate_later_days": 0.011552830730912922,
+        "adjacent_case_same_calendar_hour_disagreement": 0.08835088522588523,
+        "new_case_t0_vs_previous_case_t24_disagreement": 0.0989010989010989
+      },
+      {
+        "year": 2021,
+        "generator": "Haukeli_G1",
+        "uncensored_on_runs": 134,
+        "uncensored_off_runs": 87,
+        "minimum_on_run_hours": 1,
+        "minimum_off_run_hours": 1,
+        "one_hour_on_runs": 9,
+        "one_hour_off_runs": 3,
+        "on_fraction_at_each_midnight": [
+          0.3780821917808219,
+          0.3315068493150685,
+          0.3424657534246575,
+          0.3726027397260274,
+          0.35342465753424657,
+          0.35342465753424657,
+          0.3561643835616438
+        ],
+        "switch_rate_first_day": 0.005955926146515783,
+        "switch_rate_later_days": 0.00580515375035923,
+        "adjacent_case_same_calendar_hour_disagreement": 0.14909569597069597,
+        "new_case_t0_vs_previous_case_t24_disagreement": 0.1510989010989011
+      },
+      {
+        "year": 2021,
+        "generator": "Tokke_G1",
+        "uncensored_on_runs": 649,
+        "uncensored_off_runs": 605,
+        "minimum_on_run_hours": 1,
+        "minimum_off_run_hours": 1,
+        "one_hour_on_runs": 14,
+        "one_hour_off_runs": 3,
+        "on_fraction_at_each_midnight": [
+          0.4794520547945205,
+          0.4986301369863014,
+          0.5041095890410959,
+          0.5178082191780822,
+          0.5424657534246575,
+          0.5287671232876713,
+          0.5287671232876713
+        ],
+        "switch_rate_first_day": 0.027278141751042286,
+        "switch_rate_later_days": 0.02389117731583485,
+        "adjacent_case_same_calendar_hour_disagreement": 0.17147435897435898,
+        "new_case_t0_vs_previous_case_t24_disagreement": 0.19230769230769232
+      },
+      {
+        "year": 2021,
+        "generator": "Tokke_G2",
+        "uncensored_on_runs": 514,
+        "uncensored_off_runs": 432,
+        "minimum_on_run_hours": 1,
+        "minimum_off_run_hours": 1,
+        "one_hour_on_runs": 20,
+        "one_hour_off_runs": 3,
+        "on_fraction_at_each_midnight": [
+          0.3506849315068493,
+          0.3726027397260274,
+          0.3698630136986301,
+          0.38082191780821917,
+          0.3726027397260274,
+          0.38082191780821917,
+          0.38904109589041097
+        ],
+        "switch_rate_first_day": 0.017748659916617032,
+        "switch_rate_later_days": 0.0189864929590957,
+        "adjacent_case_same_calendar_hour_disagreement": 0.18557310744810745,
+        "new_case_t0_vs_previous_case_t24_disagreement": 0.1620879120879121
+      },
+      {
+        "year": 2021,
+        "generator": "Vinje_G1",
+        "uncensored_on_runs": 618,
+        "uncensored_off_runs": 600,
+        "minimum_on_run_hours": 1,
+        "minimum_off_run_hours": 1,
+        "one_hour_on_runs": 14,
+        "one_hour_off_runs": 3,
+        "on_fraction_at_each_midnight": [
+          0.336986301369863,
+          0.336986301369863,
+          0.3561643835616438,
+          0.3698630136986301,
+          0.3698630136986301,
+          0.3972602739726027,
+          0.40273972602739727
+        ],
+        "switch_rate_first_day": 0.022989874925550925,
+        "switch_rate_later_days": 0.023948654085640387,
+        "adjacent_case_same_calendar_hour_disagreement": 0.1883203601953602,
+        "new_case_t0_vs_previous_case_t24_disagreement": 0.17857142857142858
+      },
+      {
+        "year": 2022,
+        "generator": "Hogga_G1",
+        "uncensored_on_runs": 806,
+        "uncensored_off_runs": 704,
+        "minimum_on_run_hours": 1,
+        "minimum_off_run_hours": 1,
+        "one_hour_on_runs": 22,
+        "one_hour_off_runs": 5,
+        "on_fraction_at_each_midnight": [
+          0.3013698630136986,
+          0.2958904109589041,
+          0.28493150684931506,
+          0.2876712328767123,
+          0.30684931506849317,
+          0.3287671232876712,
+          0.3041095890410959
+        ],
+        "switch_rate_first_day": 0.02692078618225134,
+        "switch_rate_later_days": 0.02877670274930549,
+        "adjacent_case_same_calendar_hour_disagreement": 0.14228479853479853,
+        "new_case_t0_vs_previous_case_t24_disagreement": 0.13186813186813187
+      },
+      {
+        "year": 2022,
+        "generator": "Lio_G1",
+        "uncensored_on_runs": 678,
+        "uncensored_off_runs": 654,
+        "minimum_on_run_hours": 1,
+        "minimum_off_run_hours": 1,
+        "one_hour_on_runs": 45,
+        "one_hour_off_runs": 36,
+        "on_fraction_at_each_midnight": [
+          0.4657534246575342,
+          0.4876712328767123,
+          0.4821917808219178,
+          0.4931506849315068,
+          0.4849315068493151,
+          0.4958904109589041,
+          0.4986301369863014
+        ],
+        "switch_rate_first_day": 0.023823704586063133,
+        "switch_rate_later_days": 0.026592585496695086,
+        "adjacent_case_same_calendar_hour_disagreement": 0.07240155677655678,
+        "new_case_t0_vs_previous_case_t24_disagreement": 0.07417582417582418
+      },
+      {
+        "year": 2022,
+        "generator": "Haukeli_G1",
+        "uncensored_on_runs": 292,
+        "uncensored_off_runs": 198,
+        "minimum_on_run_hours": 1,
+        "minimum_off_run_hours": 1,
+        "one_hour_on_runs": 2,
+        "one_hour_off_runs": 2,
+        "on_fraction_at_each_midnight": [
+          0.13972602739726028,
+          0.12602739726027398,
+          0.11506849315068493,
+          0.12054794520547946,
+          0.1178082191780822,
+          0.11506849315068493,
+          0.08493150684931507
+        ],
+        "switch_rate_first_day": 0.011197141155449673,
+        "switch_rate_later_days": 0.010633202414024332,
+        "adjacent_case_same_calendar_hour_disagreement": 0.07732371794871795,
+        "new_case_t0_vs_previous_case_t24_disagreement": 0.09615384615384616
+      },
+      {
+        "year": 2022,
+        "generator": "Tokke_G1",
+        "uncensored_on_runs": 887,
+        "uncensored_off_runs": 836,
+        "minimum_on_run_hours": 1,
+        "minimum_off_run_hours": 1,
+        "one_hour_on_runs": 65,
+        "one_hour_off_runs": 20,
+        "on_fraction_at_each_midnight": [
+          0.4,
+          0.3917808219178082,
+          0.4,
+          0.38904109589041097,
+          0.39452054794520547,
+          0.38082191780821917,
+          0.35342465753424657
+        ],
+        "switch_rate_first_day": 0.030136986301369864,
+        "switch_rate_later_days": 0.032397739247054316,
+        "adjacent_case_same_calendar_hour_disagreement": 0.12715583028083027,
+        "new_case_t0_vs_previous_case_t24_disagreement": 0.1620879120879121
+      },
+      {
+        "year": 2022,
+        "generator": "Tokke_G2",
+        "uncensored_on_runs": 701,
+        "uncensored_off_runs": 631,
+        "minimum_on_run_hours": 1,
+        "minimum_off_run_hours": 1,
+        "one_hour_on_runs": 48,
+        "one_hour_off_runs": 14,
+        "on_fraction_at_each_midnight": [
+          0.3013698630136986,
+          0.28493150684931506,
+          0.2876712328767123,
+          0.2821917808219178,
+          0.27945205479452057,
+          0.2958904109589041,
+          0.29315068493150687
+        ],
+        "switch_rate_first_day": 0.026444312090530078,
+        "switch_rate_later_days": 0.02513650732828815,
+        "adjacent_case_same_calendar_hour_disagreement": 0.14022435897435898,
+        "new_case_t0_vs_previous_case_t24_disagreement": 0.15934065934065933
+      },
+      {
+        "year": 2022,
+        "generator": "Vinje_G1",
+        "uncensored_on_runs": 1114,
+        "uncensored_off_runs": 1004,
+        "minimum_on_run_hours": 1,
+        "minimum_off_run_hours": 1,
+        "one_hour_on_runs": 67,
+        "one_hour_off_runs": 37,
+        "on_fraction_at_each_midnight": [
+          0.2136986301369863,
+          0.23835616438356164,
+          0.2602739726027397,
+          0.25205479452054796,
+          0.2465753424657534,
+          0.2328767123287671,
+          0.2191780821917808
+        ],
+        "switch_rate_first_day": 0.04133412745681954,
+        "switch_rate_later_days": 0.03900756777469106,
+        "adjacent_case_same_calendar_hour_disagreement": 0.13450091575091574,
+        "new_case_t0_vs_previous_case_t24_disagreement": 0.1346153846153846
+      }
+    ],
+    "current_winner_horizon_evidence": [
+      {
+        "year": 2021,
+        "day1_auc": 0.9863247296102348,
+        "day7_auc": 0.9910667095546797,
+        "day1_error_enrichment": 1.0764519393443608,
+        "near_transition_output_fraction": 0.08049925449631908,
+        "near_transition_wrong_pair_share": 0.5001045810089834,
+        "near_transition_error_enrichment": 3.2226029623310586
+      },
+      {
+        "year": 2022,
+        "day1_auc": 0.9855654089196929,
+        "day7_auc": 0.9894829057664469,
+        "day1_error_enrichment": 1.0836736724139209,
+        "near_transition_output_fraction": 0.11867603205665828,
+        "near_transition_wrong_pair_share": 0.6734184863616377,
+        "near_transition_error_enrichment": 2.747232662374297
+      }
+    ]
+  },
+  "symmetry": {
+    "findings": [
+      "Tokke G1/G2 generator dictionaries are identical and share penstock1; G3/G4 are identical and share penstock2. Cross-pair generator dictionaries differ by penstock. Shared-penstock losses make all-four interchangeable-unit assumptions inappropriate.",
+      "Vinje unit dictionaries differ only by penstock number; each associated penstock loss coefficient equals0.001. This supports an approximate structural symmetry, not proof of identical solver tie-breaking.",
+      "Tokke G1<G2 violations are0 in2021 and7 in2022; G3<G4 violations are165 and90. Most previously reported adjacent Tokke ordering violations are G2/G3 across penstocks,4949 and3303.",
+      "Vinje unit-number priority is strong but not absolute. Hard sorting all units would change some valid exceptions.",
+      "Soft pairwise ordering or count/allocation structure is a defensible future experiment. Current errors are concentrated in single-generator plants, so this does not directly explain the whole remaining gap."
+    ],
+    "pair_statistics": [
+      {
+        "year": 2020,
+        "pair": [
+          "Tokke_G1",
+          "Tokke_G2"
+        ],
+        "yaml_different_generator_fields": [],
+        "first_on_second_off": 12965,
+        "first_off_second_on": 93,
+        "ordering_violation_fraction": 0.0015124902419984387
+      },
+      {
+        "year": 2020,
+        "pair": [
+          "Tokke_G3",
+          "Tokke_G4"
+        ],
+        "yaml_different_generator_fields": [],
+        "first_on_second_off": 4848,
+        "first_off_second_on": 455,
+        "ordering_violation_fraction": 0.007399817850637523
+      },
+      {
+        "year": 2020,
+        "pair": [
+          "Tokke_G2",
+          "Tokke_G3"
+        ],
+        "yaml_different_generator_fields": [
+          "penstock"
+        ],
+        "first_on_second_off": 261,
+        "first_off_second_on": 6576,
+        "ordering_violation_fraction": 0.10694769711163153
+      },
+      {
+        "year": 2020,
+        "pair": [
+          "Vinje_G1",
+          "Vinje_G2"
+        ],
+        "yaml_different_generator_fields": [
+          "penstock"
+        ],
+        "first_on_second_off": 4224,
+        "first_off_second_on": 210,
+        "ordering_violation_fraction": 0.0034153005464480873
+      },
+      {
+        "year": 2020,
+        "pair": [
+          "Vinje_G2",
+          "Vinje_G3"
+        ],
+        "yaml_different_generator_fields": [
+          "penstock"
+        ],
+        "first_on_second_off": 12585,
+        "first_off_second_on": 55,
+        "ordering_violation_fraction": 0.0008944834764506896
+      },
+      {
+        "year": 2021,
+        "pair": [
+          "Tokke_G1",
+          "Tokke_G2"
+        ],
+        "yaml_different_generator_fields": [],
+        "first_on_second_off": 9762,
+        "first_off_second_on": 0,
+        "ordering_violation_fraction": 0.0
+      },
+      {
+        "year": 2021,
+        "pair": [
+          "Tokke_G3",
+          "Tokke_G4"
+        ],
+        "yaml_different_generator_fields": [],
+        "first_on_second_off": 4092,
+        "first_off_second_on": 165,
+        "ordering_violation_fraction": 0.0026908023483365948
+      },
+      {
+        "year": 2021,
+        "pair": [
+          "Tokke_G2",
+          "Tokke_G3"
+        ],
+        "yaml_different_generator_fields": [
+          "penstock"
+        ],
+        "first_on_second_off": 5,
+        "first_off_second_on": 4949,
+        "ordering_violation_fraction": 0.08070776255707762
+      },
+      {
+        "year": 2021,
+        "pair": [
+          "Vinje_G1",
+          "Vinje_G2"
+        ],
+        "yaml_different_generator_fields": [
+          "penstock"
+        ],
+        "first_on_second_off": 3867,
+        "first_off_second_on": 17,
+        "ordering_violation_fraction": 0.00027723418134377036
+      },
+      {
+        "year": 2021,
+        "pair": [
+          "Vinje_G2",
+          "Vinje_G3"
+        ],
+        "yaml_different_generator_fields": [
+          "penstock"
+        ],
+        "first_on_second_off": 7137,
+        "first_off_second_on": 5,
+        "ordering_violation_fraction": 8.153946510110893e-05
+      },
+      {
+        "year": 2022,
+        "pair": [
+          "Tokke_G1",
+          "Tokke_G2"
+        ],
+        "yaml_different_generator_fields": [],
+        "first_on_second_off": 6111,
+        "first_off_second_on": 7,
+        "ordering_violation_fraction": 0.00011415525114155251
+      },
+      {
+        "year": 2022,
+        "pair": [
+          "Tokke_G3",
+          "Tokke_G4"
+        ],
+        "yaml_different_generator_fields": [],
+        "first_on_second_off": 2397,
+        "first_off_second_on": 90,
+        "ordering_violation_fraction": 0.0014677103718199608
+      },
+      {
+        "year": 2022,
+        "pair": [
+          "Tokke_G2",
+          "Tokke_G3"
+        ],
+        "yaml_different_generator_fields": [
+          "penstock"
+        ],
+        "first_on_second_off": 7,
+        "first_off_second_on": 3303,
+        "ordering_violation_fraction": 0.05386497064579256
+      },
+      {
+        "year": 2022,
+        "pair": [
+          "Vinje_G1",
+          "Vinje_G2"
+        ],
+        "yaml_different_generator_fields": [
+          "penstock"
+        ],
+        "first_on_second_off": 2876,
+        "first_off_second_on": 22,
+        "ordering_violation_fraction": 0.00035877364644487935
+      },
+      {
+        "year": 2022,
+        "pair": [
+          "Vinje_G2",
+          "Vinje_G3"
+        ],
+        "yaml_different_generator_fields": [
+          "penstock"
+        ],
+        "first_on_second_off": 6453,
+        "first_off_second_on": 17,
+        "ordering_violation_fraction": 0.00027723418134377036
+      }
+    ]
+  },
+  "economics": {
+    "unit_costs": {
+      "Hogga_G1": {
+        "startcost_const": 94,
+        "stopcost_const": 94,
+        "p_min_mw": 3,
+        "p_max_mw": 17,
+        "cycle_cost_per_max_mw": 11.058823529411764,
+        "penstock": 1
+      },
+      "Tokke_G1": {
+        "startcost_const": 214,
+        "stopcost_const": 214,
+        "p_min_mw": 36.9,
+        "p_max_mw": 107.5,
+        "cycle_cost_per_max_mw": 3.9813953488372094,
+        "penstock": 1
+      },
+      "Tokke_G2": {
+        "startcost_const": 214,
+        "stopcost_const": 214,
+        "p_min_mw": 36.9,
+        "p_max_mw": 107.5,
+        "cycle_cost_per_max_mw": 3.9813953488372094,
+        "penstock": 1
+      },
+      "Tokke_G3": {
+        "startcost_const": 214,
+        "stopcost_const": 214,
+        "p_min_mw": 36.9,
+        "p_max_mw": 107.5,
+        "cycle_cost_per_max_mw": 3.9813953488372094,
+        "penstock": 2
+      },
+      "Tokke_G4": {
+        "startcost_const": 214,
+        "stopcost_const": 214,
+        "p_min_mw": 36.9,
+        "p_max_mw": 107.5,
+        "cycle_cost_per_max_mw": 3.9813953488372094,
+        "penstock": 2
+      },
+      "Lio_G1": {
+        "startcost_const": 163,
+        "stopcost_const": 163,
+        "p_min_mw": 14.8,
+        "p_max_mw": 43,
+        "cycle_cost_per_max_mw": 7.5813953488372094,
+        "penstock": 1
+      },
+      "Byrte_G1": {
+        "startcost_const": 135,
+        "stopcost_const": 135,
+        "p_min_mw": 6.9,
+        "p_max_mw": 20,
+        "cycle_cost_per_max_mw": 13.5,
+        "penstock": 1
+      },
+      "Vinje_G1": {
+        "startcost_const": 198,
+        "stopcost_const": 198,
+        "p_min_mw": 34.4,
+        "p_max_mw": 100,
+        "cycle_cost_per_max_mw": 3.96,
+        "penstock": 1
+      },
+      "Vinje_G2": {
+        "startcost_const": 198,
+        "stopcost_const": 198,
+        "p_min_mw": 34.4,
+        "p_max_mw": 100,
+        "cycle_cost_per_max_mw": 3.96,
+        "penstock": 2
+      },
+      "Vinje_G3": {
+        "startcost_const": 198,
+        "stopcost_const": 198,
+        "p_min_mw": 34.4,
+        "p_max_mw": 100,
+        "cycle_cost_per_max_mw": 3.96,
+        "penstock": 3
+      },
+      "Haukeli_G1": {
+        "startcost_const": 143,
+        "stopcost_const": 143,
+        "p_min_mw": 0.3,
+        "p_max_mw": 4.9,
+        "cycle_cost_per_max_mw": 58.367346938775505,
+        "penstock": 1
+      },
+      "Songa_G1": {
+        "startcost_const": 222,
+        "stopcost_const": 222,
+        "p_min_mw": 41.2,
+        "p_max_mw": 120,
+        "cycle_cost_per_max_mw": 3.7,
+        "penstock": 1
+      },
+      "Kjela_G1": {
+        "startcost_const": 171,
+        "stopcost_const": 171,
+        "p_min_mw": 20.6,
+        "p_max_mw": 60,
+        "cycle_cost_per_max_mw": 5.7,
+        "penstock": 1
+      },
+      "Vesle Kjela_G1": {
+        "startcost_const": 92,
+        "stopcost_const": 92,
+        "p_min_mw": 2.9,
+        "p_max_mw": 8.5,
+        "cycle_cost_per_max_mw": 21.647058823529413,
+        "penstock": 1
+      }
+    },
+    "interpretation": "Relative cycle cost per max MW is58.37 for Haukeli,11.06 for Hogga,7.58 for Lio and3.98 for each Tokke unit, in consistent YAML monetary units per MW. This illustrates why small units may need longer profitable intervals; it is not an exact profit threshold because production, hydraulic value and initial state differ.",
+    "currency": "Generator reference tables label monetary attributes NOK. The official basic example clarifies that monetary units are arbitrary if internally consistent. Dataset prices/water values explicitly use EUR. The generation script is unavailable, so do not introduce an assumed currency conversion; the optional economics code labels its proxy EUR but is disabled in the current winner.",
+    "boundary_caution": "A full start+stop cycle cost is not appropriate for every candidate interval: starting ON or ending ON changes applicable transitions, and terminal water value changes the value of leaving water. Existing optional economics features acknowledge being a reference approximation."
+  },
+  "alignment_review": [
+    "src/features.py loads only provided labels and discards solver runtime/IDs as model inputs. Price timestamps are starttime+horizon_hour, initial storage is starttime and terminal water value is starttime+168hours.",
+    "Generator-major label reshape and submission-column schema are asserted in load_data/flatten_labels; no evidence of a transposition or one-day shift was found in these reviewed paths.",
+    "Previous audit first/last-case and ZIP checksum checks are historical evidence; this review freshly confirmed definitions, headers, YAML and archive inventory but did not rerun the audit script because it overwrites existing reports.",
+    "Later observed reservoir storage is not an optimized trajectory for an earlier case. Substituting later historical volumes would change the intended case inputs and should not be treated as recovering hidden state."
+  ],
+  "stale_evidence": [
+    "docs/PROJECT_FILES.md says no models implemented/trained: that is an import-time note, not the current project state.",
+    "reports/project_audit.md compares the old unscaled75%XGB/25%LGB blend and calls neural models largely unexplored; those statements are stale for current performance.",
+    "reports/plant_commitment_2021_metrics.json and2022 report an unscaled count/pattern formulation against an older baseline. It was not evaluated against the current rescaled Transformer/tree blend.",
+    "Old economic/river feature trials used an earlier formulation. They cannot establish that full hydraulic dynamics or structured temporal learning are exhausted."
+  ],
+  "feasible_next_tests_not_executed": [
+    {
+      "test": "Soft temporal consistency or a two-state probabilistic decoder on existing OOF probabilities",
+      "purpose": "Test whether isolated false switches or transition uncertainty explain rank loss. Preserve genuine one-hour runs; estimate priors on training cases, freeze strength before a second year, output soft marginals rather than hard schedules.",
+      "risk": "Sequence model outputs already correlate across time; naive smoothing can blur real transitions and double-count evidence."
+    },
+    {
+      "test": "Auxiliary transition prediction jointly with ON/OFF prediction",
+      "purpose": "Use supplied training labels to provide transition supervision while keeping deployed inputs unchanged. Train boundary targets only between known in-case hours; never invent a pre-t0 label.",
+      "risk": "True-label transition masks are diagnostic/training targets, never inference features; validation must check pooled microAUC."
+    },
+    {
+      "test": "Soft Tokke within-penstock and Vinje priority consistency",
+      "purpose": "Use verified structural grouping without imposing false global Tokke order. A cheap fixed postprocessing check or auxiliary structured loss can separate unit-allocation from plant-dispatch errors.",
+      "risk": "Ordering exceptions exist; plant count uncertainty and joint probabilities must remain coherent."
+    },
+    {
+      "test": "Initial and terminal boundary diagnostics with matched hour-of-day and provided-price regimes",
+      "purpose": "Test genuine horizon effects before allocating effort to assumed missing state.",
+      "risk": "Boundary association alone cannot identify the solver command profile or latent initial commitment."
+    }
+  ],
+  "optional_organizer_questions_for_future": [
+    "Are generator initial_state/historical_production reset, fixed or copied between cases? If fixed, what values?",
+    "Are minimum up/down times or ramping constraints enabled beyond the supplied YAML?",
+    "What is the mip_flag profile over168hours and which full/incremental iterations and turn-off thresholds are used?",
+    "Is a fixed generator priority/order or warm-start basis used for equivalent units?",
+    "Which water-value input attribute and monetary-unit convention are used by the generation script?"
+  ],
+  "raw_csv_headers": {
+    "data/raw/prediction_mapping.csv": {
+      "column_count": 2,
+      "non_label_columns": [
+        "Run No",
+        "starttime"
+      ]
+    },
+    "data/raw/sample_submission.csv": {
+      "column_count": 2353,
+      "non_label_columns": [
+        "Run No"
+      ]
+    },
+    "data/raw/extended/Constraint_min_volume.csv": {
+      "column_count": 4,
+      "non_label_columns": [
+        "date",
+        "Totak",
+        "Byrtevatn",
+        "Staavatn"
+      ]
+    },
+    "data/raw/extended/Constraint_min_flow.csv": {
+      "column_count": 7,
+      "non_label_columns": [
+        "date",
+        "b_Kjelavatn",
+        "b_Hyljelihyl",
+        "b_Vinjevatn",
+        "b_Byrtevatn",
+        "b_Bandak",
+        "r_Vest_Vassdraget"
+      ]
+    },
+    "data/raw/kernel/Historical_day_ahead_price_2015_2025.csv": {
+      "column_count": 2,
+      "non_label_columns": [
+        "date",
+        "Day-ahead price (EUR/MWh)"
+      ]
+    },
+    "data/raw/kernel/Historical_volume_2015_2024.csv": {
+      "column_count": 18,
+      "non_label_columns": [
+        "date",
+        "Kjelavatn",
+        "Staavatn",
+        "Langesae",
+        "Foersvatn",
+        "Venemo",
+        "Botnedalsvatn",
+        "Bitdalsvatn",
+        "Vaamarvatn",
+        "Langeidvatn",
+        "Totak",
+        "Songavatn",
+        "Vinjevatn",
+        "Bandak",
+        "Bordalsvatn",
+        "Byrtevatn",
+        "Hyljelihyl",
+        "Vatjern"
+      ]
+    },
+    "data/raw/kernel/Historical_inflow_1958_2025.csv": {
+      "column_count": 19,
+      "non_label_columns": [
+        "date",
+        "Langesae",
+        "Staavatn",
+        "Kjelavatn",
+        "Bordalsvatn",
+        "Foersvatn",
+        "Hyljelihyl",
+        "Venemo",
+        "Bitdalsvatn",
+        "Songavatn",
+        "Totak",
+        "Vaamarvatn",
+        "Langeidvatn",
+        "Vatjern",
+        "Vinjevatn",
+        "Botnedalsvatn",
+        "Byrtevatn",
+        "Bandak",
+        "r_Vest_Vassdraget"
+      ]
+    },
+    "data/raw/kernel/Unit_commitment_decisions.csv": {
+      "column_count": 2355,
+      "non_label_columns": [
+        "Run No",
+        "starttime",
+        "total_calculation_time"
+      ]
+    },
+    "data/raw/kernel/Synthetic_water_value_2015_2024.csv": {
+      "column_count": 18,
+      "non_label_columns": [
+        "date",
+        "Kjelavatn",
+        "Staavatn",
+        "Langesae",
+        "Foersvatn",
+        "Venemo",
+        "Botnedalsvatn",
+        "Bitdalsvatn",
+        "Vaamarvatn",
+        "Langeidvatn",
+        "Totak",
+        "Songavatn",
+        "Vinjevatn",
+        "Bandak",
+        "Bordalsvatn",
+        "Byrtevatn",
+        "Hyljelihyl",
+        "Vatjern"
+      ]
+    }
+  },
+  "yaml_attribute_inventory": {
+    "reservoir": [
+      "hrl",
+      "lrl",
+      "max_vol",
+      "vol_head"
+    ],
+    "river": [
+      "flow_cost_const",
+      "flow_cost_curve",
+      "main_river",
+      "max_flow_const",
+      "up_head_flow_curve",
+      "upstream_elevation"
+    ],
+    "plant": [
+      "main_loss",
+      "outlet_line",
+      "penstock_loss"
+    ],
+    "generator": [
+      "gen_eff_curve",
+      "p_max",
+      "p_min",
+      "p_nom",
+      "penstock",
+      "startcost_const",
+      "stopcost_const",
+      "turb_eff_curves"
+    ],
+    "tunnel": [
+      "end_height",
+      "length",
+      "loss_factor",
+      "start_height"
+    ]
+  },
+  "official_sources": [
+    {
+      "url": "https://docs.shop.sintef.energy/objects/generator/generator.html",
+      "supports": "Separate initial state, pre-horizon production, dwell parameters, transition costs, categorical priority and binary/relaxed commitment capabilities. Current documentation does not prove dataset configuration."
+    },
+    {
+      "url": "https://docs.shop.sintef.energy/examples/min_uptime_downtime/min_uptime_downtime.html",
+      "supports": "Minimum duration constraints are explicitly configured; historical production can establish the initial state and elapsed duration. Search tool returned detailed primary-source contents; direct open exceeded tool size limit."
+    },
+    {
+      "url": "https://docs.shop.sintef.energy/examples/basic/basic.html",
+      "supports": "Monetary inputs need consistent units; NOK labels do not mandate a currency conversion. Search tool returned the primary-source setup comment; direct open exceeded tool size limit."
+    }
+  ]
+}

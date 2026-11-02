@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "independent_column_by_column_blend": true,
+  "baseline_identity_exact": true,
+  "metric": "evaluation/kaggle_metric.py",
+  "metric_sha256": "6ba062eeb8c2983a490cad411071dfc77831e3f2233278e5a67b68810df90553",
+  "results": [
+    {
+      "candidate": "ranks",
+      "selected_variant": "candidate_replace",
+      "subset": "all",
+      "cases": 365,
+      "official_micro_roc_auc": 0.9864608919020703,
+      "exact_report_match": true,
+      "delta_vs_baseline": 5.725797654754228e-05
+    },
+    {
+      "candidate": "ranks",
+      "selected_variant": "candidate_replace",
+      "subset": "jan7_onward",
+      "cases": 359,
+      "official_micro_roc_auc": 0.9864190191308742,
+      "exact_report_match": true,
+      "delta_vs_baseline": 4.863538622756902e-05
+    },
+    {
+      "candidate": "periods",
+      "selected_variant": "candidate_replace",
+      "subset": "all",
+      "cases": 365,
+      "official_micro_roc_auc": 0.9863436622655469,
+      "exact_report_match": true,
+      "delta_vs_baseline": -5.997165997584375e-05
+    },
+    {
+      "candidate": "periods",
+      "selected_variant": "candidate_replace",
+      "subset": "jan7_onward",
+      "cases": 359,
+      "official_micro_roc_auc": 0.9863078594221129,
+      "exact_report_match": true,
+      "delta_vs_baseline": -6.252432253373019e-05
+    },
+    {
+      "candidate": "child100",
+      "selected_variant": "candidate_mean",
+      "subset": "all",
+      "cases": 365,
+      "official_micro_roc_auc": 0.9863585389178452,
+      "exact_report_match": true,
+      "delta_vs_baseline": -4.5095007677575794e-05
+    },
+    {
+      "candidate": "child100",
+      "selected_variant": "candidate_mean",
+      "subset": "jan7_onward",
+      "cases": 359,
+      "official_micro_roc_auc": 0.9863228111249337,
+      "exact_report_match": true,
+      "delta_vs_baseline": -4.757261971288784e-05
+    }
+  ],
+  "artifact_hashes": {
+    "configs/round2_submission_depth8_haukeli_weighted.json": "911d51dcdd926a8f276c748848603dd1c474c28834295f005f76af1660a05da3",
+    "reports/round3_xgb_ranks_selection_2021.json": "dc95279618de6f5a9f7549384a7beece9af0bbfb3334a58f02d45f49fa474474",
+    "reports/round3_frozen_xgb_ranks_2022_comparison.json": "e62a3474ac40befe294bef2bbca70d76f352bbf44969fd0696e8cd9a1d4a5fc3",
+    "data/processed/round3_frozen_xgb_ranks_2022_validation_predictions.csv": "013e4e2b7b575018a44d551c15f3dc7d654ed12b8680e30f5266ea3410cfc6da",
+    "reports/round3_xgb_periods_selection_2021.json": "b00a27cdb2eaa0fbb993f168bcecc78ae7b90bda18a49854c64bb2f4fa591d72",
+    "reports/round3_frozen_xgb_periods_2022_comparison.json": "e2d7fbf814d824b0290259a70ae1244320d5d37e6bf130cf91c6cfb0a3fc8ca4",
+    "data/processed/round3_frozen_xgb_periods_2022_validation_predictions.csv": "160eaf00f2fc04f61a40539ec4271ea0cc620f715e191a263ac23b62456e42aa",
+    "reports/round3_xgb_child100_selection_2021.json": "36b2d2499001276485e734f80cbdb7c2b0b43935bd54a03a2bfe3aab7d4b166c",
+    "reports/round3_frozen_xgb_child100_2022_comparison.json": "1ac76eced1b14fb7c57b4353e0d6ad694404ea0dddce0be451dc19ab1c4a4ee8",
+    "data/processed/round3_frozen_xgb_child100_2022_validation_predictions.csv": "212ed90f6c27b25faf71e8b5bc231ae4fe1124dad2ff3ba5fddcd04b2938c117"
+  },
+  "protected_originals": {
+    "snapshot": "/private/tmp/tdt4173-round3-protection.json",
+    "snapshot_sha256": "c852a864aca7e659dcd860948cddda51bd6628bba21ab38c40b1ef2215c0692e",
+    "files_checked": 402,
+    "changed": []
+  },
+  "candidate_csv_precision": "Restored float32 emitted by XGBoost before weighted arithmetic; remaining cached components retain their established float64 CSV reading.",
+  "scope": "Selected variants were read from records fixed on2021. All365IDs/all2352columns verified. Official metric reproduces all six frozen2022 scores exactly. No new fitting or model selection."
+}

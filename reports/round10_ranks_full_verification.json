@@ -1,0 +1,305 @@
+{
+  "created_utc": "2026-10-18T12:48:27.302110+00:00",
+  "status": "passed",
+  "training_cases": 2922,
+  "training_case_ids_sha256": "9ea86abb2dfaa9bb06b020cdf00bb50e69e6b95246c1971b31afab0fb230296c",
+  "test_cases": 725,
+  "outputs_per_case": 2352,
+  "competition_training_id_overlap": 0,
+  "replayed_models": 28,
+  "replayed_component_probabilities": 3410400,
+  "all_replayed_predictions_exact": true,
+  "seed_mean_exact": true,
+  "final_blend_exact": true,
+  "submission": "submissions/submission_round10_ranks.csv",
+  "submission_sha256": "88a213991268c1952dbb9f4fe56eed2f14ef70646c19aaabd44c1364f0640632",
+  "recipe": "configs/round10_submission_ranks.json",
+  "per_generator_replay": [
+    {
+      "seed": 299,
+      "generator": "Hogga_G1",
+      "trees": 278,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 299,
+      "generator": "Tokke_G1",
+      "trees": 712,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 299,
+      "generator": "Tokke_G2",
+      "trees": 464,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 299,
+      "generator": "Tokke_G3",
+      "trees": 421,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 299,
+      "generator": "Tokke_G4",
+      "trees": 207,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 299,
+      "generator": "Lio_G1",
+      "trees": 324,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 299,
+      "generator": "Byrte_G1",
+      "trees": 177,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 299,
+      "generator": "Vinje_G1",
+      "trees": 664,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 299,
+      "generator": "Vinje_G2",
+      "trees": 1250,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 299,
+      "generator": "Vinje_G3",
+      "trees": 355,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 299,
+      "generator": "Haukeli_G1",
+      "trees": 129,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 299,
+      "generator": "Songa_G1",
+      "trees": 246,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 299,
+      "generator": "Kjela_G1",
+      "trees": 261,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 299,
+      "generator": "Vesle Kjela_G1",
+      "trees": 573,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 673,
+      "generator": "Hogga_G1",
+      "trees": 278,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 673,
+      "generator": "Tokke_G1",
+      "trees": 712,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 673,
+      "generator": "Tokke_G2",
+      "trees": 464,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 673,
+      "generator": "Tokke_G3",
+      "trees": 421,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 673,
+      "generator": "Tokke_G4",
+      "trees": 207,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 673,
+      "generator": "Lio_G1",
+      "trees": 324,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 673,
+      "generator": "Byrte_G1",
+      "trees": 177,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 673,
+      "generator": "Vinje_G1",
+      "trees": 664,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 673,
+      "generator": "Vinje_G2",
+      "trees": 1250,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 673,
+      "generator": "Vinje_G3",
+      "trees": 355,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 673,
+      "generator": "Haukeli_G1",
+      "trees": 129,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 673,
+      "generator": "Songa_G1",
+      "trees": 246,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 673,
+      "generator": "Kjela_G1",
+      "trees": 261,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "seed": 673,
+      "generator": "Vesle Kjela_G1",
+      "trees": 573,
+      "cases": 725,
+      "features": 115,
+      "max_absolute_difference": 0.0
+    }
+  ],
+  "source_sha256": {
+    "configs/round10_submission_ranks.json": "3fa61a26ffb52c39976ce36d20918b7024625aea5b9e8f555bf1c7e22c3bd64b",
+    "src/round10_verify.py": "b67d470a8828fd8f7f445b87d3134054cc59e526c10a0df4e65d4fe252f91795",
+    "src/round5_lightgbm.py": "e1d29e86f1dab9779206d68715a4011eb32e103e31cb9280e0dc4cd401c501b5",
+    "src/features.py": "6eea354fb4f7c80ff4c495ed3ac958777334b72a93ce1d19c14a4b0f41d66133",
+    "src/tree_preprocessing.py": "21bfa82dce77473bd10faf83f8f72aec8af34246c0195a6062617868ff929235",
+    "src/temporal_features.py": "0d27872b46236e834e665e6d685520e0b42f1832da94c8f1a1f6813cc776c83a",
+    "evaluation/kaggle_metric.py": "6ba062eeb8c2983a490cad411071dfc77831e3f2233278e5a67b68810df90553",
+    "configs/Tokke_Vinje_topology.yaml": "29cfa233cec7fc4b5401d0d571a566e6e17b7bb7b46a175abcd37a53fe175497",
+    "data/raw/kernel/Unit_commitment_decisions.csv": "6d51f8cc6869cb82b44708168808c305c1e007cf79878ca1c1d316d07aae3ab3",
+    "data/raw/kernel/Historical_day_ahead_price_2015_2025.csv": "e5edd141b34a61139f3ee3022305175446d4b4f74618df85552c4f2b5e556ee4",
+    "data/raw/kernel/Historical_volume_2015_2024.csv": "ef3d9c69699eef0d953b495ba69bf6676858e6b9c536087498135074912dd3b6",
+    "data/raw/kernel/Synthetic_water_value_2015_2024.csv": "a5f09ff96b551d3c297d90ccf3a0bbe92d8814b537ad63a46579cb0ff44aa4cb",
+    "data/raw/kernel/Historical_inflow_1958_2025.csv": "ff4f87d2768133b4a717c0ad366969244f7a86901695e1d4fef3c2ed8963ad66",
+    "data/raw/extended/Constraint_min_volume.csv": "8b639b8339b84c5ff7db34ba4b4618e99d05a03819bf99fa5032a54490278806",
+    "data/raw/extended/Constraint_min_flow.csv": "146062702f58920440fc064d461d544e9cd7c503c8df74ce96e721bee04629ea",
+    "data/raw/sample_submission.csv": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba",
+    "data/raw/prediction_mapping.csv": "c8b0e5bc500a5f1dec2337f5ac680847f6a7794a7c2b7a8fb19384910a029519",
+    "reports/round10_ranks_seed299_full_run.json": "e0ef13f32027eb54ef06984c15ef68ba1f0aa69d658ad04c61952f1592b0affd",
+    "configs/round10_ranks_seed299_full.json": "3896451b9c912ce61cf129223db3b6cab465a18749e219dcedbb946b4f818d62",
+    "configs/round5_lgb_peer_relative_seed299_2021.json": "765542f15dd99f9398619f1cf093b449d6f3a7032fb93690151c1ca7f4ba93c1",
+    "data/processed/round10_ranks_seed299_full_predictions.csv": "ead657081b83cb0e8493b014d6d2eaa9cb99f02c947ca1682369ce860dc5c356",
+    "models/round10_ranks_seed299_full/Hogga_G1.txt": "ba09e83310c9990b8eb08708f68b967fc961756ff25b11c25826027e44796dfe",
+    "models/round10_ranks_seed299_full/Tokke_G1.txt": "e58310de43875d6118f055d5b925089a9b36e8bb8fbdb3f69283c4f5f297e7cf",
+    "models/round10_ranks_seed299_full/Tokke_G2.txt": "11bfc3579d31db8263d6f89936374a564b1a734c5495bee749287221be874d42",
+    "models/round10_ranks_seed299_full/Tokke_G3.txt": "f108d5b1e72440af5ef0a26ff2579209ed9496cf4ca0c9fa59918f7b34741621",
+    "models/round10_ranks_seed299_full/Tokke_G4.txt": "941565cf84adf363a2be93b77268edcbb3ce2ef7676c73cdb10abbab8a533363",
+    "models/round10_ranks_seed299_full/Lio_G1.txt": "e516a8e547a85b938a9d99c197da465faca11ac514e8bfcb12e144bdf0f7c026",
+    "models/round10_ranks_seed299_full/Byrte_G1.txt": "ea96421a55ba697cf4a9ac0f420e745d07a4a7851ae294ced5828867d35e746d",
+    "models/round10_ranks_seed299_full/Vinje_G1.txt": "8cc6e1ce539c17150d6538dd3e937a28c65c717f3d6261b2eba22468384771b8",
+    "models/round10_ranks_seed299_full/Vinje_G2.txt": "d7b0a0bbd9f7743e367afc231f2c285c7ec1c1b9867d348580859ac13d432487",
+    "models/round10_ranks_seed299_full/Vinje_G3.txt": "0d6ea672933e4576773d8c59ac584d401e944ae61240e665dc518896d7f09bb4",
+    "models/round10_ranks_seed299_full/Haukeli_G1.txt": "5c0e70d3e964ec49db0f6d3cb56a334ee137d985ef17e048c16879e1eb6de8b5",
+    "models/round10_ranks_seed299_full/Songa_G1.txt": "f4e41d1418af7f0fe01351d9c2bf766c09574ca654524895efedb99538de6154",
+    "models/round10_ranks_seed299_full/Kjela_G1.txt": "ee511332933f1ad28c4d67bdb3b3f4181a4d8c63be745d912792d5ddb79d6c71",
+    "models/round10_ranks_seed299_full/Vesle_Kjela_G1.txt": "3b2fe2f95f8e6196e04203e6384d225f4e4d341492f9edf2052d2ea8cf33f1b4",
+    "reports/round10_ranks_seed673_full_run.json": "c5cc1f669c041e5b74e17355cc45f6f0fdbb51a215d9e0387b654ae22b307f45",
+    "configs/round10_ranks_seed673_full.json": "f18dcb196f4ae67585f08f17dddda94b451f03032209e8e41732df9320e2083b",
+    "data/processed/round10_ranks_seed673_full_predictions.csv": "f5df032cb58919592c59f3befc012f459863d5e1430d1a70a877579de9b4cec4",
+    "models/round10_ranks_seed673_full/Hogga_G1.txt": "e12670641259fdf3afbc6dc343bed011bb4f299ed07c5c43865d69d02e67ea4f",
+    "models/round10_ranks_seed673_full/Tokke_G1.txt": "bbca6de1339b69bbd194257b5d709ce841e2d18bb0005f56edd98b65886f5ca4",
+    "models/round10_ranks_seed673_full/Tokke_G2.txt": "c0ced6ec15a24051b02cadfe06fa71a3a0ca04d11175c2c3455647e86075b45f",
+    "models/round10_ranks_seed673_full/Tokke_G3.txt": "ea069dd5727a0ef6ae4120d53cd97981b766c45af38ffcf7f70088fbc669555a",
+    "models/round10_ranks_seed673_full/Tokke_G4.txt": "d6c9945058a2d81e62bacffdd721f3442fd3f379c759b04333f8648475f99558",
+    "models/round10_ranks_seed673_full/Lio_G1.txt": "f2f4971b19ae645cc4ba58f13cf5bdf0ace2245ba90b2bda541c19db9da5e4f7",
+    "models/round10_ranks_seed673_full/Byrte_G1.txt": "3d1bfa6aaff7cf3a526828ba69a031ee35d4444f618798877cfd69fb0b6ccb7c",
+    "models/round10_ranks_seed673_full/Vinje_G1.txt": "f691c44d7b962661c616ff87d329131440e38f3b248031ae42d1e854e183c28d",
+    "models/round10_ranks_seed673_full/Vinje_G2.txt": "8a7b21d86d9ff0f42591f5784044ac5d647c88d62f64d80e4c223b7ffc8a19bb",
+    "models/round10_ranks_seed673_full/Vinje_G3.txt": "13bd6852097c62d077c531fda452f2c961f8440dac36cffdfcc178d8e0db62f2",
+    "models/round10_ranks_seed673_full/Haukeli_G1.txt": "0ac69b96e02c828ce6b8d20fc605524e3d2ebacb35bc2b687a8e07ad85264559",
+    "models/round10_ranks_seed673_full/Songa_G1.txt": "486bf2661c7a051f92d04a158114904e2cd6966b1ac814475424284b7c6aa9bc",
+    "models/round10_ranks_seed673_full/Kjela_G1.txt": "c2f537fc55a6ead161c11861a2413c87cf7c8bb3b91a43cda34fc27091385a2a",
+    "models/round10_ranks_seed673_full/Vesle_Kjela_G1.txt": "79f241c956f36f050d9a6e0e19ef8dc05a130059ee57b4ba1131faa4a1738b24",
+    "data/processed/round10_ranks_seeds_full_predictions.csv": "3a4264290e7e545ef80774a1cff997cc3fe2a9f18dd88100255537c7e78f1ae6",
+    "submissions/submission_round3_temporal_ranks.csv": "6a19fc33a14e492a25914d678785162a010ec78d42e3e4db3ac06b7379aac4d9",
+    "submissions/submission_round10_ranks.csv": "88a213991268c1952dbb9f4fe56eed2f14ef70646c19aaabd44c1364f0640632"
+  },
+  "tracked_source_hashes_unchanged": true,
+  "cpu_threads": 1,
+  "fitting_performed": false,
+  "elapsed_seconds": 76.5222406249959,
+  "limitations": "Full saved-model/export reproducibility; does not prove generalization or a new Kaggle best. The unchanged Round3 sources were independently replayed in the prior audit."
+}

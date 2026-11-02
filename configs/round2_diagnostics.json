@@ -1,0 +1,16 @@
+{
+  "years": [2021, 2022],
+  "recipe": "configs/goal_submission_rescaled_tree_mean.json",
+  "prefixes": {
+    "xgb_rescaled": "goal_xgboost_rescaled",
+    "lightgbm_rescaled": "goal_lightgbm_rescaled",
+    "transformer": "transformer_rescaled"
+  },
+  "block_lengths": [7, 14, 28],
+  "bootstrap_repetitions": 120,
+  "seed": 4173,
+  "transition_radius_hours": 2,
+  "report": "reports/round2_winner_diagnosis.json",
+  "pair_report": "reports/round2_generator_pair_diagnosis.csv",
+  "note": "Diagnose the actual current winner, without fitting anything. Both years are reused development years. Bootstrap resamples consecutive case-start days with all 2352 outputs retained; it does not correct repeated model selection or temporal distribution shift."
+}

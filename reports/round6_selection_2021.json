@@ -1,0 +1,99 @@
+{
+  "selected_utc": "2026-10-17T17:31:54.787263+00:00",
+  "selected_arm": "l2zero",
+  "criterion": "Highest2021 microAUC for fixed .5Round3+.5seed299; compare matched reference seed299.",
+  "results": [
+    {
+      "arm": "halfrounds",
+      "micro_roc_auc": 0.9900269817222141,
+      "gain_vs_matched_reference": -0.000247889376052135,
+      "report": "reports/round6_halfrounds_screen_2021.json",
+      "report_sha256": "a67f2cdd97588d861a4842adeae3df9f3435d3e46010edb70f240ab5da329b10",
+      "config": "configs/round6_halfrounds_seed299_2021.json",
+      "config_sha256": "7921c10550d060cbb93c3a81ef4eb59922b4399ce716d6f3d3cb2daa9d1baea7"
+    },
+    {
+      "arm": "leaves31",
+      "micro_roc_auc": 0.9902804508384498,
+      "gain_vs_matched_reference": 5.57974018355889e-06,
+      "report": "reports/round6_leaves31_screen_2021.json",
+      "report_sha256": "330596b89b62c4fed5cf26568d83a1a5f532031368f4a4c92756e88e3745a3dc",
+      "config": "configs/round6_leaves31_seed299_2021.json",
+      "config_sha256": "a421ef824e9b447aa4e1e21a37031e00535c5def68e35bad4f632e143518bbf7"
+    },
+    {
+      "arm": "leaves127",
+      "micro_roc_auc": 0.9901265242514161,
+      "gain_vs_matched_reference": -0.00014834684685016697,
+      "report": "reports/round6_leaves127_screen_2021.json",
+      "report_sha256": "2d73e2a7ef84576c1acbdf4bee9541b8d95a462a2213e8ee9cbd4578e528e68d",
+      "config": "configs/round6_leaves127_seed299_2021.json",
+      "config_sha256": "a72ef3241e9550c83fe8d25bd9e338b47a4b96cf298eb9f1d1446abbdca00f7a"
+    },
+    {
+      "arm": "l2zero",
+      "micro_roc_auc": 0.9902987768977537,
+      "gain_vs_matched_reference": 2.390579948741145e-05,
+      "report": "reports/round6_l2zero_screen_2021.json",
+      "report_sha256": "481322a810159ca62ec186ce53ced5968fbbd6672aa8b676a0d480a0af09d084",
+      "config": "configs/round6_l2zero_seed299_2021.json",
+      "config_sha256": "4b193a4b8b68b66155c985ead3f79808096f99f86a982d169df15996fd235ad3"
+    },
+    {
+      "arm": "l2strong",
+      "micro_roc_auc": 0.9901031232121734,
+      "gain_vs_matched_reference": -0.00017174788609286562,
+      "report": "reports/round6_l2strong_screen_2021.json",
+      "report_sha256": "9f233f9b4a82eac8b776c8bc801d8bcd2c5cf95e38a691428f56a5fcbb9b2a60",
+      "config": "configs/round6_l2strong_seed299_2021.json",
+      "config_sha256": "e55f54942da05c386775c83fd30e0bb9c4a188f5b26d611a1b5451963e40e3f9"
+    },
+    {
+      "arm": "minleaf300",
+      "micro_roc_auc": 0.9902526398232047,
+      "gain_vs_matched_reference": -2.2231275061623812e-05,
+      "report": "reports/round6_minleaf300_screen_2021.json",
+      "report_sha256": "92095ba9c1903fa91c00ebbbbf21a6a1a6cfc926079963f05260c0dfd18d1237",
+      "config": "configs/round6_minleaf300_seed299_2021.json",
+      "config_sha256": "0260905e44c4690ddff220937149725ecc60161669568d92250e14415018ac78"
+    },
+    {
+      "arm": "doublerounds",
+      "micro_roc_auc": 0.9902688605509943,
+      "gain_vs_matched_reference": -6.010547272006228e-06,
+      "report": "reports/round6_doublerounds_screen_2021.json",
+      "report_sha256": "0326a910cc5c1cd183bc5d4d4baa985779e35ef954e21f9ebf6fa984f0ed8e4e",
+      "config": "configs/round6_doublerounds_seed299_2021.json",
+      "config_sha256": "7053f0af637330b4b60a6b32fba0503ed6a7f958082afb9d3cc78c45829cdeeb"
+    },
+    {
+      "arm": "finebins",
+      "micro_roc_auc": 0.9901903692852613,
+      "gain_vs_matched_reference": -8.450181300501125e-05,
+      "report": "reports/round6_finebins_screen_2021.json",
+      "report_sha256": "e0abb97a793fcf5d88d066e3583e3199fd3929037e91033054c2b8494ff2dc2e",
+      "config": "configs/round6_finebins_seed299_2021.json",
+      "config_sha256": "6b350c824a60ef6a8738bb1627db8c31b43ec3a9f47aed257857f6fefe897902"
+    },
+    {
+      "arm": "combined",
+      "micro_roc_auc": 0.990286554930966,
+      "gain_vs_matched_reference": 1.1683832699671548e-05,
+      "report": "reports/round6_combined_screen_2021.json",
+      "report_sha256": "1a15ccf66de74596a92f22dfcdeb315399665c43be23b178ad365472f37f60ad",
+      "config": "configs/round6_combined_seed299_2021.json",
+      "config_sha256": "08833e4901084ed197f7b9059a71fa5431a119b5ee630591710ae870499b5552"
+    }
+  ],
+  "baseline_matched_single_seed_auc": 0.9902748710982663,
+  "baseline_actual_seed_mean_auc": 0.9903748458953463,
+  "selected_single_seed_gain": 2.390579948741145e-05,
+  "protocol_addenda": [
+    "reports/round6_combination_protocol_20261017.json",
+    "reports/round6_histogram_protocol_20261017.json"
+  ],
+  "choice_locked_before_candidate2022": true,
+  "next_gate": "Fit same settings seed673, use uniform seedmean and require positive gain over actualRound5 on2021. Then fixed2022 all+Jan7gate; no fallback after2022.",
+  "features_and_blend_weights_fixed": true,
+  "new_kaggle_feedback_used": false
+}

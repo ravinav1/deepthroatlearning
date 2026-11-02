@@ -1,0 +1,241 @@
+{
+  "baseline_config": "configs/goal_submission_rescaled_tree_mean.json",
+  "baseline_components": {
+    "xgb_rescaled": "goal_xgboost_rescaled",
+    "lightgbm_rescaled": "goal_lightgbm_rescaled",
+    "transformer": "transformer_rescaled"
+  },
+  "replacements": {
+    "xgb_rescaled": "goal_xgboost_rescaled"
+  },
+  "plant_weights": {
+    "Hogga": {
+      "xgb_rescaled": 0.35,
+      "lightgbm_rescaled": 0.35,
+      "transformer": 0.3
+    },
+    "Tokke": {
+      "xgb_rescaled": 0.04999999999999999,
+      "lightgbm_rescaled": 0.04999999999999999,
+      "transformer": 0.9
+    },
+    "Lio": {
+      "xgb_rescaled": 0.35,
+      "lightgbm_rescaled": 0.35,
+      "transformer": 0.3
+    },
+    "Byrte": {
+      "xgb_rescaled": 0.5,
+      "lightgbm_rescaled": 0.5
+    },
+    "Vinje": {
+      "xgb_rescaled": 0.25,
+      "lightgbm_rescaled": 0.25,
+      "transformer": 0.5
+    },
+    "Songa": {
+      "xgb_rescaled": 0.5,
+      "lightgbm_rescaled": 0.5
+    },
+    "Kjela": {
+      "xgb_rescaled": 0.4,
+      "lightgbm_rescaled": 0.4,
+      "transformer": 0.2
+    },
+    "Vesle Kjela": {
+      "xgb_rescaled": 0.5,
+      "lightgbm_rescaled": 0.5
+    },
+    "Haukeli": {
+      "xgb_rescaled": 0.5,
+      "lightgbm_rescaled": 0.5
+    }
+  },
+  "variant_definitions": {
+    "candidate_replace": "Replace only the named component(s), preserving every plant weight.",
+    "candidate_mean": "Replace each named component by its fixed 50/50 old/new prediction mean."
+  },
+  "validation_note": "Reused historical development years. Base-model early stopping may use evaluation-year labels. No competition labels, no blend-weight fitting.",
+  "results": [
+    {
+      "year": 2021,
+      "variant": "standalone_xgb_rescaled",
+      "micro_roc_auc": 0.9844790579623633,
+      "generator_auc": {
+        "Hogga_G1": 0.9691770979841218,
+        "Tokke_G1": 0.9866157033156215,
+        "Tokke_G2": 0.980231481685673,
+        "Tokke_G3": 0.9844093037828108,
+        "Tokke_G4": 0.979829769849859,
+        "Lio_G1": 0.9357614538672484,
+        "Byrte_G1": 0.9980450969518214,
+        "Vinje_G1": 0.988813023664264,
+        "Vinje_G2": 0.9833771715186368,
+        "Vinje_G3": 0.9787279099276052,
+        "Haukeli_G1": 0.9637095912358984,
+        "Songa_G1": 0.9950994751627609,
+        "Kjela_G1": 0.9847302090705184,
+        "Vesle Kjela_G1": 0.9989042383437545
+      }
+    },
+    {
+      "year": 2021,
+      "variant": "baseline",
+      "validation_cases": 365,
+      "delta_vs_baseline": 0.0,
+      "micro_roc_auc": 0.9882719381376425,
+      "generator_auc": {
+        "Hogga_G1": 0.9696893447926744,
+        "Tokke_G1": 0.9894627561921396,
+        "Tokke_G2": 0.9924289036679768,
+        "Tokke_G3": 0.9921447545852833,
+        "Tokke_G4": 0.9923364372895623,
+        "Lio_G1": 0.9496274150107702,
+        "Byrte_G1": 0.9983813241649311,
+        "Vinje_G1": 0.9906998862987294,
+        "Vinje_G2": 0.9868319870646906,
+        "Vinje_G3": 0.9806822805568618,
+        "Haukeli_G1": 0.9633766162066998,
+        "Songa_G1": 0.995074153157005,
+        "Kjela_G1": 0.9834578894840456,
+        "Vesle Kjela_G1": 0.9990278342450003
+      }
+    },
+    {
+      "year": 2021,
+      "variant": "candidate_replace",
+      "validation_cases": 365,
+      "delta_vs_baseline": 0.0,
+      "micro_roc_auc": 0.9882719381376425,
+      "generator_auc": {
+        "Hogga_G1": 0.9696893447926744,
+        "Tokke_G1": 0.9894627561921396,
+        "Tokke_G2": 0.9924289036679768,
+        "Tokke_G3": 0.9921447545852833,
+        "Tokke_G4": 0.9923364372895623,
+        "Lio_G1": 0.9496274150107702,
+        "Byrte_G1": 0.9983813241649311,
+        "Vinje_G1": 0.9906998862987294,
+        "Vinje_G2": 0.9868319870646906,
+        "Vinje_G3": 0.9806822805568618,
+        "Haukeli_G1": 0.9633766162066998,
+        "Songa_G1": 0.995074153157005,
+        "Kjela_G1": 0.9834578894840456,
+        "Vesle Kjela_G1": 0.9990278342450003
+      }
+    },
+    {
+      "year": 2021,
+      "variant": "candidate_mean",
+      "validation_cases": 365,
+      "delta_vs_baseline": 0.0,
+      "micro_roc_auc": 0.9882719381376425,
+      "generator_auc": {
+        "Hogga_G1": 0.9696893447926744,
+        "Tokke_G1": 0.9894627561921396,
+        "Tokke_G2": 0.9924289036679768,
+        "Tokke_G3": 0.9921447545852833,
+        "Tokke_G4": 0.9923364372895623,
+        "Lio_G1": 0.9496274150107702,
+        "Byrte_G1": 0.9983813241649311,
+        "Vinje_G1": 0.9906998862987294,
+        "Vinje_G2": 0.9868319870646906,
+        "Vinje_G3": 0.9806822805568618,
+        "Haukeli_G1": 0.9633766162066998,
+        "Songa_G1": 0.995074153157005,
+        "Kjela_G1": 0.9834578894840456,
+        "Vesle Kjela_G1": 0.9990278342450003
+      }
+    },
+    {
+      "year": 2022,
+      "variant": "standalone_xgb_rescaled",
+      "micro_roc_auc": 0.9877781813696767,
+      "generator_auc": {
+        "Hogga_G1": 0.9768028784272857,
+        "Tokke_G1": 0.9929667913808853,
+        "Tokke_G2": 0.9927705772899795,
+        "Tokke_G3": 0.9946506165404653,
+        "Tokke_G4": 0.9929798822738086,
+        "Lio_G1": 0.9670742473841141,
+        "Byrte_G1": 0.9951783236290531,
+        "Vinje_G1": 0.9860688382450353,
+        "Vinje_G2": 0.9837635094778577,
+        "Vinje_G3": 0.9746261927803306,
+        "Haukeli_G1": 0.9454597330001859,
+        "Songa_G1": 0.9968781565588662,
+        "Kjela_G1": 0.9865413218330281,
+        "Vesle Kjela_G1": 0.9923642138163463
+      }
+    },
+    {
+      "year": 2022,
+      "variant": "baseline",
+      "validation_cases": 365,
+      "delta_vs_baseline": 0.0,
+      "micro_roc_auc": 0.987770674860208,
+      "generator_auc": {
+        "Hogga_G1": 0.9775100186335982,
+        "Tokke_G1": 0.9937337966817539,
+        "Tokke_G2": 0.9926142231231896,
+        "Tokke_G3": 0.9954396389133615,
+        "Tokke_G4": 0.9948887626158267,
+        "Lio_G1": 0.96488435459231,
+        "Byrte_G1": 0.9963864239225171,
+        "Vinje_G1": 0.9860335306670862,
+        "Vinje_G2": 0.9841237529648079,
+        "Vinje_G3": 0.9720330802791017,
+        "Haukeli_G1": 0.9475982997306192,
+        "Songa_G1": 0.9973672474059961,
+        "Kjela_G1": 0.9804630574581361,
+        "Vesle Kjela_G1": 0.9931095606117835
+      }
+    },
+    {
+      "year": 2022,
+      "variant": "candidate_replace",
+      "validation_cases": 365,
+      "delta_vs_baseline": 0.0,
+      "micro_roc_auc": 0.987770674860208,
+      "generator_auc": {
+        "Hogga_G1": 0.9775100186335982,
+        "Tokke_G1": 0.9937337966817539,
+        "Tokke_G2": 0.9926142231231896,
+        "Tokke_G3": 0.9954396389133615,
+        "Tokke_G4": 0.9948887626158267,
+        "Lio_G1": 0.96488435459231,
+        "Byrte_G1": 0.9963864239225171,
+        "Vinje_G1": 0.9860335306670862,
+        "Vinje_G2": 0.9841237529648079,
+        "Vinje_G3": 0.9720330802791017,
+        "Haukeli_G1": 0.9475982997306192,
+        "Songa_G1": 0.9973672474059961,
+        "Kjela_G1": 0.9804630574581361,
+        "Vesle Kjela_G1": 0.9931095606117835
+      }
+    },
+    {
+      "year": 2022,
+      "variant": "candidate_mean",
+      "validation_cases": 365,
+      "delta_vs_baseline": 0.0,
+      "micro_roc_auc": 0.987770674860208,
+      "generator_auc": {
+        "Hogga_G1": 0.9775100186335982,
+        "Tokke_G1": 0.9937337966817539,
+        "Tokke_G2": 0.9926142231231896,
+        "Tokke_G3": 0.9954396389133615,
+        "Tokke_G4": 0.9948887626158267,
+        "Lio_G1": 0.96488435459231,
+        "Byrte_G1": 0.9963864239225171,
+        "Vinje_G1": 0.9860335306670862,
+        "Vinje_G2": 0.9841237529648079,
+        "Vinje_G3": 0.9720330802791017,
+        "Haukeli_G1": 0.9475982997306192,
+        "Songa_G1": 0.9973672474059961,
+        "Kjela_G1": 0.9804630574581361,
+        "Vesle Kjela_G1": 0.9931095606117835
+      }
+    }
+  ]
+}

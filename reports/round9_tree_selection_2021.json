@@ -1,0 +1,105 @@
+{
+  "created_utc": "2026-10-17T18:56:03.493232+00:00",
+  "protocol": "reports/round9_tree_ensemble_protocol.json",
+  "screen_results": [
+    {
+      "arm": "no_absolute_scale",
+      "recipe": "replace",
+      "subset": "all",
+      "cases": 365,
+      "baseline_micro_roc_auc": 0.9902748710982663,
+      "candidate_micro_roc_auc": 0.9900689191361615,
+      "delta": -0.00020595196210482225
+    },
+    {
+      "arm": "no_absolute_scale",
+      "recipe": "mean",
+      "subset": "all",
+      "cases": 365,
+      "baseline_micro_roc_auc": 0.9902748710982663,
+      "candidate_micro_roc_auc": 0.9902298981362294,
+      "delta": -4.497296203687107e-05
+    },
+    {
+      "arm": "local_context",
+      "recipe": "replace",
+      "subset": "all",
+      "cases": 365,
+      "baseline_micro_roc_auc": 0.9902748710982663,
+      "candidate_micro_roc_auc": 0.9860085923644142,
+      "delta": -0.0042662787338521024
+    },
+    {
+      "arm": "local_context",
+      "recipe": "mean",
+      "subset": "all",
+      "cases": 365,
+      "baseline_micro_roc_auc": 0.9902748710982663,
+      "candidate_micro_roc_auc": 0.9889526760363789,
+      "delta": -0.0013221950618873546
+    },
+    {
+      "arm": "case_thinning",
+      "recipe": "replace",
+      "subset": "all",
+      "cases": 365,
+      "baseline_micro_roc_auc": 0.9902748710982663,
+      "candidate_micro_roc_auc": 0.989113652727633,
+      "delta": -0.0011612183706333212
+    },
+    {
+      "arm": "case_thinning",
+      "recipe": "mean",
+      "subset": "all",
+      "cases": 365,
+      "baseline_micro_roc_auc": 0.9902748710982663,
+      "candidate_micro_roc_auc": 0.9899837215441587,
+      "delta": -0.0002911495541075837
+    },
+    {
+      "arm": "random_thresholds",
+      "recipe": "replace",
+      "subset": "all",
+      "cases": 365,
+      "baseline_micro_roc_auc": 0.9902748710982663,
+      "candidate_micro_roc_auc": 0.9892608123738361,
+      "delta": -0.0010140587244301669
+    },
+    {
+      "arm": "random_thresholds",
+      "recipe": "mean",
+      "subset": "all",
+      "cases": 365,
+      "baseline_micro_roc_auc": 0.9902748710982663,
+      "candidate_micro_roc_auc": 0.9900699429964612,
+      "delta": -0.0002049281018050575
+    }
+  ],
+  "minimum_gain": 5e-05,
+  "best_screen_choice": {
+    "arm": "no_absolute_scale",
+    "recipe": "mean",
+    "subset": "all",
+    "cases": 365,
+    "baseline_micro_roc_auc": 0.9902748710982663,
+    "candidate_micro_roc_auc": 0.9902298981362294,
+    "delta": -4.497296203687107e-05
+  },
+  "selected_candidate": null,
+  "screen_passed": false,
+  "decision": "Stop tree branch: none of the eight fixed comparisons improves the matched baseline.",
+  "additional_seed_fits": 0,
+  "tree_candidate_2022_evaluations": 0,
+  "full_fits": 0,
+  "submissions_created": 0,
+  "source_sha256": {
+    "reports/round9_no_absolute_scale_screen_2021.json": "a128f5eea8e64edf4216bf909fa4dbad2564504fc3468836d10dcb7c6d921b23",
+    "reports/round9_no_absolute_scale_mean_screen_2021.json": "c5b0d33cc2f860c4fdaaf724d12cba89203f7926a44d0442f8534a8e609ae0dc",
+    "reports/round9_local_context_screen_2021.json": "b53645e5dd860488684a9390f1547642fed877f2b3d9a1e911b56c453fe66a80",
+    "reports/round9_local_context_mean_screen_2021.json": "02bbf0042e8478925a8b981f01fb9b7bdfd0e49192e8e203580ff5242374265a",
+    "reports/round9_case_thinning_screen_2021.json": "00ac969bb3e72f21677abea548576123d82221d07a656e0eb85d603e53bd31a6",
+    "reports/round9_case_thinning_mean_screen_2021.json": "70c3eb84be3c679393d0a1576e044a7b715097311d4e71c3069f534092380f0b",
+    "reports/round9_random_thresholds_screen_2021.json": "33a6d89b935572cebdd4793ebbca987ebd214559044a6152cc1c74c18c3436a3",
+    "reports/round9_random_thresholds_mean_screen_2021.json": "0f2cdf541d9b98939e465ee1a28e84f045b3f60896573fb69c531ebc1181789d"
+  }
+}

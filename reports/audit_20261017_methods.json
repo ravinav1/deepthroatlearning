@@ -1,0 +1,554 @@
+{
+  "created_utc": "2026-10-17T19:54:00Z",
+  "status": "Methods research and independent diagnostic cross-review complete; no fitting performed.",
+  "scope": "Read-only code/report review and primary-source external research. No training, prediction modification, submission, production edit, or claimed new model result. This track created the methods JSON and a read-only scaling diagnostic script/JSON.",
+  "repository": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning",
+  "task_interpretation": {
+    "domain": "Imitation of a hydro scheduling teacher, not thermal generation scheduling or ordinary causal forecasting.",
+    "inputs": "All 168 exogenous hourly inputs for each case are known at inference; initial reservoir volumes are looked up at case start and terminal water values at start plus 168 hours.",
+    "outputs": "14 generators times 168 hours; micro ROC-AUC pools all binary outputs.",
+    "data": "2922 daily overlapping cases in 2015-2022; chronological generalization matters. Hourly expansion does not create millions of independent weeks.",
+    "reference": "Round5: 0.5 times Round3 ensemble plus 0.25 times each of two separate-generator LightGBM seeds. Public score 0.99172 is user/repository reported, not independently retrieved from Kaggle.",
+    "local_sources": [
+      "reports/round5_report_20261014.md",
+      "reports/round2_problem_formulation_review.json",
+      "src/features.py:78",
+      "src/round5_lightgbm.py:39"
+    ]
+  },
+  "main_conclusion": "The current system already covers full-week neural encoders, multiple tree families, generator specialization, several ranking/temporal losses, stacking, gating and physical feature proxies. The clearest untested near-term differences are a tightly controlled two-rank-feature retest on the actual separate-generator baseline and a strongly regularized sequential correction built from its out-of-fold predictions. A dynamic optimization surrogate is a distinct but substantially more speculative engineering project. Literature does not establish that joint schedule feasibility, another Transformer, a GNN, or decision-focused training will improve this competition's AUC.",
+  "objective_guardrails": [
+    {
+      "claim": "For standard population bipartite AUC, ordering conditional ON probabilities is Bayes optimal. BCE/logistic training is therefore not inherently mismatched to the metric. Independent output heads can estimate comparable marginals; a full joint distribution over schedules is not mathematically required.",
+      "qualification": "This is an objective-level statement under the paper's population setup, not a finite-sample guarantee for restricted trees, dependent weeks or temporal shift. Learned coupling can still improve marginal estimation through a useful inductive bias.",
+      "source_ids": [
+        "agarwal2014"
+      ]
+    },
+    {
+      "claim": "Cross-generator and cross-case comparisons count in micro-AUC. A per-case monotone adjustment can preserve all within-case orderings while worsening global AUC. Per-generator improvements alone do not establish an ensemble improvement.",
+      "local_evidence": "Round8 weekly Lio correction and Round9 shared-slope/generator-intercept calibration both failed their historical checks.",
+      "local_sources": [
+        "reports/round9_report_20261017.md",
+        "src/train_stacking.py:43"
+      ]
+    },
+    {
+      "claim": "Known future inputs permit bidirectional inference within the same case. Actual neighboring commitment labels, future observed reservoir states, and overlapping-case labels are not valid inference inputs.",
+      "qualification": "The current Transformer, CNN, BiLSTM and mixer already use noncausal/full-week information. A new temporal model must identify what representation or training signal changes.",
+      "local_sources": [
+        "src/weekly_transformer.py:9",
+        "src/temporal_cnn.py",
+        "src/weekly_mixer.py",
+        "src/features.py:99",
+        "reports/round2_problem_formulation_review.json"
+      ]
+    }
+  ],
+  "implementation_inventory": [
+    {
+      "area": "Current separate-generator trees",
+      "implemented": "Four-hour staggered row sampling after full-week feature construction; binary LightGBM per generator; 113 features including system initial storage/terminal water values/week inflow, extended constraints, topology, price context and economic rescaling. Fixed tree counts and two seeds.",
+      "references": [
+        "src/round5_lightgbm.py:39",
+        "src/round5_lightgbm.py:49",
+        "src/round5_lightgbm.py:149",
+        "src/tree_preprocessing.py:8",
+        "configs/round5_lgb_peer_relative_seed299_full.json"
+      ],
+      "gap": "Temporal rank features exist but are not enabled in this current recipe. Dropping system context or absolute price scale already failed; repeating broad tuning is poorly justified."
+    },
+    {
+      "area": "Temporal and output structure",
+      "implemented": "Whole-week Transformer, bidirectional recurrent model, symmetric dilated CNN and time-mixing MLP; task-weighted training, RDrop, sampled pairwise logistic loss, signed temporal-difference loss; plant count/pattern model for multi-unit plants.",
+      "references": [
+        "src/weekly_transformer.py:9",
+        "src/consistency_regularization.py:22",
+        "src/consistency_regularization.py:34",
+        "src/plant_commitment.py:14",
+        "src/train_plant_commitment.py",
+        "reports/round2_report_20261014.md"
+      ],
+      "gap": "No inspected path implements a small learned input-conditioned sequence correction of current Round5 out-of-fold logits. Plant count/pattern modeling is already a joint within-hour experiment, so generic claims that coupling has never been tried are false."
+    },
+    {
+      "area": "Stacking and gating",
+      "implemented": "Logistic stacking of legacy same-hour expert logits plus generator intercepts; a 16-feature conditional gate with same-hour legacy XGB/CNN probabilities, disagreement and exogenous context. Gate outputs are projected onto the interval between expert probabilities.",
+      "references": [
+        "src/train_stacking.py:33",
+        "src/train_conditional_gate.py:22",
+        "src/train_conditional_gate.py:86",
+        "src/train_conditional_gate.py:102"
+      ],
+      "gap": "No neighboring-hour logits or cross-generator predicted states in these inspected designs; neither was built around the current separate-generator Round5 models."
+    },
+    {
+      "area": "Physical proxies",
+      "implemented": "Initial volume-to-head interpolation and signed initial tunnel head differences; natural water budgets based on initial storage, inflow and direct mandatory releases; static economic/topological proxies and optional full reservoir inflow profiles.",
+      "references": [
+        "src/hydraulic_features.py:6",
+        "src/water_budget_features.py:6",
+        "src/operating_features.py:37",
+        "src/features.py:150"
+      ],
+      "gap": "These are not scheduled storage/production/transfer/spill trajectories and do not yield optimization duals. Earlier optional feature results came mainly from pooled XGBoost with a different scaling regime; they neither prove success nor definitively reject carefully selected additions to current LightGBM."
+    }
+  ],
+  "prior_experiments_that_change_the_recommendation": [
+    {
+      "experiment": "Temporal ranks",
+      "result": "Round3 XGB rank replacement improved historical ensemble AUC by approximately 0.0000656 on 2021, 0.0002311 on native 2022 and 0.0000486 on frozen pre-2021 to January-7 2022. Round4 pooled LightGBM rank replacement lost approximately 0.0000530 on native 2022 and 0.0000516 on January-7 2022.",
+      "interpretation": "A two-feature test on separate-generator 63-leaf LightGBM is a conditional retest with mixed prior evidence, not a newly discovered feature family.",
+      "references": [
+        "reports/round3_report_20261014.md",
+        "reports/round4_lgb_ranks_final_decision.json"
+      ]
+    },
+    {
+      "experiment": "Legacy conditional gate and logistic stacking",
+      "result": "Gate gains against its own matched legacy base were 0.0003965171 in 2021 and 0.0008679917 in 2022. It lost 0.0011404239 and 0.0004668411 against a stronger contemporary reference with different budgets. Logistic stacking gained 0.0002696820 against its matched 2022 base but lost 0.0003066695 against the prior selected reference.",
+      "interpretation": "It is incorrect to summarize these as evidence that contextual combination cannot help. They also provide no evidence of a gain over Round5.",
+      "references": [
+        "reports/conditional_gate_2021_metrics.json",
+        "reports/conditional_gate_2022_metrics.json",
+        "reports/stacking_2022_metrics.json"
+      ]
+    },
+    {
+      "experiment": "Temporal smoothing, pairwise loss, transition loss",
+      "result": "Round2 selected no naive smoothing. RankNet and signed transition-loss means did not beat the task-weighted neural control at the initial gate.",
+      "interpretation": "Do not repackage a constant persistence penalty, global sampled pairwise loss or another whole-week encoder as an unexplored direction. A learned correction must depend on case context and preserve soft probabilities.",
+      "references": [
+        "reports/round2_report_20261014.md",
+        "src/consistency_regularization.py:22",
+        "src/consistency_regularization.py:34"
+      ]
+    },
+    {
+      "experiment": "Capacity, objective-invariant preprocessing and post-processing",
+      "result": "Round6 broad tree capacity/regularization changes gave no robust promotion. Round9 absolute-scale removal, system-context removal, whole-case thinning and extra-trees all lost in the initial replacement screen. Plant-specific blend weights reversed between years/frozen checks. Vinje ordering achieved only about 0.0000005 at best. Shared-slope calibration with generator intercepts reduced purged held-out 2021 H2 AUC from 0.985693455 to 0.985210171.",
+      "interpretation": "The existing evidence argues for low-dimensional, mechanistically different changes rather than further tuning or hard post-processing.",
+      "references": [
+        "reports/round6_tuning_report_20261017.md",
+        "reports/round9_report_20261017.md"
+      ]
+    },
+    {
+      "experiment": "Weekly Lio hours correction",
+      "result": "Full correction reduced historical 2021 ensemble AUC from 0.9903748459 to 0.9893497050 and Lio AUC from about 0.96849 to 0.93547; estimated weekly-hour MAE also worsened.",
+      "interpretation": "A global weekly total is neither reliably estimated nor automatically helpful for hourly ranking. Do not repeat it under a structured-output label.",
+      "references": [
+        "src/check_round8_weekly_hours.py",
+        "reports/round9_report_20261017.md"
+      ]
+    }
+  ],
+  "ranked_experiments": [
+    {
+      "priority": 1,
+      "name": "Two temporal rank features on the actual Round5 separate-generator baseline",
+      "recommendation": "First inexpensive controlled experiment; medium confidence it is worth testing, low confidence of a positive out-of-time gain.",
+      "distinct_change": "Enable existing whole-week and current-to-end midpoint price percentiles; retain baseline scaling, system features, row sampling, generator tree counts and ensemble recipe.",
+      "reason": "Relative rank represents the competition among available hours directly. It was useful in XGB and rejected in an older pooled LightGBM, while the present more specialized trees have never received it.",
+      "decisive_experiment": "Run baseline versus ranks with the same two current seeds and fixed counts. Use the repository's established chronological 2021 screen, native 2022 and frozen pre-2021 to 2022 checks; report ensemble deltas, paired calendar-block uncertainty and weak-generator/cross-generator rank effects. Retain the baseline if signs reverse or apparent gain is within historical selection noise. Do not retune every tree hyperparameter or add the seven already-disappointing favorable-period features in the same experiment.",
+      "cost": "Low implementation cost; existing feature flag and trainer. Training time still needs measurement on the chosen folds.",
+      "evidence_type": "Repository empirical evidence and task-specific representation reasoning; no external paper establishes a gain here.",
+      "references": [
+        "src/temporal_features.py:9",
+        "src/features.py:107",
+        "reports/round3_report_20261014.md",
+        "reports/round4_lgb_ranks_final_decision.json"
+      ]
+    },
+    {
+      "priority": 2,
+      "name": "Shrunken sequential correction from current-base out-of-fold predictions",
+      "recommendation": "Best distinct learned-structure experiment; medium confidence of novelty/feasibility, low-to-medium confidence of a transferable gain.",
+      "distinct_change": "Use a small second stage around current Round5 probabilities, with its own generator's neighboring logits and a small set of connected-generator probabilities. Suggested initial offsets are plus/minus 1, 2, 6 and 24 hours, masked at case boundaries. These are proposed choices, not paper-prescribed optimum settings.",
+      "reason": "The first-stage outputs provide learned summaries of system conditions and switching boundaries. This adds a representation and inductive bias, not new exogenous information. Existing neural members already observe the full week, and correlated errors could make the correction harmful.",
+      "decisive_experiment": "Compare identity, a same-hour-only small meta model, and the same model with temporal context. Fit only chronological out-of-fold base predictions. Initialize or regularize toward the identity; predeclare one strong shrinkage setting before evaluation. Measure total micro-AUC as the primary outcome, and transition/cross-generator pair diagnostics as explanations. A temporal gain must exceed the same-hour control on the reused historical checks; do not promote because only transition accuracy improves.",
+      "leakage_controls": "No true neighboring labels, no predicted values from a model trained on the target case, no windows crossing case boundaries. Purge output horizons at fold boundaries. Round5 counts were chosen using 2019/2020; those same years cannot be called fully honest meta folds if their labels also selected the counts. Use nested or frozen-before-fold budgets, or explicitly disclose that selection dependence. Generating OOF predictions for the complete current ensemble is the principal cost.",
+      "related_alternative": "An input-conditioned two-state linear-chain CRF can be tested later if temporal context has incremental signal. Return forward-backward ON marginals, not Viterbi binary paths. Permit one-hour runs; do not impose unsupported minimum dwell times. A constant persistence CRF mostly repeats the failed smoothing hypothesis.",
+      "source_ids": [
+        "cohen_carvalho2005",
+        "sutton_mccallum2011"
+      ],
+      "references": [
+        "src/train_stacking.py:33",
+        "src/train_conditional_gate.py:22",
+        "reports/round2_problem_formulation_review.json"
+      ],
+      "cheapest_staged_pilot": {
+        "purpose": "A transparent cached feasibility screen before regenerating multiyear OOF predictions.",
+        "base": "Start with pLGB =0.5*(old299+old673) from existing2021cache. Correct this branch and reinsert as0.5*round3+0.5*corrected_pLGB. This isolates new temporal representation around the strongest current component.",
+        "meta_training": "Use2021 base predictions and labels, excluding the six late-December case starts whose168-hour labels cross2022-01-01. This leaves359cases,844368binary labels, or211092 sampled rows atstride4. Build all within-case context before thinning.",
+        "controls": "Fit two tiny predeclared models: same-hour-only residual control and the same model with neighboring-hour logits. Identity is the no-fit control. Shrink corrections strongly toward zero. Add connected-generator contexts only in a later experiment if temporal context succeeds.",
+        "evaluation": "Keep both models fixed when evaluating native2022 and frozen2022. Use January7 onward as the primary subset to remove overlap with the original2021 model-selection horizons. The scenarios share2022labels and are not independent replications. Do not report2021 meta-training performance as validation.",
+        "cost": "Zero new base-model fits; two small meta-model fits plus feature generation. For scale,211092rows times25float32features is approximately21MB for a dense feature array, excluding labels, cached predictions and framework overhead. Runtime is not benchmarked.",
+        "selection_warning": "The caches are out-of-time with respect to base parameter fitting, but are not selection-independent OOF. In particular native2021 Round3 uses Transformer best_epoch31, task-weightedTransformer28 and pooledLGB best_iteration1499 selected on2021; rankXGB748 and recipe choices also use2021. SeparateLGBcounts come from2019/2020, but its hyperparameter/recipe selection still used historical validation. Native2022 caches also reflect historical selection. Therefore this can screen feasibility, not provide an unbiased new generalization estimate.",
+        "when_to_pay_for_full_oof": "Only after beating identity and the same-hour control with stable sign, regenerate earlier folds with budgets/preprocessing selected strictly before each fold or nested within its training data. The current2019/2020count-selection schedule cannot be reused to call those same years fully honest OOF.",
+        "provenance_references": [
+          "src/round3_frozen_evaluation.py:257",
+          "reports/transformer_rescaled_2021_metrics.json",
+          "reports/round2_transformer_task_weights_2021_metrics.json",
+          "reports/goal_lightgbm_rescaled_2021_metrics.json",
+          "reports/round3_xgb_ranks_2021_metrics.json"
+        ]
+      }
+    },
+    {
+      "priority": 3,
+      "name": "Feasibility pilot for a dynamic water-allocation surrogate used only as features",
+      "recommendation": "Longer-term research option after inexpensive tests; medium confidence that it is mechanistically distinct, low empirical confidence and substantial implementation risk.",
+      "distinct_change": "Construct an explicitly approximate fixed-head linear relaxation over the supplied connected water network; derive stable scheduled-flow/storage/slack summaries and possibly reservoir opportunity-cost signals for a BCE predictor. This is different from the current natural-inflow budgets and fixed initial heads.",
+      "decisive_experiment": "Before fitting any model, audit network completeness and units; solve a handful of exogenous-only cases with documented assumptions, check mass conservation, bounds, penalty use, terminal-value conversion and sensitivity to initial-state/tunnel assumptions. Benchmark runtime. Only if stable, compare baseline plus a small frozen feature set against baseline across the same chronological checks. Report surrogate-only predictions as a diagnostic, not a promised teacher replacement.",
+      "failure_conditions": "Stop if proxy outputs are driven by arbitrary boundary choices, if duals are unstable, if penalties dominate, or if required boundary transfers cannot be modeled. Do not infer a physical simulator is faithful merely because it returns feasible solutions.",
+      "cost": "High engineering and validation burden relative to a feature-flag experiment; no measured runtime estimate. A 168-hour model has thousands of flow/storage variables and must be solved across thousands of cases. Linear solve cost may be manageable, but rebuilding teacher semantics is the larger uncertainty.",
+      "source_ids": [
+        "shop_water_values",
+        "shop_individual_water_values",
+        "shop_generator"
+      ],
+      "references": [
+        "configs/Tokke_Vinje_topology.yaml",
+        "src/hydraulic_features.py:6",
+        "src/water_budget_features.py:6",
+        "reports/round2_problem_formulation_review.json"
+      ]
+    }
+  ],
+  "physics_surrogate_red_team": {
+    "available_network_counts": {
+      "reservoirs": 17,
+      "rivers": 37,
+      "plants": 9,
+      "generators": 14,
+      "tunnels": 5,
+      "connections": 111
+    },
+    "teacher_unknowns": [
+      "Initial generator status/history and how it is initialized",
+      "MIP activation by horizon hour and fractional-start cutoffs",
+      "Full versus incremental SHOP iteration commands",
+      "Solver tolerances, seeds, gap/time limits and priority settings",
+      "Exact mapping of supplied terminal local energy values into model attributes",
+      "Optimized generation, discharge, spill, tunnel flow and storage paths"
+    ],
+    "important_cautions": [
+      "The supplied model is hydro-only. Thermal demand-balance and minimum-up/down repair results do not transfer directly.",
+      "A reservoir's terminal local EUR/MWh value is not directly interchangeable with another reservoir's global EUR/Mm3 value. Head/efficiency conversion and downstream value accumulation matter.",
+      "Current SINTEF documentation was served as SHOP 18.3.3 dated 2026-10-13; the dataset generation report identifies SHOP 17.17.0. Current capabilities/defaults do not prove the teacher configuration.",
+      "Fixed-head linearization cannot claim to reproduce nonlinear head loss, tunnel pressure/reversal, efficiency and incremental refinement. A weak-plant subproblem is not self-contained when upstream releases are unknown.",
+      "A relaxed commitment variable can represent below-minimum production and ignore exact binary switching. Its role should be an informative proxy. Hard thresholding it is an untested imitation rule.",
+      "Dual prices can depend on constraint sign, degeneracy, penalty design and approximations. Stable primal flows/storage/slacks should be retained as controls.",
+      "More raw inflow channels need a new-information argument: the separate physics audit reports heavily proportional reservoir inflow profiles. A network calculation could still add allocation structure, but a GNN does not create new information merely by multiplying those channels.",
+      "Observed uncensored one-hour ON and OFF runs refute a universal hard two-hour minimum-run repair for the affected generators. Neighboring overlapping cases can disagree at identical calendar hours because they are different optimization problems.",
+      "Matching a plausible or lower-cost schedule need not match the teacher's selected binary schedule. This competition scores the latter."
+    ]
+  },
+  "parked_or_rejected_directions": [
+    {
+      "direction": "Another generic Transformer/CNN/BiLSTM or larger graph model",
+      "judgment": "Low priority without a specific missing input/representation. Full-week encoders already exist. Related UC papers often use much larger re-solved datasets, thermal constraints, and solver-runtime/feasibility objectives.",
+      "source_ids": [
+        "zater2026",
+        "nair2020"
+      ]
+    },
+    {
+      "direction": "TabM on existing tabular features",
+      "judgment": "Optional diversity candidate after the ranked tests, not a core recommendation. It is distinct from the repository's time-mixing WeeklyMixer, but generic benchmark results do not establish incremental value over this mature ensemble. If tried, use exactly the current features and a matched ordinary MLP control, a fixed small blend, chronological validation and measured compute budget.",
+      "source_ids": [
+        "gorishniy2025",
+        "rubachev2024"
+      ]
+    },
+    {
+      "direction": "Neural Diving, reinforcement learning, decision-focused learning or solver repair",
+      "judgment": "These optimize a solver or downstream decision objective and require a trustworthy optimization environment. They are not drop-in solutions to marginal probability ranking of historical teacher labels. A lower-cost alternative schedule may score worse against the teacher.",
+      "source_ids": [
+        "nair2020",
+        "elmachtoub_grigas"
+      ]
+    },
+    {
+      "direction": "Per-week LambdaRank/NDCG or repeat global RankNet search",
+      "judgment": "Per-week grouping removes cross-case comparisons required by micro-AUC. A sampled global pairwise loss already exists and failed its initial gate. BCE remains theoretically defensible; a new ranking loss needs a demonstrated error/optimization mechanism.",
+      "source_ids": [
+        "agarwal2014"
+      ],
+      "references": [
+        "src/consistency_regularization.py:22",
+        "reports/round2_report_20261014.md"
+      ]
+    },
+    {
+      "direction": "Label-preserving synthetic price/water perturbations",
+      "judgment": "Do not assume labels remain valid when changing economic inputs. Start/stop costs, bounds and nonlinearities can change the optimum. Related successful augmentation re-solves the optimization problem; that teacher is not supplied here.",
+      "source_ids": [
+        "zater2026"
+      ],
+      "references": [
+        "configs/Tokke_Vinje_topology.yaml",
+        "reports/round2_problem_formulation_review.json"
+      ]
+    }
+  ],
+  "validation_caveat": "The proposed 2021/2022 checks are extensively reused historical development checks, not untouched confirmatory test sets. Confidence intervals do not repair adaptive selection over many experiments. A promising result should be described as historical robustness evidence; quantify uncertainty with calendar blocks and disclose the search history. This report has not run the proposed experiments and predicts no numerical gain.",
+  "primary_sources": [
+    {
+      "id": "agarwal2014",
+      "title": "Surrogate Regret Bounds for Bipartite Ranking via Strongly Proper Losses",
+      "authors": "Shivani Agarwal",
+      "year": 2014,
+      "url": "https://jmlr.org/papers/volume15/agarwal14b/agarwal14b.pdf",
+      "sections": "Section 2.1; Section 5; introduction",
+      "evidence": "Establishes ranking-regret bounds for strongly proper losses including logistic loss and the optimality of conditional-probability ordering. Consistency requires suitable function classes and regularization; this does not establish finite-data or shifted-year performance."
+    },
+    {
+      "id": "cohen_carvalho2005",
+      "title": "Stacked Sequential Learning",
+      "authors": "William W. Cohen and Vitor R. Carvalho",
+      "year": 2005,
+      "url": "https://www.ijcai.org/Proceedings/05/Papers/0378.pdf",
+      "sections": "Section 3.1 and algorithm; Sections 3.2 and 4",
+      "evidence": "Uses off-sample neighboring predictions, including future positions and numeric log-odds, as second-stage features. Empirical evidence concerns sequence partitioning such as documents, not hydro or AUC. Our chronological splitting, shrinkage and generator-context proposal are adaptations requiring validation."
+    },
+    {
+      "id": "sutton_mccallum2011",
+      "title": "An Introduction to Conditional Random Fields",
+      "authors": "Charles Sutton and Andrew McCallum",
+      "year": 2011,
+      "url": "https://arxiv.org/pdf/1011.4088",
+      "sections": "Sections 2.3 and 3.1",
+      "evidence": "Describes linear-chain conditional models and forward-backward marginal inference. Supports the mechanics of a soft structured correction, not a claim of empirical improvement on this dataset."
+    },
+    {
+      "id": "shop_water_values",
+      "title": "SHOP: Water value descriptions",
+      "authors": "SINTEF Energy Research",
+      "url": "https://docs.shop.sintef.energy/examples/water_values/water_values.html",
+      "sections": "Independent water values / Constant water values",
+      "evidence": "Distinguishes local energy values from global volumetric values; conversion uses production at initial head and adds downstream reservoir value. Current documentation version differs from the dataset teacher."
+    },
+    {
+      "id": "shop_individual_water_values",
+      "title": "SHOP: Individual water values",
+      "authors": "SINTEF Energy Research",
+      "url": "https://docs.shop.sintef.energy/examples/water_values/individual_water_values.html",
+      "sections": "Output water-value discussion",
+      "evidence": "Reservoir-balance dual values describe internal opportunity costs; sign conventions and penalties affect interpretation. Terminal supplied values are not the same object as these optimized time-dependent outputs."
+    },
+    {
+      "id": "shop_generator",
+      "title": "SHOP generator object",
+      "authors": "SINTEF Energy Research",
+      "url": "https://docs.shop.sintef.energy/objects/generator/generator.html",
+      "sections": "Unit commitment; Binary variables; Fractional starts and cut-off limits; Start and stop costs",
+      "evidence": "Describes binary-versus-relaxed commitment and full/incremental iterations. These settings can change emitted commitments and are not reconstructed from the supplied static topology alone."
+    },
+    {
+      "id": "nair2020",
+      "title": "Solving Mixed Integer Programs Using Neural Networks",
+      "authors": "Vinod Nair et al.",
+      "year": 2020,
+      "url": "https://arxiv.org/html/2012.13349v3",
+      "sections": "Sections 3, 5, 6 and 6.1.2",
+      "evidence": "Uses explicit MIP graphs, predicted partial assignments and a classical solver; evaluates runtime and objective gaps. Even its main prediction model uses conditionally independent Bernoulli outputs; richer autoregressive variants bring modest gains at greater inference cost. This is not evidence that a joint hydro predictor must beat marginal trees."
+    },
+    {
+      "id": "zater2026",
+      "title": "A Multi-Stage Warm-Start Deep Learning Framework for Unit Commitment",
+      "authors": "Za'ter et al.",
+      "year": 2026,
+      "url": "https://arxiv.org/html/2604.21891v1",
+      "sections": "II-A/B/C/D; III-A1; III-B1",
+      "evidence": "Predicts 51 thermal units over 72 hours using a full-context Transformer and BCE, then repairs/solves. Expanded 2620 original cases to over 420000 re-solved perturbed cases; trained on two A100s. Evaluates solve time, operational cost and feasibility, not micro-AUC. The dataset, constraints, data budget and objective differ substantially from ours."
+    },
+    {
+      "id": "elmachtoub_grigas",
+      "title": "Smart Predict, then Optimize",
+      "authors": "Adam N. Elmachtoub and Paul Grigas",
+      "url": "https://arxiv.org/abs/1710.08005",
+      "sections": "Abstract and SPO/SPO+ formulation",
+      "evidence": "Learns predictions according to downstream optimization regret. It addresses a different goal from reproducing binary labels with global ROC-AUC when the exogenous optimization inputs are already supplied."
+    },
+    {
+      "id": "gorishniy2025",
+      "title": "TabM: Advancing Tabular Deep Learning with Parameter-Efficient Ensembling",
+      "authors": "Yury Gorishniy, Akim Kotelnikov and Artem Babenko",
+      "year": 2025,
+      "url": "https://arxiv.org/html/2410.24210v3",
+      "official_code": "https://github.com/yandex-research/tabm",
+      "sections": "3.1-3.4; 4.2-4.3; Appendix A.4",
+      "evidence": "Studies parameter-sharing MLP ensembles on 46 tabular tasks, including nine domain-aware splits. Good general tabular evidence motivates a bounded diversity experiment but does not establish superiority or complementary errors on hydro imitation."
+    },
+    {
+      "id": "rubachev2024",
+      "title": "TabReD: A Benchmark of Tabular Machine Learning in-the-Wild",
+      "authors": "Ivan Rubachev et al.",
+      "year": 2024,
+      "url": "https://arxiv.org/html/2406.19380v3",
+      "sections": "Sections 3 and 4.2",
+      "evidence": "Eight industrial tabular datasets with temporal evaluation show that split design changes model comparisons. Supports preserving chronological validation rather than selecting a model from random-split leaderboard claims."
+    },
+    {
+      "id": "sugiyama2007",
+      "title": "Covariate Shift Adaptation by Importance Weighted Cross Validation",
+      "authors": "Masashi Sugiyama, Matthias Krauledat and Klaus-Robert Müller",
+      "year": 2007,
+      "url": "https://www.jmlr.org/papers/volume8/sugiyama07a/sugiyama07a.pdf",
+      "sections": "Sections2.1-2.2 and3; introduction",
+      "evidence": "Defines covariate shift through changing input marginals and invariant conditional outputs. Importance-weighted risk/model selection can target the new distribution; theory assumes known density ratios. Estimated ratios, dependent cases and AUC adaptation require additional care."
+    },
+    {
+      "id": "polo_vicente2022",
+      "title": "Effective Sample Size, Dimensionality, and Generalization in Covariate Shift Adaptation",
+      "authors": "Felipe Maia Polo and Renato Vicente",
+      "year": 2022,
+      "url": "https://arxiv.org/html/2010.01184v5",
+      "sections": "Introduction; Sections2-3; dimension-reduction discussion",
+      "evidence": "States target-within-source support and conditional-invariance assumptions; connects importance-weight variance and effective sample size to generalization. Feature reduction can improve weight variance but need not preserve the assumptions."
+    },
+    {
+      "id": "hollmann2025",
+      "title": "Accurate predictions on small data with a tabular foundation model",
+      "authors": "Noah Hollmann et al.",
+      "year": 2025,
+      "url": "https://www.nature.com/articles/s41586-024-08328-6",
+      "sections": "Main evaluation; Methods/User guide",
+      "evidence": "The original Nature evaluation covers up to10000samples/500features and conventional tabular prediction. Those older reported regimes should not be used as a current hard capability limit."
+    },
+    {
+      "id": "priorlabs2026",
+      "title": "TabPFN-3: Technical Report",
+      "authors": "Prior Labs Team",
+      "year": 2026,
+      "url": "https://arxiv.org/pdf/2605.13986",
+      "sections": "Figure4; Sections2.1,2.4,3 and Figure7",
+      "evidence": "May2026 author report validates row/feature regimes including1Mrows/200features and describes chunking/KV caching measured on H100hardware. Strong benchmark results justify considering a bounded prototype; they do not provide evidence for this hydro dataset or local runtime."
+    }
+  ],
+  "updated_utc": "2026-10-17T19:58:00.673586+00:00",
+  "diagnostic_gated_classical_alternative": {
+    "name": "Case-level importance weighting for price-shape distribution shift",
+    "status": "Parked after reviewing the fresh historical regime evidence. Do not prioritize blanket high-volatility weighting from feature drift alone.",
+    "distinct_from_existing": "Existing recency weights depend on date. No inspected current Round5 path estimates target-versus-source input-density weights; targeting case composition is a different intervention.",
+    "prerequisite": "Show repeated historical error concentration in price-shape regimes that become more common in 2023/2024, and sufficient support across distinct calendar blocks. Examine negative-price prevalence and relative price range alongside relative standard deviation. Marginal min/max overlap does not establish multivariate support.",
+    "proposal_if_supported": "Use a small predeclared case descriptor, estimate input-only target/source ratios or coarse stratum weights, cap and shrink them toward one, and give every sampled hour/generator of a case the same weight. Compare with uniform and date-recency controls under fixed model parameters and historical chronological replay. Evaluate unweighted target-year global micro-AUC, not just a weighted training score.",
+    "failure_modes": "Covariate shift theory assumes unchanged conditional labels given inputs and target support within source support. Observed feature drift proves neither condition. Ratios from a few summaries are approximate and coarsening can break conditional invariance. Sparse or unsupported regimes cannot be manufactured by weighting, and large weights can amplify correlated errors.",
+    "diagnostics": "Report weight concentration, case effective sample size ESS = (sum_i w_i)^2 / sum_i(w_i^2), and calendar-block concentration. Row-level ESS falsely inflates evidence by counting repeated hours and generators. A source/target classifier alone establishes distribution distinguishability, not useful adaptation.",
+    "confidence": "High that this is a distinct classical alternative; low confidence of benefit until historical errors and overlap support it.",
+    "source_ids": [
+      "sugiyama2007",
+      "polo_vicente2022"
+    ],
+    "references": [
+      "src/training_weights.py",
+      "src/round5_lightgbm.py",
+      "reports/audit_20261017_input_shift.json"
+    ],
+    "observed_gate_result": {
+      "high_volatility_threshold": 0.2478427974029606,
+      "interpretation": "Above the pre2021p90 relative-price-standard-deviation threshold, aggregate pair-error enrichment is below1 and BCE is below the overall mean in all three available evaluations. This does not disprove weighting gains, but it fails to establish high volatility as the next aggregate error mechanism.",
+      "pair_enrichment_native2021_native2022_frozen2022": [
+        0.91546,
+        0.96745,
+        0.95872
+      ],
+      "high_volatility_target_coverage": "210/365 cases in2023 and287/360 in2024, versus111/365 in2021 and146/365 in2022.",
+      "narrower_signal": "Haukeli has worse high-volatility subgroup AUC/BCE than its middle-volatility subgroup in both years. Subgroup case difficulty and selection confound this; it is a diagnostic hypothesis, not a basis for a new generator-specific weight search.",
+      "negative_price_limit": "Any-negative-price coverage is only8 historical2021cases inone consecutive run and0 in2022, versus90cases in2023 and156 in2024. These checks cannot validate adaptation to repeated negative-price episodes.",
+      "source": "reports/audit_20261017_regimes.json"
+    }
+  },
+  "modern_tabular_assessment": {
+    "TabM": {
+      "fit": "A parameter-sharing ensemble of row-wise MLPs can be trained on the same 113 features as current trees. It differs from the existing WeeklyMixer, which mixes within-week time positions.",
+      "limitations": "Sample expansion gives computational rows but not independent cases. Gains in generic tabular benchmarks do not show complementarity with this ensemble. Match current features/sampling and compare an ordinary MLP control; use a bounded, fixed blend and chronological checks.",
+      "priority": "Optional diversity experiment after cheaper representation/correction tests.",
+      "source_ids": [
+        "gorishniy2025",
+        "rubachev2024"
+      ]
+    },
+    "TabPFN": {
+      "fit": "Do not reject using the older Nature paper's 10000-row regime: the May2026 TabPFN-3 technical report describes up to 1M rows with 200 features and chunked inference on an H100. Current per-generator full data have 490896 hourly rows; stride4 gives122724 rows, with113features. This is numerically within that reported regime.",
+      "framing": "2922 cases are not a ready-made scalar-label classification table: each case has2352binary outputs. A conventional use would keep generator/hour rows or use separate target tasks; neither grants a native structured-output advantage. Many-class prediction is not the same as2352simultaneousbinarylabels.",
+      "limitations": "Hardware/memory/runtime on this workspace are unbenchmarked. Published generic tabular and time-series results do not establish performance for daily overlapping hydro imitation. Any subsampling must preserve chronological case separation; never randomly split hourly copies.",
+      "priority": "Credible optional modern baseline, not ruled out by scale and not promoted above targeted tests solely on benchmark claims. The reviewed version is TabPFN-3, not a claim about the latest release.",
+      "source_ids": [
+        "hollmann2025",
+        "priorlabs2026"
+      ]
+    }
+  },
+  "independent_cross_review": {
+    "reviewed": [
+      "reports/audit_20261017_diagnostics.py",
+      "reports/audit_20261017_diagnostics.json",
+      "src/round2_diagnostics.py",
+      "reports/audit_20261017_input_shift.py",
+      "reports/audit_20261017_input_shift.json",
+      "reports/audit_20261017_regimes.json"
+    ],
+    "pair_counting": "The implemented sorting/search formula correctly counts strict inversions and half-weight ties. Matrix shares sum toone; endpoint allocation shares sum toone; incident-slice subtraction removes double-counted internal pairs. Official metric reproduction agrees.",
+    "cross_generator_interpretation": "Cross-generator pairs account for91.31%/91.84% of errors but93.37%/93.30% of available pairs in native2021/2022. Their enrichment is0.978/0.984. Their large raw share is combinatorial and does not itself diagnose calibration failure or establish a need for a joint decoder. Within-generator pairs are1.31x/1.22x enriched.",
+    "cross_case_interpretation": "Within-case pairs have only about0.192%/0.193% of global pair availability. Most global errors inevitably cross cases. This does not make within-case contextual features irrelevant: correcting one probability changes its comparisons against many other cases.",
+    "transition_interpretation": "Near-transition outputs occupy8.05%/11.87% of outputs but touch15.52%/24.51% of available pairs and52.55%/67.80% of errors. Correct availability-adjusted enrichment is3.39x/2.77x, not the ratio of incident-error share to output share. This supports transition-context investigation, not guaranteed benefit from smoothing.",
+    "overlap_and_attribution": "Near-transition and outside-transition incident-pair sets overlap, as do incident generator slices; their shares must not be summed. Half-endpoint allocated shares are additive bookkeeping, not causal blame or recoverable-AUC estimates. Label-defined transition masks are diagnostic only.",
+    "shift_interpretation": "Weekly2023/2024mean prices lie within the full historical min/max, while normalized shape measures shift. Marginal support overlap is not multivariate overlap. In2024,26.39%of cases exceed historical maximum negative-price fraction,8.33%exceed historical maximum relative price range, and1.94%exceed historical maximum relative standard deviation. Reweighting cannot create unsupported examples.",
+    "regime_interpretation": "No aggregate high-volatility failure repeats across the historical checks. Low-volatility2022 is about1.45x pair-error enriched, while high volatility is below1. Sparse negative-price history prevents a credible negative-regime adaptation validation. This leaves targeted temporal representation ahead of blanket weighting.",
+    "limits": "All results are descriptive on reused development predictions. Native/frozen2022 are deployment scenarios on the same labels. Consecutive runs and overlapping weeks are not independent observations; distribution shifts and error concentration are not causal evidence."
+  },
+  "independent_synthesis_review": {
+    "reviewed_at_utc": "2026-10-17T20:01:13Z",
+    "report": "reports/audit_20261017_report.md",
+    "status": "Review only; no synthesis-report edits.",
+    "overall": "Claims about metric alignment, temporal context, solver-method objective mismatch, regime shift and reused validation are appropriately qualified. Source paraphrases in the synthesis are brief; no excessive quotations found.",
+    "requested_wording_fixes": [
+      "Attribute public score 0.99172 to the user/repository rather than imply independent Kaggle retrieval.",
+      "Native versus frozen2022 changes both training cohort and inherited checkpoint selection. Attribute improvement to the updated training/selection procedure, not solely added training data."
+    ],
+    "priority_judgment": "After the two-rank ablation, prioritize the cached temporal residual pilot before a bundle of physical features: transition enrichment repeats in both years and the pilot requires zero base fits. Keep physical timing, distinct inflows and pressure arithmetic as separate hypotheses with separate controls.",
+    "scope_of_temporal_pilot": "Neighbouring logits can address switching-boundary errors but may contain little evidence to repair a coherent whole-week near-zero prediction. Do not claim that this pilot subsumes the rare water-allocation failure.",
+    "rare_training_case_replay": "Both frozen Vesle Kjela models fit the three inspected2020 training cases well. This shows the existing representation can fit that episode; it does not demonstrate transfer or a causal physical rule. Three overlapping cases supply little independent support.",
+    "normalization_floor_red_team": {
+      "observation_source": "Parent/physics track replay; rescaling implementation independently inspected in src/tree_preprocessing.py.",
+      "mechanism": "max(mean(abs(price)),10) places low-price2020 cases and higher-price2022 cases with similar unfloored relative margins in different normalized tree coordinates. This is a plausible inductive-bias interaction, not demonstrated information loss or a preprocessing defect.",
+      "known_controls": "Current features retain scaled weekly prices and log absolute scale. Round9 removed log_week_price_scale only; it did not test adding a stable relative ratio or changing the floor.",
+      "risks": "Removing the floor magnifies near-zero-price values; absolute economic levels can still matter through startup costs. Aligning ratio coordinates does not imply matching teacher decisions.",
+      "priority": "Diagnostic hypothesis, not a promoted global normalization replacement based on one training episode and inspected validation errors.",
+      "next_diagnostic": "Check floor-active coverage and numerical range by year, plus held-out error concentration in low-scale cases. Count consecutive episodes as well as overlapping case weeks.",
+      "conditional_experiment": "If diagnostic support remains, test one bounded relative economic feature alongside all current features and retained absolute scale, with fixed model settings. Do not tune floor constants on the revealed rare cases.",
+      "diagnostic_completed": {
+        "source": "reports/audit_20261017_scaling.json",
+        "floor_active_cases_by_year": {
+          "2015": 34,
+          "2016": 0,
+          "2017": 0,
+          "2018": 0,
+          "2019": 0,
+          "2020": 226,
+          "2021": 0,
+          "2022": 0,
+          "2023": 0,
+          "2024": 0
+        },
+        "consecutive_runs_2015_2020": [
+          2,
+          6
+        ],
+        "minimum_weekly_absolute_price_2021_2022_2023_2024": [
+          32.38928571428571,
+          27.367738095238092,
+          14.53077380952381,
+          23.335357142857145
+        ],
+        "heldout_error_check": "All three native/frozen2021/2022 active-floor slices are empty; AUC/BCE/enrichment are null. There is no held-out evidence of higher error while the floor is active.",
+        "rare_joint_support": "Exactly three inspected2020 cases activate the floor; all four2022 cases do not. The retrospective joint condition occurs zero times in2023/2024 inputs.",
+        "updated_interpretation": "Removing the floor would change the representation of260 historical training cases but would not directly change normalization of any2021-2024 case. A possible effect is training-to-evaluation transfer, not direct clipping of validation/test inputs. This still does not establish harmful causality or a gain from an alternative normalization."
+      }
+    }
+  }
+}

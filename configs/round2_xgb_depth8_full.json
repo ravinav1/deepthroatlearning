@@ -1,0 +1,24 @@
+{
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "use_price_context": true,
+  "use_economic_rescaling": true,
+  "model": {
+    "n_estimators": 748,
+    "learning_rate": 0.05,
+    "tree_method": "hist",
+    "max_depth": 8,
+    "min_child_weight": 25,
+    "max_bin": 63,
+    "n_jobs": 4,
+    "random_state": 42
+  },
+  "model_type": "xgboost",
+  "loss": "binary",
+  "selection_source": "reports/round2_xgb_depth8_2021_metrics.json",
+  "selection_source_sha256": "fa58ae06a49c4df87cb4c8d9c938f899fcc7eae30dc705b85c55cfa3f46017be",
+  "combined_selection_source": "reports/round2_depth8_combined_selection_2021.json",
+  "selected_combined_recipe": "depth8_haukeli_weighted_mean",
+  "note": "Conditional full-fit component, prepared before 2022 confirmation. Fit all 2922 supplied labeled cases at the fixed 2021-selected 748-tree count; predict all 725 competition cases. No validation inputs or stopping. Final blend uses this component outside Haukeli only; preserve original shared XGBoost plus the 121-tree specialist within Haukeli."
+}

@@ -1,0 +1,24 @@
+{
+  "validation_start": "2021-01-01",
+  "validation_end": "2022-01-01",
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "use_price_context": true,
+  "use_economic_rescaling": true,
+  "record_training_auc": true,
+  "early_stopping_rounds": null,
+  "model": {
+    "n_estimators": 748,
+    "learning_rate": 0.05,
+    "tree_method": "hist",
+    "max_depth": 8,
+    "min_child_weight": 100,
+    "max_bin": 63,
+    "n_jobs": 4,
+    "random_state": 42
+  },
+  "experiment_hypothesis": "Isolate stronger leaf regularization at the current depth8 and fixed748tree count: the previous near-perfect training fit and mixed cross-year depth effects justify requiring more Hessian mass per leaf. No feature changes.",
+  "reference_model": "models/round2_xgb_depth8_2021.ubj",
+  "reference_metrics": "reports/round2_xgb_depth8_2021_metrics.json"
+}

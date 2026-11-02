@@ -1,0 +1,43 @@
+{
+  "declared_utc": "2026-10-18T12:08:01.678260+00:00",
+  "purpose": "Predeclared separate Round 10 representation ablations. Reused historical development years are not untouched test sets.",
+  "authorization": "Implement and test two narrow arms; no full fitting on all labels, competition submission generation, uploads or overwriting existing artifacts.",
+  "fixed_model": "Round 5 separate-generator relative-input LightGBM seed299; unchanged tree counts, learning rate,63 leaves,min leaf100,bins63,L1=.2,L2=4,subsampling and feature subsampling; only n_jobs reduced to2.",
+  "feature_protocol": "Construct features from every provided hour of each complete168-hour case before existing stride4 row sampling. No labels, actual production, future observed storage, guessed initial commitment or hard physical dispatch rule.",
+  "comparisons": [
+    "Train pre2021 and evaluate2021, train pre2022 and evaluate2022, replay pre2021 checkpoint on2022. Complete all three evaluations regardless of2021 sign.",
+    "Compare both standalone seed299 and fixed whole-ensemble replacement: .5*Round3 + .25*candidate299 + .25*original673 versus .5*Round3 + .25*original299 + .25*original673. Do not search blend weights.",
+    "Align predictions by Run No and exact generator-hour columns. Use official micro ROC AUC and generator-specific diagnostics. Report inspected case examples only descriptively.",
+    "No combined arm, new hyperparameter choice, seed expansion or final-fit promotion based solely on one favorable year. Report all arms and unfavorable results."
+  ],
+  "validation": [
+    "Synthetic constant and multi-change constraints: current-hour inclusion, no-change censoring, first/last-hour transitions, multiple changes, duplicate case timestamps.",
+    "Real cases2871/2872: r_Vest14to5 at144/120; exact full-week burdens7.6896/6.912Mm3.",
+    "Staavatn/Venemo first-hour cumulative and last-hour remaining equal that hour flow*.0036; full totals agree with source. Equal totals with different timing must give different paths.",
+    "Feature construction must preserve all original113 features exactly with flagsfalse, leave other current columns unchanged whenenabled, and retain fullweek features before stride4 sampling."
+  ],
+  "source_configs": {
+    "configs/round5_lgb_peer_relative_seed299_2021.json": {
+      "sha256": "765542f15dd99f9398619f1cf093b449d6f3a7032fb93690151c1ca7f4ba93c1"
+    },
+    "configs/round5_lgb_peer_relative_seed299_2022.json": {
+      "sha256": "3d4945139252ed92cab50542393ef5a5b39a4948db28b241916f3caaa1029b54"
+    }
+  },
+  "arm": "water",
+  "flag": "use_distinct_inflow_timing",
+  "functions": [
+    "distinct_inflow_timing(starts,timestamps,inputs)"
+  ],
+  "new_columns": 6,
+  "features": [
+    "Staavatn and Venemo hourly natural inflow in m3/s",
+    "For each, cumulative and remaining natural inflow in Mm3;both includecurrenthour"
+  ],
+  "interpretation": "Known natural inflow timing only; not production, transfers, reservoir forecasts, or capacity-forcing rules.",
+  "run_names": [
+    "round10_water_seed299_2021",
+    "round10_water_seed299_2022",
+    "round10_water_frozen_seed299_2022"
+  ]
+}

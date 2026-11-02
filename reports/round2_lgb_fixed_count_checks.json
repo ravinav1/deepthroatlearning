@@ -1,0 +1,24 @@
+{
+  "fresh_fixed_rounds": 5,
+  "continued_fixed_rounds": 45,
+  "continued_additional_rounds": 40,
+  "source_auc": 1.0,
+  "worse_fixed_final_auc": 0.9935866630938593,
+  "fixed_mode_kept_worse_final_model": true,
+  "adaptive_mode_retained_better_source": true,
+  "saved_models_predictions_and_round_counts_agree": true,
+  "source_model_hash_unchanged": true,
+  "threads": 1,
+  "synthetic_training_cases": 25,
+  "synthetic_validation_cases": 8,
+  "note": "Tiny synthetic-data regression check. Validation labels were defined from source-model ranks to force the source AUC to1 and verify that fixed-count continuation keeps its final model even when validation gets worse. No project model was trained or changed.",
+  "prepared_2021_confirmation": {
+    "total_trees": 1895,
+    "source_trees": 1499,
+    "additional_trees": 396,
+    "selection_year": 2022,
+    "confirmation_year": 2021,
+    "interpretation": "Backward historical confirmation on reused development years, not independent validation."
+  },
+  "implementation_sha256": "7d390906253ca0d0f8dd1bc4afa52f366a4fcc874ff5ee3c2aaf06b13fd61577"
+}

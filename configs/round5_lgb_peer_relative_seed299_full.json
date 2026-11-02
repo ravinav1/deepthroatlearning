@@ -1,0 +1,63 @@
+{
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "use_price_context": true,
+  "use_economic_rescaling": true,
+  "loss": "binary",
+  "early_stopping_rounds": null,
+  "model": {
+    "n_estimators": 1800,
+    "learning_rate": 0.04,
+    "num_leaves": 63,
+    "min_child_samples": 100,
+    "max_bin": 63,
+    "random_state": 299,
+    "n_jobs": 4,
+    "deterministic": true,
+    "force_col_wise": true,
+    "verbosity": -1,
+    "reg_alpha": 0.2,
+    "reg_lambda": 4.0,
+    "subsample": 0.85,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.85
+  },
+  "hour_stride": 4,
+  "deadline_utc": "2026-10-14T20:35:07+00:00",
+  "experiment": "Final fit on all 2922 supplied labelled cases. Fixed per-generator counts selected from 2019/2020; seeds uniformly averaged, then blended 50/50 with the incumbent. Competition inputs used for prediction only.",
+  "trees_by_generator": {
+    "Hogga_G1": 278,
+    "Tokke_G1": 712,
+    "Tokke_G2": 464,
+    "Tokke_G3": 421,
+    "Tokke_G4": 207,
+    "Lio_G1": 324,
+    "Byrte_G1": 177,
+    "Vinje_G1": 664,
+    "Vinje_G2": 1250,
+    "Vinje_G3": 355,
+    "Haukeli_G1": 129,
+    "Songa_G1": 246,
+    "Kjela_G1": 261,
+    "Vesle Kjela_G1": 573
+  },
+  "count_selection": {
+    "sources": [
+      {
+        "path": "reports/round5_lgb_peer_relative_2019_metrics.json",
+        "sha256": "2c076d128207b7d1a15c43681f051da035f36b2d292a7ee5e73554e14ca7001d"
+      },
+      {
+        "path": "reports/round5_lgb_peer_relative_2020_metrics.json",
+        "sha256": "136b88d38af386baabec42cddc2376d1ef66259d959c333ae23371d2c8956afc"
+      }
+    ],
+    "rule": "Per generator: median of 2019/2020 raw best tree counts, round half up, then clip to [100, 1800]. Fixed for 2021, 2022, final fitting and both seeds.",
+    "selection_seed": 299
+  },
+  "selection_report": "reports/round5_selection_2021.json",
+  "full_fit": true,
+  "native_confirmation": "reports/round5_selected_native_2022_comparison.json",
+  "frozen_confirmation": "reports/round5_selected_frozen_2022_comparison.json"
+}

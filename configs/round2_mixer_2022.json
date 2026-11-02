@@ -1,0 +1,28 @@
+{
+  "validation_start": "2022-01-01",
+  "validation_end": "2023-01-01",
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "stable_scaling": true,
+  "use_economic_rescaling": true,
+  "model_type": "mixer",
+  "seed": 42,
+  "epochs": 38,
+  "patience": 40,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "early_stopping_metric": "fixed",
+  "model": {
+    "width": 64,
+    "layers": 4,
+    "time_hidden": 168,
+    "channel_hidden": 128,
+    "dropout": 0.1
+  },
+  "device": "cpu",
+  "note": "Freeze the2021-selected38epoch model and50/50originalTransformer/Mixer mixture before2022 evaluation. No2022 stopping. Historical years are reused development data.",
+  "frozen_epoch_source": "reports/round2_mixer_2021_metrics.json",
+  "iteration_selection_source": "reports/round2_mixer_2021_metrics.json",
+  "selected_ensemble_variant": "candidate_mean"
+}

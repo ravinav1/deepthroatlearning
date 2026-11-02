@@ -1,0 +1,274 @@
+{
+  "checked_utc": "2026-10-14T14:40:30.261415+00:00",
+  "status": "preflight_passed_full_fits_and_final_confirmation_pending",
+  "scope": "Read-only source/config/data inspection, syntax compilation, and actual exporter entrypoints deliberately interrupted before feature construction or fitting. No model fitted and no prediction exported.",
+  "syntax_compilation": {
+    "status": "passed",
+    "all_src_modules": 67,
+    "reviewed_training_export_round2_modules": [
+      "src/boundary_weights.py",
+      "src/consistency_regularization.py",
+      "src/make_cnn_averaging_submission.py",
+      "src/make_cnn_five_seed_submission.py",
+      "src/make_cnn_stability_submissions.py",
+      "src/make_ensemble_submission.py",
+      "src/make_goal_submission.py",
+      "src/make_sequence_submission.py",
+      "src/make_specialist_submission.py",
+      "src/make_submission.py",
+      "src/round2_compare.py",
+      "src/round2_diagnostics.py",
+      "src/round2_frozen_sequence.py",
+      "src/round2_frozen_trees.py",
+      "src/round2_specialist_calibration.py",
+      "src/round2_temperature.py",
+      "src/round2_temporal_probe.py",
+      "src/round2_tree_specialist.py",
+      "src/train_baseline.py",
+      "src/train_bilstm.py",
+      "src/train_catboost.py",
+      "src/train_cnn.py",
+      "src/train_conditional_gate.py",
+      "src/train_plant_commitment.py",
+      "src/train_stacking.py",
+      "src/train_stacking_bases.py",
+      "src/train_xgboost.py",
+      "src/weekly_mixer.py"
+    ]
+  },
+  "source_code_sha256": {
+    "src/boundary_weights.py": "41c1d2657ff15b7266490f3a4005d784ca5f1337529ab657b85d5d03f5139470",
+    "src/consistency_regularization.py": "7a6e1ea5821dfaa15dbaf9dd462bcf471d555cdafb765f64deb162f08bab84f7",
+    "src/make_cnn_averaging_submission.py": "e256d8212c66dd4d2c8e5fd373cdd4971df566aa1d123a31e4f131caa2c33aad",
+    "src/make_cnn_five_seed_submission.py": "a8917b3ec9b1de2a50d402504e9d20e532e624aa57217d81e37d0c108eccb675",
+    "src/make_cnn_stability_submissions.py": "c9b72c75a5e1cd9a463871e146cc4600af8ef863eba0cf8229a5041c69c3bc00",
+    "src/make_ensemble_submission.py": "a85608fe19889a6300c7974770e6594564e6d3c7d4cd27b910768e541db73055",
+    "src/make_goal_submission.py": "2d641c8cb99bace3e4ef67273e584399d780da3d73b0e196741f73915cafcaa2",
+    "src/make_sequence_submission.py": "3c5eaef5afc3631f3ab803d2c3180b864f925c76ced2ae1ab233aaa43e50e33e",
+    "src/make_specialist_submission.py": "694372a28d657c6ddbaa256b88d067b287efb707aca5394dc848e99e3f549c85",
+    "src/make_submission.py": "db35b096eb593e45b5a70977c3af61678820b20f10fdd9faf3c4450559b44ffb",
+    "src/round2_compare.py": "cfab13725dd64c87542dd2a0d6c380db30b00e886f23d8313b1a92a130552779",
+    "src/round2_diagnostics.py": "b85550fab55d419b54df7e2f1b687b8a91de2113f30e06c2f9352c6f15e508b9",
+    "src/round2_frozen_sequence.py": "945a037d0aaed9022d50f2a02cdb36482ec559eb7653757e3faaae201ab4b41a",
+    "src/round2_frozen_trees.py": "897ad1b565344f80330f7877f898bba93d53e5c5d6344af24900ed95577e66fd",
+    "src/round2_specialist_calibration.py": "84092b7af7b60b66ac494e6ae146a36200e2a31ecd0166af37c910aba2150d6b",
+    "src/round2_temperature.py": "b25e105bd69c3aa57a1842ea4fc7600ef3c43bdebcc98b1daaafb7d913669d3a",
+    "src/round2_temporal_probe.py": "ccd50ffe7229b0b896b9540b9c1623a5475d87bfc6cbf1005e3a5f6c49774166",
+    "src/round2_tree_specialist.py": "a09785f700df987085f637b780adcd4b80bb671029d60696bcf0c8485b2d714f",
+    "src/train_baseline.py": "bd3db34b674bcb7d8d637e99a9237450c8e781a88798b03577250843c81f163a",
+    "src/train_bilstm.py": "09c819167148d97cc814c45186af9feb1a1f4700dae49b49e4d6a79271317705",
+    "src/train_catboost.py": "ddc99fd6a538bd8043ccec0b88bc6b6c4f2820402f3b49aa4ecf3090715e23e4",
+    "src/train_cnn.py": "09f14b1425a76ca9baa7c337c510d6f22bdfa94a0c6ba2266e75f81c14e04bb0",
+    "src/train_conditional_gate.py": "f919336582939c38441744ec3f01de390981706b882c085bbad6d760a31d025d",
+    "src/train_plant_commitment.py": "fdc9e87a1d93e80e9cc4515539c58878066552f62497a478a381ca3cd535cee9",
+    "src/train_stacking.py": "1a77df1a86f2596d6a2d48c4c33cc85cbf385e4f10f5e2b051b07f66fd3050e9",
+    "src/train_stacking_bases.py": "39ca9a955892a74f81444bc4b8fdd21f6ad27f67115a25f30bcb981f5bf48e92",
+    "src/train_xgboost.py": "5d9eac57815eb2459c735cb7757bb0530da972af70a5cb2e266731efe0b01fde",
+    "src/weekly_mixer.py": "d9806b274fdcc1e9671566478ce4bf974f8acbdb01de2bcb60e31fa67e5d00d5"
+  },
+  "selected_config_sha256": {
+    "configs/round2_xgb_depth8_full.json": "997f9825b06e568ffffc1f49501cbbcfc0cdccab055ab98090a775333e01a446",
+    "configs/round2_xgb_haukeli_full.json": "7ff3a0af22f45ef4577e8d6fa610f7b15361ea9a6346690654c36c3cff52a22d",
+    "configs/round2_submission_transformer_task_weights.json": "d8f43226e07cffa2c7ad228faa6904ef3ecd0f37ada3c2fe84bb4a4529d73538",
+    "configs/round2_submission_depth8_haukeli_weighted.json": "af85a137414abdf4b9a8a18fb95bd4cd616d2526b9b215e0fad19fb2d64bb1fb"
+  },
+  "selected_source_reports": {
+    "depth8": {
+      "path": "reports/round2_xgb_depth8_2021_metrics.json",
+      "sha256": "fa58ae06a49c4df87cb4c8d9c938f899fcc7eae30dc705b85c55cfa3f46017be"
+    },
+    "haukeli": {
+      "path": "reports/round2_xgb_haukeli_2021_metrics.json",
+      "sha256": "13a91ae73368318f8a3c112af9c01208e373bfb2867992dd060807f52c77f7f3"
+    },
+    "weighted_transformer": {
+      "path": "reports/round2_transformer_task_weights_2021_metrics.json",
+      "sha256": "97de0ad2524e37a840c5fd68e74a827aa05f697f6a604577e163467bdbc9688f"
+    }
+  },
+  "configuration_consistency": {
+    "status": "passed",
+    "depth8_total_trees": 748,
+    "haukeli_total_trees": 121,
+    "weighted_transformer_epochs": 28,
+    "all_fixed_counts_from_2021": true,
+    "same_feature_flags_and_model_parameters_except_frozen_tree_caps": true,
+    "same_seeds_and_stochastic_settings": true,
+    "tree_random_state": 42,
+    "neural_seed": 42,
+    "neural_dropout": 0.1,
+    "neural_rdrop_pairwise_transition_weights": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "neural_weight_decay": 0.0001,
+    "same_frozen_generator_loss_weights": true,
+    "validation_fields_removed_from_fullfit_configs": true,
+    "no_validation_stopping_or_scheduler_in_fullfit": true,
+    "device": "cpu",
+    "training_threads": 4
+  },
+  "entrypoint_preflight": [
+    {
+      "entrypoint": "make_submission.py",
+      "config": "configs/round2_xgb_depth8_full.json",
+      "status": "passed; deliberately stopped before feature construction/fitting",
+      "observed": {
+        "training_cases": 2922,
+        "unique_training_ids": true
+      },
+      "console": "Cases: 2922 training, 725 test; trees: 748"
+    },
+    {
+      "entrypoint": "make_sequence_submission.py",
+      "config": "configs/round2_submission_transformer_task_weights.json",
+      "status": "passed; deliberately stopped before feature construction/fitting",
+      "observed": {
+        "training_cases": 2922,
+        "unique_training_ids": true
+      },
+      "console": "Device: cpu; cases: 2922 training, 725 test; epochs: 28"
+    },
+    {
+      "entrypoint": "round2_tree_specialist.py",
+      "config": "configs/round2_xgb_haukeli_full.json",
+      "status": "passed; deliberately stopped before feature construction/fitting",
+      "observed": {
+        "training_cases": 2922,
+        "unique_training_ids": true
+      },
+      "console": "Haukeli_G1: 2922 training cases, 725 prediction cases, 0 purged"
+    }
+  ],
+  "data_exclusion": {
+    "status": "passed",
+    "source_labeled_cases": 2922,
+    "competition_cases": 725,
+    "outputs_per_case": 2352,
+    "unique_ids": true,
+    "competition_ids_absent_from_labeled_file": true,
+    "full_fit_uses_labeled_file_only": true,
+    "test_features_built_after_training_in_global_tree_and_neural_exporters": true,
+    "specialist_test_features_built_before_fit_but_no_test_labels_or_eval_set_used": true,
+    "neural_scaler_fit_only_on_labeled_training_features": true,
+    "historical_splits": [
+      {
+        "year": 2021,
+        "training_cases": 2186,
+        "validation_cases": 365,
+        "purged_cases": 6,
+        "last_training_start": "2020-12-25 00:00:00+00:00",
+        "competition_id_overlap": 0
+      },
+      {
+        "year": 2022,
+        "training_cases": 2551,
+        "validation_cases": 365,
+        "purged_cases": 6,
+        "last_training_start": "2021-12-25 00:00:00+00:00",
+        "competition_id_overlap": 0
+      }
+    ],
+    "2022_after_selection_horizon_start": "2022-01-07",
+    "2022_after_selection_horizon_cases": 359
+  },
+  "planned_artifacts": {
+    "models/xgboost_round2_xgb_depth8_full.ubj": {
+      "exists_at_preflight": false,
+      "protected_path_collision": false
+    },
+    "reports/round2_xgb_depth8_full_run.json": {
+      "exists_at_preflight": false,
+      "protected_path_collision": false
+    },
+    "data/processed/round2_xgb_depth8_full_predictions.csv": {
+      "exists_at_preflight": false,
+      "protected_path_collision": false
+    },
+    "models/round2_submission_transformer_task_weights.pt": {
+      "exists_at_preflight": false,
+      "protected_path_collision": false
+    },
+    "reports/round2_submission_transformer_task_weights_run.json": {
+      "exists_at_preflight": false,
+      "protected_path_collision": false
+    },
+    "data/processed/round2_submission_transformer_task_weights_predictions.csv": {
+      "exists_at_preflight": false,
+      "protected_path_collision": false
+    },
+    "models/round2_xgb_haukeli_full.ubj": {
+      "exists_at_preflight": false,
+      "protected_path_collision": false
+    },
+    "reports/round2_xgb_haukeli_full_run.json": {
+      "exists_at_preflight": false,
+      "protected_path_collision": false
+    },
+    "data/processed/round2_xgb_haukeli_full_predictions.csv": {
+      "exists_at_preflight": false,
+      "protected_path_collision": false
+    },
+    "submissions/submission_round2_depth8_haukeli_weighted.csv": {
+      "exists_at_preflight": false,
+      "protected_path_collision": false
+    },
+    "reports/submission_round2_depth8_haukeli_weighted_run.json": {
+      "exists_at_preflight": false,
+      "protected_path_collision": false
+    }
+  },
+  "original_file_protection": {
+    "snapshot": "/private/tmp/tdt4173-round2-original-hashes.json",
+    "protected_count": 185,
+    "changed_or_missing": [],
+    "rehash_status": "passed at preflight; repeat after fullfits/export",
+    "planned_paths_distinct_from_all_protected_paths": true,
+    "all_four_writers_have_existing_artifact_guards": true
+  },
+  "original_prediction_sources": {
+    "xgb_rescaled": {
+      "path": "data/processed/goal_submission_xgb_rescaled_predictions.csv",
+      "sha256": "98c2ceaee61d12ff8941f8544093349d8e625a746e8ea7afbe457ae862a84f28"
+    },
+    "lightgbm_rescaled": {
+      "path": "data/processed/goal_submission_lightgbm_rescaled_predictions.csv",
+      "sha256": "2e2cd9ed384ae49a5aab78ae78e9705737bcf33dc06a54df0491a6ef2e437566"
+    },
+    "transformer": {
+      "path": "data/processed/submission_transformer_rescaled_predictions.csv",
+      "sha256": "a2a37788c932d5cc7c078ede9fbd3c8aec0c403234514c552eaeff637642b296"
+    }
+  },
+  "recipe_checks": {
+    "status": "passed",
+    "haukeli_weights": {
+      "xgb_rescaled": 0.25,
+      "lightgbm_rescaled": 0.5,
+      "haukeli_specialist": 0.25
+    },
+    "depth8_haukeli_weight": 0,
+    "non_haukeli_xgb_weights_preserved": true,
+    "lightgbm_weights_preserved": true,
+    "old_new_neural_contribution_split": "50/50",
+    "zero_loss_neural_heads_unused": true,
+    "2021_recipe_reproduced_in_prior_read_only_check": 0.9889184502673686,
+    "pending_historical_comparison": "reports/round2_depth8_combined_both_comparison.json",
+    "selected_variant": "depth8_haukeli_weighted_mean"
+  },
+  "pending_final_checks": [
+    "Require the preselected combined recipe to pass the frozen 2022 comparison before promotion.",
+    "Fit the three components using fixed counts, then check saved tree counts/epochs, training cohort hashes and source feature ordering.",
+    "Verify final 725-by-2353 CSV, exact template ID/column order, finite probabilities within [0,1], and full-fit component identities.",
+    "Reproduce final recipe against both historical years; retain Jan7+ summary and reused-development caveat.",
+    "Hash final models, predictions, configs and selection reports; compare original prediction source hashes recorded here.",
+    "Repeat all185 protected-file hashes after fitting/export."
+  ],
+  "limitations": [
+    "Compilation and preflight are not end-to-end training or final-file verification.",
+    "General XGBoost exporter records but does not enforce selection_source configuration matching; matching was checked explicitly here.",
+    "No untouched holdout claim: 2021 and2022 are reused development years; six-case selection-horizon purge does not erase prior reuse.",
+    "Future concurrent edits can invalidate source/config hashes, so final audit should compare them."
+  ]
+}

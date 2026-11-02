@@ -1,0 +1,25 @@
+{
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "use_price_context": true,
+  "use_economic_rescaling": true,
+  "use_temporal_ranks": true,
+  "model": {
+    "n_estimators": 748,
+    "learning_rate": 0.05,
+    "tree_method": "hist",
+    "max_depth": 8,
+    "min_child_weight": 25,
+    "max_bin": 63,
+    "n_jobs": 4,
+    "random_state": 42
+  },
+  "model_type": "xgboost",
+  "loss": "binary",
+  "selection_source": "reports/round3_xgb_ranks_selection_2021.json",
+  "selection_source_sha256": "dc95279618de6f5a9f7549384a7beece9af0bbfb3334a58f02d45f49fa474474",
+  "historical_confirmation": "reports/round3_xgb_ranks_both_comparison.json",
+  "frozen_confirmation": "reports/round3_frozen_xgb_ranks_2022_comparison.json",
+  "note": "All2922 supplied labelled cases; fixed748trees and original plant coefficients. Replace only depth8 contribution outside Haukeli. Candidate passed positive point-estimate gates but gains have uncertainty; no Kaggle labels or upload."
+}

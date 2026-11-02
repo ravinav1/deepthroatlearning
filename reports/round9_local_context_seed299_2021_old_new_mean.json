@@ -1,0 +1,19 @@
+{
+  "method": "Uniform probability mean; no weight fitting or seed selection.",
+  "sources": [
+    {
+      "path": "data/processed/round5_lgb_peer_relative_seed299_2021_validation_predictions.csv",
+      "sha256": "0f54e6bb9fb4a1271d7eaa9108663beb9a6ca857ccb4e70db7384298ee5bc9f4",
+      "weight": 0.5
+    },
+    {
+      "path": "data/processed/round9_local_context_seed299_2021_validation_predictions.csv",
+      "sha256": "e2b21ddc4e78053fbb27aa3210c49a6885b589b58ddf3f4868c486703ca6d808",
+      "weight": 0.5
+    }
+  ],
+  "output": "data/processed/round9_local_context_seed299_2021_old_new_mean_validation_predictions.csv",
+  "output_sha256": "ca8f2fc0508de60ff0da2fdf7d379582a934a46005f8a7f8a53f08eca2f399c4",
+  "cases": 365,
+  "outputs_per_case": 2352
+}

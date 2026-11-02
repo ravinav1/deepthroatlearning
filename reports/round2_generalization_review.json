@@ -1,0 +1,2891 @@
+{
+  "note": "Read-only full-current-winner cached prediction analysis. Train quantiles use cases ending no later than validation boundary. Both validation years repeatedly reused. No competition labels or model fitting.",
+  "method": {
+    "tail_definition": "Outside the pre-validation training 1st/99th percentiles, per generator for generator-specific quantities; min/max exceedance also measured.",
+    "scale": "max(mean(abs(168 supplied hourly prices)),10), identical to current economic rescaling.",
+    "endpoint_error": "An output has one comparison against every opposite-class output globally. Error rate is summed misordered-pair endpoints / summed available-pair endpoints. A pair whose two endpoints both lie in the slice is counted twice; this is separate from the incident union-pair shares.",
+    "adjustment": "Compare tail/in-range endpoint rates within generator x start-month x near-transition x label strata, retain strata with at least20 outputs in each group, standardize using combined endpoint availability. Descriptive composition control, not causal or independent inference.",
+    "transition_definition": "Within +/-2 hours of the first new-state hour in truth labels, diagnostic only.",
+    "dependency_note": "Each year has365 daily-start cases with heavily overlapping168-hour windows; output counts do not represent independent observations. No significance claims are made from the descriptive strata."
+  },
+  "results": [
+    {
+      "year": 2021,
+      "split": {
+        "training_cases": 2186,
+        "validation_cases": 365,
+        "purged_cases": 6,
+        "last_training_start": "2020-12-25 00:00:00+00:00",
+        "last_training_end_exclusive": "2021-01-01 00:00:00+00:00",
+        "first_validation_start": "2021-01-01 00:00:00+00:00",
+        "validation_status": "Reused historical development year; not independent holdout."
+      },
+      "micro_roc_auc": 0.9882719381376425,
+      "input_shift": [
+        {
+          "outputs": 480508,
+          "output_fraction": 0.5597195042400522,
+          "on_fraction": 0.3616713977706927,
+          "mean_probability": 0.35674772914745945,
+          "micro_roc_auc": 0.9850651099741891,
+          "incident_wrong_pair_share": 0.8477887032965882,
+          "incident_available_pair_share": 0.8089270557657252,
+          "error_enrichment_vs_pair_availability": 1.0480409787926759,
+          "incident_pair_error_rate": 0.012291489433566196,
+          "variable": "raw_hourly_price",
+          "train_tail_fraction": 0.01968969197926197,
+          "validation_tail_fraction": 0.5597195042400522,
+          "validation_beyond_training_minmax_fraction": 0.1445531637312459,
+          "tail_cases": 338,
+          "training_q01": [
+            1.3
+          ],
+          "training_q99": [
+            57.72
+          ],
+          "validation_quantiles_01_50_99": [
+            15.34,
+            59.6,
+            259.65
+          ],
+          "adjusted_comparison": {
+            "raw_tail_endpoint_error_rate": 0.012991952912185706,
+            "raw_inrange_endpoint_error_rate": 0.010181558427645943,
+            "common_strata": 312,
+            "common_strata_endpoint_availability_fraction": 0.7662627793601356,
+            "standardized_tail_endpoint_error_rate": 0.008282848870133737,
+            "standardized_inrange_endpoint_error_rate": 0.008006435388895498,
+            "standardized_error_ratio": 1.0345239133037418
+          },
+          "tail_by_generator": [
+            {
+              "generator": "Hogga_G1",
+              "fraction": 0.5597195042400522,
+              "outputs": 34322
+            },
+            {
+              "generator": "Tokke_G1",
+              "fraction": 0.5597195042400522,
+              "outputs": 34322
+            },
+            {
+              "generator": "Tokke_G2",
+              "fraction": 0.5597195042400522,
+              "outputs": 34322
+            },
+            {
+              "generator": "Tokke_G3",
+              "fraction": 0.5597195042400522,
+              "outputs": 34322
+            },
+            {
+              "generator": "Tokke_G4",
+              "fraction": 0.5597195042400522,
+              "outputs": 34322
+            },
+            {
+              "generator": "Lio_G1",
+              "fraction": 0.5597195042400522,
+              "outputs": 34322
+            },
+            {
+              "generator": "Byrte_G1",
+              "fraction": 0.5597195042400522,
+              "outputs": 34322
+            },
+            {
+              "generator": "Vinje_G1",
+              "fraction": 0.5597195042400522,
+              "outputs": 34322
+            },
+            {
+              "generator": "Vinje_G2",
+              "fraction": 0.5597195042400522,
+              "outputs": 34322
+            },
+            {
+              "generator": "Vinje_G3",
+              "fraction": 0.5597195042400522,
+              "outputs": 34322
+            },
+            {
+              "generator": "Haukeli_G1",
+              "fraction": 0.5597195042400522,
+              "outputs": 34322
+            },
+            {
+              "generator": "Songa_G1",
+              "fraction": 0.5597195042400522,
+              "outputs": 34322
+            },
+            {
+              "generator": "Kjela_G1",
+              "fraction": 0.5597195042400522,
+              "outputs": 34322
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "fraction": 0.5597195042400522,
+              "outputs": 34322
+            }
+          ],
+          "tail_by_start_month": [
+            {
+              "month": 1,
+              "fraction": 0.28859447004608296
+            },
+            {
+              "month": 2,
+              "fraction": 0.17283163265306123
+            },
+            {
+              "month": 3,
+              "fraction": 0.04473886328725039
+            },
+            {
+              "month": 4,
+              "fraction": 0.08015873015873017
+            },
+            {
+              "month": 5,
+              "fraction": 0.08448540706605223
+            },
+            {
+              "month": 6,
+              "fraction": 0.3527777777777778
+            },
+            {
+              "month": 7,
+              "fraction": 0.7619047619047619
+            },
+            {
+              "month": 8,
+              "fraction": 0.9389400921658986
+            },
+            {
+              "month": 9,
+              "fraction": 0.9920634920634921
+            },
+            {
+              "month": 10,
+              "fraction": 0.9750384024577573
+            },
+            {
+              "month": 11,
+              "fraction": 0.993452380952381
+            },
+            {
+              "month": 12,
+              "fraction": 1.0
+            }
+          ]
+        },
+        {
+          "outputs": 32816,
+          "output_fraction": 0.03822570123939987,
+          "on_fraction": 0.7585628961482204,
+          "mean_probability": 0.7525529875924606,
+          "micro_roc_auc": 0.9946181318291435,
+          "incident_wrong_pair_share": 0.04426238858506947,
+          "incident_available_pair_share": 0.0795454947591338,
+          "error_enrichment_vs_pair_availability": 0.5564411751928546,
+          "incident_pair_error_rate": 0.0065259765254247004,
+          "variable": "normalized_hourly_price",
+          "train_tail_fraction": 0.019956541628545287,
+          "validation_tail_fraction": 0.03822570123939987,
+          "validation_beyond_training_minmax_fraction": 0.0,
+          "tail_cases": 232,
+          "training_q01": [
+            0.129
+          ],
+          "training_q99": [
+            1.4308682231230874
+          ],
+          "validation_quantiles_01_50_99": [
+            0.331525476605662,
+            0.9999260924119284,
+            1.8208151741698118
+          ],
+          "adjusted_comparison": {
+            "raw_tail_endpoint_error_rate": 0.006510664129408141,
+            "raw_inrange_endpoint_error_rate": 0.011947221870473061,
+            "common_strata": 304,
+            "common_strata_endpoint_availability_fraction": 0.7895574546269531,
+            "standardized_tail_endpoint_error_rate": 0.008260548674250426,
+            "standardized_inrange_endpoint_error_rate": 0.009072546667267844,
+            "standardized_error_ratio": 0.9104994415794008
+          },
+          "tail_by_generator": [
+            {
+              "generator": "Hogga_G1",
+              "fraction": 0.03822570123939987,
+              "outputs": 2344
+            },
+            {
+              "generator": "Tokke_G1",
+              "fraction": 0.03822570123939987,
+              "outputs": 2344
+            },
+            {
+              "generator": "Tokke_G2",
+              "fraction": 0.03822570123939987,
+              "outputs": 2344
+            },
+            {
+              "generator": "Tokke_G3",
+              "fraction": 0.03822570123939987,
+              "outputs": 2344
+            },
+            {
+              "generator": "Tokke_G4",
+              "fraction": 0.03822570123939987,
+              "outputs": 2344
+            },
+            {
+              "generator": "Lio_G1",
+              "fraction": 0.03822570123939987,
+              "outputs": 2344
+            },
+            {
+              "generator": "Byrte_G1",
+              "fraction": 0.03822570123939987,
+              "outputs": 2344
+            },
+            {
+              "generator": "Vinje_G1",
+              "fraction": 0.03822570123939987,
+              "outputs": 2344
+            },
+            {
+              "generator": "Vinje_G2",
+              "fraction": 0.03822570123939987,
+              "outputs": 2344
+            },
+            {
+              "generator": "Vinje_G3",
+              "fraction": 0.03822570123939987,
+              "outputs": 2344
+            },
+            {
+              "generator": "Haukeli_G1",
+              "fraction": 0.03822570123939987,
+              "outputs": 2344
+            },
+            {
+              "generator": "Songa_G1",
+              "fraction": 0.03822570123939987,
+              "outputs": 2344
+            },
+            {
+              "generator": "Kjela_G1",
+              "fraction": 0.03822570123939987,
+              "outputs": 2344
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "fraction": 0.03822570123939987,
+              "outputs": 2344
+            }
+          ],
+          "tail_by_start_month": [
+            {
+              "month": 1,
+              "fraction": 0.09773425499231951
+            },
+            {
+              "month": 2,
+              "fraction": 0.04485544217687075
+            },
+            {
+              "month": 3,
+              "fraction": 0.03840245775729647
+            },
+            {
+              "month": 4,
+              "fraction": 0.04126984126984127
+            },
+            {
+              "month": 5,
+              "fraction": 0.030721966205837174
+            },
+            {
+              "month": 6,
+              "fraction": 0.021031746031746033
+            },
+            {
+              "month": 7,
+              "fraction": 0.004032258064516129
+            },
+            {
+              "month": 8,
+              "fraction": 0.008640552995391706
+            },
+            {
+              "month": 9,
+              "fraction": 0.009126984126984128
+            },
+            {
+              "month": 10,
+              "fraction": 0.03782642089093702
+            },
+            {
+              "month": 11,
+              "fraction": 0.04880952380952381
+            },
+            {
+              "month": 12,
+              "fraction": 0.07584485407066052
+            }
+          ]
+        },
+        {
+          "outputs": 465696,
+          "output_fraction": 0.5424657534246575,
+          "on_fraction": 0.32757206417920703,
+          "mean_probability": 0.32127074727839133,
+          "micro_roc_auc": 0.9838873724245963,
+          "incident_wrong_pair_share": 0.8418259376457201,
+          "incident_available_pair_share": 0.7986170990031887,
+          "error_enrichment_vs_pair_availability": 1.054104574891351,
+          "incident_pair_error_rate": 0.012362603663719806,
+          "variable": "log_week_price_scale",
+          "train_tail_fraction": 0.010064043915827997,
+          "validation_tail_fraction": 0.5424657534246575,
+          "validation_beyond_training_minmax_fraction": 0.4,
+          "tail_cases": 198,
+          "training_q01": [
+            2.302585092994046
+          ],
+          "training_q99": [
+            4.028577254930204
+          ],
+          "validation_quantiles_01_50_99": [
+            3.5001933917770485,
+            4.049661577033932,
+            5.469867243319447
+          ],
+          "adjusted_comparison": {
+            "raw_tail_endpoint_error_rate": 0.013287243993814597,
+            "raw_inrange_endpoint_error_rate": 0.00996992685784934,
+            "common_strata": 130,
+            "common_strata_endpoint_availability_fraction": 0.2417591549732155,
+            "standardized_tail_endpoint_error_rate": 0.010958242009381215,
+            "standardized_inrange_endpoint_error_rate": 0.01342610323230459,
+            "standardized_error_ratio": 0.8161893156768342
+          },
+          "tail_by_generator": [
+            {
+              "generator": "Hogga_G1",
+              "fraction": 0.5424657534246575,
+              "outputs": 33264
+            },
+            {
+              "generator": "Tokke_G1",
+              "fraction": 0.5424657534246575,
+              "outputs": 33264
+            },
+            {
+              "generator": "Tokke_G2",
+              "fraction": 0.5424657534246575,
+              "outputs": 33264
+            },
+            {
+              "generator": "Tokke_G3",
+              "fraction": 0.5424657534246575,
+              "outputs": 33264
+            },
+            {
+              "generator": "Tokke_G4",
+              "fraction": 0.5424657534246575,
+              "outputs": 33264
+            },
+            {
+              "generator": "Lio_G1",
+              "fraction": 0.5424657534246575,
+              "outputs": 33264
+            },
+            {
+              "generator": "Byrte_G1",
+              "fraction": 0.5424657534246575,
+              "outputs": 33264
+            },
+            {
+              "generator": "Vinje_G1",
+              "fraction": 0.5424657534246575,
+              "outputs": 33264
+            },
+            {
+              "generator": "Vinje_G2",
+              "fraction": 0.5424657534246575,
+              "outputs": 33264
+            },
+            {
+              "generator": "Vinje_G3",
+              "fraction": 0.5424657534246575,
+              "outputs": 33264
+            },
+            {
+              "generator": "Haukeli_G1",
+              "fraction": 0.5424657534246575,
+              "outputs": 33264
+            },
+            {
+              "generator": "Songa_G1",
+              "fraction": 0.5424657534246575,
+              "outputs": 33264
+            },
+            {
+              "generator": "Kjela_G1",
+              "fraction": 0.5424657534246575,
+              "outputs": 33264
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "fraction": 0.5424657534246575,
+              "outputs": 33264
+            }
+          ],
+          "tail_by_start_month": [
+            {
+              "month": 1,
+              "fraction": 0.0
+            },
+            {
+              "month": 2,
+              "fraction": 0.21428571428571427
+            },
+            {
+              "month": 3,
+              "fraction": 0.0
+            },
+            {
+              "month": 4,
+              "fraction": 0.0
+            },
+            {
+              "month": 5,
+              "fraction": 0.0
+            },
+            {
+              "month": 6,
+              "fraction": 0.43333333333333335
+            },
+            {
+              "month": 7,
+              "fraction": 0.8387096774193549
+            },
+            {
+              "month": 8,
+              "fraction": 1.0
+            },
+            {
+              "month": 9,
+              "fraction": 1.0
+            },
+            {
+              "month": 10,
+              "fraction": 1.0
+            },
+            {
+              "month": 11,
+              "fraction": 1.0
+            },
+            {
+              "month": 12,
+              "fraction": 1.0
+            }
+          ]
+        },
+        {
+          "outputs": 47040,
+          "output_fraction": 0.0547945205479452,
+          "on_fraction": 0.5123511904761905,
+          "mean_probability": 0.5128850460144816,
+          "micro_roc_auc": 0.9830839848504422,
+          "incident_wrong_pair_share": 0.12743859375306257,
+          "incident_available_pair_share": 0.10768883322025732,
+          "error_enrichment_vs_pair_availability": 1.1833965504335144,
+          "incident_pair_error_rate": 0.01387894795118471,
+          "variable": "normalized_week_price_std",
+          "train_tail_fraction": 0.020128087831655993,
+          "validation_tail_fraction": 0.0547945205479452,
+          "validation_beyond_training_minmax_fraction": 0.0,
+          "tail_cases": 20,
+          "training_q01": [
+            0.016372688504824706
+          ],
+          "training_q99": [
+            0.4152880933731701
+          ],
+          "validation_quantiles_01_50_99": [
+            0.01536264411493534,
+            0.18487779163376003,
+            0.4490019975780013
+          ],
+          "adjusted_comparison": {
+            "raw_tail_endpoint_error_rate": 0.013961921474954224,
+            "raw_inrange_endpoint_error_rate": 0.011597156065552523,
+            "common_strata": 210,
+            "common_strata_endpoint_availability_fraction": 0.40477459041435854,
+            "standardized_tail_endpoint_error_rate": 0.012198415852084112,
+            "standardized_inrange_endpoint_error_rate": 0.010357194072081813,
+            "standardized_error_ratio": 1.177772258315153
+          },
+          "tail_by_generator": [
+            {
+              "generator": "Hogga_G1",
+              "fraction": 0.0547945205479452,
+              "outputs": 3360
+            },
+            {
+              "generator": "Tokke_G1",
+              "fraction": 0.0547945205479452,
+              "outputs": 3360
+            },
+            {
+              "generator": "Tokke_G2",
+              "fraction": 0.0547945205479452,
+              "outputs": 3360
+            },
+            {
+              "generator": "Tokke_G3",
+              "fraction": 0.0547945205479452,
+              "outputs": 3360
+            },
+            {
+              "generator": "Tokke_G4",
+              "fraction": 0.0547945205479452,
+              "outputs": 3360
+            },
+            {
+              "generator": "Lio_G1",
+              "fraction": 0.0547945205479452,
+              "outputs": 3360
+            },
+            {
+              "generator": "Byrte_G1",
+              "fraction": 0.0547945205479452,
+              "outputs": 3360
+            },
+            {
+              "generator": "Vinje_G1",
+              "fraction": 0.0547945205479452,
+              "outputs": 3360
+            },
+            {
+              "generator": "Vinje_G2",
+              "fraction": 0.0547945205479452,
+              "outputs": 3360
+            },
+            {
+              "generator": "Vinje_G3",
+              "fraction": 0.0547945205479452,
+              "outputs": 3360
+            },
+            {
+              "generator": "Haukeli_G1",
+              "fraction": 0.0547945205479452,
+              "outputs": 3360
+            },
+            {
+              "generator": "Songa_G1",
+              "fraction": 0.0547945205479452,
+              "outputs": 3360
+            },
+            {
+              "generator": "Kjela_G1",
+              "fraction": 0.0547945205479452,
+              "outputs": 3360
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "fraction": 0.0547945205479452,
+              "outputs": 3360
+            }
+          ],
+          "tail_by_start_month": [
+            {
+              "month": 1,
+              "fraction": 0.0967741935483871
+            },
+            {
+              "month": 2,
+              "fraction": 0.0
+            },
+            {
+              "month": 3,
+              "fraction": 0.0
+            },
+            {
+              "month": 4,
+              "fraction": 0.0
+            },
+            {
+              "month": 5,
+              "fraction": 0.16129032258064516
+            },
+            {
+              "month": 6,
+              "fraction": 0.0
+            },
+            {
+              "month": 7,
+              "fraction": 0.16129032258064516
+            },
+            {
+              "month": 8,
+              "fraction": 0.0
+            },
+            {
+              "month": 9,
+              "fraction": 0.0
+            },
+            {
+              "month": 10,
+              "fraction": 0.0
+            },
+            {
+              "month": 11,
+              "fraction": 0.06666666666666667
+            },
+            {
+              "month": 12,
+              "fraction": 0.16129032258064516
+            }
+          ]
+        },
+        {
+          "outputs": 113736,
+          "output_fraction": 0.1324853228962818,
+          "on_fraction": 0.3935693184216079,
+          "mean_probability": 0.3944081887394462,
+          "micro_roc_auc": 0.9926806280548564,
+          "incident_wrong_pair_share": 0.19471765052346868,
+          "incident_available_pair_share": 0.24513174537298432,
+          "error_enrichment_vs_pair_availability": 0.7943387757762372,
+          "incident_pair_error_rate": 0.009316054301973025,
+          "variable": "normalized_local_terminal_water_value",
+          "train_tail_fraction": 0.020128087831655993,
+          "validation_tail_fraction": 0.1324853228962818,
+          "validation_beyond_training_minmax_fraction": 0.050880626223091974,
+          "tail_cases": 263,
+          "training_q01": [
+            0.0002603433535467212,
+            0.0002038608172336774,
+            0.0002038608172336774,
+            0.0002038608172336774,
+            0.0002038608172336774,
+            0.0003173918176627416,
+            0.0002743263526236884,
+            0.0002036454664058468,
+            0.0002036454664058468,
+            0.0002036454664058468,
+            0.00025315802353238006,
+            0.0004041717910918482,
+            0.0002288126313713429,
+            0.00027040070779754113
+          ],
+          "training_q99": [
+            2.40619644346174,
+            2.2494418882505567,
+            2.2494418882505567,
+            2.2494418882505567,
+            2.2494418882505567,
+            2.19060081591065,
+            2.1980819783310297,
+            2.179263221965274,
+            2.179263221965274,
+            2.179263221965274,
+            1.937600000000002,
+            2.0205599494128443,
+            2.049255065576764,
+            2.1465641141272904
+          ],
+          "validation_quantiles_01_50_99": [
+            6.754993568683207e-05,
+            1.0043579493758221,
+            2.6866049294479186
+          ],
+          "adjusted_comparison": {
+            "raw_tail_endpoint_error_rate": 0.009187335069534246,
+            "raw_inrange_endpoint_error_rate": 0.012111110838876265,
+            "common_strata": 206,
+            "common_strata_endpoint_availability_fraction": 0.47059136536066715,
+            "standardized_tail_endpoint_error_rate": 0.018983363997746014,
+            "standardized_inrange_endpoint_error_rate": 0.009710534141180421,
+            "standardized_error_ratio": 1.9549247983425944
+          },
+          "tail_by_generator": [
+            {
+              "generator": "Hogga_G1",
+              "fraction": 0.0273972602739726,
+              "outputs": 1680
+            },
+            {
+              "generator": "Tokke_G1",
+              "fraction": 0.10136986301369863,
+              "outputs": 6216
+            },
+            {
+              "generator": "Tokke_G2",
+              "fraction": 0.10136986301369863,
+              "outputs": 6216
+            },
+            {
+              "generator": "Tokke_G3",
+              "fraction": 0.10136986301369863,
+              "outputs": 6216
+            },
+            {
+              "generator": "Tokke_G4",
+              "fraction": 0.10136986301369863,
+              "outputs": 6216
+            },
+            {
+              "generator": "Lio_G1",
+              "fraction": 0.09863013698630137,
+              "outputs": 6048
+            },
+            {
+              "generator": "Byrte_G1",
+              "fraction": 0.021917808219178082,
+              "outputs": 1344
+            },
+            {
+              "generator": "Vinje_G1",
+              "fraction": 0.11232876712328767,
+              "outputs": 6888
+            },
+            {
+              "generator": "Vinje_G2",
+              "fraction": 0.11232876712328767,
+              "outputs": 6888
+            },
+            {
+              "generator": "Vinje_G3",
+              "fraction": 0.11232876712328767,
+              "outputs": 6888
+            },
+            {
+              "generator": "Haukeli_G1",
+              "fraction": 0.09863013698630137,
+              "outputs": 6048
+            },
+            {
+              "generator": "Songa_G1",
+              "fraction": 0.20273972602739726,
+              "outputs": 12432
+            },
+            {
+              "generator": "Kjela_G1",
+              "fraction": 0.3150684931506849,
+              "outputs": 19320
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "fraction": 0.34794520547945207,
+              "outputs": 21336
+            }
+          ],
+          "tail_by_start_month": [
+            {
+              "month": 1,
+              "fraction": 0.03917050691244239
+            },
+            {
+              "month": 2,
+              "fraction": 0.061224489795918366
+            },
+            {
+              "month": 3,
+              "fraction": 0.08986175115207373
+            },
+            {
+              "month": 4,
+              "fraction": 0.1261904761904762
+            },
+            {
+              "month": 5,
+              "fraction": 0.12211981566820276
+            },
+            {
+              "month": 6,
+              "fraction": 0.08095238095238096
+            },
+            {
+              "month": 7,
+              "fraction": 0.07603686635944701
+            },
+            {
+              "month": 8,
+              "fraction": 0.20276497695852536
+            },
+            {
+              "month": 9,
+              "fraction": 0.14047619047619048
+            },
+            {
+              "month": 10,
+              "fraction": 0.12903225806451613
+            },
+            {
+              "month": 11,
+              "fraction": 0.27380952380952384
+            },
+            {
+              "month": 12,
+              "fraction": 0.24423963133640553
+            }
+          ]
+        },
+        {
+          "outputs": 60260,
+          "output_fraction": 0.07019383095704035,
+          "on_fraction": 0.21707600398274146,
+          "mean_probability": 0.2157959227395631,
+          "micro_roc_auc": 0.9937230439573669,
+          "incident_wrong_pair_share": 0.06347913020919535,
+          "incident_available_pair_share": 0.1309891195631096,
+          "error_enrichment_vs_pair_availability": 0.4846137635012622,
+          "incident_pair_error_rate": 0.005683580197692684,
+          "variable": "normalized_local_margin",
+          "train_tail_fraction": 0.020001664892855587,
+          "validation_tail_fraction": 0.07019383095704035,
+          "validation_beyond_training_minmax_fraction": 0.0017635821451868418,
+          "tail_cases": 319,
+          "training_q01": [
+            -1.5418601207350655,
+            -1.3904546158641762,
+            -1.3904546158641762,
+            -1.3904546158641762,
+            -1.3904546158641762,
+            -1.2309999999999999,
+            -1.2322189319874892,
+            -1.2258543142401443,
+            -1.2258543142401443,
+            -1.2258543142401443,
+            -1.2679999999999998,
+            -1.0679018444279265,
+            -1.1565812504162363,
+            -1.200196587889431
+          ],
+          "training_q99": [
+            1.1676165087542651,
+            1.1896907705132256,
+            1.1896907705132256,
+            1.1896907705132256,
+            1.1896907705132256,
+            1.252,
+            1.2225340387589794,
+            1.2554568512334388,
+            1.2554568512334388,
+            1.2554568512334388,
+            1.2883064529162844,
+            1.090166562831943,
+            1.1742785859129483,
+            1.190879449938246
+          ],
+          "validation_quantiles_01_50_99": [
+            -1.830233244084639,
+            -0.013942763628944643,
+            1.2935442782865796
+          ],
+          "adjusted_comparison": {
+            "raw_tail_endpoint_error_rate": 0.005698491232955918,
+            "raw_inrange_endpoint_error_rate": 0.012162320025556558,
+            "common_strata": 206,
+            "common_strata_endpoint_availability_fraction": 0.6141653384096298,
+            "standardized_tail_endpoint_error_rate": 0.003245007035488637,
+            "standardized_inrange_endpoint_error_rate": 0.007734767134578169,
+            "standardized_error_ratio": 0.4195351946643459
+          },
+          "tail_by_generator": [
+            {
+              "generator": "Hogga_G1",
+              "fraction": 0.024217221135029353,
+              "outputs": 1485
+            },
+            {
+              "generator": "Tokke_G1",
+              "fraction": 0.049119373776908025,
+              "outputs": 3012
+            },
+            {
+              "generator": "Tokke_G2",
+              "fraction": 0.049119373776908025,
+              "outputs": 3012
+            },
+            {
+              "generator": "Tokke_G3",
+              "fraction": 0.049119373776908025,
+              "outputs": 3012
+            },
+            {
+              "generator": "Tokke_G4",
+              "fraction": 0.049119373776908025,
+              "outputs": 3012
+            },
+            {
+              "generator": "Lio_G1",
+              "fraction": 0.08648075668623614,
+              "outputs": 5303
+            },
+            {
+              "generator": "Byrte_G1",
+              "fraction": 0.013829093281148076,
+              "outputs": 848
+            },
+            {
+              "generator": "Vinje_G1",
+              "fraction": 0.041536203522504894,
+              "outputs": 2547
+            },
+            {
+              "generator": "Vinje_G2",
+              "fraction": 0.041536203522504894,
+              "outputs": 2547
+            },
+            {
+              "generator": "Vinje_G3",
+              "fraction": 0.041536203522504894,
+              "outputs": 2547
+            },
+            {
+              "generator": "Haukeli_G1",
+              "fraction": 0.04021526418786693,
+              "outputs": 2466
+            },
+            {
+              "generator": "Songa_G1",
+              "fraction": 0.2031474233529028,
+              "outputs": 12457
+            },
+            {
+              "generator": "Kjela_G1",
+              "fraction": 0.24067188519243313,
+              "outputs": 14758
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "fraction": 0.053065883887801694,
+              "outputs": 3254
+            }
+          ],
+          "tail_by_start_month": [
+            {
+              "month": 1,
+              "fraction": 0.06062102260258942
+            },
+            {
+              "month": 2,
+              "fraction": 0.048059402332361514
+            },
+            {
+              "month": 3,
+              "fraction": 0.033725587008997145
+            },
+            {
+              "month": 4,
+              "fraction": 0.05769557823129252
+            },
+            {
+              "month": 5,
+              "fraction": 0.030571099407504937
+            },
+            {
+              "month": 6,
+              "fraction": 0.007227891156462585
+            },
+            {
+              "month": 7,
+              "fraction": 0.01663649330700022
+            },
+            {
+              "month": 8,
+              "fraction": 0.1439132104454685
+            },
+            {
+              "month": 9,
+              "fraction": 0.08891723356009071
+            },
+            {
+              "month": 10,
+              "fraction": 0.05710994075049375
+            },
+            {
+              "month": 11,
+              "fraction": 0.16541950113378684
+            },
+            {
+              "month": 12,
+              "fraction": 0.1315284178187404
+            }
+          ]
+        },
+        {
+          "outputs": 35616,
+          "output_fraction": 0.041487279843444226,
+          "on_fraction": 0.27653301886792453,
+          "mean_probability": 0.2647633345956301,
+          "micro_roc_auc": 0.9934481347904726,
+          "incident_wrong_pair_share": 0.05819186635870508,
+          "incident_available_pair_share": 0.07891498025031381,
+          "error_enrichment_vs_pair_availability": 0.7373994921385497,
+          "incident_pair_error_rate": 0.008648266861071906,
+          "variable": "initial_local_fill",
+          "train_tail_fraction": 0.017416024049143903,
+          "validation_tail_fraction": 0.041487279843444226,
+          "validation_beyond_training_minmax_fraction": 0.010371819960861057,
+          "tail_cases": 103,
+          "training_q01": [
+            0.6638404133180253,
+            0.40480769230769237,
+            0.40480769230769237,
+            0.40480769230769237,
+            0.40480769230769237,
+            0.12207208968843698,
+            0.0163180727339856,
+            0.008385496183206107,
+            0.008385496183206107,
+            0.008385496183206107,
+            0.5,
+            0.15678160000000002,
+            0.02355887162714636,
+            0.008558579881656805
+          ],
+          "training_q99": [
+            0.9382766934557982,
+            0.910555555555556,
+            0.910555555555556,
+            0.910555555555556,
+            0.910555555555556,
+            1.0267761699908748,
+            1.014434188665313,
+            0.9520229007633588,
+            0.9520229007633588,
+            0.9520229007633588,
+            0.5,
+            1.0022184,
+            0.9871537203597711,
+            1.0019781065088758
+          ],
+          "validation_quantiles_01_50_99": [
+            0.013292886345053148,
+            0.6678418803418804,
+            0.9673303390372686
+          ],
+          "adjusted_comparison": {
+            "raw_tail_endpoint_error_rate": 0.008612019803890654,
+            "raw_inrange_endpoint_error_rate": 0.011858410008177887,
+            "common_strata": 76,
+            "common_strata_endpoint_availability_fraction": 0.13311673671596444,
+            "standardized_tail_endpoint_error_rate": 0.010497096752097252,
+            "standardized_inrange_endpoint_error_rate": 0.010663404116283961,
+            "standardized_error_ratio": 0.9844039143248127
+          },
+          "tail_by_generator": [
+            {
+              "generator": "Hogga_G1",
+              "fraction": 0.021917808219178082,
+              "outputs": 1344
+            },
+            {
+              "generator": "Tokke_G1",
+              "fraction": 0.06301369863013699,
+              "outputs": 3864
+            },
+            {
+              "generator": "Tokke_G2",
+              "fraction": 0.06301369863013699,
+              "outputs": 3864
+            },
+            {
+              "generator": "Tokke_G3",
+              "fraction": 0.06301369863013699,
+              "outputs": 3864
+            },
+            {
+              "generator": "Tokke_G4",
+              "fraction": 0.06301369863013699,
+              "outputs": 3864
+            },
+            {
+              "generator": "Lio_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Byrte_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Vinje_G1",
+              "fraction": 0.04657534246575343,
+              "outputs": 2856
+            },
+            {
+              "generator": "Vinje_G2",
+              "fraction": 0.04657534246575343,
+              "outputs": 2856
+            },
+            {
+              "generator": "Vinje_G3",
+              "fraction": 0.04657534246575343,
+              "outputs": 2856
+            },
+            {
+              "generator": "Haukeli_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Songa_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Kjela_G1",
+              "fraction": 0.16712328767123288,
+              "outputs": 10248
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            }
+          ],
+          "tail_by_start_month": [
+            {
+              "month": 1,
+              "fraction": 0.009216589861751152
+            },
+            {
+              "month": 2,
+              "fraction": 0.0
+            },
+            {
+              "month": 3,
+              "fraction": 0.06451612903225806
+            },
+            {
+              "month": 4,
+              "fraction": 0.07142857142857142
+            },
+            {
+              "month": 5,
+              "fraction": 0.0069124423963133645
+            },
+            {
+              "month": 6,
+              "fraction": 0.0
+            },
+            {
+              "month": 7,
+              "fraction": 0.0
+            },
+            {
+              "month": 8,
+              "fraction": 0.0
+            },
+            {
+              "month": 9,
+              "fraction": 0.009523809523809525
+            },
+            {
+              "month": 10,
+              "fraction": 0.15668202764976957
+            },
+            {
+              "month": 11,
+              "fraction": 0.05238095238095238
+            },
+            {
+              "month": 12,
+              "fraction": 0.12211981566820276
+            }
+          ]
+        },
+        {
+          "outputs": 41328,
+          "output_fraction": 0.04814090019569472,
+          "on_fraction": 0.35929636082075106,
+          "mean_probability": 0.388468265753158,
+          "micro_roc_auc": 0.9849786973068575,
+          "incident_wrong_pair_share": 0.11075377914825633,
+          "incident_available_pair_share": 0.09246566998583129,
+          "error_enrichment_vs_pair_availability": 1.1977826923789918,
+          "incident_pair_error_rate": 0.014047669513881925,
+          "variable": "weekly_natural_inflow_over_local_capacity",
+          "train_tail_fraction": 0.020128087831655993,
+          "validation_tail_fraction": 0.04814090019569472,
+          "validation_beyond_training_minmax_fraction": 0.00019569471624266145,
+          "tail_cases": 62,
+          "training_q01": [
+            0.002385826636050517,
+            0.0801173076923077,
+            0.0801173076923077,
+            0.0801173076923077,
+            0.0801173076923077,
+            0.0010759874853343762,
+            0.0020503119808011816,
+            0.0013785114503816794,
+            0.0013785114503816794,
+            0.0013785114503816794,
+            0.01767,
+            0.0014793792000000001,
+            8.858708094848734e-05,
+            0.002243076923076923
+          ],
+          "training_q99": [
+            0.36647809873708415,
+            6.158808076923082,
+            6.158808076923082,
+            6.158808076923082,
+            6.158808076923082,
+            0.36026475557293736,
+            0.6869770611039324,
+            0.10535722900763365,
+            0.10535722900763365,
+            0.10535722900763365,
+            4.071804000000004,
+            0.1630055352000001,
+            0.02789952902698285,
+            0.10736288520710068
+          ],
+          "validation_quantiles_01_50_99": [
+            7.60238757154538e-05,
+            0.026244274809160306,
+            3.552549615384594
+          ],
+          "adjusted_comparison": {
+            "raw_tail_endpoint_error_rate": 0.014069805664517048,
+            "raw_inrange_endpoint_error_rate": 0.011611776377744567,
+            "common_strata": 78,
+            "common_strata_endpoint_availability_fraction": 0.14628443459761328,
+            "standardized_tail_endpoint_error_rate": 0.0173685613661932,
+            "standardized_inrange_endpoint_error_rate": 0.014450257835842235,
+            "standardized_error_ratio": 1.2019551182756367
+          },
+          "tail_by_generator": [
+            {
+              "generator": "Hogga_G1",
+              "fraction": 0.052054794520547946,
+              "outputs": 3192
+            },
+            {
+              "generator": "Tokke_G1",
+              "fraction": 0.0273972602739726,
+              "outputs": 1680
+            },
+            {
+              "generator": "Tokke_G2",
+              "fraction": 0.0273972602739726,
+              "outputs": 1680
+            },
+            {
+              "generator": "Tokke_G3",
+              "fraction": 0.0273972602739726,
+              "outputs": 1680
+            },
+            {
+              "generator": "Tokke_G4",
+              "fraction": 0.0273972602739726,
+              "outputs": 1680
+            },
+            {
+              "generator": "Lio_G1",
+              "fraction": 0.10684931506849316,
+              "outputs": 6552
+            },
+            {
+              "generator": "Byrte_G1",
+              "fraction": 0.10684931506849316,
+              "outputs": 6552
+            },
+            {
+              "generator": "Vinje_G1",
+              "fraction": 0.021917808219178082,
+              "outputs": 1344
+            },
+            {
+              "generator": "Vinje_G2",
+              "fraction": 0.021917808219178082,
+              "outputs": 1344
+            },
+            {
+              "generator": "Vinje_G3",
+              "fraction": 0.021917808219178082,
+              "outputs": 1344
+            },
+            {
+              "generator": "Haukeli_G1",
+              "fraction": 0.1232876712328767,
+              "outputs": 7560
+            },
+            {
+              "generator": "Songa_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Kjela_G1",
+              "fraction": 0.1095890410958904,
+              "outputs": 6720
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            }
+          ],
+          "tail_by_start_month": [
+            {
+              "month": 1,
+              "fraction": 0.17511520737327188
+            },
+            {
+              "month": 2,
+              "fraction": 0.14540816326530612
+            },
+            {
+              "month": 3,
+              "fraction": 0.0
+            },
+            {
+              "month": 4,
+              "fraction": 0.0
+            },
+            {
+              "month": 5,
+              "fraction": 0.0
+            },
+            {
+              "month": 6,
+              "fraction": 0.0
+            },
+            {
+              "month": 7,
+              "fraction": 0.0
+            },
+            {
+              "month": 8,
+              "fraction": 0.04608294930875576
+            },
+            {
+              "month": 9,
+              "fraction": 0.2119047619047619
+            },
+            {
+              "month": 10,
+              "fraction": 0.009216589861751152
+            },
+            {
+              "month": 11,
+              "fraction": 0.0
+            },
+            {
+              "month": 12,
+              "fraction": 0.0
+            }
+          ]
+        }
+      ],
+      "near_economic_boundary": {
+        "outputs": 99019,
+        "output_fraction": 0.11534223278352437,
+        "on_fraction": 0.5028731859542108,
+        "mean_probability": 0.49810883326739014,
+        "micro_roc_auc": 0.9498898060313212,
+        "incident_wrong_pair_share": 0.4156318042055942,
+        "incident_available_pair_share": 0.2192476371922284,
+        "error_enrichment_vs_pair_availability": 1.8957185104858543,
+        "incident_pair_error_rate": 0.022233103964594297,
+        "adjusted_comparison": {
+          "raw_tail_endpoint_error_rate": 0.023839929281088662,
+          "raw_inrange_endpoint_error_rate": 0.010133621022855453,
+          "common_strata": 401,
+          "common_strata_endpoint_availability_fraction": 0.7406507592623778,
+          "standardized_tail_endpoint_error_rate": 0.021923141099563677,
+          "standardized_inrange_endpoint_error_rate": 0.010260791137531311,
+          "standardized_error_ratio": 2.1365936413396542
+        },
+        "near_transition_fraction_inside": 0.13958937173673738,
+        "near_transition_fraction_outside": 0.07279504806698435
+      }
+    },
+    {
+      "year": 2022,
+      "split": {
+        "training_cases": 2551,
+        "validation_cases": 365,
+        "purged_cases": 6,
+        "last_training_start": "2021-12-25 00:00:00+00:00",
+        "last_training_end_exclusive": "2022-01-01 00:00:00+00:00",
+        "first_validation_start": "2022-01-01 00:00:00+00:00",
+        "validation_status": "Reused historical development year; not independent holdout."
+      },
+      "micro_roc_auc": 0.987770674860208,
+      "input_shift": [
+        {
+          "outputs": 641060,
+          "output_fraction": 0.7467384213959556,
+          "on_fraction": 0.35799925124013354,
+          "mean_probability": 0.36492762443852444,
+          "micro_roc_auc": 0.9882991774189596,
+          "incident_wrong_pair_share": 0.9296941106029604,
+          "incident_available_pair_share": 0.941312680051282,
+          "error_enrichment_vs_pair_availability": 0.9876570562635058,
+          "incident_pair_error_rate": 0.0120783792676563,
+          "variable": "raw_hourly_price",
+          "train_tail_fraction": 0.01991749267327472,
+          "validation_tail_fraction": 0.7467384213959556,
+          "validation_beyond_training_minmax_fraction": 0.011187214611872146,
+          "tail_cases": 360,
+          "training_q01": [
+            1.35
+          ],
+          "training_q99": [
+            134.17
+          ],
+          "validation_quantiles_01_50_99": [
+            5.06,
+            181.07,
+            616.28
+          ],
+          "adjusted_comparison": {
+            "raw_tail_endpoint_error_rate": 0.01193587218561871,
+            "raw_inrange_endpoint_error_rate": 0.01313858906185177,
+            "common_strata": 375,
+            "common_strata_endpoint_availability_fraction": 0.7179832474377139,
+            "standardized_tail_endpoint_error_rate": 0.011227290618824295,
+            "standardized_inrange_endpoint_error_rate": 0.01316166757897908,
+            "standardized_error_ratio": 0.8530294927639533
+          },
+          "tail_by_generator": [
+            {
+              "generator": "Hogga_G1",
+              "fraction": 0.7467384213959556,
+              "outputs": 45790
+            },
+            {
+              "generator": "Tokke_G1",
+              "fraction": 0.7467384213959556,
+              "outputs": 45790
+            },
+            {
+              "generator": "Tokke_G2",
+              "fraction": 0.7467384213959556,
+              "outputs": 45790
+            },
+            {
+              "generator": "Tokke_G3",
+              "fraction": 0.7467384213959556,
+              "outputs": 45790
+            },
+            {
+              "generator": "Tokke_G4",
+              "fraction": 0.7467384213959556,
+              "outputs": 45790
+            },
+            {
+              "generator": "Lio_G1",
+              "fraction": 0.7467384213959556,
+              "outputs": 45790
+            },
+            {
+              "generator": "Byrte_G1",
+              "fraction": 0.7467384213959556,
+              "outputs": 45790
+            },
+            {
+              "generator": "Vinje_G1",
+              "fraction": 0.7467384213959556,
+              "outputs": 45790
+            },
+            {
+              "generator": "Vinje_G2",
+              "fraction": 0.7467384213959556,
+              "outputs": 45790
+            },
+            {
+              "generator": "Vinje_G3",
+              "fraction": 0.7467384213959556,
+              "outputs": 45790
+            },
+            {
+              "generator": "Haukeli_G1",
+              "fraction": 0.7467384213959556,
+              "outputs": 45790
+            },
+            {
+              "generator": "Songa_G1",
+              "fraction": 0.7467384213959556,
+              "outputs": 45790
+            },
+            {
+              "generator": "Kjela_G1",
+              "fraction": 0.7467384213959556,
+              "outputs": 45790
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "fraction": 0.7467384213959556,
+              "outputs": 45790
+            }
+          ],
+          "tail_by_start_month": [
+            {
+              "month": 1,
+              "fraction": 0.553763440860215
+            },
+            {
+              "month": 2,
+              "fraction": 0.24702380952380953
+            },
+            {
+              "month": 3,
+              "fraction": 0.9986559139784946
+            },
+            {
+              "month": 4,
+              "fraction": 0.9472222222222222
+            },
+            {
+              "month": 5,
+              "fraction": 0.8287250384024577
+            },
+            {
+              "month": 6,
+              "fraction": 0.8936507936507937
+            },
+            {
+              "month": 7,
+              "fraction": 0.9326036866359447
+            },
+            {
+              "month": 8,
+              "fraction": 0.9975038402457758
+            },
+            {
+              "month": 9,
+              "fraction": 0.9128968253968254
+            },
+            {
+              "month": 10,
+              "fraction": 0.39535330261136714
+            },
+            {
+              "month": 11,
+              "fraction": 0.4771825396825397
+            },
+            {
+              "month": 12,
+              "fraction": 0.7357910906298003
+            }
+          ]
+        },
+        {
+          "outputs": 46130,
+          "output_fraction": 0.053734507501630786,
+          "on_fraction": 0.5186212876652937,
+          "mean_probability": 0.5170830088514213,
+          "micro_roc_auc": 0.9815015649017831,
+          "incident_wrong_pair_share": 0.1443807463795089,
+          "incident_available_pair_share": 0.11785208660008756,
+          "error_enrichment_vs_pair_availability": 1.2251013159354756,
+          "incident_pair_error_rate": 0.014982162321762034,
+          "variable": "normalized_hourly_price",
+          "train_tail_fraction": 0.019903492561273824,
+          "validation_tail_fraction": 0.053734507501630786,
+          "validation_beyond_training_minmax_fraction": 0.0,
+          "tail_cases": 253,
+          "training_q01": [
+            0.131
+          ],
+          "training_q99": [
+            1.4954898501734253
+          ],
+          "validation_quantiles_01_50_99": [
+            0.06714530757560738,
+            1.0031936539137405,
+            1.9237154978795374
+          ],
+          "adjusted_comparison": {
+            "raw_tail_endpoint_error_rate": 0.015075396358361377,
+            "raw_inrange_endpoint_error_rate": 0.012045949625325883,
+            "common_strata": 292,
+            "common_strata_endpoint_availability_fraction": 0.6385812653505947,
+            "standardized_tail_endpoint_error_rate": 0.010841688250128717,
+            "standardized_inrange_endpoint_error_rate": 0.009491104293633212,
+            "standardized_error_ratio": 1.1422999805619563
+          },
+          "tail_by_generator": [
+            {
+              "generator": "Hogga_G1",
+              "fraction": 0.053734507501630786,
+              "outputs": 3295
+            },
+            {
+              "generator": "Tokke_G1",
+              "fraction": 0.053734507501630786,
+              "outputs": 3295
+            },
+            {
+              "generator": "Tokke_G2",
+              "fraction": 0.053734507501630786,
+              "outputs": 3295
+            },
+            {
+              "generator": "Tokke_G3",
+              "fraction": 0.053734507501630786,
+              "outputs": 3295
+            },
+            {
+              "generator": "Tokke_G4",
+              "fraction": 0.053734507501630786,
+              "outputs": 3295
+            },
+            {
+              "generator": "Lio_G1",
+              "fraction": 0.053734507501630786,
+              "outputs": 3295
+            },
+            {
+              "generator": "Byrte_G1",
+              "fraction": 0.053734507501630786,
+              "outputs": 3295
+            },
+            {
+              "generator": "Vinje_G1",
+              "fraction": 0.053734507501630786,
+              "outputs": 3295
+            },
+            {
+              "generator": "Vinje_G2",
+              "fraction": 0.053734507501630786,
+              "outputs": 3295
+            },
+            {
+              "generator": "Vinje_G3",
+              "fraction": 0.053734507501630786,
+              "outputs": 3295
+            },
+            {
+              "generator": "Haukeli_G1",
+              "fraction": 0.053734507501630786,
+              "outputs": 3295
+            },
+            {
+              "generator": "Songa_G1",
+              "fraction": 0.053734507501630786,
+              "outputs": 3295
+            },
+            {
+              "generator": "Kjela_G1",
+              "fraction": 0.053734507501630786,
+              "outputs": 3295
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "fraction": 0.053734507501630786,
+              "outputs": 3295
+            }
+          ],
+          "tail_by_start_month": [
+            {
+              "month": 1,
+              "fraction": 0.03206605222734255
+            },
+            {
+              "month": 2,
+              "fraction": 0.00467687074829932
+            },
+            {
+              "month": 3,
+              "fraction": 0.018433179723502304
+            },
+            {
+              "month": 4,
+              "fraction": 0.002976190476190476
+            },
+            {
+              "month": 5,
+              "fraction": 0.09523809523809523
+            },
+            {
+              "month": 6,
+              "fraction": 0.023412698412698413
+            },
+            {
+              "month": 7,
+              "fraction": 0.028417818740399385
+            },
+            {
+              "month": 8,
+              "fraction": 0.004032258064516129
+            },
+            {
+              "month": 9,
+              "fraction": 0.06428571428571428
+            },
+            {
+              "month": 10,
+              "fraction": 0.12346390168970814
+            },
+            {
+              "month": 11,
+              "fraction": 0.20833333333333334
+            },
+            {
+              "month": 12,
+              "fraction": 0.03744239631336405
+            }
+          ]
+        },
+        {
+          "outputs": 592704,
+          "output_fraction": 0.6904109589041096,
+          "on_fraction": 0.3249463475866537,
+          "mean_probability": 0.3319786558553567,
+          "micro_roc_auc": 0.9890815131187985,
+          "incident_wrong_pair_share": 0.8736302457423044,
+          "incident_available_pair_share": 0.8999416042142703,
+          "error_enrichment_vs_pair_availability": 0.9707632602507159,
+          "incident_pair_error_rate": 0.011871779543370571,
+          "variable": "log_week_price_scale",
+          "train_tail_fraction": 0.010192081536652292,
+          "validation_tail_fraction": 0.6904109589041096,
+          "validation_beyond_training_minmax_fraction": 0.2547945205479452,
+          "tail_cases": 252,
+          "training_q01": [
+            2.302585092994046
+          ],
+          "training_q99": [
+            5.002348996844969
+          ],
+          "validation_quantiles_01_50_99": [
+            3.3748468228706217,
+            5.192511645981105,
+            6.350072236946162
+          ],
+          "adjusted_comparison": {
+            "raw_tail_endpoint_error_rate": 0.011546737231801678,
+            "raw_inrange_endpoint_error_rate": 0.013698486615243161,
+            "common_strata": 353,
+            "common_strata_endpoint_availability_fraction": 0.6272307901154053,
+            "standardized_tail_endpoint_error_rate": 0.009544710345302769,
+            "standardized_inrange_endpoint_error_rate": 0.014711276149850709,
+            "standardized_error_ratio": 0.6488023369338783
+          },
+          "tail_by_generator": [
+            {
+              "generator": "Hogga_G1",
+              "fraction": 0.6904109589041096,
+              "outputs": 42336
+            },
+            {
+              "generator": "Tokke_G1",
+              "fraction": 0.6904109589041096,
+              "outputs": 42336
+            },
+            {
+              "generator": "Tokke_G2",
+              "fraction": 0.6904109589041096,
+              "outputs": 42336
+            },
+            {
+              "generator": "Tokke_G3",
+              "fraction": 0.6904109589041096,
+              "outputs": 42336
+            },
+            {
+              "generator": "Tokke_G4",
+              "fraction": 0.6904109589041096,
+              "outputs": 42336
+            },
+            {
+              "generator": "Lio_G1",
+              "fraction": 0.6904109589041096,
+              "outputs": 42336
+            },
+            {
+              "generator": "Byrte_G1",
+              "fraction": 0.6904109589041096,
+              "outputs": 42336
+            },
+            {
+              "generator": "Vinje_G1",
+              "fraction": 0.6904109589041096,
+              "outputs": 42336
+            },
+            {
+              "generator": "Vinje_G2",
+              "fraction": 0.6904109589041096,
+              "outputs": 42336
+            },
+            {
+              "generator": "Vinje_G3",
+              "fraction": 0.6904109589041096,
+              "outputs": 42336
+            },
+            {
+              "generator": "Haukeli_G1",
+              "fraction": 0.6904109589041096,
+              "outputs": 42336
+            },
+            {
+              "generator": "Songa_G1",
+              "fraction": 0.6904109589041096,
+              "outputs": 42336
+            },
+            {
+              "generator": "Kjela_G1",
+              "fraction": 0.6904109589041096,
+              "outputs": 42336
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "fraction": 0.6904109589041096,
+              "outputs": 42336
+            }
+          ],
+          "tail_by_start_month": [
+            {
+              "month": 1,
+              "fraction": 0.16129032258064516
+            },
+            {
+              "month": 2,
+              "fraction": 0.10714285714285714
+            },
+            {
+              "month": 3,
+              "fraction": 1.0
+            },
+            {
+              "month": 4,
+              "fraction": 1.0
+            },
+            {
+              "month": 5,
+              "fraction": 0.7419354838709677
+            },
+            {
+              "month": 6,
+              "fraction": 0.9333333333333333
+            },
+            {
+              "month": 7,
+              "fraction": 1.0
+            },
+            {
+              "month": 8,
+              "fraction": 1.0
+            },
+            {
+              "month": 9,
+              "fraction": 0.9666666666666667
+            },
+            {
+              "month": 10,
+              "fraction": 0.22580645161290322
+            },
+            {
+              "month": 11,
+              "fraction": 0.43333333333333335
+            },
+            {
+              "month": 12,
+              "fraction": 0.6774193548387096
+            }
+          ]
+        },
+        {
+          "outputs": 75264,
+          "output_fraction": 0.08767123287671233,
+          "on_fraction": 0.33062287414965985,
+          "mean_probability": 0.3221154669855803,
+          "micro_roc_auc": 0.9634948551114407,
+          "incident_wrong_pair_share": 0.30307566664821906,
+          "incident_available_pair_share": 0.1665352766184055,
+          "error_enrichment_vs_pair_availability": 1.8198886914673253,
+          "incident_pair_error_rate": 0.022256010526184616,
+          "variable": "normalized_week_price_std",
+          "train_tail_fraction": 0.020384163073304585,
+          "validation_tail_fraction": 0.08767123287671233,
+          "validation_beyond_training_minmax_fraction": 0.038356164383561646,
+          "tail_cases": 32,
+          "training_q01": [
+            0.015864348785963416
+          ],
+          "training_q99": [
+            0.44012396327105086
+          ],
+          "validation_quantiles_01_50_99": [
+            0.05536896199218545,
+            0.22013244076580013,
+            0.8640212333203033
+          ],
+          "adjusted_comparison": {
+            "raw_tail_endpoint_error_rate": 0.02287593476925267,
+            "raw_inrange_endpoint_error_rate": 0.01121410368206481,
+            "common_strata": 207,
+            "common_strata_endpoint_availability_fraction": 0.34224592273393944,
+            "standardized_tail_endpoint_error_rate": 0.02122476987822294,
+            "standardized_inrange_endpoint_error_rate": 0.010388848954445964,
+            "standardized_error_ratio": 2.0430338309173015
+          },
+          "tail_by_generator": [
+            {
+              "generator": "Hogga_G1",
+              "fraction": 0.08767123287671233,
+              "outputs": 5376
+            },
+            {
+              "generator": "Tokke_G1",
+              "fraction": 0.08767123287671233,
+              "outputs": 5376
+            },
+            {
+              "generator": "Tokke_G2",
+              "fraction": 0.08767123287671233,
+              "outputs": 5376
+            },
+            {
+              "generator": "Tokke_G3",
+              "fraction": 0.08767123287671233,
+              "outputs": 5376
+            },
+            {
+              "generator": "Tokke_G4",
+              "fraction": 0.08767123287671233,
+              "outputs": 5376
+            },
+            {
+              "generator": "Lio_G1",
+              "fraction": 0.08767123287671233,
+              "outputs": 5376
+            },
+            {
+              "generator": "Byrte_G1",
+              "fraction": 0.08767123287671233,
+              "outputs": 5376
+            },
+            {
+              "generator": "Vinje_G1",
+              "fraction": 0.08767123287671233,
+              "outputs": 5376
+            },
+            {
+              "generator": "Vinje_G2",
+              "fraction": 0.08767123287671233,
+              "outputs": 5376
+            },
+            {
+              "generator": "Vinje_G3",
+              "fraction": 0.08767123287671233,
+              "outputs": 5376
+            },
+            {
+              "generator": "Haukeli_G1",
+              "fraction": 0.08767123287671233,
+              "outputs": 5376
+            },
+            {
+              "generator": "Songa_G1",
+              "fraction": 0.08767123287671233,
+              "outputs": 5376
+            },
+            {
+              "generator": "Kjela_G1",
+              "fraction": 0.08767123287671233,
+              "outputs": 5376
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "fraction": 0.08767123287671233,
+              "outputs": 5376
+            }
+          ],
+          "tail_by_start_month": [
+            {
+              "month": 1,
+              "fraction": 0.0
+            },
+            {
+              "month": 2,
+              "fraction": 0.0
+            },
+            {
+              "month": 3,
+              "fraction": 0.0
+            },
+            {
+              "month": 4,
+              "fraction": 0.0
+            },
+            {
+              "month": 5,
+              "fraction": 0.22580645161290322
+            },
+            {
+              "month": 6,
+              "fraction": 0.0
+            },
+            {
+              "month": 7,
+              "fraction": 0.0
+            },
+            {
+              "month": 8,
+              "fraction": 0.0
+            },
+            {
+              "month": 9,
+              "fraction": 0.1
+            },
+            {
+              "month": 10,
+              "fraction": 0.25806451612903225
+            },
+            {
+              "month": 11,
+              "fraction": 0.4666666666666667
+            },
+            {
+              "month": 12,
+              "fraction": 0.0
+            }
+          ]
+        },
+        {
+          "outputs": 109536,
+          "output_fraction": 0.12759295499021525,
+          "on_fraction": 0.31501971954425945,
+          "mean_probability": 0.3194269983071899,
+          "micro_roc_auc": 0.9942759104553857,
+          "incident_wrong_pair_share": 0.16397306719486884,
+          "incident_available_pair_share": 0.2349215268658158,
+          "error_enrichment_vs_pair_availability": 0.6979908115807888,
+          "incident_pair_error_rate": 0.008535956579408794,
+          "variable": "normalized_local_terminal_water_value",
+          "train_tail_fraction": 0.020384163073304585,
+          "validation_tail_fraction": 0.12759295499021525,
+          "validation_beyond_training_minmax_fraction": 0.05166340508806262,
+          "tail_cases": 164,
+          "training_q01": [
+            0.00025994426412697443,
+            0.00018991411201756462,
+            0.00018991411201756462,
+            0.00018991411201756462,
+            0.00018991411201756462,
+            0.00032053830356784094,
+            0.0002668680586599277,
+            0.00011746542387698457,
+            0.00011746542387698457,
+            0.00011746542387698457,
+            0.00026241412284566115,
+            0.000415656006247371,
+            0.00022946061100209813,
+            0.0001834456344593288
+          ],
+          "training_q99": [
+            2.421899929257413,
+            2.335693676128261,
+            2.335693676128261,
+            2.335693676128261,
+            2.335693676128261,
+            2.28704920431288,
+            2.1785600931065225,
+            2.190650355423714,
+            2.190650355423714,
+            2.190650355423714,
+            2.336,
+            2.3682541314305414,
+            2.4516770792905915,
+            2.1513724493467845
+          ],
+          "validation_quantiles_01_50_99": [
+            3.9735644434100564e-05,
+            1.2431349537649854,
+            3.442569422263935
+          ],
+          "adjusted_comparison": {
+            "raw_tail_endpoint_error_rate": 0.008360406817424584,
+            "raw_inrange_endpoint_error_rate": 0.012783455060256677,
+            "common_strata": 198,
+            "common_strata_endpoint_availability_fraction": 0.44363797560324636,
+            "standardized_tail_endpoint_error_rate": 0.014389402538746926,
+            "standardized_inrange_endpoint_error_rate": 0.008913818754210745,
+            "standardized_error_ratio": 1.614280359015557
+          },
+          "tail_by_generator": [
+            {
+              "generator": "Hogga_G1",
+              "fraction": 0.12876712328767123,
+              "outputs": 7896
+            },
+            {
+              "generator": "Tokke_G1",
+              "fraction": 0.14520547945205478,
+              "outputs": 8904
+            },
+            {
+              "generator": "Tokke_G2",
+              "fraction": 0.14520547945205478,
+              "outputs": 8904
+            },
+            {
+              "generator": "Tokke_G3",
+              "fraction": 0.14520547945205478,
+              "outputs": 8904
+            },
+            {
+              "generator": "Tokke_G4",
+              "fraction": 0.14520547945205478,
+              "outputs": 8904
+            },
+            {
+              "generator": "Lio_G1",
+              "fraction": 0.09863013698630137,
+              "outputs": 6048
+            },
+            {
+              "generator": "Byrte_G1",
+              "fraction": 0.2602739726027397,
+              "outputs": 15960
+            },
+            {
+              "generator": "Vinje_G1",
+              "fraction": 0.09863013698630137,
+              "outputs": 6048
+            },
+            {
+              "generator": "Vinje_G2",
+              "fraction": 0.09863013698630137,
+              "outputs": 6048
+            },
+            {
+              "generator": "Vinje_G3",
+              "fraction": 0.09863013698630137,
+              "outputs": 6048
+            },
+            {
+              "generator": "Haukeli_G1",
+              "fraction": 0.14246575342465753,
+              "outputs": 8736
+            },
+            {
+              "generator": "Songa_G1",
+              "fraction": 0.136986301369863,
+              "outputs": 8400
+            },
+            {
+              "generator": "Kjela_G1",
+              "fraction": 0.024657534246575342,
+              "outputs": 1512
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "fraction": 0.1178082191780822,
+              "outputs": 7224
+            }
+          ],
+          "tail_by_start_month": [
+            {
+              "month": 1,
+              "fraction": 0.018433179723502304
+            },
+            {
+              "month": 2,
+              "fraction": 0.16581632653061223
+            },
+            {
+              "month": 3,
+              "fraction": 0.05069124423963134
+            },
+            {
+              "month": 4,
+              "fraction": 0.05714285714285714
+            },
+            {
+              "month": 5,
+              "fraction": 0.04608294930875576
+            },
+            {
+              "month": 6,
+              "fraction": 0.11428571428571428
+            },
+            {
+              "month": 7,
+              "fraction": 0.3317972350230415
+            },
+            {
+              "month": 8,
+              "fraction": 0.2350230414746544
+            },
+            {
+              "month": 9,
+              "fraction": 0.007142857142857143
+            },
+            {
+              "month": 10,
+              "fraction": 0.15668202764976957
+            },
+            {
+              "month": 11,
+              "fraction": 0.25476190476190474
+            },
+            {
+              "month": 12,
+              "fraction": 0.0944700460829493
+            }
+          ]
+        },
+        {
+          "outputs": 78152,
+          "output_fraction": 0.0910353182368838,
+          "on_fraction": 0.17341846657795065,
+          "mean_probability": 0.17877967284632756,
+          "micro_roc_auc": 0.9910670674309081,
+          "incident_wrong_pair_share": 0.1163092888964401,
+          "incident_available_pair_share": 0.15517419810513705,
+          "error_enrichment_vs_pair_availability": 0.7495401317790968,
+          "incident_pair_error_rate": 0.009166369976849153,
+          "variable": "normalized_local_margin",
+          "train_tail_fraction": 0.02000016000128001,
+          "validation_tail_fraction": 0.0910353182368838,
+          "validation_beyond_training_minmax_fraction": 0.009882583170254403,
+          "tail_cases": 291,
+          "training_q01": [
+            -1.5635763565943022,
+            -1.5460751445016379,
+            -1.5460751445016379,
+            -1.5460751445016379,
+            -1.5460751445016379,
+            -1.369008405836679,
+            -1.2211838006230529,
+            -1.2460452487955944,
+            -1.2460452487955944,
+            -1.2460452487955944,
+            -1.5522038407634182,
+            -1.4237854600796942,
+            -1.5378060229740051,
+            -1.199
+          ],
+          "training_q99": [
+            1.1716111005388492,
+            1.199,
+            1.199,
+            1.199,
+            1.199,
+            1.238497700159204,
+            1.227633510493983,
+            1.2897864705599147,
+            1.2897864705599147,
+            1.2897864705599147,
+            1.2683737486456244,
+            1.086805482892121,
+            1.1618818430005593,
+            1.249046582672763
+          ],
+          "validation_quantiles_01_50_99": [
+            -2.6540331136144237,
+            -0.2500965324981377,
+            1.3036743868607197
+          ],
+          "adjusted_comparison": {
+            "raw_tail_endpoint_error_rate": 0.0091586742559287,
+            "raw_inrange_endpoint_error_rate": 0.012497180534300028,
+            "common_strata": 225,
+            "common_strata_endpoint_availability_fraction": 0.6212618784709328,
+            "standardized_tail_endpoint_error_rate": 0.008881952869551195,
+            "standardized_inrange_endpoint_error_rate": 0.007321687407007543,
+            "standardized_error_ratio": 1.2131018952066066
+          },
+          "tail_by_generator": [
+            {
+              "generator": "Hogga_G1",
+              "fraction": 0.07128180039138943,
+              "outputs": 4371
+            },
+            {
+              "generator": "Tokke_G1",
+              "fraction": 0.07478799739073712,
+              "outputs": 4586
+            },
+            {
+              "generator": "Tokke_G2",
+              "fraction": 0.07478799739073712,
+              "outputs": 4586
+            },
+            {
+              "generator": "Tokke_G3",
+              "fraction": 0.07478799739073712,
+              "outputs": 4586
+            },
+            {
+              "generator": "Tokke_G4",
+              "fraction": 0.07478799739073712,
+              "outputs": 4586
+            },
+            {
+              "generator": "Lio_G1",
+              "fraction": 0.0963307240704501,
+              "outputs": 5907
+            },
+            {
+              "generator": "Byrte_G1",
+              "fraction": 0.16552511415525115,
+              "outputs": 10150
+            },
+            {
+              "generator": "Vinje_G1",
+              "fraction": 0.08930202217873451,
+              "outputs": 5476
+            },
+            {
+              "generator": "Vinje_G2",
+              "fraction": 0.08930202217873451,
+              "outputs": 5476
+            },
+            {
+              "generator": "Vinje_G3",
+              "fraction": 0.08930202217873451,
+              "outputs": 5476
+            },
+            {
+              "generator": "Haukeli_G1",
+              "fraction": 0.08845401174168298,
+              "outputs": 5424
+            },
+            {
+              "generator": "Songa_G1",
+              "fraction": 0.11614481409001957,
+              "outputs": 7122
+            },
+            {
+              "generator": "Kjela_G1",
+              "fraction": 0.041634050880626224,
+              "outputs": 2553
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "fraction": 0.12806588388780168,
+              "outputs": 7853
+            }
+          ],
+          "tail_by_start_month": [
+            {
+              "month": 1,
+              "fraction": 0.006391266183892912
+            },
+            {
+              "month": 2,
+              "fraction": 0.11447704081632654
+            },
+            {
+              "month": 3,
+              "fraction": 0.007269036646916831
+            },
+            {
+              "month": 4,
+              "fraction": 0.004804421768707483
+            },
+            {
+              "month": 5,
+              "fraction": 0.0603330041694097
+            },
+            {
+              "month": 6,
+              "fraction": 0.07484410430839002
+            },
+            {
+              "month": 7,
+              "fraction": 0.20054312047399606
+            },
+            {
+              "month": 8,
+              "fraction": 0.18430436690805355
+            },
+            {
+              "month": 9,
+              "fraction": 0.04417517006802721
+            },
+            {
+              "month": 10,
+              "fraction": 0.14223996050032917
+            },
+            {
+              "month": 11,
+              "fraction": 0.21469671201814058
+            },
+            {
+              "month": 12,
+              "fraction": 0.03978768926925609
+            }
+          ]
+        },
+        {
+          "outputs": 9744,
+          "output_fraction": 0.011350293542074364,
+          "on_fraction": 0.09359605911330049,
+          "mean_probability": 0.11841113211630538,
+          "micro_roc_auc": 0.9931333974939613,
+          "incident_wrong_pair_share": 0.011299548936380698,
+          "incident_available_pair_share": 0.018671182312313725,
+          "error_enrichment_vs_pair_availability": 0.6051865782987185,
+          "incident_pair_error_rate": 0.007401023436253246,
+          "variable": "initial_local_fill",
+          "train_tail_fraction": 0.018256146049168392,
+          "validation_tail_fraction": 0.011350293542074364,
+          "validation_beyond_training_minmax_fraction": 0.0,
+          "tail_cases": 16,
+          "training_q01": [
+            0.6610160734787601,
+            0.35683760683760685,
+            0.35683760683760685,
+            0.35683760683760685,
+            0.35683760683760685,
+            0.12418198409594577,
+            0.017915820564888312,
+            0.008740458015267176,
+            0.008740458015267176,
+            0.008740458015267176,
+            0.5,
+            0.16002733333333335,
+            0.009043336058871627,
+            0.01242603550295858
+          ],
+          "training_q99": [
+            0.9307921928817451,
+            0.9100427350427351,
+            0.9100427350427351,
+            0.9100427350427351,
+            0.9100427350427351,
+            1.0255898839786208,
+            1.0131622669374192,
+            0.9562595419847328,
+            0.9562595419847328,
+            0.9562595419847328,
+            0.5,
+            1.0019226666666667,
+            0.9792395748160263,
+            0.9997041420118343
+          ],
+          "validation_quantiles_01_50_99": [
+            0.014427480916030536,
+            0.6193376068376069,
+            0.9293442836657543
+          ],
+          "adjusted_comparison": {
+            "raw_tail_endpoint_error_rate": 0.007399634025071189,
+            "raw_inrange_endpoint_error_rate": 0.012274957807203873,
+            "common_strata": 33,
+            "common_strata_endpoint_availability_fraction": 0.058141110400043466,
+            "standardized_tail_endpoint_error_rate": 0.008698503208642282,
+            "standardized_inrange_endpoint_error_rate": 0.008130078602833346,
+            "standardized_error_ratio": 1.0699162497163113
+          },
+          "tail_by_generator": [
+            {
+              "generator": "Hogga_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Tokke_G1",
+              "fraction": 0.038356164383561646,
+              "outputs": 2352
+            },
+            {
+              "generator": "Tokke_G2",
+              "fraction": 0.038356164383561646,
+              "outputs": 2352
+            },
+            {
+              "generator": "Tokke_G3",
+              "fraction": 0.038356164383561646,
+              "outputs": 2352
+            },
+            {
+              "generator": "Tokke_G4",
+              "fraction": 0.038356164383561646,
+              "outputs": 2352
+            },
+            {
+              "generator": "Lio_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Byrte_G1",
+              "fraction": 0.005479452054794521,
+              "outputs": 336
+            },
+            {
+              "generator": "Vinje_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Vinje_G2",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Vinje_G3",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Haukeli_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Songa_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Kjela_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            }
+          ],
+          "tail_by_start_month": [
+            {
+              "month": 1,
+              "fraction": 0.0
+            },
+            {
+              "month": 2,
+              "fraction": 0.0
+            },
+            {
+              "month": 3,
+              "fraction": 0.0
+            },
+            {
+              "month": 4,
+              "fraction": 0.004761904761904762
+            },
+            {
+              "month": 5,
+              "fraction": 0.0
+            },
+            {
+              "month": 6,
+              "fraction": 0.0
+            },
+            {
+              "month": 7,
+              "fraction": 0.0
+            },
+            {
+              "month": 8,
+              "fraction": 0.0
+            },
+            {
+              "month": 9,
+              "fraction": 0.09523809523809523
+            },
+            {
+              "month": 10,
+              "fraction": 0.0
+            },
+            {
+              "month": 11,
+              "fraction": 0.009523809523809525
+            },
+            {
+              "month": 12,
+              "fraction": 0.027649769585253458
+            }
+          ]
+        },
+        {
+          "outputs": 2520,
+          "output_fraction": 0.0029354207436399216,
+          "on_fraction": 0.5535714285714286,
+          "mean_probability": 0.5690053981184537,
+          "micro_roc_auc": 0.9988861808044603,
+          "incident_wrong_pair_share": 0.002629857225532139,
+          "incident_available_pair_share": 0.006749640453255146,
+          "error_enrichment_vs_pair_availability": 0.3896292319191371,
+          "incident_pair_error_rate": 0.00476490256110657,
+          "variable": "weekly_natural_inflow_over_local_capacity",
+          "train_tail_fraction": 0.020384163073304585,
+          "validation_tail_fraction": 0.0029354207436399216,
+          "validation_beyond_training_minmax_fraction": 0.0,
+          "tail_cases": 15,
+          "training_q01": [
+            0.0020408610792192884,
+            0.07831923076923078,
+            0.07831923076923078,
+            0.07831923076923078,
+            0.07831923076923078,
+            0.0007192021900664842,
+            0.001372014029905852,
+            0.00134793893129771,
+            0.00134793893129771,
+            0.00134793893129771,
+            0.003,
+            0.0016067039999999998,
+            5.5780866721177424e-05,
+            0.0023074082840236682
+          ],
+          "training_q99": [
+            0.3726246957520092,
+            6.065415384615385,
+            6.065415384615385,
+            6.065415384615385,
+            6.065415384615385,
+            0.34392342588971453,
+            0.6558213771460217,
+            0.1037610687022901,
+            0.1037610687022901,
+            0.1037610687022901,
+            3.8866799999999997,
+            0.155991984,
+            0.02663367130008177,
+            0.1051259644970414
+          ],
+          "validation_quantiles_01_50_99": [
+            0.00021637677841373668,
+            0.028129465648854962,
+            2.6181192307692314
+          ],
+          "adjusted_comparison": {
+            "raw_tail_endpoint_error_rate": 0.004759780391515755,
+            "raw_inrange_endpoint_error_rate": 0.012254654527670139,
+            "common_strata": 6,
+            "common_strata_endpoint_availability_fraction": 0.014047082807142114,
+            "standardized_tail_endpoint_error_rate": 0.003965377849365101,
+            "standardized_inrange_endpoint_error_rate": 0.01217009343127323,
+            "standardized_error_ratio": 0.3258296965227361
+          },
+          "tail_by_generator": [
+            {
+              "generator": "Hogga_G1",
+              "fraction": 0.0410958904109589,
+              "outputs": 2520
+            },
+            {
+              "generator": "Tokke_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Tokke_G2",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Tokke_G3",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Tokke_G4",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Lio_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Byrte_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Vinje_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Vinje_G2",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Vinje_G3",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Haukeli_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Songa_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Kjela_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "fraction": 0.0,
+              "outputs": 0
+            }
+          ],
+          "tail_by_start_month": [
+            {
+              "month": 1,
+              "fraction": 0.0
+            },
+            {
+              "month": 2,
+              "fraction": 0.0
+            },
+            {
+              "month": 3,
+              "fraction": 0.0
+            },
+            {
+              "month": 4,
+              "fraction": 0.0
+            },
+            {
+              "month": 5,
+              "fraction": 0.0
+            },
+            {
+              "month": 6,
+              "fraction": 0.0
+            },
+            {
+              "month": 7,
+              "fraction": 0.020737327188940093
+            },
+            {
+              "month": 8,
+              "fraction": 0.0
+            },
+            {
+              "month": 9,
+              "fraction": 0.007142857142857143
+            },
+            {
+              "month": 10,
+              "fraction": 0.0
+            },
+            {
+              "month": 11,
+              "fraction": 0.007142857142857143
+            },
+            {
+              "month": 12,
+              "fraction": 0.0
+            }
+          ]
+        }
+      ],
+      "near_economic_boundary": {
+        "outputs": 100988,
+        "output_fraction": 0.11763582145186842,
+        "on_fraction": 0.3795995563829366,
+        "mean_probability": 0.40334322830452246,
+        "micro_roc_auc": 0.9416278290512661,
+        "incident_wrong_pair_share": 0.450259729295563,
+        "incident_available_pair_share": 0.22728911931598006,
+        "error_enrichment_vs_pair_availability": 1.980999929299768,
+        "incident_pair_error_rate": 0.024226292237311924,
+        "adjusted_comparison": {
+          "raw_tail_endpoint_error_rate": 0.026275626457002092,
+          "raw_inrange_endpoint_error_rate": 0.01029756726961926,
+          "common_strata": 492,
+          "common_strata_endpoint_availability_fraction": 0.8335185783401141,
+          "standardized_tail_endpoint_error_rate": 0.02510187659928228,
+          "standardized_inrange_endpoint_error_rate": 0.010652398568972848,
+          "standardized_error_ratio": 2.356453003213408
+        },
+        "near_transition_fraction_inside": 0.2917772408603002,
+        "near_transition_fraction_outside": 0.09559836935571597
+      }
+    }
+  ],
+  "conclusions": [
+    {
+      "finding": "Economic rescaling removes most hourly-price range extrapolation, but the remaining task is not distribution-shift-free.",
+      "evidence": {
+        "2021": {
+          "raw_price_outside_training_q01_q99": 0.5597195042400522,
+          "normalized_price_outside_training_q01_q99": 0.03822570123939987
+        },
+        "2022": {
+          "raw_price_outside_training_q01_q99": 0.7467384213959556,
+          "normalized_price_outside_training_q01_q99": 0.053734507501630786
+        }
+      },
+      "qualification": "These are output fractions from overlapping cases, not independent counts. Normalized prices remain inside historical training minima/maxima in both years; distribution differences can persist within that support."
+    },
+    {
+      "finding": "High absolute price scale is not a stable explanation for current errors after rescaling.",
+      "evidence": "Generator/month/transition/label-standardized tail-vs-inrange endpoint error ratios: rawprice1.035/0.853 and logscale0.816/0.649 for2021/2022. Logscale common-strata coverage is only24% in2021, so that adjustment is particularly limited."
+    },
+    {
+      "finding": "Near the local economic decision boundary is a stable hard regime beyond simple composition effects.",
+      "evidence": "Absolute normalized local margin<0.1 covers99019/100988 outputs (11.53%/11.76%), with incident-error enrichment1.896/1.981 and controlled endpoint-error ratios2.137/2.356. Common-strata endpoint coverage74.1%/83.4%.",
+      "qualification": "The local price-water-value proxy is not the complete hydraulic opportunity cost. Effects are associations; true-label transition status is used only for diagnosis."
+    },
+    {
+      "finding": "Normalized weekly price volatility is an unresolved but stronger2022 effect.",
+      "evidence": "Outside training1\u201399% volatility range:20/32 cases (5.48%/8.77%); incident-error enrichment1.183/1.820; controlled error ratios1.178/2.043. In2022,3.84% of cases even exceed the historical min/max range.",
+      "qualification": "Only20/32 overlapping case starts; year-specific, season-sensitive evidence rather than a broad proof of generalization failure."
+    },
+    {
+      "finding": "Local normalized water values show residual shift but aggregate and matched difficulty disagree.",
+      "evidence": "13.25%/12.76% outputs outside training1\u201399% water-value ranges;5.09%/5.17% outside min/max. Aggregate error enrichment0.794/0.698, matched endpoint ratios1.955/1.614 with47.1%/44.4% common-strata coverage.",
+      "qualification": "Composition confounding and incomplete overlap matter. Do not claim these tails dominate total errors or are a proven bottleneck."
+    },
+    {
+      "finding": "Low/high local storage and inflow tails do not produce one stable cross-year error explanation.",
+      "evidence": "Storage standardized ratios0.984/1.070 with limited coverage; inflow ratios1.202/0.326 with only1.4% common-strata coverage in2022."
+    }
+  ],
+  "falsifiable_training_experiment": {
+    "technique": "Moderate input-dependent sample reweighting of near-economic-boundary hours; no new model features.",
+    "hypothesis": "Finite model capacity and the training objective underallocate attention to economically ambiguous hours. Giving both labels in this input-defined region1.5x weight may improve ranking there without changing the conditional-label optimum in the unlimited-capacity limit.",
+    "fixed_definition": "weight=1.5 when abs((price-local_terminal_water_value)/max(mean(abs(168 prices)),10))<0.1; otherwise1.0. Same training-only feature computation and ordering as current pipeline. Use both positive and negative labels; do not use true transition masks to assign weights.",
+    "comparison": "One prespecified weight factor and boundary, with current winning rescaled tree hyperparameters, frozen stopping-count protocol and ensemble recipe. Select on2021; advance unchanged to2022. Compare both full-ensemble micro AUC and near-boundary endpoint errors, checking generator/month regressions.",
+    "falsification": "Reject if it fails to improve selected full-ensemble micro AUC on2021 or does not retain improvement under the frozen2022 comparison, even if near-boundary AUC alone improves.",
+    "limits": [
+      "Weighted finite-model fits can trade easy-region performance for hard-region gains; overall micro AUC is decisive.",
+      "The economic proxy omits downstream hydraulic opportunity costs and start/stop constraints.",
+      "This is one targeted diagnostic experiment, not a recommendation for a broad weighting sweep on reused validation years."
+    ]
+  },
+  "deferred_augmentation_note": "Unstructured price, water-value or inflow noise may change the true optimizer decision, so arbitrary feature perturbation is not demonstrably label-preserving. The observed stable boundary regime supports a bounded weighting experiment more directly than generic jitter.",
+  "baseline_recipe": {
+    "path": "configs/goal_submission_rescaled_tree_mean.json",
+    "sha256": "5c47a5b4f832a93b1d970a5a4b13e8485ac2e03e2ea14dccb6ceebb7e33bb42b"
+  },
+  "prediction_sources": {
+    "2021": [
+      "data/processed/goal_xgboost_rescaled_2021_validation_predictions.csv",
+      "data/processed/goal_lightgbm_rescaled_2021_validation_predictions.csv",
+      "data/processed/transformer_rescaled_2021_validation_predictions.csv"
+    ],
+    "2022": [
+      "data/processed/goal_xgboost_rescaled_2022_validation_predictions.csv",
+      "data/processed/goal_lightgbm_rescaled_2022_validation_predictions.csv",
+      "data/processed/transformer_rescaled_2022_validation_predictions.csv"
+    ]
+  }
+}

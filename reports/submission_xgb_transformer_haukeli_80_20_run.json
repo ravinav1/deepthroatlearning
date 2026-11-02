@@ -1,0 +1,17 @@
+{
+  "sources": [
+    {
+      "file": "submissions/submission_xgb_ensemble.csv",
+      "weight": 0.8
+    },
+    {
+      "file": "data/processed/submission_transformer_rescaled_predictions.csv",
+      "weight": 0.19999999999999996
+    }
+  ],
+  "test_cases": 725,
+  "outputs_per_case": 2352,
+  "submission": "submissions/submission_xgb_transformer_haukeli_80_20.csv",
+  "preserved_generator": "Haukeli_G1",
+  "preserved_source": "submissions/submission_xgb_cnn_haukeli_specialist_80_20.csv"
+}

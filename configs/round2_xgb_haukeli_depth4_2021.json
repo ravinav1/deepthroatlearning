@@ -1,0 +1,26 @@
+{
+  "target_generator": "Haukeli_G1",
+  "validation_start": "2021-01-01",
+  "validation_end": "2022-01-01",
+  "reference_tree_prefix": "goal_xgboost_rescaled",
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "use_price_context": true,
+  "use_economic_rescaling": true,
+  "record_training_auc": true,
+  "early_stopping_rounds": 100,
+  "model": {
+    "n_estimators": 2200,
+    "learning_rate": 0.05,
+    "tree_method": "hist",
+    "max_depth": 4,
+    "min_child_weight": 25,
+    "max_bin": 63,
+    "n_jobs": 4,
+    "random_state": 42
+  },
+  "experiment_hypothesis": "Capacity/regularization control for Haukeli_G1: reduce max_depth from 6 to 4. Same 113 features, cohort, rescaling, seed, 2200-tree cap and 100-round patience as the original specialist.",
+  "selection_protocol": "Select using 2021 final frozen-ensemble micro ROC-AUC only: include the unchanged ensemble, both original specialists, and these four new regularized specialists. For each specialist compare the prespecified replacement and fixed 50/50 old/new XGBoost variants; keep every plant/component weight unchanged. Select a single primary candidate and variant, with ties favoring the unchanged ensemble then the earlier declared candidate. Freeze its actual 2021 selected tree count and all settings before 2022. Do not select counts, regularization or blend variants using 2022. These are reused development years, not independent holdouts.",
+  "comparison_source": "configs/round2_xgb_haukeli_2021.json"
+}

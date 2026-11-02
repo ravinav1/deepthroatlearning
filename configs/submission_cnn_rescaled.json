@@ -1,0 +1,13 @@
+{
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "stable_scaling": true,
+  "use_economic_rescaling": true,
+  "seed": 42,
+  "epochs": 29,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "model": {"width": 64, "dropout": 0.1},
+  "selection_source": "reports/cnn_rescaled_2022_metrics.json"
+}

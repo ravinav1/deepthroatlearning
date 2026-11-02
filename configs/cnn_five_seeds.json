@@ -1,0 +1,16 @@
+{
+  "seeds": [
+    42,
+    7,
+    21,
+    67,
+    103
+  ],
+  "years": [
+    2021,
+    2022
+  ],
+  "xgboost_weight": 0.8,
+  "cnn_weight": 0.2,
+  "note": "Fixed equal five-seed CNN ensemble. Only seeds67/103 are new; architecture/features/optimizer/splits/raw stopping remain unchanged. Historical validation is development data."
+}

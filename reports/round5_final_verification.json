@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "verified_utc": "2026-10-14T19:34:36.633054+00:00",
+  "submission": "submissions/submission_round5_lgb_generators.csv",
+  "submission_sha256": "5b736f51f14028eaee5382124314fd4c368b72f546116d0a6ac053fafa086a29",
+  "checks": {
+    "reports/round5_seed299_full_verification.json": "298bde8e71564d9f117d94218642b4d4bdd51a73c8215796aac2bf934f073129",
+    "reports/round5_seed673_and_blend_verification.json": "ce8a99d634ea7a619f4301c06b7277d5b32114fc8498d1e2453923976a54373c"
+  },
+  "replayed_models": 28,
+  "replay_cases_per_seed": 5,
+  "maximum_model_replay_error": 0.0,
+  "verified_blend_probabilities": 1705200,
+  "blend_max_absolute_difference": 0.0,
+  "seed_mean_max_absolute_difference": 0.0,
+  "cases": 725,
+  "outputs_per_case": 2352,
+  "training_cases": 2922,
+  "competition_training_id_overlap": 0,
+  "protected_originals_unchanged": 432,
+  "selection_artifact_hashes_unchanged": true,
+  "fitting_in_verification": false,
+  "note": "Independent saved-model replay covers five fixed test cases per seed for all14generators. Final seed mean and blend are independently reconstructed for every output. No competition labels are used."
+}

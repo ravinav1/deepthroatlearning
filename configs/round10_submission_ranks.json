@@ -1,0 +1,51 @@
+{
+  "sources": {
+    "incumbent": "submissions/submission_round3_temporal_ranks.csv",
+    "separate_lgb": "data/processed/round10_ranks_seeds_full_predictions.csv"
+  },
+  "plant_weights": {
+    "Hogga": {
+      "incumbent": 0.5,
+      "separate_lgb": 0.5
+    },
+    "Tokke": {
+      "incumbent": 0.5,
+      "separate_lgb": 0.5
+    },
+    "Lio": {
+      "incumbent": 0.5,
+      "separate_lgb": 0.5
+    },
+    "Byrte": {
+      "incumbent": 0.5,
+      "separate_lgb": 0.5
+    },
+    "Vinje": {
+      "incumbent": 0.5,
+      "separate_lgb": 0.5
+    },
+    "Songa": {
+      "incumbent": 0.5,
+      "separate_lgb": 0.5
+    },
+    "Kjela": {
+      "incumbent": 0.5,
+      "separate_lgb": 0.5
+    },
+    "Vesle Kjela": {
+      "incumbent": 0.5,
+      "separate_lgb": 0.5
+    },
+    "Haukeli": {
+      "incumbent": 0.5,
+      "separate_lgb": 0.5
+    }
+  },
+  "historical_report": "reports/round10_ranks_historical_comparison.json",
+  "historical_variant": "candidate",
+  "selection_report": "reports/round10_ranks_pair_gate.json",
+  "frozen_confirmation": "reports/round10_ranks_pair_frozen_2022_comparison.json",
+  "native_confirmation": "reports/round10_ranks_pair_native_2022_comparison.json",
+  "component_mean_report": "reports/round10_ranks_seeds_full_mean.json",
+  "note": "Fixed50/50 Round3 and mean of two separate-generator LightGBM seeds299/673. Only two within-case price-rank features added; no blend tuning. Confirmedpositive aggregate AUC in three reused historical checks, with some quarter/generator regressions. Public/private Kaggle results unknown."
+}

@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "checks": [
+    "hand-computed ranks and tied midranks",
+    "flat/single-suffix midpoint equals0.5",
+    "monotone chronological ranks and reversal",
+    "suffix ignores earlier hours",
+    "hand-computed duration/elapsed/remaining and distances",
+    "strict positive margin",
+    "absent favourable hour sentinel168",
+    "active boundary censor flags",
+    "all-active and all-inactive cases",
+    "period reversal symmetry",
+    "positive joint monetary scaling invariance",
+    "batch/case-order isolation",
+    "finite float32 outputs with (cases,168) shape",
+    "dimensionless names evade monetary rescaling"
+  ],
+  "feature_names": [
+    "temporal_rank_week",
+    "temporal_rank_remaining",
+    "temporal_favourable_duration",
+    "temporal_favourable_elapsed",
+    "temporal_favourable_remaining",
+    "temporal_favourable_previous_distance",
+    "temporal_favourable_next_distance",
+    "temporal_favourable_left_censored",
+    "temporal_favourable_right_censored"
+  ],
+  "semantics": "Input-only proxies. Entire supplied 168h price schedule may be used; no labels, adjacent-case data, fitted parameters or actual reservoir trajectories. Duration is censored at boundaries and equality is not favourable.",
+  "module_sha256": "0d27872b46236e834e665e6d685520e0b42f1832da94c8f1a1f6813cc776c83a",
+  "check_script_sha256": "df59215d995732b853537ce50f433baec3dce2e46e8f06355b646b4dec6926e3"
+}

@@ -1,0 +1,64 @@
+{
+  "created_utc": "2026-10-14T14:51:07.860363+00:00",
+  "selection_year": 2021,
+  "source_metrics": "reports/round2_transformer_rdrop_2021_metrics.json",
+  "comparison_report": "reports/round2_transformer_rdrop_2021_comparison.json",
+  "comparison_basis": "Original frozen ensemble with original XGBoost and LightGBM components. Compare only replacement or 50/50 original/RDrop transformer prediction mean, retaining every plant weight.",
+  "advance_criterion": "Advance to fixed-count 2022 only if the better predeclared RDrop variant exceeds the task-weighted neural mean 2021 AUC of 0.9886489440779661, using the same original tree components.",
+  "advance_threshold_auc": 0.9886489440779661,
+  "selected_variant": "candidate_mean",
+  "selected_epoch_count": 29,
+  "selected_auc": 0.9884367521699151,
+  "delta_vs_advance_threshold": -0.00021219190805099597,
+  "advance_to_2022": false,
+  "status": "not_selected",
+  "candidates": [
+    {
+      "year": 2021,
+      "variant": "candidate_replace",
+      "validation_cases": 365,
+      "delta_vs_baseline": 2.9959995370587578e-05,
+      "micro_roc_auc": 0.9883018981330131,
+      "generator_auc": {
+        "Hogga_G1": 0.9690178818319202,
+        "Tokke_G1": 0.9902103893243089,
+        "Tokke_G2": 0.9929153152021288,
+        "Tokke_G3": 0.9919957909548092,
+        "Tokke_G4": 0.992725955344259,
+        "Lio_G1": 0.9478836870838858,
+        "Byrte_G1": 0.9983813241649311,
+        "Vinje_G1": 0.9903117128941192,
+        "Vinje_G2": 0.9864187386731728,
+        "Vinje_G3": 0.9810463084789143,
+        "Haukeli_G1": 0.9633766162066998,
+        "Songa_G1": 0.995074153157005,
+        "Kjela_G1": 0.9834263341394741,
+        "Vesle Kjela_G1": 0.9990278342450003
+      }
+    },
+    {
+      "year": 2021,
+      "variant": "candidate_mean",
+      "validation_cases": 365,
+      "delta_vs_baseline": 0.00016481403227264213,
+      "micro_roc_auc": 0.9884367521699151,
+      "generator_auc": {
+        "Hogga_G1": 0.9695526391355379,
+        "Tokke_G1": 0.9902540794471639,
+        "Tokke_G2": 0.9929117171060081,
+        "Tokke_G3": 0.9922486774989271,
+        "Tokke_G4": 0.9927956585411942,
+        "Lio_G1": 0.949053144444157,
+        "Byrte_G1": 0.9983813241649311,
+        "Vinje_G1": 0.990609581719759,
+        "Vinje_G2": 0.9868064463977118,
+        "Vinje_G3": 0.9812972679596531,
+        "Haukeli_G1": 0.9633766162066998,
+        "Songa_G1": 0.995074153157005,
+        "Kjela_G1": 0.9834147445558742,
+        "Vesle Kjela_G1": 0.9990278342450003
+      }
+    }
+  ],
+  "validation_note": "2021 is reused development data. No 2022 RDrop performance has been evaluated by this selection and no 2022 claim is made."
+}

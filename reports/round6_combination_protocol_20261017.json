@@ -1,0 +1,33 @@
+{
+  "created_utc": "2026-10-17T17:09:01.487630+00:00",
+  "type": "Adaptive extension fixed before remaining completed screens and before any candidate2022 evaluation",
+  "observed_completed_arms": [
+    "reference",
+    "halfrounds",
+    "leaves31",
+    "leaves127",
+    "l2zero"
+  ],
+  "note": "Baseline plus four single-factor variants had been scored. Partial generator logs from the ongoing L2strong run were visible, but no completed L2strong result had been evaluated.",
+  "metric": "2021 candidate_single_seed299 micro ROC-AUC minus matched baseline_single_seed299",
+  "knobs": {
+    "num_leaves": [
+      "leaves31",
+      "leaves127"
+    ],
+    "reg_lambda": [
+      "l2zero",
+      "l2strong"
+    ],
+    "min_child_samples": [
+      "minleaf300"
+    ],
+    "tree_count_multiplier": [
+      "halfrounds",
+      "doublerounds"
+    ]
+  },
+  "rule": "For each knob select its highest-scoring positive-effect arm. If at least two distinct knobs have positive effects, combine those changes in exactly one additional seed2992021 fit. Do not select per-generator settings. Do not retry combinations. Otherwise skip combination.",
+  "selection": "Select highest2021 single-seed ensemble AUC across original seven variants plus optional single combination, require above reference. Complete uniform seed299/6732021 gate before locking for2022confirmation. All existing confirmation/finalfit rules remain unchanged.",
+  "budget": "At most one extra2021 fit, and only before final30min reserve."
+}

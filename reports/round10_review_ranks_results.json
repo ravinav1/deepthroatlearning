@@ -1,0 +1,159 @@
+{
+  "created_utc": "2026-10-18T12:41:53.370258+00:00",
+  "status": "passed",
+  "independent_comparisons": [
+    {
+      "year": 2021,
+      "mode": "native",
+      "rows": [
+        {
+          "subset": "all",
+          "variant": "baseline",
+          "micro_roc_auc": 0.9903748458953463,
+          "delta_vs_baseline": 0.0
+        },
+        {
+          "subset": "all",
+          "variant": "candidate",
+          "micro_roc_auc": 0.9904803647225968,
+          "delta_vs_baseline": 0.00010551882725051698
+        }
+      ],
+      "primary_delta": 0.00010551882725051698,
+      "run_checks": [
+        {
+          "seed": 299,
+          "training_cases": 2186,
+          "features": 115,
+          "frozen_models_reused": false
+        },
+        {
+          "seed": 673,
+          "training_cases": 2186,
+          "features": 115,
+          "frozen_models_reused": false
+        }
+      ],
+      "all_recorded_source_hashes_valid": true,
+      "negative_quarters_full_calendar": [
+        {
+          "quarter": 1,
+          "delta": -4.353720814886941e-05
+        },
+        {
+          "quarter": 2,
+          "delta": -2.8589097594289292e-05
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "mode": "native",
+      "rows": [
+        {
+          "subset": "all",
+          "variant": "baseline",
+          "micro_roc_auc": 0.9894979113990909,
+          "delta_vs_baseline": 0.0
+        },
+        {
+          "subset": "all",
+          "variant": "candidate",
+          "micro_roc_auc": 0.9896516742739192,
+          "delta_vs_baseline": 0.00015376287482826712
+        },
+        {
+          "subset": "jan7_onward",
+          "variant": "baseline",
+          "micro_roc_auc": 0.9894111659365935,
+          "delta_vs_baseline": 0.0
+        },
+        {
+          "subset": "jan7_onward",
+          "variant": "candidate",
+          "micro_roc_auc": 0.9895671570386659,
+          "delta_vs_baseline": 0.00015599110207242806
+        }
+      ],
+      "primary_delta": 0.00015599110207242806,
+      "run_checks": [
+        {
+          "seed": 299,
+          "training_cases": 2551,
+          "features": 115,
+          "frozen_models_reused": false
+        },
+        {
+          "seed": 673,
+          "training_cases": 2551,
+          "features": 115,
+          "frozen_models_reused": false
+        }
+      ],
+      "all_recorded_source_hashes_valid": true,
+      "negative_quarters_full_calendar": []
+    },
+    {
+      "year": 2022,
+      "mode": "frozen",
+      "rows": [
+        {
+          "subset": "all",
+          "variant": "baseline",
+          "micro_roc_auc": 0.9870830517775449,
+          "delta_vs_baseline": 0.0
+        },
+        {
+          "subset": "all",
+          "variant": "candidate",
+          "micro_roc_auc": 0.987242391153059,
+          "delta_vs_baseline": 0.0001593393755141559
+        },
+        {
+          "subset": "jan7_onward",
+          "variant": "baseline",
+          "micro_roc_auc": 0.9870453044407653,
+          "delta_vs_baseline": 0.0
+        },
+        {
+          "subset": "jan7_onward",
+          "variant": "candidate",
+          "micro_roc_auc": 0.9872051571788332,
+          "delta_vs_baseline": 0.00015985273806784495
+        }
+      ],
+      "primary_delta": 0.00015985273806784495,
+      "run_checks": [
+        {
+          "seed": 299,
+          "training_cases": 2186,
+          "features": 115,
+          "frozen_models_reused": true
+        },
+        {
+          "seed": 673,
+          "training_cases": 2186,
+          "features": 115,
+          "frozen_models_reused": true
+        }
+      ],
+      "all_recorded_source_hashes_valid": true,
+      "negative_quarters_full_calendar": [
+        {
+          "quarter": 1,
+          "delta": -1.692351800208769e-05
+        }
+      ]
+    }
+  ],
+  "formula": "0.5 Round3 + 0.25 new299 + 0.25 new673, compared to actual Round5 with both old seeds",
+  "gate_assessment": "All three predeclared primary deltas are positive. Reported 14-day conditional intervals are positive. Quarter and generator heterogeneity does not violate the stated inspection gate, but must be retained in reporting; no retuning recommended.",
+  "quarter_scope": "2022 quarter diagnostics include Jan1-6; primary 2022 comparisons use Jan7 onward.",
+  "fitting_by_this_review": false,
+  "source_sha256": {
+    "reports/round10_ranks_pair_native_2022_comparison.json": "86ec7e20a097f9c1d2bb606d3a0e7297bcb14323a9b77a7c5e3f63cb96103616",
+    "reports/round10_ranks_pair_native_2021_comparison.json": "2a72be887f8e0a9a2f5b9c390e5cb06c386c1653538516615b6ad548586fa8c6",
+    "reports/round10_ranks_pair_frozen_2022_comparison.json": "f4ae07b990701e9e661fb6aae4264bee431f760b3c3e15e074cbd36dec4d5872"
+  },
+  "limitations": "Reused development years; native and frozen 2022 share labels. This validates arithmetic/cohorts/provenance, not clean generalization or a new Kaggle score."
+}

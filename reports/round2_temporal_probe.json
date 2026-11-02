@@ -1,0 +1,99 @@
+{
+  "hypothesis": "Weak adjacent-hour persistence can improve noisy commitment probabilities.",
+  "method": "(1-a)*p[t]+a*(p[t-1]+p[t+1])/2; edge replication within each case/generator only.",
+  "selection_year": 2021,
+  "confirmation_year": 2022,
+  "candidate_strengths": [
+    0.0,
+    0.1,
+    0.25
+  ],
+  "selected_strength": 0.0,
+  "limitations": "Reused development years. This probes smoothing, not the potential of all structured models. Real one-hour ON/OFF runs remain allowed.",
+  "results": [
+    {
+      "year": 2021,
+      "strength": 0.0,
+      "micro_roc_auc": 0.9882719381376425,
+      "generator_auc": {
+        "Hogga_G1": 0.9696893447926744,
+        "Tokke_G1": 0.9894627561921396,
+        "Tokke_G2": 0.9924289036679768,
+        "Tokke_G3": 0.9921447545852833,
+        "Tokke_G4": 0.9923364372895623,
+        "Lio_G1": 0.9496274150107702,
+        "Byrte_G1": 0.9983813241649311,
+        "Vinje_G1": 0.9906998862987294,
+        "Vinje_G2": 0.9868319870646906,
+        "Vinje_G3": 0.9806822805568618,
+        "Haukeli_G1": 0.9633766162066998,
+        "Songa_G1": 0.995074153157005,
+        "Kjela_G1": 0.9834578894840456,
+        "Vesle Kjela_G1": 0.9990278342450003
+      }
+    },
+    {
+      "year": 2021,
+      "strength": 0.1,
+      "micro_roc_auc": 0.9882670886499967,
+      "generator_auc": {
+        "Hogga_G1": 0.9696880078967334,
+        "Tokke_G1": 0.9895102616704378,
+        "Tokke_G2": 0.9924481815010712,
+        "Tokke_G3": 0.992122915758426,
+        "Tokke_G4": 0.9923903233010377,
+        "Lio_G1": 0.9496309718419949,
+        "Byrte_G1": 0.9983922318383055,
+        "Vinje_G1": 0.9906728626928164,
+        "Vinje_G2": 0.9867996475472359,
+        "Vinje_G3": 0.9806697343595339,
+        "Haukeli_G1": 0.9634534714935753,
+        "Songa_G1": 0.9950406893952293,
+        "Kjela_G1": 0.9832942994765286,
+        "Vesle Kjela_G1": 0.9990239255703742
+      }
+    },
+    {
+      "year": 2021,
+      "strength": 0.25,
+      "micro_roc_auc": 0.9882021707728964,
+      "generator_auc": {
+        "Hogga_G1": 0.9696242768011244,
+        "Tokke_G1": 0.9894800632093401,
+        "Tokke_G2": 0.9924104350278764,
+        "Tokke_G3": 0.9920223738802451,
+        "Tokke_G4": 0.9923691861214184,
+        "Lio_G1": 0.9496007956258175,
+        "Byrte_G1": 0.998369512511172,
+        "Vinje_G1": 0.9905851938842983,
+        "Vinje_G2": 0.9866853475652324,
+        "Vinje_G3": 0.9805550366103117,
+        "Haukeli_G1": 0.9635398402876242,
+        "Songa_G1": 0.9949523479532593,
+        "Kjela_G1": 0.983116254580061,
+        "Vesle Kjela_G1": 0.9990108617372914
+      }
+    },
+    {
+      "year": 2022,
+      "strength": 0.0,
+      "micro_roc_auc": 0.987770674860208,
+      "generator_auc": {
+        "Hogga_G1": 0.9775100186335982,
+        "Tokke_G1": 0.9937337966817539,
+        "Tokke_G2": 0.9926142231231896,
+        "Tokke_G3": 0.9954396389133615,
+        "Tokke_G4": 0.9948887626158267,
+        "Lio_G1": 0.96488435459231,
+        "Byrte_G1": 0.9963864239225171,
+        "Vinje_G1": 0.9860335306670862,
+        "Vinje_G2": 0.9841237529648079,
+        "Vinje_G3": 0.9720330802791017,
+        "Haukeli_G1": 0.9475982997306192,
+        "Songa_G1": 0.9973672474059961,
+        "Kjela_G1": 0.9804630574581361,
+        "Vesle Kjela_G1": 0.9931095606117835
+      }
+    }
+  ]
+}

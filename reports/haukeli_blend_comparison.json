@@ -1,0 +1,181 @@
+{
+  "config": {
+    "selection_year": 2021,
+    "confirmation_year": 2022,
+    "baseline_weight_source": "reports/plant_blend_refined_comparison.json",
+    "baseline_specialist_weight": 0.2,
+    "candidate_specialist_weights": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "target_generator": "Haukeli_G1",
+    "specialist_prefix": "cnn_specialist_haukeli",
+    "note": "Tune only Haukeli's XGBoost/specialist-CNN weight on 2021 pooled micro ROC-AUC. Freeze the selected weight before checking 2022. Keep the other 13 generators fixed at the refined plant weights. Saved predictions only; no model training or competition test labels. Both years are reused historical development data."
+  },
+  "selected_specialist_weight": 0.3,
+  "selection_trials": [
+    {
+      "specialist_weight": 0.0,
+      "micro_roc_auc": 0.9862337137346588
+    },
+    {
+      "specialist_weight": 0.1,
+      "micro_roc_auc": 0.9866319277079812
+    },
+    {
+      "specialist_weight": 0.2,
+      "micro_roc_auc": 0.9867899761289058
+    },
+    {
+      "specialist_weight": 0.3,
+      "micro_roc_auc": 0.9868456865125457
+    },
+    {
+      "specialist_weight": 0.4,
+      "micro_roc_auc": 0.986835940521167
+    },
+    {
+      "specialist_weight": 0.5,
+      "micro_roc_auc": 0.9867588840216159
+    },
+    {
+      "specialist_weight": 0.6,
+      "micro_roc_auc": 0.9866281705489912
+    },
+    {
+      "specialist_weight": 0.7,
+      "micro_roc_auc": 0.9864277308900201
+    },
+    {
+      "specialist_weight": 0.8,
+      "micro_roc_auc": 0.9861078301630631
+    },
+    {
+      "specialist_weight": 0.9,
+      "micro_roc_auc": 0.9855475595126818
+    },
+    {
+      "specialist_weight": 1.0,
+      "micro_roc_auc": 0.9834045391489706
+    }
+  ],
+  "results": [
+    {
+      "year": 2021,
+      "variant": "baseline",
+      "specialist_weight": 0.2,
+      "generator_routes": {
+        "Haukeli_G1": "cnn_component"
+      },
+      "validation_cases": 365,
+      "delta_vs_baseline": 0.0,
+      "micro_roc_auc": 0.9867899761289058,
+      "generator_auc": {
+        "Hogga_G1": 0.9674186581517281,
+        "Tokke_G1": 0.9885360120924037,
+        "Tokke_G2": 0.9924119317103727,
+        "Tokke_G3": 0.9919589642905908,
+        "Tokke_G4": 0.9924548450061842,
+        "Lio_G1": 0.9342618815949743,
+        "Byrte_G1": 0.998769651672373,
+        "Vinje_G1": 0.9895660810541425,
+        "Vinje_G2": 0.985822738691226,
+        "Vinje_G3": 0.9786040311994093,
+        "Haukeli_G1": 0.9417483615934084,
+        "Songa_G1": 0.9949640744376698,
+        "Kjela_G1": 0.9858216075770214,
+        "Vesle Kjela_G1": 0.9996396106076109
+      }
+    },
+    {
+      "year": 2021,
+      "variant": "selected_haukeli_weight",
+      "specialist_weight": 0.3,
+      "generator_routes": {
+        "Haukeli_G1": "cnn_component"
+      },
+      "validation_cases": 365,
+      "delta_vs_baseline": 5.571038363982872e-05,
+      "micro_roc_auc": 0.9868456865125457,
+      "generator_auc": {
+        "Hogga_G1": 0.9674186581517281,
+        "Tokke_G1": 0.9885360120924037,
+        "Tokke_G2": 0.9924119317103727,
+        "Tokke_G3": 0.9919589642905908,
+        "Tokke_G4": 0.9924548450061842,
+        "Lio_G1": 0.9342618815949743,
+        "Byrte_G1": 0.998769651672373,
+        "Vinje_G1": 0.9895660810541425,
+        "Vinje_G2": 0.985822738691226,
+        "Vinje_G3": 0.9786040311994093,
+        "Haukeli_G1": 0.945593717319958,
+        "Songa_G1": 0.9949640744376698,
+        "Kjela_G1": 0.9858216075770214,
+        "Vesle Kjela_G1": 0.9996396106076109
+      }
+    },
+    {
+      "year": 2022,
+      "variant": "baseline",
+      "specialist_weight": 0.2,
+      "generator_routes": {
+        "Haukeli_G1": "cnn_component"
+      },
+      "validation_cases": 365,
+      "delta_vs_baseline": 0.0,
+      "micro_roc_auc": 0.9842733710899667,
+      "generator_auc": {
+        "Hogga_G1": 0.9745727122117172,
+        "Tokke_G1": 0.9922897294487714,
+        "Tokke_G2": 0.9915476248131403,
+        "Tokke_G3": 0.994640773866952,
+        "Tokke_G4": 0.9943572821739048,
+        "Lio_G1": 0.9374534370352692,
+        "Byrte_G1": 0.997640269908804,
+        "Vinje_G1": 0.9839155594859759,
+        "Vinje_G2": 0.9816590692863598,
+        "Vinje_G3": 0.9669884849144855,
+        "Haukeli_G1": 0.935136706598191,
+        "Songa_G1": 0.9954529212929326,
+        "Kjela_G1": 0.9772635073697308,
+        "Vesle Kjela_G1": 0.9909569486834118
+      }
+    },
+    {
+      "year": 2022,
+      "variant": "selected_haukeli_weight",
+      "specialist_weight": 0.3,
+      "generator_routes": {
+        "Haukeli_G1": "cnn_component"
+      },
+      "validation_cases": 365,
+      "delta_vs_baseline": 0.0001098335846967391,
+      "micro_roc_auc": 0.9843832046746634,
+      "generator_auc": {
+        "Hogga_G1": 0.9745727122117172,
+        "Tokke_G1": 0.9922897294487714,
+        "Tokke_G2": 0.9915476248131403,
+        "Tokke_G3": 0.994640773866952,
+        "Tokke_G4": 0.9943572821739048,
+        "Lio_G1": 0.9374534370352692,
+        "Byrte_G1": 0.997640269908804,
+        "Vinje_G1": 0.9839155594859759,
+        "Vinje_G2": 0.9816590692863598,
+        "Vinje_G3": 0.9669884849144855,
+        "Haukeli_G1": 0.9393207318377148,
+        "Songa_G1": 0.9954529212929326,
+        "Kjela_G1": 0.9772635073697308,
+        "Vesle Kjela_G1": 0.9909569486834118
+      }
+    }
+  ]
+}

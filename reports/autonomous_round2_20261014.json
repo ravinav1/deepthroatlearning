@@ -1,0 +1,1080 @@
+{
+  "started_utc": "2026-10-14T13:06:15+00:00",
+  "deadline_utc": "2026-10-14T15:36:15+00:00",
+  "status": "completed",
+  "duration_hours": 2.5,
+  "objective": "Improve validated micro ROC-AUC through broad evidence-led EDA, validation, tuning, regularization, optimization and research.",
+  "baseline": {
+    "config": "configs/goal_submission_rescaled_tree_mean.json",
+    "submission": "submissions/submission_rescaled_xgb_lgb_transformer.csv",
+    "auc_2021": 0.9882719381376425,
+    "auc_2022": 0.987770674860208,
+    "public_score_user_reported": 0.989,
+    "verified_by": "reports/round2_winner_diagnosis.json and reports/round2_comparator_identity.json",
+    "all_component_ids_and_order_verified": true
+  },
+  "constraints": {
+    "heavy_training": "sequential, four CPU threads",
+    "competition_labels": "excluded from all fitting and evaluation",
+    "originals_snapshot": "/private/tmp/tdt4173-round2-original-hashes.json",
+    "protected_file_count": 185,
+    "upload": "manual by user"
+  },
+  "validation_policy": {
+    "primary_years": [
+      2021,
+      2022
+    ],
+    "status": "Reused development years, not independent holdouts. Early stopping on the evaluated year is selection and must be acknowledged.",
+    "purge": "Training case end <= validation first start. Daily overlapping 168-hour horizons.",
+    "promotion": "Confirm positive change in final fixed-weight ensemble on both years; inspect temporal block uncertainty and weak-slice regressions.",
+    "additional_checks": "Frozen-model next-year and/or 2020 historical robustness with inner-period selection where feasible; no untouched-holdout claim.",
+    "candidate_confirmation": "Choose hyperparameters and old/new mixing on2021, then freeze the count/epoch for2022 when feasible. Initial LGB2022 convergence diagnostic is explicitly selected on2022 and needs separate2021 check.",
+    "selection_horizon_purge": "For2022also report Jan7onward359cases, excluding sixstarts overlapping the last2021selection horizon. Does not make reused2022independent."
+  },
+  "lanes": {
+    "eda_errors": "round2_diagnosis",
+    "validation": "round2_diagnosis and round2_tree_validation",
+    "tuning": "round2_tree_validation",
+    "neural_optimization_regularization": "round2_neural",
+    "model_research": "round2_neural and round2_tree_validation"
+  },
+  "experiments": [
+    {
+      "name": "round2_lgb_converged_2022",
+      "lane": "optimization/convergence",
+      "hypothesis": "Previous800-tree capped LightGBM leaves useful capacity untrained.",
+      "change": "Increase n_estimators800to2400; all other settings identical.",
+      "status": "completed_not_promoted_after_2021_check",
+      "session_id": 38783,
+      "log": "/private/tmp/round2_lgb_converged_2022.log",
+      "comparison": "Replace only LightGBM half inside frozen current winner; also predefined50/50old/new LGB mean.",
+      "report": "reports/round2_lgb_converged_2022_metrics.json",
+      "comparison_report": "reports/round2_lgb_convergence_2022_comparison.json",
+      "auc": 0.9879941996604936,
+      "best_iteration": 1895,
+      "training_seconds": 1710.0639629590441,
+      "ensemble_comparison": {
+        "replace_auc": 0.9879838260981785,
+        "delta": 0.00021315123797049917,
+        "post_selection_purge_delta": 0.00021147821594991179
+      },
+      "uncertainty": "All7/14/28day conditional paired95%intervalscrosszero;11/12monthlysubsetAUCs improve; gains concentratedneartransitions."
+    },
+    {
+      "name": "round2_temporal_probe",
+      "lane": "structured prediction / cached probability diagnostic",
+      "status": "completed_rejected",
+      "session_id": 4886,
+      "change": "Weak adjacent-hour smoothing strengths0,.1,.25; select on2021, frozen confirmation2022. All case/generator boundaries preserved.",
+      "training": "none",
+      "report": "reports/round2_temporal_probe.json",
+      "result": {
+        "baseline_2021": 0.9882719381376425,
+        "strength_0.1_auc": 0.9882670886499967,
+        "strength_0.25_auc": 0.9882021707728964,
+        "selected_strength": 0.0
+      },
+      "interpretation": "Weak smoothing does not improve selection year; no new candidate evaluated on2022. Does not rule out all structured learning."
+    },
+    {
+      "name": "frozen_2021_ensemble_on_2022",
+      "lane": "validation/generalization",
+      "status": "completed_diagnostic",
+      "training": "none; existing2021selectedmodels only",
+      "report": "reports/round2_frozen_ensemble_2022_comparison.json",
+      "frozen_auc": 0.9857216607503562,
+      "native_auc": 0.987770674860208,
+      "interpretation": "Temporal transfer with less training history and different stopping selection; not a pure overfitting or optimism estimate. Cached predictions also permit Jan7onward check.",
+      "post_selection_purge": {
+        "first_case_start": "2022-01-07",
+        "cases": 359,
+        "excluded_overlapping_cases": 6,
+        "delta_vs_baseline": -0.001977830059173402,
+        "micro_roc_auc": 0.9857122593048564,
+        "generator_auc": {
+          "Hogga_G1": 0.9770216218129055,
+          "Tokke_G1": 0.9928663487540603,
+          "Tokke_G2": 0.9924844040355947,
+          "Tokke_G3": 0.9949513750546309,
+          "Tokke_G4": 0.9942693393390174,
+          "Lio_G1": 0.9595534778575628,
+          "Byrte_G1": 0.9956092458597123,
+          "Vinje_G1": 0.9844646645452902,
+          "Vinje_G2": 0.982762794233233,
+          "Vinje_G3": 0.9710149096960808,
+          "Haukeli_G1": 0.9314948489539214,
+          "Songa_G1": 0.996607736555686,
+          "Kjela_G1": 0.9769821438502996,
+          "Vesle Kjela_G1": 0.992020009320325
+        }
+      },
+      "variant": "candidate_replace; candidate_mean is not a fully frozen-model diagnostic"
+    },
+    {
+      "name": "round2_transformer_ensemble_monitor_2021",
+      "lane": "checkpoint selection / optimization",
+      "status": "completed_failed_patience_control",
+      "session_id": 90714,
+      "log": "/private/tmp/round2_transformer_ensemble_monitor_2021.log",
+      "change": "Select checkpoint and patience using frozen winning ensemble AUC; architecture/BCE/LR/seed unchanged. CPU4threads.",
+      "report": "reports/round2_transformer_ensemble_monitor_2021_metrics.json",
+      "comparison_report": "reports/round2_transformer_monitor_2021_comparison.json",
+      "best_epoch": 13,
+      "training_epochs": 21,
+      "ensemble_auc": 0.9874570752290104,
+      "interpretation": "Changedpatiencecriterionstopped21beforeoriginalselected31. Followupfixed39epochbudgetisneededtoisolatecheckpointselectionfromstopping."
+    },
+    {
+      "name": "round2_xgb_depth4_2021",
+      "lane": "capacity/generalization",
+      "status": "completed_rejected",
+      "session_id": 35221,
+      "log": "/private/tmp/round2_xgb_depth4_2021.log",
+      "change": "Depth6to4, samefeatures/seed/otherparams,2200treecap.",
+      "report": "reports/round2_xgb_depth4_2021_metrics.json",
+      "comparison_report": "reports/round2_xgb_depth4_2021_comparison.json",
+      "auc": 0.9814933531073026,
+      "best_iteration": 1161,
+      "training_seconds": 261.78722945798654,
+      "interpretation": "BothreplacementandmeanlowerfixedensembleAUC; lowerdepthdoesnothelpthisregime. No2022confirmation."
+    },
+    {
+      "name": "scalar_temperature_calibration",
+      "lane": "calibration/classicalML",
+      "status": "completed_tiny_gain_low_priority",
+      "report": "reports/round2_temperature_comparison.json",
+      "training": "No base-model fit; three positive temperatures fit on2021weightedBCE, variantselected2021thenfrozen2022.",
+      "result": "Allcomponenttemperaturegainabout.00001288in2021and.00001096in2022; low-priorityrefinement."
+    },
+    {
+      "name": "round2_lgb_converged_2021",
+      "lane": "historical robustness / optimization",
+      "status": "completed_not_promoted",
+      "log": "/private/tmp/round2_lgb_converged_2021.log",
+      "change": "Continue1499tofixed1895total selectedon2022; no2021earlystoporinitialmodelfallback.",
+      "validation_note": "Backwardhistoricalconfirmationonreused2021, notindependentforwardholdout.",
+      "session_id": 78682,
+      "report": "reports/round2_lgb_converged_2021_metrics.json",
+      "comparison_report": "reports/round2_lgb_convergence_both_comparison.json",
+      "result": [
+        {
+          "year": 2021,
+          "variant": "baseline",
+          "auc": 0.9882719381376425,
+          "delta": 0.0
+        },
+        {
+          "year": 2021,
+          "variant": "candidate_replace",
+          "auc": 0.9882511722861946,
+          "delta": -2.0765851447834827e-05
+        },
+        {
+          "year": 2021,
+          "variant": "candidate_mean",
+          "auc": 0.9882697944097945,
+          "delta": -2.1437278480140876e-06
+        },
+        {
+          "year": 2022,
+          "variant": "baseline",
+          "auc": 0.987770674860208,
+          "delta": 0.0
+        },
+        {
+          "year": 2022,
+          "variant": "candidate_replace",
+          "auc": 0.9879838260981785,
+          "delta": 0.00021315123797049917
+        },
+        {
+          "year": 2022,
+          "variant": "candidate_mean",
+          "auc": 0.9879207427302277,
+          "delta": 0.0001500678700196989
+        }
+      ],
+      "interpretation": "Longer fit improves 2022 but worsens 2021 ensemble slightly. Neither replacement nor fixed old/new mean passes the prespecified two-year positive-change rule."
+    },
+    {
+      "name": "round2_transformer_monitor_budget_2021",
+      "lane": "checkpoint selection / optimization",
+      "status": "completed_candidate_passes_two_years",
+      "session_id": 75548,
+      "log": "/private/tmp/round2_transformer_monitor_budget_2021.log",
+      "change": "39 epochs matches original actual budget; patience40 prevents early termination. Same architecture/BCE/LR/seed; checkpoint selected by frozen ensemble AUC.",
+      "best_epoch": 37,
+      "chosen_variant": "candidate_mean",
+      "chosen_auc": 0.9885133838122231,
+      "selection_frozen_before_2022": true,
+      "report": "reports/round2_transformer_monitor_budget_2021_metrics.json",
+      "comparison_report": "reports/round2_transformer_monitor_budget_2021_comparison.json"
+    },
+    {
+      "name": "round2_xgb_haukeli_2021",
+      "lane": "model specialization / capacity allocation",
+      "status": "completed_candidate_passes_two_years",
+      "report": "reports/round2_xgb_haukeli_2021_metrics.json",
+      "comparison_report": "reports/round2_xgb_haukeli_both_comparison.json",
+      "chosen_variant": "candidate_mean",
+      "chosen_auc": 0.9882768877960612,
+      "delta": 4.949658418684777e-06,
+      "selection_frozen_before_2022": true,
+      "uncertainty_report": "reports/round2_xgb_haukeli_uncertainty.json",
+      "selected_variant": "candidate_mean",
+      "results": [
+        {
+          "year": 2021,
+          "auc": 0.9882768877960612,
+          "delta": 4.949658418684777e-06,
+          "post_purge_delta": null
+        },
+        {
+          "year": 2022,
+          "auc": 0.987958552947335,
+          "delta": 0.000187878087127058,
+          "post_purge_delta": 0.00018877946970086157
+        }
+      ]
+    },
+    {
+      "name": "round2_xgb_lio_2021",
+      "lane": "model specialization / capacity allocation",
+      "status": "completed_failed_confirmation",
+      "log": "/private/tmp/round2_xgb_lio_2021.log",
+      "comparison_report": "reports/round2_xgb_lio_both_comparison.json",
+      "chosen_variant": "candidate_replace",
+      "chosen_auc": 0.9889557320026957,
+      "delta": 0.0006837938650532394,
+      "selection_frozen_before_2022": true,
+      "uncertainty_report": "reports/round2_xgb_lio_uncertainty.json",
+      "selected_variant": "candidate_replace",
+      "results": [
+        {
+          "year": 2021,
+          "auc": 0.9889557320026957,
+          "delta": 0.0006837938650532394,
+          "post_purge_delta": null
+        },
+        {
+          "year": 2022,
+          "auc": 0.9877433822033665,
+          "delta": -2.7292656841426677e-05,
+          "post_purge_delta": -3.6685388731694246e-05
+        }
+      ],
+      "report": "reports/round2_xgb_lio_2021_metrics.json"
+    },
+    {
+      "name": "round2_xgb_lio_2022",
+      "lane": "frozen historical confirmation",
+      "status": "completed_failed_confirmation",
+      "selected_trees": 692,
+      "report": "reports/round2_xgb_lio_2022_metrics.json",
+      "comparison_report": "reports/round2_xgb_lio_both_comparison.json",
+      "uncertainty_report": "reports/round2_xgb_lio_uncertainty.json",
+      "selected_variant": "candidate_replace",
+      "results": [
+        {
+          "year": 2021,
+          "auc": 0.9889557320026957,
+          "delta": 0.0006837938650532394,
+          "post_purge_delta": null
+        },
+        {
+          "year": 2022,
+          "auc": 0.9877433822033665,
+          "delta": -2.7292656841426677e-05,
+          "post_purge_delta": -3.6685388731694246e-05
+        }
+      ]
+    },
+    {
+      "name": "round2_xgb_haukeli_2022",
+      "lane": "frozen historical confirmation",
+      "status": "completed_candidate_passes_two_years",
+      "selected_trees": 121,
+      "report": "reports/round2_xgb_haukeli_2022_metrics.json",
+      "comparison_report": "reports/round2_xgb_haukeli_both_comparison.json",
+      "uncertainty_report": "reports/round2_xgb_haukeli_uncertainty.json",
+      "selected_variant": "candidate_mean",
+      "results": [
+        {
+          "year": 2021,
+          "auc": 0.9882768877960612,
+          "delta": 4.949658418684777e-06,
+          "post_purge_delta": null
+        },
+        {
+          "year": 2022,
+          "auc": 0.987958552947335,
+          "delta": 0.000187878087127058,
+          "post_purge_delta": 0.00018877946970086157
+        }
+      ]
+    },
+    {
+      "name": "round2_transformer_monitor_budget_2022",
+      "lane": "frozen historical confirmation",
+      "status": "completed_candidate_passes_two_years",
+      "selected_epochs": 37,
+      "selected_variant": "candidate_mean",
+      "session_id": 41051,
+      "log": "/private/tmp/round2_transformer_monitor_budget_2022.log",
+      "note": "37 epochs and 50/50 old/new neural mean chosen on2021 before2022 evaluation. No2022 stopping.",
+      "comparison_report": "reports/round2_transformer_monitor_budget_both_comparison.json",
+      "report": "reports/round2_transformer_monitor_budget_2022_metrics.json"
+    },
+    {
+      "name": "round2_xgb_lio_lambda10_2021",
+      "lane": "specialist capacity / regularization",
+      "status": "completed_not_selected",
+      "change": "One parameter relative to original specialist; depth4 or reg_lambda10. Screen2021; freeze chosen count/recipe before2022.",
+      "report": "reports/round2_xgb_lio_lambda10_2021_metrics.json",
+      "comparison_report": "reports/round2_xgb_lio_lambda10_2021_comparison.json"
+    },
+    {
+      "name": "round2_xgb_lio_depth4_2021",
+      "lane": "specialist capacity / regularization",
+      "status": "completed_not_selected",
+      "change": "One parameter relative to original specialist; depth4 or reg_lambda10. Screen2021; freeze chosen count/recipe before2022.",
+      "report": "reports/round2_xgb_lio_depth4_2021_metrics.json",
+      "comparison_report": "reports/round2_xgb_lio_depth4_2021_comparison.json"
+    },
+    {
+      "name": "round2_xgb_haukeli_lambda10_2021",
+      "lane": "specialist capacity / regularization",
+      "status": "completed_not_selected",
+      "change": "One parameter relative to original specialist; depth4 or reg_lambda10. Screen2021; freeze chosen count/recipe before2022.",
+      "report": "reports/round2_xgb_haukeli_lambda10_2021_metrics.json",
+      "comparison_report": "reports/round2_xgb_haukeli_lambda10_2021_comparison.json"
+    },
+    {
+      "name": "round2_xgb_haukeli_depth4_2021",
+      "lane": "specialist capacity / regularization",
+      "status": "completed_improves_baseline_but_not_incumbent_both_years",
+      "change": "One parameter relative to original specialist; depth4 or reg_lambda10. Screen2021; freeze chosen count/recipe before2022.",
+      "report": "reports/round2_xgb_haukeli_depth4_2021_metrics.json",
+      "comparison_report": "reports/round2_xgb_haukeli_depth4_2021_comparison.json"
+    },
+    {
+      "name": "round2_lgb_capped_2021",
+      "lane": "diagnosis-driven regularization",
+      "status": "completed_rejected_for_ensemble",
+      "change": "Explicit max_delta_step10 for396newtrees appendedto1499source; fixed1895total. Prefixpreserved.",
+      "log": "/private/tmp/round2_lgb_capped_2021.log",
+      "report": "reports/round2_lgb_capped_2021_metrics.json",
+      "comparison_report": "reports/round2_lgb_capped_2021_comparison.json",
+      "interpretation": "The cap avoids the extreme late-tree failure and improves standalone validation, but both frozen ensemble variants worsen 2021. Do not advance this candidate to2022."
+    },
+    {
+      "name": "Lio positive-slope Platt calibration",
+      "lane": "calibration / pooled ranking",
+      "status": "completed_rejected",
+      "report": "reports/round2_xgb_lio_platt_selection_2021.json",
+      "interpretation": "BCE improved but full2021ensembleAUC dropped relative to identity. Identity retained; no2022 calibration check."
+    },
+    {
+      "name": "round2_xgb_haukeli_depth4_2022",
+      "lane": "frozen specialist confirmation",
+      "status": "completed_improves_baseline_but_not_incumbent_both_years",
+      "selected_trees": 203,
+      "report": "reports/round2_xgb_haukeli_depth4_2022_metrics.json",
+      "comparison_report": "reports/round2_xgb_haukeli_depth4_both_comparison.json",
+      "interpretation": "Preselected mean improves originalbaseline bothyears, but has smaller2022gain than alreadyconfirmed depth6specialistmean. Keep originaldepth6 fallback; no consistent improvement over it."
+    },
+    {
+      "name": "round2_mixer_2021",
+      "lane": "architecture / full-week dependence",
+      "status": "completed_improves_original_but_year_tradeoff_vs_incumbent",
+      "log": "/private/tmp/round2_mixer_2021.log",
+      "change": "MLP mixing across the168hours and channels, same39epochensemble-monitor budget; no newfeatures.",
+      "report": "reports/round2_mixer_2021_metrics.json",
+      "comparison_report": "reports/round2_mixer_both_comparison.json",
+      "selected_variant": "candidate_mean",
+      "selected_auc": 0.988359760002552,
+      "delta": 8.782186490952082e-05,
+      "incumbent_comparison": "reports/round2_mixer_incumbent_comparison.json",
+      "interpretation": "Frozen mean improves original winner in both years. With Haukeli fixed, Mixer is worse than incumbent Transformer mean in2021 and better in2022; do not choose by2022 alone."
+    },
+    {
+      "name": "round2_transformer_task_weights_2021",
+      "lane": "multi-task loss allocation",
+      "status": "completed_candidate_passes_two_years",
+      "session_id": 92251,
+      "log": "/private/tmp/round2_transformer_task_weights_2021.log",
+      "change": "Weight each generator BCE by its frozen neural plant contribution, normalized to mean1. Same39epochbudget/model/data/optimizer.",
+      "report": "reports/round2_transformer_task_weights_2021_metrics.json",
+      "comparison_report": "reports/round2_transformer_task_weights_both_comparison.json",
+      "best_epoch": 28,
+      "selected_variant": "candidate_mean",
+      "selection_frozen_before_2022": true,
+      "selected_auc": 0.9886489440779661,
+      "selected_epoch": 28,
+      "results": [
+        {
+          "year": 2021,
+          "auc": 0.9886489440779661,
+          "delta": 0.0003770059403236
+        },
+        {
+          "year": 2022,
+          "auc": 0.988311182,
+          "delta": 0.000540507,
+          "jan7_plus_delta": 0.000528188
+        }
+      ]
+    },
+    {
+      "name": "round2_xgb_depth8_2021",
+      "lane": "global model capacity",
+      "status": "completed_mixed_years_as_standalone_change",
+      "log": "/private/tmp/round2_xgb_depth8_2021.log",
+      "change": "Depth6to8; samefeatures/otherparams;2200cap/100patience.",
+      "report": "reports/round2_xgb_depth8_2021_metrics.json",
+      "comparison_report": "reports/round2_xgb_depth8_both_comparison.json",
+      "selected_variant": "candidate_replace",
+      "selected_trees": 748,
+      "selected_auc": 0.988561865,
+      "selection_frozen_before_2022": true,
+      "attribution_report": "reports/round2_depth8_attribution.json",
+      "interpretation": "Preselected replacement improves2021ensemble but slightlyworsens2022alone. Selectedcombinedrecipepassesbothyears, drivenbyneural/specialistchangesin2022. Do notclaimdepth8generalizesbetterinbothyears."
+    },
+    {
+      "name": "round2_mixer_2022",
+      "lane": "frozen architecture confirmation",
+      "status": "completed_improves_original_but_year_tradeoff_vs_incumbent",
+      "log": "/private/tmp/round2_mixer_2022.log",
+      "selected_epochs": 38,
+      "selected_variant": "candidate_mean",
+      "selection_frozen_before_2022": true,
+      "report": "reports/round2_mixer_2022_metrics.json",
+      "comparison_report": "reports/round2_mixer_both_comparison.json",
+      "incumbent_comparison": "reports/round2_mixer_incumbent_comparison.json",
+      "interpretation": "Frozen mean improves original winner in both years. With Haukeli fixed, Mixer is worse than incumbent Transformer mean in2021 and better in2022; do not choose by2022 alone."
+    },
+    {
+      "name": "round2_transformer_task_weights_2022",
+      "lane": "frozen multi-task loss confirmation",
+      "status": "completed_candidate_passes_two_years",
+      "selected_epochs": 28,
+      "selected_variant": "candidate_mean",
+      "selection_frozen_before_2022": true,
+      "log": "/private/tmp/round2_transformer_task_weights_2022.log",
+      "session_id": 76872,
+      "report": "reports/round2_transformer_task_weights_2022_metrics.json",
+      "comparison_report": "reports/round2_transformer_task_weights_both_comparison.json",
+      "results": [
+        {
+          "year": 2021,
+          "auc": 0.9886489440779661,
+          "delta": 0.0003770059403236
+        },
+        {
+          "year": 2022,
+          "auc": 0.988311182,
+          "delta": 0.000540507,
+          "jan7_plus_delta": 0.000528188
+        }
+      ]
+    },
+    {
+      "name": "round2_xgb_depth8_2022",
+      "lane": "frozen global capacity confirmation",
+      "status": "completed_mixed_years_as_standalone_change",
+      "selected_trees": 748,
+      "selected_variant": "candidate_replace",
+      "selection_frozen_before_2022": true,
+      "log": "/private/tmp/round2_xgb_depth8_2022.log",
+      "report": "reports/round2_xgb_depth8_2022_metrics.json",
+      "comparison_report": "reports/round2_xgb_depth8_both_comparison.json",
+      "attribution_report": "reports/round2_depth8_attribution.json",
+      "interpretation": "Preselected replacement improves2021ensemble but slightlyworsens2022alone. Selectedcombinedrecipepassesbothyears, drivenbyneural/specialistchangesin2022. Do notclaimdepth8generalizesbetterinbothyears."
+    },
+    {
+      "name": "round2_transformer_rdrop_2021",
+      "lane": "regularization / dropout consistency",
+      "status": "completed_not_selected_against_current_neural",
+      "log": "/private/tmp/round2_transformer_rdrop_2021.log",
+      "change": "Matched39epochbudget with ensemblecheckpoint selection, samefeatures/architecture/optimizer, averagedtwo-passBCE plus mean symmetricBernoulliKL weight1.",
+      "session_id": 80120,
+      "report": "reports/round2_transformer_rdrop_2021_metrics.json",
+      "selected_epoch": 29,
+      "comparison_report": "reports/round2_transformer_rdrop_2021_comparison.json",
+      "selection_report": "reports/round2_transformer_rdrop_selection_2021.json",
+      "selected_variant": "candidate_mean",
+      "selected_auc": 0.988436752,
+      "interpretation": "Improvesoriginalwinnerbutbelow2021weightedTransformermean(.988648944); notadvancedto2022. Thisisnot a2022failureclaim."
+    },
+    {
+      "name": "round2_xgb_sampling_2021",
+      "lane": "stochastic regularization",
+      "status": "completed_not_selected",
+      "session_id": 32141,
+      "log": "/private/tmp/round2_xgb_sampling_2021.log",
+      "change": "subsample .8 andcolsample_bytree .9, baseline depth6 andunchangedfeatures,2200cap/100patience.",
+      "report": "reports/round2_xgb_sampling_2021_metrics.json",
+      "selected_trees": 846,
+      "comparison_report": "reports/round2_xgb_sampling_2021_comparison.json",
+      "combined_selection_report": "reports/round2_sampling_combined_selection_2021.json",
+      "interpretation": "Neither variant beats startingensemble2021. Bestcombinedsamplingmean(.988658626) fallsbelowselectedcombined .988918450; no2022runorclaim."
+    },
+    {
+      "name": "round2_transformer_transition_2021",
+      "lane": "supervised sequence loss",
+      "status": "completed_not_selected_against_current_neural",
+      "change": "Matched39epochensemblemonitorcontrol with BCE+0.2mean squaredsignedhourlyprobability/labelchange error,within eachcase/generator only.",
+      "session_id": 37785,
+      "log": "/private/tmp/round2_transformer_transition_2021.log",
+      "report": "reports/round2_transformer_transition_2021_metrics.json",
+      "selected_epoch": 37,
+      "comparison_report": "reports/round2_transformer_transition_2021_comparison.json",
+      "selection_report": "reports/round2_transformer_transition_selection_2021.json",
+      "selected_variant": "candidate_replace",
+      "selected_auc": 0.98853443,
+      "interpretation": "ImprovesoriginalwinnerbutdoesnotbeatweightedTransformer2021. No2022runorclaim; thisparticulartransitionauxiliary is tested, notdeferred."
+    },
+    {
+      "name": "round2_transformer_ranknet_2021",
+      "lane": "objective alignment / pairwise ranking",
+      "status": "completed_not_selected_against_current_neural",
+      "session_id": 22439,
+      "log": "/private/tmp/round2_transformer_ranknet_2021.log",
+      "change": "BCE+.2sampledpairwise logisticrankingloss,4096ON/OFFpairs pooledacrossweeklybatch. Same39epochensemblemonitorbudget. Last exploratoryscreen.",
+      "report": "reports/round2_transformer_ranknet_2021_metrics.json",
+      "comparison_report": "reports/round2_transformer_ranknet_2021_comparison.json",
+      "selection_report": "reports/round2_transformer_ranknet_selection_2021.json",
+      "selected_epoch": 31,
+      "selected_variant": "candidate_mean",
+      "selected_auc": 0.988507871,
+      "interpretation": "Belowweightedneural2021threshold .988648944; no2022runorclaim."
+    }
+  ],
+  "batch_reviews": [
+    {
+      "stage": "initial independent review",
+      "findings": [
+        "Current winner exactly reproduced on both historical years.",
+        "2022 recent LightGBM addition small versus temporal-block uncertainty.",
+        "Switching hours and Lio/Haukeli/Hogga disproportionately difficult.",
+        "Cross-generator error prevalence does not establish calibration failure after pair-availability adjustment.",
+        "Old tree comparator was anchored to predecessor; new round2_compare uses actual winner.",
+        "Transformer checkpoint currently selected by standalone AUC despite unequal plant contributions.",
+        "Supplied materials omit generator initial states and minimum dwell settings; these cannot be assumed causes.",
+        "Actual one-hour ON/OFF runs contradict a universal >=2hour dwell rule.",
+        "Tokke interchangeable-unit structure is within penstock pairs; do not impose a global four-unit priority."
+      ],
+      "next_actions": [
+        "LightGBM convergence check",
+        "Current-baseline XGB capacity/regularization search on2021 then frozen2022",
+        "Neural frozen-ensemble checkpoint criterion and isolated LR/loss ablations"
+      ]
+    },
+    {
+      "stage": "input shift and frozen-model diagnostics",
+      "findings": [
+        "Economic rescaling largely resolves rawprice range extrapolation.",
+        "Near economic break-even is consistently harder after descriptive composition controls.",
+        "High normalized price volatility is harder mainlyin2022, not a stable universal bottleneck.",
+        "Frozen2021ensemble generalizes reasonably to2022 but loses about.002AUC versusnative2022models.",
+        "Weaktemporal smoothing fails2021selection."
+      ],
+      "next_actions": [
+        "FinishLGBconvergence",
+        "Selectneuralcheckpointbyfixedensemblecontribution",
+        "Testtreecapacity/stochasticregularization",
+        "Testinput-definedboundaryreweightingwithunchangedfeatures",
+        "Testtransitiontargetlossanddropoutconsistency"
+      ]
+    },
+    {
+      "stage": "first fitting result",
+      "findings": [
+        "LGB convergence reached at1895trees; standalone2022AUC.987994, frozenensemble.987984 versus.987771 baseline.",
+        "Gain is smaller insideensemble thanstandalone; no promotion before2021confirmation."
+      ],
+      "reassessment": {
+        "eda": "Switch/economicboundary concentration remains target.",
+        "validation": "2022improvement persists afterselection-horizonpurge, conditionaldevelopmentresult.",
+        "optimization": "800treecapwasrestrictive; nowchangeexperimental lane.",
+        "regularization": "RDrop/weights/depthcontrols pending, no conclusion yet.",
+        "research": "Harddurationrules rejected; cheap supervisedtransitioncontrol remainsplausible."
+      },
+      "next_actions": [
+        "Neuralcheckpointcriterion2021",
+        "XGBcapacity2021",
+        "LGB2021continuation"
+      ]
+    },
+    {
+      "stage": "first optimization and capacity screens",
+      "findings": [
+        "LightGBMlongerfitimproves2022ensemblemodestly;2021fixedcountcheckrunning.",
+        "Depth4reducesXGBtrainAUC(.99782to.99236)andvalidation(.98448to.98149); blanketcapacityreductionisnotasolutioninthisregime.",
+        "Ensemble-basedearlystoppingstoppedneuraltrainingprematurely; fixed39epochcheckpointcomparisonwillisolatethatconfound.",
+        "Temperaturecalibrationpositivebutonlyabout.00001AUC."
+      ],
+      "next_actions": [
+        "Finishbackward2021LGBcheck",
+        "Matched-budgetcheckpointcontrol",
+        "DeeperXGBandstochasticregularization",
+        "Mixerarchitectureandtasklossallocation",
+        "Boundaryreweighting/transitionloss/RDrop/RankNetcontrols"
+      ],
+      "validation_note": "Everycandidateiscomparedwithactualwinnerandfrozenplantweights; noKagglelabelsornewleaderboardfeedbackused."
+    },
+    {
+      "stage": "diagnosis after fixed-count LightGBM confirmation",
+      "findings": [
+        "A single late LightGBM leaf shifts 1021 Lio validation outputs by -6.5886 log-odds; 93.63% of them are truly ON. One-step standalone AUC loss is 0.0007107.",
+        "Preserved model prefix, feature schema and reconstructed predictions all agree; this is a real low-Hessian update instability, not a continuation bug.",
+        "Tree specialists for Haukeli/Lio have not been tested before. Prior specialists were CNNs.",
+        "Existing CNN seed averaging/EMA/SWA/scheduler experiments were actually fitted; previous Transformer RDrop/RankNet/lower-LR variants were only prepared."
+      ],
+      "next_actions": [
+        "Finish matched-budget neural checkpoint control",
+        "Test inexpensive tree specialists",
+        "Test explicit capped late LightGBM updates",
+        "Continue architecture and regularization controls; do not replace broad investigation with only LightGBM."
+      ]
+    },
+    {
+      "stage": "specialist confirmation and metric decomposition",
+      "findings": [
+        "Lio specialist replacement improves 2021 substantially but fails pooled 2022 confirmation, despite a small improvement in final within-Lio ranking. Cross-generator pairs explain the pooled decline.",
+        "Haukeli preselected mean improves 2022 by 0.000187878 with all three conditional block confidence intervals positive; 2021 gain is tiny and uncertain.",
+        "A narrowly scoped positive-slope Lio calibration control will fit 2021 only before another explicitly development-driven 2022 check; this is not fresh confirmation."
+      ],
+      "next_actions": [
+        "Finish neural 37-epoch frozen confirmation",
+        "Test four inexpensive specialist capacity/regularization controls",
+        "Run capped late LightGBM updates and architecture/loss controls"
+      ]
+    },
+    {
+      "stage": "depth8 and Mixer screens",
+      "findings": [
+        "Global depth8 improves2021fullensemble; selected replacement and748trees before2022.",
+        "Mixer mean improves original bothyears but tradesoff years versusconfirmedTransformermean.",
+        "Weighted Transformer selected mean/28epochs on2021; confirmation running.",
+        "RDrop mathematical and gradient checks passed; one regularization screen prioritized before finalreserve."
+      ],
+      "next_actions": [
+        "Finish weightedTransformer2022",
+        "Confirm depth8 with748fixedtrees",
+        "RDrop2021 matched39epochcontrol",
+        "Stochastic tree sampling if confirmation budget permits"
+      ]
+    },
+    {
+      "stage": "combined confirmation and remaining controls",
+      "utc": "2026-10-14T14:51:24.875203+00:00",
+      "findings": [
+        "Preselected combined recipe improvesoriginalandfallback bothyears; officialmetricreproductionexact.",
+        "Depth8marginal effectmixedacrossyears; do notclaimuniformcapacitybenefit.",
+        "Transitionregionsremainmainerrorconcentration; Lio2022regressesdespiteoverallgain.",
+        "RDrop39epochscreencompleted; comparisonpending."
+      ],
+      "next_actions": [
+        "StochasticXGBsampling2021",
+        "One supervisedtransitionloss2021 control",
+        "Conditional2022confirmation onlyif current2021incumbentisbeaten",
+        "Fullfittingandverifiedsingleexport"
+      ]
+    }
+  ],
+  "research": [
+    "reports/round2_tree_research.json",
+    "reports/round2_neural_research.json",
+    "reports/round2_problem_formulation_review.json",
+    "reports/round2_lgb_continuation_checks.json",
+    "reports/round2_generalization_review.json",
+    "reports/round2_neural_independent_review.json",
+    "reports/round2_continuation_independent_review.json",
+    "reports/round2_lgb_2022_uncertainty.json",
+    "reports/round2_lgb_fixed_count_checks.json",
+    "reports/round2_mixer_research.json",
+    "reports/round2_lgb_2021_drop_diagnosis.json",
+    "reports/round2_tree_specialist_independent_review.json",
+    "reports/round2_lgb_capped_continuation_checks.json",
+    "reports/round2_transformer_monitor_budget_uncertainty.json",
+    "reports/round2_haukeli_transformer_uncertainty.json",
+    "reports/round2_validation_protocol_review.json",
+    "reports/round2_depth8_combined_uncertainty.json",
+    "reports/round2_depth8_attribution.json",
+    "reports/round2_selected_candidate_diagnosis.json",
+    "reports/round2_final_preflight.json"
+  ],
+  "deferred": [
+    {
+      "method": "Neural plateau scheduling",
+      "reason": "Constant-LR controls prioritized; fixed2022confirmation would need exactreplayof2021LRhistory."
+    },
+    {
+      "method": "Hard minimum ON/OFF duration",
+      "reason": "Contradicted by supplied onehour runs; do not enforce."
+    },
+    {
+      "method": "Large graph/CRF architecture rewrite",
+      "reason": "Simple optimization, regularization and architecture controls prioritized within the shortened2.5hourwindow."
+    },
+    {
+      "method": "Capped LightGBM2022 continuation",
+      "reason": "Prepared config but deliberately not run: capped2021 candidate failed final ensemble selection. The Newton-update diagnosis remains useful; a fresh regularized LightGBM from the beginning would be a separate experiment."
+    },
+    {
+      "method": "Remaining global tree controls",
+      "reason": "Longer depth6, min_child_weight100, reg_lambda10 and input-boundary weights were prepared but not fitted within the time window."
+    },
+    {
+      "method": "Lower neural learning rate and stronger weight decay",
+      "reason": "Prepared but not fitted; prioritized task allocation, Mixer, RDrop, transition and pairwise-loss controls."
+    },
+    {
+      "method": "Mixup and label smoothing",
+      "reason": "Not fitted; no claim of failure or incompatibility."
+    },
+    {
+      "method": "Additional predeclared historical folds / repeated-seed uncertainty",
+      "reason": "Current years are reused development years. No additional independent holdout or seed replication was completed in this time window."
+    }
+  ],
+  "schedule": "Completed after explicit resume: all experiments terminal, selected models fitted, saved checkpoints replayed, one verified submission exported, protected originals unchanged, evidence-backed report finalized. No fitting processes remain. Kaggle upload remains with the user.",
+  "current_heavy_session": null,
+  "current_heavy_run": null,
+  "diagnostics": "reports/round2_winner_diagnosis.json",
+  "prepared_queue": {
+    "neural": [
+      "ensemble_monitor",
+      "lower_lr",
+      "ranknet",
+      "rdrop",
+      "weight_decay",
+      "transition",
+      "monitor_budget",
+      "task_weights",
+      "mixer"
+    ],
+    "xgboost": [
+      "longer",
+      "depth4",
+      "depth8",
+      "child100",
+      "lambda10",
+      "sampling",
+      "boundary_weighting"
+    ],
+    "execution_note": "Prepared candidates are not claimed as tested. Interleave families; confirm promising candidates acrossyears beforefinal35minute fullfit/export reserve. Temperature improvement is too small to prioritize over stronger controls.",
+    "device": "Force CPU in new neural configs to match prior fits and four-CPU-thread constraint; current environment also exposes MPS.",
+    "prioritized_next": [],
+    "lgb_2021_config": "configs/round2_lgb_converged_2021.json (uses validated continuation settings from round2_lgb_continued_2021.json)"
+  },
+  "implementation_changes": [
+    {
+      "files": [
+        "src/train_xgboost.py"
+      ],
+      "change": "Optional null early_stopping_rounds supports fixed2021-selected counts for2022confirmation. Tiny count/early-stop API check passed."
+    },
+    {
+      "files": [
+        "src/train_cnn.py",
+        "src/make_sequence_submission.py",
+        "src/consistency_regularization.py"
+      ],
+      "change": "CPU override; optional frozen-ensemble checkpoint monitor; configurable AdamW decay; fixed-epoch confirmation; signed transition auxiliary loss. Defaults preserved, implementation checks recorded in round2_neural_research."
+    },
+    {
+      "files": [
+        "src/train_baseline.py",
+        "src/make_submission.py"
+      ],
+      "change": "Provenance-checked LightGBM continuation with a total-tree cap. Early-stopped fitting may retain a better source model; explicit fixed-count fitting always saves the requested final trees. A declared max_delta_step override supports capped new updates; all other parameter checks remain strict."
+    },
+    {
+      "files": [
+        "src/round2_compare.py"
+      ],
+      "change": "Correct comparison against actual current winning ensemble, retaining every plant weight."
+    },
+    {
+      "files": [
+        "src/weekly_mixer.py",
+        "src/train_cnn.py",
+        "src/make_sequence_submission.py"
+      ],
+      "change": "Optional full-week Mixer and normalized generator loss weights. Unused weighted heads are ensemble components; default model/loss behavior preserved."
+    },
+    {
+      "files": [
+        "src/round2_tree_specialist.py"
+      ],
+      "change": "Single-generator XGBoost fitting with fixed-count confirmation/fullfit, unchanged feature builder, and partial prediction export. Non-target probabilities remain identical in validation comparisons."
+    }
+  ],
+  "protection_midpoint_check": {
+    "checked_utc": "2026-10-14T14:27:56Z",
+    "protected_files": 185,
+    "changed": [],
+    "verified_by": "independent subagent rehash"
+  },
+  "confirmed_candidate": {
+    "historical_report": "reports/round2_depth8_combined_both_comparison.json",
+    "variant": "depth8_haukeli_weighted_mean",
+    "selection_report": "reports/round2_depth8_combined_selection_2021.json",
+    "recipe": "Depth8 XGBoost except Haukeli retains originalshared/specialistmean; old/task-weighted Transformer mean; unchanged LightGBM and plant weights.",
+    "auc_2021": 0.9889184502673686,
+    "auc_2022": 0.9883755349637956,
+    "status": "exported_and_independently_verified",
+    "full_fit_configs": [
+      "configs/round2_xgb_depth8_full.json",
+      "configs/round2_xgb_haukeli_full.json",
+      "configs/round2_submission_transformer_task_weights.json"
+    ],
+    "submission_config": "configs/round2_submission_depth8_haukeli_weighted.json",
+    "attribution_report": "reports/round2_depth8_attribution.json",
+    "depth8_marginal_caution": "Depth8 has mixed year effects; combined2022 improvement does not establish depth8 improvement. Recipe remains the one frozen on2021.",
+    "official_metric_verification": "reports/round2_official_metric_verification.json",
+    "auc_2022_jan7_onward": 0.9882779415435364,
+    "submission": "submissions/submission_round2_depth8_haukeli_weighted.csv",
+    "export_report": "reports/submission_round2_depth8_haukeli_weighted_run.json",
+    "public_score_user_reported": 0.99053,
+    "current_best_user_reported": true
+  },
+  "specialist_regularization_selection": {
+    "lio": {
+      "prefix": "round2_xgb_lio",
+      "variant": "candidate_replace",
+      "auc_2021": 0.9889557320026957,
+      "selected_before_2022": true,
+      "note": "Selection among original and two new one-parameter controls. Original2022 results were already known; this followup remains development-driven."
+    },
+    "haukeli": {
+      "prefix": "round2_xgb_haukeli_depth4",
+      "variant": "candidate_mean",
+      "auc_2021": 0.9882934404458803,
+      "selected_before_2022": true,
+      "note": "Selection among original and two new one-parameter controls. Original2022 results were already known; this followup remains development-driven."
+    }
+  },
+  "goal_duration_edit": {
+    "previous_hours": 3,
+    "new_hours": 2.5,
+    "observed_utc": "2026-10-14T14:17:04Z",
+    "interpretation": "Total duration from original13:06:15 start, not a new2.5hourwindow."
+  },
+  "combined_selection_before_confirmation": {
+    "report": "reports/round2_depth8_combined_selection_2021.json",
+    "variant": "depth8_haukeli_weighted_mean",
+    "auc_2021": 0.98891845,
+    "delta_vs_confirmed_fallback_2021": 0.000395099,
+    "recipe": "Depth8 replacement except Haukeli retains old shared XGB/specialist50/50; original Transformer/task-weighted Transformer50/50; originalLightGBM andallplantweightsunchanged.",
+    "selection": "2021only beforeopeningweighted/depth8 2022 results"
+  },
+  "remaining_control_advancement_rule": {
+    "recorded_utc": "2026-10-14T14:47:36.544403+00:00",
+    "neural": "Evaluate the predefined replacement and50/50original/new mean after the full39epochbudget. Advance to2022only if selected2021result beats the task-weighted candidate with the same frozen original tree ensemble (.9886489440779661). Otherwise record the result as a screen and do not claim a2022failure.",
+    "tree_sampling": "Evaluate in fixed2021ensemble and against selecteddepth8; prioritize2022onlyif it improves2021selectedcombinedrecipe. No2022-drivenparameterchanges.",
+    "time": "Retain enough time for3fullfitcomponents (~11minutes), verifiedexport andreport; noextraexploratorycandidatewithoutconfirmationbudget."
+  },
+  "conditional_last_control": {
+    "recorded_utc": "2026-10-14T15:00:10.363991+00:00",
+    "name": "round2_transformer_ranknet_2021",
+    "condition": "Run only if transition fails2021advancement and timing leaves room for frozen2022confirmation plus finalfitting/export. Same39epochbudget andneuraladvancementthreshold .9886489440779661.",
+    "reason": "Test objective alignment with pooled ON/OFF ranking ratherthan anotherfeature/modelcapacitychange.",
+    "implementation": "BCE+0.2mean softplus(negative_logit-positive_logit) on4096uniformpositive/negativepairsacrossbatch; nohardlabelorvalidationinputperturbation.",
+    "primary_source": "https://www.microsoft.com/en-us/research/wp-content/uploads/2005/08/icml_ranking.pdf",
+    "note": "RankNet-inspiredauxiliary onglobalbinarypairs, notpaperreplication or exactAUCoptimization."
+  },
+  "last_schedule_review_utc": "2026-10-14T15:02:18.436557+00:00",
+  "final_decision": {
+    "utc": "2026-10-14T15:07:49.065453+00:00",
+    "recipe": "configs/round2_submission_depth8_haukeli_weighted.json",
+    "rationale": "Preselected on 2021 and confirmed unchanged on 2022. Improves the original winner and earlier fallback in both years. Later regularization and loss screens did not beat their predeclared 2021 references. Depth 8 has mixed marginal effects across years, reported explicitly.",
+    "remaining_actions": [],
+    "external_upload": "User performs Kaggle upload; no upload by agent."
+  },
+  "full_fit_pipeline": {
+    "session_id": 49074,
+    "sequential": true,
+    "threads": 4,
+    "runs": [
+      "round2_xgb_depth8_full",
+      "round2_xgb_haukeli_full",
+      "round2_submission_transformer_task_weights"
+    ],
+    "started_utc": "2026-10-14T15:07:32Z",
+    "completed": [
+      "round2_xgb_depth8_full",
+      "round2_xgb_haukeli_full",
+      "round2_submission_transformer_task_weights"
+    ],
+    "checkpoint_replays_passed": [
+      "reports/round2_depth8_checkpoint_replay.json",
+      "reports/round2_haukeli_checkpoint_replay.json",
+      "reports/round2_weighted_transformer_checkpoint_replay.json"
+    ],
+    "completed_utc": "2026-10-14T15:42:45Z"
+  },
+  "unrun_inventory": {
+    "primary_screens_not_run": [
+      "round2_xgb_longer_2021",
+      "round2_xgb_child100_2021",
+      "round2_xgb_lambda10_2021",
+      "round2_xgb_boundary_2021",
+      "round2_transformer_lower_lr_2021",
+      "round2_transformer_lower_lr_plateau_2021",
+      "round2_transformer_weight_decay_2021"
+    ],
+    "unrun_companion_templates": [
+      "round2_xgb_boundary_2022",
+      "round2_transformer_lower_lr_2022",
+      "round2_transformer_lower_lr_plateau_2022",
+      "round2_transformer_weight_decay_2022"
+    ],
+    "confirmations_skipped_after_screen": [
+      "round2_lgb_capped_2022",
+      "round2_transformer_ensemble_monitor_2022",
+      "round2_transformer_rdrop_2022",
+      "round2_transformer_transition_2022",
+      "round2_transformer_ranknet_2022"
+    ],
+    "superseded_setup": [
+      "round2_lgb_continued_2021"
+    ],
+    "unused_confirmed_fallback": [
+      "round2_transformer_monitor_full",
+      "round2_submission_haukeli_transformer"
+    ],
+    "note": "Names refer to configs/*.json. Unrun2022neuraltemplatesstillhaveunfrozenepochs/stopping; theyarenotreadyfixedconfirmations. Freezeanyfuturecountfromselectionbeforeuse. Unexecutedprimaryscreensdeferredforbroaderexistingcontrols andfinaldelivery; nofailureclaim."
+  },
+  "pause_resume_observations": {
+    "paused_status_observed_utc": "2026-10-14T15:15:01Z",
+    "active_status_observed_utc": "2026-10-14T15:47:00Z",
+    "active_time_used_seconds_at_resume_check": 7978,
+    "note": "Original wall-clock deadline was 15:36:15 UTC. Goal was paused before that deadline and resumed after it; final delivery follows the explicit resume. No new experiment was launched after the selected full-fit pipeline."
+  },
+  "updated_utc": "2026-10-14T15:51:20.331632+00:00",
+  "completion_audit": [
+    {
+      "requirement": "Start from the actual winning ensemble and improve validated pooled micro ROC-AUC",
+      "evidence": [
+        "configs/goal_submission_rescaled_tree_mean.json",
+        "reports/round2_depth8_combined_both_comparison.json",
+        "reports/round2_official_metric_verification.json"
+      ],
+      "result": "Both historical years improved; scores reproduced exactly by the unchanged supplied metric.",
+      "status": "verified"
+    },
+    {
+      "requirement": "Cover EDA, error diagnosis and problem formulation",
+      "evidence": [
+        "reports/round2_winner_diagnosis.json",
+        "reports/round2_selected_candidate_diagnosis.json",
+        "reports/round2_problem_formulation_review.json",
+        "reports/round2_generalization_review.json"
+      ],
+      "result": "Transition, generator, month, horizon, price-regime and topology investigations completed; Lio and transition weaknesses retained in report.",
+      "status": "verified"
+    },
+    {
+      "requirement": "Investigate tuning, regularization, optimization and model alternatives with subagents",
+      "evidence": [
+        "reports/round2_tree_research.json",
+        "reports/round2_neural_research.json",
+        "reports/round2_mixer_both_comparison.json",
+        "reports/round2_transformer_rdrop_selection_2021.json",
+        "reports/round2_transformer_transition_selection_2021.json",
+        "reports/round2_transformer_ranknet_selection_2021.json"
+      ],
+      "result": "Tree depth/convergence/sampling/penalties, specialists, checkpoint monitoring, task weights, calibration, temporal smoothing, Mixer, RDrop and two auxiliary losses were tested. Untested settings remain explicitly deferred.",
+      "status": "verified"
+    },
+    {
+      "requirement": "Purged chronological validation and honest independence claims",
+      "evidence": [
+        "reports/round2_validation_protocol_review.json",
+        "reports/round2_final_preflight.json",
+        "reports/round2_depth8_combined_selection_2021.json",
+        "reports/round2_depth8_combined_uncertainty.json"
+      ],
+      "result": "Six overlapping training starts purged; new selected counts frozen from 2021 for 2022; additional 2022 Jan7+ check; both years labeled reused development.",
+      "status": "verified"
+    },
+    {
+      "requirement": "Never fit competition labels; training-only preprocessing",
+      "evidence": [
+        "src/features.py",
+        "src/make_sequence_submission.py",
+        "src/make_submission.py",
+        "src/round2_tree_specialist.py",
+        "reports/round2_final_verification.json"
+      ],
+      "result": "2922 supplied labeled cases; zero overlap with725competition IDs; neural scaler fitted on training features. Neural cohort hash reconstruction limitation documented.",
+      "status": "verified"
+    },
+    {
+      "requirement": "Preserve raw data, supplied metric and existing best artifacts",
+      "evidence": [
+        "reports/round2_final_verification.json"
+      ],
+      "result": "All185 protected files retain original hashes; new outputs written to distinct paths.",
+      "status": "verified"
+    },
+    {
+      "requirement": "Sequential heavy training with four CPU threads and simple implementation",
+      "evidence": [
+        "reports/round2_final_preflight.json",
+        "reports/round2_neural_independent_review.json",
+        "reports/round2_continuation_independent_review.json",
+        "reports/round2_tree_specialist_independent_review.json"
+      ],
+      "result": "Existing training and feature paths reused with optional controls and one compact Mixer module; sequential orchestration and explicit four-thread CPU configs. No fitting processes remain.",
+      "status": "verified"
+    },
+    {
+      "requirement": "Record successes, failures, deferred work and prepare evidence-backed report",
+      "evidence": [
+        "reports/autonomous_round2_20261014.json",
+        "reports/round2_report_20261014.md"
+      ],
+      "result": "30 experiment/diagnostic records, all terminal; unrun configs separately inventoried; report covers gains, mixed effects, unsuccessful screens and remaining limitations.",
+      "status": "verified"
+    },
+    {
+      "requirement": "Verified submission with upload left to user",
+      "evidence": [
+        "submissions/submission_round2_depth8_haukeli_weighted.csv",
+        "reports/submission_round2_depth8_haukeli_weighted_run.json",
+        "reports/round2_final_verification.json"
+      ],
+      "result": "725rows,2352probabilities plusID; exacttemplateorder; all1705200values independently recomputed with zero difference; three sampled checkpoint replays pass. No Kaggle upload.",
+      "status": "verified"
+    }
+  ],
+  "final_verification": "reports/round2_final_verification.json",
+  "final_report": "reports/round2_report_20261014.md",
+  "submission_sha256": "1e977991cff10a4a75a1555f42417701f55c6a4b7c37ab68560314ca7dd6888b",
+  "completed_utc": "2026-10-14T15:51:20.331632+00:00",
+  "final_report_sha256": "2b45996ac71310438e572e1ff037c2bdb70b2d76e5aeb2a4a3311121ec662124",
+  "final_report_independent_review": {
+    "agent": "round2_diagnosis",
+    "status": "passed",
+    "scope": "Historical scores, component attribution, conditional uncertainty,30terminal experiments,deferred inventory,final verification claims.",
+    "corrections_applied": [
+      "Added tiny scalar-temperature calibration result to the Markdown report.",
+      "Described unused neural heads as having no direct supervised loss rather than being wholly untrained."
+    ]
+  },
+  "public_result": {
+    "score": 0.99053,
+    "split": "public",
+    "source": "user-reported in conversation",
+    "reported_at": "2026-10-14T18:24:08.876896+02:00",
+    "submission": "submissions/submission_round2_depth8_haukeli_weighted.csv",
+    "submission_sha256": "1e977991cff10a4a75a1555f42417701f55c6a4b7c37ab68560314ca7dd6888b",
+    "previous_best_reported": 0.989,
+    "note": "Associated with the latest delivered submission. Earlier best was supplied to three decimal places. No independent Kaggle lookup; private score unknown."
+  }
+}

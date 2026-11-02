@@ -1,0 +1,520 @@
+{
+  "checked_utc": "2026-10-14T15:47:59.682121+00:00",
+  "status": "passed",
+  "scope": "Independent saved-artifact and entire final-blend verification; no fitting, export, Kaggle upload or label access beyond supplied historical labels.",
+  "verification_script": {
+    "path": "/private/tmp/tdt4173-round2-final-verify.py",
+    "sha256": "4a622fe0a7cdae5abd58d0960da72aa1e02cc4391812d67e88f2e5c09659a855"
+  },
+  "submission": {
+    "path": "submissions/submission_round2_depth8_haukeli_weighted.csv",
+    "sha256": "1e977991cff10a4a75a1555f42417701f55c6a4b7c37ab68560314ca7dd6888b",
+    "bytes": 34370820,
+    "rows": 725,
+    "columns_including_id": 2353,
+    "probability_columns": 2352,
+    "generators": 14,
+    "hours": 168,
+    "minimum_probability": 5.7914006653781065e-06,
+    "maximum_probability": 0.9999981342848636,
+    "finite_unit_interval": true,
+    "exact_template_ids_and_order": true,
+    "exact_template_columns_and_order": true,
+    "raw_headers_unique": true
+  },
+  "recipe": {
+    "path": "configs/round2_submission_depth8_haukeli_weighted.json",
+    "sha256": "911d51dcdd926a8f276c748848603dd1c474c28834295f005f76af1660a05da3",
+    "bytes": 2394,
+    "export_run_report": {
+      "path": "reports/submission_round2_depth8_haukeli_weighted_run.json",
+      "sha256": "a89cfe364718ecb1f78feb51dde1311153e2a7aa6938470eae34cbc1fe5a1396",
+      "bytes": 5384
+    },
+    "combined_selection_report": {
+      "path": "reports/round2_depth8_combined_selection_2021.json",
+      "sha256": "d6def253d5be25df851bebcc2de5977be075aef750d14024f080277c0e703af3",
+      "bytes": 6330
+    },
+    "historical_report": {
+      "path": "reports/round2_depth8_combined_both_comparison.json",
+      "sha256": "cc1b96a62beffeaa9d5182ab10a89ebf7374093bced9284045c801888b68aa40",
+      "bytes": 11687
+    },
+    "coefficients_match_frozen_selected_recipe": true,
+    "preflight_recipe_sha256": "af85a137414abdf4b9a8a18fb95bd4cd616d2526b9b215e0fad19fb2d64bb1fb",
+    "note": "Recipe note metadata changed after confirmation; all sources and coefficients checked against selected component identities and original plant contributions."
+  },
+  "source_predictions": {
+    "xgb_rescaled": {
+      "path": "data/processed/goal_submission_xgb_rescaled_predictions.csv",
+      "sha256": "98c2ceaee61d12ff8941f8544093349d8e625a746e8ea7afbe457ae862a84f28",
+      "bytes": 19678036,
+      "rows": 725,
+      "output_columns": 2352,
+      "exact_id_and_column_order": true
+    },
+    "lightgbm_rescaled": {
+      "path": "data/processed/goal_submission_lightgbm_rescaled_predictions.csv",
+      "sha256": "2e2cd9ed384ae49a5aab78ae78e9705737bcf33dc06a54df0491a6ef2e437566",
+      "bytes": 34227813,
+      "rows": 725,
+      "output_columns": 2352,
+      "exact_id_and_column_order": true
+    },
+    "transformer": {
+      "path": "data/processed/submission_transformer_rescaled_predictions.csv",
+      "sha256": "a2a37788c932d5cc7c078ede9fbd3c8aec0c403234514c552eaeff637642b296",
+      "bytes": 19567010,
+      "rows": 725,
+      "output_columns": 2352,
+      "exact_id_and_column_order": true
+    },
+    "xgb_depth8": {
+      "path": "data/processed/round2_xgb_depth8_full_predictions.csv",
+      "sha256": "899cbd03f2cb96d643635b7f358bad2f6466a030222dc44c12956334d47988d7",
+      "bytes": 19778373,
+      "rows": 725,
+      "output_columns": 2352,
+      "exact_id_and_column_order": true
+    },
+    "haukeli_specialist": {
+      "path": "data/processed/round2_xgb_haukeli_full_predictions.csv",
+      "sha256": "eb9d6d8243369519937b2e84d8acfaeb584142da57be9f19836b0586b79e4500",
+      "bytes": 1365513,
+      "rows": 725,
+      "output_columns": 168,
+      "exact_id_and_column_order": true
+    },
+    "transformer_weighted": {
+      "path": "data/processed/round2_submission_transformer_task_weights_predictions.csv",
+      "sha256": "8195c185afd201de0bc0104a7834e86d18619e4a2307d97cbd1f67c6a2a6bac2",
+      "bytes": 19386086,
+      "rows": 725,
+      "output_columns": 2352,
+      "exact_id_and_column_order": true
+    }
+  },
+  "training_and_export_source_sha256": {
+    "src/boundary_weights.py": "41c1d2657ff15b7266490f3a4005d784ca5f1337529ab657b85d5d03f5139470",
+    "src/consistency_regularization.py": "7a6e1ea5821dfaa15dbaf9dd462bcf471d555cdafb765f64deb162f08bab84f7",
+    "src/make_cnn_averaging_submission.py": "e256d8212c66dd4d2c8e5fd373cdd4971df566aa1d123a31e4f131caa2c33aad",
+    "src/make_cnn_five_seed_submission.py": "a8917b3ec9b1de2a50d402504e9d20e532e624aa57217d81e37d0c108eccb675",
+    "src/make_cnn_stability_submissions.py": "c9b72c75a5e1cd9a463871e146cc4600af8ef863eba0cf8229a5041c69c3bc00",
+    "src/make_ensemble_submission.py": "a85608fe19889a6300c7974770e6594564e6d3c7d4cd27b910768e541db73055",
+    "src/make_goal_submission.py": "2d641c8cb99bace3e4ef67273e584399d780da3d73b0e196741f73915cafcaa2",
+    "src/make_sequence_submission.py": "3c5eaef5afc3631f3ab803d2c3180b864f925c76ced2ae1ab233aaa43e50e33e",
+    "src/make_specialist_submission.py": "694372a28d657c6ddbaa256b88d067b287efb707aca5394dc848e99e3f549c85",
+    "src/make_submission.py": "db35b096eb593e45b5a70977c3af61678820b20f10fdd9faf3c4450559b44ffb",
+    "src/round2_compare.py": "cfab13725dd64c87542dd2a0d6c380db30b00e886f23d8313b1a92a130552779",
+    "src/round2_diagnostics.py": "b85550fab55d419b54df7e2f1b687b8a91de2113f30e06c2f9352c6f15e508b9",
+    "src/round2_frozen_sequence.py": "945a037d0aaed9022d50f2a02cdb36482ec559eb7653757e3faaae201ab4b41a",
+    "src/round2_frozen_trees.py": "897ad1b565344f80330f7877f898bba93d53e5c5d6344af24900ed95577e66fd",
+    "src/round2_specialist_calibration.py": "84092b7af7b60b66ac494e6ae146a36200e2a31ecd0166af37c910aba2150d6b",
+    "src/round2_temperature.py": "b25e105bd69c3aa57a1842ea4fc7600ef3c43bdebcc98b1daaafb7d913669d3a",
+    "src/round2_temporal_probe.py": "ccd50ffe7229b0b896b9540b9c1623a5475d87bfc6cbf1005e3a5f6c49774166",
+    "src/round2_tree_specialist.py": "a09785f700df987085f637b780adcd4b80bb671029d60696bcf0c8485b2d714f",
+    "src/train_baseline.py": "bd3db34b674bcb7d8d637e99a9237450c8e781a88798b03577250843c81f163a",
+    "src/train_bilstm.py": "09c819167148d97cc814c45186af9feb1a1f4700dae49b49e4d6a79271317705",
+    "src/train_catboost.py": "ddc99fd6a538bd8043ccec0b88bc6b6c4f2820402f3b49aa4ecf3090715e23e4",
+    "src/train_cnn.py": "09f14b1425a76ca9baa7c337c510d6f22bdfa94a0c6ba2266e75f81c14e04bb0",
+    "src/train_conditional_gate.py": "f919336582939c38441744ec3f01de390981706b882c085bbad6d760a31d025d",
+    "src/train_plant_commitment.py": "fdc9e87a1d93e80e9cc4515539c58878066552f62497a478a381ca3cd535cee9",
+    "src/train_stacking.py": "1a77df1a86f2596d6a2d48c4c33cc85cbf385e4f10f5e2b051b07f66fd3050e9",
+    "src/train_stacking_bases.py": "39ca9a955892a74f81444bc4b8fdd21f6ad27f67115a25f30bcb981f5bf48e92",
+    "src/train_xgboost.py": "5d9eac57815eb2459c735cb7757bb0530da972af70a5cb2e266731efe0b01fde",
+    "src/weekly_mixer.py": "d9806b274fdcc1e9671566478ce4bf974f8acbdb01de2bcb60e31fa67e5d00d5"
+  },
+  "training_and_export_source_unchanged_since_preflight": true,
+  "full_blend_reconstruction": {
+    "method": "Independent column-by-column weighted sum of six source CSVs read with round-trip float parsing; no exporter/comparator helper called.",
+    "compared_probabilities": 1705200,
+    "max_absolute_difference": 0.0,
+    "absolute_tolerance": 1e-15,
+    "max_absolute_difference_by_plant": {
+      "Hogga": 0,
+      "Tokke": 0,
+      "Lio": 0,
+      "Byrte": 0,
+      "Vinje": 0,
+      "Haukeli": 0,
+      "Songa": 0,
+      "Kjela": 0,
+      "Vesle Kjela": 0
+    }
+  },
+  "training_cohort": {
+    "loader": "features.load_data",
+    "labeled_cases": 2922,
+    "competition_cases": 725,
+    "ordered_id_and_starttime_csv_sha256": "9ea86abb2dfaa9bb06b020cdf00bb50e69e6b95246c1971b31afab0fb230296c",
+    "ordered_id_only_csv_sha256": "5a4a125945d3301f234762f4b19eacc49df191fa6c58fd15ef11dabd25611e28",
+    "ordered_competition_id_csv_sha256": "3ccb92df0d86e6b50ec56526891814555e1984e23292bb23e00abce337792428",
+    "unique_ids": true,
+    "competition_overlap": 0,
+    "first_training_start": "2015-01-01 00:00:00+00:00",
+    "last_training_start": "2022-12-31 00:00:00+00:00"
+  },
+  "new_components": {
+    "depth8": {
+      "config": {
+        "path": "configs/round2_xgb_depth8_full.json",
+        "sha256": "997f9825b06e568ffffc1f49501cbbcfc0cdccab055ab98090a775333e01a446",
+        "bytes": 1068
+      },
+      "checkpoint": {
+        "path": "models/xgboost_round2_xgb_depth8_full.ubj",
+        "sha256": "be9d2ec89518b1dedaab757fb0aca0252bb1b8116b71d958b9ab4e7d04f84784",
+        "bytes": 11561199
+      },
+      "selection_report": {
+        "path": "reports/round2_xgb_depth8_2021_metrics.json",
+        "sha256": "fa58ae06a49c4df87cb4c8d9c938f899fcc7eae30dc705b85c55cfa3f46017be",
+        "bytes": 9074
+      },
+      "run_report": {
+        "path": "reports/round2_xgb_depth8_full_run.json",
+        "sha256": "e0bd8856c8207d52f25dba82f28ee86dc2f311b35dd68444f597ad8c412ec843",
+        "bytes": 6613
+      },
+      "replay_report": {
+        "path": "reports/round2_depth8_checkpoint_replay.json",
+        "sha256": "3fea405e4bb2c5442e0d42c26c339054e3357a5667206ce1bc20436d181b74c2",
+        "bytes": 2496
+      },
+      "selected_count": 748,
+      "ordered_training_case_ids_sha256": "9ea86abb2dfaa9bb06b020cdf00bb50e69e6b95246c1971b31afab0fb230296c",
+      "training_hash_verification": "persisted run-report cohort hash matches independently loaded ordered IDs/start times",
+      "feature_order_matches_selection": true,
+      "config_matches_run_and_selected_parameters": true,
+      "replay": {
+        "checked_utc": "2026-10-14T15:11:23.063589+00:00",
+        "status": "passed",
+        "scope": "Read-only checkpoint inference on 17 fixed competition cases; no fitting.",
+        "kind": "tree",
+        "cpu_threads": 1,
+        "model": {
+          "framework": "xgboost",
+          "trees": 748,
+          "generator_id_categories": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "feature_count": 113,
+          "torch_imported": false
+        },
+        "sample_selection": "np.linspace(0,724,17,dtype=int), fixed before inspecting predictions",
+        "template_row_positions": [
+          0,
+          45,
+          90,
+          135,
+          181,
+          226,
+          271,
+          316,
+          362,
+          407,
+          452,
+          497,
+          543,
+          588,
+          633,
+          678,
+          724
+        ],
+        "run_ids": [
+          2923,
+          2968,
+          3013,
+          3058,
+          3104,
+          3149,
+          3194,
+          3239,
+          3285,
+          3330,
+          3375,
+          3420,
+          3466,
+          3511,
+          3556,
+          3601,
+          3647
+        ],
+        "sample_cases": 17,
+        "all_cached_cases": 725,
+        "output_columns_per_case": 2352,
+        "max_absolute_difference": 2.980194091506405e-08,
+        "absolute_tolerance": 1e-07,
+        "relative_tolerance": 0,
+        "tolerance_note": "Float32 CSV serialization; neural replay may differ slightly with CPU batch size/thread arithmetic.",
+        "input_sha256": {
+          "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/configs/round2_xgb_depth8_full.json": "997f9825b06e568ffffc1f49501cbbcfc0cdccab055ab98090a775333e01a446",
+          "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/models/xgboost_round2_xgb_depth8_full.ubj": "be9d2ec89518b1dedaab757fb0aca0252bb1b8116b71d958b9ab4e7d04f84784",
+          "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/data/processed/round2_xgb_depth8_full_predictions.csv": "899cbd03f2cb96d643635b7f358bad2f6466a030222dc44c12956334d47988d7",
+          "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/reports/round2_xgb_depth8_full_run.json": "e0bd8856c8207d52f25dba82f28ee86dc2f311b35dd68444f597ad8c412ec843"
+        },
+        "input_hashes_unchanged_during_replay": true,
+        "checks": {
+          "full_cached_id_and_column_order": true,
+          "sample_id_and_column_order": true,
+          "saved_feature_names_order": true,
+          "finite_unit_interval_probabilities": true,
+          "competition_training_ids_disjoint": true,
+          "frameworks_in_separate_processes": true
+        },
+        "limitations": "Checks sampled checkpoint/export agreement, not every test prediction or model generalization."
+      }
+    },
+    "haukeli": {
+      "config": {
+        "path": "configs/round2_xgb_haukeli_full.json",
+        "sha256": "7ff3a0af22f45ef4577e8d6fa610f7b15361ea9a6346690654c36c3cff52a22d",
+        "bytes": 801
+      },
+      "checkpoint": {
+        "path": "models/round2_xgb_haukeli_full.ubj",
+        "sha256": "a62c214630e5ab6c365712438d6bae6946b2b4e789b95ab93d5c4fcebd5b1bf6",
+        "bytes": 554858
+      },
+      "selection_report": {
+        "path": "reports/round2_xgb_haukeli_2021_metrics.json",
+        "sha256": "13a91ae73368318f8a3c112af9c01208e373bfb2867992dd060807f52c77f7f3",
+        "bytes": 16960
+      },
+      "run_report": {
+        "path": "reports/round2_xgb_haukeli_full_run.json",
+        "sha256": "da0f0924347294727959877995ae3ccf6eaa379762c8af863d744ad28c36c168",
+        "bytes": 16519
+      },
+      "replay_report": {
+        "path": "reports/round2_haukeli_checkpoint_replay.json",
+        "sha256": "65ef6e19c5118e1b6043b5f883274723d149d5c8caaee6c624eb478d074dfe7a",
+        "bytes": 2376
+      },
+      "selected_count": 121,
+      "ordered_training_case_ids_sha256": "9ea86abb2dfaa9bb06b020cdf00bb50e69e6b95246c1971b31afab0fb230296c",
+      "training_hash_verification": "persisted run-report cohort hash matches independently loaded ordered IDs/start times",
+      "feature_order_matches_selection": true,
+      "config_matches_run_and_selected_parameters": true,
+      "replay": {
+        "checked_utc": "2026-10-14T15:11:35.262832+00:00",
+        "status": "passed",
+        "scope": "Read-only checkpoint inference on 17 fixed competition cases; no fitting.",
+        "kind": "specialist",
+        "cpu_threads": 1,
+        "model": {
+          "framework": "xgboost",
+          "trees": 121,
+          "generator_id_categories": [
+            0
+          ],
+          "feature_count": 113,
+          "torch_imported": false
+        },
+        "sample_selection": "np.linspace(0,724,17,dtype=int), fixed before inspecting predictions",
+        "template_row_positions": [
+          0,
+          45,
+          90,
+          135,
+          181,
+          226,
+          271,
+          316,
+          362,
+          407,
+          452,
+          497,
+          543,
+          588,
+          633,
+          678,
+          724
+        ],
+        "run_ids": [
+          2923,
+          2968,
+          3013,
+          3058,
+          3104,
+          3149,
+          3194,
+          3239,
+          3285,
+          3330,
+          3375,
+          3420,
+          3466,
+          3511,
+          3556,
+          3601,
+          3647
+        ],
+        "sample_cases": 17,
+        "all_cached_cases": 725,
+        "output_columns_per_case": 168,
+        "max_absolute_difference": 2.978515623031086e-08,
+        "absolute_tolerance": 1e-07,
+        "relative_tolerance": 0,
+        "tolerance_note": "Float32 CSV serialization; neural replay may differ slightly with CPU batch size/thread arithmetic.",
+        "input_sha256": {
+          "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/configs/round2_xgb_haukeli_full.json": "7ff3a0af22f45ef4577e8d6fa610f7b15361ea9a6346690654c36c3cff52a22d",
+          "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/models/round2_xgb_haukeli_full.ubj": "a62c214630e5ab6c365712438d6bae6946b2b4e789b95ab93d5c4fcebd5b1bf6",
+          "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/data/processed/round2_xgb_haukeli_full_predictions.csv": "eb9d6d8243369519937b2e84d8acfaeb584142da57be9f19836b0586b79e4500",
+          "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/reports/round2_xgb_haukeli_full_run.json": "da0f0924347294727959877995ae3ccf6eaa379762c8af863d744ad28c36c168"
+        },
+        "input_hashes_unchanged_during_replay": true,
+        "checks": {
+          "full_cached_id_and_column_order": true,
+          "sample_id_and_column_order": true,
+          "saved_feature_names_order": true,
+          "finite_unit_interval_probabilities": true,
+          "competition_training_ids_disjoint": true,
+          "frameworks_in_separate_processes": true
+        },
+        "limitations": "Checks sampled checkpoint/export agreement, not every test prediction or model generalization."
+      }
+    },
+    "weighted_transformer": {
+      "config": {
+        "path": "configs/round2_submission_transformer_task_weights.json",
+        "sha256": "d8f43226e07cffa2c7ad228faa6904ef3ecd0f37ada3c2fe84bb4a4529d73538",
+        "bytes": 1053
+      },
+      "checkpoint": {
+        "path": "models/round2_submission_transformer_task_weights.pt",
+        "sha256": "2f7b8347d4747c923a91b459148af7d713a92e134a2f2664aeb8dea0e0c5be31",
+        "bytes": 697848
+      },
+      "selection_report": {
+        "path": "reports/round2_transformer_task_weights_2021_metrics.json",
+        "sha256": "97de0ad2524e37a840c5fd68e74a827aa05f697f6a604577e163467bdbc9688f",
+        "bytes": 24816
+      },
+      "run_report": {
+        "path": "reports/round2_submission_transformer_task_weights_run.json",
+        "sha256": "92cefd730a2bfb727b6e35b94d67108d71a12debc28490764d5a2ecfe2fbe9f2",
+        "bytes": 19688
+      },
+      "replay_report": {
+        "path": "reports/round2_weighted_transformer_checkpoint_replay.json",
+        "sha256": "3cbf918ae7734cece18c3a238efada46f7629e758f4a3765919cfc8ff0cb8254",
+        "bytes": 2506
+      },
+      "selected_count": 28,
+      "ordered_training_case_ids_sha256": "9ea86abb2dfaa9bb06b020cdf00bb50e69e6b95246c1971b31afab0fb230296c",
+      "training_hash_verification": "not persisted by neural exporter; independently reconstructed from unchanged load_data cohort and verified training count/date bounds",
+      "feature_order_matches_selection": true,
+      "config_matches_run_and_selected_parameters": true,
+      "replay": {
+        "checked_utc": "2026-10-14T15:47:24.564236+00:00",
+        "status": "passed",
+        "scope": "Read-only checkpoint inference on 17 fixed competition cases; no fitting.",
+        "kind": "neural",
+        "cpu_threads": 1,
+        "model": {
+          "framework": "torch",
+          "epochs": 28,
+          "device": "cpu",
+          "feature_count": 306,
+          "scaler_loaded_without_refitting": true,
+          "eval_mode_dropout_disabled": true,
+          "xgboost_imported": false
+        },
+        "sample_selection": "np.linspace(0,724,17,dtype=int), fixed before inspecting predictions",
+        "template_row_positions": [
+          0,
+          45,
+          90,
+          135,
+          181,
+          226,
+          271,
+          316,
+          362,
+          407,
+          452,
+          497,
+          543,
+          588,
+          633,
+          678,
+          724
+        ],
+        "run_ids": [
+          2923,
+          2968,
+          3013,
+          3058,
+          3104,
+          3149,
+          3194,
+          3239,
+          3285,
+          3330,
+          3375,
+          3420,
+          3466,
+          3511,
+          3556,
+          3601,
+          3647
+        ],
+        "sample_cases": 17,
+        "all_cached_cases": 725,
+        "output_columns_per_case": 2352,
+        "max_absolute_difference": 2.980194091506405e-08,
+        "absolute_tolerance": 2e-06,
+        "relative_tolerance": 0,
+        "tolerance_note": "Float32 CSV serialization; neural replay may differ slightly with CPU batch size/thread arithmetic.",
+        "input_sha256": {
+          "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/configs/round2_submission_transformer_task_weights.json": "d8f43226e07cffa2c7ad228faa6904ef3ecd0f37ada3c2fe84bb4a4529d73538",
+          "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/models/round2_submission_transformer_task_weights.pt": "2f7b8347d4747c923a91b459148af7d713a92e134a2f2664aeb8dea0e0c5be31",
+          "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/data/processed/round2_submission_transformer_task_weights_predictions.csv": "8195c185afd201de0bc0104a7834e86d18619e4a2307d97cbd1f67c6a2a6bac2",
+          "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/reports/round2_submission_transformer_task_weights_run.json": "92cefd730a2bfb727b6e35b94d67108d71a12debc28490764d5a2ecfe2fbe9f2"
+        },
+        "input_hashes_unchanged_during_replay": true,
+        "checks": {
+          "full_cached_id_and_column_order": true,
+          "sample_id_and_column_order": true,
+          "saved_feature_names_order": true,
+          "finite_unit_interval_probabilities": true,
+          "competition_training_ids_disjoint": true,
+          "frameworks_in_separate_processes": true
+        },
+        "limitations": "Checks sampled checkpoint/export agreement, not every test prediction or model generalization."
+      }
+    }
+  },
+  "official_metric_verification": {
+    "path": "reports/round2_official_metric_verification.json",
+    "sha256": "d3e6cd84ddca740cede0920a61fdca3dbec025e80e6bd50ba949bb9fd67e6fa0",
+    "bytes": 8900
+  },
+  "original_file_protection": {
+    "snapshot": "/private/tmp/tdt4173-round2-original-hashes.json",
+    "snapshot_sha256": "01cdc8c2594abbd13fb241f70517aefa98d866ea5dad8f2e7b6c3e02c117d589",
+    "protected_count": 185,
+    "changed_or_missing": [],
+    "kaggle_metric_sha256": "6ba062eeb8c2983a490cad411071dfc77831e3f2233278e5a67b68810df90553"
+  },
+  "limitations": [
+    "2021/2022 remain reused development years; this verifies artifact integrity rather than private leaderboard generalization.",
+    "Model replay checks cover 17 selected competition cases per checkpoint; the entire 725-case blend is independently recomputed from saved CSVs.",
+    "Neural exporter did not persist a training-ID hash; its current ordered loader cohort, training count/date bounds, source protection and exporter behavior were checked and the reconstructed hash is recorded here."
+  ]
+}

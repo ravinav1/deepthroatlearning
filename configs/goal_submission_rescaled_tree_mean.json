@@ -1,0 +1,53 @@
+{
+  "sources": {
+    "xgb_rescaled": "data/processed/goal_submission_xgb_rescaled_predictions.csv",
+    "lightgbm_rescaled": "data/processed/goal_submission_lightgbm_rescaled_predictions.csv",
+    "transformer": "data/processed/submission_transformer_rescaled_predictions.csv"
+  },
+  "plant_weights": {
+    "Hogga": {
+      "xgb_rescaled": 0.35,
+      "lightgbm_rescaled": 0.35,
+      "transformer": 0.3
+    },
+    "Tokke": {
+      "xgb_rescaled": 0.04999999999999999,
+      "lightgbm_rescaled": 0.04999999999999999,
+      "transformer": 0.9
+    },
+    "Lio": {
+      "xgb_rescaled": 0.35,
+      "lightgbm_rescaled": 0.35,
+      "transformer": 0.3
+    },
+    "Byrte": {
+      "xgb_rescaled": 0.5,
+      "lightgbm_rescaled": 0.5
+    },
+    "Vinje": {
+      "xgb_rescaled": 0.25,
+      "lightgbm_rescaled": 0.25,
+      "transformer": 0.5
+    },
+    "Songa": {
+      "xgb_rescaled": 0.5,
+      "lightgbm_rescaled": 0.5
+    },
+    "Kjela": {
+      "xgb_rescaled": 0.4,
+      "lightgbm_rescaled": 0.4,
+      "transformer": 0.2
+    },
+    "Vesle Kjela": {
+      "xgb_rescaled": 0.5,
+      "lightgbm_rescaled": 0.5
+    },
+    "Haukeli": {
+      "xgb_rescaled": 0.5,
+      "lightgbm_rescaled": 0.5
+    }
+  },
+  "historical_report": "reports/goal_lightgbm_comparison.json",
+  "historical_variant": "candidate_equal_tree_mean",
+  "note": "Fixed 50/50 XGBoost/LightGBM mean within the tree component. Plant Transformer weights were selected on 2021 and kept unchanged. Both final trees fit all supplied labeled cases with counts selected on 2022; LightGBM used an 800-tree time cap."
+}

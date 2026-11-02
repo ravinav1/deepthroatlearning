@@ -1,0 +1,14 @@
+{
+  "branches": {
+    "long": {"cnn_prefix": "cnn_ema_long", "ema_decay": 0.99},
+    "slow": {"cnn_prefix": "cnn_ema_slow", "ema_decay": 0.995}
+  },
+  "years": [2021, 2022],
+  "xgboost_weight": 0.8,
+  "cnn_weight": 0.2,
+  "max_epochs": 60,
+  "patience": 8,
+  "early_stopping_metric": "ema",
+  "status": "planned_not_run",
+  "note": "Reserved future EMA continuation experiment; no runs executed. Same CNN training trajectory, features and chronological splits; EMA controls stopping. Historical validation is development data."
+}

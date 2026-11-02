@@ -1,0 +1,14 @@
+{
+  "selection_year": 2022,
+  "confirmation_year": 2021,
+  "baseline_transformer_weight": 0.2,
+  "candidate_transformer_weights": [0.0, 0.2, 0.5, 0.8, 1.0],
+  "xgboost_profiles": ["price", "sampling", "regularized", "deep_regularized", "recency"],
+  "transformer_prefix": "transformer_rescaled",
+  "fixed_generator": "Haukeli_G1",
+  "specialist_prefix": "cnn_specialist_haukeli",
+  "baseline_submission": "submissions/submission_xgb_transformer_haukeli_80_20.csv",
+  "xgboost_submission": "submissions/submission_xgb_ensemble.csv",
+  "transformer_predictions": "data/processed/submission_transformer_rescaled_predictions.csv",
+  "note": "Same coarse grid and one coordinate pass as the existing blend, selecting on 2022 before checking 2021. Compare frozen reverse-year weights and one fixed mean of the independently selected 2021/2022 weights against the current 2021-selected winner. Both years are development data; reverse-year checks are stability diagnostics, not forward temporal validation. Haukeli stays unchanged."
+}

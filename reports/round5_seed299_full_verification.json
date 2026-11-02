@@ -1,0 +1,129 @@
+{
+  "passed": true,
+  "source_report": "reports/round5_lgb_peer_relative_seed299_full_run.json",
+  "raw_predictions": "data/processed/round5_lgb_peer_relative_seed299_full_predictions.csv",
+  "cases": 725,
+  "outputs_per_case": 2352,
+  "training_cohort_sha256": "9ea86abb2dfaa9bb06b020cdf00bb50e69e6b95246c1971b31afab0fb230296c",
+  "competition_training_id_overlap": 0,
+  "replay_case_indices": [
+    0,
+    181,
+    362,
+    543,
+    724
+  ],
+  "replay_case_ids": [
+    2923,
+    3104,
+    3285,
+    3466,
+    3647
+  ],
+  "generator_checks": {
+    "Hogga_G1": {
+      "generator_id": 0,
+      "trees": 278,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Tokke_G1": {
+      "generator_id": 1,
+      "trees": 712,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Tokke_G2": {
+      "generator_id": 2,
+      "trees": 464,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Tokke_G3": {
+      "generator_id": 3,
+      "trees": 421,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Tokke_G4": {
+      "generator_id": 4,
+      "trees": 207,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Lio_G1": {
+      "generator_id": 5,
+      "trees": 324,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Byrte_G1": {
+      "generator_id": 6,
+      "trees": 177,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Vinje_G1": {
+      "generator_id": 7,
+      "trees": 664,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Vinje_G2": {
+      "generator_id": 8,
+      "trees": 1250,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Vinje_G3": {
+      "generator_id": 9,
+      "trees": 355,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Haukeli_G1": {
+      "generator_id": 10,
+      "trees": 129,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Songa_G1": {
+      "generator_id": 11,
+      "trees": 246,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Kjela_G1": {
+      "generator_id": 12,
+      "trees": 261,
+      "replay_max_absolute_difference": 0.0
+    },
+    "Vesle Kjela_G1": {
+      "generator_id": 13,
+      "trees": 573,
+      "replay_max_absolute_difference": 0.0
+    }
+  },
+  "blend_check": null,
+  "average_check": null,
+  "protected_originals": {
+    "snapshot": "/private/tmp/tdt4173-round5-protection.json",
+    "sha256": "38221eb4b5662733d2b8cfee9a59388f21f9d022c4887895f67d99c49892da23",
+    "unchanged_files": 432
+  },
+  "artifact_hashes": {
+    "reports/round5_lgb_peer_relative_seed299_full_run.json": "5bf37ba5f0ec59992d830dcf239c9d75f5168aeea251eb9f2cfe9be85ca88de6",
+    "data/processed/round5_lgb_peer_relative_seed299_full_predictions.csv": "7c05d58e9bc533f9fe163d38775eb97716cee8e4b9ed94e5f8febe695fb74256",
+    "configs/round5_lgb_peer_relative_seed299_full.json": "27c8c6579ed77f0839f82535f3f09abe56d6e0c5bec76bcec3e82e5d9c3f3c95",
+    "data/raw/sample_submission.csv": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba",
+    "data/raw/prediction_mapping.csv": "c8b0e5bc500a5f1dec2337f5ac680847f6a7794a7c2b7a8fb19384910a029519",
+    "data/raw/kernel/Unit_commitment_decisions.csv": "6d51f8cc6869cb82b44708168808c305c1e007cf79878ca1c1d316d07aae3ab3",
+    "src/round5_lightgbm.py": "e99c3d4e8bad98b30f3c78b7809fb256b2ac8efd75c6ae01d92551e406759b37",
+    "src/features.py": "6eea354fb4f7c80ff4c495ed3ac958777334b72a93ce1d19c14a4b0f41d66133",
+    "models/round5_lgb_peer_relative_seed299_full/Hogga_G1.txt": "9b933af335c811a2bf188fd28bb821c0c227ee2428ffc0060a9de2e5b1c14f85",
+    "models/round5_lgb_peer_relative_seed299_full/Tokke_G1.txt": "cf07ddb8ffcb1dd67b64161416fd33789aaa169ed3093be57200afd579dc6df9",
+    "models/round5_lgb_peer_relative_seed299_full/Tokke_G2.txt": "0e3f1cf1a8f719bc9f8109b484fa93dfee1eb6d7926f4f6b359e36c8869c64bf",
+    "models/round5_lgb_peer_relative_seed299_full/Tokke_G3.txt": "09ba2f1cb8e855ba82b6091cf6a95346e90d65cc4e53e28df69167c421137370",
+    "models/round5_lgb_peer_relative_seed299_full/Tokke_G4.txt": "5d0c7ae57a5ae64196a289017e88b94df17751e93009f43fbaaa4bdbba8a23b9",
+    "models/round5_lgb_peer_relative_seed299_full/Lio_G1.txt": "7d1a7018ca5bb1d91b9340c6a35558cf6c10c5c4db3118b74b09acf8b751ae5b",
+    "models/round5_lgb_peer_relative_seed299_full/Byrte_G1.txt": "d9d32ee01a6c8ef9866884dde06c35ff9a275b021a4a6d9a85cf608f12f9cbde",
+    "models/round5_lgb_peer_relative_seed299_full/Vinje_G1.txt": "f9c1e1df94abadee23a1b8e24bfa4b470b9e22c87370ca1ea31a80aed9c99c46",
+    "models/round5_lgb_peer_relative_seed299_full/Vinje_G2.txt": "dab1c6fbe29fff2c43d08b9bd952296b44f219e32233be59160a38f7f541b37c",
+    "models/round5_lgb_peer_relative_seed299_full/Vinje_G3.txt": "f410afc09a054f8bc51e0930fc03adddc6f6782b79fddf282e13c72dfdf13e31",
+    "models/round5_lgb_peer_relative_seed299_full/Haukeli_G1.txt": "a929e5c7980b17c64c97019a54d5454bb14a442307525be865fa9c2397c723cc",
+    "models/round5_lgb_peer_relative_seed299_full/Songa_G1.txt": "5d96306da7a845740cb29ddaf5ce88f45fe69c31ce26d457b94bac793e7d2206",
+    "models/round5_lgb_peer_relative_seed299_full/Kjela_G1.txt": "21fd3f49329afa11b9d3386a197212d72114f719c95bbae5f44a750090431416",
+    "models/round5_lgb_peer_relative_seed299_full/Vesle_Kjela_G1.txt": "6d0de5735f20f85a99ad1e6da681da21fdf5e85d579603ea172395b45c5ba5a2"
+  },
+  "verification_script_sha256": "4166abedc073fe33b246b657440ed10e4c66f2a88772d2c8111095c1476e62ed",
+  "cpu_threads": 1,
+  "fitting_performed": false
+}

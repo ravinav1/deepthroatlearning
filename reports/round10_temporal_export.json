@@ -1,0 +1,69 @@
+{
+  "created_utc": "2026-10-18T12:36:13.171181+00:00",
+  "submission": "submissions/submission_round10_temporal.csv",
+  "submission_sha256": "4d362d219c97cbb24d13f6a69194d686b81674cb3ece2cb9205ad485a277b688",
+  "status": "Experimental candidate from a small consistent reused-development gain; not uploaded.",
+  "recipe": "Original Round5 baseline +0.5*(frozen_temporal_corrected_two_seed_branch-original_two_seed_branch)",
+  "model_path": "models/round10_temporal_temporal.json",
+  "model_sha256": "9f9b4d6184247851cde11d84cf5885d17ae2e11e2a31e39f31028240bb170936",
+  "model_training": "2021Jan1-Dec25 cached pre2021-fitted base predictions; unchanged after historical checks.",
+  "shrinkage": 0.1,
+  "cases": 725,
+  "outputs_per_case": 2352,
+  "verified_probabilities": 1705200,
+  "template_order_verified": true,
+  "finite_probabilities_in_0_1": true,
+  "seed_mean_exactly_reconstructed": true,
+  "incumbent_exactly_reconstructed": true,
+  "csv_roundtrip_exact": true,
+  "full_model_replay_exact": true,
+  "incumbent_preserved": true,
+  "source_hashes_unchanged": true,
+  "source_sha256": {
+    "models/round10_temporal_temporal.json": "9f9b4d6184247851cde11d84cf5885d17ae2e11e2a31e39f31028240bb170936",
+    "submissions/submission_round5_lgb_generators.csv": "5b736f51f14028eaee5382124314fd4c368b72f546116d0a6ac053fafa086a29",
+    "reports/round5_lgb_peer_relative_seeds_full_mean.json": "adca76d8044889d99ef6b01e5085451491fe9c47e7ba08c13a13a2bc6193679b",
+    "reports/round10_temporal_protocol.json": "6ee15e8c2c20b5f9296af00eaecf5cbd9012615f1b7df5bcdc0f5b260e013ed9",
+    "reports/round10_temporal_results.json": "0b2c299f3655cead773d33c4de47a06a1c1718e94dbc4d2932d4723ea4a1aaa6",
+    "reports/round10_temporal_matched_control_results.json": "65aa5e0a4130d93cd7da87a9cff1938d7a399740676be069d18ac56a9dac4462",
+    "reports/round10_temporal_verification.json": "6bfbf1ef3be7a75230c06785ddd639f432bc983d6477fdb4be53ece07a34699c",
+    "reports/round10_temporal_control_amendment.json": "4f0b106dec169c32a81a060c7d33ac9239c73200eefcbd50965cf00332a88fb8",
+    "configs/round5_submission_lgb_generators.json": "bf220960c0a63186069e1b1a66983bf4d607afac2ef5f27d0e04e25608a6f703",
+    "reports/submission_round5_lgb_generators_run.json": "475ef9ced251d6d9e5b47798bbe9bf086698a7acfd2ec7448091c208457c3a45",
+    "submissions/submission_round3_temporal_ranks.csv": "6a19fc33a14e492a25914d678785162a010ec78d42e3e4db3ac06b7379aac4d9",
+    "data/raw/sample_submission.csv": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba",
+    "data/raw/prediction_mapping.csv": "c8b0e5bc500a5f1dec2337f5ac680847f6a7794a7c2b7a8fb19384910a029519",
+    "data/processed/round6_native_2021_baseline.npz": "b7e8422abbd77ba4ec2fcc1c0a8957a1594bc7ac043111f2535ef8e2fc7dd8dd",
+    "src/round10_temporal.py": "e2b6415005a60645b3b813d5c2947379fa9891dc0c89bff4ee81c4e8a4fbe2fb",
+    "src/round10_temporal_export.py": "7c1a64ed954742a33cf326975bb08279ddb9dbf7868b993ecec9fb834685d8ef",
+    "data/processed/round5_lgb_peer_relative_seeds_full_predictions.csv": "ed763a17f6e490852e155370245ce3d3a53d649ce822d9330f3777ba1ee7b675",
+    "data/processed/round5_lgb_peer_relative_seed299_full_predictions.csv": "7c05d58e9bc533f9fe163d38775eb97716cee8e4b9ed94e5f8febe695fb74256",
+    "data/processed/round5_lgb_peer_relative_seed673_full_predictions.csv": "c5192fc09c9fceb9d6a26961bee97612546fc5df8446d567e24cf4deb4a6b5a8"
+  },
+  "correction_sizes": {
+    "maximum_absolute_logit_correction": 0.19801125293738459,
+    "mean_absolute_logit_correction": 0.027323386667659467,
+    "mean_absolute_probability_change": 0.0007051420757528184
+  },
+  "per_year_prediction_changes": [
+    {
+      "year": 2023,
+      "cases": 365,
+      "mean_absolute_probability_change": 0.00032633844375840553,
+      "maximum_absolute_probability_change": 0.016569010162938935,
+      "mean_signed_probability_change": -0.0001326721077290357
+    },
+    {
+      "year": 2024,
+      "cases": 360,
+      "mean_absolute_probability_change": 0.0003791679735793852,
+      "maximum_absolute_probability_change": 0.018235875384775613,
+      "mean_signed_probability_change": -0.0001526931453091675
+    }
+  ],
+  "fitting_performed": false,
+  "blend_weight_tuning": false,
+  "cpu_threads": 1,
+  "uploaded": false,
+  "limitations": "The meta model stays frozen; no2022 refit. Native/frozen2022 evidence uses the same reused labels and does not guarantee2023/2024 or Kaggle gains. Current full base models use an additional training year beyond native2022. This is a shared linear temporal correction; raw exogenous inputs and the Round3 branch are unchanged."
+}

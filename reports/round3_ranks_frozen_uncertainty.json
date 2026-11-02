@@ -1,0 +1,43 @@
+{
+  "selected_variant": "candidate_replace",
+  "selection": "reports/round3_xgb_ranks_selection_2021.json",
+  "seed": 4173,
+  "method": "Paired circular moving-block bootstrap; entire2352-output cases kept together;14adjacent daily starts perblock,200draws.",
+  "results": [
+    {
+      "subset": "all",
+      "cases": 365,
+      "block_days": 14,
+      "repetitions": 200,
+      "reference_auc": 0.9864036339255229,
+      "candidate_auc": 0.9864608919020702,
+      "observed_delta": 5.725797654732023e-05,
+      "bootstrap_delta_mean": 5.686356401017945e-05,
+      "bootstrap_delta_std": 5.45271877814481e-05,
+      "percentile_interval_95": [
+        -4.1272967346853154e-05,
+        0.00016325648029566213
+      ],
+      "fraction_positive_draws": 0.855
+    },
+    {
+      "subset": "jan7_onward",
+      "cases": 359,
+      "block_days": 14,
+      "repetitions": 200,
+      "reference_auc": 0.9863703837446468,
+      "candidate_auc": 0.9864190191308742,
+      "observed_delta": 4.863538622734698e-05,
+      "bootstrap_delta_mean": 5.295342884427789e-05,
+      "bootstrap_delta_std": 5.8470555072327614e-05,
+      "percentile_interval_95": [
+        -6.167123407370967e-05,
+        0.00017723398547299377
+      ],
+      "fraction_positive_draws": 0.82
+    }
+  ],
+  "prediction_sha256": "013e4e2b7b575018a44d551c15f3dc7d654ed12b8680e30f5266ea3410cfc6da",
+  "source_sha256": "b85550fab55d419b54df7e2f1b687b8a91de2113f30e06c2f9352c6f15e508b9",
+  "interpretation": "Conditional uncertainty on reused historical predictions; not adjusted for repeated feature/model selection and not evidence from an untouched test set. Variant remains the one locked on2021."
+}

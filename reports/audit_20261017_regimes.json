@@ -1,0 +1,1717 @@
+{
+  "created_utc": "2026-10-17T19:55:24.681268+00:00",
+  "thresholds_from_purged_pre2021_inputs": {
+    "training_cases": 2186,
+    "relative_std_median": 0.08738071369993851,
+    "relative_std_p90": 0.2478427974029606,
+    "maximum_weekly_mean": 64.49428571428572
+  },
+  "input_regime_coverage": [
+    {
+      "year": 2021,
+      "cases": 365,
+      "regimes": {
+        "relative_volatility_at_or_below_train_median": {
+          "cases": 64,
+          "runs": 12,
+          "longest_run_days": 21
+        },
+        "relative_volatility_train_median_to_p90": {
+          "cases": 190,
+          "runs": 23,
+          "longest_run_days": 25
+        },
+        "relative_volatility_above_train_p90": {
+          "cases": 111,
+          "runs": 13,
+          "longest_run_days": 22
+        },
+        "any_negative_price": {
+          "cases": 8,
+          "runs": 1,
+          "longest_run_days": 8
+        },
+        "weekly_mean_above_pre2021_training_max": {
+          "cases": 146,
+          "runs": 1,
+          "longest_run_days": 146
+        }
+      }
+    },
+    {
+      "year": 2022,
+      "cases": 365,
+      "regimes": {
+        "relative_volatility_at_or_below_train_median": {
+          "cases": 27,
+          "runs": 6,
+          "longest_run_days": 12
+        },
+        "relative_volatility_train_median_to_p90": {
+          "cases": 192,
+          "runs": 24,
+          "longest_run_days": 25
+        },
+        "relative_volatility_above_train_p90": {
+          "cases": 146,
+          "runs": 17,
+          "longest_run_days": 24
+        },
+        "any_negative_price": {
+          "cases": 0,
+          "runs": 0,
+          "longest_run_days": 0
+        },
+        "weekly_mean_above_pre2021_training_max": {
+          "cases": 353,
+          "runs": 2,
+          "longest_run_days": 304
+        }
+      }
+    },
+    {
+      "year": 2023,
+      "cases": 365,
+      "regimes": {
+        "relative_volatility_at_or_below_train_median": {
+          "cases": 7,
+          "runs": 1,
+          "longest_run_days": 7
+        },
+        "relative_volatility_train_median_to_p90": {
+          "cases": 148,
+          "runs": 17,
+          "longest_run_days": 36
+        },
+        "relative_volatility_above_train_p90": {
+          "cases": 210,
+          "runs": 16,
+          "longest_run_days": 55
+        },
+        "any_negative_price": {
+          "cases": 90,
+          "runs": 7,
+          "longest_run_days": 34
+        },
+        "weekly_mean_above_pre2021_training_max": {
+          "cases": 252,
+          "runs": 7,
+          "longest_run_days": 133
+        }
+      }
+    },
+    {
+      "year": 2024,
+      "cases": 360,
+      "regimes": {
+        "relative_volatility_at_or_below_train_median": {
+          "cases": 0,
+          "runs": 0,
+          "longest_run_days": 0
+        },
+        "relative_volatility_train_median_to_p90": {
+          "cases": 73,
+          "runs": 11,
+          "longest_run_days": 38
+        },
+        "relative_volatility_above_train_p90": {
+          "cases": 287,
+          "runs": 11,
+          "longest_run_days": 113
+        },
+        "any_negative_price": {
+          "cases": 156,
+          "runs": 7,
+          "longest_run_days": 51
+        },
+        "weekly_mean_above_pre2021_training_max": {
+          "cases": 55,
+          "runs": 8,
+          "longest_run_days": 17
+        }
+      }
+    }
+  ],
+  "evaluations": [
+    {
+      "year": 2021,
+      "mode": "native",
+      "overall_micro_auc": 0.9903748458953463,
+      "overall_mean_bce": 0.12702155973204676,
+      "regimes": [
+        {
+          "regime": "relative_volatility_at_or_below_train_median",
+          "cases": 64,
+          "runs": 12,
+          "longest_run_days": 21,
+          "outputs": 150528,
+          "output_fraction": 0.17534246575342466,
+          "on_fraction": 0.4631762861394558,
+          "mean_probability": 0.4512407214023215,
+          "micro_roc_auc": 0.990163731718192,
+          "incident_wrong_pair_share": 0.33304791358959707,
+          "incident_available_pair_share": 0.32035486607742464,
+          "error_enrichment_vs_pair_availability": 1.039621834584853,
+          "incident_pair_error_rate": 0.010006520368441891,
+          "allocated_wrong_pair_share": 0.1822739970640275,
+          "mean_bce": 0.1313797833169666,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": 0.9851253058453132,
+              "mean_bce": 0.1750196328502016,
+              "allocated_global_wrong_pair_share": 0.0167246690955115
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": 0.991738564929826,
+              "mean_bce": 0.1216271099523382,
+              "allocated_global_wrong_pair_share": 0.011753956099718526
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": 0.9862086116445047,
+              "mean_bce": 0.14668569223274033,
+              "allocated_global_wrong_pair_share": 0.015081378686640829
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": 0.9923882825366195,
+              "mean_bce": 0.10633723975696892,
+              "allocated_global_wrong_pair_share": 0.010804009170144856
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": 0.993749640825537,
+              "mean_bce": 0.1000112011595232,
+              "allocated_global_wrong_pair_share": 0.009691502319052683
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": 0.9795636375988052,
+              "mean_bce": 0.22882460796308063,
+              "allocated_global_wrong_pair_share": 0.022167399350151728
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": 0.9998282612645348,
+              "mean_bce": 0.02026527565274319,
+              "allocated_global_wrong_pair_share": 0.0017092179365727333
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": 0.9947118243290805,
+              "mean_bce": 0.08939142879918072,
+              "allocated_global_wrong_pair_share": 0.00869891087893625
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": 0.9918381771798143,
+              "mean_bce": 0.11261430192848663,
+              "allocated_global_wrong_pair_share": 0.011099634311456346
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": 0.9711731590140249,
+              "mean_bce": 0.17298171111963456,
+              "allocated_global_wrong_pair_share": 0.017113531178794966
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": 0.9872196822582989,
+              "mean_bce": 0.1588886597728503,
+              "allocated_global_wrong_pair_share": 0.01474766320908604
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": 0.9856804224658028,
+              "mean_bce": 0.16318429717814775,
+              "allocated_global_wrong_pair_share": 0.01691246938556227
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": 0.9929737583726799,
+              "mean_bce": 0.21270272720060857,
+              "allocated_global_wrong_pair_share": 0.022727784756667157
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": 0.9993209108108599,
+              "mean_bce": 0.03078308087102798,
+              "allocated_global_wrong_pair_share": 0.003041870685731625
+            }
+          ]
+        },
+        {
+          "regime": "relative_volatility_train_median_to_p90",
+          "cases": 190,
+          "runs": 23,
+          "longest_run_days": 25,
+          "outputs": 446880,
+          "output_fraction": 0.5205479452054794,
+          "on_fraction": 0.4406820622986036,
+          "mean_probability": 0.44804506320117293,
+          "micro_roc_auc": 0.9894870481891302,
+          "incident_wrong_pair_share": 0.7935804156717547,
+          "incident_available_pair_share": 0.7690425814083872,
+          "error_enrichment_vs_pair_availability": 1.031906990401533,
+          "incident_pair_error_rate": 0.009932263804284048,
+          "allocated_wrong_pair_share": 0.5438619859388436,
+          "mean_bce": 0.13208412374143033,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": 0.9721710824371015,
+              "mean_bce": 0.21586786087139603,
+              "allocated_global_wrong_pair_share": 0.06349634666576215
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": 0.9927787598803814,
+              "mean_bce": 0.11877722778646695,
+              "allocated_global_wrong_pair_share": 0.03479065876393283
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": 0.9935043747886549,
+              "mean_bce": 0.10875200634558244,
+              "allocated_global_wrong_pair_share": 0.03194330623007901
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": 0.9925130436931048,
+              "mean_bce": 0.11717082375001094,
+              "allocated_global_wrong_pair_share": 0.035275984704752184
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": 0.9916659620679251,
+              "mean_bce": 0.11973454430687616,
+              "allocated_global_wrong_pair_share": 0.03510754107652203
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": 0.9575541315477724,
+              "mean_bce": 0.2726863435997689,
+              "allocated_global_wrong_pair_share": 0.08080058360913756
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": 0.9984288117876515,
+              "mean_bce": 0.05419869268380377,
+              "allocated_global_wrong_pair_share": 0.015115367026025409
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": 0.9898998230085244,
+              "mean_bce": 0.13206019361391663,
+              "allocated_global_wrong_pair_share": 0.03944986441870122
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": 0.9856261158041691,
+              "mean_bce": 0.15378333679423092,
+              "allocated_global_wrong_pair_share": 0.04591080675440731
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": 0.9844440910563359,
+              "mean_bce": 0.15571075804584364,
+              "allocated_global_wrong_pair_share": 0.04541273429816381
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": 0.9569620470981572,
+              "mean_bce": 0.2649637193625733,
+              "allocated_global_wrong_pair_share": 0.0781986960679362
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": 0.9984073312709869,
+              "mean_bce": 0.04900486936758529,
+              "allocated_global_wrong_pair_share": 0.01298774114671941
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": 0.9836231904526517,
+              "mean_bce": 0.05158159054651208,
+              "allocated_global_wrong_pair_share": 0.015250408070814018
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": 0.9993159157610926,
+              "mean_bce": 0.03488576530545771,
+              "allocated_global_wrong_pair_share": 0.010121947105890471
+            }
+          ]
+        },
+        {
+          "regime": "relative_volatility_above_train_p90",
+          "cases": 111,
+          "runs": 13,
+          "longest_run_days": 22,
+          "outputs": 261072,
+          "output_fraction": 0.3041095890410959,
+          "on_fraction": 0.47595299381013667,
+          "mean_probability": 0.4815632084515727,
+          "micro_roc_auc": 0.9923410664283743,
+          "incident_wrong_pair_share": 0.473717777412811,
+          "incident_available_pair_share": 0.5174644761182119,
+          "error_enrichment_vs_pair_availability": 0.9154595132141841,
+          "incident_pair_error_rate": 0.00881143889125768,
+          "allocated_wrong_pair_share": 0.27386401699712887,
+          "mean_bce": 0.11584305999134635,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": 0.9731380850046368,
+              "mean_bce": 0.2096397724303565,
+              "allocated_global_wrong_pair_share": 0.03638991487741773
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": 0.9937155242241975,
+              "mean_bce": 0.10024864648563817,
+              "allocated_global_wrong_pair_share": 0.01711164431139768
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": 0.9965943664883333,
+              "mean_bce": 0.0807298935482721,
+              "allocated_global_wrong_pair_share": 0.013422094952111541
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": 0.9949482697574613,
+              "mean_bce": 0.09394544875139722,
+              "allocated_global_wrong_pair_share": 0.015953309518264472
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": 0.9952926874452718,
+              "mean_bce": 0.09741086123160403,
+              "allocated_global_wrong_pair_share": 0.016105115801929207
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": 0.9817174333699888,
+              "mean_bce": 0.1772663614196164,
+              "allocated_global_wrong_pair_share": 0.02973783165226522
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": 0.9970822813794664,
+              "mean_bce": 0.0695176628261896,
+              "allocated_global_wrong_pair_share": 0.011927468037377181
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": 0.9926371486335491,
+              "mean_bce": 0.11404025903971579,
+              "allocated_global_wrong_pair_share": 0.019281141935400196
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": 0.9898833056005494,
+              "mean_bce": 0.1278213553987535,
+              "allocated_global_wrong_pair_share": 0.021989299417253666
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": 0.9872672340368622,
+              "mean_bce": 0.14838250248072332,
+              "allocated_global_wrong_pair_share": 0.02522036728311855
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": 0.9499576202471022,
+              "mean_bce": 0.2725460562711413,
+              "allocated_global_wrong_pair_share": 0.045855495022913036
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": 0.9988214668368509,
+              "mean_bce": 0.05365917771045021,
+              "allocated_global_wrong_pair_share": 0.008815027544674434
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": 0.999389329217927,
+              "mean_bce": 0.026468969660629272,
+              "allocated_global_wrong_pair_share": 0.0038290090104048623
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": 0.9985460548393359,
+              "mean_bce": 0.05012587262436143,
+              "allocated_global_wrong_pair_share": 0.008226297632601107
+            }
+          ]
+        },
+        {
+          "regime": "any_negative_price",
+          "cases": 8,
+          "runs": 1,
+          "longest_run_days": 8,
+          "outputs": 18816,
+          "output_fraction": 0.021917808219178082,
+          "on_fraction": 0.15151998299319727,
+          "mean_probability": 0.1612464276029622,
+          "micro_roc_auc": 0.9789563126020034,
+          "incident_wrong_pair_share": 0.045059570074884696,
+          "incident_available_pair_share": 0.041188888513459705,
+          "error_enrichment_vs_pair_availability": 1.0939739260057997,
+          "incident_pair_error_rate": 0.010529667624278724,
+          "allocated_wrong_pair_share": 0.02280200921461911,
+          "mean_bce": 0.13371320363011344,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": 0.8973660213243547,
+              "mean_bce": 0.35935066317424597,
+              "allocated_global_wrong_pair_share": 0.004559256535160967
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": 0.9927772751136579,
+              "mean_bce": 0.2585526972605443,
+              "allocated_global_wrong_pair_share": 0.00317499757900333
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": 0.9674226979272851,
+              "mean_bce": 0.09099850532755414,
+              "allocated_global_wrong_pair_share": 0.0009384895888014368
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": 0.9636322940804718,
+              "mean_bce": 0.2584381314047711,
+              "allocated_global_wrong_pair_share": 0.0031484259728014013
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": 0.9384176227830454,
+              "mean_bce": 0.16881067742743844,
+              "allocated_global_wrong_pair_share": 0.0019009735713392797
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": 0.9874497603059159,
+              "mean_bce": 0.2443210586942455,
+              "allocated_global_wrong_pair_share": 0.003183707465772011
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": null,
+              "mean_bce": 0.002073752134929766,
+              "allocated_global_wrong_pair_share": 2.9682848467044666e-06
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": null,
+              "mean_bce": 0.01027443293370966,
+              "allocated_global_wrong_pair_share": 6.949577897076946e-05
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": null,
+              "mean_bce": 0.007208622256287724,
+              "allocated_global_wrong_pair_share": 4.957069799145981e-05
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": null,
+              "mean_bce": 0.002245560296836157,
+              "allocated_global_wrong_pair_share": 7.318396668196095e-06
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": 0.7890673709223945,
+              "mean_bce": 0.4605275530426298,
+              "allocated_global_wrong_pair_share": 0.005734849955000045
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": null,
+              "mean_bce": 0.0011385203666628005,
+              "allocated_global_wrong_pair_share": 8.25344618424911e-07
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": null,
+              "mean_bce": 0.007827584450467981,
+              "allocated_global_wrong_pair_share": 3.1126917339708914e-05
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": null,
+              "mean_bce": 0.00021709205126481184,
+              "allocated_global_wrong_pair_share": 3.126305372821633e-09
+            }
+          ]
+        },
+        {
+          "regime": "weekly_mean_above_pre2021_training_max",
+          "cases": 146,
+          "runs": 1,
+          "longest_run_days": 146,
+          "outputs": 343392,
+          "output_fraction": 0.4,
+          "on_fraction": 0.2893224070450098,
+          "mean_probability": 0.2918009655885303,
+          "micro_roc_auc": 0.985704652437768,
+          "incident_wrong_pair_share": 0.6967145539174252,
+          "incident_available_pair_share": 0.6434370017835919,
+          "error_enrichment_vs_pair_availability": 1.0828015050209254,
+          "incident_pair_error_rate": 0.010422131350577245,
+          "allocated_wrong_pair_share": 0.4468645891490962,
+          "mean_bce": 0.1403671977614982,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": 0.9779534046338916,
+              "mean_bce": 0.1910183330002675,
+              "allocated_global_wrong_pair_share": 0.04293624940228665
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": 0.9839407337926074,
+              "mean_bce": 0.16831901828535817,
+              "allocated_global_wrong_pair_share": 0.03840860350916944
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": 0.9859748845786368,
+              "mean_bce": 0.14663690070225663,
+              "allocated_global_wrong_pair_share": 0.03379364758064796
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": 0.9840479379813944,
+              "mean_bce": 0.16360116128926855,
+              "allocated_global_wrong_pair_share": 0.03842333949164903
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": 0.9859236968383571,
+              "mean_bce": 0.1450725582519388,
+              "allocated_global_wrong_pair_share": 0.03298211213726439
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": 0.9339979819860481,
+              "mean_bce": 0.35528824148065113,
+              "allocated_global_wrong_pair_share": 0.0819946054623111
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": 0.9963390748538162,
+              "mean_bce": 0.05979081543030437,
+              "allocated_global_wrong_pair_share": 0.013056716537950394
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": 0.9891337542950889,
+              "mean_bce": 0.12940218123422648,
+              "allocated_global_wrong_pair_share": 0.029803815453463993
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": 0.9875237840195429,
+              "mean_bce": 0.13268588010041343,
+              "allocated_global_wrong_pair_share": 0.03070317307791382
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": 0.99027244204615,
+              "mean_bce": 0.11463116740343743,
+              "allocated_global_wrong_pair_share": 0.025512001837726426
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": 0.959411603218981,
+              "mean_bce": 0.17724554770021578,
+              "allocated_global_wrong_pair_share": 0.03897417971944207
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": 0.9869358789878783,
+              "mean_bce": 0.03697876618044402,
+              "allocated_global_wrong_pair_share": 0.007335786883937205
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": 0.9787115662785458,
+              "mean_bce": 0.07146606376862981,
+              "allocated_global_wrong_pair_share": 0.016708522580889614
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": 0.9963189490256115,
+              "mean_bce": 0.07300413383356277,
+              "allocated_global_wrong_pair_share": 0.016231835474444106
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "mode": "native",
+      "overall_micro_auc": 0.9894979113990909,
+      "overall_mean_bce": 0.12331883437146597,
+      "regimes": [
+        {
+          "regime": "relative_volatility_at_or_below_train_median",
+          "cases": 27,
+          "runs": 6,
+          "longest_run_days": 12,
+          "outputs": 63504,
+          "output_fraction": 0.07397260273972603,
+          "on_fraction": 0.3632369614512472,
+          "mean_probability": 0.35573231897254803,
+          "micro_roc_auc": 0.9785453953705505,
+          "incident_wrong_pair_share": 0.21025977565721032,
+          "incident_available_pair_share": 0.1446961435246726,
+          "error_enrichment_vs_pair_availability": 1.4531125055268543,
+          "incident_pair_error_rate": 0.01526071628013178,
+          "allocated_wrong_pair_share": 0.1108866820545573,
+          "mean_bce": 0.18661936555896744,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": 0.9280627482252869,
+              "mean_bce": 0.27110031109328353,
+              "allocated_global_wrong_pair_share": 0.010837842687702458
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": 0.9991306823996681,
+              "mean_bce": 0.04601954025857449,
+              "allocated_global_wrong_pair_share": 0.002039389212555029
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": 0.9750069016680186,
+              "mean_bce": 0.2106355075306813,
+              "allocated_global_wrong_pair_share": 0.007828676872162578
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": 0.9996709680144813,
+              "mean_bce": 0.02694739636097395,
+              "allocated_global_wrong_pair_share": 0.0011340109100600668
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": 0.9937602809314927,
+              "mean_bce": 0.08384659290946968,
+              "allocated_global_wrong_pair_share": 0.0033048334799393067
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": 0.8279276217446389,
+              "mean_bce": 0.5265517755710536,
+              "allocated_global_wrong_pair_share": 0.022571169656766293
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": 0.9997070527720834,
+              "mean_bce": 0.025444451170708066,
+              "allocated_global_wrong_pair_share": 0.0010356445945246752
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": 0.9761135926349886,
+              "mean_bce": 0.24105154434716666,
+              "allocated_global_wrong_pair_share": 0.011863932995900744
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": 0.982143774812775,
+              "mean_bce": 0.15129482853189438,
+              "allocated_global_wrong_pair_share": 0.006128832318873597
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": 0.9403825305099413,
+              "mean_bce": 0.21713768361078933,
+              "allocated_global_wrong_pair_share": 0.009034599371192123
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": 0.9890407348080861,
+              "mean_bce": 0.20375339536418763,
+              "allocated_global_wrong_pair_share": 0.00870465070997731
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": 0.977983156168186,
+              "mean_bce": 0.017493536509243828,
+              "allocated_global_wrong_pair_share": 0.0008187634743506316
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": 0.933928244396429,
+              "mean_bce": 0.37140626190124876,
+              "allocated_global_wrong_pair_share": 0.01676606692476643
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": 0.9786512325461455,
+              "mean_bce": 0.2199882926662689,
+              "allocated_global_wrong_pair_share": 0.008818268845786053
+            }
+          ]
+        },
+        {
+          "regime": "relative_volatility_train_median_to_p90",
+          "cases": 192,
+          "runs": 24,
+          "longest_run_days": 25,
+          "outputs": 451584,
+          "output_fraction": 0.5260273972602739,
+          "on_fraction": 0.3099999114229025,
+          "mean_probability": 0.31843437259700386,
+          "micro_roc_auc": 0.9902395015354972,
+          "incident_wrong_pair_share": 0.7466138989912081,
+          "incident_available_pair_share": 0.7656900021458697,
+          "error_enrichment_vs_pair_availability": 0.9750863886152357,
+          "incident_pair_error_rate": 0.010240443646777515,
+          "allocated_wrong_pair_share": 0.495782655800284,
+          "mean_bce": 0.11720140101514355,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": 0.9759099565287885,
+              "mean_bce": 0.20013175685782567,
+              "allocated_global_wrong_pair_share": 0.05857525999020219
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": 0.9972682188677922,
+              "mean_bce": 0.07513069786275989,
+              "allocated_global_wrong_pair_share": 0.021853701236369413
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": 0.9964572319106824,
+              "mean_bce": 0.07498543814574425,
+              "allocated_global_wrong_pair_share": 0.02158894052174589
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": 0.9972426841449157,
+              "mean_bce": 0.06899740525651245,
+              "allocated_global_wrong_pair_share": 0.019829776717717983
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": 0.9953746411303118,
+              "mean_bce": 0.08368578261992049,
+              "allocated_global_wrong_pair_share": 0.024146664941945336
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": 0.9740436501427112,
+              "mean_bce": 0.2243622474621954,
+              "allocated_global_wrong_pair_share": 0.06529869870010381
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": 0.9984578259401129,
+              "mean_bce": 0.050355202659961504,
+              "allocated_global_wrong_pair_share": 0.015367733417027267
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": 0.9900041970113111,
+              "mean_bce": 0.11911562914114034,
+              "allocated_global_wrong_pair_share": 0.03515499236677449
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": 0.9851336444300786,
+              "mean_bce": 0.1400772124822257,
+              "allocated_global_wrong_pair_share": 0.04004395776027261
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": 0.9732314380854828,
+              "mean_bce": 0.15616791957641638,
+              "allocated_global_wrong_pair_share": 0.047303141288768356
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": 0.9653334679493176,
+              "mean_bce": 0.15554466884893214,
+              "allocated_global_wrong_pair_share": 0.047894725161913884
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": 0.9961645241589515,
+              "mean_bce": 0.042825111055290924,
+              "allocated_global_wrong_pair_share": 0.01450696278375141
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": 0.9771332007455944,
+              "mean_bce": 0.1598492477699748,
+              "allocated_global_wrong_pair_share": 0.05415598357716304
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": 0.9945199055608247,
+              "mean_bce": 0.08959129447310976,
+              "allocated_global_wrong_pair_share": 0.030062117336528384
+            }
+          ]
+        },
+        {
+          "regime": "relative_volatility_above_train_p90",
+          "cases": 146,
+          "runs": 17,
+          "longest_run_days": 24,
+          "outputs": 343392,
+          "output_fraction": 0.4,
+          "on_fraction": 0.3764531497530519,
+          "mean_probability": 0.3840543179115217,
+          "micro_roc_auc": 0.9902825720673877,
+          "incident_wrong_pair_share": 0.6319109022046271,
+          "incident_available_pair_share": 0.6531692403742417,
+          "error_enrichment_vs_pair_availability": 0.9674535528381061,
+          "incident_pair_error_rate": 0.010160282929169913,
+          "allocated_wrong_pair_share": 0.39333066214515866,
+          "mean_bce": 0.11965741562044789,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": 0.9878797499414065,
+              "mean_bce": 0.15120302368349778,
+              "allocated_global_wrong_pair_share": 0.03386020375712717
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": 0.9942447670444985,
+              "mean_bce": 0.10356715269945277,
+              "allocated_global_wrong_pair_share": 0.02324526823933727
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": 0.9951084637182758,
+              "mean_bce": 0.08919025155055055,
+              "allocated_global_wrong_pair_share": 0.020266703295813045
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": 0.9946341916686534,
+              "mean_bce": 0.09523708677925663,
+              "allocated_global_wrong_pair_share": 0.021619512914721823
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": 0.9949028781372847,
+              "mean_bce": 0.09238801118961018,
+              "allocated_global_wrong_pair_share": 0.02140411730728645
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": 0.9696474579010422,
+              "mean_bce": 0.22043870300082932,
+              "allocated_global_wrong_pair_share": 0.04983748326668713
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": 0.9941708638190118,
+              "mean_bce": 0.10388985046311741,
+              "allocated_global_wrong_pair_share": 0.029372656181862907
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": 0.9901539492529559,
+              "mean_bce": 0.12181614841371657,
+              "allocated_global_wrong_pair_share": 0.026954902789896082
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": 0.9885346477904292,
+              "mean_bce": 0.12722951483376246,
+              "allocated_global_wrong_pair_share": 0.02824370044518717
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": 0.9845088648753106,
+              "mean_bce": 0.13905328820031293,
+              "allocated_global_wrong_pair_share": 0.032144152041232325
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": 0.9569234684614949,
+              "mean_bce": 0.21399521527102397,
+              "allocated_global_wrong_pair_share": 0.049149160698276434
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": 0.9995894384248278,
+              "mean_bce": 0.024915233069207995,
+              "allocated_global_wrong_pair_share": 0.005998062034140911
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": 0.9945945704976187,
+              "mean_bce": 0.09895768409965931,
+              "allocated_global_wrong_pair_share": 0.023000676438178835
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": 0.9957382166890093,
+              "mean_bce": 0.09332265543227239,
+              "allocated_global_wrong_pair_share": 0.028234062735411087
+            }
+          ]
+        },
+        {
+          "regime": "any_negative_price",
+          "cases": 0,
+          "runs": 0,
+          "longest_run_days": 0,
+          "outputs": 0,
+          "output_fraction": 0.0,
+          "on_fraction": null,
+          "mean_probability": null,
+          "micro_roc_auc": null,
+          "incident_wrong_pair_share": 0.0,
+          "incident_available_pair_share": 0.0,
+          "error_enrichment_vs_pair_availability": null,
+          "incident_pair_error_rate": null,
+          "allocated_wrong_pair_share": 0.0,
+          "mean_bce": null,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            }
+          ]
+        },
+        {
+          "regime": "weekly_mean_above_pre2021_training_max",
+          "cases": 353,
+          "runs": 2,
+          "longest_run_days": 304,
+          "outputs": 830256,
+          "output_fraction": 0.9671232876712329,
+          "on_fraction": 0.3350544892177834,
+          "mean_probability": 0.3425276613171118,
+          "micro_roc_auc": 0.9909226331860368,
+          "incident_wrong_pair_share": 0.9928244136721063,
+          "incident_available_pair_share": 0.9987967104928328,
+          "error_enrichment_vs_pair_availability": 0.9940205081194354,
+          "incident_pair_error_rate": 0.010439291447390817,
+          "allocated_wrong_pair_share": 0.8974410203733164,
+          "mean_bce": 0.1157449809935212,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": 0.9818009990163383,
+              "mean_bce": 0.1816550247170617,
+              "allocated_global_wrong_pair_share": 0.0970514385590582
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": 0.9966320433715784,
+              "mean_bce": 0.08146068250163117,
+              "allocated_global_wrong_pair_share": 0.04405187860855
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": 0.9951482857616746,
+              "mean_bce": 0.08736064243039396,
+              "allocated_global_wrong_pair_share": 0.04619933657150678
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": 0.9969254873772531,
+              "mean_bce": 0.07303930147079346,
+              "allocated_global_wrong_pair_share": 0.03933507073617845
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": 0.99553320476756,
+              "mean_bce": 0.08370943587695727,
+              "allocated_global_wrong_pair_share": 0.04527696519997643
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": 0.9685659090748637,
+              "mean_bce": 0.23520590065452776,
+              "allocated_global_wrong_pair_share": 0.12644504495814263
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": 0.9985611069476404,
+              "mean_bce": 0.04578480277958787,
+              "allocated_global_wrong_pair_share": 0.02640684956046742
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": 0.9895948356110089,
+              "mean_bce": 0.12321736448504668,
+              "allocated_global_wrong_pair_share": 0.06837754869850636
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": 0.987625844692229,
+              "mean_bce": 0.12959475771132245,
+              "allocated_global_wrong_pair_share": 0.06858840952228325
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": 0.9772052843442077,
+              "mean_bce": 0.1526455857019393,
+              "allocated_global_wrong_pair_share": 0.08483091749311915
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": 0.9619049197210773,
+              "mean_bce": 0.17593018958405893,
+              "allocated_global_wrong_pair_share": 0.0990125633431161
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": 0.9981643728770165,
+              "mean_bce": 0.03208225536948617,
+              "allocated_global_wrong_pair_share": 0.019875331386924638
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": 0.9860420876031184,
+              "mean_bce": 0.1422260277578777,
+              "allocated_global_wrong_pair_share": 0.08682547753281278
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": 0.9963266093943669,
+              "mean_bce": 0.07651776286861228,
+              "allocated_global_wrong_pair_share": 0.04516418820267424
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "mode": "frozen",
+      "overall_micro_auc": 0.9870830517775449,
+      "overall_mean_bce": 0.13700259034521406,
+      "regimes": [
+        {
+          "regime": "relative_volatility_at_or_below_train_median",
+          "cases": 27,
+          "runs": 6,
+          "longest_run_days": 12,
+          "outputs": 63504,
+          "output_fraction": 0.07397260273972603,
+          "on_fraction": 0.3632369614512472,
+          "mean_probability": 0.3555554097450842,
+          "micro_roc_auc": 0.9739306641294059,
+          "incident_wrong_pair_share": 0.20919149582406696,
+          "incident_available_pair_share": 0.1446961435246726,
+          "error_enrichment_vs_pair_availability": 1.4457295870390425,
+          "incident_pair_error_rate": 0.018674414219454788,
+          "allocated_wrong_pair_share": 0.11028304502482095,
+          "mean_bce": 0.2053382389338084,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": 0.9298253432154361,
+              "mean_bce": 0.2518934063320917,
+              "allocated_global_wrong_pair_share": 0.009231723342530385
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": 0.9989263898339644,
+              "mean_bce": 0.04392940340969511,
+              "allocated_global_wrong_pair_share": 0.001810215409937233
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": 0.9721142766998622,
+              "mean_bce": 0.2204993681056592,
+              "allocated_global_wrong_pair_share": 0.006888248129310909
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": 0.9996209884723772,
+              "mean_bce": 0.026864164925580122,
+              "allocated_global_wrong_pair_share": 0.0010376853273228914
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": 0.9943620178041542,
+              "mean_bce": 0.08243362116945775,
+              "allocated_global_wrong_pair_share": 0.0030080073160422462
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": 0.6731232282548256,
+              "mean_bce": 0.695259136740213,
+              "allocated_global_wrong_pair_share": 0.027250465887394076
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": 0.9996357391459829,
+              "mean_bce": 0.030695814691155242,
+              "allocated_global_wrong_pair_share": 0.0011375470833692805
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": 0.9748406926617794,
+              "mean_bce": 0.26979971155955823,
+              "allocated_global_wrong_pair_share": 0.011528141212234768
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": 0.9807862351143743,
+              "mean_bce": 0.16073285769802034,
+              "allocated_global_wrong_pair_share": 0.005629324267441576
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": 0.9364743878474596,
+              "mean_bce": 0.2264657184113157,
+              "allocated_global_wrong_pair_share": 0.008680301051682897
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": 0.9732495044038263,
+              "mean_bce": 0.22607232911019703,
+              "allocated_global_wrong_pair_share": 0.00887872415258692
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": 0.9667854777150428,
+              "mean_bce": 0.025649259699456653,
+              "allocated_global_wrong_pair_share": 0.0011090393102463005
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": 0.9408620297439108,
+              "mean_bce": 0.41660980117247115,
+              "allocated_global_wrong_pair_share": 0.017057077945868745
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": 0.9786331862507491,
+              "mean_bce": 0.19783075204844675,
+              "allocated_global_wrong_pair_share": 0.007036544588852711
+            }
+          ]
+        },
+        {
+          "regime": "relative_volatility_train_median_to_p90",
+          "cases": 192,
+          "runs": 24,
+          "longest_run_days": 25,
+          "outputs": 451584,
+          "output_fraction": 0.5260273972602739,
+          "on_fraction": 0.3099999114229025,
+          "mean_probability": 0.317600735242806,
+          "micro_roc_auc": 0.9877042387377524,
+          "incident_wrong_pair_share": 0.7517209673246714,
+          "incident_available_pair_share": 0.7656900021458697,
+          "error_enrichment_vs_pair_availability": 0.9817562789352746,
+          "incident_pair_error_rate": 0.012681295022077183,
+          "allocated_wrong_pair_share": 0.5013042649432795,
+          "mean_bce": 0.13121634536383045,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": 0.9736701758016912,
+              "mean_bce": 0.2085758590490671,
+              "allocated_global_wrong_pair_share": 0.05476392520283885
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": 0.9965491869999522,
+              "mean_bce": 0.08557451532319078,
+              "allocated_global_wrong_pair_share": 0.022230561080383935
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": 0.9949233783565806,
+              "mean_bce": 0.08562757441733866,
+              "allocated_global_wrong_pair_share": 0.02214569077325223
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": 0.9960726704023751,
+              "mean_bce": 0.07956707887924402,
+              "allocated_global_wrong_pair_share": 0.020294547493904882
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": 0.9942733645963276,
+              "mean_bce": 0.09202823873626736,
+              "allocated_global_wrong_pair_share": 0.024393363805425894
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": 0.9634894843843648,
+              "mean_bce": 0.25129854402684665,
+              "allocated_global_wrong_pair_share": 0.06917780748071818
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": 0.9966723126150998,
+              "mean_bce": 0.07230307982790314,
+              "allocated_global_wrong_pair_share": 0.01972570039478879
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": 0.9882899164154821,
+              "mean_bce": 0.1338908779999848,
+              "allocated_global_wrong_pair_share": 0.03473626301507475
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": 0.9833443045043675,
+              "mean_bce": 0.15061409600978548,
+              "allocated_global_wrong_pair_share": 0.03796425616740319
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": 0.9721521623410853,
+              "mean_bce": 0.16023133471645695,
+              "allocated_global_wrong_pair_share": 0.044640124462560694
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": 0.9585129575963196,
+              "mean_bce": 0.196361815509768,
+              "allocated_global_wrong_pair_share": 0.05424478936194267
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": 0.995340236062365,
+              "mean_bce": 0.04946032831294247,
+              "allocated_global_wrong_pair_share": 0.015234916996173515
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": 0.975393233524796,
+              "mean_bce": 0.16603986806807755,
+              "allocated_global_wrong_pair_share": 0.050330615301028454
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": 0.9925926850814891,
+              "mean_bce": 0.10545562421675315,
+              "allocated_global_wrong_pair_share": 0.03142170340778351
+            }
+          ]
+        },
+        {
+          "regime": "relative_volatility_above_train_p90",
+          "cases": 146,
+          "runs": 17,
+          "longest_run_days": 24,
+          "outputs": 343392,
+          "output_fraction": 0.4,
+          "on_fraction": 0.3764531497530519,
+          "mean_probability": 0.3874763429865464,
+          "micro_roc_auc": 0.9883673944111401,
+          "incident_wrong_pair_share": 0.6262086286465207,
+          "incident_available_pair_share": 0.6531692403742417,
+          "error_enrichment_vs_pair_availability": 0.9587233904152106,
+          "incident_pair_error_rate": 0.012383780393649936,
+          "allocated_wrong_pair_share": 0.3884126900318995,
+          "mean_bce": 0.131974484348869,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": 0.9848306807905404,
+              "mean_bce": 0.16982189194853176,
+              "allocated_global_wrong_pair_share": 0.033957708941349335
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": 0.9935186060917083,
+              "mean_bce": 0.11670168092745004,
+              "allocated_global_wrong_pair_share": 0.023368202186288805
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": 0.9944038074870158,
+              "mean_bce": 0.09558117235128262,
+              "allocated_global_wrong_pair_share": 0.01959256916213168
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": 0.9940923633491724,
+              "mean_bce": 0.0998485897234781,
+              "allocated_global_wrong_pair_share": 0.020371212112880788
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": 0.994311810544488,
+              "mean_bce": 0.09608014908222604,
+              "allocated_global_wrong_pair_share": 0.020469212596941542
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": 0.9647338483521286,
+              "mean_bce": 0.24190839992114818,
+              "allocated_global_wrong_pair_share": 0.05057278531020195
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": 0.9899230358197083,
+              "mean_bce": 0.1194398422779871,
+              "allocated_global_wrong_pair_share": 0.027673198457900002
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": 0.989758428246006,
+              "mean_bce": 0.12525656625790493,
+              "allocated_global_wrong_pair_share": 0.024860442268563595
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": 0.9882509725903855,
+              "mean_bce": 0.12904097461830266,
+              "allocated_global_wrong_pair_share": 0.025662675052495764
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": 0.9835237587373888,
+              "mean_bce": 0.14117184846073186,
+              "allocated_global_wrong_pair_share": 0.029726267996206254
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": 0.9418317426621031,
+              "mean_bce": 0.27191126641127633,
+              "allocated_global_wrong_pair_share": 0.05596954740861802
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": 0.9993514291623006,
+              "mean_bce": 0.03066215785423915,
+              "allocated_global_wrong_pair_share": 0.006997627445160176
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": 0.9940767830349521,
+              "mean_bce": 0.09957598317529336,
+              "allocated_global_wrong_pair_share": 0.021162826899124628
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": 0.9948406604430883,
+              "mean_bce": 0.11064225787431343,
+              "allocated_global_wrong_pair_share": 0.02802841419403696
+            }
+          ]
+        },
+        {
+          "regime": "any_negative_price",
+          "cases": 0,
+          "runs": 0,
+          "longest_run_days": 0,
+          "outputs": 0,
+          "output_fraction": 0.0,
+          "on_fraction": null,
+          "mean_probability": null,
+          "micro_roc_auc": null,
+          "incident_wrong_pair_share": 0.0,
+          "incident_available_pair_share": 0.0,
+          "error_enrichment_vs_pair_availability": null,
+          "incident_pair_error_rate": null,
+          "allocated_wrong_pair_share": 0.0,
+          "mean_bce": null,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            }
+          ]
+        },
+        {
+          "regime": "weekly_mean_above_pre2021_training_max",
+          "cases": 353,
+          "runs": 2,
+          "longest_run_days": 304,
+          "outputs": 830256,
+          "output_fraction": 0.9671232876712329,
+          "on_fraction": 0.3350544892177834,
+          "mean_probability": 0.3433772703726223,
+          "micro_roc_auc": 0.9885285692553193,
+          "incident_wrong_pair_share": 0.9940608901887423,
+          "incident_available_pair_share": 0.9987967104928328,
+          "error_enrichment_vs_pair_availability": 0.9952584742677479,
+          "incident_pair_error_rate": 0.012855702180076216,
+          "allocated_wrong_pair_share": 0.9090796102697043,
+          "mean_bce": 0.1296426045941617,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": 0.9794325506560125,
+              "mean_bce": 0.19105862758487566,
+              "allocated_global_wrong_pair_share": 0.09174176475403581
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": 0.9959681986590527,
+              "mean_bce": 0.0921584759786247,
+              "allocated_global_wrong_pair_share": 0.0444722867521519
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": 0.9940562993060453,
+              "mean_bce": 0.09616157479444344,
+              "allocated_global_wrong_pair_share": 0.04523413802648276
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": 0.9961337363231713,
+              "mean_bce": 0.08045088747657374,
+              "allocated_global_wrong_pair_share": 0.03859259099734531
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": 0.9948777837670478,
+              "mean_bce": 0.08930439909719948,
+              "allocated_global_wrong_pair_share": 0.04439688769521599
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": 0.9525153009210168,
+              "mean_bce": 0.2730254827263351,
+              "allocated_global_wrong_pair_share": 0.1382005855995761
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": 0.9971618225624839,
+              "mean_bce": 0.06597314824860916,
+              "allocated_global_wrong_pair_share": 0.03352317560707927
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": 0.9880960136902539,
+              "mean_bce": 0.1353895342196326,
+              "allocated_global_wrong_pair_share": 0.06642809620813761
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": 0.9864234002526576,
+              "mean_bce": 0.13714522633727164,
+              "allocated_global_wrong_pair_share": 0.06428646492568668
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": 0.9757659824755528,
+              "mean_bce": 0.15679672061971586,
+              "allocated_global_wrong_pair_share": 0.07989874651396188
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": 0.9515691066812835,
+              "mean_bce": 0.22247677834861623,
+              "allocated_global_wrong_pair_share": 0.11224515243768213
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": 0.9971926468654182,
+              "mean_bce": 0.03869877997842529,
+              "allocated_global_wrong_pair_share": 0.022075512773684403
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": 0.9844382250757054,
+              "mean_bce": 0.1491969878446163,
+              "allocated_global_wrong_pair_share": 0.08222857816849703
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": 0.9953004166628606,
+              "mean_bce": 0.08715984106332446,
+              "allocated_global_wrong_pair_share": 0.04575562981016749
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "data/processed/round6_native_2021_baseline.npz": "b7e8422abbd77ba4ec2fcc1c0a8957a1594bc7ac043111f2535ef8e2fc7dd8dd",
+    "data/processed/round6_native_2022_baseline.npz": "90cb0e574d16b03e0a537bd641d945885a756414874d331075bbcf61713538a5",
+    "data/processed/round6_frozen_2022_baseline.npz": "c02d61695d1842e717abf152ee0d84063611623867bcc5b5fe1124d3cc2a5c92",
+    "reports/audit_20261017_regimes.py": "ed5a4c5cfcb508f528dee1c0b7bd8f71a4be8ffb03fd2df4293700d8528201bf",
+    "data/raw/kernel/Historical_day_ahead_price_2015_2025.csv": "e5edd141b34a61139f3ee3022305175446d4b4f74618df85552c4f2b5e556ee4",
+    "src/round2_diagnostics.py": "b85550fab55d419b54df7e2f1b687b8a91de2113f30e06c2f9352c6f15e508b9"
+  },
+  "fitting_performed": false,
+  "test_labels_used": false,
+  "limitations": "Descriptive, reused development predictions. Consecutive runs are not statistically independent samples; overlapping case weeks remain dependent across short breaks. Regimes overlap except the three volatility bins. Conditional subgroup AUC is not directly comparable across different label/covariate distributions. No conclusion of covariate-shift assumptions or optimal weighting follows."
+}

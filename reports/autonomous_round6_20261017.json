@@ -1,0 +1,315 @@
+{
+  "started_utc": "2026-10-17T16:49:11+00:00",
+  "deadline_utc": "2026-10-17T18:49:11+00:00",
+  "status": "complete",
+  "baseline_submission": "submissions/submission_round5_lgb_generators.csv",
+  "baseline_public_score_user_reported": 0.99172,
+  "features": "Round5 relative-price 113 features unchanged",
+  "sampling": "Same stride4 rotating phase and seed299 during screens",
+  "arms": {
+    "reference": "configs/round6_reference_seed299_2021.json",
+    "leaves31": "configs/round6_leaves31_seed299_2021.json",
+    "leaves127": "configs/round6_leaves127_seed299_2021.json",
+    "l2zero": "configs/round6_l2zero_seed299_2021.json",
+    "l2strong": "configs/round6_l2strong_seed299_2021.json",
+    "minleaf300": "configs/round6_minleaf300_seed299_2021.json",
+    "halfrounds": "configs/round6_halfrounds_seed299_2021.json",
+    "doublerounds": "configs/round6_doublerounds_seed299_2021.json"
+  },
+  "protected_snapshot": "/private/tmp/tdt4173-round6-protection.json",
+  "protected_files": 1190,
+  "protocol": {
+    "screen": "2021 only; compare .5Round3+.5candidate299 against same .5Round3+.5Round5seed299. No weight search.",
+    "selection": "Select highest 2021 single-seed ensemble AUC among seven one-factor arms only if above reference. Add seed673 uniformly for selected arm and require improvement over actual Round5 two-seed blend on2021.",
+    "confirmation": "Lock arm before2022; train both seeds with same frozen tree count schedule on pre2022 cases. Require improvement over actual Round5 all2022 andJan7+; no fallback after2022. Frozen pre2021-model2022 check also reported.",
+    "final_fit": "Only if gates pass; all2922 supplied labelled cases, no competition labels. At most one submission, no upload/push.",
+    "limits": "Both2021/2022 are reused development years; chronological split purges overlapping targetweeks. Heavyfits sequentialCPU4; inferenceCPU1. Reserve30min forfinalfit/verification."
+  },
+  "experiments": [
+    {
+      "arm": "reference",
+      "config": "configs/round6_reference_seed299_2021.json",
+      "report": "reports/round6_reference_seed299_2021_metrics.json",
+      "log": "/private/tmp/round6_reference_seed299_2021.log",
+      "status": "complete",
+      "elapsed_seconds": 125.88772129098652,
+      "exit_code": 0,
+      "validation_micro_roc_auc": 0.9882613251375608,
+      "training_micro_roc_auc": 0.9993058105994789,
+      "sampled_training_micro_roc_auc": 0.9996922274493758
+    },
+    {
+      "arm": "halfrounds",
+      "config": "configs/round6_halfrounds_seed299_2021.json",
+      "report": "reports/round6_halfrounds_seed299_2021_metrics.json",
+      "log": "/private/tmp/round6_halfrounds_seed299_2021.log",
+      "status": "complete",
+      "elapsed_seconds": 61.90140866697766,
+      "exit_code": 0,
+      "validation_micro_roc_auc": 0.986948589549864,
+      "training_micro_roc_auc": 0.9983227192057492,
+      "sampled_training_micro_roc_auc": 0.9987411828046008
+    },
+    {
+      "arm": "leaves31",
+      "config": "configs/round6_leaves31_seed299_2021.json",
+      "report": "reports/round6_leaves31_seed299_2021_metrics.json",
+      "log": "/private/tmp/round6_leaves31_seed299_2021.log",
+      "status": "complete",
+      "elapsed_seconds": 184.61728745797882,
+      "exit_code": 0,
+      "validation_micro_roc_auc": 0.988495778844063,
+      "training_micro_roc_auc": 0.9984960860683393,
+      "sampled_training_micro_roc_auc": 0.9988703781593027
+    },
+    {
+      "arm": "leaves127",
+      "config": "configs/round6_leaves127_seed299_2021.json",
+      "report": "reports/round6_leaves127_seed299_2021_metrics.json",
+      "log": "/private/tmp/round6_leaves127_seed299_2021.log",
+      "status": "complete",
+      "elapsed_seconds": 329.4042575000203,
+      "exit_code": 0,
+      "validation_micro_roc_auc": 0.9878966600597129,
+      "training_micro_roc_auc": 0.9996207546718608,
+      "sampled_training_micro_roc_auc": 0.9999443441900696
+    },
+    {
+      "arm": "l2zero",
+      "config": "configs/round6_l2zero_seed299_2021.json",
+      "report": "reports/round6_l2zero_seed299_2021_metrics.json",
+      "log": "/private/tmp/round6_l2zero_seed299_2021.log",
+      "status": "complete",
+      "elapsed_seconds": 237.43121824995615,
+      "exit_code": 0,
+      "validation_micro_roc_auc": 0.9882593689050635,
+      "training_micro_roc_auc": 0.9994292354676051,
+      "sampled_training_micro_roc_auc": 0.9998066171675379
+    },
+    {
+      "arm": "l2strong",
+      "config": "configs/round6_l2strong_seed299_2021.json",
+      "report": "reports/round6_l2strong_seed299_2021_metrics.json",
+      "log": "/private/tmp/round6_l2strong_seed299_2021.log",
+      "status": "complete",
+      "elapsed_seconds": 252.90765233297134,
+      "exit_code": 0,
+      "validation_micro_roc_auc": 0.9879868675417163,
+      "training_micro_roc_auc": 0.9990794224420454,
+      "sampled_training_micro_roc_auc": 0.9994734757810743
+    },
+    {
+      "arm": "minleaf300",
+      "config": "configs/round6_minleaf300_seed299_2021.json",
+      "report": "reports/round6_minleaf300_seed299_2021_metrics.json",
+      "log": "/private/tmp/round6_minleaf300_seed299_2021.log",
+      "status": "complete",
+      "elapsed_seconds": 262.0034446250065,
+      "exit_code": 0,
+      "validation_micro_roc_auc": 0.9884423941167558,
+      "training_micro_roc_auc": 0.9992174161467511,
+      "sampled_training_micro_roc_auc": 0.9996146599075663
+    },
+    {
+      "arm": "doublerounds",
+      "config": "configs/round6_doublerounds_seed299_2021.json",
+      "report": "reports/round6_doublerounds_seed299_2021_metrics.json",
+      "log": "/private/tmp/round6_doublerounds_seed299_2021.log",
+      "status": "complete",
+      "elapsed_seconds": 504.5335495839827,
+      "exit_code": 0,
+      "validation_micro_roc_auc": 0.9884695912228728,
+      "training_micro_roc_auc": 0.9996903474580923,
+      "sampled_training_micro_roc_auc": 0.9999706252467881
+    },
+    {
+      "arm": "finebins",
+      "config": "configs/round6_finebins_seed299_2021.json",
+      "report": "reports/round6_finebins_seed299_2021_metrics.json",
+      "log": "/private/tmp/round6_finebins_seed299_2021.log",
+      "status": "complete",
+      "elapsed_seconds": 257.1369940410368,
+      "exit_code": 0,
+      "validation_micro_roc_auc": 0.9883082480950159,
+      "training_micro_roc_auc": 0.9993740132564618,
+      "sampled_training_micro_roc_auc": 0.9997549277585805
+    },
+    {
+      "arm": "combined",
+      "config": "configs/round6_combined_seed299_2021.json",
+      "report": "reports/round6_combined_seed299_2021_metrics.json",
+      "log": "/private/tmp/round6_combined_seed299_2021.log",
+      "status": "complete",
+      "elapsed_seconds": 181.27591295802267,
+      "exit_code": 0,
+      "validation_micro_roc_auc": 0.988433900008364,
+      "training_micro_roc_auc": 0.9986805173754103,
+      "sampled_training_micro_roc_auc": 0.9990789343649258
+    },
+    {
+      "arm": "l2zero",
+      "seed": 673,
+      "config": "configs/round6_l2zero_seed673_2021.json",
+      "report": "reports/round6_l2zero_seed673_2021_metrics.json",
+      "status": "complete",
+      "elapsed_seconds": 235.12433858402073,
+      "validation_micro_roc_auc": 0.9885637743668009,
+      "training_micro_roc_auc": 0.9994308704922137,
+      "sampled_training_micro_roc_auc": 0.999804234386439
+    },
+    {
+      "arm": "l2zero",
+      "seed": 299,
+      "year": 2022,
+      "mode": "native",
+      "config": "configs/round6_l2zero_seed299_2022.json",
+      "report": "reports/round6_l2zero_seed299_2022_metrics.json",
+      "status": "complete",
+      "elapsed_seconds": 261.7761224999558,
+      "validation_micro_roc_auc": 0.9873867141743355,
+      "training_micro_roc_auc": 0.9993086948793983
+    },
+    {
+      "arm": "l2zero",
+      "seed": 673,
+      "year": 2022,
+      "mode": "native",
+      "config": "configs/round6_l2zero_seed673_2022.json",
+      "report": "reports/round6_l2zero_seed673_2022_metrics.json",
+      "status": "complete",
+      "elapsed_seconds": 263.20849912497215,
+      "validation_micro_roc_auc": 0.9871868887859638,
+      "training_micro_roc_auc": 0.9993071818942234
+    },
+    {
+      "arm": "l2zero",
+      "seed": 299,
+      "year": 2022,
+      "mode": "frozen",
+      "source_report": "reports/round6_l2zero_seed299_2021_metrics.json",
+      "report": "reports/round6_frozen_l2zero_seed299_2022_metrics.json",
+      "status": "complete",
+      "elapsed_seconds": 18.86799825000344,
+      "validation_micro_roc_auc": 0.9834505600402911,
+      "fitting_performed": false
+    },
+    {
+      "arm": "l2zero",
+      "seed": 673,
+      "year": 2022,
+      "mode": "frozen",
+      "source_report": "reports/round6_l2zero_seed673_2021_metrics.json",
+      "report": "reports/round6_frozen_l2zero_seed673_2022_metrics.json",
+      "status": "complete",
+      "elapsed_seconds": 18.75475949997781,
+      "validation_micro_roc_auc": 0.9834618874409936,
+      "fitting_performed": false
+    },
+    {
+      "arm": "l2zero",
+      "seed": 299,
+      "mode": "full",
+      "config": "configs/round6_l2zero_seed299_full.json",
+      "report": "reports/round6_l2zero_seed299_full_run.json",
+      "status": "complete",
+      "elapsed_seconds": 172.53353125002468,
+      "training_cases": 2922,
+      "prediction_cases": 725
+    },
+    {
+      "arm": "l2zero",
+      "seed": 673,
+      "mode": "full",
+      "config": "configs/round6_l2zero_seed673_full.json",
+      "report": "reports/round6_l2zero_seed673_full_run.json",
+      "status": "complete",
+      "elapsed_seconds": 172.5861992080463,
+      "training_cases": 2922,
+      "prediction_cases": 725
+    }
+  ],
+  "screen_status": "extended_complete",
+  "protocol_addenda": [
+    "reports/round6_combination_protocol_20261017.json",
+    "reports/round6_histogram_protocol_20261017.json"
+  ],
+  "selection_report": "reports/round6_selection_2021.json",
+  "selection_sha256": "816f35a140167bfd59acd9d714e4c1ee5d78e5e864921a8a0ac928e7512c0120",
+  "selected_arm": "l2zero",
+  "screen_verification": "reports/round6_screen_verification_20261017.json",
+  "2021_seed_mean_gate": {
+    "passed": true,
+    "checked_utc": "2026-10-17T17:36:55.955088+00:00",
+    "report": "reports/round6_l2zero_paired_2021.json",
+    "delta_vs_round5": 1.0709179670942426e-05,
+    "bootstrap_interval_includes_zero": true
+  },
+  "native_2022_gate": {
+    "passed": true,
+    "report": "reports/round6_l2zero_paired_native_2022.json",
+    "results": [
+      {
+        "subset": "all",
+        "micro_roc_auc": 0.9895327592112344,
+        "delta_vs_baseline": 3.4847812143468104e-05
+      },
+      {
+        "subset": "jan7_onward",
+        "micro_roc_auc": 0.9894458260125787,
+        "delta_vs_baseline": 3.466007598518228e-05
+      }
+    ],
+    "both_bootstrap_intervals_include_zero": true
+  },
+  "frozen_diagnostic": {
+    "report": "reports/round6_l2zero_paired_frozen_2022.json",
+    "all_gain": -7.996989496428242e-05,
+    "jan7_gain": -8.053735002178097e-05,
+    "not_a_predeclared_export_gate": true
+  },
+  "recommendation": "Keep currentRound5 reference; tuninggains are tiny, intervalsincludezero andfrozen transferregresses.",
+  "submission_config": "configs/round6_submission_lgb_tuned.json",
+  "heavy_jobs_running": false,
+  "submission": "submissions/submission_round6_lgb_l2zero_experimental.csv",
+  "submission_sha256": "79fa626bf5913ee2385ed9ccf852f7b658a681f7c4d8ff01555d924019891a1a",
+  "submission_export_count": 1,
+  "component_mean_report": "reports/round6_l2zero_seeds_full_mean.json",
+  "verification": "reports/round6_final_verification.json",
+  "kaggle_uploaded": false,
+  "git_pushed": false,
+  "new_public_score": null,
+  "report": "reports/round6_tuning_report_20261017.md",
+  "report_sha256": "719a5b1b49d0f2fa539843f39045398ebe73e215baaf8dfb6f2740e2a88231f9",
+  "findings": {
+    "selected_change": "L2regularization4to0;allothercurrentprofileparams/features/weightsunchanged",
+    "native_2021_gain": 1.0709179670942426e-05,
+    "native_2022_gain": 3.4847812143468104e-05,
+    "native_2022_jan7_gain": 3.466007598518228e-05,
+    "frozen_2022_jan7_gain": -8.053735002178097e-05,
+    "reference_training_auc_all_hours": 0.9993058105994789,
+    "reference_2021_component_auc": 0.9882613251375608,
+    "all_selected_gain_bootstrap_intervals_include_zero": true,
+    "robust_improvement_demonstrated": false
+  },
+  "adaptive_arms": {
+    "finebins": "configs/round6_finebins_seed299_2021.json",
+    "combined": "configs/round6_combined_seed299_2021.json"
+  },
+  "finished_utc": "2026-10-17T18:01:21.939305+00:00",
+  "elapsed_minutes": 72.18232175,
+  "within_two_hour_budget": true,
+  "report_review": {
+    "passed": true,
+    "independent_read_only_review": true,
+    "checks": [
+      "All15reportlinksresolve",
+      "CSVschema/IDorder/probabilitybounds/checksum",
+      "Bothseedverificationreportchecksums and scope",
+      "Finalfitsettings/counts unchanged from native2022",
+      "Selectionhashunchanged",
+      "Statisticalclaims/numericresults/protocoltiming matchsource reports"
+    ],
+    "model_replay_repeated_by_reviewer": false,
+    "wording_refinement": "Clarified that modelsettings/blendweights were frozen; final model weights were refitted on all suppliedlabels."
+  }
+}

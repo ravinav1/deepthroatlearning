@@ -1,0 +1,4198 @@
+{
+  "scope": "Read-only task, data and physics audit. No model fitting, prediction modification, or edits to production code, data or models. Labels used only through 2022; unlabelled input structure inspected through 2024. Correlations and mass-balance references are descriptive, not learned predictive models or feasible schedules.",
+  "generated_utc": "2026-10-17T19:52:39.378967+00:00",
+  "documents": [
+    {
+      "path": "docs/ML_Task_TDT4173.pdf",
+      "pages": [
+        1,
+        2
+      ],
+      "facts": "Weekly 168-hour commitment probabilities; 14 units, 9 plants and 17 reservoirs; 3,647 daily rolling cases; official micro ROC-AUC."
+    },
+    {
+      "path": "docs/Dataset_definitions_and_explanation.pdf",
+      "pages": [
+        1,
+        2,
+        3
+      ],
+      "facts": "Teacher version SHOP 17.17.0; storage at case start; terminal water value at start + 168 hours. Units EUR/MWh, million m3 and m3/s. Two reservoirs are fixed at half full. Teacher execution settings are not supplied."
+    },
+    {
+      "path": "docs/Tokke_topology.pdf",
+      "pages": [
+        1
+      ],
+      "facts": "Reservoir, plant, river and tunnel layout visually inspected."
+    }
+  ],
+  "pdf_review": "All six pages extracted; definitions pages 2 and 3 and the topology diagram visually rendered and inspected. Temporary PDF tools installed only under /tmp.",
+  "coverage": {
+    "train_cases": 2922,
+    "test_cases": 725,
+    "last_required_hour": "2024-12-31 23:00:00+00:00",
+    "last_terminal_date": "2025-01-01 00:00:00+00:00",
+    "input_checks": {
+      "price": {
+        "unique_timestamps": true,
+        "missing_required_hours": 0,
+        "missing_required_values": 0
+      },
+      "inflow": {
+        "unique_timestamps": true,
+        "missing_required_hours": 0,
+        "missing_required_values": 0
+      },
+      "min_volume": {
+        "unique_timestamps": true,
+        "missing_required_hours": 0,
+        "missing_required_values": 0
+      },
+      "min_flow": {
+        "unique_timestamps": true,
+        "missing_required_hours": 0,
+        "missing_required_values": 0
+      },
+      "volume": {
+        "unique_timestamps": true,
+        "missing_required_dates": 0,
+        "missing_required_values": 0
+      },
+      "water_value": {
+        "unique_timestamps": true,
+        "missing_required_dates": 0,
+        "missing_required_values": 0
+      }
+    },
+    "schema": {
+      "price": [
+        "Day-ahead price (EUR/MWh)"
+      ],
+      "volume": [
+        "Kjelavatn",
+        "Staavatn",
+        "Langesae",
+        "Foersvatn",
+        "Venemo",
+        "Botnedalsvatn",
+        "Bitdalsvatn",
+        "Vaamarvatn",
+        "Langeidvatn",
+        "Totak",
+        "Songavatn",
+        "Vinjevatn",
+        "Bandak",
+        "Bordalsvatn",
+        "Byrtevatn",
+        "Hyljelihyl",
+        "Vatjern"
+      ],
+      "water_value": [
+        "Kjelavatn",
+        "Staavatn",
+        "Langesae",
+        "Foersvatn",
+        "Venemo",
+        "Botnedalsvatn",
+        "Bitdalsvatn",
+        "Vaamarvatn",
+        "Langeidvatn",
+        "Totak",
+        "Songavatn",
+        "Vinjevatn",
+        "Bandak",
+        "Bordalsvatn",
+        "Byrtevatn",
+        "Hyljelihyl",
+        "Vatjern"
+      ],
+      "inflow": [
+        "Langesae",
+        "Staavatn",
+        "Kjelavatn",
+        "Bordalsvatn",
+        "Foersvatn",
+        "Hyljelihyl",
+        "Venemo",
+        "Bitdalsvatn",
+        "Songavatn",
+        "Totak",
+        "Vaamarvatn",
+        "Langeidvatn",
+        "Vatjern",
+        "Vinjevatn",
+        "Botnedalsvatn",
+        "Byrtevatn",
+        "Bandak",
+        "r_Vest_Vassdraget"
+      ],
+      "min_volume": [
+        "Totak",
+        "Byrtevatn",
+        "Staavatn"
+      ],
+      "min_flow": [
+        "b_Kjelavatn",
+        "b_Hyljelihyl",
+        "b_Vinjevatn",
+        "b_Byrtevatn",
+        "b_Bandak",
+        "r_Vest_Vassdraget"
+      ]
+    }
+  },
+  "current_feature_coverage": {
+    "config": "configs/round5_lgb_peer_relative_seed299_2021.json",
+    "features_per_generator": 113,
+    "enabled_options": {
+      "use_extended": true,
+      "use_system_context": true,
+      "use_topology": true,
+      "use_price_context": true,
+      "use_water_context": false,
+      "use_economic_context": false,
+      "use_river_context": false,
+      "use_inflow_profiles": false,
+      "use_hydraulic_context": false,
+      "use_water_budget": false,
+      "use_temporal_ranks": false,
+      "use_favourable_periods": false
+    },
+    "monetary_columns_scaled": 41,
+    "scale": "max(mean(abs(168 provided hourly prices)), 10); log scale retained",
+    "local_feeders": {
+      "Hogga": [
+        "Bandak"
+      ],
+      "Tokke": [
+        "Vinjevatn"
+      ],
+      "Lio": [
+        "Byrtevatn"
+      ],
+      "Byrte": [
+        "Botnedalsvatn"
+      ],
+      "Vinje": [
+        "Vaamarvatn"
+      ],
+      "Haukeli": [
+        "Vatjern"
+      ],
+      "Songa": [
+        "Bitdalsvatn",
+        "Songavatn"
+      ],
+      "Kjela": [
+        "Foersvatn"
+      ],
+      "Vesle Kjela": [
+        "Kjelavatn"
+      ]
+    },
+    "lgb": "Each row gets hourly and cumulative inflow only for its own feeding reservoirs, plus weekly totals for all 17 reservoirs.",
+    "current_sequence": "Shares per-generator channels across the network: eight reservoir profiles individually, plus the sum of Songavatn and Bitdalsvatn. All 17 weekly totals are retained.",
+    "no_direct_hourly_profile_in_current_sequence": [
+      "Bordalsvatn",
+      "Hyljelihyl",
+      "Langeidvatn",
+      "Langesae",
+      "Staavatn",
+      "Totak",
+      "Venemo"
+    ],
+    "references": [
+      "src/features.py:120",
+      "src/features.py:149",
+      "src/features.py:168",
+      "src/temporal_cnn.py:14",
+      "src/tree_preprocessing.py:8"
+    ]
+  },
+  "water_values": {
+    "exact_column_groups": [
+      [
+        "Kjelavatn",
+        "Staavatn"
+      ],
+      [
+        "Langesae",
+        "Foersvatn",
+        "Bordalsvatn"
+      ],
+      [
+        "Venemo",
+        "Vaamarvatn",
+        "Totak",
+        "Hyljelihyl"
+      ],
+      [
+        "Botnedalsvatn"
+      ],
+      [
+        "Bitdalsvatn",
+        "Songavatn"
+      ],
+      [
+        "Langeidvatn",
+        "Vatjern"
+      ],
+      [
+        "Vinjevatn"
+      ],
+      [
+        "Bandak"
+      ],
+      [
+        "Byrtevatn"
+      ]
+    ],
+    "unique_columns": 9,
+    "songa_feeder_values_identical_every_supplied_date": true,
+    "terminal_alignment_reference": "src/features.py:124,174; docs/Dataset_definitions_and_explanation.pdf page2",
+    "interpretation": "Songa arithmetic averaging loses no water-value information in this dataset because its two feeder values are identical. General upstream/downstream arithmetic means remain statistical features, not global hydraulic valuations."
+  },
+  "storage_ranges": {
+    "Bandak": {
+      "min": 103.831,
+      "max": 206.053,
+      "max_vol": 174.2,
+      "n_above_max_vol": 11,
+      "n_outside_vol_head_curve": 0,
+      "unique_values": 136
+    },
+    "Vinjevatn": {
+      "min": 1.483,
+      "max": 10.462,
+      "max_vol": 9.36,
+      "n_above_max_vol": 1,
+      "n_outside_vol_head_curve": 0,
+      "unique_values": 201
+    },
+    "Byrtevatn": {
+      "min": 4.997,
+      "max": 80.591,
+      "max_vol": 76.71,
+      "n_above_max_vol": 245,
+      "n_outside_vol_head_curve": 0,
+      "unique_values": 1369
+    },
+    "Botnedalsvatn": {
+      "min": 0.397,
+      "max": 55.778,
+      "max_vol": 54.17,
+      "n_above_max_vol": 202,
+      "n_outside_vol_head_curve": 0,
+      "unique_values": 1940
+    },
+    "Kjelavatn": {
+      "min": 0.0,
+      "max": 86.979,
+      "max_vol": 84.5,
+      "n_above_max_vol": 24,
+      "n_outside_vol_head_curve": 0,
+      "unique_values": 1817
+    },
+    "Staavatn": {
+      "min": 0.384,
+      "max": 50.168,
+      "max_vol": 48,
+      "n_above_max_vol": 264,
+      "n_outside_vol_head_curve": 0,
+      "unique_values": 814
+    },
+    "Venemo": {
+      "min": 8.703,
+      "max": 21.806,
+      "max_vol": 23,
+      "n_above_max_vol": 0,
+      "n_outside_vol_head_curve": 0,
+      "unique_values": 1272
+    },
+    "Langesae": {
+      "min": 13.701,
+      "max": 78.616,
+      "max_vol": 78,
+      "n_above_max_vol": 192,
+      "n_outside_vol_head_curve": 0,
+      "unique_values": 1502
+    },
+    "Hyljelihyl": {
+      "min": 0.13,
+      "max": 0.13,
+      "max_vol": 0.26,
+      "n_above_max_vol": 0,
+      "n_outside_vol_head_curve": 0,
+      "unique_values": 1
+    },
+    "Bordalsvatn": {
+      "min": 1.653,
+      "max": 187.015,
+      "max_vol": 184.2,
+      "n_above_max_vol": 23,
+      "n_outside_vol_head_curve": 0,
+      "unique_values": 1890
+    },
+    "Foersvatn": {
+      "min": 0.425,
+      "max": 123.084,
+      "max_vol": 122.3,
+      "n_above_max_vol": 6,
+      "n_outside_vol_head_curve": 0,
+      "unique_values": 2265
+    },
+    "Songavatn": {
+      "min": 52.731,
+      "max": 646.707,
+      "max_vol": 640,
+      "n_above_max_vol": 32,
+      "n_outside_vol_head_curve": 0,
+      "unique_values": 1710
+    },
+    "Bitdalsvatn": {
+      "min": 14.874,
+      "max": 111.825,
+      "max_vol": 110,
+      "n_above_max_vol": 80,
+      "n_outside_vol_head_curve": 0,
+      "unique_values": 1598
+    },
+    "Totak": {
+      "min": 7.063,
+      "max": 259.948,
+      "max_vol": 257.8,
+      "n_above_max_vol": 2,
+      "n_outside_vol_head_curve": 0,
+      "unique_values": 679
+    },
+    "Vaamarvatn": {
+      "min": 0.056,
+      "max": 26.462,
+      "max_vol": 26.2,
+      "n_above_max_vol": 2,
+      "n_outside_vol_head_curve": 0,
+      "unique_values": 750
+    },
+    "Langeidvatn": {
+      "min": 0.321,
+      "max": 33.961,
+      "max_vol": 32.1,
+      "n_above_max_vol": 196,
+      "n_outside_vol_head_curve": 0,
+      "unique_values": 640
+    },
+    "Vatjern": {
+      "min": 0.15,
+      "max": 0.15,
+      "max_vol": 0.3,
+      "n_above_max_vol": 0,
+      "n_outside_vol_head_curve": 0,
+      "unique_values": 1
+    }
+  },
+  "tunnel_head_reference": {
+    "Totak_Vaamarvatn": {
+      "source": "Totak",
+      "target": "Vaamarvatn",
+      "negative_head_days": 19,
+      "negative_with_both_openings_submerged": 19,
+      "min_delta_m": -0.09010782184088839,
+      "max_delta_m": 2.9199996121024014
+    },
+    "Bordalsvatn_Foersvatn": {
+      "source": "Bordalsvatn",
+      "target": "Foersvatn",
+      "negative_head_days": 403,
+      "negative_with_both_openings_submerged": 403,
+      "min_delta_m": -7.700006806359056,
+      "max_delta_m": 43.749199239956624
+    },
+    "Venemo_Totak": {
+      "source": "Venemo",
+      "target": "Totak",
+      "negative_head_days": 40,
+      "negative_with_both_openings_submerged": 40,
+      "min_delta_m": -3.5595318244678538,
+      "max_delta_m": 19.089705737511395
+    }
+  },
+  "inflow_redundancy": {
+    "period": "2015-01-01 through 2024-12-31, inputs only",
+    "comparisons": {
+      "Langesae": {
+        "closest_current_sequence_profile": "Songa_aggregate",
+        "pearson_r": 0.9999994011424924,
+        "ratio_of_sums": 0.06164224670192729,
+        "max_abs_residual_m3_s": 0.005953864351671001,
+        "p99_abs_residual_m3_s": 0.005113068184091407,
+        "target_std_m3_s": 2.6224397884501736
+      },
+      "Staavatn": {
+        "closest_current_sequence_profile": "Songa_aggregate",
+        "pearson_r": 0.7712284769847098,
+        "ratio_of_sums": 0.25369875354896726,
+        "max_abs_residual_m3_s": 78.0367405923396,
+        "p99_abs_residual_m3_s": 28.41260677006208,
+        "target_std_m3_s": 10.565884987837267
+      },
+      "Kjelavatn": {
+        "closest_current_sequence_profile": "Kjelavatn",
+        "pearson_r": 1.0,
+        "ratio_of_sums": 1.0,
+        "max_abs_residual_m3_s": 0.0,
+        "p99_abs_residual_m3_s": 0.0,
+        "target_std_m3_s": 3.68248141496987
+      },
+      "Bordalsvatn": {
+        "closest_current_sequence_profile": "Botnedalsvatn",
+        "pearson_r": 0.9999999444813344,
+        "ratio_of_sums": 0.8789289931657255,
+        "max_abs_residual_m3_s": 0.009406427959355312,
+        "p99_abs_residual_m3_s": 0.008428402733709761,
+        "target_std_m3_s": 11.42365825856055
+      },
+      "Foersvatn": {
+        "closest_current_sequence_profile": "Foersvatn",
+        "pearson_r": 1.0,
+        "ratio_of_sums": 1.0,
+        "max_abs_residual_m3_s": 0.0,
+        "p99_abs_residual_m3_s": 0.0,
+        "target_std_m3_s": 1.1917131300822656
+      },
+      "Hyljelihyl": {
+        "closest_current_sequence_profile": "Botnedalsvatn",
+        "pearson_r": 0.999999907856099,
+        "ratio_of_sums": 0.5967558317468847,
+        "max_abs_residual_m3_s": 0.008002233414703852,
+        "p99_abs_residual_m3_s": 0.00718553540019462,
+        "target_std_m3_s": 7.75618988217292
+      },
+      "Venemo": {
+        "closest_current_sequence_profile": "Vaamarvatn",
+        "pearson_r": 0.7703690437800959,
+        "ratio_of_sums": 3.200004975802883,
+        "max_abs_residual_m3_s": 136.93798626678407,
+        "p99_abs_residual_m3_s": 10.730046240909777,
+        "target_std_m3_s": 4.114627243724734
+      },
+      "Bitdalsvatn": {
+        "closest_current_sequence_profile": "Songa_aggregate",
+        "pearson_r": 0.9999999508931179,
+        "ratio_of_sums": 0.17840263566871614,
+        "max_abs_residual_m3_s": 0.005570582902606702,
+        "p99_abs_residual_m3_s": 0.004590656314707786,
+        "target_std_m3_s": 7.590317102871198
+      },
+      "Songavatn": {
+        "closest_current_sequence_profile": "Songa_aggregate",
+        "pearson_r": 0.9999999976845392,
+        "ratio_of_sums": 0.8215973643312837,
+        "max_abs_residual_m3_s": 0.0055705829025782805,
+        "p99_abs_residual_m3_s": 0.004590656314711339,
+        "target_std_m3_s": 34.95524402325022
+      },
+      "Totak": {
+        "closest_current_sequence_profile": "Vinjevatn",
+        "pearson_r": 0.9999999686953025,
+        "ratio_of_sums": 0.7297640507341863,
+        "max_abs_residual_m3_s": 0.008651886224594563,
+        "p99_abs_residual_m3_s": 0.007744141495671597,
+        "target_std_m3_s": 14.403618167411386
+      },
+      "Vaamarvatn": {
+        "closest_current_sequence_profile": "Vaamarvatn",
+        "pearson_r": 1.0,
+        "ratio_of_sums": 1.0,
+        "max_abs_residual_m3_s": 0.0,
+        "p99_abs_residual_m3_s": 0.0,
+        "target_std_m3_s": 0.9451749356242887
+      },
+      "Langeidvatn": {
+        "closest_current_sequence_profile": "Botnedalsvatn",
+        "pearson_r": 0.999999738323104,
+        "ratio_of_sums": 0.3215582958715494,
+        "max_abs_residual_m3_s": 0.007187096122585501,
+        "p99_abs_residual_m3_s": 0.006005269105509831,
+        "target_std_m3_s": 4.179288807420062
+      },
+      "Vatjern": {
+        "closest_current_sequence_profile": "Vatjern",
+        "pearson_r": 1.0,
+        "ratio_of_sums": 1.0,
+        "max_abs_residual_m3_s": 0.0,
+        "p99_abs_residual_m3_s": 0.0,
+        "target_std_m3_s": 0.42662436052234226
+      },
+      "Vinjevatn": {
+        "closest_current_sequence_profile": "Vinjevatn",
+        "pearson_r": 1.0,
+        "ratio_of_sums": 1.0,
+        "max_abs_residual_m3_s": 0.0,
+        "p99_abs_residual_m3_s": 0.0,
+        "target_std_m3_s": 19.737326673478353
+      },
+      "Botnedalsvatn": {
+        "closest_current_sequence_profile": "Botnedalsvatn",
+        "pearson_r": 1.0,
+        "ratio_of_sums": 1.0,
+        "max_abs_residual_m3_s": 0.0,
+        "p99_abs_residual_m3_s": 0.0,
+        "target_std_m3_s": 12.997341087373771
+      },
+      "Byrtevatn": {
+        "closest_current_sequence_profile": "Byrtevatn",
+        "pearson_r": 1.0,
+        "ratio_of_sums": 1.0,
+        "max_abs_residual_m3_s": 0.0,
+        "p99_abs_residual_m3_s": 0.0,
+        "target_std_m3_s": 9.65218585086263
+      },
+      "Bandak": {
+        "closest_current_sequence_profile": "Bandak",
+        "pearson_r": 1.0,
+        "ratio_of_sums": 1.0,
+        "max_abs_residual_m3_s": 0.0,
+        "p99_abs_residual_m3_s": 0.0,
+        "target_std_m3_s": 33.88340434974945
+      },
+      "r_Vest_Vassdraget": {
+        "closest_current_sequence_profile": "Botnedalsvatn",
+        "pearson_r": 0.9999999475031259,
+        "ratio_of_sums": 0.9894557068001635,
+        "max_abs_residual_m3_s": 0.009901968911314896,
+        "p99_abs_residual_m3_s": 0.008926382238191172,
+        "target_std_m3_s": 12.860274720049144
+      }
+    },
+    "river_vs_lio_local": {
+      "source": "Byrtevatn",
+      "ratio_of_sums": 1.3323590790267785,
+      "pearson_r": 0.9999999300168502,
+      "max_abs_residual_m3_s": 0.011645106173161501
+    },
+    "interpretation": "Most omitted sequence inflow profiles are approximately scaled copies of included profiles; Staavatn and Venemo retain substantial distinct hourly shape. The river series is almost recoverable from Lio local inflow, so its omission does not remove much independent hydrological information. Approximate redundancy does not establish equality or zero predictive value."
+  },
+  "generator_static_fields": [
+    "gen_eff_curve",
+    "p_max",
+    "p_min",
+    "p_nom",
+    "penstock",
+    "startcost_const",
+    "stopcost_const",
+    "turb_eff_curves"
+  ],
+  "generator_costs_penstocks": {
+    "Hogga_G1": {
+      "penstock": 1,
+      "p_min": 3,
+      "p_max": 17,
+      "p_nom": 17,
+      "startcost_const": 94,
+      "stopcost_const": 94
+    },
+    "Tokke_G1": {
+      "penstock": 1,
+      "p_min": 36.9,
+      "p_max": 107.5,
+      "p_nom": 107.5,
+      "startcost_const": 214,
+      "stopcost_const": 214
+    },
+    "Tokke_G2": {
+      "penstock": 1,
+      "p_min": 36.9,
+      "p_max": 107.5,
+      "p_nom": 107.5,
+      "startcost_const": 214,
+      "stopcost_const": 214
+    },
+    "Tokke_G3": {
+      "penstock": 2,
+      "p_min": 36.9,
+      "p_max": 107.5,
+      "p_nom": 107.5,
+      "startcost_const": 214,
+      "stopcost_const": 214
+    },
+    "Tokke_G4": {
+      "penstock": 2,
+      "p_min": 36.9,
+      "p_max": 107.5,
+      "p_nom": 107.5,
+      "startcost_const": 214,
+      "stopcost_const": 214
+    },
+    "Lio_G1": {
+      "penstock": 1,
+      "p_min": 14.8,
+      "p_max": 43,
+      "p_nom": 43,
+      "startcost_const": 163,
+      "stopcost_const": 163
+    },
+    "Byrte_G1": {
+      "penstock": 1,
+      "p_min": 6.9,
+      "p_max": 20,
+      "p_nom": 20,
+      "startcost_const": 135,
+      "stopcost_const": 135
+    },
+    "Vinje_G1": {
+      "penstock": 1,
+      "p_min": 34.4,
+      "p_max": 100,
+      "p_nom": 100,
+      "startcost_const": 198,
+      "stopcost_const": 198
+    },
+    "Vinje_G2": {
+      "penstock": 2,
+      "p_min": 34.4,
+      "p_max": 100,
+      "p_nom": 100,
+      "startcost_const": 198,
+      "stopcost_const": 198
+    },
+    "Vinje_G3": {
+      "penstock": 3,
+      "p_min": 34.4,
+      "p_max": 100,
+      "p_nom": 100,
+      "startcost_const": 198,
+      "stopcost_const": 198
+    },
+    "Haukeli_G1": {
+      "penstock": 1,
+      "p_min": 0.3,
+      "p_max": 4.9,
+      "p_nom": 4.9,
+      "startcost_const": 143,
+      "stopcost_const": 143
+    },
+    "Songa_G1": {
+      "penstock": 1,
+      "p_min": 41.2,
+      "p_max": 120,
+      "p_nom": 120,
+      "startcost_const": 222,
+      "stopcost_const": 222
+    },
+    "Kjela_G1": {
+      "penstock": 1,
+      "p_min": 20.6,
+      "p_max": 60,
+      "p_nom": 60,
+      "startcost_const": 171,
+      "stopcost_const": 171
+    },
+    "Vesle Kjela_G1": {
+      "penstock": 1,
+      "p_min": 2.9,
+      "p_max": 8.5,
+      "p_nom": 8.5,
+      "startcost_const": 92,
+      "stopcost_const": 92
+    }
+  },
+  "teacher_boundary_information": {
+    "archive_inventory": [
+      "sintef_project/prediction_mapping.csv",
+      "sintef_project/schedule_visualization.ipynb",
+      "sintef_project/Dataset_definitions_and_explanation.pdf",
+      "sintef_project/data/extended/Constraint_min_volume.csv",
+      "sintef_project/data/extended/Tokke_Vinje_topology.yaml",
+      "sintef_project/data/extended/Constraint_min_flow.csv",
+      "sintef_project/data/extended/Tokke_topology.pdf",
+      "sintef_project/data/kernel/Historical_day_ahead_price_2015_2025.csv",
+      "sintef_project/data/kernel/Historical_volume_2015_2024.csv",
+      "sintef_project/data/kernel/Historical_inflow_1958_2025.csv",
+      "sintef_project/data/kernel/Unit_commitment_decisions.csv",
+      "sintef_project/data/kernel/Synthetic_water_value_2015_2024.csv",
+      "sintef_project/ML_Task_TDT4173.pdf",
+      "sintef_project/kaggle_metric.py",
+      "sintef_project/sample_submission.csv"
+    ],
+    "no_supplied_fields": [
+      "initial_state",
+      "historical_production",
+      "historical_discharge",
+      "min_uptime",
+      "min_downtime",
+      "generator priority",
+      "MIP horizon and relaxation settings",
+      "terminal unit state or terminal shutdown rule",
+      "case generation script",
+      "solver optimality gaps or status per case"
+    ],
+    "known": "Start and stop constants exist in YAML; labels are binary; initial reservoir storage and terminal water-value date are specified.",
+    "unknown": "Whether all units start OFF, startup at hour zero is charged, terminal shutdown is charged, schedules are globally optimal, MIP is active every hour, or earlier schedules initialize later cases. No such claim follows from the supplied materials.",
+    "single_hour_internal_runs_all_labelled_years": {
+      "Hogga_G1": {
+        "on_internal_1h_runs": 38,
+        "off_internal_1h_runs": 13
+      },
+      "Tokke_G1": {
+        "on_internal_1h_runs": 90,
+        "off_internal_1h_runs": 25
+      },
+      "Tokke_G2": {
+        "on_internal_1h_runs": 81,
+        "off_internal_1h_runs": 21
+      },
+      "Tokke_G3": {
+        "on_internal_1h_runs": 104,
+        "off_internal_1h_runs": 30
+      },
+      "Tokke_G4": {
+        "on_internal_1h_runs": 90,
+        "off_internal_1h_runs": 17
+      },
+      "Lio_G1": {
+        "on_internal_1h_runs": 59,
+        "off_internal_1h_runs": 45
+      },
+      "Byrte_G1": {
+        "on_internal_1h_runs": 20,
+        "off_internal_1h_runs": 5
+      },
+      "Vinje_G1": {
+        "on_internal_1h_runs": 108,
+        "off_internal_1h_runs": 45
+      },
+      "Vinje_G2": {
+        "on_internal_1h_runs": 122,
+        "off_internal_1h_runs": 50
+      },
+      "Vinje_G3": {
+        "on_internal_1h_runs": 170,
+        "off_internal_1h_runs": 83
+      },
+      "Haukeli_G1": {
+        "on_internal_1h_runs": 16,
+        "off_internal_1h_runs": 9
+      },
+      "Songa_G1": {
+        "on_internal_1h_runs": 108,
+        "off_internal_1h_runs": 27
+      },
+      "Kjela_G1": {
+        "on_internal_1h_runs": 222,
+        "off_internal_1h_runs": 66
+      },
+      "Vesle Kjela_G1": {
+        "on_internal_1h_runs": 8,
+        "off_internal_1h_runs": 7
+      }
+    },
+    "adjacent_rolling_case_samecalendar_label_disagreement": {
+      "Hogga_G1": {
+        "n_disagree": 65920,
+        "n_compared": 420624,
+        "fraction": 0.1567195404922211
+      },
+      "Tokke_G1": {
+        "n_disagree": 63634,
+        "n_compared": 420624,
+        "fraction": 0.15128475788352544
+      },
+      "Tokke_G2": {
+        "n_disagree": 76673,
+        "n_compared": 420624,
+        "fraction": 0.1822839400509719
+      },
+      "Tokke_G3": {
+        "n_disagree": 72804,
+        "n_compared": 420624,
+        "fraction": 0.17308570124386627
+      },
+      "Tokke_G4": {
+        "n_disagree": 75170,
+        "n_compared": 420624,
+        "fraction": 0.17871067746966413
+      },
+      "Lio_G1": {
+        "n_disagree": 20571,
+        "n_compared": 420624,
+        "fraction": 0.04890591121761954
+      },
+      "Byrte_G1": {
+        "n_disagree": 15054,
+        "n_compared": 420624,
+        "fraction": 0.03578968389820838
+      },
+      "Vinje_G1": {
+        "n_disagree": 73344,
+        "n_compared": 420624,
+        "fraction": 0.17436950815930619
+      },
+      "Vinje_G2": {
+        "n_disagree": 75736,
+        "n_compared": 420624,
+        "fraction": 0.18005629731066225
+      },
+      "Vinje_G3": {
+        "n_disagree": 69544,
+        "n_compared": 420624,
+        "fraction": 0.1653353113469512
+      },
+      "Haukeli_G1": {
+        "n_disagree": 52429,
+        "n_compared": 420624,
+        "fraction": 0.12464576438814713
+      },
+      "Songa_G1": {
+        "n_disagree": 19093,
+        "n_compared": 420624,
+        "fraction": 0.04539208414165621
+      },
+      "Kjela_G1": {
+        "n_disagree": 23779,
+        "n_compared": 420624,
+        "fraction": 0.05653267526341816
+      },
+      "Vesle Kjela_G1": {
+        "n_disagree": 16531,
+        "n_compared": 420624,
+        "fraction": 0.03930113355395793
+      }
+    },
+    "interpretation": "Every unit has internal one-hour ON and OFF runs, incompatible with an unconditional minimum dwell time of at least two hours. Earlier rolling-case labels are plans under different case inputs; no observed UC history is supplied. Do not treat those labels as true initial states at inference. Counts reuse overlapping case-hours and are descriptive."
+  },
+  "current_round5_case_diagnostics": [
+    {
+      "case_id": 2438,
+      "starttime": "2021-09-03 00:00:00+00:00",
+      "source_cache": "data/processed/round6_native_2021_baseline.npz",
+      "source_cache_sha256": "b7e8422abbd77ba4ec2fcc1c0a8957a1594bc7ac043111f2535ef8e2fc7dd8dd",
+      "within_case_auc": 0.8794947663290211,
+      "price_min_mean_max": [
+        85.85,
+        103.45886904761903,
+        155.36
+      ],
+      "daily_mean_prices": [
+        94.55625000000002,
+        97.73833333333333,
+        95.81708333333334,
+        115.70333333333333,
+        108.65208333333332,
+        105.14083333333333,
+        106.60416666666667
+      ],
+      "reservoirs": {
+        "Kjelavatn": {
+          "initial_million_m3": 42.586,
+          "capacity_million_m3": 84.5,
+          "initial_fill": 0.5039763313609468,
+          "terminal_water_value_eur_mwh": 175.11,
+          "natural_week_million_m3": 0.245844,
+          "initial_plus_natural_minus_capacity_million_m3": -41.668156
+        },
+        "Staavatn": {
+          "initial_million_m3": 47.616,
+          "capacity_million_m3": 48.0,
+          "initial_fill": 0.992,
+          "terminal_water_value_eur_mwh": 175.11,
+          "natural_week_million_m3": 1.186668,
+          "initial_plus_natural_minus_capacity_million_m3": 0.802667999999997
+        },
+        "Langesae": {
+          "initial_million_m3": 73.964,
+          "capacity_million_m3": 78.0,
+          "initial_fill": 0.9482564102564103,
+          "terminal_water_value_eur_mwh": 218.99,
+          "natural_week_million_m3": 0.10922399999999999,
+          "initial_plus_natural_minus_capacity_million_m3": -3.926776000000004
+        },
+        "Foersvatn": {
+          "initial_million_m3": 46.373,
+          "capacity_million_m3": 122.3,
+          "initial_fill": 0.3791741618969746,
+          "terminal_water_value_eur_mwh": 218.99,
+          "natural_week_million_m3": 0.00864,
+          "initial_plus_natural_minus_capacity_million_m3": -75.91836
+        },
+        "Venemo": {
+          "initial_million_m3": 16.858,
+          "capacity_million_m3": 23.0,
+          "initial_fill": 0.7329565217391305,
+          "terminal_water_value_eur_mwh": 197.57,
+          "natural_week_million_m3": 0.050039999999999994,
+          "initial_plus_natural_minus_capacity_million_m3": -6.09196
+        },
+        "Botnedalsvatn": {
+          "initial_million_m3": 28.4,
+          "capacity_million_m3": 54.17,
+          "initial_fill": 0.5242754292043567,
+          "terminal_water_value_eur_mwh": 167.9,
+          "natural_week_million_m3": 0.101052,
+          "initial_plus_natural_minus_capacity_million_m3": -25.668948000000004
+        },
+        "Bitdalsvatn": {
+          "initial_million_m3": 67.485,
+          "capacity_million_m3": 110.0,
+          "initial_fill": 0.6135,
+          "terminal_water_value_eur_mwh": 216.82,
+          "natural_week_million_m3": 0.31741199999999997,
+          "initial_plus_natural_minus_capacity_million_m3": -42.197587999999996
+        },
+        "Vaamarvatn": {
+          "initial_million_m3": 19.178,
+          "capacity_million_m3": 26.2,
+          "initial_fill": 0.7319847328244276,
+          "terminal_water_value_eur_mwh": 197.57,
+          "natural_week_million_m3": 0.03531600000000001,
+          "initial_plus_natural_minus_capacity_million_m3": -6.986683999999997
+        },
+        "Langeidvatn": {
+          "initial_million_m3": 25.267,
+          "capacity_million_m3": 32.1,
+          "initial_fill": 0.7871339563862928,
+          "terminal_water_value_eur_mwh": 147.85,
+          "natural_week_million_m3": 0.032328,
+          "initial_plus_natural_minus_capacity_million_m3": -6.800672000000002
+        },
+        "Totak": {
+          "initial_million_m3": 210.125,
+          "capacity_million_m3": 257.8,
+          "initial_fill": 0.8150698215671063,
+          "terminal_water_value_eur_mwh": 197.57,
+          "natural_week_million_m3": 0.5374439999999999,
+          "initial_plus_natural_minus_capacity_million_m3": -47.13755600000002
+        },
+        "Songavatn": {
+          "initial_million_m3": 360.386,
+          "capacity_million_m3": 640.0,
+          "initial_fill": 0.563103125,
+          "terminal_water_value_eur_mwh": 216.82,
+          "natural_week_million_m3": 1.45872,
+          "initial_plus_natural_minus_capacity_million_m3": -278.15527999999995
+        },
+        "Vinjevatn": {
+          "initial_million_m3": 7.838,
+          "capacity_million_m3": 9.36,
+          "initial_fill": 0.8373931623931624,
+          "terminal_water_value_eur_mwh": 0.01,
+          "natural_week_million_m3": 0.73728,
+          "initial_plus_natural_minus_capacity_million_m3": -0.7847200000000001
+        },
+        "Bandak": {
+          "initial_million_m3": 132.372,
+          "capacity_million_m3": 174.2,
+          "initial_fill": 0.7598851894374283,
+          "terminal_water_value_eur_mwh": 85.02,
+          "natural_week_million_m3": 0.24029999999999999,
+          "initial_plus_natural_minus_capacity_million_m3": -41.587699999999984
+        },
+        "Bordalsvatn": {
+          "initial_million_m3": 107.403,
+          "capacity_million_m3": 184.2,
+          "initial_fill": 0.5830781758957655,
+          "terminal_water_value_eur_mwh": 218.99,
+          "natural_week_million_m3": 0.088704,
+          "initial_plus_natural_minus_capacity_million_m3": -76.70829599999998
+        },
+        "Byrtevatn": {
+          "initial_million_m3": 60.226,
+          "capacity_million_m3": 76.71,
+          "initial_fill": 0.7851127623517143,
+          "terminal_water_value_eur_mwh": 218.99,
+          "natural_week_million_m3": 0.07538399999999999,
+          "initial_plus_natural_minus_capacity_million_m3": -16.408615999999995
+        },
+        "Hyljelihyl": {
+          "initial_million_m3": 0.13,
+          "capacity_million_m3": 0.26,
+          "initial_fill": 0.5,
+          "terminal_water_value_eur_mwh": 197.57,
+          "natural_week_million_m3": 0.060624,
+          "initial_plus_natural_minus_capacity_million_m3": -0.069376
+        },
+        "Vatjern": {
+          "initial_million_m3": 0.15,
+          "capacity_million_m3": 0.3,
+          "initial_fill": 0.5,
+          "terminal_water_value_eur_mwh": 147.85,
+          "natural_week_million_m3": 0.003528,
+          "initial_plus_natural_minus_capacity_million_m3": -0.146472
+        }
+      },
+      "units": {
+        "Hogga_G1": {
+          "true_on_hours": 95,
+          "sum_predicted_on_probabilities": 153.3425588803186,
+          "errors_at_point5": 73,
+          "brier": 0.309298689883997,
+          "hours_price_above_local_terminal_value": 168,
+          "daily_true_on_hours": [
+            0,
+            0,
+            3,
+            20,
+            24,
+            24,
+            24
+          ],
+          "daily_sum_predictions": [
+            19.563594918147356,
+            20.724752854777925,
+            20.271622638105185,
+            23.403413900024614,
+            23.23029898730907,
+            23.015258422510364,
+            23.13361715944408
+          ],
+          "component_sum_predictions": {
+            "round3": 152.8162412862813,
+            "old299": 157.1566724430004,
+            "old673": 150.5810805057114
+          }
+        },
+        "Tokke_G1": {
+          "true_on_hours": 113,
+          "sum_predicted_on_probabilities": 167.33539125052727,
+          "errors_at_point5": 55,
+          "brier": 0.3204221476406761,
+          "hours_price_above_local_terminal_value": 168,
+          "daily_true_on_hours": [
+            0,
+            10,
+            7,
+            24,
+            24,
+            24,
+            24
+          ],
+          "daily_sum_predictions": [
+            23.826809201011855,
+            23.878123142608402,
+            23.67915629228972,
+            23.9873521469425,
+            23.986907704861455,
+            23.987491742834194,
+            23.98955101997914
+          ],
+          "component_sum_predictions": {
+            "round3": 167.24246091666905,
+            "old299": 167.67885305738764,
+            "old673": 167.17779011138336
+          }
+        },
+        "Tokke_G2": {
+          "true_on_hours": 66,
+          "sum_predicted_on_probabilities": 150.03959709716563,
+          "errors_at_point5": 102,
+          "brier": 0.4293883527486937,
+          "hours_price_above_local_terminal_value": 168,
+          "daily_true_on_hours": [
+            0,
+            0,
+            0,
+            11,
+            10,
+            21,
+            24
+          ],
+          "daily_sum_predictions": [
+            18.03270554408811,
+            19.664040361671415,
+            18.693318403056054,
+            23.255955981211507,
+            23.29890072055739,
+            23.408957623575464,
+            23.685718463005685
+          ],
+          "component_sum_predictions": {
+            "round3": 136.23677354653853,
+            "old299": 164.9834328592369,
+            "old673": 162.70140843634854
+          }
+        },
+        "Tokke_G3": {
+          "true_on_hours": 97,
+          "sum_predicted_on_probabilities": 163.8854222600117,
+          "errors_at_point5": 71,
+          "brier": 0.37790956935842573,
+          "hours_price_above_local_terminal_value": 168,
+          "daily_true_on_hours": [
+            0,
+            3,
+            4,
+            18,
+            24,
+            24,
+            24
+          ],
+          "daily_sum_predictions": [
+            22.70729467677699,
+            23.01597696948322,
+            22.37501864443515,
+            23.93905030741636,
+            23.943629978327948,
+            23.94325128373125,
+            23.96120039984077
+          ],
+          "component_sum_predictions": {
+            "round3": 163.49653254040737,
+            "old299": 163.94692410862692,
+            "old673": 164.60169985060514
+          }
+        },
+        "Tokke_G4": {
+          "true_on_hours": 50,
+          "sum_predicted_on_probabilities": 147.1035997949435,
+          "errors_at_point5": 118,
+          "brier": 0.49718746098222005,
+          "hours_price_above_local_terminal_value": 168,
+          "daily_true_on_hours": [
+            0,
+            0,
+            3,
+            16,
+            10,
+            0,
+            21
+          ],
+          "daily_sum_predictions": [
+            17.27430639899306,
+            19.0844461556771,
+            17.707819870368652,
+            23.29073207494532,
+            23.217364386001055,
+            23.141658083364163,
+            23.387272825594177
+          ],
+          "component_sum_predictions": {
+            "round3": 137.82116322547077,
+            "old299": 153.75839311989486,
+            "old673": 159.01367960893774
+          }
+        },
+        "Lio_G1": {
+          "true_on_hours": 9,
+          "sum_predicted_on_probabilities": 7.865265495191188,
+          "errors_at_point5": 9,
+          "brier": 0.04282725773434836,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            0,
+            0,
+            0,
+            9,
+            0,
+            0,
+            0
+          ],
+          "daily_sum_predictions": [
+            0.7559766402589825,
+            0.8236009018260881,
+            0.8572307922391917,
+            2.2927312857364903,
+            1.4667285198041136,
+            0.997632938613169,
+            0.6713644167131516
+          ],
+          "component_sum_predictions": {
+            "round3": 10.556021517987134,
+            "old299": 6.268319492143021,
+            "old673": 4.08069945264746
+          }
+        },
+        "Byrte_G1": {
+          "true_on_hours": 0,
+          "sum_predicted_on_probabilities": 0.6496376179660897,
+          "errors_at_point5": 0,
+          "brier": 1.825098552809146e-05,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "daily_sum_predictions": [
+            0.08429163130299284,
+            0.05106993594313554,
+            0.061959933027938535,
+            0.1546660320576406,
+            0.11644810084939139,
+            0.08813930652127959,
+            0.09306267826371117
+          ],
+          "component_sum_predictions": {
+            "round3": 0.614910318188917,
+            "old299": 0.7582138587058375,
+            "old673": 0.6105159767806874
+          }
+        },
+        "Vinje_G1": {
+          "true_on_hours": 82,
+          "sum_predicted_on_probabilities": 147.3134739294816,
+          "errors_at_point5": 78,
+          "brier": 0.32974518487451576,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            0,
+            7,
+            7,
+            21,
+            15,
+            8,
+            24
+          ],
+          "daily_sum_predictions": [
+            17.794833824774216,
+            20.224876680107823,
+            15.904942097467853,
+            23.14910646664093,
+            23.59404587911116,
+            23.521432136991212,
+            23.12423684438841
+          ],
+          "component_sum_predictions": {
+            "round3": 148.86871073984122,
+            "old299": 148.76425440403725,
+            "old673": 142.75221983420673
+          }
+        },
+        "Vinje_G2": {
+          "true_on_hours": 61,
+          "sum_predicted_on_probabilities": 125.09600698041572,
+          "errors_at_point5": 75,
+          "brier": 0.3054919385548246,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            0,
+            3,
+            4,
+            15,
+            8,
+            7,
+            24
+          ],
+          "daily_sum_predictions": [
+            11.86390764068395,
+            16.010972398123762,
+            11.334606999107981,
+            21.63550613339985,
+            22.047058002929056,
+            21.589876796792797,
+            20.614079009378337
+          ],
+          "component_sum_predictions": {
+            "round3": 116.60728616893086,
+            "old299": 130.50690308871359,
+            "old673": 136.66255249508762
+          }
+        },
+        "Vinje_G3": {
+          "true_on_hours": 31,
+          "sum_predicted_on_probabilities": 44.02691782525455,
+          "errors_at_point5": 22,
+          "brier": 0.1084531068454097,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            0,
+            0,
+            2,
+            9,
+            2,
+            0,
+            18
+          ],
+          "daily_sum_predictions": [
+            3.337667806608337,
+            5.139508759306111,
+            3.7265317258714,
+            11.79706031958163,
+            7.9372816285270495,
+            6.158521412464825,
+            5.930346172895197
+          ],
+          "component_sum_predictions": {
+            "round3": 39.98490162407109,
+            "old299": 42.31217504007371,
+            "old673": 53.82569301280231
+          }
+        },
+        "Haukeli_G1": {
+          "true_on_hours": 168,
+          "sum_predicted_on_probabilities": 127.07156566782336,
+          "errors_at_point5": 0,
+          "brier": 0.06256640098071463,
+          "hours_price_above_local_terminal_value": 1,
+          "daily_true_on_hours": [
+            24,
+            24,
+            24,
+            24,
+            24,
+            24,
+            24
+          ],
+          "daily_sum_predictions": [
+            16.492778788050213,
+            17.110869697847825,
+            17.520903873141535,
+            19.681050950738324,
+            19.25774633699688,
+            18.75363324604737,
+            18.254582775001225
+          ],
+          "component_sum_predictions": {
+            "round3": 160.8225657527233,
+            "old299": 85.62530695295331,
+            "old673": 101.01582421289358
+          }
+        },
+        "Songa_G1": {
+          "true_on_hours": 0,
+          "sum_predicted_on_probabilities": 52.81309961045643,
+          "errors_at_point5": 11,
+          "brier": 0.11648089613814237,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "daily_sum_predictions": [
+            3.801748876652332,
+            4.75546718900329,
+            4.693797827182532,
+            10.98309983211055,
+            10.043590937836628,
+            9.074812920109405,
+            9.460582027561689
+          ],
+          "component_sum_predictions": {
+            "round3": 14.088512225114341,
+            "old299": 85.21085678621098,
+            "old673": 97.86451720538604
+          }
+        },
+        "Kjela_G1": {
+          "true_on_hours": 14,
+          "sum_predicted_on_probabilities": 17.135190961525144,
+          "errors_at_point5": 14,
+          "brier": 0.0570785186403982,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            1,
+            2,
+            0,
+            9,
+            2,
+            0,
+            0
+          ],
+          "daily_sum_predictions": [
+            0.7501684461403056,
+            1.30268787545541,
+            1.5860262096283932,
+            5.629097889306927,
+            4.173228608592506,
+            2.557896125179164,
+            1.1360858072224367
+          ],
+          "component_sum_predictions": {
+            "round3": 3.1060407856620387,
+            "old299": 26.704766523003258,
+            "old673": 35.62391575177323
+          }
+        },
+        "Vesle Kjela_G1": {
+          "true_on_hours": 0,
+          "sum_predicted_on_probabilities": 0.094350421633285,
+          "errors_at_point5": 0,
+          "brier": 4.6940463540543707e-07,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "daily_sum_predictions": [
+            0.012400786457689023,
+            0.008703668990030018,
+            0.011218022589635715,
+            0.027915755184978366,
+            0.015310359406330812,
+            0.008358114849928476,
+            0.010443714154692588
+          ],
+          "component_sum_predictions": {
+            "round3": 0.1842875040836391,
+            "old299": 0.005081247716712914,
+            "old673": 0.0037454306491489296
+          }
+        }
+      },
+      "upstream_capacity_references": {
+        "Vesle Kjela": {
+          "reservoirs": [
+            "Kjelavatn",
+            "Staavatn"
+          ],
+          "initial": 90.202,
+          "capacity": 132.5,
+          "natural_week": 1.432512,
+          "initial_plus_natural_minus_capacity": -40.865488,
+          "daily_natural_volume": [
+            0.195192,
+            0.18374400000000002,
+            0.174384,
+            0.17406,
+            0.19007999999999997,
+            0.26766,
+            0.247392
+          ]
+        },
+        "Byrte": {
+          "reservoirs": [
+            "Botnedalsvatn"
+          ],
+          "initial": 28.4,
+          "capacity": 54.17,
+          "natural_week": 0.10105199999999999,
+          "initial_plus_natural_minus_capacity": -25.668948000000004,
+          "daily_natural_volume": [
+            0.011448,
+            0.01134,
+            0.013427999999999999,
+            0.013248,
+            0.014975999999999998,
+            0.017603999999999998,
+            0.019007999999999997
+          ]
+        },
+        "Lio": {
+          "reservoirs": [
+            "Botnedalsvatn",
+            "Byrtevatn"
+          ],
+          "initial": 88.626,
+          "capacity": 130.88,
+          "natural_week": 0.176436,
+          "initial_plus_natural_minus_capacity": -42.077563999999995,
+          "daily_natural_volume": [
+            0.020087999999999998,
+            0.019728,
+            0.023436,
+            0.023039999999999998,
+            0.026172,
+            0.030816,
+            0.033156
+          ]
+        },
+        "Haukeli": {
+          "reservoirs": [
+            "Langeidvatn",
+            "Vatjern"
+          ],
+          "initial": 25.416999999999998,
+          "capacity": 32.4,
+          "natural_week": 0.035856,
+          "initial_plus_natural_minus_capacity": -6.9471440000000015,
+          "daily_natural_volume": [
+            0.003528,
+            0.003456,
+            0.004896,
+            0.00468,
+            0.0056879999999999995,
+            0.006552,
+            0.007056
+          ]
+        }
+      },
+      "constraint_changes": {
+        "b_Kjelavatn": [
+          {
+            "hour": 0,
+            "minimum_m3_s": 0.75
+          }
+        ],
+        "b_Hyljelihyl": [
+          {
+            "hour": 0,
+            "minimum_m3_s": 2.0
+          }
+        ],
+        "b_Vinjevatn": [
+          {
+            "hour": 0,
+            "minimum_m3_s": 2.0
+          }
+        ],
+        "b_Byrtevatn": [
+          {
+            "hour": 0,
+            "minimum_m3_s": 0.2
+          }
+        ],
+        "b_Bandak": [
+          {
+            "hour": 0,
+            "minimum_m3_s": 5.0
+          }
+        ],
+        "r_Vest_Vassdraget": [
+          {
+            "hour": 0,
+            "minimum_m3_s": 8.0
+          }
+        ]
+      }
+    },
+    {
+      "case_id": 2871,
+      "starttime": "2022-11-10 00:00:00+00:00",
+      "source_cache": "data/processed/round6_native_2022_baseline.npz",
+      "source_cache_sha256": "90cb0e574d16b03e0a537bd641d945885a756414874d331075bbcf61713538a5",
+      "within_case_auc": 0.7104295969474768,
+      "price_min_mean_max": [
+        0.04,
+        27.367738095238092,
+        99.91
+      ],
+      "daily_mean_prices": [
+        25.421249999999997,
+        1.8895833333333334,
+        3.7950000000000004,
+        28.824166666666667,
+        52.435,
+        51.74666666666667,
+        27.462500000000002
+      ],
+      "reservoirs": {
+        "Kjelavatn": {
+          "initial_million_m3": 71.745,
+          "capacity_million_m3": 84.5,
+          "initial_fill": 0.8490532544378698,
+          "terminal_water_value_eur_mwh": 123.87,
+          "natural_week_million_m3": 5.58576,
+          "initial_plus_natural_minus_capacity_million_m3": -7.169240000000002
+        },
+        "Staavatn": {
+          "initial_million_m3": 47.309,
+          "capacity_million_m3": 48.0,
+          "initial_fill": 0.9856041666666666,
+          "terminal_water_value_eur_mwh": 123.87,
+          "natural_week_million_m3": 12.733704000000001,
+          "initial_plus_natural_minus_capacity_million_m3": 12.042704
+        },
+        "Langesae": {
+          "initial_million_m3": 47.919,
+          "capacity_million_m3": 78.0,
+          "initial_fill": 0.6143461538461538,
+          "terminal_water_value_eur_mwh": 26.17,
+          "natural_week_million_m3": 3.13038,
+          "initial_plus_natural_minus_capacity_million_m3": -26.95062
+        },
+        "Foersvatn": {
+          "initial_million_m3": 111.897,
+          "capacity_million_m3": 122.3,
+          "initial_fill": 0.9149386753883892,
+          "terminal_water_value_eur_mwh": 26.17,
+          "natural_week_million_m3": 0.52686,
+          "initial_plus_natural_minus_capacity_million_m3": -9.876139999999992
+        },
+        "Venemo": {
+          "initial_million_m3": 17.524,
+          "capacity_million_m3": 23.0,
+          "initial_fill": 0.7619130434782609,
+          "terminal_water_value_eur_mwh": 140.37,
+          "natural_week_million_m3": 1.7840519999999997,
+          "initial_plus_natural_minus_capacity_million_m3": -3.691948
+        },
+        "Botnedalsvatn": {
+          "initial_million_m3": 54.715,
+          "capacity_million_m3": 54.17,
+          "initial_fill": 1.0100609193280414,
+          "terminal_water_value_eur_mwh": 37.37,
+          "natural_week_million_m3": 5.746104,
+          "initial_plus_natural_minus_capacity_million_m3": 6.291104000000004
+        },
+        "Bitdalsvatn": {
+          "initial_million_m3": 96.589,
+          "capacity_million_m3": 110.0,
+          "initial_fill": 0.8780818181818182,
+          "terminal_water_value_eur_mwh": 144.9,
+          "natural_week_million_m3": 9.060516,
+          "initial_plus_natural_minus_capacity_million_m3": -4.3504839999999945
+        },
+        "Vaamarvatn": {
+          "initial_million_m3": 22.763,
+          "capacity_million_m3": 26.2,
+          "initial_fill": 0.8688167938931298,
+          "terminal_water_value_eur_mwh": 140.37,
+          "natural_week_million_m3": 1.002168,
+          "initial_plus_natural_minus_capacity_million_m3": -2.4348319999999966
+        },
+        "Langeidvatn": {
+          "initial_million_m3": 26.001,
+          "capacity_million_m3": 32.1,
+          "initial_fill": 0.81,
+          "terminal_water_value_eur_mwh": 142.41,
+          "natural_week_million_m3": 1.847628,
+          "initial_plus_natural_minus_capacity_million_m3": -4.251372
+        },
+        "Totak": {
+          "initial_million_m3": 234.492,
+          "capacity_million_m3": 257.8,
+          "initial_fill": 0.9095888285492629,
+          "terminal_water_value_eur_mwh": 140.37,
+          "natural_week_million_m3": 15.269832,
+          "initial_plus_natural_minus_capacity_million_m3": -8.038168000000013
+        },
+        "Songavatn": {
+          "initial_million_m3": 559.831,
+          "capacity_million_m3": 640.0,
+          "initial_fill": 0.8747359375,
+          "terminal_water_value_eur_mwh": 144.9,
+          "natural_week_million_m3": 41.725152,
+          "initial_plus_natural_minus_capacity_million_m3": -38.443848
+        },
+        "Vinjevatn": {
+          "initial_million_m3": 6.834,
+          "capacity_million_m3": 9.36,
+          "initial_fill": 0.7301282051282051,
+          "terminal_water_value_eur_mwh": 0.01,
+          "natural_week_million_m3": 20.924675999999998,
+          "initial_plus_natural_minus_capacity_million_m3": 18.398676
+        },
+        "Bandak": {
+          "initial_million_m3": 157.469,
+          "capacity_million_m3": 174.2,
+          "initial_fill": 0.903955223880597,
+          "terminal_water_value_eur_mwh": 130.34,
+          "natural_week_million_m3": 15.124464,
+          "initial_plus_natural_minus_capacity_million_m3": -1.6065360000000055
+        },
+        "Bordalsvatn": {
+          "initial_million_m3": 179.949,
+          "capacity_million_m3": 184.2,
+          "initial_fill": 0.9769218241042347,
+          "terminal_water_value_eur_mwh": 26.17,
+          "natural_week_million_m3": 5.050152000000001,
+          "initial_plus_natural_minus_capacity_million_m3": 0.7991520000000207
+        },
+        "Byrtevatn": {
+          "initial_million_m3": 72.691,
+          "capacity_million_m3": 76.71,
+          "initial_fill": 0.9476078738104551,
+          "terminal_water_value_eur_mwh": 59.08,
+          "natural_week_million_m3": 4.2669,
+          "initial_plus_natural_minus_capacity_million_m3": 0.24790000000000134
+        },
+        "Hyljelihyl": {
+          "initial_million_m3": 0.13,
+          "capacity_million_m3": 0.26,
+          "initial_fill": 0.5,
+          "terminal_water_value_eur_mwh": 140.37,
+          "natural_week_million_m3": 3.4287840000000003,
+          "initial_plus_natural_minus_capacity_million_m3": 3.2987840000000004
+        },
+        "Vatjern": {
+          "initial_million_m3": 0.15,
+          "capacity_million_m3": 0.3,
+          "initial_fill": 0.5,
+          "terminal_water_value_eur_mwh": 142.41,
+          "natural_week_million_m3": 0.18864,
+          "initial_plus_natural_minus_capacity_million_m3": 0.03864000000000001
+        }
+      },
+      "units": {
+        "Hogga_G1": {
+          "true_on_hours": 80,
+          "sum_predicted_on_probabilities": 75.93160317341831,
+          "errors_at_point5": 14,
+          "brier": 0.08234521655252139,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            18,
+            0,
+            1,
+            24,
+            21,
+            14,
+            2
+          ],
+          "daily_sum_predictions": [
+            12.976475571744626,
+            2.6726543840953783,
+            3.2379788656317126,
+            15.409282260273033,
+            18.20072570541942,
+            14.768305957538427,
+            8.666180428715709
+          ],
+          "component_sum_predictions": {
+            "round3": 67.23529647477184,
+            "old299": 79.67020675088514,
+            "old673": 89.58561299324438
+          }
+        },
+        "Tokke_G1": {
+          "true_on_hours": 77,
+          "sum_predicted_on_probabilities": 95.26661495035165,
+          "errors_at_point5": 28,
+          "brier": 0.09205832615907206,
+          "hours_price_above_local_terminal_value": 168,
+          "daily_true_on_hours": [
+            20,
+            0,
+            1,
+            14,
+            16,
+            13,
+            13
+          ],
+          "daily_sum_predictions": [
+            17.054002614792502,
+            1.5417890569098156,
+            2.359164760752486,
+            18.9622006230948,
+            21.23909020864501,
+            18.539112807411545,
+            15.571254878745489
+          ],
+          "component_sum_predictions": {
+            "round3": 79.61814820265494,
+            "old299": 109.74472627927504,
+            "old673": 112.08543711682168
+          }
+        },
+        "Tokke_G2": {
+          "true_on_hours": 59,
+          "sum_predicted_on_probabilities": 77.99041434970634,
+          "errors_at_point5": 45,
+          "brier": 0.12993746728937092,
+          "hours_price_above_local_terminal_value": 168,
+          "daily_true_on_hours": [
+            19,
+            0,
+            0,
+            0,
+            15,
+            13,
+            12
+          ],
+          "daily_sum_predictions": [
+            12.201569411197262,
+            0.48105703582951165,
+            1.1443644122469119,
+            13.019928911667952,
+            19.182655708200876,
+            18.300515397641682,
+            13.660323472922144
+          ],
+          "component_sum_predictions": {
+            "round3": 44.5499302294208,
+            "old299": 110.72894505548524,
+            "old673": 112.13285188449854
+          }
+        },
+        "Tokke_G3": {
+          "true_on_hours": 72,
+          "sum_predicted_on_probabilities": 84.66966406413863,
+          "errors_at_point5": 30,
+          "brier": 0.09712724438315104,
+          "hours_price_above_local_terminal_value": 168,
+          "daily_true_on_hours": [
+            20,
+            0,
+            1,
+            10,
+            16,
+            13,
+            12
+          ],
+          "daily_sum_predictions": [
+            14.162554109823532,
+            2.3171790079721335,
+            2.1374471607727266,
+            14.31503133753748,
+            19.864061776248516,
+            18.020993279116603,
+            13.85239739266764
+          ],
+          "component_sum_predictions": {
+            "round3": 55.267607605879974,
+            "old299": 112.8333263492176,
+            "old673": 115.31011469557696
+          }
+        },
+        "Tokke_G4": {
+          "true_on_hours": 54,
+          "sum_predicted_on_probabilities": 70.98631141762976,
+          "errors_at_point5": 34,
+          "brier": 0.1107647765090243,
+          "hours_price_above_local_terminal_value": 168,
+          "daily_true_on_hours": [
+            19,
+            0,
+            1,
+            2,
+            16,
+            13,
+            3
+          ],
+          "daily_sum_predictions": [
+            10.89191459610282,
+            1.165467418043567,
+            1.6768705485315931,
+            11.90907078549308,
+            17.924938824322748,
+            16.290399381953698,
+            11.127649863182263
+          ],
+          "component_sum_predictions": {
+            "round3": 41.06067637021586,
+            "old299": 102.48727500270314,
+            "old673": 99.3366179273842
+          }
+        },
+        "Lio_G1": {
+          "true_on_hours": 97,
+          "sum_predicted_on_probabilities": 28.862608860699623,
+          "errors_at_point5": 74,
+          "brier": 0.38002481427387746,
+          "hours_price_above_local_terminal_value": 23,
+          "daily_true_on_hours": [
+            19,
+            0,
+            1,
+            24,
+            24,
+            24,
+            5
+          ],
+          "daily_sum_predictions": [
+            0.732193301221164,
+            0.18465516647635644,
+            0.28533839833468155,
+            1.9338733892802427,
+            13.072151362214981,
+            11.863906286617489,
+            0.7904909565547144
+          ],
+          "component_sum_predictions": {
+            "round3": 33.02747960577703,
+            "old299": 25.209154846825776,
+            "old673": 24.186321384418658
+          }
+        },
+        "Byrte_G1": {
+          "true_on_hours": 139,
+          "sum_predicted_on_probabilities": 36.54549103821954,
+          "errors_at_point5": 107,
+          "brier": 0.5954825621285308,
+          "hours_price_above_local_terminal_value": 32,
+          "daily_true_on_hours": [
+            24,
+            24,
+            24,
+            24,
+            22,
+            14,
+            7
+          ],
+          "daily_sum_predictions": [
+            1.9645816423676432,
+            0.1620698646256619,
+            0.2284949536666374,
+            1.6076555961613739,
+            15.928400146829567,
+            13.48459744588163,
+            3.169691388687023
+          ],
+          "component_sum_predictions": {
+            "round3": 39.63234033265905,
+            "old299": 33.874009131963355,
+            "old673": 33.04327435559669
+          }
+        },
+        "Vinje_G1": {
+          "true_on_hours": 11,
+          "sum_predicted_on_probabilities": 64.34609492976475,
+          "errors_at_point5": 62,
+          "brier": 0.2200847368442045,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            6,
+            0
+          ],
+          "daily_sum_predictions": [
+            10.161051357078641,
+            0.6252464634006571,
+            1.2844983404565846,
+            13.332861322481472,
+            17.37438353209781,
+            13.840690264622493,
+            7.727363649627094
+          ],
+          "component_sum_predictions": {
+            "round3": 52.57031167441512,
+            "old299": 74.6035607703573,
+            "old673": 77.64019559987145
+          }
+        },
+        "Vinje_G2": {
+          "true_on_hours": 5,
+          "sum_predicted_on_probabilities": 60.374030261655975,
+          "errors_at_point5": 64,
+          "brier": 0.24017557036271905,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            0
+          ],
+          "daily_sum_predictions": [
+            9.133009796888455,
+            0.30919433426516585,
+            0.974751515427364,
+            12.360711198568758,
+            16.3165762571873,
+            13.417871059059973,
+            7.861916100258959
+          ],
+          "component_sum_predictions": {
+            "round3": 48.01393517019736,
+            "old299": 72.19344145822406,
+            "old673": 73.27480924800513
+          }
+        },
+        "Vinje_G3": {
+          "true_on_hours": 2,
+          "sum_predicted_on_probabilities": 30.328194891739763,
+          "errors_at_point5": 21,
+          "brier": 0.0920305390915776,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          "daily_sum_predictions": [
+            3.658061599466156,
+            0.12010555856101783,
+            0.42225840467323267,
+            4.667479622500854,
+            10.137017456375338,
+            9.154241339910211,
+            2.169030910252959
+          ],
+          "component_sum_predictions": {
+            "round3": 23.872922553885875,
+            "old299": 39.27114520845652,
+            "old673": 34.295789250730806
+          }
+        },
+        "Haukeli_G1": {
+          "true_on_hours": 11,
+          "sum_predicted_on_probabilities": 55.565350032330414,
+          "errors_at_point5": 11,
+          "brier": 0.1229935023683119,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            0,
+            0,
+            0,
+            0,
+            11,
+            0,
+            0
+          ],
+          "daily_sum_predictions": [
+            7.6962680552083205,
+            4.255406929452151,
+            5.236485393984172,
+            9.208072658606213,
+            11.477704861776605,
+            10.098491955587086,
+            7.592920177715863
+          ],
+          "component_sum_predictions": {
+            "round3": 59.96350453954695,
+            "old299": 51.17942303373495,
+            "old673": 51.15496801649278
+          }
+        },
+        "Songa_G1": {
+          "true_on_hours": 0,
+          "sum_predicted_on_probabilities": 1.1345082890692202,
+          "errors_at_point5": 0,
+          "brier": 0.00010578006364553606,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "daily_sum_predictions": [
+            0.18216889427502445,
+            0.022587940544213057,
+            0.03203144036586605,
+            0.16189173918611297,
+            0.32667908939011137,
+            0.29286571026636543,
+            0.11628347504152678
+          ],
+          "component_sum_predictions": {
+            "round3": 1.9283532500746063,
+            "old299": 0.33279239492664636,
+            "old673": 0.34853426120102154
+          }
+        },
+        "Kjela_G1": {
+          "true_on_hours": 28,
+          "sum_predicted_on_probabilities": 78.38945866859967,
+          "errors_at_point5": 47,
+          "brier": 0.2462090253224895,
+          "hours_price_above_local_terminal_value": 75,
+          "daily_true_on_hours": [
+            0,
+            0,
+            0,
+            0,
+            12,
+            13,
+            3
+          ],
+          "daily_sum_predictions": [
+            12.31658826455196,
+            0.6621036246287013,
+            1.646537962811191,
+            16.06986015362061,
+            18.162728915336675,
+            15.637566883781535,
+            13.894072863868999
+          ],
+          "component_sum_predictions": {
+            "round3": 83.18763601167242,
+            "old299": 73.62444035073806,
+            "old673": 73.55812230031577
+          }
+        },
+        "Vesle Kjela_G1": {
+          "true_on_hours": 78,
+          "sum_predicted_on_probabilities": 0.6504059447097827,
+          "errors_at_point5": 78,
+          "brier": 0.45777138052635186,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            12,
+            0,
+            0,
+            18,
+            21,
+            15,
+            12
+          ],
+          "daily_sum_predictions": [
+            0.05522318110172891,
+            0.007641031373504137,
+            0.007684487137361964,
+            0.05473651217784521,
+            0.20514430507539066,
+            0.2296187625345032,
+            0.0903576653094486
+          ],
+          "component_sum_predictions": {
+            "round3": 1.2736929058677406,
+            "old299": 0.02333561622624057,
+            "old673": 0.030902350877408776
+          }
+        }
+      },
+      "upstream_capacity_references": {
+        "Vesle Kjela": {
+          "reservoirs": [
+            "Kjelavatn",
+            "Staavatn"
+          ],
+          "initial": 119.054,
+          "capacity": 132.5,
+          "natural_week": 18.319464,
+          "initial_plus_natural_minus_capacity": 4.873464000000013,
+          "daily_natural_volume": [
+            2.162412,
+            7.015824,
+            3.777408,
+            1.864944,
+            1.4549400000000001,
+            1.20384,
+            0.840096
+          ]
+        },
+        "Byrte": {
+          "reservoirs": [
+            "Botnedalsvatn"
+          ],
+          "initial": 54.715,
+          "capacity": 54.17,
+          "natural_week": 5.746104,
+          "initial_plus_natural_minus_capacity": 6.291104000000004,
+          "daily_natural_volume": [
+            1.3762079999999999,
+            1.606356,
+            0.962496,
+            0.6365879999999999,
+            0.519876,
+            0.426096,
+            0.218484
+          ]
+        },
+        "Lio": {
+          "reservoirs": [
+            "Botnedalsvatn",
+            "Byrtevatn"
+          ],
+          "initial": 127.406,
+          "capacity": 130.88,
+          "natural_week": 10.013004,
+          "initial_plus_natural_minus_capacity": 6.539004000000006,
+          "daily_natural_volume": [
+            2.398176,
+            2.799252,
+            1.6772040000000001,
+            1.1093039999999998,
+            0.9058679999999999,
+            0.742464,
+            0.38073599999999996
+          ]
+        },
+        "Haukeli": {
+          "reservoirs": [
+            "Langeidvatn",
+            "Vatjern"
+          ],
+          "initial": 26.151,
+          "capacity": 32.4,
+          "natural_week": 2.0362679999999997,
+          "initial_plus_natural_minus_capacity": -4.212731999999999,
+          "daily_natural_volume": [
+            0.48762,
+            0.569376,
+            0.34099199999999996,
+            0.22554,
+            0.184212,
+            0.15098399999999998,
+            0.077544
+          ]
+        }
+      },
+      "constraint_changes": {
+        "b_Kjelavatn": [
+          {
+            "hour": 0,
+            "minimum_m3_s": 0.3
+          }
+        ],
+        "b_Hyljelihyl": [
+          {
+            "hour": 0,
+            "minimum_m3_s": 0.5
+          }
+        ],
+        "b_Vinjevatn": [
+          {
+            "hour": 0,
+            "minimum_m3_s": 2.0
+          },
+          {
+            "hour": 144,
+            "minimum_m3_s": 1.0
+          }
+        ],
+        "b_Byrtevatn": [
+          {
+            "hour": 0,
+            "minimum_m3_s": 0.0
+          }
+        ],
+        "b_Bandak": [
+          {
+            "hour": 0,
+            "minimum_m3_s": 4.0
+          }
+        ],
+        "r_Vest_Vassdraget": [
+          {
+            "hour": 0,
+            "minimum_m3_s": 14.0
+          },
+          {
+            "hour": 144,
+            "minimum_m3_s": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "case_id": 2872,
+      "starttime": "2022-11-11 00:00:00+00:00",
+      "source_cache": "data/processed/round6_native_2022_baseline.npz",
+      "source_cache_sha256": "90cb0e574d16b03e0a537bd641d945885a756414874d331075bbcf61713538a5",
+      "within_case_auc": 0.6415520452754495,
+      "price_min_mean_max": [
+        0.04,
+        30.729642857142856,
+        99.91
+      ],
+      "daily_mean_prices": [
+        1.8895833333333334,
+        3.7950000000000004,
+        28.824166666666667,
+        52.435,
+        51.74666666666667,
+        27.462500000000002,
+        48.95458333333334
+      ],
+      "reservoirs": {
+        "Kjelavatn": {
+          "initial_million_m3": 73.123,
+          "capacity_million_m3": 84.5,
+          "initial_fill": 0.8653609467455622,
+          "terminal_water_value_eur_mwh": 146.05,
+          "natural_week_million_m3": 5.098464,
+          "initial_plus_natural_minus_capacity_million_m3": -6.278536000000003
+        },
+        "Staavatn": {
+          "initial_million_m3": 48.774,
+          "capacity_million_m3": 48.0,
+          "initial_fill": 1.016125,
+          "terminal_water_value_eur_mwh": 146.05,
+          "natural_week_million_m3": 11.733588,
+          "initial_plus_natural_minus_capacity_million_m3": 12.507587999999998
+        },
+        "Langesae": {
+          "initial_million_m3": 48.801,
+          "capacity_million_m3": 78.0,
+          "initial_fill": 0.6256538461538462,
+          "terminal_water_value_eur_mwh": 49.88,
+          "natural_week_million_m3": 2.998872,
+          "initial_plus_natural_minus_capacity_million_m3": -26.200128
+        },
+        "Foersvatn": {
+          "initial_million_m3": 113.343,
+          "capacity_million_m3": 122.3,
+          "initial_fill": 0.9267620605069502,
+          "terminal_water_value_eur_mwh": 49.88,
+          "natural_week_million_m3": 0.420012,
+          "initial_plus_natural_minus_capacity_million_m3": -8.536987999999994
+        },
+        "Venemo": {
+          "initial_million_m3": 17.928,
+          "capacity_million_m3": 23.0,
+          "initial_fill": 0.7794782608695653,
+          "terminal_water_value_eur_mwh": 147.49,
+          "natural_week_million_m3": 1.351872,
+          "initial_plus_natural_minus_capacity_million_m3": -3.720127999999999
+        },
+        "Botnedalsvatn": {
+          "initial_million_m3": 54.637,
+          "capacity_million_m3": 54.17,
+          "initial_fill": 1.008621007937973,
+          "terminal_water_value_eur_mwh": 49.98,
+          "natural_week_million_m3": 4.5818639999999995,
+          "initial_plus_natural_minus_capacity_million_m3": 5.048863999999995
+        },
+        "Bitdalsvatn": {
+          "initial_million_m3": 98.064,
+          "capacity_million_m3": 110.0,
+          "initial_fill": 0.891490909090909,
+          "terminal_water_value_eur_mwh": 163.97,
+          "natural_week_million_m3": 8.679564000000001,
+          "initial_plus_natural_minus_capacity_million_m3": -3.256436000000008
+        },
+        "Vaamarvatn": {
+          "initial_million_m3": 22.504,
+          "capacity_million_m3": 26.2,
+          "initial_fill": 0.8589312977099237,
+          "terminal_water_value_eur_mwh": 147.49,
+          "natural_week_million_m3": 0.8407439999999999,
+          "initial_plus_natural_minus_capacity_million_m3": -2.855255999999997
+        },
+        "Langeidvatn": {
+          "initial_million_m3": 26.139,
+          "capacity_million_m3": 32.1,
+          "initial_fill": 0.8142990654205607,
+          "terminal_water_value_eur_mwh": 169.09,
+          "natural_week_million_m3": 1.473372,
+          "initial_plus_natural_minus_capacity_million_m3": -4.487628000000001
+        },
+        "Totak": {
+          "initial_million_m3": 232.726,
+          "capacity_million_m3": 257.8,
+          "initial_fill": 0.9027385570209464,
+          "terminal_water_value_eur_mwh": 147.49,
+          "natural_week_million_m3": 12.807324,
+          "initial_plus_natural_minus_capacity_million_m3": -12.266676000000018
+        },
+        "Songavatn": {
+          "initial_million_m3": 569.507,
+          "capacity_million_m3": 640.0,
+          "initial_fill": 0.8898546875,
+          "terminal_water_value_eur_mwh": 163.97,
+          "natural_week_million_m3": 39.970656,
+          "initial_plus_natural_minus_capacity_million_m3": -30.52234400000009
+        },
+        "Vinjevatn": {
+          "initial_million_m3": 6.996,
+          "capacity_million_m3": 9.36,
+          "initial_fill": 0.7474358974358976,
+          "terminal_water_value_eur_mwh": 0.01,
+          "natural_week_million_m3": 17.550396000000003,
+          "initial_plus_natural_minus_capacity_million_m3": 15.186396000000002
+        },
+        "Bandak": {
+          "initial_million_m3": 153.532,
+          "capacity_million_m3": 174.2,
+          "initial_fill": 0.8813547646383468,
+          "terminal_water_value_eur_mwh": 156.42,
+          "natural_week_million_m3": 10.296144,
+          "initial_plus_natural_minus_capacity_million_m3": -10.37185599999998
+        },
+        "Bordalsvatn": {
+          "initial_million_m3": 181.886,
+          "capacity_million_m3": 184.2,
+          "initial_fill": 0.9874375678610207,
+          "terminal_water_value_eur_mwh": 49.88,
+          "natural_week_million_m3": 4.026888,
+          "initial_plus_natural_minus_capacity_million_m3": 1.7128880000000208
+        },
+        "Byrtevatn": {
+          "initial_million_m3": 73.639,
+          "capacity_million_m3": 76.71,
+          "initial_fill": 0.9599661061139356,
+          "terminal_water_value_eur_mwh": 67.6,
+          "natural_week_million_m3": 3.40236,
+          "initial_plus_natural_minus_capacity_million_m3": 0.33136000000000365
+        },
+        "Hyljelihyl": {
+          "initial_million_m3": 0.13,
+          "capacity_million_m3": 0.26,
+          "initial_fill": 0.5,
+          "terminal_water_value_eur_mwh": 147.49,
+          "natural_week_million_m3": 2.734128,
+          "initial_plus_natural_minus_capacity_million_m3": 2.604128
+        },
+        "Vatjern": {
+          "initial_million_m3": 0.15,
+          "capacity_million_m3": 0.3,
+          "initial_fill": 0.5,
+          "terminal_water_value_eur_mwh": 169.09,
+          "natural_week_million_m3": 0.15048,
+          "initial_plus_natural_minus_capacity_million_m3": 0.00047999999999998044
+        }
+      },
+      "units": {
+        "Hogga_G1": {
+          "true_on_hours": 45,
+          "sum_predicted_on_probabilities": 68.4964284975936,
+          "errors_at_point5": 21,
+          "brier": 0.09553928793440815,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            0,
+            0,
+            0,
+            16,
+            13,
+            2,
+            14
+          ],
+          "daily_sum_predictions": [
+            2.335587104124734,
+            2.5847155133231428,
+            12.577762958836711,
+            16.94987642920279,
+            13.945597417022592,
+            5.856074288025782,
+            14.246814787057847
+          ],
+          "component_sum_predictions": {
+            "round3": 59.32396706912622,
+            "old299": 73.46230631656009,
+            "old673": 81.87547353556185
+          }
+        },
+        "Tokke_G1": {
+          "true_on_hours": 74,
+          "sum_predicted_on_probabilities": 91.52749675965488,
+          "errors_at_point5": 51,
+          "brier": 0.197195046994724,
+          "hours_price_above_local_terminal_value": 168,
+          "daily_true_on_hours": [
+            11,
+            6,
+            14,
+            13,
+            13,
+            1,
+            16
+          ],
+          "daily_sum_predictions": [
+            2.699399505425923,
+            2.2109450706027154,
+            16.36239362632281,
+            20.16029720111051,
+            17.293098428194384,
+            13.282436093996278,
+            19.518926834002258
+          ],
+          "component_sum_predictions": {
+            "round3": 74.95855383563108,
+            "old299": 107.68039498836198,
+            "old673": 108.51248437899537
+          }
+        },
+        "Tokke_G2": {
+          "true_on_hours": 42,
+          "sum_predicted_on_probabilities": 77.38247728208023,
+          "errors_at_point5": 48,
+          "brier": 0.13595498391471017,
+          "hours_price_above_local_terminal_value": 168,
+          "daily_true_on_hours": [
+            3,
+            0,
+            0,
+            12,
+            12,
+            0,
+            15
+          ],
+          "daily_sum_predictions": [
+            0.313940141711718,
+            0.85579934763008,
+            11.00980659787359,
+            17.84193469860051,
+            17.00766108043655,
+            11.638787204984034,
+            18.714548210843745
+          ],
+          "component_sum_predictions": {
+            "round3": 49.11297308548218,
+            "old299": 104.15278411793219,
+            "old673": 107.15117883942435
+          }
+        },
+        "Tokke_G3": {
+          "true_on_hours": 67,
+          "sum_predicted_on_probabilities": 82.08911011119949,
+          "errors_at_point5": 44,
+          "brier": 0.1745950475357329,
+          "hours_price_above_local_terminal_value": 168,
+          "daily_true_on_hours": [
+            11,
+            5,
+            10,
+            12,
+            13,
+            1,
+            15
+          ],
+          "daily_sum_predictions": [
+            2.4489846350609454,
+            1.821954204607485,
+            11.635004279291547,
+            18.430830113461887,
+            17.003032379918523,
+            11.645614552206807,
+            19.103689946652285
+          ],
+          "component_sum_predictions": {
+            "round3": 55.26565379180678,
+            "old299": 107.49746488617129,
+            "old673": 110.32766797501309
+          }
+        },
+        "Tokke_G4": {
+          "true_on_hours": 52,
+          "sum_predicted_on_probabilities": 70.62085903323275,
+          "errors_at_point5": 41,
+          "brier": 0.14889103459087236,
+          "hours_price_above_local_terminal_value": 168,
+          "daily_true_on_hours": [
+            11,
+            1,
+            2,
+            12,
+            12,
+            0,
+            14
+          ],
+          "daily_sum_predictions": [
+            0.6731604589727307,
+            1.1091743046881544,
+            10.29062528871414,
+            16.783733243647312,
+            15.451950279770376,
+            9.22755777913627,
+            17.084657678303763
+          ],
+          "component_sum_predictions": {
+            "round3": 45.73089614160371,
+            "old299": 96.59615183282614,
+            "old673": 94.42549201689744
+          }
+        },
+        "Lio_G1": {
+          "true_on_hours": 98,
+          "sum_predicted_on_probabilities": 31.904948772588504,
+          "errors_at_point5": 71,
+          "brier": 0.3624344918951977,
+          "hours_price_above_local_terminal_value": 24,
+          "daily_true_on_hours": [
+            0,
+            8,
+            24,
+            24,
+            24,
+            5,
+            13
+          ],
+          "daily_sum_predictions": [
+            0.1634403587530082,
+            0.23790628918197965,
+            1.0797527959097346,
+            11.653218657629479,
+            10.18257434170392,
+            0.481773840894486,
+            8.1062824885159
+          ],
+          "component_sum_predictions": {
+            "round3": 34.46472099651083,
+            "old299": 30.824472517864393,
+            "old673": 27.865880579467973
+          }
+        },
+        "Byrte_G1": {
+          "true_on_hours": 132,
+          "sum_predicted_on_probabilities": 38.34308460878231,
+          "errors_at_point5": 95,
+          "brier": 0.5569266093608581,
+          "hours_price_above_local_terminal_value": 37,
+          "daily_true_on_hours": [
+            24,
+            24,
+            24,
+            22,
+            14,
+            11,
+            13
+          ],
+          "daily_sum_predictions": [
+            0.09136277270118912,
+            0.1000468375982283,
+            0.24164276869186274,
+            12.089156414856499,
+            11.974036751801743,
+            0.2671384614462108,
+            13.579700601686577
+          ],
+          "component_sum_predictions": {
+            "round3": 39.40950512654028,
+            "old299": 37.64329167642325,
+            "old673": 36.91003650562542
+          }
+        },
+        "Vinje_G1": {
+          "true_on_hours": 6,
+          "sum_predicted_on_probabilities": 62.767308741376624,
+          "errors_at_point5": 65,
+          "brier": 0.25077142969806737,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            0,
+            0,
+            0,
+            0,
+            6,
+            0,
+            0
+          ],
+          "daily_sum_predictions": [
+            0.82374205398721,
+            1.132495837104231,
+            11.1996563752631,
+            15.198125186308971,
+            12.93283049029408,
+            7.457349404465065,
+            14.023109393953963
+          ],
+          "component_sum_predictions": {
+            "round3": 53.799967322033794,
+            "old299": 69.7551560749331,
+            "old673": 73.71414424650578
+          }
+        },
+        "Vinje_G2": {
+          "true_on_hours": 5,
+          "sum_predicted_on_probabilities": 58.28262274077284,
+          "errors_at_point5": 58,
+          "brier": 0.23877225020967843,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          "daily_sum_predictions": [
+            0.3759947777567781,
+            0.7964309515714951,
+            9.922200491529392,
+            14.7346518256661,
+            12.605798838182412,
+            5.600690579672698,
+            14.246855276393958
+          ],
+          "component_sum_predictions": {
+            "round3": 49.000433160978396,
+            "old299": 67.74085290595913,
+            "old673": 67.38877173517541
+          }
+        },
+        "Vinje_G3": {
+          "true_on_hours": 2,
+          "sum_predicted_on_probabilities": 32.532844729450865,
+          "errors_at_point5": 27,
+          "brier": 0.10438428615777402,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          "daily_sum_predictions": [
+            0.17796128449351184,
+            0.3648483606574696,
+            2.833246656660088,
+            10.222867487014678,
+            9.496328826147703,
+            1.7704699213872153,
+            7.667122193090197
+          ],
+          "component_sum_predictions": {
+            "round3": 23.71008092227392,
+            "old299": 42.26964221202825,
+            "old673": 40.441574861227366
+          }
+        },
+        "Haukeli_G1": {
+          "true_on_hours": 0,
+          "sum_predicted_on_probabilities": 58.14352922070835,
+          "errors_at_point5": 10,
+          "brier": 0.13032794246016538,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "daily_sum_predictions": [
+            5.103584018407497,
+            5.372266550159154,
+            8.747588884058796,
+            10.893680682361541,
+            10.276707102918138,
+            7.799974052444682,
+            9.949727930358542
+          ],
+          "component_sum_predictions": {
+            "round3": 52.40629635107564,
+            "old299": 66.62465437354723,
+            "old673": 61.1368698071349
+          }
+        },
+        "Songa_G1": {
+          "true_on_hours": 0,
+          "sum_predicted_on_probabilities": 1.3171951121363763,
+          "errors_at_point5": 0,
+          "brier": 0.00015107208943700075,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "daily_sum_predictions": [
+            0.025600105233539387,
+            0.033719650252960205,
+            0.1303994037288401,
+            0.37436956977714547,
+            0.3428458720234,
+            0.0763002207595416,
+            0.33396029036094954
+          ],
+          "component_sum_predictions": {
+            "round3": 2.105026938719383,
+            "old299": 0.45247611474028393,
+            "old673": 0.6062504563664547
+          }
+        },
+        "Kjela_G1": {
+          "true_on_hours": 37,
+          "sum_predicted_on_probabilities": 41.53961899961745,
+          "errors_at_point5": 0,
+          "brier": 0.0031192982150553402,
+          "hours_price_above_local_terminal_value": 38,
+          "daily_true_on_hours": [
+            0,
+            0,
+            0,
+            12,
+            12,
+            0,
+            13
+          ],
+          "daily_sum_predictions": [
+            0.26992694246643073,
+            0.38999959569655107,
+            1.4677803933368723,
+            12.3752822061156,
+            12.098140645876862,
+            1.395593284671797,
+            13.542895931453337
+          ],
+          "component_sum_predictions": {
+            "round3": 47.87385372642518,
+            "old299": 35.26772995599113,
+            "old673": 35.143038589628304
+          }
+        },
+        "Vesle Kjela_G1": {
+          "true_on_hours": 100,
+          "sum_predicted_on_probabilities": 0.5229334080693819,
+          "errors_at_point5": 100,
+          "brier": 0.5905129747437967,
+          "hours_price_above_local_terminal_value": 0,
+          "daily_true_on_hours": [
+            0,
+            8,
+            24,
+            24,
+            20,
+            12,
+            12
+          ],
+          "daily_sum_predictions": [
+            0.007579323178426314,
+            0.007573266860771394,
+            0.02574723761861618,
+            0.1220647602362244,
+            0.122476356607424,
+            0.030182692608636767,
+            0.2073097709592829
+          ],
+          "component_sum_predictions": {
+            "round3": 1.0203092852890756,
+            "old299": 0.020255000929994986,
+            "old673": 0.030860060769381394
+          }
+        }
+      },
+      "upstream_capacity_references": {
+        "Vesle Kjela": {
+          "reservoirs": [
+            "Kjelavatn",
+            "Staavatn"
+          ],
+          "initial": 121.897,
+          "capacity": 132.5,
+          "natural_week": 16.832052,
+          "initial_plus_natural_minus_capacity": 6.229051999999996,
+          "daily_natural_volume": [
+            7.015824,
+            3.777408,
+            1.864944,
+            1.4549400000000001,
+            1.20384,
+            0.840096,
+            0.675
+          ]
+        },
+        "Byrte": {
+          "reservoirs": [
+            "Botnedalsvatn"
+          ],
+          "initial": 54.637,
+          "capacity": 54.17,
+          "natural_week": 4.5818639999999995,
+          "initial_plus_natural_minus_capacity": 5.048863999999995,
+          "daily_natural_volume": [
+            1.606356,
+            0.962496,
+            0.6365879999999999,
+            0.519876,
+            0.426096,
+            0.218484,
+            0.211968
+          ]
+        },
+        "Lio": {
+          "reservoirs": [
+            "Botnedalsvatn",
+            "Byrtevatn"
+          ],
+          "initial": 128.276,
+          "capacity": 130.88,
+          "natural_week": 7.984224000000001,
+          "initial_plus_natural_minus_capacity": 5.380224000000027,
+          "daily_natural_volume": [
+            2.799252,
+            1.6772040000000001,
+            1.1093039999999998,
+            0.9058679999999999,
+            0.742464,
+            0.38073599999999996,
+            0.369396
+          ]
+        },
+        "Haukeli": {
+          "reservoirs": [
+            "Langeidvatn",
+            "Vatjern"
+          ],
+          "initial": 26.288999999999998,
+          "capacity": 32.4,
+          "natural_week": 1.6238519999999999,
+          "initial_plus_natural_minus_capacity": -4.487148000000001,
+          "daily_natural_volume": [
+            0.569376,
+            0.34099199999999996,
+            0.22554,
+            0.184212,
+            0.15098399999999998,
+            0.077544,
+            0.075204
+          ]
+        }
+      },
+      "constraint_changes": {
+        "b_Kjelavatn": [
+          {
+            "hour": 0,
+            "minimum_m3_s": 0.3
+          }
+        ],
+        "b_Hyljelihyl": [
+          {
+            "hour": 0,
+            "minimum_m3_s": 0.5
+          }
+        ],
+        "b_Vinjevatn": [
+          {
+            "hour": 0,
+            "minimum_m3_s": 2.0
+          },
+          {
+            "hour": 120,
+            "minimum_m3_s": 1.0
+          }
+        ],
+        "b_Byrtevatn": [
+          {
+            "hour": 0,
+            "minimum_m3_s": 0.0
+          }
+        ],
+        "b_Bandak": [
+          {
+            "hour": 0,
+            "minimum_m3_s": 4.0
+          }
+        ],
+        "r_Vest_Vassdraget": [
+          {
+            "hour": 0,
+            "minimum_m3_s": 14.0
+          },
+          {
+            "hour": 120,
+            "minimum_m3_s": 5.0
+          }
+        ]
+      }
+    }
+  ],
+  "vesle_pressure_below_value_stratum": [
+    {
+      "case_id": 2148,
+      "starttime": "2020-11-17 00:00:00+00:00",
+      "pressure_million_m3": 1.1216719999999896,
+      "max_price": 5.0,
+      "terminal_value": 5.17,
+      "on_hours": 19
+    },
+    {
+      "case_id": 2149,
+      "starttime": "2020-11-18 00:00:00+00:00",
+      "pressure_million_m3": 4.515951999999999,
+      "max_price": 5.0,
+      "terminal_value": 5.46,
+      "on_hours": 116
+    },
+    {
+      "case_id": 2150,
+      "starttime": "2020-11-19 00:00:00+00:00",
+      "pressure_million_m3": 1.7847720000000038,
+      "max_price": 5.0,
+      "terminal_value": 6.17,
+      "on_hours": 42
+    },
+    {
+      "case_id": 2869,
+      "starttime": "2022-11-08 00:00:00+00:00",
+      "pressure_million_m3": 2.586328000000009,
+      "max_price": 78.27,
+      "terminal_value": 85.67,
+      "on_hours": 38
+    },
+    {
+      "case_id": 2871,
+      "starttime": "2022-11-10 00:00:00+00:00",
+      "pressure_million_m3": 4.873464000000013,
+      "max_price": 99.91,
+      "terminal_value": 123.87,
+      "on_hours": 78
+    },
+    {
+      "case_id": 2872,
+      "starttime": "2022-11-11 00:00:00+00:00",
+      "pressure_million_m3": 6.229051999999996,
+      "max_price": 99.91,
+      "terminal_value": 146.05,
+      "on_hours": 100
+    },
+    {
+      "case_id": 2873,
+      "starttime": "2022-11-12 00:00:00+00:00",
+      "pressure_million_m3": 0.38934000000000424,
+      "max_price": 153.32,
+      "terminal_value": 159.28,
+      "on_hours": 3
+    }
+  ],
+  "prior_experiments": {
+    "all17_inflow_profiles": {
+      "code": "src/features.py:149",
+      "configs": [
+        "configs/xgboost_profiles_2021.json",
+        "configs/xgboost_profiles_2022.json"
+      ],
+      "architecture": "Pooled, unrescaled XGBoost with depth 6; original price baseline plus 51 hourly, cumulative and remaining reservoir inflow features.",
+      "baseline_auc": [
+        0.9657186899179886,
+        0.971632643219859
+      ],
+      "profiles_auc": [
+        0.965813,
+        0.971371
+      ],
+      "conclusion": "Mixed results on an older model. No current separate-generator LightGBM or normalized Transformer trial of all reservoir profiles was found. The neural trainer exposes the switch, but no neural configuration enables it."
+    },
+    "hydraulic_features": {
+      "references": [
+        "README.md:495",
+        "reports/hydrology_feature_comparison.json"
+      ],
+      "conclusion": "Small gains in 2021 and 2022 failed confirmation in 2020. The features were initial reservoir levels and tunnel head differences, not a hydraulic simulator."
+    },
+    "unit_structure": {
+      "references": [
+        "reports/autonomous_round2_20261014.json:566",
+        "src/train_plant_commitment.py:60",
+        "reports/round9_unit_order_explanation.json"
+      ],
+      "conclusion": "Penstock pairs were already known; count and unit-pattern models were already tried; simple Vinje probability ordering produced negligible gain in Round 9."
+    },
+    "water_budget": {
+      "reference": "src/water_budget_features.py:6",
+      "conclusion": "Older local-reservoir natural-inflow-minus-direct-minimum features underperformed. They do not explicitly aggregate pressure across upstream reservoir capacities or represent physical turbine discharge ranges."
+    }
+  },
+  "findings": [
+    {
+      "id": "T1",
+      "status": "confirmed",
+      "importance": "high",
+      "finding": "Core task timing, units and output framing are consistent. No terminal water-value date error or use of future observed storage was found.",
+      "evidence": [
+        "docs/Dataset_definitions_and_explanation.pdf page2",
+        "src/features.py:84",
+        "src/features.py:124",
+        "src/features.py:174"
+      ],
+      "next_check": "No change required to preserve current semantics."
+    },
+    {
+      "id": "T2",
+      "status": "confirmed_information_limit",
+      "importance": "high",
+      "finding": "Teacher boundary and solver settings cannot be reconstructed from the supplied files. Initial commitment, minimum dwell times, terminal shutdown rules and exact optimality are unknown.",
+      "evidence": [
+        "teacher_boundary_information",
+        "docs/Dataset_definitions_and_explanation.pdf page1",
+        "configs/Tokke_Vinje_topology.yaml:692"
+      ],
+      "next_check": "A provider-supplied single-case generation script or settings export for SHOP 17.17 would resolve initial state, the water-value attribute, MIP horizon, startup and terminal cost rules, and solver termination."
+    },
+    {
+      "id": "T3",
+      "status": "confirmed_version_mismatch",
+      "importance": "medium",
+      "finding": "Current SHOP documentation describes version 18.x, while the teacher used 17.17. Release 18.0 changed the application of reservoir constraints from the end of an interval to the specified timestamp.",
+      "evidence": [
+        "docs/Dataset_definitions_and_explanation.pdf page1",
+        "https://docs.shop.sintef.energy/release-notes.html (18.0.0, Ticket 1110)"
+      ],
+      "next_check": "Pin version 17.17 semantics before implementing a physics decoder. This does not establish a timing bug in existing statistical features."
+    },
+    {
+      "id": "T4",
+      "status": "confirmed_negative_finding",
+      "importance": "medium",
+      "finding": "Songa averaging and omitted river inflow are weaker concerns than they first appear: both Songa water-value columns are identical; river inflow is almost proportional to Lio local inflow at Byrtevatn.",
+      "evidence": [
+        "water_values",
+        "inflow_redundancy"
+      ],
+      "next_check": "Prioritize informative timing and pressure transformations instead of describing these redundant signals as entirely missing independent information."
+    },
+    {
+      "id": "T5",
+      "status": "confirmed_representation_gap_hypothesis_for_gain",
+      "importance": "high",
+      "finding": "The current models compress much of nonlocal inflow timing. Staavatn and Venemo provide distinct profiles even beyond current neural inputs. An older XGBoost profile experiment does not settle their usefulness in current models.",
+      "evidence": [
+        "current_feature_coverage",
+        "inflow_redundancy",
+        "prior_experiments.all17_inflow_profiles"
+      ],
+      "next_check": "Run a fixed feature ablation on the current normalized model, comparing the full ensemble against the actual Round 5 reference. No performance gain is asserted."
+    },
+    {
+      "id": "T6",
+      "status": "confirmed_failure_pattern_hypothesis_for_cause",
+      "importance": "high",
+      "finding": "All current components share large commitment errors in a high-storage regime in November 2022. In case 2872, Vesle Kjela has 100 true ON hours but a predicted probability sum of 0.522933; Byrte has 132 versus 38.343085; Lio has 98 versus 31.904949. Initial storage plus natural inflow exceeds relevant upstream capacities. This does not prove why the teacher selected those commitments.",
+      "evidence": [
+        "current_round5_case_diagnostics"
+      ],
+      "next_check": "Test explicit water-availability and capacity-pressure features using known minimum releases and topology, keeping them as soft inputs. Verify global AUC of the full ensemble under a fixed historical protocol. Earlier failure of a local water-budget feature is relevant counterevidence."
+    },
+    {
+      "id": "T7",
+      "status": "confirmed_failure_pattern_unknown_cause",
+      "importance": "medium",
+      "finding": "Case 2438 overpredicts commitment across Tokke and Vinje. Tokke terminal water value is 0.01 while upstream values are around 198 to 219 EUR/MWh. Vinjevatn starts with 7.838 million m3 and receives 0.737 million m3 of local natural inflow; additional water depends on upstream dispatch. All components share the error.",
+      "evidence": [
+        "current_round5_case_diagnostics"
+      ],
+      "next_check": "Inspect residuals against cascade water availability and economic contrasts. Dispatch and release outputs would be needed to identify the exact teacher explanation."
+    },
+    {
+      "id": "T8",
+      "status": "confirmed_modeling_constraint",
+      "importance": "medium",
+      "finding": "Tunnel connection direction is not a universal flow direction. Supplied initial levels imply reverse pressure on 403 dates for Bordalsvatn-Foersvatn. Directed graph aggregates must remain summaries rather than hard physical constraints.",
+      "evidence": [
+        "src/topology_features.py:7",
+        "tunnel_head_reference",
+        "https://docs.shop.sintef.energy/examples/tunnel/advanced_tunnel.html"
+      ],
+      "next_check": "Any hydraulic representation should use signed head and pressure balance. Do not reverse every river edge or treat a pressure reference as a predicted flow."
+    },
+    {
+      "id": "T9",
+      "status": "confirmed_representation_gap_hypothesis_for_gain",
+      "importance": "medium",
+      "finding": "Current trees compress future constraint schedules to current values and weekly maxima. The November examples have the same current and maximum requirements but different durations until their known reductions.",
+      "evidence": [
+        "constraint_timing_compression",
+        "src/features.py:134"
+      ],
+      "next_check": "A small predefined ablation could add time until the next change and remaining required release volumes; compare global AUC on fixed historical splits. Do not impose an ON rule on Lio because other releases can satisfy the river constraint. Earlier water-budget experiments already encoded cumulative and remaining direct outlet requirements; the distinct untested summary is explicit timing/remaining burden for the shared downstream river in the current model."
+    }
+  ],
+  "external_sources": [
+    {
+      "url": "https://docs.shop.sintef.energy/examples/water_values/water_values.html",
+      "supports": "Local EUR/MWh energy values are converted using initial-head efficiency and downstream value into global values per water volume. Arithmetic means in the current features do not perform this conversion. The dataset does not identify the exact SHOP input attribute."
+    },
+    {
+      "url": "https://docs.shop.sintef.energy/objects/generator/generator.html",
+      "supports": "Initial state and historical production are distinct inputs; minimum up and down times can be specified; penstock identifies shared loss groups. The documentation describes possible MIP relaxation and later commitment decisions, not the particular teacher configuration."
+    },
+    {
+      "url": "https://docs.shop.sintef.energy/examples/basic/basic.html",
+      "supports": "SHOP accepts any consistent monetary currency. NOK attribute metadata alone therefore does not prove an EUR/NOK conversion bug."
+    },
+    {
+      "url": "https://docs.shop.sintef.energy/examples/pq_curves/pq_curves.html",
+      "supports": "Production depends on head, discharge, efficiency and shared quadratic losses. Nominal power alone cannot reconstruct dispatch."
+    },
+    {
+      "url": "https://docs.shop.sintef.energy/examples/tunnel/advanced_tunnel.html",
+      "supports": "Negative tunnel flow runs opposite the direction of the connection."
+    },
+    {
+      "url": "https://docs.shop.sintef.energy/release-notes.html",
+      "supports": "Release 18.0 changed the temporal application of reservoir constraints. The teacher used the earlier 17.17 version."
+    }
+  ],
+  "minimal_next_checks_ranked": [
+    {
+      "rank": 1,
+      "check": "Preserve Round 5 and test compact upstream capacity-pressure features plus daily Staavatn and Venemo profiles in a current normalized model.",
+      "rationale": "Grounded in shared current errors, available inputs and unresolved representation.",
+      "limits": "Only three pre-2021 Vesle Kjela cases satisfy positive upstream pressure with every price below terminal water value, and they are consecutive days. There are zero such cases in 2021 and four in 2022. A 2021-only screening gate contains no examples of this mechanism. Choose a historical development protocol before inspecting new candidate results; do not tune a correction to these cases."
+    },
+    {
+      "rank": 2,
+      "check": "Obtain the exact SHOP 17.17 teacher settings before an optimization decoder or hard physics postprocessing.",
+      "rationale": "Boundary conditions and the water-value input attribute are unknown, so exact constraints and profits cannot currently be reproduced."
+    }
+  ],
+  "source_sha256": {
+    "src/features.py": "6eea354fb4f7c80ff4c495ed3ac958777334b72a93ce1d19c14a4b0f41d66133",
+    "src/tree_preprocessing.py": "21bfa82dce77473bd10faf83f8f72aec8af34246c0195a6062617868ff929235",
+    "src/temporal_cnn.py": "0ec5058d0cace71d60110d51c1155327ab590164649ba56e3ff558e23769384c",
+    "src/topology_features.py": "8e21092f5b558e0cd1ecf09b3570af88fb2ed62318f1f94a1040246972eff0a3",
+    "src/hydraulic_features.py": "8a59eb1d309b104a2c790e58f4b7bb041684e7584b21a5a1c266c0db2555c983",
+    "src/operating_features.py": "7aadf389d079da19a67a172a209586f33e9516469a34cde9a5361577ca5780db",
+    "src/water_budget_features.py": "2f457111746c846426b69ae4c7c715d834154f1e590f451c40e8c78de2766a83",
+    "configs/Tokke_Vinje_topology.yaml": "29cfa233cec7fc4b5401d0d571a566e6e17b7bb7b46a175abcd37a53fe175497",
+    "configs/round5_lgb_peer_relative_seed299_2021.json": "765542f15dd99f9398619f1cf093b449d6f3a7032fb93690151c1ca7f4ba93c1",
+    "docs/Dataset_definitions_and_explanation.pdf": "256adf9a662446d391650dc1e8e764b819b38ddd435126b8c4ea93a613488cb8",
+    "docs/ML_Task_TDT4173.pdf": "90a84ac45e16e1bc89f963d7846ca2a4e17c047247154e1f7f3947096e056804",
+    "docs/Tokke_topology.pdf": "ea6e62174fd037f42d95bcfb16e0e5408d7866802d7a196e529aafcbc42bb54c",
+    "data/raw/kernel/Unit_commitment_decisions.csv": "6d51f8cc6869cb82b44708168808c305c1e007cf79878ca1c1d316d07aae3ab3",
+    "data/raw/kernel/Historical_inflow_1958_2025.csv": "ff4f87d2768133b4a717c0ad366969244f7a86901695e1d4fef3c2ed8963ad66",
+    "data/raw/kernel/Historical_volume_2015_2024.csv": "ef3d9c69699eef0d953b495ba69bf6676858e6b9c536087498135074912dd3b6",
+    "data/raw/kernel/Synthetic_water_value_2015_2024.csv": "a5f09ff96b551d3c297d90ccf3a0bbe92d8814b537ad63a46579cb0ff44aa4cb",
+    "data/raw/extended/Constraint_min_flow.csv": "146062702f58920440fc064d461d544e9cd7c503c8df74ce96e721bee04629ea",
+    "data/raw/extended/Constraint_min_volume.csv": "8b639b8339b84c5ff7db34ba4b4618e99d05a03819bf99fa5032a54490278806",
+    "models/round5_lgb_peer_relative_seed299_2022/Vesle_Kjela_G1.txt": "3ce7873990b00406fa0883197a67be3974c812344e3fd7090229b8d0e0c03d64",
+    "reports/round5_lgb_peer_relative_seed299_2022_metrics.json": "72bbc31390a5893f91fb142b59d0060229cab736f5c060d407b2b69f09978206",
+    "models/round5_lgb_peer_relative_seed299_2022/Byrte_G1.txt": "f868fb95ad8efc2adfc6432ad24ff6eecd4ae96a8a886a098bc683059ca8b8e9",
+    "models/round5_lgb_peer_relative_seed299_2022/Lio_G1.txt": "930482de7e6c505ffcd38836f3e742e79f01d8f26807d74eec4c7dcfdbc875c5"
+  },
+  "saved_model_contribution_probe": {
+    "interpretation": "Tree-path-dependent additive contributions explain the saved model raw logit, not physical causes. Correlated feature contributions are not independent causal effects. Same-feature prediction replay agrees with the cached component.",
+    "models": {
+      "Vesle Kjela_G1": {
+        "case_id": 2872,
+        "model": "models/round5_lgb_peer_relative_seed299_2022/Vesle_Kjela_G1.txt",
+        "model_source_report": "reports/round5_lgb_peer_relative_seed299_2022_metrics.json",
+        "expected_on_hours": 0.020255000929994986,
+        "selected_hour": 40,
+        "selected_hour_probability": 1.0484014305624454e-05,
+        "maximum_prediction_replay_difference": 0.0,
+        "mean_raw_logit": -9.772120460265679,
+        "contribution_sum_max_error": 8.704148513061227e-14,
+        "top_mean_absolute_contributions": [
+          {
+            "feature": "price_minus_water_value_week_scaled",
+            "mean_logit_contribution": -7.686057262867427,
+            "selected_hour_feature_value": -4.5090012550354,
+            "selected_hour_contribution": -7.449101068385762
+          },
+          {
+            "feature": "system_terminal_water_value_Kjelavatn_week_scaled",
+            "mean_logit_contribution": -2.0238061587471794,
+            "selected_hour_feature_value": 4.752739906311035,
+            "selected_hour_contribution": -1.8579028433109193
+          },
+          {
+            "feature": "expected_raw_score",
+            "mean_logit_contribution": -0.472933108829494,
+            "selected_hour_feature_value": null,
+            "selected_hour_contribution": -0.47293310882949396
+          },
+          {
+            "feature": "system_initial_volume_Bordalsvatn",
+            "mean_logit_contribution": -0.3372117020191501,
+            "selected_hour_feature_value": 181.88600158691406,
+            "selected_hour_contribution": -0.3568365623278285
+          },
+          {
+            "feature": "week_max_price_week_scaled",
+            "mean_logit_contribution": 0.25199027141141794,
+            "selected_hour_feature_value": 3.251258134841919,
+            "selected_hour_contribution": 0.25246588074770626
+          },
+          {
+            "feature": "system_terminal_water_value_Staavatn_week_scaled",
+            "mean_logit_contribution": -0.1937807907879935,
+            "selected_hour_feature_value": 4.752739906311035,
+            "selected_hour_contribution": -0.1753422524007638
+          },
+          {
+            "feature": "system_terminal_water_value_Bitdalsvatn_week_scaled",
+            "mean_logit_contribution": -0.18137192911608682,
+            "selected_hour_feature_value": 5.335890293121338,
+            "selected_hour_contribution": -0.15024276376634868
+          },
+          {
+            "feature": "system_terminal_water_value_Langesae_week_scaled",
+            "mean_logit_contribution": -0.1791625865686909,
+            "selected_hour_feature_value": 1.6231884956359863,
+            "selected_hour_contribution": -0.1406001786415807
+          },
+          {
+            "feature": "starting_volume_minus_min_volume_Staavatn",
+            "mean_logit_contribution": 0.16529547173628123,
+            "selected_hour_feature_value": 48.77399826049805,
+            "selected_hour_contribution": 0.15310326436299743
+          },
+          {
+            "feature": "system_terminal_water_value_Vinjevatn_week_scaled",
+            "mean_logit_contribution": 0.1593078511250351,
+            "selected_hour_feature_value": 0.000325418688589707,
+            "selected_hour_contribution": 0.21725791056159124
+          },
+          {
+            "feature": "remaining_max_price_week_scaled",
+            "mean_logit_contribution": 0.1580473339802324,
+            "selected_hour_feature_value": 3.251258134841919,
+            "selected_hour_contribution": 0.16567128245282076
+          },
+          {
+            "feature": "cumulative_natural_inflow_million_m3",
+            "mean_logit_contribution": 0.14392233471754778,
+            "selected_hour_feature_value": 1.639296054840088,
+            "selected_hour_contribution": -0.07598670047839758
+          },
+          {
+            "feature": "system_terminal_water_value_Venemo_week_scaled",
+            "mean_logit_contribution": -0.1323549606981925,
+            "selected_hour_feature_value": 4.799600601196289,
+            "selected_hour_contribution": -0.09275707550539652
+          },
+          {
+            "feature": "topology_downstream_free_capacity_million_m3",
+            "mean_logit_contribution": 0.10442835319789331,
+            "selected_hour_feature_value": 8.956999778747559,
+            "selected_hour_contribution": 0.1136541871424177
+          },
+          {
+            "feature": "system_terminal_water_value_Langeidvatn_week_scaled",
+            "mean_logit_contribution": -0.08723027862215527,
+            "selected_hour_feature_value": 5.502504348754883,
+            "selected_hour_contribution": -0.0880841896547852
+          }
+        ],
+        "model_sha256": "3ce7873990b00406fa0883197a67be3974c812344e3fd7090229b8d0e0c03d64"
+      },
+      "Byrte_G1": {
+        "case_id": 2872,
+        "model": "models/round5_lgb_peer_relative_seed299_2022/Byrte_G1.txt",
+        "model_source_report": "reports/round5_lgb_peer_relative_seed299_2022_metrics.json",
+        "expected_on_hours": 37.64329167642325,
+        "selected_hour": 16,
+        "selected_hour_probability": 0.00596259228278827,
+        "maximum_prediction_replay_difference": 0.0,
+        "mean_raw_logit": -2.8316211255624752,
+        "contribution_sum_max_error": 4.263256414560601e-14,
+        "top_mean_absolute_contributions": [
+          {
+            "feature": "price_minus_water_value_week_scaled",
+            "mean_logit_contribution": -3.092791449062097,
+            "selected_hour_feature_value": -1.4259846210479736,
+            "selected_hour_contribution": -4.954917467787227
+          },
+          {
+            "feature": "system_terminal_water_value_Botnedalsvatn_week_scaled",
+            "mean_logit_contribution": -1.6889246084599956,
+            "selected_hour_feature_value": 1.626442551612854,
+            "selected_hour_contribution": -1.4548997207468235
+          },
+          {
+            "feature": "expected_raw_score",
+            "mean_logit_contribution": 1.0077936138177415,
+            "selected_hour_feature_value": null,
+            "selected_hour_contribution": 1.0077936138177441
+          },
+          {
+            "feature": "system_initial_volume_Botnedalsvatn",
+            "mean_logit_contribution": 0.4551615228461115,
+            "selected_hour_feature_value": 54.637001037597656,
+            "selected_hour_contribution": 0.520871315983349
+          },
+          {
+            "feature": "starting_volume_minus_min_volume_Staavatn",
+            "mean_logit_contribution": 0.45317844384175887,
+            "selected_hour_feature_value": 48.77399826049805,
+            "selected_hour_contribution": 0.5393467828828513
+          },
+          {
+            "feature": "terminal_water_value_week_scaled",
+            "mean_logit_contribution": -0.19549225691789676,
+            "selected_hour_feature_value": 1.626442551612854,
+            "selected_hour_contribution": -0.15536112639597088
+          },
+          {
+            "feature": "system_week_inflow_million_m3_Staavatn",
+            "mean_logit_contribution": 0.13178245768037528,
+            "selected_hour_feature_value": 11.733588218688965,
+            "selected_hour_contribution": 0.13816182788531975
+          },
+          {
+            "feature": "initial_volume_million_m3",
+            "mean_logit_contribution": 0.09709114838320804,
+            "selected_hour_feature_value": 54.637001037597656,
+            "selected_hour_contribution": 0.1154607534281981
+          },
+          {
+            "feature": "system_week_inflow_million_m3_Kjelavatn",
+            "mean_logit_contribution": 0.07693464399217392,
+            "selected_hour_feature_value": 5.098464012145996,
+            "selected_hour_contribution": 0.09054380940524713
+          },
+          {
+            "feature": "system_terminal_water_value_Venemo_week_scaled",
+            "mean_logit_contribution": -0.06592823533907223,
+            "selected_hour_feature_value": 4.799600601196289,
+            "selected_hour_contribution": -0.06410235815724523
+          },
+          {
+            "feature": "topology_upstream_water_value_mean_week_scaled",
+            "mean_logit_contribution": -0.06581902644695425,
+            "selected_hour_feature_value": 1.626442551612854,
+            "selected_hour_contribution": -0.057243416516319555
+          },
+          {
+            "feature": "system_initial_volume_Bordalsvatn",
+            "mean_logit_contribution": 0.06429470493027105,
+            "selected_hour_feature_value": 181.88600158691406,
+            "selected_hour_contribution": 0.07586338672542536
+          },
+          {
+            "feature": "month",
+            "mean_logit_contribution": -0.04105940895706467,
+            "selected_hour_feature_value": 11.0,
+            "selected_hour_contribution": -0.061549218856347655
+          },
+          {
+            "feature": "initial_fill_fraction",
+            "mean_logit_contribution": 0.0330403108755534,
+            "selected_hour_feature_value": 1.0086209774017334,
+            "selected_hour_contribution": 0.031621988536346624
+          },
+          {
+            "feature": "system_terminal_water_value_Byrtevatn_week_scaled",
+            "mean_logit_contribution": -0.03282221592078481,
+            "selected_hour_feature_value": 2.1998302936553955,
+            "selected_hour_contribution": -0.03533702736499753
+          }
+        ],
+        "model_sha256": "f868fb95ad8efc2adfc6432ad24ff6eecd4ae96a8a886a098bc683059ca8b8e9"
+      },
+      "Lio_G1": {
+        "case_id": 2872,
+        "model": "models/round5_lgb_peer_relative_seed299_2022/Lio_G1.txt",
+        "model_source_report": "reports/round5_lgb_peer_relative_seed299_2022_metrics.json",
+        "expected_on_hours": 30.824472517864393,
+        "selected_hour": 40,
+        "selected_hour_probability": 0.009920204429590206,
+        "maximum_prediction_replay_difference": 0.0,
+        "mean_raw_logit": -2.5733874795207132,
+        "contribution_sum_max_error": 6.128431095930864e-14,
+        "top_mean_absolute_contributions": [
+          {
+            "feature": "expected_raw_score",
+            "mean_logit_contribution": 5.298717642398181,
+            "selected_hour_feature_value": null,
+            "selected_hour_contribution": 5.298717642398193
+          },
+          {
+            "feature": "price_minus_water_value_week_scaled",
+            "mean_logit_contribution": -4.88360790084695,
+            "selected_hour_feature_value": -1.9560917615890503,
+            "selected_hour_contribution": -6.563888464119315
+          },
+          {
+            "feature": "system_terminal_water_value_Vinjevatn_week_scaled",
+            "mean_logit_contribution": -1.5043345094747305,
+            "selected_hour_feature_value": 0.000325418688589707,
+            "selected_hour_contribution": -1.1589576336085416
+          },
+          {
+            "feature": "system_terminal_water_value_Byrtevatn_week_scaled",
+            "mean_logit_contribution": -1.2442485765292974,
+            "selected_hour_feature_value": 2.1998302936553955,
+            "selected_hour_contribution": -1.1241232748735426
+          },
+          {
+            "feature": "natural_inflow_m3_s",
+            "mean_logit_contribution": -0.7951439693954495,
+            "selected_hour_feature_value": 6.900000095367432,
+            "selected_hour_contribution": -1.6008608666512285
+          },
+          {
+            "feature": "min_flow_r_Vest_Vassdraget",
+            "mean_logit_contribution": 0.5180199906005617,
+            "selected_hour_feature_value": 14.0,
+            "selected_hour_contribution": 0.6942862674787885
+          },
+          {
+            "feature": "starting_volume_minus_min_volume_Byrtevatn",
+            "mean_logit_contribution": 0.3614321288111229,
+            "selected_hour_feature_value": 73.63899993896484,
+            "selected_hour_contribution": 0.4447747305976909
+          },
+          {
+            "feature": "topology_upstream_fill_fraction",
+            "mean_logit_contribution": 0.257292128262038,
+            "selected_hour_feature_value": 0.9801039099693298,
+            "selected_hour_contribution": 0.2885532109608258
+          },
+          {
+            "feature": "terminal_water_value_week_scaled",
+            "mean_logit_contribution": -0.19558718707096356,
+            "selected_hour_feature_value": 2.1998302936553955,
+            "selected_hour_contribution": -0.16843951821345582
+          },
+          {
+            "feature": "topology_upstream_water_value_mean_week_scaled",
+            "mean_logit_contribution": -0.16916657235710209,
+            "selected_hour_feature_value": 1.9131364822387695,
+            "selected_hour_contribution": -0.12981357465979124
+          },
+          {
+            "feature": "system_initial_volume_Byrtevatn",
+            "mean_logit_contribution": 0.15056322386054385,
+            "selected_hour_feature_value": 73.63899993896484,
+            "selected_hour_contribution": 0.14730026438082627
+          },
+          {
+            "feature": "system_initial_volume_Bordalsvatn",
+            "mean_logit_contribution": 0.12098994171638583,
+            "selected_hour_feature_value": 181.88600158691406,
+            "selected_hour_contribution": 0.19972091753202462
+          },
+          {
+            "feature": "system_terminal_water_value_Venemo_week_scaled",
+            "mean_logit_contribution": 0.11369349636399141,
+            "selected_hour_feature_value": 4.799600601196289,
+            "selected_hour_contribution": 0.03979334971812493
+          },
+          {
+            "feature": "system_terminal_water_value_Bitdalsvatn_week_scaled",
+            "mean_logit_contribution": -0.10792261622760983,
+            "selected_hour_feature_value": 5.335890293121338,
+            "selected_hour_contribution": -0.08627248778675478
+          },
+          {
+            "feature": "week_max_min_flow_r_Vest_Vassdraget",
+            "mean_logit_contribution": 0.10506624063972969,
+            "selected_hour_feature_value": 14.0,
+            "selected_hour_contribution": 0.09544799540937382
+          }
+        ],
+        "model_sha256": "930482de7e6c505ffcd38836f3e742e79f01d8f26807d74eec4c7dcfdbc875c5"
+      }
+    }
+  },
+  "constraint_timing_compression": {
+    "current_tree_representation": "Current value and weekly maximum for each flow/volume constraint, plus initial-volume-minus-current-minimum for volume constraints. Calendar features contain month and weekday, but no day of month or year.",
+    "sequence_representation": "Current neural components see the full provided hourly sequence.",
+    "missing_tree_summaries": "Duration until known future change, remaining minimum release volume, and cumulative future constraint burden.",
+    "cases_with_within_horizon_change": {
+      "min_flow": {
+        "b_Kjelavatn": {
+          "cases_with_change": 328,
+          "by_start_year": {
+            "2015": 41,
+            "2016": 41,
+            "2017": 41,
+            "2018": 41,
+            "2019": 41,
+            "2020": 41,
+            "2021": 41,
+            "2022": 41
+          }
+        },
+        "b_Hyljelihyl": {
+          "cases_with_change": 328,
+          "by_start_year": {
+            "2015": 41,
+            "2016": 41,
+            "2017": 41,
+            "2018": 41,
+            "2019": 41,
+            "2020": 41,
+            "2021": 41,
+            "2022": 41
+          }
+        },
+        "b_Vinjevatn": {
+          "cases_with_change": 96,
+          "by_start_year": {
+            "2015": 12,
+            "2016": 12,
+            "2017": 12,
+            "2018": 12,
+            "2019": 12,
+            "2020": 12,
+            "2021": 12,
+            "2022": 12
+          }
+        },
+        "b_Byrtevatn": {
+          "cases_with_change": 96,
+          "by_start_year": {
+            "2015": 12,
+            "2016": 12,
+            "2017": 12,
+            "2018": 12,
+            "2019": 12,
+            "2020": 12,
+            "2021": 12,
+            "2022": 12
+          }
+        },
+        "b_Bandak": {
+          "cases_with_change": 96,
+          "by_start_year": {
+            "2015": 12,
+            "2016": 12,
+            "2017": 12,
+            "2018": 12,
+            "2019": 12,
+            "2020": 12,
+            "2021": 12,
+            "2022": 12
+          }
+        },
+        "r_Vest_Vassdraget": {
+          "cases_with_change": 144,
+          "by_start_year": {
+            "2015": 18,
+            "2016": 18,
+            "2017": 18,
+            "2018": 18,
+            "2019": 18,
+            "2020": 18,
+            "2021": 18,
+            "2022": 18
+          }
+        }
+      },
+      "min_volume": {
+        "Totak": {
+          "cases_with_change": 144,
+          "by_start_year": {
+            "2015": 18,
+            "2016": 18,
+            "2017": 18,
+            "2018": 18,
+            "2019": 18,
+            "2020": 18,
+            "2021": 18,
+            "2022": 18
+          }
+        },
+        "Byrtevatn": {
+          "cases_with_change": 96,
+          "by_start_year": {
+            "2015": 12,
+            "2016": 12,
+            "2017": 12,
+            "2018": 12,
+            "2019": 12,
+            "2020": 12,
+            "2021": 12,
+            "2022": 12
+          }
+        },
+        "Staavatn": {
+          "cases_with_change": 96,
+          "by_start_year": {
+            "2015": 12,
+            "2016": 12,
+            "2017": 12,
+            "2018": 12,
+            "2019": 12,
+            "2020": 12,
+            "2021": 12,
+            "2022": 12
+          }
+        }
+      }
+    },
+    "case_examples": {
+      "2871": {
+        "r_Vest_Vassdraget": "14 to 5 m3/s at hour 144",
+        "b_Vinjevatn": "2 to 1 m3/s at hour 144"
+      },
+      "2872": {
+        "r_Vest_Vassdraget": "14 to 5 m3/s at hour 120",
+        "b_Vinjevatn": "2 to 1 m3/s at hour 120"
+      }
+    },
+    "interpretation": "This is confirmed compression of valid planning inputs. A performance benefit from adding explicit summaries is a hypothesis. Other features may statistically identify the date, and current neural components already see the schedule.",
+    "references": [
+      "src/features.py:90",
+      "src/features.py:134",
+      "src/temporal_cnn.py:14",
+      "configs/round3_submission_temporal_ranks.json:23",
+      "configs/round5_submission_lgb_generators.json:18"
+    ],
+    "prior_budget_counterevidence": "src/water_budget_features.py:18-38 already subtracts all five directly constrained reservoir outlets and supplies cumulative/remaining net inflow. For a single local feeder, remaining required release can be reconstructed from week inflow, cumulative/hourly inflow and budget_remaining_net. Explicit remaining r_Vest burden was excluded because it is a downstream shared river. Prior unrescaled pooled XGB water-budget result declined from0.965719 to0.964845 in2021 and0.971633 to0.970740 in2022; it is relevant negative evidence, not a test of this exact current-LGB ablation."
+  },
+  "representation_vs_information": {
+    "static_generator_attributes": "Adding constant p_min, p_max or startup cost columns to a separate per-generator model provides no within-model variation. Useful transformations would interact them with case-varying prices, water levels or inflow.",
+    "initial_levels": "A reservoir level obtained by monotone interpolation of initial volume contains no new raw information. Signed head differences and physically motivated interactions can change representation, but their benefit must be measured.",
+    "capacity_pressure": "Initial volumes and weekly inflow totals are already present. A capacity-pressure feature makes a relation explicit rather than adding previously unavailable raw data. For the Vesle Kjela November example, the explicitly distinct missing hourly profile is Staavatn.",
+    "direct_minimum_outlet_adjustment": "The quoted upstream capacity-pressure references precede all releases. In case 2872, subtracting the known b_Kjelavatn minimum of 0.3 m3/s for 168 hours reduces the Kjelavatn-plus-Staavatn reference from 6.229052 to 6.047612 million m3; additional bypass or spill remain feasible. This is not a forced generation-volume target."
+  },
+  "verification": {
+    "json_valid": true,
+    "source_hash_count": 22,
+    "saved_model_replays": 3,
+    "maximum_replay_difference": 0.0,
+    "training_performed": false,
+    "only_project_file_written": "reports/audit_20261017_task_physics.json",
+    "time_limit": "Completed before the parent-requested 25-minute deadline."
+  },
+  "physical_feature_ablation_crossreview": {
+    "generated_utc": "2026-10-17T19:58:26.313561+00:00",
+    "scope": "Independent red-team of physical feature recommendation; no model fitting or production edits.",
+    "conclusion": "Capacity pressure and river shortfall are useful soft hypotheses, not forced-generation proofs. Relevant storage, weekly inflow, water values and local inflow are already inputs; most proposed summaries change representation. Staavatn/Venemo hourly profiles and explicit future river-constraint timing provide genuinely omitted timing at current per-generator tree rows.",
+    "routes": {
+      "Staavatn": [
+        "r_Staavatn -> Kjelavatn",
+        "s_Staavatn -> Kjelavatn"
+      ],
+      "Kjelavatn": [
+        "Vesle Kjela -> Foersvatn",
+        "b_Kjelavatn/s_Kjelavatn -> Hyljelihyl"
+      ],
+      "Botnedalsvatn": [
+        "Byrte -> Byrtevatn -> Lio -> r_Vest_Vassdraget",
+        "b_Botnedalsvatn/s_Botnedalsvatn -> r_Vest_Vassdraget"
+      ],
+      "Byrtevatn": [
+        "Lio -> r_Vest_Vassdraget",
+        "b_Byrtevatn/s_Byrtevatn -> r_Vest_Vassdraget"
+      ],
+      "Vaamarvatn": [
+        "Vinje -> Vinjevatn",
+        "b_Vaamarvatn/s_Vaamarvatn -> Vinjevatn"
+      ],
+      "Vinjevatn": [
+        "Tokke -> Bandak",
+        "b_Vinjevatn/s_Vinjevatn -> r_Vest_Vassdraget -> Bandak"
+      ]
+    },
+    "quantified_cases": [
+      {
+        "case_id": 2872,
+        "tunnel_initial_head_references": {
+          "Bordalsvatn_Foersvatn": {
+            "from_level_m": 890.5100651465798,
+            "to_level_m": 888.4599552238806,
+            "signed_head_difference_m": 2.050109922699221,
+            "loss_factor": 0.035639,
+            "interpretation": "Both endpoints submerged; positive initial pressure in nominal direction. No forecast discharge inferred."
+          },
+          "Totak_Vaamarvatn": {
+            "from_level_m": 686.5899914662529,
+            "to_level_m": 686.299905882353,
+            "signed_head_difference_m": 0.290085583899895,
+            "loss_factor": 0.000132,
+            "interpretation": "Both endpoints submerged; positive initial pressure in nominal direction. No forecast discharge inferred."
+          },
+          "Venemo_Totak": {
+            "from_level_m": 694.840695652174,
+            "to_level_m": 686.5899914662529,
+            "signed_head_difference_m": 8.250704185921109,
+            "loss_factor": 0.001555,
+            "interpretation": "Both endpoints submerged; positive initial pressure in nominal direction. No forecast discharge inferred."
+          }
+        },
+        "spill_curve_initial_level_references": {
+          "Staavatn": {
+            "initial_level_m": 978.6999500000001,
+            "reference_curve_m3s": 11.302012500003197,
+            "interpretation": "Supplied curve evaluated at supplied initial volume. This is not actual optimized spill or spill sustained for the week."
+          },
+          "Botnedalsvatn": {
+            "initial_level_m": 740.1800793357934,
+            "reference_curve_m3s": 58.74980627306899,
+            "interpretation": "Supplied curve evaluated at supplied initial volume. This is not actual optimized spill or spill sustained for the week."
+          },
+          "Kjelavatn": {
+            "initial_level_m": 941.7101052631579,
+            "reference_curve_m3s": 0.0,
+            "interpretation": "Supplied curve evaluated at supplied initial volume. This is not actual optimized spill or spill sustained for the week."
+          },
+          "Byrtevatn": {
+            "initial_level_m": 444.9200154479918,
+            "reference_curve_m3s": 0.0,
+            "interpretation": "Supplied curve evaluated at supplied initial volume. This is not actual optimized spill or spill sustained for the week."
+          }
+        },
+        "bypass_reference": {
+          "Kjelavatn": {
+            "max_flow_const_m3s": 1000,
+            "constant_capacity_times_168h_million_m3": 604.8,
+            "flow_cost_const": 10,
+            "initial_level_above_outlet_m": 23.710105263157857
+          },
+          "Botnedalsvatn": {
+            "max_flow_const_m3s": 1000,
+            "constant_capacity_times_168h_million_m3": 604.8,
+            "flow_cost_const": 10,
+            "initial_level_above_outlet_m": 35.18007933579338
+          },
+          "Byrtevatn": {
+            "max_flow_const_m3s": 1000,
+            "constant_capacity_times_168h_million_m3": 604.8,
+            "flow_cost_const": 10,
+            "initial_level_above_outlet_m": 17.62001544799176
+          },
+          "Vinjevatn": {
+            "max_flow_const_m3s": 1000,
+            "constant_capacity_times_168h_million_m3": 604.8,
+            "flow_cost_const": 10,
+            "initial_level_above_outlet_m": 2.7701200686106517
+          }
+        },
+        "r_vest_reference": {
+          "natural_week_million_m3": 4.533228,
+          "required_week_million_m3": 6.912,
+          "sum_hourwise_positive_required_minus_natural_million_m3": 2.7772200000000002,
+          "hours_natural_alone_ge_requirement": 29,
+          "interpretation": "Reference shortfall before any known required upstream bypass, turbine discharge, or spill; not Lio demand."
+        }
+      },
+      {
+        "case_id": 2438,
+        "tunnel_initial_head_references": {
+          "Bordalsvatn_Foersvatn": {
+            "from_level_m": 874.7400488599349,
+            "to_level_m": 868.05,
+            "signed_head_difference_m": 6.690048859934905,
+            "loss_factor": 0.035639,
+            "interpretation": "Both endpoints submerged; positive initial pressure in nominal direction. No forecast discharge inferred."
+          },
+          "Totak_Vaamarvatn": {
+            "from_level_m": 685.9500096974398,
+            "to_level_m": 685.3999294117647,
+            "signed_head_difference_m": 0.5500802856751079,
+            "loss_factor": 0.000132,
+            "interpretation": "Both endpoints submerged; positive initial pressure in nominal direction. No forecast discharge inferred."
+          },
+          "Venemo_Totak": {
+            "from_level_m": 693.1193913043478,
+            "to_level_m": 685.9500096974398,
+            "signed_head_difference_m": 7.1693816069080185,
+            "loss_factor": 0.001555,
+            "interpretation": "Both endpoints submerged; positive initial pressure in nominal direction. No forecast discharge inferred."
+          }
+        },
+        "spill_curve_initial_level_references": {
+          "Staavatn": {
+            "initial_level_m": 978.4,
+            "reference_curve_m3s": 0.0,
+            "interpretation": "Supplied curve evaluated at supplied initial volume. This is not actual optimized spill or spill sustained for the week."
+          },
+          "Botnedalsvatn": {
+            "initial_level_m": 729.8898854010962,
+            "reference_curve_m3s": 0.0,
+            "interpretation": "Supplied curve evaluated at supplied initial volume. This is not actual optimized spill or spill sustained for the week."
+          },
+          "Kjelavatn": {
+            "initial_level_m": 934.74,
+            "reference_curve_m3s": 0.0,
+            "interpretation": "Supplied curve evaluated at supplied initial volume. This is not actual optimized spill or spill sustained for the week."
+          },
+          "Byrtevatn": {
+            "initial_level_m": 441.9500926879506,
+            "reference_curve_m3s": 0.0,
+            "interpretation": "Supplied curve evaluated at supplied initial volume. This is not actual optimized spill or spill sustained for the week."
+          }
+        },
+        "bypass_reference": {
+          "Kjelavatn": {
+            "max_flow_const_m3s": 1000,
+            "constant_capacity_times_168h_million_m3": 604.8,
+            "flow_cost_const": 10,
+            "initial_level_above_outlet_m": 16.74000000000001
+          },
+          "Botnedalsvatn": {
+            "max_flow_const_m3s": 1000,
+            "constant_capacity_times_168h_million_m3": 604.8,
+            "flow_cost_const": 10,
+            "initial_level_above_outlet_m": 24.889885401096194
+          },
+          "Byrtevatn": {
+            "max_flow_const_m3s": 1000,
+            "constant_capacity_times_168h_million_m3": 604.8,
+            "flow_cost_const": 10,
+            "initial_level_above_outlet_m": 14.650092687950576
+          },
+          "Vinjevatn": {
+            "max_flow_const_m3s": 1000,
+            "constant_capacity_times_168h_million_m3": 604.8,
+            "flow_cost_const": 10,
+            "initial_level_above_outlet_m": 3.0300857632933003
+          }
+        },
+        "r_vest_reference": {
+          "natural_week_million_m3": 0.100152,
+          "required_week_million_m3": 4.8384,
+          "sum_hourwise_positive_required_minus_natural_million_m3": 4.7382480000000005,
+          "hours_natural_alone_ge_requirement": 0,
+          "interpretation": "Reference shortfall before any known required upstream bypass, turbine discharge, or spill; not Lio demand."
+        },
+        "tokke_cascade_energy_bound": {
+          "true_total_on_unit_hours": 326,
+          "local_start_plus_natural_minus_required_bypass_million_m3": 7.365679999999999,
+          "assumed_pmin_MW_per_ON_unit": 36.9,
+          "optimistic_head_bound_m": 395,
+          "ideal_100_percent_efficiency_minimum_water_million_m3": 11.175844849610963,
+          "minimum_upstream_transfer_under_assumptions_million_m3": 3.8101648496109632,
+          "interpretation": "Conditional energy-conservation check assuming commitment entails p_min and level does not exceed the supplied vol_head curve maximum 467 m, above outlet_line 72 m. Even teacher labels require upstream water; local water alone cannot identify commitment. Actual efficiencies/losses would increase this reference requirement. Predicted probabilities are not a dispatch schedule."
+        }
+      }
+    ],
+    "economic_interpretation": {
+      "confirmed": "Bypass flow_cost_const is 10 and spill flow_cost_const is 1000 for the listed routes; start and stop coefficients are 92 each for Vesle Kjela, 135 each for Byrte, 163 each for Lio, 198 each for Vinje units, and 214 each for Tokke units. Different release destinations preserve different future cascade opportunities. The actual teacher release, production and objective breakdown are absent.",
+      "hypothesis": "Generation may be economically preferred to penalized bypass/spill during high-storage episodes despite price below the local terminal water-value scalar. Route destination, head, conversion to reservoir water value, future release requirements and start costs jointly matter. Price-minus-local-value alone is not a proof of the optimizer marginal decision.",
+      "counterexample": "Case 2438 Staavatn alone has about 0.803 Mm3 initial-plus-inflow excess, while connected Staavatn+Kjelavatn has about 40.865 Mm3 unused capacity by the same reference. A local positive pressure does not imply turbine operation; non-generating transfer to Kjelavatn can absorb it.",
+      "turbine_reference_warning": "Byrte turbine efficiency curves end at 8 m3/s, corresponding to 4.8384 Mm3 over 168 h, smaller than case 2872 Botnedals gross 5.048864 Mm3 pressure. This is only a supplied-curve endpoint comparison; no undocumented q_max or fixed head is inferred."
+    },
+    "representation_and_recoverability": {
+      "already_available": "Current trees retain every reservoir initial volume, terminal water value and weekly natural inflow total, direct local hourly/cumulative inflow, and topology aggregates. Capacity is a fixed system constant, so initial-plus-weekly-inflow-minus-capacity adds arithmetic representation, not new measured data. Normalized economic inputs retain the log scale.",
+      "not_equivalent_to_new_information": "Initial levels are deterministic monotone transforms of available volumes. Static p_min/cost/efficiency curves do not vary within a separate-generator fit; interactions or relative regime features are needed to affect splits.",
+      "actual_timing_omissions": "Each current tree lacks nonlocal hourly profiles. Staavatn and Venemo are the two most distinct profiles even beyond what current neural components jointly see. Current tree constraint summaries omit exact future transition times.",
+      "prior_budget_counterevidence": "src/water_budget_features.py:18-38 already subtracts all five directly constrained reservoir outlets and supplies cumulative/remaining net inflow. For a single local feeder, remaining required release can be reconstructed from week inflow, cumulative/hourly inflow and budget_remaining_net. Explicit remaining r_Vest burden was excluded because it is a downstream shared river. Prior unrescaled pooled XGB water-budget result declined from 0.965719 to 0.964845 in 2021 and 0.971633 to 0.970740 in 2022; it is relevant negative evidence, not a test of this exact current-LGB ablation.",
+      "peer_numeric_check": {
+        "source": "reports/audit_20261017_pipeline_crossreview.json",
+        "finding": "For cases 2871 and 2872, existing optional budget plus default local inflow features recover remaining direct minimum release volumes with at most 2.77e-6 Mm3 float32 error. b_Vinjevatn full-week burdens differ: 1.1232 vs 1.0368 Mm3. The distinct shared r_Vest burdens are 7.6896 vs 6.912 Mm3 and are excluded from the optional direct-outlet budget."
+      }
+    },
+    "sample_support": {
+      "criterion": "Staavatn+Kjelavatn initial-plus-week-natural-inflow exceeds combined capacity AND week_max_price < Kjelavatn terminal_water_value; selected retrospectively, not a universal physical rule.",
+      "pre2021_cases": [
+        2148,
+        2149,
+        2150
+      ],
+      "pre2021_independent_episodes": 1,
+      "year2021_cases": 0,
+      "year2022_cases": [
+        2869,
+        2871,
+        2872,
+        2873
+      ],
+      "interpretation": "Daily overlapping cases in the three pre-2021 examples come from one November 2020 episode. A new pressure feature cannot manufacture independent support; failures can reflect sparse training and extrapolation. The 2021 holdout does not test this exact regime. Do not optimize an ablation on the revealed 2022 examples."
+    },
+    "minimal_decisive_next_check": "If future fitting is authorized, use a predefined narrow pressure/constraint-timing/profile ablation against the current full ensemble, preserve fixed historical protocols, and separately report regime performance and overall AUC. Reject any hard ON rule. Request teacher outputs/settings only if implementing an actual dispatch decoder.",
+    "references": [
+      "configs/Tokke_Vinje_topology.yaml:303",
+      "configs/Tokke_Vinje_topology.yaml:335",
+      "configs/Tokke_Vinje_topology.yaml:361",
+      "configs/Tokke_Vinje_topology.yaml:2126",
+      "configs/Tokke_Vinje_topology.yaml:2152",
+      "src/features.py:120",
+      "src/features.py:134",
+      "src/features.py:168",
+      "src/water_budget_features.py:18",
+      "src/round5_lightgbm.py:49"
+    ],
+    "rare_training_case_saved_model_replay": {
+      "purpose": "Read-only replay of PRE-2021 saved Vesle Kjela models on rare training cases; no refitting. This is training fit, not validation.",
+      "cases": [
+        {
+          "seed": 299,
+          "case_id": 2148,
+          "starttime": "2020-11-17 00:00:00+00:00",
+          "training_stride_offset": 3,
+          "all_hours": {
+            "n": 168,
+            "true_on": 19,
+            "sum_probability": 16.388188960000388,
+            "binary_cross_entropy": 0.08959410582125713,
+            "true_on_mean_probability": 0.6746175968876349,
+            "true_off_mean_probability": 0.023962782678760595,
+            "threshold_0p5_errors": 3
+          },
+          "actually_sampled_training_hours": {
+            "n": 42,
+            "true_on": 5,
+            "sum_probability": 5.102277345543232,
+            "binary_cross_entropy": 0.04463166470408504,
+            "true_on_mean_probability": 0.8389268707006587,
+            "true_off_mean_probability": 0.024530891676755085,
+            "threshold_0p5_errors": 0
+          },
+          "unsampled_hours": {
+            "n": 126,
+            "true_on": 14,
+            "sum_probability": 11.285911614457161,
+            "binary_cross_entropy": 0.10458158619364781,
+            "true_on_mean_probability": 0.6159357133829835,
+            "true_off_mean_probability": 0.02377510381335169,
+            "threshold_0p5_errors": 3
+          }
+        },
+        {
+          "seed": 299,
+          "case_id": 2149,
+          "starttime": "2020-11-18 00:00:00+00:00",
+          "training_stride_offset": 0,
+          "all_hours": {
+            "n": 168,
+            "true_on": 116,
+            "sum_probability": 113.30919203387592,
+            "binary_cross_entropy": 0.10987839542103775,
+            "true_on_mean_probability": 0.9233577136163994,
+            "true_off_mean_probability": 0.11922494719949174,
+            "threshold_0p5_errors": 2
+          },
+          "actually_sampled_training_hours": {
+            "n": 42,
+            "true_on": 29,
+            "sum_probability": 28.291140010373546,
+            "binary_cross_entropy": 0.07697586360225553,
+            "true_on_mean_probability": 0.935428073162475,
+            "true_off_mean_probability": 0.0895173760509054,
+            "threshold_0p5_errors": 0
+          },
+          "unsampled_hours": {
+            "n": 126,
+            "true_on": 87,
+            "sum_probability": 85.01805202350234,
+            "binary_cross_entropy": 0.1208459060272985,
+            "true_on_mean_probability": 0.9193342604343739,
+            "true_off_mean_probability": 0.1291274709156872,
+            "threshold_0p5_errors": 2
+          }
+        },
+        {
+          "seed": 299,
+          "case_id": 2150,
+          "starttime": "2020-11-19 00:00:00+00:00",
+          "training_stride_offset": 1,
+          "all_hours": {
+            "n": 168,
+            "true_on": 42,
+            "sum_probability": 41.33292014260878,
+            "binary_cross_entropy": 0.07441994155561626,
+            "true_on_mean_probability": 0.8622600620575405,
+            "true_off_mean_probability": 0.04061902806501645,
+            "threshold_0p5_errors": 1
+          },
+          "actually_sampled_training_hours": {
+            "n": 42,
+            "true_on": 10,
+            "sum_probability": 10.012191616445545,
+            "binary_cross_entropy": 0.057685211521832515,
+            "true_on_mean_probability": 0.8885402255488444,
+            "true_off_mean_probability": 0.03521216752990941,
+            "threshold_0p5_errors": 0
+          },
+          "unsampled_hours": {
+            "n": 126,
+            "true_on": 32,
+            "sum_probability": 31.320728526163226,
+            "binary_cross_entropy": 0.07999818490021084,
+            "true_on_mean_probability": 0.854047510966508,
+            "true_off_mean_probability": 0.0424596614386699,
+            "threshold_0p5_errors": 1
+          }
+        },
+        {
+          "seed": 673,
+          "case_id": 2148,
+          "starttime": "2020-11-17 00:00:00+00:00",
+          "training_stride_offset": 1,
+          "all_hours": {
+            "n": 168,
+            "true_on": 19,
+            "sum_probability": 19.909694523349458,
+            "binary_cross_entropy": 0.0649827929430711,
+            "true_on_mean_probability": 0.7769243607384162,
+            "true_off_mean_probability": 0.034551219257178196,
+            "threshold_0p5_errors": 2
+          },
+          "actually_sampled_training_hours": {
+            "n": 42,
+            "true_on": 5,
+            "sum_probability": 4.765642245083058,
+            "binary_cross_entropy": 0.05675922772743564,
+            "true_on_mean_probability": 0.765339216276397,
+            "true_off_mean_probability": 0.025376923343272212,
+            "threshold_0p5_errors": 0
+          },
+          "unsampled_hours": {
+            "n": 126,
+            "true_on": 14,
+            "sum_probability": 15.144052278266402,
+            "binary_cross_entropy": 0.06772398134828289,
+            "true_on_mean_probability": 0.7810619123319944,
+            "true_off_mean_probability": 0.03758201344302214,
+            "threshold_0p5_errors": 2
+          }
+        },
+        {
+          "seed": 673,
+          "case_id": 2149,
+          "starttime": "2020-11-18 00:00:00+00:00",
+          "training_stride_offset": 2,
+          "all_hours": {
+            "n": 168,
+            "true_on": 116,
+            "sum_probability": 111.85138706034661,
+            "binary_cross_entropy": 0.08072665212563603,
+            "true_on_mean_probability": 0.9286422371196061,
+            "true_off_mean_probability": 0.0794016837398521,
+            "threshold_0p5_errors": 1
+          },
+          "actually_sampled_training_hours": {
+            "n": 42,
+            "true_on": 29,
+            "sum_probability": 28.331507615949576,
+            "binary_cross_entropy": 0.06623405944202035,
+            "true_on_mean_probability": 0.9428773022345698,
+            "true_off_mean_probability": 0.07600506547285008,
+            "threshold_0p5_errors": 0
+          },
+          "unsampled_hours": {
+            "n": 126,
+            "true_on": 87,
+            "sum_probability": 83.51987944439703,
+            "binary_cross_entropy": 0.08555751635350793,
+            "true_on_mean_probability": 0.923897215414618,
+            "true_off_mean_probability": 0.08053388982885279,
+            "threshold_0p5_errors": 1
+          }
+        },
+        {
+          "seed": 673,
+          "case_id": 2150,
+          "starttime": "2020-11-19 00:00:00+00:00",
+          "training_stride_offset": 3,
+          "all_hours": {
+            "n": 168,
+            "true_on": 42,
+            "sum_probability": 40.693578422871475,
+            "binary_cross_entropy": 0.0673700618028411,
+            "true_on_mean_probability": 0.8616446713649142,
+            "true_off_mean_probability": 0.03575001766305616,
+            "threshold_0p5_errors": 0
+          },
+          "actually_sampled_training_hours": {
+            "n": 42,
+            "true_on": 11,
+            "sum_probability": 10.93017513975022,
+            "binary_cross_entropy": 0.05942558146419903,
+            "true_on_mean_probability": 0.8917151124688925,
+            "true_off_mean_probability": 0.03617125492233562,
+            "threshold_0p5_errors": 0
+          },
+          "unsampled_hours": {
+            "n": 126,
+            "true_on": 31,
+            "sum_probability": 29.763403283121256,
+            "binary_cross_entropy": 0.07001822191572175,
+            "true_on_mean_probability": 0.8509745148441479,
+            "true_off_mean_probability": 0.035612561294238655,
+            "threshold_0p5_errors": 0
+          }
+        }
+      ],
+      "models": {
+        "299": {
+          "source_report": "reports/round5_lgb_peer_relative_seed299_2021_metrics.json",
+          "source_report_sha256": "00dc21063fb9c5a90e466b4fbb627822a87796a0b81425deacf02577676e038f",
+          "config": "configs/round5_lgb_peer_relative_seed299_2021.json",
+          "config_sha256": "765542f15dd99f9398619f1cf093b449d6f3a7032fb93690151c1ca7f4ba93c1",
+          "model": "models/round5_lgb_peer_relative_seed299_2021/Vesle_Kjela_G1.txt",
+          "model_sha256": "9db3ba7b743766988cfd14c1df35ef5daf58c673b0c9fb702d13dc23783bf094",
+          "trees": 573,
+          "num_features": 113,
+          "training_cutoff": "2021-01-01",
+          "hour_stride": 4
+        },
+        "673": {
+          "source_report": "reports/round5_lgb_peer_relative_seed673_2021_metrics.json",
+          "source_report_sha256": "cc22f1a7a48a8d14fc87124af8f91d1f08c28972f96b0f275370d4a4224dbc75",
+          "config": "configs/round5_lgb_peer_relative_seed673_2021.json",
+          "config_sha256": "26c77e9b269747fb99b4d86dd4fa5a137d4ba5261eb02f468bb969efa836a3a7",
+          "model": "models/round5_lgb_peer_relative_seed673_2021/Vesle_Kjela_G1.txt",
+          "model_sha256": "376220157aba6ddbfebf63a8c8b8f97d567297bf6620ea11749321d0badf15ff",
+          "trees": 573,
+          "num_features": 113,
+          "training_cutoff": "2021-01-01",
+          "hour_stride": 4
+        }
+      },
+      "source_hashes": {
+        "src/features.py": "6eea354fb4f7c80ff4c495ed3ac958777334b72a93ce1d19c14a4b0f41d66133",
+        "src/round5_lightgbm.py": "e99c3d4e8bad98b30f3c78b7809fb256b2ac8efd75c6ae01d92551e406759b37",
+        "src/tree_preprocessing.py": "21bfa82dce77473bd10faf83f8f72aec8af34246c0195a6062617868ff929235",
+        "data/raw/kernel/Unit_commitment_decisions.csv": "6d51f8cc6869cb82b44708168808c305c1e007cf79878ca1c1d316d07aae3ab3"
+      },
+      "interpretation": "Both saved models fit the rare training episode well: all six actual stride-4 training subsets have zero threshold-0.5 errors; all-hour sums are close to observed counts and BCE is 0.065 to 0.110. Existing inputs and trees can represent this episode. The 2022 failure therefore supports sparse-regime extrapolation rather than a demonstrated inability to fit the pattern. This in-sample result does not prove the learned rule is physical, or that a new arithmetic feature will generalize."
+    }
+  }
+}

@@ -1,0 +1,3753 @@
+{
+  "scope": "Read-only descriptive temporal generalization audit; no fitting, no model changes, no test labels.",
+  "sources": {
+    "definitions": "docs/Dataset_definitions_and_explanation.pdf, page 2",
+    "water_value_quote": "Marginal water value for each reservoir at the start of the day. Unit: EUR/MWh.",
+    "terminal_time": "The supplied example sets final water value to start + 168 hours.",
+    "price_dependency": "No generation recipe or claim that synthetic water values depend on prices is supplied in the definitions or task description. Observed correlation is descriptive, not proof of construction.",
+    "normalization_caveat": "Simple feeding-reservoir price-minus-water-value and normalized versions are statistical features, not a derivation of SHOP marginal economics."
+  },
+  "method": {
+    "reference": "Labelled training cases starting 2015-01-01 through 2021-12-25 inclusive (last horizon ends at 2022 boundary); excludes six overlapping late-2021 cases.",
+    "per_year": "Cases grouped by start year, including all labelled cases in 2021 and 2022 and mapped prediction cases in 2023/2024. Descriptive input comparisons may inspect provided prediction inputs; labels stop at 2022.",
+    "week_scale": "max(mean(abs(all 168 supplied hourly prices)),10 EUR/MWh). Uses inputs from same supplied forecast case only.",
+    "zscore": "(price - mean(168 supplied hourly prices))/max(std(168 supplied hourly prices),1 EUR/MWh).",
+    "ks": "Two-sample KS distance used as descriptive distribution difference; no p-values or independence claims (cases overlap).",
+    "on_rate": "Fraction of ON labels across that year/cases and 168 hours per generator.",
+    "auc": "Unfitted per-generator descriptive AUC of a fixed input score. No model/threshold/feature learned from labels."
+  },
+  "case_counts": {
+    "train_2015_2021_purged": 2551,
+    "2021": 365,
+    "2022": 365,
+    "2023": 365,
+    "2024": 360
+  },
+  "weekly_price_features": {
+    "raw_price_eur_mwh": {
+      "train_2015_2021_purged": {
+        "mean": 34.245813,
+        "std": 27.22695,
+        "min": -1.97,
+        "p01": 1.35,
+        "median": 29.6,
+        "p99": 134.17,
+        "max": 600.16,
+        "outside_train_minmax_fraction": 0.0,
+        "outside_train_p01_p99_fraction": 0.019917,
+        "ks_distance_vs_train": 0.0
+      },
+      "2021": {
+        "mean": 75.926745,
+        "std": 47.336753,
+        "min": -1.97,
+        "p01": 15.34,
+        "median": 59.6,
+        "p99": 259.65,
+        "max": 600.16,
+        "outside_train_minmax_fraction": 0.0,
+        "outside_train_p01_p99_fraction": 0.081507,
+        "ks_distance_vs_train": 0.580554
+      },
+      "2022": {
+        "mean": 211.240766,
+        "std": 125.874034,
+        "min": 0.04,
+        "p01": 5.06,
+        "median": 181.07,
+        "p99": 616.28,
+        "max": 844.0,
+        "outside_train_minmax_fraction": 0.011187,
+        "outside_train_p01_p99_fraction": 0.746738,
+        "ks_distance_vs_train": 0.875332
+      },
+      "2023": {
+        "mean": 78.948373,
+        "std": 36.027435,
+        "min": -61.84,
+        "p01": -1.17,
+        "median": 80.13,
+        "p99": 173.3291,
+        "max": 261.85,
+        "outside_train_minmax_fraction": 0.008562,
+        "outside_train_p01_p99_fraction": 0.083219,
+        "ks_distance_vs_train": 0.695579
+      },
+      "2024": {
+        "mean": 50.146038,
+        "std": 34.303372,
+        "min": -59.96,
+        "p01": -2.09,
+        "median": 47.27,
+        "p99": 147.9,
+        "max": 898.25,
+        "outside_train_minmax_fraction": 0.01088,
+        "outside_train_p01_p99_fraction": 0.054001,
+        "ks_distance_vs_train": 0.423409
+      }
+    },
+    "price_minus_week_mean_eur_mwh": {
+      "train_2015_2021_purged": {
+        "mean": -0.0,
+        "std": 9.541932,
+        "min": -123.155357,
+        "p01": -22.727377,
+        "median": 0.020417,
+        "p99": 22.714617,
+        "max": 391.710476,
+        "outside_train_minmax_fraction": 0.0,
+        "outside_train_p01_p99_fraction": 0.020001,
+        "ks_distance_vs_train": 0.0
+      },
+      "2021": {
+        "mean": -0.0,
+        "std": 23.483048,
+        "min": -123.155357,
+        "p01": -56.254996,
+        "median": -0.003363,
+        "p99": 81.417111,
+        "max": 391.710476,
+        "outside_train_minmax_fraction": 0.0,
+        "outside_train_p01_p99_fraction": 0.119374,
+        "ks_distance_vs_train": 0.211673
+      },
+      "2022": {
+        "mean": -0.0,
+        "std": 58.812953,
+        "min": -383.58,
+        "p01": -183.338993,
+        "median": 0.536131,
+        "p99": 161.576054,
+        "max": 468.207917,
+        "outside_train_minmax_fraction": 0.031067,
+        "outside_train_p01_p99_fraction": 0.476778,
+        "ks_distance_vs_train": 0.366105
+      },
+      "2023": {
+        "mean": -0.0,
+        "std": 23.361477,
+        "min": -121.413869,
+        "p01": -67.273229,
+        "median": 1.619881,
+        "p99": 64.671704,
+        "max": 148.386369,
+        "outside_train_minmax_fraction": 0.0,
+        "outside_train_p01_p99_fraction": 0.243868,
+        "ks_distance_vs_train": 0.348015
+      },
+      "2024": {
+        "mean": 0.0,
+        "std": 28.834464,
+        "min": -133.385417,
+        "p01": -66.867993,
+        "median": 0.51128,
+        "p99": 80.147914,
+        "max": 810.335595,
+        "outside_train_minmax_fraction": 0.000728,
+        "outside_train_p01_p99_fraction": 0.190179,
+        "ks_distance_vs_train": 0.292537
+      }
+    },
+    "price_week_zscore": {
+      "train_2015_2021_purged": {
+        "mean": -0.0,
+        "std": 0.972573,
+        "min": -8.397262,
+        "p01": -2.639061,
+        "median": 0.011071,
+        "p99": 2.621447,
+        "max": 11.458626,
+        "outside_train_minmax_fraction": 0.0,
+        "outside_train_p01_p99_fraction": 0.020001,
+        "ks_distance_vs_train": 0.0
+      },
+      "2021": {
+        "mean": -0.0,
+        "std": 0.997987,
+        "min": -7.37563,
+        "p01": -2.829515,
+        "median": -0.000552,
+        "p99": 2.862246,
+        "max": 9.779622,
+        "outside_train_minmax_fraction": 0.0,
+        "outside_train_p01_p99_fraction": 0.026158,
+        "ks_distance_vs_train": 0.025027
+      },
+      "2022": {
+        "mean": -0.0,
+        "std": 1.0,
+        "min": -5.755411,
+        "p01": -2.608257,
+        "median": 0.017974,
+        "p99": 2.563347,
+        "max": 8.636744,
+        "outside_train_minmax_fraction": 0.0,
+        "outside_train_p01_p99_fraction": 0.018721,
+        "ks_distance_vs_train": 0.018918
+      },
+      "2023": {
+        "mean": -0.0,
+        "std": 1.0,
+        "min": -7.246266,
+        "p01": -2.911501,
+        "median": 0.084861,
+        "p99": 2.571418,
+        "max": 6.676281,
+        "outside_train_minmax_fraction": 0.0,
+        "outside_train_p01_p99_fraction": 0.024022,
+        "ks_distance_vs_train": 0.037091
+      },
+      "2024": {
+        "mean": 0.0,
+        "std": 1.0,
+        "min": -5.668107,
+        "p01": -2.711109,
+        "median": 0.03168,
+        "p99": 3.22345,
+        "max": 9.463799,
+        "outside_train_minmax_fraction": 0.0,
+        "outside_train_p01_p99_fraction": 0.027662,
+        "ks_distance_vs_train": 0.037246
+      }
+    },
+    "price_div_week_mean_abs_floor10": {
+      "train_2015_2021_purged": {
+        "mean": 0.94714,
+        "std": 0.243806,
+        "min": -0.173,
+        "p01": 0.131,
+        "median": 0.991466,
+        "p99": 1.49549,
+        "max": 4.895739,
+        "outside_train_minmax_fraction": 0.0,
+        "outside_train_p01_p99_fraction": 0.019903,
+        "ks_distance_vs_train": 0.0
+      },
+      "2021": {
+        "mean": 0.999985,
+        "std": 0.225486,
+        "min": -0.022293,
+        "p01": 0.331525,
+        "median": 0.999926,
+        "p99": 1.820815,
+        "max": 3.157699,
+        "outside_train_minmax_fraction": 0.0,
+        "outside_train_p01_p99_fraction": 0.03136,
+        "ks_distance_vs_train": 0.083926
+      },
+      "2022": {
+        "mean": 1.0,
+        "std": 0.302478,
+        "min": 0.000495,
+        "p01": 0.067145,
+        "median": 1.003194,
+        "p99": 1.923715,
+        "max": 3.819885,
+        "outside_train_minmax_fraction": 0.0,
+        "outside_train_p01_p99_fraction": 0.053735,
+        "ks_distance_vs_train": 0.168975
+      },
+      "2023": {
+        "mean": 0.996662,
+        "std": 0.387901,
+        "min": -1.261641,
+        "p01": -0.037637,
+        "median": 1.019436,
+        "p99": 2.066702,
+        "max": 4.358634,
+        "outside_train_minmax_fraction": 0.002218,
+        "outside_train_p01_p99_fraction": 0.113421,
+        "ks_distance_vs_train": 0.224479
+      },
+      "2024": {
+        "mean": 0.992767,
+        "std": 0.470399,
+        "min": -1.544401,
+        "p01": -0.056446,
+        "median": 1.007324,
+        "p99": 2.548658,
+        "max": 10.217324,
+        "outside_train_minmax_fraction": 0.00625,
+        "outside_train_p01_p99_fraction": 0.123363,
+        "ks_distance_vs_train": 0.234754
+      }
+    },
+    "week_mean_price_eur_mwh": {
+      "train_2015_2021_purged": {
+        "mean": 34.245813,
+        "std": 25.500163,
+        "min": 1.119821,
+        "p01": 1.328512,
+        "median": 30.307083,
+        "p99": 148.762232,
+        "max": 254.751726,
+        "outside_train_minmax_fraction": 0.0,
+        "outside_train_p01_p99_fraction": 0.020384,
+        "ks_distance_vs_train": 0.0
+      },
+      "2021": {
+        "mean": 75.926745,
+        "std": 41.101273,
+        "min": 32.389286,
+        "p01": 33.122057,
+        "median": 57.378036,
+        "p99": 237.435014,
+        "max": 254.751726,
+        "outside_train_minmax_fraction": 0.0,
+        "outside_train_p01_p99_fraction": 0.073973,
+        "ks_distance_vs_train": 0.638
+      },
+      "2022": {
+        "mean": 211.240766,
+        "std": 111.289303,
+        "min": 27.367738,
+        "p01": 29.22019,
+        "median": 179.919881,
+        "p99": 572.573769,
+        "max": 601.285536,
+        "outside_train_minmax_fraction": 0.254795,
+        "outside_train_p01_p99_fraction": 0.690411,
+        "ks_distance_vs_train": 0.913027
+      },
+      "2023": {
+        "mean": 78.948373,
+        "std": 27.426583,
+        "min": 13.605774,
+        "p01": 19.910831,
+        "median": 80.392024,
+        "p99": 145.507938,
+        "max": 151.036488,
+        "outside_train_minmax_fraction": 0.0,
+        "outside_train_p01_p99_fraction": 0.005479,
+        "ks_distance_vs_train": 0.728229
+      },
+      "2024": {
+        "mean": 50.146038,
+        "std": 18.582116,
+        "min": 22.759167,
+        "p01": 24.870185,
+        "median": 46.746071,
+        "p99": 129.697814,
+        "max": 139.768631,
+        "outside_train_minmax_fraction": 0.0,
+        "outside_train_p01_p99_fraction": 0.0,
+        "ks_distance_vs_train": 0.484422
+      }
+    },
+    "week_price_std_eur_mwh": {
+      "train_2015_2021_purged": {
+        "mean": 4.86667,
+        "std": 8.207557,
+        "min": 0.026249,
+        "p01": 0.189557,
+        "median": 2.658997,
+        "p99": 38.295376,
+        "max": 111.513987,
+        "outside_train_minmax_fraction": 0.0,
+        "outside_train_p01_p99_fraction": 0.020384,
+        "ks_distance_vs_train": 0.0
+      },
+      "2021": {
+        "mean": 15.994638,
+        "std": 17.193752,
+        "min": 0.786426,
+        "p01": 0.898695,
+        "median": 10.806657,
+        "p99": 101.936451,
+        "max": 111.513987,
+        "outside_train_minmax_fraction": 0.0,
+        "outside_train_p01_p99_fraction": 0.071233,
+        "ks_distance_vs_train": 0.605924
+      },
+      "2022": {
+        "mean": 49.627991,
+        "std": 31.559879,
+        "min": 6.452897,
+        "p01": 7.364958,
+        "median": 37.967928,
+        "p99": 130.972606,
+        "max": 156.45407,
+        "outside_train_minmax_fraction": 0.043836,
+        "outside_train_p01_p99_fraction": 0.49863,
+        "ks_distance_vs_train": 0.876196
+      },
+      "2023": {
+        "mean": 22.130835,
+        "std": 7.482296,
+        "min": 5.08637,
+        "p01": 5.467133,
+        "median": 21.596104,
+        "p99": 41.131393,
+        "max": 42.803173,
+        "outside_train_minmax_fraction": 0.0,
+        "outside_train_p01_p99_fraction": 0.030137,
+        "ks_distance_vs_train": 0.878531
+      },
+      "2024": {
+        "mean": 21.424443,
+        "std": 19.298175,
+        "min": 3.58258,
+        "p01": 7.008846,
+        "median": 18.030503,
+        "p99": 144.306905,
+        "max": 153.017275,
+        "outside_train_minmax_fraction": 0.019444,
+        "outside_train_p01_p99_fraction": 0.052778,
+        "ks_distance_vs_train": 0.841651
+      }
+    }
+  },
+  "annual_unique_hour_price": {
+    "2015": {
+      "mean": 19.822256,
+      "std": 7.649664,
+      "min": 1.03,
+      "p01": 4.4259,
+      "median": 21.96,
+      "p99": 36.6499,
+      "max": 69.68,
+      "negative_fraction": 0.0
+    },
+    "2016": {
+      "mean": 25.151584,
+      "std": 6.572696,
+      "min": 6.01,
+      "p01": 14.7683,
+      "median": 23.6,
+      "p99": 43.2719,
+      "max": 95.06,
+      "negative_fraction": 0.0
+    },
+    "2017": {
+      "mean": 28.831518,
+      "std": 4.625463,
+      "min": 2.97,
+      "p01": 16.9336,
+      "median": 28.94,
+      "p99": 44.7664,
+      "max": 114.7,
+      "negative_fraction": 0.0
+    },
+    "2018": {
+      "mean": 43.252344,
+      "std": 9.376262,
+      "min": 1.92,
+      "p01": 16.9677,
+      "median": 43.63,
+      "p99": 63.7805,
+      "max": 105.02,
+      "negative_fraction": 0.0
+    },
+    "2019": {
+      "mean": 39.264231,
+      "std": 8.230669,
+      "min": 5.86,
+      "p01": 23.5113,
+      "median": 38.81,
+      "p99": 65.8053,
+      "max": 109.45,
+      "negative_fraction": 0.0
+    },
+    "2020": {
+      "mean": 9.29037,
+      "std": 8.25952,
+      "min": -1.73,
+      "p01": 0.82,
+      "median": 6.95,
+      "p99": 30.59,
+      "max": 99.92,
+      "negative_fraction": 0.000569
+    },
+    "2021": {
+      "mean": 75.10784,
+      "std": 47.212636,
+      "min": -1.97,
+      "p01": 15.3695,
+      "median": 59.34,
+      "p99": 259.2311,
+      "max": 600.16,
+      "negative_fraction": 0.000571
+    },
+    "2022": {
+      "mean": 211.277426,
+      "std": 125.842394,
+      "min": 0.04,
+      "p01": 5.355,
+      "median": 181.13,
+      "p99": 615.9201,
+      "max": 844.0,
+      "negative_fraction": 0.0
+    },
+    "2023": {
+      "mean": 79.439147,
+      "std": 36.282329,
+      "min": -61.84,
+      "p01": -1.17,
+      "median": 80.455,
+      "p99": 173.514,
+      "max": 261.85,
+      "negative_fraction": 0.019863
+    },
+    "2024": {
+      "mean": 50.123566,
+      "std": 34.1619,
+      "min": -59.96,
+      "p01": -2.0185,
+      "median": 47.24,
+      "p99": 147.1063,
+      "max": 898.25,
+      "negative_fraction": 0.023452
+    }
+  },
+  "generator_label_on_rates": {
+    "Hogga_G1": {
+      "train_2015_2021_purged": 0.624148,
+      "2021": 0.5462,
+      "2022": 0.386595,
+      "2015": 0.614726,
+      "2016": 0.561687,
+      "2017": 0.554925,
+      "2018": 0.70212,
+      "2019": 0.590134,
+      "2020": 0.799619
+    },
+    "Tokke_G1": {
+      "train_2015_2021_purged": 0.700883,
+      "2021": 0.594667,
+      "2022": 0.45667,
+      "2015": 0.719618,
+      "2016": 0.754879,
+      "2017": 0.70742,
+      "2018": 0.751826,
+      "2019": 0.58074,
+      "2020": 0.801522
+    },
+    "Tokke_G2": {
+      "train_2015_2021_purged": 0.49468,
+      "2021": 0.43547,
+      "2022": 0.357127,
+      "2015": 0.529371,
+      "2016": 0.502277,
+      "2017": 0.456197,
+      "2018": 0.590215,
+      "2019": 0.363617,
+      "2020": 0.592181
+    },
+    "Tokke_G3": {
+      "train_2015_2021_purged": 0.585247,
+      "2021": 0.516096,
+      "2022": 0.410877,
+      "2015": 0.61833,
+      "2016": 0.600816,
+      "2017": 0.560975,
+      "2018": 0.666014,
+      "2019": 0.445646,
+      "2020": 0.694884
+    },
+    "Tokke_G4": {
+      "train_2015_2021_purged": 0.514966,
+      "2021": 0.452055,
+      "2022": 0.373255,
+      "2015": 0.544618,
+      "2016": 0.519955,
+      "2017": 0.48335,
+      "2018": 0.608904,
+      "2019": 0.379583,
+      "2020": 0.623439
+    },
+    "Lio_G1": {
+      "train_2015_2021_purged": 0.776414,
+      "2021": 0.545385,
+      "2022": 0.549918,
+      "2015": 0.717417,
+      "2016": 0.614591,
+      "2017": 0.976957,
+      "2018": 0.786448,
+      "2019": 0.970124,
+      "2020": 0.811606
+    },
+    "Byrte_G1": {
+      "train_2015_2021_purged": 0.565859,
+      "2021": 0.537476,
+      "2022": 0.383089,
+      "2015": 0.436937,
+      "2016": 0.378741,
+      "2017": 0.576843,
+      "2018": 0.572945,
+      "2019": 0.639612,
+      "2020": 0.810093
+    },
+    "Vinje_G1": {
+      "train_2015_2021_purged": 0.504545,
+      "2021": 0.460176,
+      "2022": 0.343542,
+      "2015": 0.49395,
+      "2016": 0.519109,
+      "2017": 0.48591,
+      "2018": 0.581327,
+      "2019": 0.411187,
+      "2020": 0.587513
+    },
+    "Vinje_G2": {
+      "train_2015_2021_purged": 0.436862,
+      "2021": 0.397391,
+      "2022": 0.296999,
+      "2015": 0.423108,
+      "2016": 0.456853,
+      "2017": 0.417645,
+      "2018": 0.51334,
+      "2019": 0.334997,
+      "2020": 0.522232
+    },
+    "Vinje_G3": {
+      "train_2015_2021_purged": 0.267493,
+      "2021": 0.281083,
+      "2022": 0.192042,
+      "2015": 0.220581,
+      "2016": 0.28238,
+      "2017": 0.252136,
+      "2018": 0.335992,
+      "2019": 0.190297,
+      "2020": 0.318452
+    },
+    "Haukeli_G1": {
+      "train_2015_2021_purged": 0.606067,
+      "2021": 0.371461,
+      "2022": 0.141455,
+      "2015": 0.874119,
+      "2016": 0.764393,
+      "2017": 0.721086,
+      "2018": 0.781164,
+      "2019": 0.480382,
+      "2020": 0.240697
+    },
+    "Songa_G1": {
+      "train_2015_2021_purged": 0.539235,
+      "2021": 0.396722,
+      "2022": 0.117058,
+      "2015": 0.298826,
+      "2016": 0.524753,
+      "2017": 0.479517,
+      "2018": 0.657648,
+      "2019": 0.701076,
+      "2020": 0.706821
+    },
+    "Kjela_G1": {
+      "train_2015_2021_purged": 0.474004,
+      "2021": 0.142564,
+      "2022": 0.452805,
+      "2015": 0.239596,
+      "2016": 0.347856,
+      "2017": 0.701566,
+      "2018": 0.728278,
+      "2019": 0.707355,
+      "2020": 0.444672
+    },
+    "Vesle Kjela_G1": {
+      "train_2015_2021_purged": 0.490506,
+      "2021": 0.69819,
+      "2022": 0.305838,
+      "2015": 0.59987,
+      "2016": 0.560142,
+      "2017": 0.273826,
+      "2018": 0.574266,
+      "2019": 0.351533,
+      "2020": 0.371406
+    }
+  },
+  "reservoir_initial_fill_and_natural_inflow": {
+    "Kjelavatn": {
+      "initial_fill_fraction": {
+        "train_2015_2021_purged": {
+          "mean": 0.51901,
+          "p01": 0.012426,
+          "median": 0.576367,
+          "p99": 0.999704,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.698756,
+          "median": 0.707716,
+          "ks_distance_vs_train": 0.357261
+        },
+        "2022": {
+          "mean": 0.395036,
+          "median": 0.322308,
+          "ks_distance_vs_train": 0.310125
+        },
+        "2023": {
+          "mean": 0.550937,
+          "median": 0.669609,
+          "ks_distance_vs_train": 0.132911
+        },
+        "2024": {
+          "mean": 0.420202,
+          "median": 0.552669,
+          "ks_distance_vs_train": 0.185147
+        }
+      },
+      "natural_week_inflow_million_m3": {
+        "train_2015_2021_purged": {
+          "mean": 2.224168,
+          "p01": 0.194976,
+          "median": 1.353636,
+          "p99": 8.883144,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 1.753104,
+          "median": 0.829584,
+          "ks_distance_vs_train": 0.131327
+        },
+        "2022": {
+          "mean": 1.866818,
+          "median": 1.035072,
+          "ks_distance_vs_train": 0.133103
+        },
+        "2023": {
+          "mean": 1.984868,
+          "median": 0.847332,
+          "ks_distance_vs_train": 0.147822
+        },
+        "2024": {
+          "mean": 2.424319,
+          "median": 1.65582,
+          "ks_distance_vs_train": 0.10441
+        }
+      },
+      "terminal_water_value": {
+        "train_2015_2021_purged": {
+          "mean": 33.515045,
+          "p01": 0.01,
+          "median": 26.91,
+          "p99": 188.31
+        },
+        "2021": {
+          "mean": 61.603315,
+          "median": 18.28
+        },
+        "2022": {
+          "mean": 298.780493,
+          "median": 206.72
+        },
+        "2023": {
+          "mean": 65.861397,
+          "median": 64.13
+        },
+        "2024": {
+          "mean": 69.685333,
+          "median": 59.885
+        }
+      },
+      "daily_price_water_corr": {
+        "2021": 0.77276,
+        "2022": 0.8199,
+        "2023": 0.448173,
+        "2024": 0.542773
+      }
+    },
+    "Staavatn": {
+      "initial_fill_fraction": {
+        "train_2015_2021_purged": {
+          "mean": 0.579483,
+          "p01": 0.017604,
+          "median": 0.765604,
+          "p99": 1.021771,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.538954,
+          "median": 0.56,
+          "ks_distance_vs_train": 0.163927
+        },
+        "2022": {
+          "mean": 0.544332,
+          "median": 0.686396,
+          "ks_distance_vs_train": 0.120388
+        },
+        "2023": {
+          "mean": 0.469427,
+          "median": 0.26,
+          "ks_distance_vs_train": 0.150654
+        },
+        "2024": {
+          "mean": 0.608682,
+          "median": 0.879594,
+          "ks_distance_vs_train": 0.144008
+        }
+      },
+      "natural_week_inflow_million_m3": {
+        "train_2015_2021_purged": {
+          "mean": 4.735805,
+          "p01": 0.19701,
+          "median": 1.732176,
+          "p99": 23.430492,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 4.033495,
+          "median": 1.538784,
+          "ks_distance_vs_train": 0.129132
+        },
+        "2022": {
+          "mean": 4.6019,
+          "median": 1.733976,
+          "ks_distance_vs_train": 0.101356
+        },
+        "2023": {
+          "mean": 4.36706,
+          "median": 1.101852,
+          "ks_distance_vs_train": 0.090161
+        },
+        "2024": {
+          "mean": 5.160408,
+          "median": 2.538756,
+          "ks_distance_vs_train": 0.164182
+        }
+      },
+      "terminal_water_value": {
+        "train_2015_2021_purged": {
+          "mean": 33.515045,
+          "p01": 0.01,
+          "median": 26.91,
+          "p99": 188.31
+        },
+        "2021": {
+          "mean": 61.603315,
+          "median": 18.28
+        },
+        "2022": {
+          "mean": 298.780493,
+          "median": 206.72
+        },
+        "2023": {
+          "mean": 65.861397,
+          "median": 64.13
+        },
+        "2024": {
+          "mean": 69.685333,
+          "median": 59.885
+        }
+      },
+      "daily_price_water_corr": {
+        "2021": 0.77276,
+        "2022": 0.8199,
+        "2023": 0.448173,
+        "2024": 0.542773
+      }
+    },
+    "Langesae": {
+      "initial_fill_fraction": {
+        "train_2015_2021_purged": {
+          "mean": 0.72539,
+          "p01": 0.250218,
+          "median": 0.781744,
+          "p99": 1.005269,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.841545,
+          "median": 0.873474,
+          "ks_distance_vs_train": 0.362576
+        },
+        "2022": {
+          "mean": 0.387849,
+          "median": 0.346526,
+          "ks_distance_vs_train": 0.628773
+        },
+        "2023": {
+          "mean": 0.813719,
+          "median": 0.844346,
+          "ks_distance_vs_train": 0.371227
+        },
+        "2024": {
+          "mean": 0.732396,
+          "median": 0.783038,
+          "ks_distance_vs_train": 0.16131
+        }
+      },
+      "natural_week_inflow_million_m3": {
+        "train_2015_2021_purged": {
+          "mean": 1.14003,
+          "p01": 0.07434,
+          "median": 0.500184,
+          "p99": 7.211592,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.840807,
+          "median": 0.324072,
+          "ks_distance_vs_train": 0.135868
+        },
+        "2022": {
+          "mean": 1.016547,
+          "median": 0.36684,
+          "ks_distance_vs_train": 0.106532
+        },
+        "2023": {
+          "mean": 1.149474,
+          "median": 0.331236,
+          "ks_distance_vs_train": 0.114463
+        },
+        "2024": {
+          "mean": 1.339409,
+          "median": 0.597348,
+          "ks_distance_vs_train": 0.160204
+        }
+      },
+      "terminal_water_value": {
+        "train_2015_2021_purged": {
+          "mean": 36.074837,
+          "p01": 0.01,
+          "median": 23.75,
+          "p99": 236.54
+        },
+        "2021": {
+          "mean": 130.773041,
+          "median": 101.77
+        },
+        "2022": {
+          "mean": 247.180904,
+          "median": 192.7
+        },
+        "2023": {
+          "mean": 76.194932,
+          "median": 68.97
+        },
+        "2024": {
+          "mean": 64.326444,
+          "median": 50.235
+        }
+      },
+      "daily_price_water_corr": {
+        "2021": 0.84199,
+        "2022": 0.77648,
+        "2023": 0.248121,
+        "2024": 0.467629
+      }
+    },
+    "Foersvatn": {
+      "initial_fill_fraction": {
+        "train_2015_2021_purged": {
+          "mean": 0.602214,
+          "p01": 0.009043,
+          "median": 0.694366,
+          "p99": 0.97924,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.386231,
+          "median": 0.442003,
+          "ks_distance_vs_train": 0.472372
+        },
+        "2022": {
+          "mean": 0.558503,
+          "median": 0.649673,
+          "ks_distance_vs_train": 0.122975
+        },
+        "2023": {
+          "mean": 0.579512,
+          "median": 0.613058,
+          "ks_distance_vs_train": 0.152199
+        },
+        "2024": {
+          "mean": 0.486823,
+          "median": 0.549477,
+          "ks_distance_vs_train": 0.232044
+        }
+      },
+      "natural_week_inflow_million_m3": {
+        "train_2015_2021_purged": {
+          "mean": 0.404934,
+          "p01": 0.006822,
+          "median": 0.174132,
+          "p99": 3.257298,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.27803,
+          "median": 0.09324,
+          "ks_distance_vs_train": 0.126951
+        },
+        "2022": {
+          "mean": 0.311221,
+          "median": 0.08586,
+          "ks_distance_vs_train": 0.171166
+        },
+        "2023": {
+          "mean": 0.375616,
+          "median": 0.116064,
+          "ks_distance_vs_train": 0.137048
+        },
+        "2024": {
+          "mean": 0.470254,
+          "median": 0.281934,
+          "ks_distance_vs_train": 0.131914
+        }
+      },
+      "terminal_water_value": {
+        "train_2015_2021_purged": {
+          "mean": 36.074837,
+          "p01": 0.01,
+          "median": 23.75,
+          "p99": 236.54
+        },
+        "2021": {
+          "mean": 130.773041,
+          "median": 101.77
+        },
+        "2022": {
+          "mean": 247.180904,
+          "median": 192.7
+        },
+        "2023": {
+          "mean": 76.194932,
+          "median": 68.97
+        },
+        "2024": {
+          "mean": 64.326444,
+          "median": 50.235
+        }
+      },
+      "daily_price_water_corr": {
+        "2021": 0.84199,
+        "2022": 0.77648,
+        "2023": 0.248121,
+        "2024": 0.467629
+      }
+    },
+    "Venemo": {
+      "initial_fill_fraction": {
+        "train_2015_2021_purged": {
+          "mean": 0.720907,
+          "p01": 0.396739,
+          "median": 0.771609,
+          "p99": 0.888913,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.654273,
+          "median": 0.687565,
+          "ks_distance_vs_train": 0.307618
+        },
+        "2022": {
+          "mean": 0.609556,
+          "median": 0.591087,
+          "ks_distance_vs_train": 0.512645
+        },
+        "2023": {
+          "mean": 0.692654,
+          "median": 0.688913,
+          "ks_distance_vs_train": 0.222807
+        },
+        "2024": {
+          "mean": 0.752104,
+          "median": 0.787435,
+          "ks_distance_vs_train": 0.181569
+        }
+      },
+      "natural_week_inflow_million_m3": {
+        "train_2015_2021_purged": {
+          "mean": 1.440171,
+          "p01": 0.049392,
+          "median": 0.70614,
+          "p99": 8.983134,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.980621,
+          "median": 0.442044,
+          "ks_distance_vs_train": 0.174956
+        },
+        "2022": {
+          "mean": 0.973742,
+          "median": 0.328536,
+          "ks_distance_vs_train": 0.274098
+        },
+        "2023": {
+          "mean": 1.59519,
+          "median": 0.571644,
+          "ks_distance_vs_train": 0.131392
+        },
+        "2024": {
+          "mean": 1.938283,
+          "median": 1.099188,
+          "ks_distance_vs_train": 0.163194
+        }
+      },
+      "terminal_water_value": {
+        "train_2015_2021_purged": {
+          "mean": 30.754504,
+          "p01": 0.01,
+          "median": 23.01,
+          "p99": 190.47
+        },
+        "2021": {
+          "mean": 58.789452,
+          "median": 32.6
+        },
+        "2022": {
+          "mean": 281.698521,
+          "median": 187.37
+        },
+        "2023": {
+          "mean": 118.643973,
+          "median": 114.57
+        },
+        "2024": {
+          "mean": 55.7885,
+          "median": 39.105
+        }
+      },
+      "daily_price_water_corr": {
+        "2021": 0.153512,
+        "2022": 0.867186,
+        "2023": 0.718233,
+        "2024": 0.402181
+      }
+    },
+    "Botnedalsvatn": {
+      "initial_fill_fraction": {
+        "train_2015_2021_purged": {
+          "mean": 0.606759,
+          "p01": 0.017916,
+          "median": 0.724017,
+          "p99": 1.013162,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.589546,
+          "median": 0.671073,
+          "ks_distance_vs_train": 0.118926
+        },
+        "2022": {
+          "mean": 0.395808,
+          "median": 0.380063,
+          "ks_distance_vs_train": 0.358759
+        },
+        "2023": {
+          "mean": 0.632696,
+          "median": 0.723537,
+          "ks_distance_vs_train": 0.131112
+        },
+        "2024": {
+          "mean": 0.681626,
+          "median": 0.882564,
+          "ks_distance_vs_train": 0.244333
+        }
+      },
+      "natural_week_inflow_million_m3": {
+        "train_2015_2021_purged": {
+          "mean": 4.416134,
+          "p01": 0.074322,
+          "median": 1.89882,
+          "p99": 35.525844,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 3.03181,
+          "median": 1.018548,
+          "ks_distance_vs_train": 0.12696
+        },
+        "2022": {
+          "mean": 3.394453,
+          "median": 0.935352,
+          "ks_distance_vs_train": 0.171166
+        },
+        "2023": {
+          "mean": 4.097885,
+          "median": 1.267416,
+          "ks_distance_vs_train": 0.136264
+        },
+        "2024": {
+          "mean": 5.130054,
+          "median": 3.075138,
+          "ks_distance_vs_train": 0.131914
+        }
+      },
+      "terminal_water_value": {
+        "train_2015_2021_purged": {
+          "mean": 34.087315,
+          "p01": 0.01,
+          "median": 27.25,
+          "p99": 179.705
+        },
+        "2021": {
+          "mean": 80.042192,
+          "median": 52.75
+        },
+        "2022": {
+          "mean": 300.371589,
+          "median": 200.03
+        },
+        "2023": {
+          "mean": 76.789014,
+          "median": 69.31
+        },
+        "2024": {
+          "mean": 36.167333,
+          "median": 28.62
+        }
+      },
+      "daily_price_water_corr": {
+        "2021": 0.852578,
+        "2022": 0.814682,
+        "2023": 0.678836,
+        "2024": 0.542239
+      }
+    },
+    "Bitdalsvatn": {
+      "initial_fill_fraction": {
+        "train_2015_2021_purged": {
+          "mean": 0.722218,
+          "p01": 0.225055,
+          "median": 0.750982,
+          "p99": 1.000873,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.644701,
+          "median": 0.637282,
+          "ks_distance_vs_train": 0.355314
+        },
+        "2022": {
+          "mean": 0.535216,
+          "median": 0.514691,
+          "ks_distance_vs_train": 0.466526
+        },
+        "2023": {
+          "mean": 0.611895,
+          "median": 0.634691,
+          "ks_distance_vs_train": 0.200407
+        },
+        "2024": {
+          "mean": 0.931196,
+          "median": 0.955041,
+          "ks_distance_vs_train": 0.502462
+        }
+      },
+      "natural_week_inflow_million_m3": {
+        "train_2015_2021_purged": {
+          "mean": 3.299528,
+          "p01": 0.214974,
+          "median": 1.44828,
+          "p99": 20.872314,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 2.433489,
+          "median": 0.93726,
+          "ks_distance_vs_train": 0.136252
+        },
+        "2022": {
+          "mean": 2.941665,
+          "median": 1.058652,
+          "ks_distance_vs_train": 0.10614
+        },
+        "2023": {
+          "mean": 3.326627,
+          "median": 0.957888,
+          "ks_distance_vs_train": 0.115264
+        },
+        "2024": {
+          "mean": 3.876304,
+          "median": 1.72872,
+          "ks_distance_vs_train": 0.160204
+        }
+      },
+      "terminal_water_value": {
+        "train_2015_2021_purged": {
+          "mean": 37.412501,
+          "p01": 0.01,
+          "median": 25.02,
+          "p99": 298.145
+        },
+        "2021": {
+          "mean": 121.831452,
+          "median": 63.78
+        },
+        "2022": {
+          "mean": 359.232192,
+          "median": 291.77
+        },
+        "2023": {
+          "mean": 111.364274,
+          "median": 108.46
+        },
+        "2024": {
+          "mean": 12.264389,
+          "median": 0.01
+        }
+      },
+      "daily_price_water_corr": {
+        "2021": 0.900919,
+        "2022": 0.882366,
+        "2023": 0.612965,
+        "2024": 0.245903
+      }
+    },
+    "Vaamarvatn": {
+      "initial_fill_fraction": {
+        "train_2015_2021_purged": {
+          "mean": 0.565131,
+          "p01": 0.00874,
+          "median": 0.717901,
+          "p99": 0.95626,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.630182,
+          "median": 0.739046,
+          "ks_distance_vs_train": 0.130313
+        },
+        "2022": {
+          "mean": 0.52104,
+          "median": 0.675573,
+          "ks_distance_vs_train": 0.187429
+        },
+        "2023": {
+          "mean": 0.419143,
+          "median": 0.426832,
+          "ks_distance_vs_train": 0.201792
+        },
+        "2024": {
+          "mean": 0.508424,
+          "median": 0.739046,
+          "ks_distance_vs_train": 0.277378
+        }
+      },
+      "natural_week_inflow_million_m3": {
+        "train_2015_2021_purged": {
+          "mean": 0.452792,
+          "p01": 0.035316,
+          "median": 0.258588,
+          "p99": 2.71854,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.335388,
+          "median": 0.173808,
+          "ks_distance_vs_train": 0.195112
+        },
+        "2022": {
+          "mean": 0.313757,
+          "median": 0.117324,
+          "ks_distance_vs_train": 0.345667
+        },
+        "2023": {
+          "mean": 0.503434,
+          "median": 0.220212,
+          "ks_distance_vs_train": 0.119063
+        },
+        "2024": {
+          "mean": 0.571594,
+          "median": 0.39312,
+          "ks_distance_vs_train": 0.171826
+        }
+      },
+      "terminal_water_value": {
+        "train_2015_2021_purged": {
+          "mean": 30.754504,
+          "p01": 0.01,
+          "median": 23.01,
+          "p99": 190.47
+        },
+        "2021": {
+          "mean": 58.789452,
+          "median": 32.6
+        },
+        "2022": {
+          "mean": 281.698521,
+          "median": 187.37
+        },
+        "2023": {
+          "mean": 118.643973,
+          "median": 114.57
+        },
+        "2024": {
+          "mean": 55.7885,
+          "median": 39.105
+        }
+      },
+      "daily_price_water_corr": {
+        "2021": 0.153512,
+        "2022": 0.867186,
+        "2023": 0.718233,
+        "2024": 0.402181
+      }
+    },
+    "Langeidvatn": {
+      "initial_fill_fraction": {
+        "train_2015_2021_purged": {
+          "mean": 0.767825,
+          "p01": 0.121433,
+          "median": 0.814299,
+          "p99": 1.024642,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.703887,
+          "median": 0.704299,
+          "ks_distance_vs_train": 0.274858
+        },
+        "2022": {
+          "mean": 0.526246,
+          "median": 0.598567,
+          "ks_distance_vs_train": 0.531685
+        },
+        "2023": {
+          "mean": 0.472885,
+          "median": 0.651433,
+          "ks_distance_vs_train": 0.372738
+        },
+        "2024": {
+          "mean": 0.718956,
+          "median": 0.805,
+          "ks_distance_vs_train": 0.146159
+        }
+      },
+      "natural_week_inflow_million_m3": {
+        "train_2015_2021_purged": {
+          "mean": 1.420042,
+          "p01": 0.02457,
+          "median": 0.610632,
+          "p99": 11.423286,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.974951,
+          "median": 0.327528,
+          "ks_distance_vs_train": 0.127352
+        },
+        "2022": {
+          "mean": 1.091507,
+          "median": 0.300924,
+          "ks_distance_vs_train": 0.171166
+        },
+        "2023": {
+          "mean": 1.317746,
+          "median": 0.40752,
+          "ks_distance_vs_train": 0.135876
+        },
+        "2024": {
+          "mean": 1.649604,
+          "median": 0.988794,
+          "ks_distance_vs_train": 0.131914
+        }
+      },
+      "terminal_water_value": {
+        "train_2015_2021_purged": {
+          "mean": 29.129588,
+          "p01": 0.01,
+          "median": 18.76,
+          "p99": 219.595
+        },
+        "2021": {
+          "mean": 98.831507,
+          "median": 59.75
+        },
+        "2022": {
+          "mean": 372.616438,
+          "median": 293.21
+        },
+        "2023": {
+          "mean": 131.121151,
+          "median": 113.33
+        },
+        "2024": {
+          "mean": 47.309083,
+          "median": 46.86
+        }
+      },
+      "daily_price_water_corr": {
+        "2021": 0.839549,
+        "2022": 0.910448,
+        "2023": 0.739647,
+        "2024": 0.493765
+      }
+    },
+    "Totak": {
+      "initial_fill_fraction": {
+        "train_2015_2021_purged": {
+          "mean": 0.681139,
+          "p01": 0.078768,
+          "median": 0.80685,
+          "p99": 0.975341,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.736949,
+          "median": 0.820547,
+          "ks_distance_vs_train": 0.129451
+        },
+        "2022": {
+          "mean": 0.647589,
+          "median": 0.776711,
+          "ks_distance_vs_train": 0.214848
+        },
+        "2023": {
+          "mean": 0.537808,
+          "median": 0.594519,
+          "ks_distance_vs_train": 0.214831
+        },
+        "2024": {
+          "mean": 0.584429,
+          "median": 0.820549,
+          "ks_distance_vs_train": 0.267936
+        }
+      },
+      "natural_week_inflow_million_m3": {
+        "train_2015_2021_purged": {
+          "mean": 6.900854,
+          "p01": 0.534762,
+          "median": 3.940812,
+          "p99": 41.430312,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 5.112087,
+          "median": 2.653236,
+          "ks_distance_vs_train": 0.195112
+        },
+        "2022": {
+          "mean": 4.781787,
+          "median": 1.788444,
+          "ks_distance_vs_train": 0.345292
+        },
+        "2023": {
+          "mean": 7.673173,
+          "median": 3.358584,
+          "ks_distance_vs_train": 0.119455
+        },
+        "2024": {
+          "mean": 8.710856,
+          "median": 5.990688,
+          "ks_distance_vs_train": 0.171826
+        }
+      },
+      "terminal_water_value": {
+        "train_2015_2021_purged": {
+          "mean": 30.754504,
+          "p01": 0.01,
+          "median": 23.01,
+          "p99": 190.47
+        },
+        "2021": {
+          "mean": 58.789452,
+          "median": 32.6
+        },
+        "2022": {
+          "mean": 281.698521,
+          "median": 187.37
+        },
+        "2023": {
+          "mean": 118.643973,
+          "median": 114.57
+        },
+        "2024": {
+          "mean": 55.7885,
+          "median": 39.105
+        }
+      },
+      "daily_price_water_corr": {
+        "2021": 0.153512,
+        "2022": 0.867186,
+        "2023": 0.718233,
+        "2024": 0.402181
+      }
+    },
+    "Songavatn": {
+      "initial_fill_fraction": {
+        "train_2015_2021_purged": {
+          "mean": 0.665779,
+          "p01": 0.148396,
+          "median": 0.674314,
+          "p99": 1.00262,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.582281,
+          "median": 0.580986,
+          "ks_distance_vs_train": 0.397676
+        },
+        "2022": {
+          "mean": 0.521828,
+          "median": 0.506014,
+          "ks_distance_vs_train": 0.374784
+        },
+        "2023": {
+          "mean": 0.570231,
+          "median": 0.585112,
+          "ks_distance_vs_train": 0.166349
+        },
+        "2024": {
+          "mean": 0.884271,
+          "median": 0.920306,
+          "ks_distance_vs_train": 0.488594
+        }
+      },
+      "natural_week_inflow_million_m3": {
+        "train_2015_2021_purged": {
+          "mean": 15.195286,
+          "p01": 0.990054,
+          "median": 6.669468,
+          "p99": 96.121674,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 11.207001,
+          "median": 4.316616,
+          "ks_distance_vs_train": 0.136252
+        },
+        "2022": {
+          "mean": 13.547286,
+          "median": 4.880556,
+          "ks_distance_vs_train": 0.10614
+        },
+        "2023": {
+          "mean": 15.320085,
+          "median": 4.411224,
+          "ks_distance_vs_train": 0.114872
+        },
+        "2024": {
+          "mean": 17.851699,
+          "median": 7.96257,
+          "ks_distance_vs_train": 0.160204
+        }
+      },
+      "terminal_water_value": {
+        "train_2015_2021_purged": {
+          "mean": 37.412501,
+          "p01": 0.01,
+          "median": 25.02,
+          "p99": 298.145
+        },
+        "2021": {
+          "mean": 121.831452,
+          "median": 63.78
+        },
+        "2022": {
+          "mean": 359.232192,
+          "median": 291.77
+        },
+        "2023": {
+          "mean": 111.364274,
+          "median": 108.46
+        },
+        "2024": {
+          "mean": 12.264389,
+          "median": 0.01
+        }
+      },
+      "daily_price_water_corr": {
+        "2021": 0.900919,
+        "2022": 0.882366,
+        "2023": 0.612965,
+        "2024": 0.245903
+      }
+    },
+    "Vinjevatn": {
+      "initial_fill_fraction": {
+        "train_2015_2021_purged": {
+          "mean": 0.68983,
+          "p01": 0.356838,
+          "median": 0.698932,
+          "p99": 0.910043,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.664033,
+          "median": 0.681624,
+          "ks_distance_vs_train": 0.084687
+        },
+        "2022": {
+          "mean": 0.658223,
+          "median": 0.660897,
+          "ks_distance_vs_train": 0.13041
+        },
+        "2023": {
+          "mean": 0.678873,
+          "median": 0.702457,
+          "ks_distance_vs_train": 0.052327
+        },
+        "2024": {
+          "mean": 0.683197,
+          "median": 0.691987,
+          "ks_distance_vs_train": 0.080007
+        }
+      },
+      "natural_week_inflow_million_m3": {
+        "train_2015_2021_purged": {
+          "mean": 9.456278,
+          "p01": 0.733068,
+          "median": 5.40018,
+          "p99": 56.772288,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 7.005172,
+          "median": 3.635676,
+          "ks_distance_vs_train": 0.195112
+        },
+        "2022": {
+          "mean": 6.552628,
+          "median": 2.450664,
+          "ks_distance_vs_train": 0.345292
+        },
+        "2023": {
+          "mean": 10.514595,
+          "median": 4.60242,
+          "ks_distance_vs_train": 0.119455
+        },
+        "2024": {
+          "mean": 11.936443,
+          "median": 8.208846,
+          "ks_distance_vs_train": 0.171826
+        }
+      },
+      "terminal_water_value": {
+        "train_2015_2021_purged": {
+          "mean": 34.209894,
+          "p01": 0.01,
+          "median": 25.54,
+          "p99": 206.345
+        },
+        "2021": {
+          "mean": 84.192,
+          "median": 67.2
+        },
+        "2022": {
+          "mean": 245.755452,
+          "median": 180.25
+        },
+        "2023": {
+          "mean": 79.286521,
+          "median": 71.84
+        },
+        "2024": {
+          "mean": 50.6545,
+          "median": 45.4
+        }
+      },
+      "daily_price_water_corr": {
+        "2021": 0.594174,
+        "2022": 0.719461,
+        "2023": 0.289903,
+        "2024": 0.37099
+      }
+    },
+    "Bandak": {
+      "initial_fill_fraction": {
+        "train_2015_2021_purged": {
+          "mean": 0.760543,
+          "p01": 0.661016,
+          "median": 0.757061,
+          "p99": 0.930792,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.757596,
+          "median": 0.759885,
+          "ks_distance_vs_train": 0.039312
+        },
+        "2022": {
+          "mean": 0.752859,
+          "median": 0.751412,
+          "ks_distance_vs_train": 0.088881
+        },
+        "2023": {
+          "mean": 0.755266,
+          "median": 0.76271,
+          "ks_distance_vs_train": 0.080051
+        },
+        "2024": {
+          "mean": 0.772901,
+          "median": 0.774013,
+          "ks_distance_vs_train": 0.166216
+        }
+      },
+      "natural_week_inflow_million_m3": {
+        "train_2015_2021_purged": {
+          "mean": 11.912852,
+          "p01": 0.355518,
+          "median": 6.892848,
+          "p99": 64.911222,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 12.489582,
+          "median": 4.908744,
+          "ks_distance_vs_train": 0.129699
+        },
+        "2022": {
+          "mean": 9.296118,
+          "median": 3.49542,
+          "ks_distance_vs_train": 0.255007
+        },
+        "2023": {
+          "mean": 11.7087,
+          "median": 6.363828,
+          "ks_distance_vs_train": 0.109438
+        },
+        "2024": {
+          "mean": 15.281894,
+          "median": 9.387396,
+          "ks_distance_vs_train": 0.173626
+        }
+      },
+      "terminal_water_value": {
+        "train_2015_2021_purged": {
+          "mean": 37.446817,
+          "p01": 0.01,
+          "median": 30.56,
+          "p99": 213.73
+        },
+        "2021": {
+          "mean": 87.772521,
+          "median": 65.42
+        },
+        "2022": {
+          "mean": 244.803507,
+          "median": 223.12
+        },
+        "2023": {
+          "mean": 81.814438,
+          "median": 72.2
+        },
+        "2024": {
+          "mean": 43.879139,
+          "median": 33.92
+        }
+      },
+      "daily_price_water_corr": {
+        "2021": 0.712341,
+        "2022": 0.540856,
+        "2023": 0.374737,
+        "2024": 0.463284
+      }
+    },
+    "Bordalsvatn": {
+      "initial_fill_fraction": {
+        "train_2015_2021_purged": {
+          "mean": 0.734536,
+          "p01": 0.017948,
+          "median": 0.807438,
+          "p99": 0.998206,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.685808,
+          "median": 0.68051,
+          "ks_distance_vs_train": 0.366337
+        },
+        "2022": {
+          "mean": 0.73967,
+          "median": 0.768719,
+          "ks_distance_vs_train": 0.221072
+        },
+        "2023": {
+          "mean": 0.756545,
+          "median": 0.832562,
+          "ks_distance_vs_train": 0.133085
+        },
+        "2024": {
+          "mean": 0.593437,
+          "median": 0.792948,
+          "ks_distance_vs_train": 0.234325
+        }
+      },
+      "natural_week_inflow_million_m3": {
+        "train_2015_2021_purged": {
+          "mean": 3.88146,
+          "p01": 0.065232,
+          "median": 1.668852,
+          "p99": 31.224384,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 2.664835,
+          "median": 0.89532,
+          "ks_distance_vs_train": 0.126951
+        },
+        "2022": {
+          "mean": 2.983512,
+          "median": 0.822132,
+          "ks_distance_vs_train": 0.171166
+        },
+        "2023": {
+          "mean": 3.601758,
+          "median": 1.114056,
+          "ks_distance_vs_train": 0.136264
+        },
+        "2024": {
+          "mean": 4.508968,
+          "median": 2.702898,
+          "ks_distance_vs_train": 0.131914
+        }
+      },
+      "terminal_water_value": {
+        "train_2015_2021_purged": {
+          "mean": 36.074837,
+          "p01": 0.01,
+          "median": 23.75,
+          "p99": 236.54
+        },
+        "2021": {
+          "mean": 130.773041,
+          "median": 101.77
+        },
+        "2022": {
+          "mean": 247.180904,
+          "median": 192.7
+        },
+        "2023": {
+          "mean": 76.194932,
+          "median": 68.97
+        },
+        "2024": {
+          "mean": 64.326444,
+          "median": 50.235
+        }
+      },
+      "daily_price_water_corr": {
+        "2021": 0.84199,
+        "2022": 0.77648,
+        "2023": 0.248121,
+        "2024": 0.467629
+      }
+    },
+    "Byrtevatn": {
+      "initial_fill_fraction": {
+        "train_2015_2021_purged": {
+          "mean": 0.733479,
+          "p01": 0.124182,
+          "median": 0.810429,
+          "p99": 1.02559,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.676535,
+          "median": 0.730948,
+          "ks_distance_vs_train": 0.30341
+        },
+        "2022": {
+          "mean": 0.642423,
+          "median": 0.778047,
+          "ks_distance_vs_train": 0.225475
+        },
+        "2023": {
+          "mean": 0.670931,
+          "median": 0.730348,
+          "ks_distance_vs_train": 0.122378
+        },
+        "2024": {
+          "mean": 0.707007,
+          "median": 0.904328,
+          "ks_distance_vs_train": 0.198272
+        }
+      },
+      "natural_week_inflow_million_m3": {
+        "train_2015_2021_purged": {
+          "mean": 3.279581,
+          "p01": 0.05517,
+          "median": 1.410336,
+          "p99": 26.382366,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 2.251605,
+          "median": 0.75618,
+          "ks_distance_vs_train": 0.12696
+        },
+        "2022": {
+          "mean": 2.520802,
+          "median": 0.69444,
+          "ks_distance_vs_train": 0.171166
+        },
+        "2023": {
+          "mean": 3.043225,
+          "median": 0.941364,
+          "ks_distance_vs_train": 0.136264
+        },
+        "2024": {
+          "mean": 3.809747,
+          "median": 2.28366,
+          "ks_distance_vs_train": 0.131914
+        }
+      },
+      "terminal_water_value": {
+        "train_2015_2021_purged": {
+          "mean": 35.501141,
+          "p01": 0.01,
+          "median": 24.37,
+          "p99": 219.865
+        },
+        "2021": {
+          "mean": 114.380411,
+          "median": 103.54
+        },
+        "2022": {
+          "mean": 303.108027,
+          "median": 250.52
+        },
+        "2023": {
+          "mean": 100.530082,
+          "median": 100.97
+        },
+        "2024": {
+          "mean": 49.222889,
+          "median": 35.915
+        }
+      },
+      "daily_price_water_corr": {
+        "2021": 0.846279,
+        "2022": 0.732965,
+        "2023": 0.7237,
+        "2024": 0.341921
+      }
+    },
+    "Hyljelihyl": {
+      "initial_fill_fraction": {
+        "train_2015_2021_purged": {
+          "mean": 0.5,
+          "p01": 0.5,
+          "median": 0.5,
+          "p99": 0.5,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.5,
+          "median": 0.5,
+          "ks_distance_vs_train": 0.0
+        },
+        "2022": {
+          "mean": 0.5,
+          "median": 0.5,
+          "ks_distance_vs_train": 0.0
+        },
+        "2023": {
+          "mean": 0.5,
+          "median": 0.5,
+          "ks_distance_vs_train": 0.0
+        },
+        "2024": {
+          "mean": 0.5,
+          "median": 0.5,
+          "ks_distance_vs_train": 0.0
+        }
+      },
+      "natural_week_inflow_million_m3": {
+        "train_2015_2021_purged": {
+          "mean": 2.635354,
+          "p01": 0.044568,
+          "median": 1.133172,
+          "p99": 21.199986,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 1.809372,
+          "median": 0.608004,
+          "ks_distance_vs_train": 0.126951
+        },
+        "2022": {
+          "mean": 2.025686,
+          "median": 0.558036,
+          "ks_distance_vs_train": 0.171166
+        },
+        "2023": {
+          "mean": 2.44543,
+          "median": 0.756252,
+          "ks_distance_vs_train": 0.135872
+        },
+        "2024": {
+          "mean": 3.06137,
+          "median": 1.835046,
+          "ks_distance_vs_train": 0.131914
+        }
+      },
+      "terminal_water_value": {
+        "train_2015_2021_purged": {
+          "mean": 30.754504,
+          "p01": 0.01,
+          "median": 23.01,
+          "p99": 190.47
+        },
+        "2021": {
+          "mean": 58.789452,
+          "median": 32.6
+        },
+        "2022": {
+          "mean": 281.698521,
+          "median": 187.37
+        },
+        "2023": {
+          "mean": 118.643973,
+          "median": 114.57
+        },
+        "2024": {
+          "mean": 55.7885,
+          "median": 39.105
+        }
+      },
+      "daily_price_water_corr": {
+        "2021": 0.153512,
+        "2022": 0.867186,
+        "2023": 0.718233,
+        "2024": 0.402181
+      }
+    },
+    "Vatjern": {
+      "initial_fill_fraction": {
+        "train_2015_2021_purged": {
+          "mean": 0.5,
+          "p01": 0.5,
+          "median": 0.5,
+          "p99": 0.5,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.5,
+          "median": 0.5,
+          "ks_distance_vs_train": 0.0
+        },
+        "2022": {
+          "mean": 0.5,
+          "median": 0.5,
+          "ks_distance_vs_train": 0.0
+        },
+        "2023": {
+          "mean": 0.5,
+          "median": 0.5,
+          "ks_distance_vs_train": 0.0
+        },
+        "2024": {
+          "mean": 0.5,
+          "median": 0.5,
+          "ks_distance_vs_train": 0.0
+        }
+      },
+      "natural_week_inflow_million_m3": {
+        "train_2015_2021_purged": {
+          "mean": 0.144981,
+          "p01": 0.0009,
+          "median": 0.062496,
+          "p99": 1.166004,
+          "ks_distance_vs_train": 0.0
+        },
+        "2021": {
+          "mean": 0.099339,
+          "median": 0.033156,
+          "ks_distance_vs_train": 0.128911
+        },
+        "2022": {
+          "mean": 0.111422,
+          "median": 0.031176,
+          "ks_distance_vs_train": 0.171558
+        },
+        "2023": {
+          "mean": 0.134491,
+          "median": 0.041148,
+          "ks_distance_vs_train": 0.133519
+        },
+        "2024": {
+          "mean": 0.168463,
+          "median": 0.100926,
+          "ks_distance_vs_train": 0.131522
+        }
+      },
+      "terminal_water_value": {
+        "train_2015_2021_purged": {
+          "mean": 29.129588,
+          "p01": 0.01,
+          "median": 18.76,
+          "p99": 219.595
+        },
+        "2021": {
+          "mean": 98.831507,
+          "median": 59.75
+        },
+        "2022": {
+          "mean": 372.616438,
+          "median": 293.21
+        },
+        "2023": {
+          "mean": 131.121151,
+          "median": 113.33
+        },
+        "2024": {
+          "mean": 47.309083,
+          "median": 46.86
+        }
+      },
+      "daily_price_water_corr": {
+        "2021": 0.839549,
+        "2022": 0.910448,
+        "2023": 0.739647,
+        "2024": 0.493765
+      }
+    }
+  },
+  "unfitted_proxy_auc": {
+    "Hogga_G1": {
+      "train_2015_2021_purged": {
+        "raw_price": 0.456806,
+        "week_zscore": 0.583583,
+        "raw_price_minus_terminal": 0.897438,
+        "scaled_price_minus_terminal": 0.89452
+      },
+      "2021": {
+        "raw_price": 0.450492,
+        "week_zscore": 0.650829,
+        "raw_price_minus_terminal": 0.921024,
+        "scaled_price_minus_terminal": 0.917486
+      },
+      "2022": {
+        "raw_price": 0.609879,
+        "week_zscore": 0.666919,
+        "raw_price_minus_terminal": 0.938005,
+        "scaled_price_minus_terminal": 0.921778
+      }
+    },
+    "Tokke_G1": {
+      "train_2015_2021_purged": {
+        "raw_price": 0.420297,
+        "week_zscore": 0.662337,
+        "raw_price_minus_terminal": 0.880959,
+        "scaled_price_minus_terminal": 0.8793
+      },
+      "2021": {
+        "raw_price": 0.482873,
+        "week_zscore": 0.666585,
+        "raw_price_minus_terminal": 0.886752,
+        "scaled_price_minus_terminal": 0.902349
+      },
+      "2022": {
+        "raw_price": 0.473325,
+        "week_zscore": 0.661829,
+        "raw_price_minus_terminal": 0.959039,
+        "scaled_price_minus_terminal": 0.948657
+      }
+    },
+    "Tokke_G2": {
+      "train_2015_2021_purged": {
+        "raw_price": 0.448623,
+        "week_zscore": 0.579041,
+        "raw_price_minus_terminal": 0.893275,
+        "scaled_price_minus_terminal": 0.908624
+      },
+      "2021": {
+        "raw_price": 0.436282,
+        "week_zscore": 0.612678,
+        "raw_price_minus_terminal": 0.881865,
+        "scaled_price_minus_terminal": 0.903312
+      },
+      "2022": {
+        "raw_price": 0.488852,
+        "week_zscore": 0.640955,
+        "raw_price_minus_terminal": 0.959417,
+        "scaled_price_minus_terminal": 0.959719
+      }
+    },
+    "Tokke_G3": {
+      "train_2015_2021_purged": {
+        "raw_price": 0.438886,
+        "week_zscore": 0.608484,
+        "raw_price_minus_terminal": 0.89196,
+        "scaled_price_minus_terminal": 0.899732
+      },
+      "2021": {
+        "raw_price": 0.466069,
+        "week_zscore": 0.640672,
+        "raw_price_minus_terminal": 0.894223,
+        "scaled_price_minus_terminal": 0.913087
+      },
+      "2022": {
+        "raw_price": 0.483806,
+        "week_zscore": 0.649972,
+        "raw_price_minus_terminal": 0.962123,
+        "scaled_price_minus_terminal": 0.956509
+      }
+    },
+    "Tokke_G4": {
+      "train_2015_2021_purged": {
+        "raw_price": 0.444365,
+        "week_zscore": 0.584664,
+        "raw_price_minus_terminal": 0.883305,
+        "scaled_price_minus_terminal": 0.897622
+      },
+      "2021": {
+        "raw_price": 0.437884,
+        "week_zscore": 0.617407,
+        "raw_price_minus_terminal": 0.873709,
+        "scaled_price_minus_terminal": 0.896307
+      },
+      "2022": {
+        "raw_price": 0.490088,
+        "week_zscore": 0.639601,
+        "raw_price_minus_terminal": 0.96098,
+        "scaled_price_minus_terminal": 0.960337
+      }
+    },
+    "Lio_G1": {
+      "train_2015_2021_purged": {
+        "raw_price": 0.468306,
+        "week_zscore": 0.551372,
+        "raw_price_minus_terminal": 0.91477,
+        "scaled_price_minus_terminal": 0.927454
+      },
+      "2021": {
+        "raw_price": 0.414848,
+        "week_zscore": 0.599161,
+        "raw_price_minus_terminal": 0.799083,
+        "scaled_price_minus_terminal": 0.821461
+      },
+      "2022": {
+        "raw_price": 0.675678,
+        "week_zscore": 0.659498,
+        "raw_price_minus_terminal": 0.830115,
+        "scaled_price_minus_terminal": 0.889684
+      }
+    },
+    "Byrte_G1": {
+      "train_2015_2021_purged": {
+        "raw_price": 0.447008,
+        "week_zscore": 0.560793,
+        "raw_price_minus_terminal": 0.988252,
+        "scaled_price_minus_terminal": 0.987743
+      },
+      "2021": {
+        "raw_price": 0.243856,
+        "week_zscore": 0.641427,
+        "raw_price_minus_terminal": 0.997384,
+        "scaled_price_minus_terminal": 0.997236
+      },
+      "2022": {
+        "raw_price": 0.413981,
+        "week_zscore": 0.59504,
+        "raw_price_minus_terminal": 0.995709,
+        "scaled_price_minus_terminal": 0.988543
+      }
+    },
+    "Vinje_G1": {
+      "train_2015_2021_purged": {
+        "raw_price": 0.479599,
+        "week_zscore": 0.608469,
+        "raw_price_minus_terminal": 0.749616,
+        "scaled_price_minus_terminal": 0.76823
+      },
+      "2021": {
+        "raw_price": 0.473654,
+        "week_zscore": 0.635718,
+        "raw_price_minus_terminal": 0.720983,
+        "scaled_price_minus_terminal": 0.7413
+      },
+      "2022": {
+        "raw_price": 0.524431,
+        "week_zscore": 0.693239,
+        "raw_price_minus_terminal": 0.824379,
+        "scaled_price_minus_terminal": 0.819814
+      }
+    },
+    "Vinje_G2": {
+      "train_2015_2021_purged": {
+        "raw_price": 0.479072,
+        "week_zscore": 0.612319,
+        "raw_price_minus_terminal": 0.751364,
+        "scaled_price_minus_terminal": 0.770254
+      },
+      "2021": {
+        "raw_price": 0.472948,
+        "week_zscore": 0.635869,
+        "raw_price_minus_terminal": 0.735546,
+        "scaled_price_minus_terminal": 0.758649
+      },
+      "2022": {
+        "raw_price": 0.539044,
+        "week_zscore": 0.69553,
+        "raw_price_minus_terminal": 0.82087,
+        "scaled_price_minus_terminal": 0.816423
+      }
+    },
+    "Vinje_G3": {
+      "train_2015_2021_purged": {
+        "raw_price": 0.509865,
+        "week_zscore": 0.61871,
+        "raw_price_minus_terminal": 0.775976,
+        "scaled_price_minus_terminal": 0.791853
+      },
+      "2021": {
+        "raw_price": 0.484887,
+        "week_zscore": 0.64635,
+        "raw_price_minus_terminal": 0.760204,
+        "scaled_price_minus_terminal": 0.783611
+      },
+      "2022": {
+        "raw_price": 0.548493,
+        "week_zscore": 0.735125,
+        "raw_price_minus_terminal": 0.83595,
+        "scaled_price_minus_terminal": 0.834649
+      }
+    },
+    "Haukeli_G1": {
+      "train_2015_2021_purged": {
+        "raw_price": 0.486801,
+        "week_zscore": 0.531487,
+        "raw_price_minus_terminal": 0.829346,
+        "scaled_price_minus_terminal": 0.83732
+      },
+      "2021": {
+        "raw_price": 0.36125,
+        "week_zscore": 0.59953,
+        "raw_price_minus_terminal": 0.802545,
+        "scaled_price_minus_terminal": 0.808199
+      },
+      "2022": {
+        "raw_price": 0.54724,
+        "week_zscore": 0.716299,
+        "raw_price_minus_terminal": 0.73044,
+        "scaled_price_minus_terminal": 0.717057
+      }
+    },
+    "Songa_G1": {
+      "train_2015_2021_purged": {
+        "raw_price": 0.481643,
+        "week_zscore": 0.597934,
+        "raw_price_minus_terminal": 0.966055,
+        "scaled_price_minus_terminal": 0.967841
+      },
+      "2021": {
+        "raw_price": 0.171781,
+        "week_zscore": 0.57413,
+        "raw_price_minus_terminal": 0.994329,
+        "scaled_price_minus_terminal": 0.994843
+      },
+      "2022": {
+        "raw_price": 0.602152,
+        "week_zscore": 0.728713,
+        "raw_price_minus_terminal": 0.967584,
+        "scaled_price_minus_terminal": 0.982202
+      }
+    },
+    "Kjela_G1": {
+      "train_2015_2021_purged": {
+        "raw_price": 0.575205,
+        "week_zscore": 0.586871,
+        "raw_price_minus_terminal": 0.956004,
+        "scaled_price_minus_terminal": 0.952994
+      },
+      "2021": {
+        "raw_price": 0.560059,
+        "week_zscore": 0.663888,
+        "raw_price_minus_terminal": 0.956945,
+        "scaled_price_minus_terminal": 0.966302
+      },
+      "2022": {
+        "raw_price": 0.52724,
+        "week_zscore": 0.652078,
+        "raw_price_minus_terminal": 0.960817,
+        "scaled_price_minus_terminal": 0.958914
+      }
+    },
+    "Vesle Kjela_G1": {
+      "train_2015_2021_purged": {
+        "raw_price": 0.511411,
+        "week_zscore": 0.561755,
+        "raw_price_minus_terminal": 0.985878,
+        "scaled_price_minus_terminal": 0.987091
+      },
+      "2021": {
+        "raw_price": 0.161171,
+        "week_zscore": 0.590472,
+        "raw_price_minus_terminal": 0.999162,
+        "scaled_price_minus_terminal": 0.999194
+      },
+      "2022": {
+        "raw_price": 0.44667,
+        "week_zscore": 0.621051,
+        "raw_price_minus_terminal": 0.989678,
+        "scaled_price_minus_terminal": 0.982327
+      }
+    }
+  },
+  "identical_water_value_columns": [
+    [
+      "Bitdalsvatn",
+      "Songavatn"
+    ],
+    [
+      "Bordalsvatn",
+      "Foersvatn",
+      "Langesae"
+    ],
+    [
+      "Hyljelihyl",
+      "Totak",
+      "Vaamarvatn",
+      "Venemo"
+    ],
+    [
+      "Kjelavatn",
+      "Staavatn"
+    ],
+    [
+      "Langeidvatn",
+      "Vatjern"
+    ]
+  ],
+  "annual_label_on_rate_all_generators": {
+    "2015": 0.523648,
+    "2016": 0.527745,
+    "2017": 0.546311,
+    "2018": 0.632178,
+    "2019": 0.510449,
+    "2020": 0.594653,
+    "2021": 0.455352,
+    "2022": 0.340519
+  },
+  "plant_feeding_water_values": {
+    "Hogga": {
+      "feeding_reservoirs": [
+        "Bandak"
+      ],
+      "terminal_raw": {
+        "train_2015_2021_purged": {
+          "mean": 37.446817,
+          "min": 0.01,
+          "p01": 0.01,
+          "median": 30.56,
+          "p99": 213.73,
+          "max": 412.9
+        },
+        "2021": {
+          "mean": 87.772521,
+          "min": 0.01,
+          "median": 65.42,
+          "max": 412.9,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.422488
+        },
+        "2022": {
+          "mean": 244.803507,
+          "min": 0.01,
+          "median": 223.12,
+          "max": 779.96,
+          "outside_train_minmax_fraction": 0.136986,
+          "ks_distance_vs_train": 0.812833
+        },
+        "2023": {
+          "mean": 81.814438,
+          "min": 0.01,
+          "median": 72.2,
+          "max": 237.64,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.458435
+        },
+        "2024": {
+          "mean": 43.879139,
+          "min": 0.01,
+          "median": 33.92,
+          "max": 214.17,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.102871
+        }
+      },
+      "terminal_div_week_scale": {
+        "train_2015_2021_purged": {
+          "mean": 1.013191,
+          "min": 4.2e-05,
+          "p01": 0.00026,
+          "median": 0.971963,
+          "p99": 2.4219,
+          "max": 3.161
+        },
+        "2021": {
+          "mean": 1.107866,
+          "median": 1.0217,
+          "ks_distance_vs_train": 0.138217
+        },
+        "2022": {
+          "mean": 1.285107,
+          "median": 1.216194,
+          "ks_distance_vs_train": 0.191895
+        },
+        "2023": {
+          "mean": 1.072907,
+          "median": 1.06939,
+          "ks_distance_vs_train": 0.085851
+        },
+        "2024": {
+          "mean": 0.846692,
+          "median": 0.725811,
+          "ks_distance_vs_train": 0.175245
+        }
+      },
+      "price_minus_terminal_raw": {
+        "train_2015_2021_purged": {
+          "mean": -3.201004,
+          "min": -303.72,
+          "p01": -99.6233,
+          "median": -0.09,
+          "p99": 51.7866,
+          "max": 600.15
+        },
+        "2021": {
+          "mean": -11.845776,
+          "median": -2.17,
+          "ks_distance_vs_train": 0.144876
+        },
+        "2022": {
+          "mean": -33.56274,
+          "median": -39.56,
+          "ks_distance_vs_train": 0.453216
+        },
+        "2023": {
+          "mean": -2.866065,
+          "median": -3.92,
+          "ks_distance_vs_train": 0.227724
+        },
+        "2024": {
+          "mean": 6.266899,
+          "median": 10.62,
+          "ks_distance_vs_train": 0.285647
+        }
+      },
+      "price_minus_terminal_div_week_scale": {
+        "train_2015_2021_purged": {
+          "mean": -0.066051,
+          "min": -2.937,
+          "p01": -1.563576,
+          "median": -0.003449,
+          "p99": 1.171611,
+          "max": 4.200478
+        },
+        "2021": {
+          "mean": -0.107881,
+          "median": -0.034687,
+          "ks_distance_vs_train": 0.059172
+        },
+        "2022": {
+          "mean": -0.285107,
+          "median": -0.213466,
+          "ks_distance_vs_train": 0.159974
+        },
+        "2023": {
+          "mean": -0.076246,
+          "median": -0.05883,
+          "ks_distance_vs_train": 0.072809
+        },
+        "2024": {
+          "mean": 0.146075,
+          "median": 0.22638,
+          "ks_distance_vs_train": 0.196175
+        }
+      }
+    },
+    "Tokke": {
+      "feeding_reservoirs": [
+        "Vinjevatn"
+      ],
+      "terminal_raw": {
+        "train_2015_2021_purged": {
+          "mean": 34.209894,
+          "min": 0.01,
+          "p01": 0.01,
+          "median": 25.54,
+          "p99": 206.345,
+          "max": 485.74
+        },
+        "2021": {
+          "mean": 84.192,
+          "min": 0.01,
+          "median": 67.2,
+          "max": 485.74,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.416168
+        },
+        "2022": {
+          "mean": 245.755452,
+          "min": 0.01,
+          "median": 180.25,
+          "max": 1135.01,
+          "outside_train_minmax_fraction": 0.136986,
+          "ks_distance_vs_train": 0.679698
+        },
+        "2023": {
+          "mean": 79.286521,
+          "min": 0.01,
+          "median": 71.84,
+          "max": 259.97,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.4412
+        },
+        "2024": {
+          "mean": 50.6545,
+          "min": 0.01,
+          "median": 45.4,
+          "max": 241.38,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.281166
+        }
+      },
+      "terminal_div_week_scale": {
+        "train_2015_2021_purged": {
+          "mean": 0.918353,
+          "min": 6.8e-05,
+          "p01": 0.00019,
+          "median": 0.908275,
+          "p99": 2.335694,
+          "max": 3.214071
+        },
+        "2021": {
+          "mean": 1.08004,
+          "median": 1.063428,
+          "ks_distance_vs_train": 0.111434
+        },
+        "2022": {
+          "mean": 1.145479,
+          "median": 1.133541,
+          "ks_distance_vs_train": 0.155748
+        },
+        "2023": {
+          "mean": 1.039917,
+          "median": 0.952607,
+          "ks_distance_vs_train": 0.083743
+        },
+        "2024": {
+          "mean": 1.037902,
+          "median": 0.999129,
+          "ks_distance_vs_train": 0.081695
+        }
+      },
+      "price_minus_terminal_raw": {
+        "train_2015_2021_purged": {
+          "mean": 0.035919,
+          "min": -376.56,
+          "p01": -95.6599,
+          "median": 0.59,
+          "p99": 68.3233,
+          "max": 436.35
+        },
+        "2021": {
+          "mean": -8.265255,
+          "median": -3.22,
+          "ks_distance_vs_train": 0.224252
+        },
+        "2022": {
+          "mean": -34.514686,
+          "median": -22.505,
+          "ks_distance_vs_train": 0.401977
+        },
+        "2023": {
+          "mean": -0.338148,
+          "median": 1.11,
+          "ks_distance_vs_train": 0.229338
+        },
+        "2024": {
+          "mean": -0.508462,
+          "median": 0.31,
+          "ks_distance_vs_train": 0.126448
+        }
+      },
+      "price_minus_terminal_div_week_scale": {
+        "train_2015_2021_purged": {
+          "mean": 0.028787,
+          "min": -2.937,
+          "p01": -1.546075,
+          "median": 0.027226,
+          "p99": 1.199,
+          "max": 4.895249
+        },
+        "2021": {
+          "mean": -0.080055,
+          "median": -0.051391,
+          "ks_distance_vs_train": 0.086228
+        },
+        "2022": {
+          "mean": -0.145479,
+          "median": -0.133672,
+          "ks_distance_vs_train": 0.12765
+        },
+        "2023": {
+          "mean": -0.043255,
+          "median": 0.015586,
+          "ks_distance_vs_train": 0.08139
+        },
+        "2024": {
+          "mean": -0.045135,
+          "median": 0.006506,
+          "ks_distance_vs_train": 0.063296
+        }
+      }
+    },
+    "Lio": {
+      "feeding_reservoirs": [
+        "Byrtevatn"
+      ],
+      "terminal_raw": {
+        "train_2015_2021_purged": {
+          "mean": 35.501141,
+          "min": 0.01,
+          "p01": 0.01,
+          "median": 24.37,
+          "p99": 219.865,
+          "max": 377.35
+        },
+        "2021": {
+          "mean": 114.380411,
+          "min": 19.33,
+          "median": 103.54,
+          "max": 377.35,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.52823
+        },
+        "2022": {
+          "mean": 303.108027,
+          "min": 15.88,
+          "median": 250.52,
+          "max": 802.83,
+          "outside_train_minmax_fraction": 0.276712,
+          "ks_distance_vs_train": 0.864853
+        },
+        "2023": {
+          "mean": 100.530082,
+          "min": 1.2,
+          "median": 100.97,
+          "max": 207.24,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.686638
+        },
+        "2024": {
+          "mean": 49.222889,
+          "min": 0.01,
+          "median": 35.915,
+          "max": 159.16,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.215156
+        }
+      },
+      "terminal_div_week_scale": {
+        "train_2015_2021_purged": {
+          "mean": 0.850435,
+          "min": 0.000215,
+          "p01": 0.000321,
+          "median": 0.854425,
+          "p99": 2.287049,
+          "max": 2.606
+        },
+        "2021": {
+          "mean": 1.401319,
+          "median": 1.301795,
+          "ks_distance_vs_train": 0.334136
+        },
+        "2022": {
+          "mean": 1.486677,
+          "median": 1.448496,
+          "ks_distance_vs_train": 0.382714
+        },
+        "2023": {
+          "mean": 1.251543,
+          "median": 1.182417,
+          "ks_distance_vs_train": 0.334563
+        },
+        "2024": {
+          "mean": 0.938936,
+          "median": 0.840909,
+          "ks_distance_vs_train": 0.12229
+        }
+      },
+      "price_minus_terminal_raw": {
+        "train_2015_2021_purged": {
+          "mean": -1.255328,
+          "min": -261.34,
+          "p01": -115.6733,
+          "median": 2.05,
+          "p99": 41.61,
+          "max": 379.42
+        },
+        "2021": {
+          "mean": -38.453666,
+          "median": -27.575,
+          "ks_distance_vs_train": 0.38593
+        },
+        "2022": {
+          "mean": -91.867261,
+          "median": -86.33,
+          "ks_distance_vs_train": 0.54549
+        },
+        "2023": {
+          "mean": -21.581709,
+          "median": -17.94,
+          "ks_distance_vs_train": 0.360475
+        },
+        "2024": {
+          "mean": 0.923149,
+          "median": 1.115,
+          "ks_distance_vs_train": 0.201222
+        }
+      },
+      "price_minus_terminal_div_week_scale": {
+        "train_2015_2021_purged": {
+          "mean": 0.096705,
+          "min": -2.405376,
+          "p01": -1.369008,
+          "median": 0.092539,
+          "p99": 1.238498,
+          "max": 4.691424
+        },
+        "2021": {
+          "mean": -0.401334,
+          "median": -0.355603,
+          "ks_distance_vs_train": 0.298008
+        },
+        "2022": {
+          "mean": -0.486677,
+          "median": -0.464776,
+          "ks_distance_vs_train": 0.351083
+        },
+        "2023": {
+          "mean": -0.254881,
+          "median": -0.233028,
+          "ks_distance_vs_train": 0.248859
+        },
+        "2024": {
+          "mean": 0.053831,
+          "median": 0.026359,
+          "ks_distance_vs_train": 0.116522
+        }
+      }
+    },
+    "Byrte": {
+      "feeding_reservoirs": [
+        "Botnedalsvatn"
+      ],
+      "terminal_raw": {
+        "train_2015_2021_purged": {
+          "mean": 34.087315,
+          "min": 0.01,
+          "p01": 0.01,
+          "median": 27.25,
+          "p99": 179.705,
+          "max": 280.08
+        },
+        "2021": {
+          "mean": 80.042192,
+          "min": 0.01,
+          "median": 52.75,
+          "max": 280.08,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.375757
+        },
+        "2022": {
+          "mean": 300.371589,
+          "min": 0.01,
+          "median": 200.03,
+          "max": 1202.57,
+          "outside_train_minmax_fraction": 0.361644,
+          "ks_distance_vs_train": 0.759611
+        },
+        "2023": {
+          "mean": 76.789014,
+          "min": 0.01,
+          "median": 69.31,
+          "max": 198.75,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.43218
+        },
+        "2024": {
+          "mean": 36.167333,
+          "min": 0.01,
+          "median": 28.62,
+          "max": 171.39,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.143536
+        }
+      },
+      "terminal_div_week_scale": {
+        "train_2015_2021_purged": {
+          "mean": 0.890638,
+          "min": 0.000171,
+          "p01": 0.000267,
+          "median": 0.884669,
+          "p99": 2.17856,
+          "max": 2.457
+        },
+        "2021": {
+          "mean": 0.936683,
+          "median": 0.97143,
+          "ks_distance_vs_train": 0.132487
+        },
+        "2022": {
+          "mean": 1.291562,
+          "median": 1.151121,
+          "ks_distance_vs_train": 0.212761
+        },
+        "2023": {
+          "mean": 0.885908,
+          "median": 1.028837,
+          "ks_distance_vs_train": 0.100747
+        },
+        "2024": {
+          "mean": 0.647424,
+          "median": 0.516822,
+          "ks_distance_vs_train": 0.229762
+        }
+      },
+      "price_minus_terminal_raw": {
+        "train_2015_2021_purged": {
+          "mean": 0.158498,
+          "min": -169.54,
+          "p01": -65.06,
+          "median": 1.12,
+          "p99": 46.0033,
+          "max": 418.87
+        },
+        "2021": {
+          "mean": -4.115447,
+          "median": 2.325,
+          "ks_distance_vs_train": 0.161124
+        },
+        "2022": {
+          "mean": -89.130823,
+          "median": -29.91,
+          "ks_distance_vs_train": 0.435211
+        },
+        "2023": {
+          "mean": 2.159359,
+          "median": -1.44,
+          "ks_distance_vs_train": 0.230465
+        },
+        "2024": {
+          "mean": 13.978704,
+          "median": 15.265,
+          "ks_distance_vs_train": 0.326088
+        }
+      },
+      "price_minus_terminal_div_week_scale": {
+        "train_2015_2021_purged": {
+          "mean": 0.056501,
+          "min": -1.92,
+          "p01": -1.221184,
+          "median": 0.054,
+          "p99": 1.227634,
+          "max": 4.895249
+        },
+        "2021": {
+          "mean": 0.063302,
+          "median": 0.038996,
+          "ks_distance_vs_train": 0.084069
+        },
+        "2022": {
+          "mean": -0.291562,
+          "median": -0.192714,
+          "ks_distance_vs_train": 0.205266
+        },
+        "2023": {
+          "mean": 0.110754,
+          "median": -0.022019,
+          "ks_distance_vs_train": 0.079508
+        },
+        "2024": {
+          "mean": 0.345343,
+          "median": 0.315123,
+          "ks_distance_vs_train": 0.200738
+        }
+      }
+    },
+    "Vinje": {
+      "feeding_reservoirs": [
+        "Vaamarvatn"
+      ],
+      "terminal_raw": {
+        "train_2015_2021_purged": {
+          "mean": 30.754504,
+          "min": 0.01,
+          "p01": 0.01,
+          "median": 23.01,
+          "p99": 190.47,
+          "max": 232.78
+        },
+        "2021": {
+          "mean": 58.789452,
+          "min": 0.01,
+          "median": 32.6,
+          "max": 232.78,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.223783
+        },
+        "2022": {
+          "mean": 281.698521,
+          "min": 27.6,
+          "median": 187.37,
+          "max": 1132.61,
+          "outside_train_minmax_fraction": 0.350685,
+          "ks_distance_vs_train": 0.898165
+        },
+        "2023": {
+          "mean": 118.643973,
+          "min": 14.03,
+          "median": 114.57,
+          "max": 262.03,
+          "outside_train_minmax_fraction": 0.021918,
+          "ks_distance_vs_train": 0.684674
+        },
+        "2024": {
+          "mean": 55.7885,
+          "min": 0.01,
+          "median": 39.105,
+          "max": 189.44,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.265665
+        }
+      },
+      "terminal_div_week_scale": {
+        "train_2015_2021_purged": {
+          "mean": 0.849444,
+          "min": 6e-05,
+          "p01": 0.000117,
+          "median": 0.848,
+          "p99": 2.19065,
+          "max": 2.634141
+        },
+        "2021": {
+          "mean": 0.807581,
+          "median": 0.650606,
+          "ks_distance_vs_train": 0.13113
+        },
+        "2022": {
+          "mean": 1.286989,
+          "median": 1.128959,
+          "ks_distance_vs_train": 0.347767
+        },
+        "2023": {
+          "mean": 1.479397,
+          "median": 1.484327,
+          "ks_distance_vs_train": 0.393669
+        },
+        "2024": {
+          "mean": 1.076046,
+          "median": 0.976706,
+          "ks_distance_vs_train": 0.164022
+        }
+      },
+      "price_minus_terminal_raw": {
+        "train_2015_2021_purged": {
+          "mean": 3.491309,
+          "min": -234.75,
+          "p01": -87.7,
+          "median": 1.67,
+          "p99": 125.88,
+          "max": 586.73
+        },
+        "2021": {
+          "mean": 17.137293,
+          "median": 16.19,
+          "ks_distance_vs_train": 0.25307
+        },
+        "2022": {
+          "mean": -70.457754,
+          "median": -19.13,
+          "ks_distance_vs_train": 0.375041
+        },
+        "2023": {
+          "mean": -39.6956,
+          "median": -38.585,
+          "ks_distance_vs_train": 0.502127
+        },
+        "2024": {
+          "mean": -5.642462,
+          "median": -1.38,
+          "ks_distance_vs_train": 0.242884
+        }
+      },
+      "price_minus_terminal_div_week_scale": {
+        "train_2015_2021_purged": {
+          "mean": 0.097696,
+          "min": -2.656434,
+          "p01": -1.246045,
+          "median": 0.090392,
+          "p99": 1.289786,
+          "max": 4.143152
+        },
+        "2021": {
+          "mean": 0.192405,
+          "median": 0.332525,
+          "ks_distance_vs_train": 0.152443
+        },
+        "2022": {
+          "mean": -0.286989,
+          "median": -0.113932,
+          "ks_distance_vs_train": 0.246992
+        },
+        "2023": {
+          "mean": -0.482735,
+          "median": -0.524232,
+          "ks_distance_vs_train": 0.360345
+        },
+        "2024": {
+          "mean": -0.083279,
+          "median": -0.035338,
+          "ks_distance_vs_train": 0.161757
+        }
+      }
+    },
+    "Haukeli": {
+      "feeding_reservoirs": [
+        "Vatjern"
+      ],
+      "terminal_raw": {
+        "train_2015_2021_purged": {
+          "mean": 29.129588,
+          "min": 0.01,
+          "p01": 0.01,
+          "median": 18.76,
+          "p99": 219.595,
+          "max": 331.86
+        },
+        "2021": {
+          "mean": 98.831507,
+          "min": 15.2,
+          "median": 59.75,
+          "max": 331.86,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.553184
+        },
+        "2022": {
+          "mean": 372.616438,
+          "min": 35.84,
+          "median": 293.21,
+          "max": 1202.57,
+          "outside_train_minmax_fraction": 0.40274,
+          "ks_distance_vs_train": 0.924382
+        },
+        "2023": {
+          "mean": 131.121151,
+          "min": 16.87,
+          "median": 113.33,
+          "max": 302.07,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.784979
+        },
+        "2024": {
+          "mean": 47.309083,
+          "min": 0.01,
+          "median": 46.86,
+          "max": 121.05,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.403428
+        }
+      },
+      "terminal_div_week_scale": {
+        "train_2015_2021_purged": {
+          "mean": 0.691516,
+          "min": 0.000202,
+          "p01": 0.000262,
+          "median": 0.714668,
+          "p99": 2.336,
+          "max": 3.852988
+        },
+        "2021": {
+          "mean": 1.16946,
+          "median": 1.100895,
+          "ks_distance_vs_train": 0.338303
+        },
+        "2022": {
+          "mean": 1.748335,
+          "median": 1.671531,
+          "ks_distance_vs_train": 0.711313
+        },
+        "2023": {
+          "mean": 1.633814,
+          "median": 1.616284,
+          "ks_distance_vs_train": 0.637383
+        },
+        "2024": {
+          "mean": 0.951059,
+          "median": 0.985434,
+          "ks_distance_vs_train": 0.258145
+        }
+      },
+      "price_minus_terminal_raw": {
+        "train_2015_2021_purged": {
+          "mean": 5.116225,
+          "min": -254.08,
+          "p01": -108.4133,
+          "median": 6.64,
+          "p99": 47.52,
+          "max": 423.55
+        },
+        "2021": {
+          "mean": -22.904762,
+          "median": -3.63,
+          "ks_distance_vs_train": 0.334633
+        },
+        "2022": {
+          "mean": -161.375672,
+          "median": -121.38,
+          "ks_distance_vs_train": 0.815847
+        },
+        "2023": {
+          "mean": -52.172778,
+          "median": -44.91,
+          "ks_distance_vs_train": 0.67736
+        },
+        "2024": {
+          "mean": 2.836954,
+          "median": 0.22,
+          "ks_distance_vs_train": 0.251005
+        }
+      },
+      "price_minus_terminal_div_week_scale": {
+        "train_2015_2021_purged": {
+          "mean": 0.255623,
+          "min": -3.702426,
+          "p01": -1.552204,
+          "median": 0.214965,
+          "p99": 1.268374,
+          "max": 3.868627
+        },
+        "2021": {
+          "mean": -0.169474,
+          "median": -0.063557,
+          "ks_distance_vs_train": 0.26586
+        },
+        "2022": {
+          "mean": -0.748335,
+          "median": -0.664411,
+          "ks_distance_vs_train": 0.673145
+        },
+        "2023": {
+          "mean": -0.637153,
+          "median": -0.65124,
+          "ks_distance_vs_train": 0.593926
+        },
+        "2024": {
+          "mean": 0.041708,
+          "median": 0.004451,
+          "ks_distance_vs_train": 0.180362
+        }
+      }
+    },
+    "Songa": {
+      "feeding_reservoirs": [
+        "Bitdalsvatn",
+        "Songavatn"
+      ],
+      "terminal_raw": {
+        "train_2015_2021_purged": {
+          "mean": 37.412501,
+          "min": 0.01,
+          "p01": 0.01,
+          "median": 25.02,
+          "p99": 298.145,
+          "max": 509.5
+        },
+        "2021": {
+          "mean": 121.831452,
+          "min": 21.78,
+          "median": 63.78,
+          "max": 509.5,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.478735
+        },
+        "2022": {
+          "mean": 359.232192,
+          "min": 30.97,
+          "median": 291.77,
+          "max": 1202.57,
+          "outside_train_minmax_fraction": 0.19726,
+          "ks_distance_vs_train": 0.908323
+        },
+        "2023": {
+          "mean": 111.364274,
+          "min": 0.01,
+          "median": 108.46,
+          "max": 217.45,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.679655
+        },
+        "2024": {
+          "mean": 12.264389,
+          "min": 0.01,
+          "median": 0.01,
+          "max": 123.71,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.554081
+        }
+      },
+      "terminal_div_week_scale": {
+        "train_2015_2021_purged": {
+          "mean": 0.90171,
+          "min": 0.000183,
+          "p01": 0.000416,
+          "median": 0.894637,
+          "p99": 2.368254,
+          "max": 3.230577
+        },
+        "2021": {
+          "mean": 1.374444,
+          "median": 1.15514,
+          "ks_distance_vs_train": 0.278078
+        },
+        "2022": {
+          "mean": 1.725084,
+          "median": 1.701222,
+          "ks_distance_vs_train": 0.616517
+        },
+        "2023": {
+          "mean": 1.421065,
+          "median": 1.508384,
+          "ks_distance_vs_train": 0.449738
+        },
+        "2024": {
+          "mean": 0.255014,
+          "median": 0.00028,
+          "ks_distance_vs_train": 0.604608
+        }
+      },
+      "price_minus_terminal_raw": {
+        "train_2015_2021_purged": {
+          "mean": -3.166688,
+          "min": -393.49,
+          "p01": -165.7133,
+          "median": 0.9,
+          "p99": 47.96,
+          "max": 326.08
+        },
+        "2021": {
+          "mean": -45.904707,
+          "median": -7.41,
+          "ks_distance_vs_train": 0.359971
+        },
+        "2022": {
+          "mean": -147.991425,
+          "median": -121.68,
+          "ks_distance_vs_train": 0.766032
+        },
+        "2023": {
+          "mean": -32.415901,
+          "median": -34.48,
+          "ks_distance_vs_train": 0.517819
+        },
+        "2024": {
+          "mean": 37.881649,
+          "median": 42.28,
+          "ks_distance_vs_train": 0.60062
+        }
+      },
+      "price_minus_terminal_div_week_scale": {
+        "train_2015_2021_purged": {
+          "mean": 0.04543,
+          "min": -2.7104,
+          "p01": -1.423785,
+          "median": 0.04922,
+          "p99": 1.086805,
+          "max": 4.606659
+        },
+        "2021": {
+          "mean": -0.374459,
+          "median": -0.136385,
+          "ks_distance_vs_train": 0.271143
+        },
+        "2022": {
+          "mean": -0.725084,
+          "median": -0.679952,
+          "ks_distance_vs_train": 0.565795
+        },
+        "2023": {
+          "mean": -0.424404,
+          "median": -0.485114,
+          "ks_distance_vs_train": 0.407137
+        },
+        "2024": {
+          "mean": 0.737753,
+          "median": 0.909614,
+          "ks_distance_vs_train": 0.509372
+        }
+      }
+    },
+    "Kjela": {
+      "feeding_reservoirs": [
+        "Foersvatn"
+      ],
+      "terminal_raw": {
+        "train_2015_2021_purged": {
+          "mean": 36.074837,
+          "min": 0.01,
+          "p01": 0.01,
+          "median": 23.75,
+          "p99": 236.54,
+          "max": 342.74
+        },
+        "2021": {
+          "mean": 130.773041,
+          "min": 31.71,
+          "median": 101.77,
+          "max": 342.74,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.78759
+        },
+        "2022": {
+          "mean": 247.180904,
+          "min": 0.01,
+          "median": 192.7,
+          "max": 712.95,
+          "outside_train_minmax_fraction": 0.279452,
+          "ks_distance_vs_train": 0.77667
+        },
+        "2023": {
+          "mean": 76.194932,
+          "min": 0.01,
+          "median": 68.97,
+          "max": 262.03,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.509693
+        },
+        "2024": {
+          "mean": 64.326444,
+          "min": 6.31,
+          "median": 50.235,
+          "max": 189.44,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.468461
+        }
+      },
+      "terminal_div_week_scale": {
+        "train_2015_2021_purged": {
+          "mean": 0.901939,
+          "min": 0.000201,
+          "p01": 0.000229,
+          "median": 0.892848,
+          "p99": 2.451677,
+          "max": 2.931075
+        },
+        "2021": {
+          "mean": 1.758228,
+          "median": 1.811584,
+          "ks_distance_vs_train": 0.596882
+        },
+        "2022": {
+          "mean": 1.136303,
+          "median": 1.085944,
+          "ks_distance_vs_train": 0.192955
+        },
+        "2023": {
+          "mean": 1.039633,
+          "median": 0.925418,
+          "ks_distance_vs_train": 0.126807
+        },
+        "2024": {
+          "mean": 1.278085,
+          "median": 1.236931,
+          "ks_distance_vs_train": 0.25837
+        }
+      },
+      "price_minus_terminal_raw": {
+        "train_2015_2021_purged": {
+          "mean": -1.829024,
+          "min": -241.34,
+          "p01": -123.66,
+          "median": 0.91,
+          "p99": 46.14,
+          "max": 403.6
+        },
+        "2021": {
+          "mean": -54.846296,
+          "median": -51.07,
+          "ks_distance_vs_train": 0.662255
+        },
+        "2022": {
+          "mean": -35.940138,
+          "median": -14.895,
+          "ks_distance_vs_train": 0.355081
+        },
+        "2023": {
+          "mean": 2.753441,
+          "median": 7.34,
+          "ks_distance_vs_train": 0.220584
+        },
+        "2024": {
+          "mean": -14.180407,
+          "median": -11.02,
+          "ks_distance_vs_train": 0.310651
+        }
+      },
+      "price_minus_terminal_div_week_scale": {
+        "train_2015_2021_purged": {
+          "mean": 0.0452,
+          "min": -2.878389,
+          "p01": -1.537806,
+          "median": 0.042,
+          "p99": 1.161882,
+          "max": 3.77291
+        },
+        "2021": {
+          "mean": -0.758242,
+          "median": -0.828618,
+          "ks_distance_vs_train": 0.55026
+        },
+        "2022": {
+          "mean": -0.136303,
+          "median": -0.086842,
+          "ks_distance_vs_train": 0.118085
+        },
+        "2023": {
+          "mean": -0.042971,
+          "median": 0.094968,
+          "ks_distance_vs_train": 0.089582
+        },
+        "2024": {
+          "mean": -0.285318,
+          "median": -0.262695,
+          "ks_distance_vs_train": 0.24372
+        }
+      }
+    },
+    "Vesle Kjela": {
+      "feeding_reservoirs": [
+        "Kjelavatn"
+      ],
+      "terminal_raw": {
+        "train_2015_2021_purged": {
+          "mean": 33.515045,
+          "min": 0.01,
+          "p01": 0.01,
+          "median": 26.91,
+          "p99": 188.31,
+          "max": 244.12
+        },
+        "2021": {
+          "mean": 61.603315,
+          "min": 0.01,
+          "median": 18.28,
+          "max": 244.12,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.298932
+        },
+        "2022": {
+          "mean": 298.780493,
+          "min": 25.9,
+          "median": 206.72,
+          "max": 1202.57,
+          "outside_train_minmax_fraction": 0.421918,
+          "ks_distance_vs_train": 0.8238
+        },
+        "2023": {
+          "mean": 65.861397,
+          "min": 0.01,
+          "median": 64.13,
+          "max": 196.1,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.501
+        },
+        "2024": {
+          "mean": 69.685333,
+          "min": 9.84,
+          "median": 59.885,
+          "max": 197.92,
+          "outside_train_minmax_fraction": 0.0,
+          "ks_distance_vs_train": 0.38754
+        }
+      },
+      "terminal_div_week_scale": {
+        "train_2015_2021_purged": {
+          "mean": 0.919577,
+          "min": 0.000165,
+          "p01": 0.000183,
+          "median": 0.948174,
+          "p99": 2.151372,
+          "max": 2.475279
+        },
+        "2021": {
+          "mean": 0.614086,
+          "median": 0.384023,
+          "ks_distance_vs_train": 0.290308
+        },
+        "2022": {
+          "mean": 1.338928,
+          "median": 1.286458,
+          "ks_distance_vs_train": 0.264032
+        },
+        "2023": {
+          "mean": 0.881921,
+          "median": 0.845679,
+          "ks_distance_vs_train": 0.145106
+        },
+        "2024": {
+          "mean": 1.35996,
+          "median": 1.39855,
+          "ks_distance_vs_train": 0.294847
+        }
+      },
+      "price_minus_terminal_raw": {
+        "train_2015_2021_purged": {
+          "mean": 0.730768,
+          "min": -214.32,
+          "p01": -77.7233,
+          "median": -0.15,
+          "p99": 59.66,
+          "max": 462.49
+        },
+        "2021": {
+          "mean": 14.32343,
+          "median": 29.51,
+          "ks_distance_vs_train": 0.426668
+        },
+        "2022": {
+          "mean": -87.539727,
+          "median": -46.81,
+          "ks_distance_vs_train": 0.48967
+        },
+        "2023": {
+          "mean": 13.086976,
+          "median": 14.82,
+          "ks_distance_vs_train": 0.284521
+        },
+        "2024": {
+          "mean": -19.539296,
+          "median": -20.81,
+          "ks_distance_vs_train": 0.363053
+        }
+      },
+      "price_minus_terminal_div_week_scale": {
+        "train_2015_2021_purged": {
+          "mean": 0.027563,
+          "min": -2.405938,
+          "p01": -1.199,
+          "median": -0.007224,
+          "p99": 1.249047,
+          "max": 3.860931
+        },
+        "2021": {
+          "mean": 0.385899,
+          "median": 0.52788,
+          "ks_distance_vs_train": 0.29606
+        },
+        "2022": {
+          "mean": -0.338928,
+          "median": -0.278317,
+          "ks_distance_vs_train": 0.207817
+        },
+        "2023": {
+          "mean": 0.114741,
+          "median": 0.190566,
+          "ks_distance_vs_train": 0.179596
+        },
+        "2024": {
+          "mean": -0.367193,
+          "median": -0.478433,
+          "ks_distance_vs_train": 0.290321
+        }
+      }
+    }
+  },
+  "findings": [
+    "2022 is a severe financial regime shift: case-hour mean price 211.2408 vs 34.2458 EUR/MWh in purged 2015-2021 training; 74.67% of 2022 prices lie outside training p01-p99.",
+    "Weekly price z-scores have much smaller descriptive shift than raw prices: KS distances vs training are 0.0189 (2022), 0.0371 (2023), 0.0372 (2024), versus raw 0.8753, 0.6956, 0.4234. Zero centering alone leaves 2022 KS 0.3661.",
+    "Label prevalence also changes materially: Songa ON 53.92% in pooled training vs 11.71% in 2022; Haukeli 60.61% vs 14.15%; Tokke_G1 70.09% vs 45.67%. Large gaps are not solely generic model overfitting.",
+    "Normalization is not uniformly better as a standalone score: 2022 Lio raw margin AUC 0.8301 vs scaled 0.8897 and Songa 0.9676 vs 0.9822, but Haukeli 0.7304 vs 0.7171. Distribution stability alone does not prove predictive invariance.",
+    "Prediction years introduce substantially negative prices absent from previous labels: annual minimum -61.84 in 2023 and -59.96 in 2024, compared with -1.97 in 2015-2022.",
+    "Songa/Bitdalsvatn supplied water values undergo another regime change: annual median 292.53 EUR/MWh in 2022, 111.83 in 2023, 0.01 in 2024. Water-value inputs are exactly equal within five fixed reservoir groups across the full file.",
+    "Provided documentation states units and terminal date, not how synthetic water values were generated. A price-dependent generation formula cannot be established from these files."
+  ],
+  "recommended_next_experiment": "Supplement the current inputs with within-case price z-scores, scale-normalized terminal water values and margins (and normalized price differences across windows); retain original inputs and case scale. Freeze architecture/seed count, evaluate purged chronological 2020/2021/2022 holdouts, and report per-generator results. Fixed absolute start/stop costs and hydraulic constraints mean common price rescaling is not guaranteed to leave the optimized schedule invariant."
+}

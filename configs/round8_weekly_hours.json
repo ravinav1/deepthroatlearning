@@ -1,0 +1,26 @@
+{
+  "generator": "Lio_G1",
+  "started_utc": "2026-10-17T18:32:41+00:00",
+  "deadline_utc": "2026-10-17T18:52:41+00:00",
+  "source_feature_config": "configs/round5_lgb_peer_relative_seed299_2021.json",
+  "feature_summary": "Mean of existing relative features; min, max and std for features varying within training weeks. Replace hourly calendar columns with case-start month sine/cosine. Select nonconstant columns on pre-2021 training inputs only.",
+  "target": "Fraction of the 168 hours with Lio ON",
+  "fraction_epsilon": 0.000001,
+  "correction": "One constant logit offset per case, matching the predicted weekly ON fraction. Full correction only; no strength selection.",
+  "screen_year": 2021,
+  "confirmation_year": 2022,
+  "gate": "Both weekly ON-hours MAE and full ensemble micro ROC-AUC must improve. Screen 2021 first; if it passes, require improvement for native and frozen 2022, all cases and Jan7 onward. Otherwise stop.",
+  "model": {
+    "objective": "regression",
+    "n_estimators": 300,
+    "learning_rate": 0.03,
+    "num_leaves": 15,
+    "min_child_samples": 30,
+    "reg_lambda": 4.0,
+    "random_state": 299,
+    "n_jobs": 4,
+    "deterministic": true,
+    "force_col_wise": true,
+    "verbosity": -1
+  }
+}

@@ -31,4 +31,5 @@ og `data/kernel/Historical_day_ahead_price_2015_2025.csv`, som nå ligger i
 
 ZIP-en inneholder `Unit_commitment_decisions.csv`; det er ikke kontrollert
 om denne kan erstatte den manglende schedule-filen. Referansene må avklares
-før notebooken kjøres. Ingen modeller er implementert eller trent.
+før notebooken kjøres. Ved den første importen var ingen modeller implementert
+eller trent. For dagens modellstatus og oppstart, se [README](../README.md).

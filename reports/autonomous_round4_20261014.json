@@ -1,0 +1,165 @@
+{
+  "started_utc": "2026-10-14T17:16:21.339224+00:00",
+  "status": "complete: one candidate exported and independently verified; Kaggle score unknown",
+  "baseline": {
+    "public_score_user_reported": 0.99068,
+    "recipe": "configs/round3_submission_temporal_ranks.json",
+    "submission": "submissions/submission_round3_temporal_ranks.csv",
+    "native_2021_auc": 0.9889840634255942,
+    "native_2022_auc": 0.988606657825117,
+    "frozen_2022_auc": 0.9864608919020703
+  },
+  "protection": {
+    "snapshot": "/private/tmp/tdt4173-round4-protection.json",
+    "files": 414,
+    "source_before": "/private/tmp/tdt4173-round4-source-before"
+  },
+  "constraints": {
+    "training": "Sequential CPU4",
+    "inference": "CPU1; Torch and XGBoost in separate processes",
+    "test_labels": "Never accessed or used",
+    "plant_weights": "Fixed throughout this round",
+    "new_artifacts": "Round4 prefixes; original artifacts preserved",
+    "upload": "Manual by user"
+  },
+  "protocol": {
+    "neural": "Matched 39-epoch reference plus separate lower-learning-rate and higher-weight-decay controls; retain task-weighted loss, architecture, inputs and seed. Monitor the current full ensemble, replacing only the weighted Transformer component.",
+    "lgb": "Add only the two existing temporal ranks. First train 1499 trees to match the 2021 incumbent; all other features and parameters unchanged.",
+    "selection": "Choose direct replacement or fixed 50/50 old/new component mean by 2021 full-ensemble AUC before checking 2022. No fallback variant switch after later-year results.",
+    "confirmation": "Positive 2021 screen followed by a positive frozen-2022 Jan7+ gate before native-2022 refitting. Native and frozen 2022 use the same labels and are not independent replications. Both years are reused development data.",
+    "neural_counts": "Freeze the 2021 selected checkpoint epoch for native-2022 and full-data fitting; no 2022 early stopping.",
+    "lgb_2022_count": "Native 2022 and full-data rank models use 800 trees, matching existing no-rank models; 2021/frozen comparisons use 1499 to match existing pre-2021 model. Before any candidate 2022 score, require positive 2021 ensemble delta both at matched 1499 and matched 800-tree prefixes. Selection of replacement versus old/new mean is based on 2021 only.",
+    "combination": "Combine only individually accepted changes. Select any combination on 2021 before reporting reused-2022 results; no additional weight search.",
+    "neural_advancement": "Before any candidate 2022 score, compare each optimizer arm and matched reference using its 2021-selected checkpoint and the two predeclared variants. Advance at most the highest-scoring optimizer arm, only if its 2021 ensemble score exceeds both the unchanged incumbent and the best matched-reference variant. If neither optimizer qualifies but the reference improves, test that separately as checkpoint reselection. Do not switch to a runner-up after seeing 2022."
+  },
+  "experiments": [
+    {
+      "name": "round4_lgb_ranks_2021",
+      "status": "Rejected on native2022 ensemble gain",
+      "session": 35219,
+      "log": "/private/tmp/round4_lgb_ranks_2021.log",
+      "config": "configs/round4_lgb_ranks_2021.json",
+      "metrics": "reports/round4_lgb_ranks_2021_metrics.json",
+      "selection": "reports/round4_lgb_ranks_selection_2021.json",
+      "prefix_check": "reports/round4_lgb_ranks_prefix800_comparison.json",
+      "frozen_session": 98016,
+      "advancement": "reports/round4_lgb_ranks_advancement.json"
+    },
+    {
+      "name": "round4_transformer_reference_2021",
+      "status": "Matched reference complete; trajectory identical to original, selected39 instead28",
+      "session": 90707,
+      "log": "/private/tmp/round4_transformer_reference_2021.log"
+    },
+    {
+      "name": "round4_transformer_lr_2021",
+      "status": "Selected mean passed frozen and native2022; fixed39 full fit next",
+      "log": "/private/tmp/round4_transformer_lr_2021.log",
+      "selection": "reports/round4_neural_selection_2021.json",
+      "advancement": "reports/round4_neural_advancement.json"
+    },
+    {
+      "name": "round4_transformer_decay_2021",
+      "status": "Not advanced: lower2021score than selected learning-rate arm",
+      "log": "/private/tmp/round4_transformer_decay_2021.log"
+    },
+    {
+      "name": "round4_lgb_ranks_2022",
+      "status": "Complete; locked replacement delta negative",
+      "log": "/private/tmp/round4_lgb_ranks_2022.log",
+      "session": 19778
+    },
+    {
+      "name": "round4_transformer_lr_2022",
+      "status": "Native2022 fixed39 complete; selected mean passes",
+      "session": 49057,
+      "log": "/private/tmp/round4_transformer_lr_2022.log"
+    },
+    {
+      "name": "round4_transformer_reference_2022",
+      "status": "Complete; selected LR mean exceeds reference mean on native2022 as well",
+      "log": "/private/tmp/round4_transformer_reference_2022.log",
+      "session": 90601
+    },
+    {
+      "name": "round4_transformer_lr_full",
+      "status": "Complete: 39 epochs; 2922 supplied labelled cases; no competition training IDs",
+      "session": 57910,
+      "config": "configs/round4_transformer_lr_full.json",
+      "log": "/private/tmp/round4_transformer_lr_full.log",
+      "metrics": "reports/round4_transformer_lr_full_run.json"
+    }
+  ],
+  "reviews": [
+    "reports/round4_monitor_checks.json",
+    "reports/round4_protocol_review.json",
+    "reports/round4_comparator_native_identity.json",
+    "reports/round4_comparator_frozen_identity.json",
+    "reports/round4_frozen_lightgbm_identity_2022_metrics.json",
+    "reports/round4_frozen_transformer_identity_2022_metrics.json",
+    "reports/round4_lgb_ranks_native_2021_diagnostics.json",
+    "reports/round4_lgb_ranks_frozen_2022_diagnostics.json",
+    "reports/round4_reference_trajectory_check.json",
+    "reports/round4_lgb_ranks_native_2022_diagnostics.json",
+    "reports/round4_neural_lr_native_diagnostics.json",
+    "reports/round4_neural_lr_frozen_diagnostics.json",
+    "reports/round4_transformer_reference_native_comparison_2022.json",
+    "reports/round4_final_verification.json"
+  ],
+  "combined_selection": "reports/round4_combined_selection_2021.json",
+  "combined_frozen_gate": {
+    "passed": true,
+    "auc_jan7": 0.9865576408917176,
+    "gain_vs_lgb_only": 2.8481297039695264e-05,
+    "gain_vs_lr_mean_only": 0.00010302320400157328,
+    "report": "reports/round4_combined_frozen_comparison_2022.json"
+  },
+  "native_neural_queue": [
+    "configs/round4_transformer_lr_2022.json",
+    "configs/round4_transformer_reference_2022.json (if needed to attribute an accepted gain)"
+  ],
+  "combined_status": "Rejected: individual LightGBM native2022 gate failed. No native combined evaluation/full fitting.",
+  "lgb_final_decision": "reports/round4_lgb_ranks_final_decision.json",
+  "neural_native_gate": {
+    "passed": true,
+    "variant": "candidate_mean",
+    "jan7_gain": 0.00011262785928012331,
+    "report": "reports/round4_transformer_lr_native_comparison_2022.json"
+  },
+  "neural_final_decision": "reports/round4_neural_final_decision.json",
+  "completed_utc": "2026-10-14T18:27:42.608059+00:00",
+  "delivery": {
+    "submission": "submissions/submission_round4_transformer_lr_mean.csv",
+    "submission_sha256": "0f3e3286f27ee6f4e15670b7c7b31a2b35995fdad9d26381663659c409828396",
+    "recipe": "configs/round4_submission_transformer_lr_mean.json",
+    "report": "reports/round4_report_20261014.md",
+    "verification": "reports/round4_final_verification.json",
+    "candidate_only": true,
+    "kaggle_upload": false,
+    "kaggle_score": null
+  },
+  "verification_note": "Verifier originally assumed the old processed prediction cache was covered by the original-file snapshot. It is outside that snapshot; corrected to check its incumbent export provenance. All probability/model replay assertions had passed, and the corrected full verification passed. No predictions changed.",
+  "existing_source_changes": [
+    "src/train_baseline.py",
+    "src/train_cnn.py"
+  ],
+  "round4_source_sha256": {
+    "src/train_baseline.py": "7c81b198e1679044e454ea008dcd933ca06b01b6c1c36a2e9c925d261df7f9f7",
+    "src/train_cnn.py": "1ad6a191c990e391a7e8fb8907a15a77a2c2454f618e90be2b3c2abdebcced59",
+    "src/component_monitor.py": "bc5582f470cf7cedbc58c6d49d011d2b8e7d228f09021b17d94d83f6e3cd6b40",
+    "src/round4_compare.py": "63415ca4ae1615d397baeaeff8c6bf76b97b3e386b18573154356500f40103d4",
+    "src/round4_diagnostics.py": "87ec2776468d313f2f9981aa1b18b5f472cc9eb28280768e0299cfb5d8098a6e",
+    "src/round4_frozen_checks.py": "b0d17cc25d212561b02489b64a332e789f7c801e3c61608a7ef17d32053c0b06",
+    "src/round4_frozen_lightgbm.py": "830dd0595421c98eef00706f1590144e1a2ef76829ac0729f9c9363c0d0d8624",
+    "src/round4_frozen_transformer.py": "91c499b9e550c046fedd5dd93f787d760c2fc73810ca41acf6cf31e5b0243963",
+    "src/round4_lightgbm_prefix_check.py": "c52704fcda58f439907b2ef9a854b01dd864cef3e64fceddda0778d20a096a26",
+    "src/round4_monitor_checks.py": "b4f082822c53e2153f30d291b3d6875461bd3e9fb92b2a3fb2f317a7dfbd7c4d",
+    "src/round4_verify_submission.py": "bd470f820f77adc5a084131b130e6e575e0f46a218dda5ac2c86bf51803cc2c9"
+  },
+  "checks": {
+    "syntax": "Changed and new round4 Python files parsed successfully",
+    "protected_originals_unchanged": 414,
+    "final_probabilities_reconstructed": 1705200,
+    "test_training_id_overlap": 0
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "2021": {
+    "outputs": 858480,
+    "on_fraction": 0.4553524834591371,
+    "auc": 0.9652253805321781,
+    "error_at_0_5": 0.09878273227099059,
+    "brier": 0.07344138192837947,
+    "log_loss": 0.2500543804406676,
+    "cases": 365,
+    "switches": 15200,
+    "near_switch_output_fraction": 0.08049925449631908,
+    "near_switch_share_of_errors_at_0_5": 0.22643066872634224
+  },
+  "2022": {
+    "outputs": 858480,
+    "on_fraction": 0.34051928990774394,
+    "auc": 0.97153527292302,
+    "error_at_0_5": 0.08814183207529587,
+    "brier": 0.06408922612518696,
+    "log_loss": 0.2148103129996223,
+    "cases": 365,
+    "switches": 23360,
+    "near_switch_output_fraction": 0.11867603205665828,
+    "near_switch_share_of_errors_at_0_5": 0.3281043505841307
+  }
+}

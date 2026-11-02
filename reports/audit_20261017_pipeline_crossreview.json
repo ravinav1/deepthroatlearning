@@ -1,0 +1,222 @@
+{
+  "created_utc": "2026-10-17T19:56:33.549321+00:00",
+  "scope": "Read-only cross-review of constraint representations and count-selection metric, no fitting or candidate export.",
+  "constraint_audit": {
+    "cases": [
+      {
+        "Run No": 2871,
+        "starttime": "2022-11-10 00:00:00+00:00"
+      },
+      {
+        "Run No": 2872,
+        "starttime": "2022-11-11 00:00:00+00:00"
+      }
+    ],
+    "current_baseline": "Round5 uses current min flow/min volume and weekly maximum only, plus starting-volume-minus-current-minimum for min volume. It has no explicit duration-to-change or cumulative/remaining constraint schedule features. Neural components see the whole hourly constraint sequence.",
+    "prior_water_context": "operating_features.py16-34 adds cumulative/remaining/upcoming natural inflow only; it does not aggregate minimum-release requirements.",
+    "prior_river_context": "features.py111-118 adds natural river inflow and same-hour positive shortfall; it does not aggregate future minimum river flow.",
+    "prior_budget": "water_budget_features.py18-38 includes cumulative and remaining natural inflow minus direct reservoir-outlet minimum releases for every reservoir. This is substantial prior overlap with direct-release burden, though not an explicit separately exposed burden or duration feature.",
+    "direct_outlet_maps": {
+      "Kjelavatn": [
+        "b_Kjelavatn"
+      ],
+      "Vinjevatn": [
+        "b_Vinjevatn"
+      ],
+      "Bandak": [
+        "b_Bandak"
+      ],
+      "Byrtevatn": [
+        "b_Byrtevatn"
+      ],
+      "Hyljelihyl": [
+        "b_Hyljelihyl"
+      ]
+    },
+    "algebraic_recovery_checks": [
+      {
+        "generator": "Tokke_G1",
+        "reservoir": "Vinjevatn",
+        "outlet": "b_Vinjevatn",
+        "formula": "remaining_required_release = week_natural - cumulative_natural + current_hour_natural - remaining_net_natural",
+        "max_float32_feature_error_million_m3": 2.774047852316386e-06,
+        "first_hour_remaining_release_each_case": [
+          1.1232000000000002,
+          1.036799999999999
+        ]
+      },
+      {
+        "generator": "Lio_G1",
+        "reservoir": "Byrtevatn",
+        "outlet": "b_Byrtevatn",
+        "formula": "remaining_required_release = week_natural - cumulative_natural + current_hour_natural - remaining_net_natural",
+        "max_float32_feature_error_million_m3": 4.76837158203125e-07,
+        "first_hour_remaining_release_each_case": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "generator": "Hogga_G1",
+        "reservoir": "Bandak",
+        "outlet": "b_Bandak",
+        "formula": "remaining_required_release = week_natural - cumulative_natural + current_hour_natural - remaining_net_natural",
+        "max_float32_feature_error_million_m3": 1.1650085420811251e-06,
+        "first_hour_remaining_release_each_case": [
+          2.4192000000000027,
+          2.4192000000000027
+        ]
+      },
+      {
+        "generator": "Vesle Kjela_G1",
+        "reservoir": "Kjelavatn",
+        "outlet": "b_Kjelavatn",
+        "formula": "remaining_required_release = week_natural - cumulative_natural + current_hour_natural - remaining_net_natural",
+        "max_float32_feature_error_million_m3": 5.181884767946343e-07,
+        "first_hour_remaining_release_each_case": [
+          0.18143999999999968,
+          0.18143999999999968
+        ]
+      }
+    ],
+    "references": [
+      "src/features.py:90-101",
+      "src/features.py:111-118",
+      "src/features.py:134-147",
+      "src/operating_features.py:16-34",
+      "src/water_budget_features.py:18-45",
+      "configs/xgboost_budget_2021.json",
+      "configs/xgboost_budget_2022.json",
+      "reports/hydrology_feature_comparison.json",
+      "configs/Tokke_Vinje_topology.yaml:2483-2535"
+    ],
+    "river_remaining_requirement_at_hour0_million_m3": [
+      7.6896,
+      6.912
+    ],
+    "river_current_and_weekmax": [
+      {
+        "current": 14.0,
+        "week_max": 14.0,
+        "hours_until_first_change": 144
+      },
+      {
+        "current": 14.0,
+        "week_max": 14.0,
+        "hours_until_first_change": 120
+      }
+    ],
+    "prior_budget_results": [
+      {
+        "year": 2021,
+        "old_unscaled_pooled_xgb_price_auc": 0.9657186899179886,
+        "old_budget_auc": 0.9648452450854514,
+        "delta": -0.0008734448325371513
+      },
+      {
+        "year": 2022,
+        "old_unscaled_pooled_xgb_price_auc": 0.971632643219859,
+        "old_budget_auc": 0.9707395916956458,
+        "delta": -0.0008930515242131509
+      }
+    ]
+  },
+  "count_selection_audit": {
+    "selection_code": "src/round5_lightgbm.py149,153-155 uses one-generator AUC; source2019/2020 best counts are median rounded and clipped before2021.",
+    "metric_pair_shares_2021": {
+      "within_generator": 0.06633401479542443,
+      "cross_generator": 0.9336659852045756
+    },
+    "existing_fixed_count_comparisons": [
+      {
+        "variant": "reference",
+        "standalone_pooled_auc": 0.9882613251375608,
+        "macro_generator_auc": 0.9853326256493311,
+        "within_generator_pair_weighted_auc": 0.9852110123440544,
+        "cross_generator_auc": 0.988478040212525,
+        "generators_improving_vs_reference": 0,
+        "generator_auc_delta_vs_reference": {
+          "Hogga_G1": 0.0,
+          "Tokke_G1": 0.0,
+          "Tokke_G2": 0.0,
+          "Tokke_G3": 0.0,
+          "Tokke_G4": 0.0,
+          "Lio_G1": 0.0,
+          "Byrte_G1": 0.0,
+          "Vinje_G1": 0.0,
+          "Vinje_G2": 0.0,
+          "Vinje_G3": 0.0,
+          "Haukeli_G1": 0.0,
+          "Songa_G1": 0.0,
+          "Kjela_G1": 0.0,
+          "Vesle Kjela_G1": 0.0
+        },
+        "matched_single_seed_ensemble_auc": 0.9902748710982663,
+        "matched_single_seed_ensemble_delta": 0.0,
+        "actual_two_seed_ensemble_change_seed299_only_delta": 0.0
+      },
+      {
+        "variant": "halfrounds",
+        "standalone_pooled_auc": 0.986948589549864,
+        "macro_generator_auc": 0.9836857727405881,
+        "within_generator_pair_weighted_auc": 0.9836210409643611,
+        "cross_generator_auc": 0.9871850013508732,
+        "generators_improving_vs_reference": 1,
+        "generator_auc_delta_vs_reference": {
+          "Hogga_G1": -0.0017230796858082043,
+          "Tokke_G1": -0.0003079945129713657,
+          "Tokke_G2": -0.0010507252029262615,
+          "Tokke_G3": -0.0008213019665588295,
+          "Tokke_G4": -0.0018324384362332635,
+          "Lio_G1": -0.0006351196252819546,
+          "Byrte_G1": -0.0001434124762703659,
+          "Vinje_G1": -0.0003290323683273755,
+          "Vinje_G2": -4.4577892535424546e-05,
+          "Vinje_G3": -0.0010583309024445597,
+          "Haukeli_G1": -0.008490759589258712,
+          "Songa_G1": -0.0036181993753503505,
+          "Kjela_G1": -0.003073953753005565,
+          "Vesle Kjela_G1": 7.298506456798748e-05
+        },
+        "matched_single_seed_ensemble_auc": 0.9900269817222141,
+        "matched_single_seed_ensemble_delta": -0.000247889376052135,
+        "actual_two_seed_ensemble_change_seed299_only_delta": -9.060130977822656e-05
+      },
+      {
+        "variant": "doublerounds",
+        "standalone_pooled_auc": 0.9884695912228728,
+        "macro_generator_auc": 0.9856319648887072,
+        "within_generator_pair_weighted_auc": 0.9855027527622859,
+        "cross_generator_auc": 0.9886803757105364,
+        "generators_improving_vs_reference": 10,
+        "generator_auc_delta_vs_reference": {
+          "Hogga_G1": 0.0007637356044672972,
+          "Tokke_G1": 2.8041428162040027e-05,
+          "Tokke_G2": 0.00028251545400936884,
+          "Tokke_G3": 0.0001907841106935093,
+          "Tokke_G4": 0.0005613887600494083,
+          "Lio_G1": -9.164525326832429e-05,
+          "Byrte_G1": 0.00010041028984453249,
+          "Vinje_G1": -9.643258468494675e-05,
+          "Vinje_G2": -8.992873507585042e-05,
+          "Vinje_G3": 0.0003614115536176854,
+          "Haukeli_G1": 0.0003160980082420606,
+          "Songa_G1": 0.0014364237791275603,
+          "Kjela_G1": 0.0005544746588173055,
+          "Vesle Kjela_G1": -0.0001265277227365802
+        },
+        "matched_single_seed_ensemble_auc": 0.9902688605509943,
+        "matched_single_seed_ensemble_delta": -6.010547272006228e-06,
+        "actual_two_seed_ensemble_change_seed299_only_delta": 1.3850752633826069e-05
+      }
+    ],
+    "interpretation": "Double rounds improves ten of fourteen standalone generator AUCs and the standalone pooled AUC, but the matched single-seed final ensemble loses0.0000060105. With the original seed673 retained, the same change instead gains0.0000138508. These existing results establish context-sensitive ranking of checkpoints/components, not a measured benefit from jointly selecting per-generator counts.",
+    "what_cannot_be_estimated": "The2019/2020 artifacts store only each generator selected best model/prediction, not all checkpoint prediction trajectories; these caches cannot reproduce an unbiased counterfactual joint-count selection rule. Round6 offers coarse fixed multiplier experiments on reused2021, which are already tried.",
+    "minimal_future_test": "If justified later, predeclare a small training/checkpoint protocol optimizing complete-ensemble micro AUC inside historical inner folds, with an independently frozen outer assessment. Do not choose generator counts on outer labels."
+  },
+  "limitations": [
+    "Historical scores are reused development results. No new combination, learned selector, tree schedule, or submission is produced in this cross-review.",
+    "Feature information being recoverable algebraically does not imply finite trees learn the subtraction efficiently.",
+    "The narrower remaining r_Vest_Vassdraget burden is different from direct reservoir-outlet budget features and remains an untested feature in the current model."
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "config": {
+    "sources": {
+      "xgb_rescaled": "data/processed/goal_submission_xgb_rescaled_predictions.csv",
+      "lightgbm_rescaled": "data/processed/goal_submission_lightgbm_rescaled_predictions.csv",
+      "transformer": "data/processed/submission_transformer_rescaled_predictions.csv",
+      "xgb_depth8": "data/processed/round3_xgb_ranks_full_predictions.csv",
+      "haukeli_specialist": "data/processed/round2_xgb_haukeli_full_predictions.csv",
+      "transformer_weighted": "data/processed/round2_submission_transformer_task_weights_predictions.csv"
+    },
+    "plant_weights": {
+      "Hogga": {
+        "lightgbm_rescaled": 0.35,
+        "transformer": 0.15,
+        "xgb_depth8": 0.35,
+        "transformer_weighted": 0.15
+      },
+      "Tokke": {
+        "lightgbm_rescaled": 0.04999999999999999,
+        "transformer": 0.45,
+        "xgb_depth8": 0.04999999999999999,
+        "transformer_weighted": 0.45
+      },
+      "Lio": {
+        "lightgbm_rescaled": 0.35,
+        "transformer": 0.15,
+        "xgb_depth8": 0.35,
+        "transformer_weighted": 0.15
+      },
+      "Byrte": {
+        "lightgbm_rescaled": 0.5,
+        "xgb_depth8": 0.5
+      },
+      "Vinje": {
+        "lightgbm_rescaled": 0.25,
+        "transformer": 0.25,
+        "xgb_depth8": 0.25,
+        "transformer_weighted": 0.25
+      },
+      "Songa": {
+        "lightgbm_rescaled": 0.5,
+        "xgb_depth8": 0.5
+      },
+      "Kjela": {
+        "lightgbm_rescaled": 0.4,
+        "transformer": 0.1,
+        "xgb_depth8": 0.4,
+        "transformer_weighted": 0.1
+      },
+      "Vesle Kjela": {
+        "lightgbm_rescaled": 0.5,
+        "xgb_depth8": 0.5
+      },
+      "Haukeli": {
+        "xgb_rescaled": 0.25,
+        "lightgbm_rescaled": 0.5,
+        "haukeli_specialist": 0.25
+      }
+    },
+    "historical_report": "reports/round3_xgb_ranks_both_comparison.json",
+    "historical_variant": "candidate_replace",
+    "note": "Preselected2021replacement: add two temporal rank inputs to depth8 XGBoost, keep all plant weights and other models unchanged. Positive2022 native and frozen checks; reused development data and weak two-year gain. Candidate, not a new measured Kaggle best.",
+    "selection_report": "reports/round3_xgb_ranks_selection_2021.json",
+    "frozen_confirmation": "reports/round3_frozen_xgb_ranks_2022_comparison.json"
+  },
+  "config_sha256": "a567449724194812fa0252c1b32f7a02fd38da3ddbbc116ead57d5c3e8d82261",
+  "historical_source": "reports/round3_xgb_ranks_both_comparison.json",
+  "historical_sha256": "02501ad2bef3ffb93971eb1f35ef00fbd23a9d2075c95525723971893c169861",
+  "historical_results": [
+    {
+      "year": 2021,
+      "baseline_micro_roc_auc": 0.9889184502673686,
+      "selected_micro_roc_auc": 0.9889840634255942,
+      "delta_vs_baseline": 6.56131582256192e-05
+    },
+    {
+      "year": 2022,
+      "baseline_micro_roc_auc": 0.9883755349637956,
+      "selected_micro_roc_auc": 0.988606657825117,
+      "delta_vs_baseline": 0.00023112286132143112
+    }
+  ],
+  "test_cases": 725,
+  "outputs_per_case": 2352,
+  "template_sha256": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba",
+  "sources": {
+    "xgb_rescaled": {
+      "path": "data/processed/goal_submission_xgb_rescaled_predictions.csv",
+      "sha256": "98c2ceaee61d12ff8941f8544093349d8e625a746e8ea7afbe457ae862a84f28",
+      "outputs_per_case": 2352
+    },
+    "lightgbm_rescaled": {
+      "path": "data/processed/goal_submission_lightgbm_rescaled_predictions.csv",
+      "sha256": "2e2cd9ed384ae49a5aab78ae78e9705737bcf33dc06a54df0491a6ef2e437566",
+      "outputs_per_case": 2352
+    },
+    "transformer": {
+      "path": "data/processed/submission_transformer_rescaled_predictions.csv",
+      "sha256": "a2a37788c932d5cc7c078ede9fbd3c8aec0c403234514c552eaeff637642b296",
+      "outputs_per_case": 2352
+    },
+    "xgb_depth8": {
+      "path": "data/processed/round3_xgb_ranks_full_predictions.csv",
+      "sha256": "06086ff32b2ba46530c334cf9177a934f895cc6aed79dc6b629868f648ce1a33",
+      "outputs_per_case": 2352
+    },
+    "haukeli_specialist": {
+      "path": "data/processed/round2_xgb_haukeli_full_predictions.csv",
+      "sha256": "eb9d6d8243369519937b2e84d8acfaeb584142da57be9f19836b0586b79e4500",
+      "outputs_per_case": 168
+    },
+    "transformer_weighted": {
+      "path": "data/processed/round2_submission_transformer_task_weights_predictions.csv",
+      "sha256": "8195c185afd201de0bc0104a7834e86d18619e4a2307d97cbd1f67c6a2a6bac2",
+      "outputs_per_case": 2352
+    }
+  },
+  "submission": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/submissions/submission_round3_temporal_ranks.csv",
+  "submission_sha256": "6a19fc33a14e492a25914d678785162a010ec78d42e3e4db3ac06b7379aac4d9",
+  "checks": {
+    "unique_case_ids": true,
+    "template_case_order": true,
+    "template_column_order": true,
+    "all_plant_weights_sum_to_one": true,
+    "finite_probabilities_in_unit_interval": true,
+    "improves_both_historical_years": true
+  },
+  "note": "Saved predictions only; no fitting, hard thresholds or weight optimization. Historical results use reused development years, not an untouched holdout. Kaggle score remains unknown."
+}

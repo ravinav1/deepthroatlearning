@@ -1,0 +1,439 @@
+{
+  "created_utc": "2026-10-18T12:34:04.312757+00:00",
+  "elapsed_seconds": 29.947627958026715,
+  "amendment": {
+    "created_utc": "2026-10-18T12:10:24.770691+00:00",
+    "status": "Additional matched control specified after original run began, before any2022 correction scores were observed by this agent.",
+    "original_protocol_sha256": "6ee15e8c2c20b5f9296af00eaecf5cbd9012615f1b7df5bcdc0f5b260e013ed9",
+    "reason": "Independent code reviewer noted temporal features include8 boundary-missing indicators absent from ordinary same-hour control. These encode horizon position, so original temporal-vs-same-hour contrast cannot isolate neighbouring predictions.",
+    "additional_control": "One boundary-matched same-hour residual: original logit,14generator indicators,same8 missing-neighbour indicators;23 activecoefficients. No neighbour-logit differences.",
+    "settings": "Exactly original cohort,offset,scaling,ridge0.01,postfitshrinkage0.10,optimizer and bootstrap. No search or original artifact overwrite.",
+    "ordering": "Preserve original two fits/protocol/evaluations. Wait for original process to finish before fitting additional control to maintain one CPU.",
+    "comparisons": "Final assessment compares unchanged temporal model with identity,ordinary same-hour and boundary-matched same-hour. Primary mechanism comparison is temporal minus boundary-matched same-hour; all original contrasts retained.",
+    "promotion": "Temporal must improve pooledmicroAUC againstallthreecontrols inbothnative/frozen2022Jan7+scenarios. Report7/14/28day200drawpairedblocks,quarters and generator diagnostics for matched comparison; do not tune basedonresults.",
+    "limitations": "This amendment repairs an independently identified control-design issue. It does not make the cached2021/2022 data independent, and it does not test a nonlinear input-conditioned stacker."
+  },
+  "evaluations": [
+    {
+      "mode": "native",
+      "year": 2022,
+      "subset": "jan7_onward",
+      "cases": 359,
+      "matched_control_micro_auc": 0.9894181032001438,
+      "temporal_micro_auc": 0.9894334807562974,
+      "temporal_minus_matched_control": 1.5377556153661764e-05,
+      "same_hour_micro_auc": 0.989417951159253,
+      "identity_micro_auc": 0.9894111659365935,
+      "generators": [
+        {
+          "generator": "Hogga_G1",
+          "matched_control_auc": 0.9817237791781447,
+          "temporal_auc": 0.9817534293017998,
+          "temporal_minus_matched_control": 2.9650123655078353e-05
+        },
+        {
+          "generator": "Tokke_G1",
+          "matched_control_auc": 0.9962943232855112,
+          "temporal_auc": 0.9962998034397017,
+          "temporal_minus_matched_control": 5.480154190551367e-06
+        },
+        {
+          "generator": "Tokke_G2",
+          "matched_control_auc": 0.9947205684364241,
+          "temporal_auc": 0.9947302324742884,
+          "temporal_minus_matched_control": 9.6640378642876e-06
+        },
+        {
+          "generator": "Tokke_G3",
+          "matched_control_auc": 0.9965719871149075,
+          "temporal_auc": 0.9965790839317115,
+          "temporal_minus_matched_control": 7.096816803997541e-06
+        },
+        {
+          "generator": "Tokke_G4",
+          "matched_control_auc": 0.9951311023167045,
+          "temporal_auc": 0.995138738147907,
+          "temporal_minus_matched_control": 7.635831202446042e-06
+        },
+        {
+          "generator": "Lio_G1",
+          "matched_control_auc": 0.9637204612995702,
+          "temporal_auc": 0.9637496182835813,
+          "temporal_minus_matched_control": 2.9156984011069476e-05
+        },
+        {
+          "generator": "Byrte_G1",
+          "matched_control_auc": 0.9963425881674709,
+          "temporal_auc": 0.9963502093393071,
+          "temporal_minus_matched_control": 7.621171836169616e-06
+        },
+        {
+          "generator": "Vinje_G1",
+          "matched_control_auc": 0.9885144493442694,
+          "temporal_auc": 0.9885476437592151,
+          "temporal_minus_matched_control": 3.319441494575859e-05
+        },
+        {
+          "generator": "Vinje_G2",
+          "matched_control_auc": 0.9863971800917601,
+          "temporal_auc": 0.9864327604434144,
+          "temporal_minus_matched_control": 3.5580351654296294e-05
+        },
+        {
+          "generator": "Vinje_G3",
+          "matched_control_auc": 0.9759064831815044,
+          "temporal_auc": 0.9759466209814598,
+          "temporal_minus_matched_control": 4.0137799955375364e-05
+        },
+        {
+          "generator": "Haukeli_G1",
+          "matched_control_auc": 0.9599056792965559,
+          "temporal_auc": 0.9599167413718696,
+          "temporal_minus_matched_control": 1.1062075313650332e-05
+        },
+        {
+          "generator": "Songa_G1",
+          "matched_control_auc": 0.9980666099584957,
+          "temporal_auc": 0.9980711531637736,
+          "temporal_minus_matched_control": 4.543205277873774e-06
+        },
+        {
+          "generator": "Kjela_G1",
+          "matched_control_auc": 0.9841842319459022,
+          "temporal_auc": 0.9841854777671314,
+          "temporal_minus_matched_control": 1.2458212291788229e-06
+        },
+        {
+          "generator": "Vesle Kjela_G1",
+          "matched_control_auc": 0.9933699085427934,
+          "temporal_auc": 0.9933759503854732,
+          "temporal_minus_matched_control": 6.041842679826992e-06
+        }
+      ],
+      "quarters": [
+        {
+          "quarter": 1,
+          "cases": 84,
+          "matched_control_auc": 0.9940493772578368,
+          "temporal_auc": 0.994059850667341,
+          "temporal_minus_matched_control": 1.0473409504219156e-05
+        },
+        {
+          "quarter": 2,
+          "cases": 91,
+          "matched_control_auc": 0.9794582098362145,
+          "temporal_auc": 0.9794810498465913,
+          "temporal_minus_matched_control": 2.2840010376889985e-05
+        },
+        {
+          "quarter": 3,
+          "cases": 92,
+          "matched_control_auc": 0.9925822482896839,
+          "temporal_auc": 0.992596928488452,
+          "temporal_minus_matched_control": 1.4680198768157737e-05
+        },
+        {
+          "quarter": 4,
+          "cases": 92,
+          "matched_control_auc": 0.9883901914988471,
+          "temporal_auc": 0.98841123060358,
+          "temporal_minus_matched_control": 2.1039104732945013e-05
+        }
+      ],
+      "paired_block_bootstrap": [
+        {
+          "block_days": 7,
+          "repetitions": 200,
+          "reference_auc": 0.9894181032001439,
+          "candidate_auc": 0.9894334807562976,
+          "observed_delta": 1.5377556153661764e-05,
+          "bootstrap_delta_mean": 1.534003374717874e-05,
+          "bootstrap_delta_std": 2.0362393799074085e-06,
+          "percentile_interval_95": [
+            1.133476250738119e-05,
+            1.926710615444138e-05
+          ],
+          "fraction_positive_draws": 1.0
+        },
+        {
+          "block_days": 14,
+          "repetitions": 200,
+          "reference_auc": 0.9894181032001439,
+          "candidate_auc": 0.9894334807562976,
+          "observed_delta": 1.5377556153661764e-05,
+          "bootstrap_delta_mean": 1.5596140592159525e-05,
+          "bootstrap_delta_std": 2.29209665673425e-06,
+          "percentile_interval_95": [
+            1.15307468299658e-05,
+            1.9758773075559402e-05
+          ],
+          "fraction_positive_draws": 1.0
+        },
+        {
+          "block_days": 28,
+          "repetitions": 200,
+          "reference_auc": 0.9894181032001439,
+          "candidate_auc": 0.9894334807562976,
+          "observed_delta": 1.5377556153661764e-05,
+          "bootstrap_delta_mean": 1.555598239000422e-05,
+          "bootstrap_delta_std": 2.558005025714317e-06,
+          "percentile_interval_95": [
+            1.0511163209728225e-05,
+            2.0943433762635188e-05
+          ],
+          "fraction_positive_draws": 1.0
+        }
+      ],
+      "near_transition_2h_matched_control": {
+        "outputs": 99879,
+        "output_fraction": 0.1182884713774089,
+        "on_fraction": 0.47966038907077563,
+        "mean_probability": 0.501119877904517,
+        "micro_roc_auc": 0.8782142701348878,
+        "incident_wrong_pair_share": 0.6776169236983517,
+        "incident_available_pair_share": 0.2447015484515335,
+        "error_enrichment_vs_pair_availability": 2.7691566644604335,
+        "incident_pair_error_rate": 0.02930293004595416
+      },
+      "outside_transition_2h_matched_control": {
+        "outputs": 744489,
+        "output_fraction": 0.8817115286225911,
+        "on_fraction": 0.3208173660054077,
+        "mean_probability": 0.3259002005359405,
+        "micro_roc_auc": 0.9954833424635648,
+        "incident_wrong_pair_share": 0.8207910985333059,
+        "incident_available_pair_share": 0.9844286345942457,
+        "error_enrichment_vs_pair_availability": 0.8337740997056768,
+        "incident_pair_error_rate": 0.008822911477478433
+      },
+      "correction_sizes": {
+        "maximum_absolute_logit_correction": 0.07087226702968923,
+        "mean_absolute_logit_correction": 0.02335148447427593,
+        "mean_absolute_probability_change": 0.0003398297361322835
+      },
+      "prediction_path": "data/processed/round10_temporal_native_2022_matched_control_predictions.npz",
+      "prediction_sha256": "37f9ea6674265b5c5a84c62153c2383c62463e9f278e74c8c6503df47c603500",
+      "official_metric_verified": true
+    },
+    {
+      "mode": "frozen",
+      "year": 2022,
+      "subset": "jan7_onward",
+      "cases": 359,
+      "matched_control_micro_auc": 0.9870543504891435,
+      "temporal_micro_auc": 0.9870743008794352,
+      "temporal_minus_matched_control": 1.9950390291678666e-05,
+      "same_hour_micro_auc": 0.9870543267364675,
+      "identity_micro_auc": 0.9870453044407653,
+      "generators": [
+        {
+          "generator": "Hogga_G1",
+          "matched_control_auc": 0.9792236483653545,
+          "temporal_auc": 0.9792582587890433,
+          "temporal_minus_matched_control": 3.461042368879674e-05
+        },
+        {
+          "generator": "Tokke_G1",
+          "matched_control_auc": 0.9956521148741869,
+          "temporal_auc": 0.9956596945895761,
+          "temporal_minus_matched_control": 7.579715389227637e-06
+        },
+        {
+          "generator": "Tokke_G2",
+          "matched_control_auc": 0.9935916903414165,
+          "temporal_auc": 0.9936026652664262,
+          "temporal_minus_matched_control": 1.0974925009676895e-05
+        },
+        {
+          "generator": "Tokke_G3",
+          "matched_control_auc": 0.995757028777666,
+          "temporal_auc": 0.9957674976066879,
+          "temporal_minus_matched_control": 1.046882902189239e-05
+        },
+        {
+          "generator": "Tokke_G4",
+          "matched_control_auc": 0.9944326230290406,
+          "temporal_auc": 0.9944427998139554,
+          "temporal_minus_matched_control": 1.0176784914883719e-05
+        },
+        {
+          "generator": "Lio_G1",
+          "matched_control_auc": 0.9494801867469822,
+          "temporal_auc": 0.9495206773023253,
+          "temporal_minus_matched_control": 4.049055534305346e-05
+        },
+        {
+          "generator": "Byrte_G1",
+          "matched_control_auc": 0.99445491576542,
+          "temporal_auc": 0.9944654746621046,
+          "temporal_minus_matched_control": 1.0558896684553787e-05
+        },
+        {
+          "generator": "Vinje_G1",
+          "matched_control_auc": 0.9871773934571135,
+          "temporal_auc": 0.9872151932034495,
+          "temporal_minus_matched_control": 3.779974633599803e-05
+        },
+        {
+          "generator": "Vinje_G2",
+          "matched_control_auc": 0.9853806571795625,
+          "temporal_auc": 0.9854199933750418,
+          "temporal_minus_matched_control": 3.933619547935585e-05
+        },
+        {
+          "generator": "Vinje_G3",
+          "matched_control_auc": 0.9746611835955621,
+          "temporal_auc": 0.9747079605410446,
+          "temporal_minus_matched_control": 4.6776945482496224e-05
+        },
+        {
+          "generator": "Haukeli_G1",
+          "matched_control_auc": 0.9497682107903637,
+          "temporal_auc": 0.9497798572011676,
+          "temporal_minus_matched_control": 1.1646410803978213e-05
+        },
+        {
+          "generator": "Songa_G1",
+          "matched_control_auc": 0.9971286574773224,
+          "temporal_auc": 0.9971378253449997,
+          "temporal_minus_matched_control": 9.167867677351005e-06
+        },
+        {
+          "generator": "Kjela_G1",
+          "matched_control_auc": 0.9825160308095334,
+          "temporal_auc": 0.9825178679805725,
+          "temporal_minus_matched_control": 1.837171039076324e-06
+        },
+        {
+          "generator": "Vesle Kjela_G1",
+          "matched_control_auc": 0.9922230541045955,
+          "temporal_auc": 0.9922308881519044,
+          "temporal_minus_matched_control": 7.83404730886339e-06
+        }
+      ],
+      "quarters": [
+        {
+          "quarter": 1,
+          "cases": 84,
+          "matched_control_auc": 0.991553832313782,
+          "temporal_auc": 0.9915692428163663,
+          "temporal_minus_matched_control": 1.5410502584245478e-05
+        },
+        {
+          "quarter": 2,
+          "cases": 91,
+          "matched_control_auc": 0.976993379535586,
+          "temporal_auc": 0.9770203105965838,
+          "temporal_minus_matched_control": 2.6931060997825718e-05
+        },
+        {
+          "quarter": 3,
+          "cases": 92,
+          "matched_control_auc": 0.9897053852706652,
+          "temporal_auc": 0.9897196584799859,
+          "temporal_minus_matched_control": 1.427320932068099e-05
+        },
+        {
+          "quarter": 4,
+          "cases": 92,
+          "matched_control_auc": 0.9863056637870805,
+          "temporal_auc": 0.9863337689897586,
+          "temporal_minus_matched_control": 2.8105202678041508e-05
+        }
+      ],
+      "paired_block_bootstrap": [
+        {
+          "block_days": 7,
+          "repetitions": 200,
+          "reference_auc": 0.9870543504891434,
+          "candidate_auc": 0.9870743008794353,
+          "observed_delta": 1.995039029190071e-05,
+          "bootstrap_delta_mean": 1.99496417977163e-05,
+          "bootstrap_delta_std": 2.1696899648712053e-06,
+          "percentile_interval_95": [
+            1.542198527298144e-05,
+            2.4234374198342514e-05
+          ],
+          "fraction_positive_draws": 1.0
+        },
+        {
+          "block_days": 14,
+          "repetitions": 200,
+          "reference_auc": 0.9870543504891434,
+          "candidate_auc": 0.9870743008794353,
+          "observed_delta": 1.995039029190071e-05,
+          "bootstrap_delta_mean": 2.0208644664742037e-05,
+          "bootstrap_delta_std": 2.4121199105636693e-06,
+          "percentile_interval_95": [
+            1.5857063988056198e-05,
+            2.510190485444097e-05
+          ],
+          "fraction_positive_draws": 1.0
+        },
+        {
+          "block_days": 28,
+          "repetitions": 200,
+          "reference_auc": 0.9870543504891434,
+          "candidate_auc": 0.9870743008794353,
+          "observed_delta": 1.995039029190071e-05,
+          "bootstrap_delta_mean": 2.012114895556416e-05,
+          "bootstrap_delta_std": 2.489814363381166e-06,
+          "percentile_interval_95": [
+            1.5192101066652253e-05,
+            2.4847400791444542e-05
+          ],
+          "fraction_positive_draws": 1.0
+        }
+      ],
+      "near_transition_2h_matched_control": {
+        "outputs": 99879,
+        "output_fraction": 0.1182884713774089,
+        "on_fraction": 0.47966038907077563,
+        "mean_probability": 0.49762954302916507,
+        "micro_roc_auc": 0.8548995278895455,
+        "incident_wrong_pair_share": 0.6805615971246949,
+        "incident_available_pair_share": 0.2447015484515335,
+        "error_enrichment_vs_pair_availability": 2.78119039879917,
+        "incident_pair_error_rate": 0.03600431612581362
+      },
+      "outside_transition_2h_matched_control": {
+        "outputs": 744489,
+        "output_fraction": 0.8817115286225911,
+        "on_fraction": 0.3208173660054077,
+        "mean_probability": 0.3274037479096398,
+        "micro_roc_auc": 0.9945248959594006,
+        "incident_wrong_pair_share": 0.825469361743145,
+        "incident_available_pair_share": 0.9844286345942457,
+        "error_enrichment_vs_pair_availability": 0.8385263621302327,
+        "incident_pair_error_rate": 0.010855268389751633
+      },
+      "correction_sizes": {
+        "maximum_absolute_logit_correction": 0.07162518972379998,
+        "mean_absolute_logit_correction": 0.022854978749174224,
+        "mean_absolute_probability_change": 0.0003755280782924378
+      },
+      "prediction_path": "data/processed/round10_temporal_frozen_2022_matched_control_predictions.npz",
+      "prediction_sha256": "21f7dbe43fda6e5c5f0f305e730899922f8168196c4c637073c436f9c7e6757e",
+      "official_metric_verified": true
+    }
+  ],
+  "model_path": "models/round10_temporal_same_hour_boundary_matched.json",
+  "positive_against_all_three_controls_both_scenarios": true,
+  "all_original_and_matched_block_intervals_above_zero": true,
+  "new_base_fits": 0,
+  "additional_meta_fits": 1,
+  "total_meta_fits_including_original": 3,
+  "source_sha256": {
+    "data/processed/round6_native_2022_baseline.npz": "90cb0e574d16b03e0a537bd641d945885a756414874d331075bbcf61713538a5",
+    "data/processed/round10_temporal_native_2022_predictions.npz": "ade8e0dd212c54d2367054e81c085c48f2794b3787c680ac5c38f9e5b2fa3de9",
+    "data/processed/round6_frozen_2022_baseline.npz": "c02d61695d1842e717abf152ee0d84063611623867bcc5b5fe1124d3cc2a5c92",
+    "data/processed/round10_temporal_frozen_2022_predictions.npz": "daf39671058e162eeb5d540a044d898da45ea8c38eb3761d459007c11ea8a63e",
+    "reports/round10_temporal_control_amendment.json": "4f0b106dec169c32a81a060c7d33ac9239c73200eefcbd50965cf00332a88fb8",
+    "reports/round10_temporal_protocol.json": "6ee15e8c2c20b5f9296af00eaecf5cbd9012615f1b7df5bcdc0f5b260e013ed9",
+    "models/round10_temporal_same_hour_boundary_matched.json": "7b61f7b12521a32be7ebf9b7c224d22dfb794e45eac0dd355ace0a6c4e58eecb",
+    "src/round10_temporal.py": "e2b6415005a60645b3b813d5c2947379fa9891dc0c89bff4ee81c4e8a4fbe2fb",
+    "src/round10_temporal_matched_control.py": "f156eaa9b4f1e81eedcf307421e3da58484756184d6a102aad7554a075935352",
+    "reports/round10_temporal_results.json": "0b2c299f3655cead773d33c4de47a06a1c1718e94dbc4d2932d4723ea4a1aaa6"
+  },
+  "limitations": "The supplemental control repairs an independently identified boundary-feature confound. Original models and results are retained. Same reused-development and chronological-selection caveats apply; native/frozen2022 share labels. No hyperparameter search, full-data refit, competition prediction or submission."
+}

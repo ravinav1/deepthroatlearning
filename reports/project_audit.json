@@ -1,0 +1,106 @@
+{
+  "coverage": {
+    "price": {
+      "missing_required_hours": 0,
+      "missing_values": 0
+    },
+    "inflow": {
+      "missing_required_hours": 0,
+      "missing_values": 0
+    },
+    "min_volume": {
+      "missing_required_hours": 0,
+      "missing_values": 0
+    },
+    "min_flow": {
+      "missing_required_hours": 0,
+      "missing_values": 0
+    },
+    "volume": {
+      "missing_required_dates": 0
+    },
+    "water_value": {
+      "missing_required_dates": 0
+    }
+  },
+  "train_cases": 2922,
+  "test_cases": 725,
+  "original_files_unchanged": {
+    "prediction_mapping.csv": true,
+    "schedule_visualization.ipynb": true,
+    "Dataset_definitions_and_explanation.pdf": true,
+    "Constraint_min_volume.csv": true,
+    "Tokke_Vinje_topology.yaml": true,
+    "Constraint_min_flow.csv": true,
+    "Tokke_topology.pdf": true,
+    "Historical_day_ahead_price_2015_2025.csv": true,
+    "Historical_volume_2015_2024.csv": true,
+    "Historical_inflow_1958_2025.csv": true,
+    "Unit_commitment_decisions.csv": true,
+    "Synthetic_water_value_2015_2024.csv": true,
+    "ML_Task_TDT4173.pdf": true,
+    "kaggle_metric.py": true,
+    "sample_submission.csv": true
+  },
+  "alignment_checks_passed": true,
+  "river_inflow_feature_present": false,
+  "constant_initial_volumes": {
+    "Vatjern": {
+      "unique_values": 1,
+      "volume_million_m3": 0.15
+    },
+    "Hyljelihyl": {
+      "unique_values": 1,
+      "volume_million_m3": 0.13
+    }
+  },
+  "lio_river_diagnostics": {
+    "2021": {
+      "natural_inflow_meets_requirement": {
+        "outputs": 10430,
+        "on_fraction": 0.30632790028763185,
+        "error_at_0_5": 0.036241610738255034
+      },
+      "natural_inflow_below_requirement": {
+        "outputs": 50890,
+        "on_fraction": 0.5943800353704067,
+        "error_at_0_5": 0.21037531931617215
+      }
+    },
+    "2022": {
+      "natural_inflow_meets_requirement": {
+        "outputs": 11200,
+        "on_fraction": 0.5592857142857143,
+        "error_at_0_5": 0.025625
+      },
+      "natural_inflow_below_requirement": {
+        "outputs": 50120,
+        "on_fraction": 0.5478252194732641,
+        "error_at_0_5": 0.21390662410215483
+      }
+    }
+  },
+  "unit_priority_diagnostics": {
+    "2021": {
+      "Tokke": {
+        "adjacent_order_violations": 5114,
+        "comparisons": 183960
+      },
+      "Vinje": {
+        "adjacent_order_violations": 22,
+        "comparisons": 122640
+      }
+    },
+    "2022": {
+      "Tokke": {
+        "adjacent_order_violations": 3400,
+        "comparisons": 183960
+      },
+      "Vinje": {
+        "adjacent_order_violations": 39,
+        "comparisons": 122640
+      }
+    }
+  },
+  "first_subhourly_price_date": "2025-09-30 22:15:00+00:00"
+}

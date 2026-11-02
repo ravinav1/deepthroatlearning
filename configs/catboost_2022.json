@@ -1,0 +1,17 @@
+{
+  "validation_start": "2022-01-01",
+  "use_extended": true,
+  "use_system_context": true,
+  "early_stopping_rounds": 100,
+  "model": {
+    "iterations": 1500,
+    "learning_rate": 0.05,
+    "depth": 6,
+    "l2_leaf_reg": 3,
+    "border_count": 63,
+    "one_hot_max_size": 20,
+    "thread_count": 4,
+    "random_seed": 42
+  },
+  "use_topology": true
+}

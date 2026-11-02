@@ -1,0 +1,89 @@
+{
+  "created_utc": "2026-10-18T12:36:13.043795+00:00",
+  "status": "passed",
+  "independent_historical_checks": [
+    {
+      "mode": "native",
+      "cases": 359,
+      "official_scores": {
+        "identity": 0.9894111659365935,
+        "same_hour": 0.989417951159253,
+        "temporal": 0.9894334807562974,
+        "boundary_matched": 0.9894181032001438
+      },
+      "temporal_minus_identity": 2.2314819703939115e-05,
+      "temporal_minus_boundary_matched": 1.5377556153661764e-05,
+      "paired_14_day_200_draw_bootstrap_exactly_reproduced": true,
+      "bootstrap": {
+        "block_days": 14,
+        "repetitions": 200,
+        "reference_auc": 0.9894181032001439,
+        "candidate_auc": 0.9894334807562976,
+        "observed_delta": 1.5377556153661764e-05,
+        "bootstrap_delta_mean": 1.5596140592159525e-05,
+        "bootstrap_delta_std": 2.29209665673425e-06,
+        "percentile_interval_95": [
+          1.15307468299658e-05,
+          1.9758773075559402e-05
+        ],
+        "fraction_positive_draws": 1.0
+      }
+    },
+    {
+      "mode": "frozen",
+      "cases": 359,
+      "official_scores": {
+        "identity": 0.9870453044407653,
+        "same_hour": 0.9870543267364675,
+        "temporal": 0.9870743008794352,
+        "boundary_matched": 0.9870543504891435
+      },
+      "temporal_minus_identity": 2.899643866982604e-05,
+      "temporal_minus_boundary_matched": 1.9950390291678666e-05,
+      "paired_14_day_200_draw_bootstrap_exactly_reproduced": true,
+      "bootstrap": {
+        "block_days": 14,
+        "repetitions": 200,
+        "reference_auc": 0.9870543504891434,
+        "candidate_auc": 0.9870743008794353,
+        "observed_delta": 1.995039029190071e-05,
+        "bootstrap_delta_mean": 2.0208644664742037e-05,
+        "bootstrap_delta_std": 2.4121199105636693e-06,
+        "percentile_interval_95": [
+          1.5857063988056198e-05,
+          2.510190485444097e-05
+        ],
+        "fraction_positive_draws": 1.0
+      }
+    }
+  ],
+  "frozen_full_competition_recipe": {
+    "cases": 725,
+    "outputs_per_case": 2352,
+    "formula": "actual saved Round5 + 0.5 * (frozen temporal correction of the existing full-fit two-seed LGB mean - that mean)",
+    "model": "models/round10_temporal_temporal.json",
+    "model_sha256": "9f9b4d6184247851cde11d84cf5885d17ae2e11e2a31e39f31028240bb170936",
+    "frozen_training_cohort": "2021 Jan1-Dec25 cached out-of-sample base predictions; no refit on2022",
+    "prediction_values_sha256_float64_c_order": "31575f1ea0f74436d85567a5940bd067cae9c8a332b1ade3bafa41c3b013f84d",
+    "min_probability": 7.0276558816128334e-06,
+    "max_probability": 0.999998682816005,
+    "max_abs_direct_formula_difference": 1.1102230246251565e-16,
+    "sizes": {
+      "maximum_absolute_logit_correction": 0.19801125293738459,
+      "mean_absolute_logit_correction": 0.027323386667659467,
+      "mean_absolute_probability_change": 0.0007051420757528184
+    },
+    "predictions_exported": false,
+    "reference_unchanged_sha256": "5b736f51f14028eaee5382124314fd4c368b72f546116d0a6ac053fafa086a29"
+  },
+  "source_sha256": {
+    "src/round10_temporal.py": "e2b6415005a60645b3b813d5c2947379fa9891dc0c89bff4ee81c4e8a4fbe2fb",
+    "src/round10_temporal_matched_control.py": "f156eaa9b4f1e81eedcf307421e3da58484756184d6a102aad7554a075935352",
+    "reports/round10_temporal_protocol.json": "6ee15e8c2c20b5f9296af00eaecf5cbd9012615f1b7df5bcdc0f5b260e013ed9",
+    "reports/round10_temporal_control_amendment.json": "4f0b106dec169c32a81a060c7d33ac9239c73200eefcbd50965cf00332a88fb8",
+    "reports/round10_temporal_results.json": "0b2c299f3655cead773d33c4de47a06a1c1718e94dbc4d2932d4723ea4a1aaa6",
+    "reports/round10_temporal_matched_control_results.json": "65aa5e0a4130d93cd7da87a9cff1938d7a399740676be069d18ac56a9dac4462"
+  },
+  "fit_performed_by_this_review": false,
+  "limitations": "Small conditional development gains, shared2022 labels, historical recipe selection and frozen-base-to-full-fit transfer remain. Passing controls supports an experimental candidate; it does not establish a new public/private best. Existing Round5 remains reference."
+}

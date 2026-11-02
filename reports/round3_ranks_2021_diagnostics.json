@@ -1,0 +1,202 @@
+{
+  "created_utc": "2026-10-14T16:58:46.961405+00:00",
+  "recipe": "configs/round2_submission_depth8_haukeli_weighted.json",
+  "candidate_prefix": "round3_xgb_ranks",
+  "selected_variant": "candidate_replace",
+  "method": {
+    "change": "Replace only xgb_depth8, or average old/new within that same contribution. Preserve all plant coefficients and other models; Haukeli receives no depth8 contribution.",
+    "interpretation": "Reused historical development years, conditional on selected models and variant. No fitting or weight selection here. Native2022 and any separately reported frozen2022 results use the same labels, not independent replications.",
+    "slices": "Membership fixed from common truth or supplied inputs before comparing probabilities. Label-derived masks are diagnostics only. Lio slice AUC is within Lio; its incident rate includes pairs with either endpoint in Lio, including other generators.",
+    "pair_rate": "Misordered positive/negative pairs touching the slice divided by all possible pairs touching the slice; ties count one half. Lower is better. Slice AUC is conditional on both endpoints inside the slice; higher is better. Slice incidences overlap and cannot be summed.",
+    "input_blocks": "Supplied price above mean local terminal water value; positive blocks1\u201312h with neither edge touching the168h horizon. Proxy only, not a verified switching rule. Narrow-margin slice additionally uses(price-WV)/max(mean(abs(weeklyprice)),10) in(0,0.1].",
+    "bootstrap": "200 paired circular14-day blocks of daily-start cases. Every sampled case retains all14x168outputs. Percentile95% intervals are conditional and do not correct repeated model selection; 200 draws give approximate interval endpoints.",
+    "purge": "Jan7+ removes six2022case starts overlapping2021selection horizons. It does not remove previous reuse of2022."
+  },
+  "source_sha256": {
+    "data/processed/goal_xgboost_rescaled_2021_validation_predictions.csv": "3f0b8a5a2bcb4034c5de0ac7c526800df475dbee95f108d15d7b76d021c6a661",
+    "data/processed/goal_lightgbm_rescaled_2021_validation_predictions.csv": "c6293900ee822e35913ceed1e03195e9609be95b692af75b2fb664340750fc48",
+    "data/processed/transformer_rescaled_2021_validation_predictions.csv": "3c2a99925d32df75b0526a1ed88dc9f5dfd246e05b2436d0ba3e282001884e2f",
+    "data/processed/round2_xgb_depth8_2021_validation_predictions.csv": "7f1cdf0e49074cc65b436da11994cef0b515ce42a0fad1cc39fb976bc0ef7b93",
+    "data/processed/round2_xgb_haukeli_2021_validation_predictions.csv": "da4fbddde38768640a5c57d690233370c5e7bf2f3b49d5a4560c20c45706e132",
+    "data/processed/round2_transformer_task_weights_2021_validation_predictions.csv": "f7334a3e3c0ec83615a67da440c9732c6f6c781df3a7b3f486b44080cc738726",
+    "data/processed/round3_xgb_ranks_2021_validation_predictions.csv": "050687f05e860f86cbafb41a9df099e908ff359868cbe34a7e33b2cdec0f0fe7",
+    "configs/round2_submission_depth8_haukeli_weighted.json": "911d51dcdd926a8f276c748848603dd1c474c28834295f005f76af1660a05da3",
+    "src/round3_candidate_diagnostics.py": "247ab870faa5c502ac79e6cc375f821732fbe5fe54e651e6ad37af11524150f4",
+    "src/round3_error_analysis.py": "16096d7887cd503dd86e6a91b4532c5a320388a2e6f695ba7d82610a9eba973d",
+    "src/round3_compare.py": "549b2cef1a28e019c563b6119b07116fad17cfffe78e0581bbb8b8ac0fbc5f66",
+    "src/round2_diagnostics.py": "b85550fab55d419b54df7e2f1b687b8a91de2113f30e06c2f9352c6f15e508b9",
+    "data/raw/kernel/Unit_commitment_decisions.csv": "6d51f8cc6869cb82b44708168808c305c1e007cf79878ca1c1d316d07aae3ab3",
+    "data/raw/sample_submission.csv": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba",
+    "data/raw/prediction_mapping.csv": "c8b0e5bc500a5f1dec2337f5ac680847f6a7794a7c2b7a8fb19384910a029519",
+    "data/raw/kernel/Historical_day_ahead_price_2015_2025.csv": "e5edd141b34a61139f3ee3022305175446d4b4f74618df85552c4f2b5e556ee4",
+    "data/raw/kernel/Synthetic_water_value_2015_2024.csv": "a5f09ff96b551d3c297d90ccf3a0bbe92d8814b537ad63a46579cb0ff44aa4cb",
+    "configs/Tokke_Vinje_topology.yaml": "29cfa233cec7fc4b5401d0d571a566e6e17b7bb7b46a175abcd37a53fe175497"
+  },
+  "results": [
+    {
+      "year": 2021,
+      "subset": "all_cases",
+      "cases": 365,
+      "slices": {
+        "all": {
+          "outputs": 858480,
+          "output_fraction": 1.0,
+          "on_fraction": 0.4553524834591371,
+          "incident_available_pair_share": 1.0,
+          "baseline": {
+            "micro_roc_auc": 0.9889184502673686,
+            "incident_pair_error_rate": 0.011081549732631594
+          },
+          "candidate": {
+            "micro_roc_auc": 0.9889840634255942,
+            "incident_pair_error_rate": 0.011015936574405652
+          },
+          "delta_candidate_minus_baseline": {
+            "micro_roc_auc": 6.56131582256192e-05,
+            "incident_pair_error_rate": -6.561315822594185e-05
+          }
+        },
+        "within_2h_true_transition": {
+          "outputs": 69107,
+          "output_fraction": 0.08049925449631908,
+          "on_fraction": 0.47983561723125007,
+          "incident_available_pair_share": 0.1551865330152972,
+          "baseline": {
+            "micro_roc_auc": 0.8670751610491563,
+            "incident_pair_error_rate": 0.036263160271131405
+          },
+          "candidate": {
+            "micro_roc_auc": 0.8672575423749943,
+            "incident_pair_error_rate": 0.036094730984307793
+          },
+          "delta_candidate_minus_baseline": {
+            "micro_roc_auc": 0.00018238132583803246,
+            "incident_pair_error_rate": -0.0001684292868236112
+          }
+        },
+        "away_from_6h_true_transition": {
+          "outputs": 721760,
+          "output_fraction": 0.8407417761625198,
+          "on_fraction": 0.4518191642651297,
+          "incident_available_pair_share": 0.9745020619709819,
+          "baseline": {
+            "micro_roc_auc": 0.9955899549649376,
+            "incident_pair_error_rate": 0.00910564129175389
+          },
+          "candidate": {
+            "micro_roc_auc": 0.9956300184491023,
+            "incident_pair_error_rate": 0.0090407419862015
+          },
+          "delta_candidate_minus_baseline": {
+            "micro_roc_auc": 4.00634841646319e-05,
+            "incident_pair_error_rate": -6.489930555238915e-05
+          }
+        },
+        "Lio_G1": {
+          "outputs": 61320,
+          "output_fraction": 0.07142857142857142,
+          "on_fraction": 0.5453848662752773,
+          "incident_available_pair_share": 0.14007191435743152,
+          "baseline": {
+            "micro_roc_auc": 0.9563248466871932,
+            "incident_pair_error_rate": 0.022186886392864168
+          },
+          "candidate": {
+            "micro_roc_auc": 0.9550676302013762,
+            "incident_pair_error_rate": 0.022432120821467318
+          },
+          "delta_candidate_minus_baseline": {
+            "micro_roc_auc": -0.0012572164858170032,
+            "incident_pair_error_rate": 0.0002452344286031499
+          }
+        },
+        "Lio_within_2h_true_transition": {
+          "outputs": 3311,
+          "output_fraction": 0.0038568166992824526,
+          "on_fraction": 0.4853518574448807,
+          "incident_available_pair_share": 0.007740310328174741,
+          "baseline": {
+            "micro_roc_auc": 0.7011019132843107,
+            "incident_pair_error_rate": 0.06162541864889727
+          },
+          "candidate": {
+            "micro_roc_auc": 0.696928928893836,
+            "incident_pair_error_rate": 0.06262631251310388
+          },
+          "delta_candidate_minus_baseline": {
+            "micro_roc_auc": -0.004172984390474754,
+            "incident_pair_error_rate": 0.0010008938642066117
+          }
+        },
+        "Lio_away_from_6h_true_transition": {
+          "outputs": 54207,
+          "output_fraction": 0.06314299692479731,
+          "on_fraction": 0.5531019978969506,
+          "incident_available_pair_share": 0.12453454765046137,
+          "baseline": {
+            "micro_roc_auc": 0.9742693266458671,
+            "incident_pair_error_rate": 0.018509789735526597
+          },
+          "candidate": {
+            "micro_roc_auc": 0.9734254574072273,
+            "incident_pair_error_rate": 0.018693308181198798
+          },
+          "delta_candidate_minus_baseline": {
+            "micro_roc_auc": -0.0008438692386397717,
+            "incident_pair_error_rate": 0.0001835184456722011
+          }
+        },
+        "input_favourable_1to12h_nonedge": {
+          "outputs": 23477,
+          "output_fraction": 0.027347171745410494,
+          "on_fraction": 0.6792605528815436,
+          "incident_available_pair_share": 0.05624204956551552,
+          "baseline": {
+            "micro_roc_auc": 0.9592899320966171,
+            "incident_pair_error_rate": 0.01872875707515723
+          },
+          "candidate": {
+            "micro_roc_auc": 0.9601205054158899,
+            "incident_pair_error_rate": 0.018454870178803467
+          },
+          "delta_candidate_minus_baseline": {
+            "micro_roc_auc": 0.0008305733192728315,
+            "incident_pair_error_rate": -0.000273886896353763
+          }
+        },
+        "input_favourable_1to12h_nonedge_margin_0to0.1": {
+          "outputs": 13120,
+          "output_fraction": 0.015282825458950704,
+          "on_fraction": 0.5910823170731707,
+          "incident_available_pair_share": 0.03108488833612607,
+          "baseline": {
+            "micro_roc_auc": 0.9338742704553417,
+            "incident_pair_error_rate": 0.025602906015589063
+          },
+          "candidate": {
+            "micro_roc_auc": 0.9348869232068058,
+            "incident_pair_error_rate": 0.02527628915530833
+          },
+          "delta_candidate_minus_baseline": {
+            "micro_roc_auc": 0.001012652751464116,
+            "incident_pair_error_rate": -0.00032661686028073386
+          }
+        }
+      },
+      "paired_whole_case_bootstrap": {
+        "block_days": 14,
+        "repetitions": 200,
+        "reference_auc": 0.9889184502673684,
+        "candidate_auc": 0.9889840634255943,
+        "observed_delta": 6.561315822595226e-05,
+        "bootstrap_delta_mean": 7.050146608742036e-05,
+        "bootstrap_delta_std": 5.35625330026456e-05,
+        "percentile_interval_95": [
+          -3.1954502908274066e-05,
+          0.00017089567765522508
+        ],
+        "fraction_positive_draws": 0.91
+      }
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "sources": {
+    "round3": "submissions/submission_round3_temporal_ranks.csv",
+    "tuned_lgb": "data/processed/round6_l2zero_seeds_full_predictions.csv"
+  },
+  "plant_weights": {
+    "Hogga": {
+      "round3": 0.5,
+      "tuned_lgb": 0.5
+    },
+    "Tokke": {
+      "round3": 0.5,
+      "tuned_lgb": 0.5
+    },
+    "Lio": {
+      "round3": 0.5,
+      "tuned_lgb": 0.5
+    },
+    "Byrte": {
+      "round3": 0.5,
+      "tuned_lgb": 0.5
+    },
+    "Vinje": {
+      "round3": 0.5,
+      "tuned_lgb": 0.5
+    },
+    "Songa": {
+      "round3": 0.5,
+      "tuned_lgb": 0.5
+    },
+    "Kjela": {
+      "round3": 0.5,
+      "tuned_lgb": 0.5
+    },
+    "Vesle Kjela": {
+      "round3": 0.5,
+      "tuned_lgb": 0.5
+    },
+    "Haukeli": {
+      "round3": 0.5,
+      "tuned_lgb": 0.5
+    }
+  },
+  "historical_report": "reports/round6_selected_historical_comparison.json",
+  "historical_variant": "candidate",
+  "selection_report": "reports/round6_selection_2021.json",
+  "native_confirmation": "reports/round6_l2zero_paired_native_2022.json",
+  "frozen_diagnostic": "reports/round6_l2zero_paired_frozen_2022.json",
+  "component_mean_report": "reports/round6_l2zero_seeds_full_mean.json",
+  "benchmark_submission": "submissions/submission_round5_lgb_generators.csv",
+  "experimental_only": true,
+  "note": "Only L2 changes4to0 in the generator-specific LightGBM half. Equal299/673seedmean; fixed .5Round3/.5newLGBweights. Tiny nativegains, worsefrozen2022; incumbent remains knownpublicbest. NewKagglescoreunknown."
+}

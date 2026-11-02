@@ -1,0 +1,572 @@
+{
+  "scope": "Neural optimization, regularization, loss audit and competing model formulations; no model fitting by this agent.",
+  "current_reference": {
+    "submission": "submissions/submission_rescaled_xgb_lgb_transformer.csv",
+    "validation_micro_auc": {
+      "2021": 0.9882719381376425,
+      "2022": 0.987770674860208
+    },
+    "neural_architecture": "Four noncausal attention encoder blocks, width64, four heads, feedforward128, 306 input channels, 14 logits per hour, 168 hours per full case.",
+    "training": "AdamW LR0.001, weight_decay0.0001, dropout0.1, batch32 complete weeks, BCE, gradient norm clipping1.0, seed42, at most40epochs, patience8.",
+    "already_whole_week": true,
+    "task_docs_read": [
+      "docs/ML_Task_TDT4173.pdf",
+      "docs/Dataset_definitions_and_explanation.pdf"
+    ],
+    "input_timing": "Whole supplied horizon prices and inflows, starting storage, and water value at start+168h; bidirectional context is allowed by the supplied inputs.",
+    "restrictions_found": "The supplied two PDFs do not prohibit training augmentation or require causal prediction within the supplied week. They do not assert that arbitrary perturbations preserve optimizer labels.",
+    "reference_status": "Original winning reference at the start of this investigation; its 40-epoch cap and patience 8 describe historical fitting, not the revised 39-epoch matched controls."
+  },
+  "diagnosis_evidence": {
+    "source": "reports/transformer_rescaled_diagnosis.json",
+    "2021": {
+      "train_auc": 0.9927146000808715,
+      "validation_auc": 0.9672536670387081,
+      "gap": 0.02546093304216346,
+      "best_epoch": 31,
+      "trained_epochs": 39
+    },
+    "2022": {
+      "train_auc": 0.9894355212278958,
+      "validation_auc": 0.9740149631686138,
+      "gap": 0.015420558059281997,
+      "best_epoch": 15,
+      "trained_epochs": 23
+    },
+    "interpretation": "Generalization gaps justify regularization controls, but standalone aggregate AUC hides the Transformer strength at Tokke. Frozen winning blend gives Transformer90% at Tokke,50% at Vinje,30% at Hogga/Lio,20% at Kjela and zero at Haukeli/Byrte/Songa/VesleKjela.",
+    "selection_mismatch": "Historical checkpoint selection maximizes standalone all-generator AUC although the final recipe omits its weakest generators. This can select the wrong epoch for the deployed ensemble.",
+    "caveat": "2021/2022 are reused development years, with epoch selection and previously selected plant weights. Frozen weights constrain comparison but do not make these independent holdouts."
+  },
+  "controlled_queue": [
+    {
+      "priority": 1,
+      "experiment": "ensemble_monitor",
+      "configs": [
+        "configs/round2_transformer_ensemble_monitor_2021.json",
+        "configs/round2_transformer_ensemble_monitor_2022.json"
+      ],
+      "change": "Checkpoint selection and early stopping on current frozen ensemble micro-AUC instead of standalone neural AUC. Model, BCE, LR, seed and dropout unchanged.",
+      "hypothesis": "Selecting the neural contribution actually used in the ensemble improves fixed-blend AUC.",
+      "falsifier": "No improvement in the frozen original blend across both development years, or gains confined to one year.",
+      "interpretation_limit": "This changes both selection and training-duration policy. It is not evidence of a new architecture or better data.",
+      "plan_stage": "Earlier control retained patience 8; this is not the current matched-budget reference.",
+      "followup": "The first 2021 run stopped at epoch 21 and selected epoch 13. It was followed by round2_transformer_monitor_budget_2021, which runs all 39 epochs with patience 40 and selects the best frozen-ensemble checkpoint."
+    },
+    {
+      "priority": 2,
+      "experiment": "lower_lr",
+      "configs": [
+        "configs/round2_transformer_lower_lr_2021.json",
+        "configs/round2_transformer_lower_lr_2022.json"
+      ],
+      "change": "LR0.001 to0.0005 only.",
+      "hypothesis": "Smaller optimizer steps improve solution quality where validation oscillates despite falling training loss.",
+      "falsifier": "Frozen blend declines or only in-sample fit improves.",
+      "comparison": "Against round2_transformer_monitor_budget_2021: the same 39 epochs, patience 40, frozen ensemble micro-AUC checkpoint selection, architecture, seed and inputs. Only the stated loss, learning rate or weight decay intervention changes.",
+      "prepared_2021_policy": {
+        "epochs": 39,
+        "patience": 40,
+        "checkpoint_selection": "frozen_ensemble_micro_roc_auc",
+        "reference_config": "configs/round2_transformer_monitor_budget_2021.json"
+      },
+      "confirmation_config_status": "The listed 2022 path is an earlier prepared template, not a fixed-epoch confirmation configuration. Before any confirmation, freeze the 2021-selected epoch count and candidate/blend choice, use early_stopping_metric=fixed, and remove the validation monitor/scheduler. Both years remain reused development data.",
+      "execution_status": "Prepared; completed or running fits are recorded separately in reports/autonomous_round2_20261014.json."
+    },
+    {
+      "priority": 3,
+      "experiment": "ranknet",
+      "configs": [
+        "configs/round2_transformer_ranknet_2021.json",
+        "configs/round2_transformer_ranknet_2022.json"
+      ],
+      "change": "BCE plus0.2 times logistic pairwise loss using4096 uniformly sampled positive/negative pairs pooled across minibatch cases/generators/hours.",
+      "hypothesis": "Explicit pooled ranking pressure improves cross-generator discrimination without destroying useful probabilities.",
+      "falsifier": "Standalone ranking improves while deployed blend ranking worsens, or both years fail.",
+      "comparison": "Against round2_transformer_monitor_budget_2021: the same 39 epochs, patience 40, frozen ensemble micro-AUC checkpoint selection, architecture, seed and inputs. Only the stated loss, learning rate or weight decay intervention changes.",
+      "prepared_2021_policy": {
+        "epochs": 39,
+        "patience": 40,
+        "checkpoint_selection": "frozen_ensemble_micro_roc_auc",
+        "reference_config": "configs/round2_transformer_monitor_budget_2021.json"
+      },
+      "confirmation_config_status": "The listed 2022 path is an earlier prepared template, not a fixed-epoch confirmation configuration. Before any confirmation, freeze the 2021-selected epoch count and candidate/blend choice, use early_stopping_metric=fixed, and remove the validation monitor/scheduler. Both years remain reused development data.",
+      "execution_status": "Prepared; completed or running fits are recorded separately in reports/autonomous_round2_20261014.json."
+    },
+    {
+      "priority": 4,
+      "experiment": "rdrop",
+      "configs": [
+        "configs/round2_transformer_rdrop_2021.json",
+        "configs/round2_transformer_rdrop_2022.json"
+      ],
+      "change": "Mean BCE from two stochastic passes plus weight1.0 symmetric Bernoulli KL.",
+      "hypothesis": "Dropout consistency reduces overfit without inventing altered hydraulic inputs or labels.",
+      "falsifier": "Training loss is regularized but frozen blend AUC does not improve both years.",
+      "comparison": "Against round2_transformer_monitor_budget_2021: the same 39 epochs, patience 40, frozen ensemble micro-AUC checkpoint selection, architecture, seed and inputs. Only the stated loss, learning rate or weight decay intervention changes.",
+      "prepared_2021_policy": {
+        "epochs": 39,
+        "patience": 40,
+        "checkpoint_selection": "frozen_ensemble_micro_roc_auc",
+        "reference_config": "configs/round2_transformer_monitor_budget_2021.json"
+      },
+      "confirmation_config_status": "The listed 2022 path is an earlier prepared template, not a fixed-epoch confirmation configuration. Before any confirmation, freeze the 2021-selected epoch count and candidate/blend choice, use early_stopping_metric=fixed, and remove the validation monitor/scheduler. Both years remain reused development data.",
+      "execution_status": "Prepared; completed or running fits are recorded separately in reports/autonomous_round2_20261014.json.",
+      "implementation_audit": "Ready after repeated explicit Bernoulli-KL and normalization checks; weight1.0 follows the project mean-BCE convention. See rdrop_readiness_review."
+    },
+    {
+      "priority": 5,
+      "experiment": "weight_decay",
+      "configs": [
+        "configs/round2_transformer_weight_decay_2021.json",
+        "configs/round2_transformer_weight_decay_2022.json"
+      ],
+      "change": "AdamW weight decay0.0001 to0.01 only.",
+      "hypothesis": "Current tiny decay under-regularizes shared representation.",
+      "falsifier": "Frozen blend declines and best historical epoch remains early; simply shrinking weights is not sufficient.",
+      "comparison": "Against round2_transformer_monitor_budget_2021: the same 39 epochs, patience 40, frozen ensemble micro-AUC checkpoint selection, architecture, seed and inputs. Only the stated loss, learning rate or weight decay intervention changes.",
+      "prepared_2021_policy": {
+        "epochs": 39,
+        "patience": 40,
+        "checkpoint_selection": "frozen_ensemble_micro_roc_auc",
+        "reference_config": "configs/round2_transformer_monitor_budget_2021.json"
+      },
+      "confirmation_config_status": "The listed 2022 path is an earlier prepared template, not a fixed-epoch confirmation configuration. Before any confirmation, freeze the 2021-selected epoch count and candidate/blend choice, use early_stopping_metric=fixed, and remove the validation monitor/scheduler. Both years remain reused development data.",
+      "execution_status": "Prepared; completed or running fits are recorded separately in reports/autonomous_round2_20261014.json."
+    },
+    {
+      "priority": 6,
+      "experiment": "lower_lr_plateau",
+      "configs": [
+        "configs/round2_transformer_lower_lr_plateau_2021.json",
+        "configs/round2_transformer_lower_lr_plateau_2022.json"
+      ],
+      "change": "Add factor0.5 patience3 floor0.00005 ReduceLROnPlateau to the LR0.0005 run.",
+      "comparison": "The existing configs retain standalone selection and the original epoch/patience policy. Before a future scheduler ablation, align those settings with the revised lower_lr control; otherwise a direct comparison would confound scheduler and selection/duration changes.",
+      "hypothesis": "Decaying LR after stagnation yields a useful later optimum.",
+      "export": "Freeze the historical epoch rates through selected best_epoch and replay them for all-label fit; never use competition outcomes to schedule.",
+      "plan_stage": "Earlier unrun scheduler template; not aligned with the revised matched-budget monitor controls.",
+      "execution_status": "Prepared only and lower priority under the shortened budget; do not claim it was fitted."
+    }
+  ],
+  "runtime_estimates": {
+    "measured_source": "reports/submission_transformer_rescaled_run.json",
+    "measured_training_seconds": 148.83647254196694,
+    "measured_epochs": 15,
+    "measured_training_cases": 2922,
+    "ordinary_single_fold_minutes": [
+      4,
+      7
+    ],
+    "rdrop_single_fold_minutes": [
+      7,
+      12
+    ],
+    "note": "Planning estimates from about10seconds per full-data epoch; feature loading, AUC computations, temperature and early stopping affect actual time. Root schedules all heavy work sequentially with four CPU threads."
+  },
+  "implementation_audit": {
+    "default_bce_loss_gradients_and_rng_exact_match": true,
+    "symmetric_bernoulli_kl_formula": "0.5 * (sigmoid(a)-sigmoid(b)) * (a-b)",
+    "kl_explicit_distribution_max_abs_error": 8.881784197001252e-16,
+    "kl_gradients_match_explicit_distribution": true,
+    "pairwise_shift_invariant": true,
+    "pairwise_gradients_raise_positive_and_lower_negative": true,
+    "pairwise_scope": "Uniform positive and negative draws within pooled batch; unbiased for that batch pair average, not guaranteed exact full-dataset pair risk because complete weeks are clustered.",
+    "ranking_caveat": "Pairwise logistic loss is an AUC surrogate, not direct empirical ROC-AUC optimization. BCE itself has ranking consistency support; RankNet is an empirical alternative, not a necessary correction.",
+    "scheduler": "mode=max; steps after current validation; export replays rates before each epoch. Default relative threshold1e-4 is an intentional scheduler convention, distinct from strict checkpoint score improvement.",
+    "weight_decay": "Both validation and fullfit read config.get(weight_decay,1e-4); exporter requires selected value match.",
+    "monitor_reference_auc_reproduced": {
+      "2021": 0.9882719381376425,
+      "2022": 0.987770674860208
+    },
+    "monitor_torch_rng_unchanged": true,
+    "monitor_validation_row_reordering_exact": true,
+    "monitor_missing_ids_rejected": true,
+    "monitor_haukeli_neural_weight_zero": true,
+    "monitor_scope": "Frozen tree contribution is computed only for validation IDs, never passed to model or training loss. Every epoch records both metrics. Checkpoint best_epoch and standalone score refer to selected ensemble optimum.",
+    "syntax_checks_passed": [
+      "src/train_cnn.py",
+      "src/make_sequence_submission.py"
+    ],
+    "config_ablation_checks": "LR-only differs solely in learning_rate; ensemble-monitor differs in early_stopping_metric plus monitor metadata.",
+    "device_configuration": {
+      "default": "automatic MPS when available, otherwise CPU; unchanged",
+      "round2_configs": "All14 round2_transformer configs pinned device=cpu as of transition-control preparation.",
+      "validation_and_fullfit": "Both honor device override and retain torch.set_num_threads(4).",
+      "tiny_cpu_forward_shape": [
+        1,
+        14,
+        168
+      ],
+      "tiny_cpu_forward_finite": true,
+      "current_auto_backend": "mps"
+    },
+    "transition_loss": {
+      "default_bce_rng_loss_and_gradients_exact": true,
+      "perfect_probabilities_penalty_zero": true,
+      "missed_one_hour_pulse_penalty_positive": true,
+      "constant_different_series_no_cross_boundary_penalty": true,
+      "no_cross_case_or_generator_gradients": true,
+      "case_weights": "When supplied, the within-case difference loss receives the same case weight as BCE.",
+      "export": "transition_weight must match historical selected config.",
+      "training_status": "No real model fit by this agent."
+    },
+    "fixed_epoch_confirmation": {
+      "setting": "early_stopping_metric=fixed",
+      "behavior": "Runs exactly config.epochs, saves last raw checkpoint, logs validation scores without selecting on them.",
+      "guards": "No lr_scheduler or weight_averaging allowed in fixed mode.",
+      "report": "checkpoint_selection_metric and stop_reason are fixed_by_config; best_epoch is final configured epoch.",
+      "test": "Actual main loop on tiny synthetic fixture with AUC0.9,0.7,0.6: raw selectedepoch1/stopped2; fixed selectedepoch3/savedscore0.6 and its final state.",
+      "purpose": "Choose epoch budget on2021, then run2022 with that budget fixed.2022 remains reused development data, but its current curve no longer selects the checkpoint.",
+      "export": "Existing config.epochs==selection.best_epoch guard remains compatible."
+    }
+  },
+  "already_tested_methods": [
+    "Full-week symmetric CNN and noncausal Transformer already consume168hours. Weekly batching is not missing.",
+    "Rescaled BiLSTM and fixed Transformer/BiLSTM mean failed two-year promotion in previous goal.",
+    "Second Transformer seed7 and fixed seed mean failed two-year promotion.",
+    "CNN EMA/SWA, multiple CNN seeds, CNN increased dropout and recency weighting were tested previously; their outcomes do not substitute for current Transformer-specific ablations."
+  ],
+  "distinct_formulations": [
+    {
+      "idea": "Temporal structured output head or CRF",
+      "why": "Existing encoder sees complete inputs but terminal linear head/BCE has no explicit ON/OFF transition potential; many residual errors occur near switches.",
+      "feasible_discriminator": "Before an architecture, test a predeclared weak temporal-smoothing perturbation on cached historical probabilities with case boundaries preserved. If both years decline, deprioritize generic persistence. If it helps, a two-state transition head with forward-backward ON marginals is a bounded next experiment.",
+      "limitations": "Smoothing is only a proxy, not proof CRF will improve. Do not submit hard Viterbi paths for ROC-AUC; keep probabilities. Real short runs may be correct. No implementation in this lane."
+    },
+    {
+      "idea": "Spatial graph encoder for hydraulic topology",
+      "why": "GNN/LSTM models are used in security-constrained UC literature to exploit network and time structure.",
+      "feasible_discriminator": "First compare a small local/shared reservoir representation with existing fully connected per-hour inputs while retaining temporal encoder, rather than adding a large GNN.",
+      "limitations": "Thermal/grid security UC papers optimize solver reduction/feasibility, not this hydropower competition metric; no claim their reported accuracy transfers. A graph rewrite is lower priority until simple optimization controls resolve."
+    },
+    {
+      "idea": "Classifier chains or auxiliary plant ON-count targets",
+      "why": "Unit decisions have dependencies, especially multiple machines in one plant.",
+      "feasible_discriminator": "Use predicted or chronological OOF upstream decisions only; evaluate an auxiliary count loss or small output refinement with fixed baseline as controlled model change.",
+      "limitations": "Ground-truth neighboring decisions must never be inference inputs. Supplied labels violate simple unit-priority ordering, so do not impose ordinal unit constraints or exchange generator identities blindly."
+    }
+  ],
+  "augmentation_assessment": {
+    "input_noise_or_time_warp": "Deferred: arbitrary changes can cross deterministic commitment boundaries while original hard labels remain fixed. Reversing weeks also changes initial/terminal conditions.",
+    "economic_scale_augmentation": "Potential only if every objective coefficient, including start/stop costs, scales together; scaling price alone does not guarantee unchanged optimum. Case rescaling already addresses much of numerical scale variation.",
+    "mixup": "Possible regularization with soft targets, but interpolated weeks need not represent valid physical instances or optimizer decisions. Evaluate separately if simpler regularizers fail; not a physical invariance.",
+    "chosen_first": "R-Drop perturbs internal subnetworks while leaving original inputs and labels intact."
+  },
+  "sources": [
+    {
+      "topic": "R-Drop",
+      "url": "https://proceedings.neurips.cc/paper/2021/hash/5a66b9200f29ac3fa0ae244cc2a51b39-Abstract.html",
+      "use": "Two dropout subnetworks with bidirectional KL consistency; hydropower benefit is hypothesis."
+    },
+    {
+      "topic": "RankNet",
+      "url": "https://www.microsoft.com/en-us/research/publication/learning-to-rank-using-gradient-descent/",
+      "use": "Pairwise probabilistic ranking loss trained by gradient descent."
+    },
+    {
+      "topic": "BCE and ranking consistency",
+      "url": "https://jmlr.org/papers/v15/agarwal14b.html",
+      "use": "Strongly proper losses including logistic have bipartite-ranking regret bounds under stated assumptions."
+    },
+    {
+      "topic": "AdamW",
+      "url": "https://arxiv.org/abs/1711.05101",
+      "use": "Decoupled weight decay is a separate regularization control for adaptive optimizers."
+    },
+    {
+      "topic": "ReduceLROnPlateau",
+      "url": "https://docs.pytorch.org/docs/2.14/generated/torch.optim.lr_scheduler.ReduceLROnPlateau.html",
+      "use": "Validated mode, timing, patience and threshold behavior."
+    },
+    {
+      "topic": "Manifold mixup",
+      "url": "https://proceedings.mlr.press/v97/verma19a.html",
+      "use": "Representation interpolation is an optional regularizer, not proof of physical label-preserving augmentation."
+    },
+    {
+      "topic": "Graph plus temporal UC models",
+      "url": "https://arxiv.org/abs/2306.01570",
+      "use": "GNN/LSTM architecture for spatial/temporal SCUC structure; a different operational objective from this benchmark."
+    },
+    {
+      "topic": "Feasibility-aided UC prediction",
+      "url": "https://arxiv.org/abs/2208.06742",
+      "use": "Logistic, neural, random-forest and nearest-neighbor predictions coupled to feasibility recovery; supports distinguishing classifier quality from solver feasibility."
+    },
+    {
+      "topic": "Classifier chains",
+      "url": "https://arxiv.org/abs/1912.13405",
+      "use": "Predicted labels may condition subsequent labels; caution about train/inference mismatch and OOF construction."
+    },
+    {
+      "topic": "Conditional random fields",
+      "url": "https://www.cis.upenn.edu/~danroth/Teaching/CS598-05/Papers/crf.pdf",
+      "use": "Structured sequence-label probability model; considered as deferred hypothesis."
+    }
+  ],
+  "training_status_at_preparation": "No new models fitted by this subagent. Configured does not mean tested; root records execution and decisions in main round2 ledger.",
+  "transition_control_proposal": {
+    "status": "Implemented and numerically checked; 2021 config uses the matched-budget monitor. Training remains unperformed by this subagent and may be deferred by root.",
+    "loss": "BCE(logits,y) +0.2*mean(((sigmoid(logits)[...,1:]-sigmoid(logits)[...,:-1])-(y[...,1:]-y[...,:-1]))**2)",
+    "scope": "Consecutive hours1..167 within each complete case and generator; no edges across cases.",
+    "hypothesis": "Supervising temporal changes can reduce errors around actual switching without imposing minimum durations.",
+    "why_not_ordinary_smoothing": "Targets include signed ON/OFF jumps as well as stable hours, so true onehour runs are represented by both rising and falling transitions.",
+    "probability_argument": "For any fixed supplied input, squared error on y_t-y_previous is minimized by its conditional expectation E[y_t|x]-E[y_previous|x]. Thus true conditional ON probabilities jointly minimize BCE and the expected unweighted temporal-difference term; this does not assume conditional independence between hours.",
+    "limits": "Finite-sample fitting can still overfit rare transitions or harm probability ranking. AUC benefit remains an empirical hypothesis; predicted transition probability is not being estimated by taking differences.",
+    "compute": "No new model parameters, no extra forward pass and no additional randomness.",
+    "protocol": "Against round2_transformer_monitor_budget_2021: the same 39 epochs, patience 40, frozen ensemble micro-AUC checkpoint selection, architecture, seed and inputs. Only the stated loss, learning rate or weight decay intervention changes. The single intervention is transition_weight=0.2. Compare the frozen ensemble overall AUC and transition-region AUC; a promising 2021 selection gets confirmation with the epoch count fixed before 2022 evaluation.",
+    "source_distinction": "Signed temporal squared differences are a project-specific adaptation. Original gradient-difference paper uses image gradients; boundary-aware sequence paper addresses video action segmentation. Neither establishes hydropower ROC-AUC benefit.",
+    "sources": [
+      "https://arxiv.org/abs/1511.05440",
+      "https://arxiv.org/abs/2007.06866"
+    ],
+    "configs": [
+      "configs/round2_transformer_transition_2021.json",
+      "configs/round2_transformer_transition_2022.json"
+    ],
+    "comparison_to_smoothing": {
+      "source": "reports/round2_temporal_probe.json",
+      "2021_auc_by_alpha": {
+        "0.0": 0.9882719381376425,
+        "0.1": 0.9882670886499967,
+        "0.25": 0.9882021707728964
+      },
+      "selected_alpha": 0.0,
+      "interpretation": "Naive probability smoothing failed selection. Signed target-difference supervision is distinct because real positive and negative jumps are supervised rather than uniformly suppressed; its success is still unproven."
+    },
+    "confirmation_config_status": "The listed 2022 path is an earlier prepared template, not a fixed-epoch confirmation configuration. Before any confirmation, freeze the 2021-selected epoch count and candidate/blend choice, use early_stopping_metric=fixed, and remove the validation monitor/scheduler. Both years remain reused development data."
+  },
+  "frozen_later_year_inference": {
+    "helper": "src/round2_frozen_sequence.py",
+    "source_checkpoint": "models/transformer_rescaled_2021.pt",
+    "predictions": "data/processed/round2_frozen_transformer_2022_validation_predictions.csv",
+    "report": "reports/round2_frozen_transformer_2022_metrics.json",
+    "source_2021_validation_auc": 0.9672536670387081,
+    "frozen_all_2022_auc": 0.962967284251908,
+    "frozen_2022_after_source_selection_horizon_auc": 0.9632903970132028,
+    "cases_all": 365,
+    "cases_after_selection_horizon": 359,
+    "inference_only": true,
+    "cpu_threads": 1,
+    "stored_scaler_used": true,
+    "checkpoint_unchanged": true,
+    "interpretation": "Neural cross-year loss is concentrated in several plants receiving zero or modest neural weight; Tokke remains strong. Judge the frozen whole ensemble rather than standalone aggregate alone. The first6cases of2022 overlap calendarhours of2021 checkpoint-selection horizons, so also evaluate Jan7 onward. Both years remain reused development data."
+  },
+  "task_weight_control": {
+    "status": "2021 fit completed by root, selected epoch28; fixed28epoch2022 confirmation was running at14:33UTC review. See root ledger for subsequent completion/results.",
+    "config_field": "plant_loss_weights",
+    "configs": [
+      "configs/round2_transformer_monitor_budget_2021.json",
+      "configs/round2_transformer_task_weights_2021.json"
+    ],
+    "controlled_difference": "Only weighted versus ordinary BCE; both use the same frozen ensemble monitor, 39 epochs and patience 40.",
+    "reason_for_budget_control": "The initial ensemble-monitor run stopped at epoch 21 and selected epoch 13, below the original epoch 31 ensemble score. Equal 39-epoch budgets separate loss/selection from prematurely shortened training.",
+    "formula": "mean(BCEWithLogits(logits,y,reduction=none) * normalized_weights[None,:,None]); normalized_weights = raw_weights / raw_weights.mean()",
+    "source_of_raw_weights": "Existing fixed winning ensemble neural plant weights; no new search.",
+    "hypothesis": "Prioritize shared-model training on generator outputs used in the fixed ensemble, reducing capacity spent on omitted heads.",
+    "limits": [
+      "Plant blend coefficients are a heuristic task weighting, not exact blended-BCE or micro-AUC gradients.",
+      "Zero-weight heads may lose useful auxiliary supervision; their standalone probabilities are not trained.",
+      "Positive constant task weights preserve per-output population BCE optima with unlimited separable capacity, but finite shared capacity and optimization can change ranking and calibration.",
+      "2021 and 2022 are reused development years; selecting new weights against leaderboard would add bias."
+    ],
+    "export": "Weighted full fits write only ensemble components in data/processed, with selection config and normalized generator weights checked.",
+    "confirmation": "Prepare the 2022 configuration only after selecting the epoch and variant on 2021; use fixed-epoch confirmation without 2022 stopping or checkpoint selection.",
+    "checks": {
+      "scope": "Tiny numerical/forward/backward checks only, no optimizer steps or model fitting.",
+      "cpu_threads": 1,
+      "default_loss_bitwise_equal": true,
+      "default_gradients_bitwise_equal": true,
+      "default_rng_bitwise_equal": true,
+      "generator_axis_and_reversed_order_checked": true,
+      "normalized_mean": 1.0000001192092896,
+      "raw_sum": 5.900000095367432,
+      "weighted_manual_formula_checked": true,
+      "weighted_analytic_gradient_checked": true,
+      "zero_weight_output_head_direct_gradients_zero": true,
+      "shared_input_gradients_nonzero": true,
+      "other_loss_combinations_rejected": true,
+      "standalone_submission_blocked": true,
+      "exporter_selection_loss_mismatch_blocked": true,
+      "normalized_weights": {
+        "Hogga_G1": 0.7118644118309021,
+        "Tokke_G1": 2.1355931758880615,
+        "Tokke_G2": 2.1355931758880615,
+        "Tokke_G3": 2.1355931758880615,
+        "Tokke_G4": 2.1355931758880615,
+        "Lio_G1": 0.7118644118309021,
+        "Byrte_G1": 0.0,
+        "Vinje_G1": 1.1864405870437622,
+        "Vinje_G2": 1.1864405870437622,
+        "Vinje_G3": 1.1864405870437622,
+        "Haukeli_G1": 0.0,
+        "Songa_G1": 0.0,
+        "Kjela_G1": 0.47457626461982727,
+        "Vesle Kjela_G1": 0.0
+      }
+    },
+    "sources": [
+      "https://proceedings.mlr.press/v80/chen18a.html",
+      "https://arxiv.org/abs/2001.06782"
+    ],
+    "conditional_full_fit": {
+      "config": "configs/round2_submission_transformer_task_weights.json",
+      "selection_source": "reports/round2_transformer_task_weights_2021_metrics.json",
+      "epochs": 28,
+      "status": "Prepared only; no fitting by this subagent. Root must first assess the frozen 2022 recipe comparison.",
+      "component_predictions": "data/processed/round2_submission_transformer_task_weights_predictions.csv",
+      "model": "models/round2_submission_transformer_task_weights.pt",
+      "run_report": "reports/round2_submission_transformer_task_weights_run.json",
+      "intended_blend": "Half old Transformer and half this weighted Transformer within each existing plant neural share; tree components are assembled separately.",
+      "dry_checks": {
+        "selection_config_guards_pass": true,
+        "normalized_generator_order_matches": true,
+        "zero_weight_heads": [
+          "Byrte_G1",
+          "Haukeli_G1",
+          "Songa_G1",
+          "Vesle Kjela_G1"
+        ],
+        "standalone_submission_output_rejected": true,
+        "no_training_or_output_artifacts_created": true
+      }
+    }
+  },
+  "run_scope": {
+    "duration_hours": 2.5,
+    "started_utc": "2026-10-14T13:06:15+00:00",
+    "deadline_utc": "2026-10-14T15:36:15+00:00",
+    "stop_new_exploration_utc": "2026-10-14T15:01:00+00:00",
+    "final_reserve_minutes": 35,
+    "scope_note": "The goal was shortened from 3 hours to 2.5 hours. The original research priorities are historical planning notes, not an execution promise or a record of completed experiments.",
+    "execution_authority": "reports/autonomous_round2_20261014.json records actual fits, comparisons and deferrals.",
+    "current_root_schedule_at_update": "Plant-weighted loss, global depth 8, Mixer confirmation, RDrop and global sampling; RankNet may be deferred. Transition, boundary weighting, lower LR and other prepared controls may also be deferred rather than consume confirmation/export reserve."
+  },
+  "controlled_queue_note": "Priority numbers reflect the initial research plan. For actual prepared 2021 settings, use the comparison and prepared_2021_policy fields; for completed runs, use the root execution ledger. Preparing a config is not evidence of model fitting.",
+  "matched_budget_reference": {
+    "config": "configs/round2_transformer_monitor_budget_2021.json",
+    "2021_epochs": 39,
+    "2021_patience": 40,
+    "checkpoint_selection": "Best frozen ensemble micro-AUC among all 39 epochs; no patience stopping within the budget.",
+    "historical_neural_reference_2021_trained_epochs": 39,
+    "confirmation_config": "configs/round2_transformer_monitor_budget_2022.json",
+    "comparison_report": "reports/round2_transformer_monitor_budget_both_comparison.json",
+    "interpretation": "The current control keeps the 2021 exploration budget fixed. Its 2022 confirmation uses the epoch count already chosen on 2021; it does not search 39 epochs on 2022."
+  },
+  "rdrop_readiness_review": {
+    "reviewed_at_utc": "2026-10-14T14:33:23+00:00",
+    "ready": true,
+    "code": "src/consistency_regularization.py",
+    "config": "configs/round2_transformer_rdrop_2021.json",
+    "implementation": "Mean BCE over two independent dropout passes plus rdrop_weight times mean symmetric Bernoulli KL. Both pass graphs remain attached; inference is the ordinary deterministic model.",
+    "normalization": "BCE and symmetric KL each average over batch, generator and hour axes. There is no output-count multiplier. The config sets rdrop_weight=1.0.",
+    "paper_equation_comparison": "Paper equations 2\u20134 use half the bidirectional KL sum and the sum of two NLL terms. Our BCE averages the two terms, so weight1.0 corresponds to paper alpha2.0 in relative KL/NLL weighting, up to global loss scaling. This is a project convention, not a claim of paper alpha1.0 reproduction.",
+    "paper_source": "https://proceedings.neurips.cc/paper/2021/file/5a66b9200f29ac3fa0ae244cc2a51b39-Paper.pdf",
+    "sequential_passes": "The paper concatenates duplicated inputs for efficiency. Two sequential forward calls implement the same dropout-consistency objective here; the Transformer uses LayerNorm rather than batch-statistic normalization.",
+    "checks": {
+      "explicit_distribution_kl_max_abs_error": 1.7763568394002505e-15,
+      "explicit_distribution_gradient_max_abs_error": 6.938893903907228e-18,
+      "identical_logits_zero_penalty": true,
+      "mean_normalization_invariant_to_repeated_axes": true,
+      "two_passes_when_enabled": true,
+      "one_pass_and_rng_preserved_when_disabled": true,
+      "config_only_rdrop_and_note_differ_from_monitor_budget": true,
+      "exporter_requires_matching_rdrop_weight": true,
+      "base_model_fit_by_reviewer": false
+    },
+    "interpretation_limit": "This compares the complete RDrop method with ordinary BCE. It does not isolate the KL contribution from averaging two stochastic supervised passes or changed stochastic draw consumption; that would need an additional two-pass BCE control.",
+    "runtime_estimate": {
+      "screen_39_epochs_minutes": [
+        7,
+        12
+      ],
+      "planning_point_minutes": 10,
+      "extra_confirmation_if_selected_minutes": [
+        1,
+        10
+      ],
+      "basis": "Two forward/backward branches per batch, unchanged one-pass validation; previous ordinary/full-fit timings and root planning estimate. This is not a measured completed RDrop runtime."
+    },
+    "priority_recommendation": "One RDrop screen ahead of further RankNet, learning-rate or weight-decay sweeps, provided its selected-epoch confirmation fits before the15:01UTC reserve. Do not trade away frozen confirmation or verified export to add more exploratory fits.",
+    "default_behavior_evidence": {
+      "reference": "implementation_audit.default_bce_loss_gradients_and_rng_exact_match and task_weight_control.checks",
+      "disabled_loss_gradients_rng": "Bitwise default BCE loss, all model gradients and Torch RNG were checked after optional-loss edits; this audit also reconfirmed one forward call and unchanged RNG when disabled.",
+      "no_default_parameter_change": true
+    }
+  },
+  "completed_neural_artifacts_at_review": {
+    "observed_at_utc": "2026-10-14T14:33:23+00:00",
+    "runs": {
+      "round2_mixer_2021": {
+        "status": "completed_saved_artifacts",
+        "metrics_report": "reports/round2_mixer_2021_metrics.json",
+        "model_exists": true,
+        "validation_predictions_exist": true,
+        "best_epoch": 38,
+        "training_epochs": 39,
+        "checkpoint_selection_metric": "frozen_ensemble_micro_roc_auc",
+        "standalone_micro_auc": 0.9673785688448167,
+        "fixed_blend_results": {
+          "candidate_replace": {
+            "micro_roc_auc": 0.9875769802676043,
+            "delta_vs_original_reference": -0.0006949578700381487
+          },
+          "candidate_mean": {
+            "micro_roc_auc": 0.988359760002552,
+            "delta_vs_original_reference": 8.782186490952082e-05
+          }
+        }
+      },
+      "round2_mixer_2022": {
+        "status": "completed_saved_artifacts",
+        "metrics_report": "reports/round2_mixer_2022_metrics.json",
+        "model_exists": true,
+        "validation_predictions_exist": true,
+        "best_epoch": 38,
+        "training_epochs": 38,
+        "checkpoint_selection_metric": "fixed_by_config",
+        "standalone_micro_auc": 0.9699597796985869,
+        "fixed_blend_results": {
+          "candidate_replace": {
+            "micro_roc_auc": 0.9871352618924073,
+            "delta_vs_original_reference": -0.0006354129678006748
+          },
+          "candidate_mean": {
+            "micro_roc_auc": 0.9881351748260997,
+            "delta_vs_original_reference": 0.00036449996589171807
+          }
+        }
+      },
+      "round2_transformer_task_weights_2021": {
+        "status": "completed_saved_artifacts",
+        "metrics_report": "reports/round2_transformer_task_weights_2021_metrics.json",
+        "model_exists": true,
+        "validation_predictions_exist": true,
+        "best_epoch": 28,
+        "training_epochs": 39,
+        "checkpoint_selection_metric": "frozen_ensemble_micro_roc_auc",
+        "standalone_micro_auc": 0.8997583711982123,
+        "fixed_blend_results": {
+          "candidate_replace": {
+            "micro_roc_auc": 0.9882291715860985,
+            "delta_vs_original_reference": -4.276655154400455e-05
+          },
+          "candidate_mean": {
+            "micro_roc_auc": 0.9886489440779661,
+            "delta_vs_original_reference": 0.0003770059403236381
+          }
+        }
+      }
+    },
+    "interpretation": "Mixer replacement loses in both years, while the preselected 50/50 old/new neural mean improves the original reference in both. Weighted Transformer selected epoch28 on2021; its preselected mean improves2021 and root is running fixed28epoch2022 confirmation. Weighted standalone all-head AUC is not the criterion because four plants receive zero training loss and zero final neural contribution.",
+    "authoritative_execution_ledger": "reports/autonomous_round2_20261014.json"
+  },
+  "evidence_narrative_for_final_report": {
+    "status": "Draft evidence summary at 14:33 UTC, not a final experiment status. Refresh against the execution ledger before delivery.",
+    "optimization": "We matched the original 39-epoch training budget and selected checkpoints using the fixed ensemble score. The preselected equal old/new neural mean reached 0.988513 on 2021 and 0.987965 on 2022, versus 0.988272/0.987771 for the original reference. The 2022 run used the 37 epochs chosen on 2021. This supports the combined checkpoint-selection and blending procedure; it does not establish that greater model capacity was needed.",
+    "multitask": "Using frozen plant blend shares to weight BCE produced a 2021 selected mean of 0.988649 at epoch 28. The weighted component alone need not have good all-head AUC: four unused plants receive zero direct loss. Confirmation with 28 fixed epochs in 2022 was still running at the review time, so a generalization benefit was not yet established.",
+    "mixer": "The full-week Mixer completed both years, with 38 epochs frozen for 2022. Replacing the Transformer hurt both years, while the preselected equal neural mean improved the original ensemble to 0.988360/0.988135. This supports complementary prediction errors in this blend, not superiority of the Mixer alone. Architecture and parameter count differ, while inputs and optimization settings are held fixed.",
+    "rdrop": "One remaining regularization control was prepared and mathematically audited: average two dropout-pass BCE losses plus symmetric Bernoulli KL. No completed RDrop fit existed at the review time. Its normalization is documented explicitly, and disabled loss/gradients/RNG remain unchanged.",
+    "validation_limit": "All reported comparisons use repeatedly reused historical development years. Freezing 2022 epochs and blend variants limits additional selection but does not create an untouched holdout or explain other teams leaderboard scores."
+  }
+}

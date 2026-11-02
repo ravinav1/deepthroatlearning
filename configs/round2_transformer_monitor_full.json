@@ -1,0 +1,22 @@
+{
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "stable_scaling": true,
+  "use_economic_rescaling": true,
+  "model_type": "transformer",
+  "seed": 42,
+  "epochs": 37,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "model": {
+    "width": 64,
+    "heads": 4,
+    "layers": 4,
+    "feedforward": 128,
+    "dropout": 0.1
+  },
+  "device": "cpu",
+  "selection_source": "reports/round2_transformer_monitor_budget_2021_metrics.json",
+  "note": "Prepared full-fit fallback: train the unchanged BCE Transformer on all supplied labeled cases for exactly 37 epochs selected by the 2021 frozen-ensemble monitor. The exporter uses four CPU threads and fits the stable scaler on labeled training cases only. No validation monitor or scheduler is used during this full fit."
+}

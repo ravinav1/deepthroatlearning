@@ -1,0 +1,37 @@
+{
+  "fold_years": [
+    2020,
+    2021,
+    2022
+  ],
+  "profiles": [
+    "price",
+    "sampling",
+    "regularized",
+    "deep_regularized",
+    "recency"
+  ],
+  "xgboost_trees": 600,
+  "cnn_epochs": 20,
+  "cnn_seed": 42,
+  "week_price_scale_floor": 1.0,
+  "fixed_cnn_weight": 0.2,
+  "model": {
+    "n_estimators": 300,
+    "learning_rate": 0.03,
+    "num_leaves": 8,
+    "max_depth": 3,
+    "min_child_samples": 5000,
+    "reg_lambda": 10.0,
+    "n_jobs": 4,
+    "random_state": 42,
+    "verbosity": -1
+  },
+  "objective": "Fit supplied UC labels y with sample_weight=abs(p_cnn-p_xgb), using context and expert probabilities. Project the estimated conditional ON probability q onto [min(p_xgb,p_cnn), max(p_xgb,p_cnn)]. This is the blend-interval BCE optimum if q is accurate; AUC is evaluated separately. Equal experts have zero fitting weight and an unchanged final prediction.",
+  "tie_cnn_weight_for_metadata": 0.2,
+  "protocol": "Freeze this configuration before fitting. 2021 gate uses 2020 OOF; 2022 gate uses 2020/2021 OOF; purge any OOF case whose 168-hour horizon crosses the evaluation-year boundary. Final gate uses all 2020/2021/2022 OOF. No early stopping, evaluation fitting, or hyperparameter search.",
+  "normalization": "Scale is max(population standard deviation of the supplied 168-hour price profile, 1 EUR/MWh). Preserve absolute weekly mean and scale alongside relative price, scaled terminal local water value and scaled margin.",
+  "final_sources": "The same five equal-weight 600-tree XGBoost experts and one seed-42 20-epoch CNN used in the OOF folds. Do not replace the final CNN with the stronger five-seed ensemble.",
+  "evaluation_note": "Historical years are development backtests; 2022 has influenced earlier project decisions. The current five-seed reference has different training budgets and is not a matched comparison.",
+  "unprojected_probability_diagnostic": "Score the same frozen meta-model before interval projection on historical evaluation only. No additional model fitting, submission output, or hyperparameter selection."
+}

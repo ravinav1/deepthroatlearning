@@ -1,0 +1,30 @@
+{
+  "selected_utc": "2026-10-14T16:49:23.827663+00:00",
+  "selected_variant": "candidate_mean",
+  "selected_metrics": {
+    "year": 2021,
+    "variant": "candidate_mean",
+    "cases": 365,
+    "micro_roc_auc": 0.9889189725406744,
+    "generator_auc": {
+      "Hogga_G1": 0.9707781038345855,
+      "Tokke_G1": 0.9905652835810101,
+      "Tokke_G2": 0.9926428043160465,
+      "Tokke_G3": 0.992347582636476,
+      "Tokke_G4": 0.9929264713461141,
+      "Lio_G1": 0.9566523797859401,
+      "Byrte_G1": 0.998494590232624,
+      "Vinje_G1": 0.99094942588573,
+      "Vinje_G2": 0.9873380760805273,
+      "Vinje_G3": 0.9814059538522304,
+      "Haukeli_G1": 0.9638157046579812,
+      "Songa_G1": 0.9949032140613635,
+      "Kjela_G1": 0.9842870244379609,
+      "Vesle Kjela_G1": 0.999163031223794
+    },
+    "delta_vs_baseline": 5.22273305825216e-07
+  },
+  "source": "reports/round3_xgb_child100_2021_comparison.json",
+  "protocol": "Locked before native/frozen2022 candidate scores; no selection change after2022",
+  "interpretation": "Nearly zero2021 ensemble gain despite modest standalone improvement; confirmation measures whether any generalization gain survives. Not yet accepted."
+}

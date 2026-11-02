@@ -1,0 +1,234 @@
+{
+  "started_utc": "2026-10-14 10:06:36 UTC",
+  "deadline_utc": "2026-10-14 12:06:36 UTC",
+  "objective": "Autonomously improve validated micro ROC-AUC for two hours; sequential four-thread heavy jobs; exclude competition labels; preserve originals and best artifacts.",
+  "initial_validated_reference": {
+    "submission": "submissions/submission_xgb_transformer_haukeli_70_30.csv",
+    "auc_2021": 0.9868456865125457,
+    "auc_2022": 0.9843832046746634
+  },
+  "known_public_best": {
+    "submission": "submissions/submission_xgb_transformer_plant_refined.csv",
+    "score": 0.98726
+  },
+  "experiments": [
+    {
+      "name": "cached_lio_specialist_blend",
+      "status": "evaluated",
+      "source": "reports/goal_lio_blend_comparison.json",
+      "auc_2021": 0.98695981434175,
+      "auc_2022": 0.9846435770169374,
+      "note": "Lio fixed tree50%; neural25%Transformer75%CNN; fullspecialistfit14epochsneededbeforeexport."
+    },
+    {
+      "name": "rescaled_bilstm",
+      "status": "evaluated_both_years_not_promoted",
+      "configs": [
+        "configs/goal_bilstm_rescaled_2021.json",
+        "configs/goal_bilstm_rescaled_2022.json"
+      ],
+      "standalone_auc_2022": 0.9654449476260497,
+      "best_epoch_2022": 25,
+      "comparison": "reports/goal_bilstm_rescaled_comparison.json",
+      "note": "Fixedneuralmean improves2022 but harms2021; fullreplacement harmsbothyears.",
+      "standalone_auc_2021": 0.9545346789657602,
+      "best_epoch_2021": 22
+    },
+    {
+      "name": "xgboost_economic_rescaling",
+      "status": "evaluated_both_years",
+      "config": "configs/goal_xgboost_rescaled_2021.json",
+      "auc_2021": 0.9844790579623633,
+      "training_auc_sample_2021": 0.9978202532693023,
+      "best_iteration_2021": 1451,
+      "comparison_2021": "reports/goal_tree_2021_comparison.json",
+      "comparison": "reports/goal_tree_comparison.json",
+      "auc_2022": 0.9877781813696767,
+      "training_auc_sample_2022": 0.9974476099539701,
+      "best_iteration_2022": 1305
+    },
+    {
+      "name": "transformer_seed7_and_fixed_mean",
+      "status": "evaluated_both_years_not_promoted",
+      "comparison_protocol": "src/compare_goal_sequences.py: individual andfixed50/50neuralmean, oldplantweightsfrozen",
+      "comparison": "reports/goal_transformer_seed7_comparison.json",
+      "reference": "newrescaledtreeplantblend",
+      "note": "Fixedseedmean harms2021;2022gain.000036notrobust."
+    },
+    {
+      "name": "rescaled_tree_plant_weights",
+      "status": "evaluated_both_years",
+      "protocol": "configs/goal_rescaled_plant_blend.json",
+      "selection": "coarse2021globalmicroAUC;2022frozenconfirmation",
+      "source": "reports/goal_rescaled_plant_blend_comparison.json",
+      "selected_transformer_weights": {
+        "Hogga": 0.3,
+        "Tokke": 0.9,
+        "Lio": 0.3,
+        "Byrte": 0.0,
+        "Vinje": 0.5,
+        "Songa": 0.0,
+        "Kjela": 0.2,
+        "Vesle Kjela": 0.0
+      },
+      "selected_haukeli_cnn_weight": 0.0,
+      "auc_2021": 0.9878645643215969,
+      "auc_2022": 0.9877036444789515
+    },
+    {
+      "name": "xgboost_fine_bins",
+      "status": "evaluated_both_years_not_promoted",
+      "single_change": "max_bin63\u2192255",
+      "configs": [
+        "configs/goal_xgboost_fine_bins_2021.json",
+        "configs/goal_xgboost_fine_bins_2022.json"
+      ],
+      "comparison": "reports/goal_fine_bins_comparison.json",
+      "note": "Finerbinsandfixedtreemeanfail2022confirmation; retain63bins.",
+      "auc_2021": 0.9844098608690767,
+      "best_iteration_2021": 982,
+      "training_seconds_2021": 258.21483637497295,
+      "auc_2022": 0.9870244010866821,
+      "best_iteration_2022": 1451,
+      "training_seconds_2022": 399.39292479201686
+    },
+    {
+      "name": "lightgbm_economic_rescaling",
+      "status": "confirmed_fixed_tree_mean",
+      "configs": [
+        "configs/goal_lightgbm_rescaled_2021.json",
+        "configs/goal_lightgbm_rescaled_2022.json"
+      ],
+      "time_budget_adjustment": "2021 cap 1500; 2022 cap 800, adjusted before second fit began. No convergence claim for capped fold.",
+      "auc_2021": 0.9848728433332485,
+      "training_seconds_2021": 1119.7269543750444,
+      "comparison_2021": "reports/goal_lightgbm_2021_comparison.json",
+      "comparison": "reports/goal_lightgbm_comparison.json",
+      "best_iteration_2021": 1499,
+      "auc_2022": 0.986684160101779,
+      "best_iteration_2022": 800
+    }
+  ],
+  "planned_sequence_experiments": [
+    "goal_bilstm_rescaled_2021",
+    "goal_transformer_seed7_2021/2022",
+    "goal_transformer_lower_lr_2021/2022",
+    "goal_transformer_rdrop_2021/2022"
+  ],
+  "planned_tree_experiments": [
+    "goal_lightgbm_rescaled_2021/2022",
+    "goal_xgboost_rescaled_2020: additional historical year check",
+    "goal_xgboost_fine_bins_2021/2022: change max_bin only"
+  ],
+  "implementation_checks": {
+    "rdrop_default_off_matches_previous_loss": true,
+    "rdrop_bernoulli_kl_gradients_checked": true,
+    "final_scheduler_replays_historical_rates": true,
+    "tree_rescaling_three_actual_case_checks_passed": true
+  },
+  "independent_tree_audit": {
+    "score_recomputed_2021": 0.9844790579623633,
+    "source": "goal_tree_strategy",
+    "leakage_or_alignment_flaw_found": false,
+    "original_metric_hash_matches": true,
+    "all_fourteen_generators_checked": true
+  },
+  "current_heavy_queue": [],
+  "current_heavy_session": null,
+  "research_notes": [
+    {
+      "technique": "R-Drop",
+      "status": "implemented_planned",
+      "primary_url": "https://proceedings.neurips.cc/paper/2021/hash/5a66b9200f29ac3fa0ae244cc2a51b39-Abstract.html"
+    },
+    {
+      "technique": "Finer XGBoost histogram bins",
+      "status": "planned_single_change_63_to_255",
+      "primary_url": "https://xgboost.readthedocs.io/en/stable/parameter.html"
+    },
+    {
+      "technique": "Manifold Mixup",
+      "status": "later_priority_soft_targets_no_hydraulic_validity_claim",
+      "primary_url": "https://proceedings.mlr.press/v97/verma19a.html"
+    },
+    {
+      "technique": "DART",
+      "status": "deferred_slower_under_three_hour_budget",
+      "primary_url": "https://proceedings.mlr.press/v38/korlakaivinayak15.html"
+    },
+    {
+      "technique": "BCE plus uniformly sampled RankNet pairs",
+      "status": "optional_implementation; training_if_time",
+      "primary_url": "https://www.microsoft.com/en-us/research/publication/learning-to-rank-using-gradient-descent/",
+      "consistency_reference": "https://jmlr.org/papers/v15/agarwal14b.html",
+      "protocol": "0.2pairwiseweight,4096pairs,minibatchpooledacrosscases/generators/hours;noRDrop;samearchitectureandfeatures"
+    }
+  ],
+  "duration_hours": 2,
+  "user_updated_duration": true,
+  "time_management": "Reserve final20minutes for strongestconfirmedfullfits, submissionverification, andoriginalfileaudit. Deferlowerpriority experimentsifnecessary.",
+  "provisional_strongest_recipe": {
+    "report": "reports/goal_lightgbm_comparison.json",
+    "variant": "candidate_equal_tree_mean",
+    "requires_full_fits": [
+      "goal_submission_xgb_rescaled",
+      "goal_submission_lightgbm_rescaled"
+    ],
+    "public_score": "unknown"
+  },
+  "error_diagnosis": "reports/goal_rescaled_error_diagnosis.json",
+  "optional_neural_implementations": {
+    "rdrop": "tested_default_off;configs_prepared;not_trained_yet",
+    "ranknet": "tested_default_off;configs_prepared;not_trained_yet"
+  },
+  "deferred_if_time_limited": [
+    "R-Drop Transformer",
+    "sampled RankNet Transformer",
+    "lower learning-rate Transformer",
+    "additional 2020 tree fold"
+  ],
+  "original_files_audit": "reports/goal_original_files_audit.json",
+  "full_fits": {
+    "xgboost": {
+      "status": "complete",
+      "report": "reports/goal_submission_xgb_rescaled_run.json",
+      "training_cases": 2922,
+      "trees": 1305
+    },
+    "lightgbm": {
+      "status": "complete",
+      "report": "reports/goal_submission_lightgbm_rescaled_run.json",
+      "training_cases": 2922,
+      "trees": 800
+    }
+  },
+  "deferred_experiments": {
+    "R-Drop": "Loss implementation checked; no model fit in this run.",
+    "RankNet": "Loss implementation checked; no model fit in this run.",
+    "Lower learning rate": "Config prepared; no model fit in this run.",
+    "2020 confirmation": "Config prepared; no new model fit in this run."
+  },
+  "time_budget_status": "Experiments stopped at the two-hour target; the already running final fit and export needed a few extra minutes.",
+  "confirmed_fallback": "data/processed/goal_submission_rescaled_plant_predictions.csv",
+  "completed_utc": "2026-10-14T12:13:54.702027+00:00",
+  "status": "complete",
+  "strongest_candidate": {
+    "submission": "submissions/submission_rescaled_xgb_lgb_transformer.csv",
+    "config": "configs/goal_submission_rescaled_tree_mean.json",
+    "run_report": "reports/submission_rescaled_xgb_lgb_transformer_run.json",
+    "micro_roc_auc_2021": 0.9882719381376425,
+    "micro_roc_auc_2022": 0.987770674860208,
+    "kaggle_score": 0.989,
+    "sha256": "30ab918cc77a8bd3aa63850a41f92fd633635ce0adbd2900d88f292488fa3a53",
+    "kaggle_score_source": "user_reported",
+    "reported_score_text": "0.989",
+    "kaggle_score_reported_date": "2026-10-14"
+  },
+  "summary": "Case-relative economic rescaling was the main improvement. Coarse plant weights and a fixed XGBoost/LightGBM mean improved both historical years. BiLSTM, seed averaging and finer bins were not promoted. Both historical years are reused development data.",
+  "final_verification": "reports/goal_final_model_verification.json",
+  "current_reported_public_best": {
+    "submission": "submissions/submission_rescaled_xgb_lgb_transformer.csv",
+    "score": 0.989,
+    "source": "user_reported"
+  }
+}

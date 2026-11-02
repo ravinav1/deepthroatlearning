@@ -1,0 +1,14 @@
+{
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "seed": 67,
+  "epochs": 21,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "model": {
+    "width": 64,
+    "dropout": 0.1
+  },
+  "selection_source": "reports/cnn_seed67_2022_metrics.json"
+}

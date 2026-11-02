@@ -1,0 +1,98 @@
+{
+  "validation_start": "2021-01-01",
+  "validation_end": "2022-01-01",
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "stable_scaling": true,
+  "use_economic_rescaling": true,
+  "model_type": "transformer",
+  "seed": 42,
+  "epochs": 39,
+  "patience": 40,
+  "batch_size": 32,
+  "learning_rate": 0.0005,
+  "early_stopping_metric": "ensemble",
+  "model": {
+    "width": 64,
+    "heads": 4,
+    "layers": 4,
+    "feedforward": 128,
+    "dropout": 0.1
+  },
+  "ensemble_monitor": {
+    "mode": "replace_component",
+    "replace_component": "transformer_weighted",
+    "prediction_paths": {
+      "xgb_rescaled": "data/processed/goal_xgboost_rescaled_2021_validation_predictions.csv",
+      "lightgbm_rescaled": "data/processed/goal_lightgbm_rescaled_2021_validation_predictions.csv",
+      "transformer": "data/processed/transformer_rescaled_2021_validation_predictions.csv",
+      "xgb_depth8": "data/processed/round3_xgb_ranks_2021_validation_predictions.csv",
+      "haukeli_specialist": "data/processed/round2_xgb_haukeli_2021_validation_predictions.csv",
+      "transformer_weighted": "data/processed/round2_transformer_task_weights_2021_validation_predictions.csv"
+    },
+    "plant_weights": {
+      "Hogga": {
+        "lightgbm_rescaled": 0.35,
+        "transformer": 0.15,
+        "xgb_depth8": 0.35,
+        "transformer_weighted": 0.15
+      },
+      "Tokke": {
+        "lightgbm_rescaled": 0.04999999999999999,
+        "transformer": 0.45,
+        "xgb_depth8": 0.04999999999999999,
+        "transformer_weighted": 0.45
+      },
+      "Lio": {
+        "lightgbm_rescaled": 0.35,
+        "transformer": 0.15,
+        "xgb_depth8": 0.35,
+        "transformer_weighted": 0.15
+      },
+      "Byrte": {
+        "lightgbm_rescaled": 0.5,
+        "xgb_depth8": 0.5
+      },
+      "Vinje": {
+        "lightgbm_rescaled": 0.25,
+        "transformer": 0.25,
+        "xgb_depth8": 0.25,
+        "transformer_weighted": 0.25
+      },
+      "Songa": {
+        "lightgbm_rescaled": 0.5,
+        "xgb_depth8": 0.5
+      },
+      "Kjela": {
+        "lightgbm_rescaled": 0.4,
+        "transformer": 0.1,
+        "xgb_depth8": 0.4,
+        "transformer_weighted": 0.1
+      },
+      "Vesle Kjela": {
+        "lightgbm_rescaled": 0.5,
+        "xgb_depth8": 0.5
+      },
+      "Haukeli": {
+        "xgb_rescaled": 0.25,
+        "lightgbm_rescaled": 0.5,
+        "haukeli_specialist": 0.25
+      }
+    },
+    "reference_config": "configs/round3_submission_temporal_ranks.json"
+  },
+  "device": "cpu",
+  "plant_loss_weights": {
+    "Hogga": 0.3,
+    "Tokke": 0.9,
+    "Lio": 0.3,
+    "Byrte": 0.0,
+    "Vinje": 0.5,
+    "Songa": 0.0,
+    "Kjela": 0.2,
+    "Vesle Kjela": 0.0,
+    "Haukeli": 0.0
+  },
+  "weight_decay": 0.0001
+}

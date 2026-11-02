@@ -1,0 +1,19 @@
+{
+  "selected_utc": "2026-10-14T17:54:04.591784+00:00",
+  "selected_variant": "candidate_replace",
+  "component_rules": {
+    "lightgbm_rescaled": "replacement",
+    "transformer_weighted": "50/50 old/new LR mean"
+  },
+  "auc_2021": 0.9891584883262101,
+  "delta_2021": 0.00017442490061592153,
+  "native2022_candidates_evaluated": false,
+  "combined_frozen2022_evaluated": false,
+  "gate": "Only export combined if both component changes pass individually and combined exceeds each locked individual variant on primary Jan7+ frozen and native2022. Otherwise reject combination; no weight search.",
+  "source_hashes": {
+    "reports/round4_combined_selection_comparison_2021.json": "a6e84af2215a80389c86f0e3e09cf5a5a834014a7c3bb0dd82f3ba34b3771481",
+    "reports/round4_lgb_ranks_selection_2021.json": "3b2c24a668426f0105280fbc12d74ae12a17095076877a8cf6aaef3ac8530d71",
+    "reports/round4_neural_selection_2021.json": "c2c49d65c21ae981a22ec2721b262df12fb2d5cd6fe2beea416bd47eeb1359f7",
+    "src/round4_compare.py": "63415ca4ae1615d397baeaeff8c6bf76b97b3e386b18573154356500f40103d4"
+  }
+}

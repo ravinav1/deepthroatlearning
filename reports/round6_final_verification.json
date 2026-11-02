@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "submission": "submissions/submission_round6_lgb_l2zero_experimental.csv",
+  "submission_sha256": "79fa626bf5913ee2385ed9ccf852f7b658a681f7c4d8ff01555d924019891a1a",
+  "seed_verifications": [
+    {
+      "path": "reports/round6_seed299_full_verification.json",
+      "sha256": "ca4cd6c4f9715fefaa228261e722f4256fc861f42b6a13afce3486bbcb5b1498"
+    },
+    {
+      "path": "reports/round6_seed673_and_blend_verification.json",
+      "sha256": "c5fcea10246cab7fb3646807a2540c5e0380e6cd53059ee668dbe55ae1e43c2a"
+    }
+  ],
+  "replayed_generator_models": 28,
+  "replay_cases_per_model": 5,
+  "sampled_model_replay": true,
+  "full_blend_reconstruction": {
+    "submission": "submissions/submission_round6_lgb_l2zero_experimental.csv",
+    "verified_probabilities": 1705200,
+    "max_absolute_difference": 0.0
+  },
+  "full_seed_mean_reconstruction": {
+    "output": "data/processed/round6_l2zero_seeds_full_predictions.csv",
+    "sources": 2,
+    "max_absolute_difference": 0.0
+  },
+  "training_cases_per_seed": 2922,
+  "competition_cases": 725,
+  "outputs_per_case": 2352,
+  "competition_training_id_overlap": 0,
+  "protected_original_files_unchanged": 1190,
+  "selection_report_sha256": "816f35a140167bfd59acd9d714e4c1ee5d78e5e864921a8a0ac928e7512c0120",
+  "heavy_jobs_running": false,
+  "experimental_only": true,
+  "recommendation": "Retain Round5reference: nativegains tiny and uncertain; frozen2022regresses."
+}

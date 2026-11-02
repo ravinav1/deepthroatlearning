@@ -1,0 +1,20 @@
+{
+  "created_utc": "2026-10-17T18:50:20.808132+00:00",
+  "adaptive_addendum": "Added after two feature ablations completed2021 and beforeanycandidate2022treeevaluation; allfouralreadydeclaredtreearmsgetexactlythesametwoensembleoptions.",
+  "arms": [
+    "no_absolute_scale",
+    "local_context",
+    "case_thinning",
+    "random_thresholds"
+  ],
+  "recipes": {
+    "replace": ".5Round3+.5new299 vs .5Round3+.5old299",
+    "mean": ".5Round3+.25new299+.25old299 vs .5Round3+.5old299"
+  },
+  "selection": "Maximum2021matchedsingle-seedgain>=.00005 across8fixedchoices; no moretreeorblendvariants.",
+  "paired_confirmation": "Forreplace: .5Round3+.25new299+.25new673. Formean: .5Round3+.125old299+.125old673+.125new299+.125new673. CompareactualRound5. Samegatesfromtreeprotocol.",
+  "no_fallback_after_2022": true,
+  "why": "Previousrounds showed standalone quality andensemble contribution differ; uniformold/newaverage testscomplementarity withoutweightsearch.",
+  "final_case_thinning_note": "All2922cases are eligible atfinalfit, buteachseedselects730or731wholecases; do notclaimall2922wereactuallyfit byeachthinnedmodel.",
+  "deadline_utc": "2026-10-17T19:43:16+00:00"
+}

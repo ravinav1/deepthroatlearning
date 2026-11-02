@@ -1,0 +1,829 @@
+{
+  "config": {
+    "selection_year": 2021,
+    "confirmation_year": 2022,
+    "baseline_transformer_weight": 0.2,
+    "candidate_transformer_weights": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "initial_plant_weights_source": "reports/plant_blend_comparison.json",
+    "xgboost_profiles": [
+      "price",
+      "sampling",
+      "regularized",
+      "deep_regularized",
+      "recency"
+    ],
+    "transformer_prefix": "transformer_rescaled",
+    "fixed_generator": "Haukeli_G1",
+    "specialist_prefix": "cnn_specialist_haukeli",
+    "baseline_submission": "submissions/submission_xgb_transformer_haukeli_80_20.csv",
+    "xgboost_submission": "submissions/submission_xgb_ensemble.csv",
+    "transformer_predictions": "data/processed/submission_transformer_rescaled_predictions.csv",
+    "note": "One coordinate pass starting from the existing 2021-selected plant weights, with Transformer weights in steps of 0.1. Select using 2021 pooled micro ROC-AUC, then check frozen weights on 2022. Compare against the current winner and one fixed mean of the old/refined weights, both selected on 2021. These years are reused development data; this is a refinement experiment after a separate reverse-year diagnostic, not an untouched holdout. No further grid or coordinate passes. Haukeli stays unchanged."
+  },
+  "plant_order": [
+    "Hogga",
+    "Tokke",
+    "Lio",
+    "Byrte",
+    "Vinje",
+    "Songa",
+    "Kjela",
+    "Vesle Kjela"
+  ],
+  "selected_uniform_weights": {
+    "Hogga": 0.5,
+    "Tokke": 0.5,
+    "Lio": 0.5,
+    "Byrte": 0.5,
+    "Vinje": 0.5,
+    "Songa": 0.5,
+    "Kjela": 0.5,
+    "Vesle Kjela": 0.5
+  },
+  "selected_plant_weights": {
+    "Hogga": 0.4,
+    "Tokke": 1.0,
+    "Lio": 0.5,
+    "Byrte": 0.0,
+    "Vinje": 0.8,
+    "Songa": 0.1,
+    "Kjela": 0.2,
+    "Vesle Kjela": 0.0
+  },
+  "uniform_trials": [
+    {
+      "transformer_weight": 0.0,
+      "micro_roc_auc": 0.9676059650993813
+    },
+    {
+      "transformer_weight": 0.1,
+      "micro_roc_auc": 0.9748418248349262
+    },
+    {
+      "transformer_weight": 0.2,
+      "micro_roc_auc": 0.9776045773132318
+    },
+    {
+      "transformer_weight": 0.3,
+      "micro_roc_auc": 0.9794866943016556
+    },
+    {
+      "transformer_weight": 0.4,
+      "micro_roc_auc": 0.9808019495626131
+    },
+    {
+      "transformer_weight": 0.5,
+      "micro_roc_auc": 0.98149852228902
+    },
+    {
+      "transformer_weight": 0.6,
+      "micro_roc_auc": 0.9812945849937315
+    },
+    {
+      "transformer_weight": 0.7,
+      "micro_roc_auc": 0.9804339010307632
+    },
+    {
+      "transformer_weight": 0.8,
+      "micro_roc_auc": 0.9788444313297723
+    },
+    {
+      "transformer_weight": 0.9,
+      "micro_roc_auc": 0.9762333584979355
+    },
+    {
+      "transformer_weight": 1.0,
+      "micro_roc_auc": 0.9690273402122254
+    }
+  ],
+  "plant_trials": [
+    {
+      "plant": "Hogga",
+      "transformer_weight": 0.0,
+      "micro_roc_auc": 0.9862335821295545
+    },
+    {
+      "plant": "Hogga",
+      "transformer_weight": 0.1,
+      "micro_roc_auc": 0.9865293710501322
+    },
+    {
+      "plant": "Hogga",
+      "transformer_weight": 0.2,
+      "micro_roc_auc": 0.9866542636209866
+    },
+    {
+      "plant": "Hogga",
+      "transformer_weight": 0.3,
+      "micro_roc_auc": 0.9867156051842991
+    },
+    {
+      "plant": "Hogga",
+      "transformer_weight": 0.4,
+      "micro_roc_auc": 0.9867353125897496
+    },
+    {
+      "plant": "Hogga",
+      "transformer_weight": 0.5,
+      "micro_roc_auc": 0.9867220950866603
+    },
+    {
+      "plant": "Hogga",
+      "transformer_weight": 0.6,
+      "micro_roc_auc": 0.9866765980786739
+    },
+    {
+      "plant": "Hogga",
+      "transformer_weight": 0.7,
+      "micro_roc_auc": 0.9865935406199922
+    },
+    {
+      "plant": "Hogga",
+      "transformer_weight": 0.8,
+      "micro_roc_auc": 0.9864656567815738
+    },
+    {
+      "plant": "Hogga",
+      "transformer_weight": 0.9,
+      "micro_roc_auc": 0.9862709506204634
+    },
+    {
+      "plant": "Hogga",
+      "transformer_weight": 1.0,
+      "micro_roc_auc": 0.9859587485882977
+    },
+    {
+      "plant": "Tokke",
+      "transformer_weight": 0.0,
+      "micro_roc_auc": 0.9727328637895454
+    },
+    {
+      "plant": "Tokke",
+      "transformer_weight": 0.1,
+      "micro_roc_auc": 0.9788758363907116
+    },
+    {
+      "plant": "Tokke",
+      "transformer_weight": 0.2,
+      "micro_roc_auc": 0.981063063890687
+    },
+    {
+      "plant": "Tokke",
+      "transformer_weight": 0.3,
+      "micro_roc_auc": 0.9825672856598819
+    },
+    {
+      "plant": "Tokke",
+      "transformer_weight": 0.4,
+      "micro_roc_auc": 0.9837259531062057
+    },
+    {
+      "plant": "Tokke",
+      "transformer_weight": 0.5,
+      "micro_roc_auc": 0.984683556827292
+    },
+    {
+      "plant": "Tokke",
+      "transformer_weight": 0.6,
+      "micro_roc_auc": 0.9854385771232614
+    },
+    {
+      "plant": "Tokke",
+      "transformer_weight": 0.7,
+      "micro_roc_auc": 0.9860203354712491
+    },
+    {
+      "plant": "Tokke",
+      "transformer_weight": 0.8,
+      "micro_roc_auc": 0.986460901449202
+    },
+    {
+      "plant": "Tokke",
+      "transformer_weight": 0.9,
+      "micro_roc_auc": 0.9867335686641412
+    },
+    {
+      "plant": "Tokke",
+      "transformer_weight": 1.0,
+      "micro_roc_auc": 0.9867353125897496
+    },
+    {
+      "plant": "Lio",
+      "transformer_weight": 0.0,
+      "micro_roc_auc": 0.9858394610725081
+    },
+    {
+      "plant": "Lio",
+      "transformer_weight": 0.1,
+      "micro_roc_auc": 0.9862643346716579
+    },
+    {
+      "plant": "Lio",
+      "transformer_weight": 0.2,
+      "micro_roc_auc": 0.9865095955510974
+    },
+    {
+      "plant": "Lio",
+      "transformer_weight": 0.3,
+      "micro_roc_auc": 0.986656981116341
+    },
+    {
+      "plant": "Lio",
+      "transformer_weight": 0.4,
+      "micro_roc_auc": 0.986731900450655
+    },
+    {
+      "plant": "Lio",
+      "transformer_weight": 0.5,
+      "micro_roc_auc": 0.9867353125897496
+    },
+    {
+      "plant": "Lio",
+      "transformer_weight": 0.6,
+      "micro_roc_auc": 0.9866635060147343
+    },
+    {
+      "plant": "Lio",
+      "transformer_weight": 0.7,
+      "micro_roc_auc": 0.9865033742890327
+    },
+    {
+      "plant": "Lio",
+      "transformer_weight": 0.8,
+      "micro_roc_auc": 0.9861905260599123
+    },
+    {
+      "plant": "Lio",
+      "transformer_weight": 0.9,
+      "micro_roc_auc": 0.9856069540486596
+    },
+    {
+      "plant": "Lio",
+      "transformer_weight": 1.0,
+      "micro_roc_auc": 0.9836449573933445
+    },
+    {
+      "plant": "Byrte",
+      "transformer_weight": 0.0,
+      "micro_roc_auc": 0.9867353125897496
+    },
+    {
+      "plant": "Byrte",
+      "transformer_weight": 0.1,
+      "micro_roc_auc": 0.9866284227950709
+    },
+    {
+      "plant": "Byrte",
+      "transformer_weight": 0.2,
+      "micro_roc_auc": 0.986466062284723
+    },
+    {
+      "plant": "Byrte",
+      "transformer_weight": 0.3,
+      "micro_roc_auc": 0.986269972022756
+    },
+    {
+      "plant": "Byrte",
+      "transformer_weight": 0.4,
+      "micro_roc_auc": 0.9860395302845439
+    },
+    {
+      "plant": "Byrte",
+      "transformer_weight": 0.5,
+      "micro_roc_auc": 0.9857739827446128
+    },
+    {
+      "plant": "Byrte",
+      "transformer_weight": 0.6,
+      "micro_roc_auc": 0.9854413104520429
+    },
+    {
+      "plant": "Byrte",
+      "transformer_weight": 0.7,
+      "micro_roc_auc": 0.9850059922156484
+    },
+    {
+      "plant": "Byrte",
+      "transformer_weight": 0.8,
+      "micro_roc_auc": 0.9844071803694492
+    },
+    {
+      "plant": "Byrte",
+      "transformer_weight": 0.9,
+      "micro_roc_auc": 0.9834814410373496
+    },
+    {
+      "plant": "Byrte",
+      "transformer_weight": 1.0,
+      "micro_roc_auc": 0.9813082512573956
+    },
+    {
+      "plant": "Vinje",
+      "transformer_weight": 0.0,
+      "micro_roc_auc": 0.982484715886073
+    },
+    {
+      "plant": "Vinje",
+      "transformer_weight": 0.1,
+      "micro_roc_auc": 0.9838925417105763
+    },
+    {
+      "plant": "Vinje",
+      "transformer_weight": 0.2,
+      "micro_roc_auc": 0.9847217703220512
+    },
+    {
+      "plant": "Vinje",
+      "transformer_weight": 0.3,
+      "micro_roc_auc": 0.9853386630474288
+    },
+    {
+      "plant": "Vinje",
+      "transformer_weight": 0.4,
+      "micro_roc_auc": 0.9858179948299065
+    },
+    {
+      "plant": "Vinje",
+      "transformer_weight": 0.5,
+      "micro_roc_auc": 0.9861852004013699
+    },
+    {
+      "plant": "Vinje",
+      "transformer_weight": 0.6,
+      "micro_roc_auc": 0.9864537289477755
+    },
+    {
+      "plant": "Vinje",
+      "transformer_weight": 0.7,
+      "micro_roc_auc": 0.98663934664242
+    },
+    {
+      "plant": "Vinje",
+      "transformer_weight": 0.8,
+      "micro_roc_auc": 0.9867353125897496
+    },
+    {
+      "plant": "Vinje",
+      "transformer_weight": 0.9,
+      "micro_roc_auc": 0.9867214606690312
+    },
+    {
+      "plant": "Vinje",
+      "transformer_weight": 1.0,
+      "micro_roc_auc": 0.9865198857768654
+    },
+    {
+      "plant": "Songa",
+      "transformer_weight": 0.0,
+      "micro_roc_auc": 0.9867333752654497
+    },
+    {
+      "plant": "Songa",
+      "transformer_weight": 0.1,
+      "micro_roc_auc": 0.9867899761289058
+    },
+    {
+      "plant": "Songa",
+      "transformer_weight": 0.2,
+      "micro_roc_auc": 0.9867353125897496
+    },
+    {
+      "plant": "Songa",
+      "transformer_weight": 0.3,
+      "micro_roc_auc": 0.986621749145077
+    },
+    {
+      "plant": "Songa",
+      "transformer_weight": 0.4,
+      "micro_roc_auc": 0.9864702741240423
+    },
+    {
+      "plant": "Songa",
+      "transformer_weight": 0.5,
+      "micro_roc_auc": 0.9862803770654907
+    },
+    {
+      "plant": "Songa",
+      "transformer_weight": 0.6,
+      "micro_roc_auc": 0.9860395881580727
+    },
+    {
+      "plant": "Songa",
+      "transformer_weight": 0.7,
+      "micro_roc_auc": 0.9857453258556086
+    },
+    {
+      "plant": "Songa",
+      "transformer_weight": 0.8,
+      "micro_roc_auc": 0.9853842863289112
+    },
+    {
+      "plant": "Songa",
+      "transformer_weight": 0.9,
+      "micro_roc_auc": 0.9849102161408727
+    },
+    {
+      "plant": "Songa",
+      "transformer_weight": 1.0,
+      "micro_roc_auc": 0.9841705765530347
+    },
+    {
+      "plant": "Kjela",
+      "transformer_weight": 0.0,
+      "micro_roc_auc": 0.9866337500210897
+    },
+    {
+      "plant": "Kjela",
+      "transformer_weight": 0.1,
+      "micro_roc_auc": 0.9867556497869953
+    },
+    {
+      "plant": "Kjela",
+      "transformer_weight": 0.2,
+      "micro_roc_auc": 0.9867899761289058
+    },
+    {
+      "plant": "Kjela",
+      "transformer_weight": 0.3,
+      "micro_roc_auc": 0.9867819240516092
+    },
+    {
+      "plant": "Kjela",
+      "transformer_weight": 0.4,
+      "micro_roc_auc": 0.9867494604106299
+    },
+    {
+      "plant": "Kjela",
+      "transformer_weight": 0.5,
+      "micro_roc_auc": 0.9866950518476428
+    },
+    {
+      "plant": "Kjela",
+      "transformer_weight": 0.6,
+      "micro_roc_auc": 0.9866167017368574
+    },
+    {
+      "plant": "Kjela",
+      "transformer_weight": 0.7,
+      "micro_roc_auc": 0.9865115008474487
+    },
+    {
+      "plant": "Kjela",
+      "transformer_weight": 0.8,
+      "micro_roc_auc": 0.9863657109951182
+    },
+    {
+      "plant": "Kjela",
+      "transformer_weight": 0.9,
+      "micro_roc_auc": 0.9861362601263401
+    },
+    {
+      "plant": "Kjela",
+      "transformer_weight": 1.0,
+      "micro_roc_auc": 0.9854097972954103
+    },
+    {
+      "plant": "Vesle Kjela",
+      "transformer_weight": 0.0,
+      "micro_roc_auc": 0.9867899761289058
+    },
+    {
+      "plant": "Vesle Kjela",
+      "transformer_weight": 0.1,
+      "micro_roc_auc": 0.9866771487826651
+    },
+    {
+      "plant": "Vesle Kjela",
+      "transformer_weight": 0.2,
+      "micro_roc_auc": 0.9865247017019136
+    },
+    {
+      "plant": "Vesle Kjela",
+      "transformer_weight": 0.3,
+      "micro_roc_auc": 0.9863406231925497
+    },
+    {
+      "plant": "Vesle Kjela",
+      "transformer_weight": 0.4,
+      "micro_roc_auc": 0.9861271957410178
+    },
+    {
+      "plant": "Vesle Kjela",
+      "transformer_weight": 0.5,
+      "micro_roc_auc": 0.9858726233456755
+    },
+    {
+      "plant": "Vesle Kjela",
+      "transformer_weight": 0.6,
+      "micro_roc_auc": 0.9855330908214384
+    },
+    {
+      "plant": "Vesle Kjela",
+      "transformer_weight": 0.7,
+      "micro_roc_auc": 0.9850825780646653
+    },
+    {
+      "plant": "Vesle Kjela",
+      "transformer_weight": 0.8,
+      "micro_roc_auc": 0.9844183628613551
+    },
+    {
+      "plant": "Vesle Kjela",
+      "transformer_weight": 0.9,
+      "micro_roc_auc": 0.9832888624888977
+    },
+    {
+      "plant": "Vesle Kjela",
+      "transformer_weight": 1.0,
+      "micro_roc_auc": 0.9789268039571711
+    }
+  ],
+  "variant_weights": {
+    "baseline_80_20": {
+      "Hogga": 0.2,
+      "Tokke": 0.2,
+      "Lio": 0.2,
+      "Byrte": 0.2,
+      "Vinje": 0.2,
+      "Songa": 0.2,
+      "Kjela": 0.2,
+      "Vesle Kjela": 0.2
+    },
+    "selected_uniform": {
+      "Hogga": 0.5,
+      "Tokke": 0.5,
+      "Lio": 0.5,
+      "Byrte": 0.5,
+      "Vinje": 0.5,
+      "Songa": 0.5,
+      "Kjela": 0.5,
+      "Vesle Kjela": 0.5
+    },
+    "selected_plant": {
+      "Hogga": 0.4,
+      "Tokke": 1.0,
+      "Lio": 0.5,
+      "Byrte": 0.0,
+      "Vinje": 0.8,
+      "Songa": 0.1,
+      "Kjela": 0.2,
+      "Vesle Kjela": 0.0
+    },
+    "reference_plant": {
+      "Hogga": 0.5,
+      "Tokke": 1.0,
+      "Lio": 0.5,
+      "Byrte": 0.0,
+      "Vinje": 0.8,
+      "Songa": 0.2,
+      "Kjela": 0.2,
+      "Vesle Kjela": 0.0
+    },
+    "mean_plant": {
+      "Hogga": 0.45,
+      "Tokke": 1.0,
+      "Lio": 0.5,
+      "Byrte": 0.0,
+      "Vinje": 0.8,
+      "Songa": 0.15000000000000002,
+      "Kjela": 0.2,
+      "Vesle Kjela": 0.0
+    }
+  },
+  "results": [
+    {
+      "year": 2021,
+      "variant": "baseline_80_20",
+      "validation_cases": 365,
+      "micro_roc_auc": 0.9776045773132318,
+      "generator_auc": {
+        "Hogga_G1": 0.9666951474500249,
+        "Tokke_G1": 0.9727459197529132,
+        "Tokke_G2": 0.9718658167920357,
+        "Tokke_G3": 0.9760072277955157,
+        "Tokke_G4": 0.9690714983594447,
+        "Lio_G1": 0.9212437409437496,
+        "Byrte_G1": 0.9988683181894045,
+        "Vinje_G1": 0.9757230360500726,
+        "Vinje_G2": 0.9728596263620091,
+        "Vinje_G3": 0.9687502559776966,
+        "Haukeli_G1": 0.9417483615934084,
+        "Songa_G1": 0.9949061720734454,
+        "Kjela_G1": 0.9858216075770214,
+        "Vesle Kjela_G1": 0.9996252266345026
+      }
+    },
+    {
+      "year": 2021,
+      "variant": "selected_uniform",
+      "validation_cases": 365,
+      "micro_roc_auc": 0.98149852228902,
+      "generator_auc": {
+        "Hogga_G1": 0.9673422877028369,
+        "Tokke_G1": 0.9840982483816806,
+        "Tokke_G2": 0.9835063284641951,
+        "Tokke_G3": 0.9856024296668191,
+        "Tokke_G4": 0.9826983450577202,
+        "Lio_G1": 0.9342618815949743,
+        "Byrte_G1": 0.9986269982186858,
+        "Vinje_G1": 0.9865972046727229,
+        "Vinje_G2": 0.9822454039060023,
+        "Vinje_G3": 0.976954556986284,
+        "Haukeli_G1": 0.9417483615934084,
+        "Songa_G1": 0.9921434432376944,
+        "Kjela_G1": 0.984756099073304,
+        "Vesle Kjela_G1": 0.9995036677370819
+      }
+    },
+    {
+      "year": 2021,
+      "variant": "selected_plant",
+      "validation_cases": 365,
+      "micro_roc_auc": 0.9867899761289058,
+      "generator_auc": {
+        "Hogga_G1": 0.9674186581517281,
+        "Tokke_G1": 0.9885360120924037,
+        "Tokke_G2": 0.9924119317103727,
+        "Tokke_G3": 0.9919589642905908,
+        "Tokke_G4": 0.9924548450061842,
+        "Lio_G1": 0.9342618815949743,
+        "Byrte_G1": 0.998769651672373,
+        "Vinje_G1": 0.9895660810541425,
+        "Vinje_G2": 0.985822738691226,
+        "Vinje_G3": 0.9786040311994093,
+        "Haukeli_G1": 0.9417483615934084,
+        "Songa_G1": 0.9949640744376698,
+        "Kjela_G1": 0.9858216075770214,
+        "Vesle Kjela_G1": 0.9996396106076109
+      }
+    },
+    {
+      "year": 2021,
+      "variant": "reference_plant",
+      "validation_cases": 365,
+      "micro_roc_auc": 0.9867220950866603,
+      "generator_auc": {
+        "Hogga_G1": 0.9673422877028369,
+        "Tokke_G1": 0.9885360120924037,
+        "Tokke_G2": 0.9924119317103727,
+        "Tokke_G3": 0.9919589642905908,
+        "Tokke_G4": 0.9924548450061842,
+        "Lio_G1": 0.9342618815949743,
+        "Byrte_G1": 0.998769651672373,
+        "Vinje_G1": 0.9895660810541425,
+        "Vinje_G2": 0.985822738691226,
+        "Vinje_G3": 0.9786040311994093,
+        "Haukeli_G1": 0.9417483615934084,
+        "Songa_G1": 0.9949061720734454,
+        "Kjela_G1": 0.9858216075770214,
+        "Vesle Kjela_G1": 0.9996396106076109
+      }
+    },
+    {
+      "year": 2021,
+      "variant": "mean_plant",
+      "validation_cases": 365,
+      "micro_roc_auc": 0.9867686402576705,
+      "generator_auc": {
+        "Hogga_G1": 0.9674213544755652,
+        "Tokke_G1": 0.9885360120924037,
+        "Tokke_G2": 0.9924119317103727,
+        "Tokke_G3": 0.9919589642905908,
+        "Tokke_G4": 0.9924548450061842,
+        "Lio_G1": 0.9342618815949743,
+        "Byrte_G1": 0.998769651672373,
+        "Vinje_G1": 0.9895660810541425,
+        "Vinje_G2": 0.985822738691226,
+        "Vinje_G3": 0.9786040311994093,
+        "Haukeli_G1": 0.9417483615934084,
+        "Songa_G1": 0.9949709427594869,
+        "Kjela_G1": 0.9858216075770214,
+        "Vesle Kjela_G1": 0.9996396106076109
+      }
+    },
+    {
+      "year": 2022,
+      "variant": "baseline_80_20",
+      "validation_cases": 365,
+      "micro_roc_auc": 0.9808571448817027,
+      "generator_auc": {
+        "Hogga_G1": 0.9732662981540532,
+        "Tokke_G1": 0.9886994622008215,
+        "Tokke_G2": 0.9852597002833421,
+        "Tokke_G3": 0.9893040314611772,
+        "Tokke_G4": 0.9858124165014096,
+        "Lio_G1": 0.9372313637814158,
+        "Byrte_G1": 0.995217540251368,
+        "Vinje_G1": 0.9743237686961411,
+        "Vinje_G2": 0.9717754098160866,
+        "Vinje_G3": 0.9619368432907027,
+        "Haukeli_G1": 0.935136706598191,
+        "Songa_G1": 0.995680944628862,
+        "Kjela_G1": 0.9772635073697308,
+        "Vesle Kjela_G1": 0.9877912045211087
+      }
+    },
+    {
+      "year": 2022,
+      "variant": "selected_uniform",
+      "validation_cases": 365,
+      "micro_roc_auc": 0.9830974577278784,
+      "generator_auc": {
+        "Hogga_G1": 0.9746864652242357,
+        "Tokke_G1": 0.9931006035116977,
+        "Tokke_G2": 0.9916683161788488,
+        "Tokke_G3": 0.9944554792342908,
+        "Tokke_G4": 0.9930231304919354,
+        "Lio_G1": 0.9374534370352692,
+        "Byrte_G1": 0.9931137425220804,
+        "Vinje_G1": 0.9828540467452545,
+        "Vinje_G2": 0.9802856487144767,
+        "Vinje_G3": 0.9674209154335364,
+        "Haukeli_G1": 0.935136706598191,
+        "Songa_G1": 0.9947220279821226,
+        "Kjela_G1": 0.9747683416528817,
+        "Vesle Kjela_G1": 0.985095390334646
+      }
+    },
+    {
+      "year": 2022,
+      "variant": "selected_plant",
+      "validation_cases": 365,
+      "micro_roc_auc": 0.9842733710899667,
+      "generator_auc": {
+        "Hogga_G1": 0.9745727122117172,
+        "Tokke_G1": 0.9922897294487714,
+        "Tokke_G2": 0.9915476248131403,
+        "Tokke_G3": 0.994640773866952,
+        "Tokke_G4": 0.9943572821739048,
+        "Lio_G1": 0.9374534370352692,
+        "Byrte_G1": 0.997640269908804,
+        "Vinje_G1": 0.9839155594859759,
+        "Vinje_G2": 0.9816590692863598,
+        "Vinje_G3": 0.9669884849144855,
+        "Haukeli_G1": 0.935136706598191,
+        "Songa_G1": 0.9954529212929326,
+        "Kjela_G1": 0.9772635073697308,
+        "Vesle Kjela_G1": 0.9909569486834118
+      }
+    },
+    {
+      "year": 2022,
+      "variant": "reference_plant",
+      "validation_cases": 365,
+      "micro_roc_auc": 0.984208063862431,
+      "generator_auc": {
+        "Hogga_G1": 0.9746864652242357,
+        "Tokke_G1": 0.9922897294487714,
+        "Tokke_G2": 0.9915476248131403,
+        "Tokke_G3": 0.994640773866952,
+        "Tokke_G4": 0.9943572821739048,
+        "Lio_G1": 0.9374534370352692,
+        "Byrte_G1": 0.997640269908804,
+        "Vinje_G1": 0.9839155594859759,
+        "Vinje_G2": 0.9816590692863598,
+        "Vinje_G3": 0.9669884849144855,
+        "Haukeli_G1": 0.935136706598191,
+        "Songa_G1": 0.995680944628862,
+        "Kjela_G1": 0.9772635073697308,
+        "Vesle Kjela_G1": 0.9909569486834118
+      }
+    },
+    {
+      "year": 2022,
+      "variant": "mean_plant",
+      "validation_cases": 365,
+      "micro_roc_auc": 0.9842485070511248,
+      "generator_auc": {
+        "Hogga_G1": 0.9746905171376964,
+        "Tokke_G1": 0.9922897294487714,
+        "Tokke_G2": 0.9915476248131403,
+        "Tokke_G3": 0.994640773866952,
+        "Tokke_G4": 0.9943572821739048,
+        "Lio_G1": 0.9374534370352692,
+        "Byrte_G1": 0.997640269908804,
+        "Vinje_G1": 0.9839155594859759,
+        "Vinje_G2": 0.9816590692863598,
+        "Vinje_G3": 0.9669884849144855,
+        "Haukeli_G1": 0.935136706598191,
+        "Songa_G1": 0.9956190582046721,
+        "Kjela_G1": 0.9772635073697308,
+        "Vesle Kjela_G1": 0.9909569486834118
+      }
+    }
+  ],
+  "reference_source": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/reports/plant_blend_comparison.json",
+  "evaluation_note": "One coordinate pass starting from the existing 2021-selected plant weights, with Transformer weights in steps of 0.1. Select using 2021 pooled micro ROC-AUC, then check frozen weights on 2022. Compare against the current winner and one fixed mean of the old/refined weights, both selected on 2021. These years are reused development data; this is a refinement experiment after a separate reverse-year diagnostic, not an untouched holdout. No further grid or coordinate passes. Haukeli stays unchanged."
+}

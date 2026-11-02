@@ -1,0 +1,59 @@
+{
+  "created_utc": "2026-10-17T18:55:17.490092+00:00",
+  "year": 2021,
+  "mode": "native",
+  "comparison": "matched_single_seed299",
+  "predictions": [
+    "data/processed/round9_random_thresholds_seed299_2021_validation_predictions.csv"
+  ],
+  "results": [
+    {
+      "subset": "all",
+      "cases": 365,
+      "baseline_micro_roc_auc": 0.9902748710982663,
+      "candidate_micro_roc_auc": 0.9892608123738361,
+      "delta": -0.0010140587244301669
+    }
+  ],
+  "quarterly": [
+    {
+      "quarter": 1,
+      "delta": -0.00013362862985799584
+    },
+    {
+      "quarter": 2,
+      "delta": -0.000598079524755768
+    },
+    {
+      "quarter": 3,
+      "delta": -0.0004752665609695228
+    },
+    {
+      "quarter": 4,
+      "delta": -0.003053749943284223
+    }
+  ],
+  "source_sha256": {
+    "configs/round3_submission_temporal_ranks.json": "a567449724194812fa0252c1b32f7a02fd38da3ddbbc116ead57d5c3e8d82261",
+    "configs/round5_submission_lgb_generators.json": "bf220960c0a63186069e1b1a66983bf4d607afac2ef5f27d0e04e25608a6f703",
+    "data/raw/sample_submission.csv": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba",
+    "data/raw/kernel/Unit_commitment_decisions.csv": "6d51f8cc6869cb82b44708168808c305c1e007cf79878ca1c1d316d07aae3ab3",
+    "data/raw/prediction_mapping.csv": "c8b0e5bc500a5f1dec2337f5ac680847f6a7794a7c2b7a8fb19384910a029519",
+    "data/processed/goal_xgboost_rescaled_2021_validation_predictions.csv": "3f0b8a5a2bcb4034c5de0ac7c526800df475dbee95f108d15d7b76d021c6a661",
+    "data/processed/goal_lightgbm_rescaled_2021_validation_predictions.csv": "c6293900ee822e35913ceed1e03195e9609be95b692af75b2fb664340750fc48",
+    "data/processed/transformer_rescaled_2021_validation_predictions.csv": "3c2a99925d32df75b0526a1ed88dc9f5dfd246e05b2436d0ba3e282001884e2f",
+    "data/processed/round3_xgb_ranks_2021_validation_predictions.csv": "050687f05e860f86cbafb41a9df099e908ff359868cbe34a7e33b2cdec0f0fe7",
+    "data/processed/round2_xgb_haukeli_2021_validation_predictions.csv": "da4fbddde38768640a5c57d690233370c5e7bf2f3b49d5a4560c20c45706e132",
+    "data/processed/round2_transformer_task_weights_2021_validation_predictions.csv": "f7334a3e3c0ec83615a67da440c9732c6f6c781df3a7b3f486b44080cc738726",
+    "data/processed/round5_lgb_peer_relative_seed299_2021_validation_predictions.csv": "0f54e6bb9fb4a1271d7eaa9108663beb9a6ca857ccb4e70db7384298ee5bc9f4",
+    "data/processed/round5_lgb_peer_relative_seed673_2021_validation_predictions.csv": "78d2ed6b9872394c5ab5838d9b9fa7b63f49c7eef0919488a608e1ba9a9bb37f",
+    "evaluation/kaggle_metric.py": "6ba062eeb8c2983a490cad411071dfc77831e3f2233278e5a67b68810df90553",
+    "data/processed/round6_native_2021_baseline.npz": "b7e8422abbd77ba4ec2fcc1c0a8957a1594bc7ac043111f2535ef8e2fc7dd8dd",
+    "data/processed/round9_random_thresholds_seed299_2021_validation_predictions.csv": "1c7402ab10694dd5b51fb41636f04dbc3510bfa998793f2b59d52f4f34487589",
+    "src/round9_tree_evaluate.py": "bd53a9f4aa45ff377aef271fd8c5a78feba48a93a5371b022dbd3e8d860c92c2"
+  },
+  "source_hashes_unchanged": true,
+  "official_metric_verified": true,
+  "competition_ids_overlap": 0,
+  "limitations": "Reused historical development years. Pooled micro-AUC selection; no claim of independent holdout evidence."
+}

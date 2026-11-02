@@ -1,0 +1,15 @@
+{
+  "sources": [
+    {
+      "file": "submissions/submission_xgb_ensemble.csv",
+      "weight": 0.8
+    },
+    {
+      "file": "data/processed/submission_cnn_rescaled_predictions.csv",
+      "weight": 0.19999999999999996
+    }
+  ],
+  "test_cases": 725,
+  "outputs_per_case": 2352,
+  "submission": "submissions/submission_xgb_cnn_rescaled_80_20.csv"
+}

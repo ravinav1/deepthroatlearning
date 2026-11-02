@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-10-17T18:49:00.044511+00:00",
+  "adaptive_addendum": "Two fixed training-method tests added after no_absolute_scale2021screen failed and whilelocal_context2021fit isrunning. No newcandidate2022tree results accessed.",
+  "arms": {
+    "case_thinning": "Choosechronologicaleligiblecaseindices %4 ==seed%4; retainall168hours. No hourlythinning. Approximatelysame91812rowbudget/gen. All113features unchanged. Fourdayspacing stillhasoverlappingweeks.",
+    "random_thresholds": "Set LightGBM extra_trees=true; keeporiginal113features,hourstride4,otherparams/treecounts. Randomone-thresholdperfeature,boostingretained."
+  },
+  "single_seed_selection": "Same2021matchedsingle299baseline and>=.00005gate. Pick highestgain across4fixedtreearms before2022. No further treefamily additions.",
+  "confirmation": "Uniform299/673 candidate mustbeat actualRound5 by>=.00005 on2021; frozen2022all+Jan7>=0; native2022all+Jan7>=.00005. No fallback afterconfirmation.",
+  "reference": "reports/round9_tree_protocol.json",
+  "deadline_utc": "2026-10-17T19:43:16+00:00",
+  "random_thresholds_source": "https://lightgbm.readthedocs.io/en/latest/Parameters.html#extra_trees"
+}

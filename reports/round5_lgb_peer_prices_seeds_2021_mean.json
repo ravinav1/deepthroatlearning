@@ -1,0 +1,29 @@
+{
+  "method": "Uniform probability mean; no weight fitting or seed selection.",
+  "sources": [
+    {
+      "path": "data/processed/round5_lgb_peer_absolute_seed299_2021_validation_predictions.csv",
+      "sha256": "d0697833e02f319bc0542801d42c4da5894331c2b181f2d03647ba229dfb38ed",
+      "weight": 0.25
+    },
+    {
+      "path": "data/processed/round5_lgb_peer_absolute_seed673_2021_validation_predictions.csv",
+      "sha256": "40d0923e21a645bfb43e4344b626509522f19da14304471cb50998c6167a9e95",
+      "weight": 0.25
+    },
+    {
+      "path": "data/processed/round5_lgb_peer_relative_seed299_2021_validation_predictions.csv",
+      "sha256": "0f54e6bb9fb4a1271d7eaa9108663beb9a6ca857ccb4e70db7384298ee5bc9f4",
+      "weight": 0.25
+    },
+    {
+      "path": "data/processed/round5_lgb_peer_relative_seed673_2021_validation_predictions.csv",
+      "sha256": "78d2ed6b9872394c5ab5838d9b9fa7b63f49c7eef0919488a608e1ba9a9bb37f",
+      "weight": 0.25
+    }
+  ],
+  "output": "data/processed/round5_lgb_peer_prices_seeds_2021_validation_predictions.csv",
+  "output_sha256": "61866b2304ac9853575d29b08e7c385acf5873793ae2f08434876ba6b49c8df4",
+  "cases": 365,
+  "outputs_per_case": 2352
+}

@@ -1,0 +1,129 @@
+{
+  "rule": "Per generator: median of 2019/2020 raw best tree counts, round half up, then clip to [100, 1800]. Fixed for 2021, 2022, final fitting and both seeds.",
+  "price_modes": {
+    "absolute": {
+      "sources": [
+        {
+          "path": "reports/round5_lgb_peer_absolute_2019_metrics.json",
+          "sha256": "a9dfe649d11c7311b5c80584a33b399c978bdf7f8e09a73a4cc840804674539f"
+        },
+        {
+          "path": "reports/round5_lgb_peer_absolute_2020_metrics.json",
+          "sha256": "6108db1c87620dbb931dc4fa76b78a9e0b5d337633fa2d28084fd59bdb9986c0"
+        }
+      ],
+      "raw_counts": {
+        "2019": {
+          "Hogga_G1": 432,
+          "Tokke_G1": 777,
+          "Tokke_G2": 296,
+          "Tokke_G3": 621,
+          "Tokke_G4": 568,
+          "Lio_G1": 416,
+          "Byrte_G1": 322,
+          "Vinje_G1": 1696,
+          "Vinje_G2": 913,
+          "Vinje_G3": 292,
+          "Haukeli_G1": 531,
+          "Songa_G1": 405,
+          "Kjela_G1": 77,
+          "Vesle Kjela_G1": 223
+        },
+        "2020": {
+          "Hogga_G1": 156,
+          "Tokke_G1": 468,
+          "Tokke_G2": 563,
+          "Tokke_G3": 174,
+          "Tokke_G4": 453,
+          "Lio_G1": 279,
+          "Byrte_G1": 221,
+          "Vinje_G1": 224,
+          "Vinje_G2": 135,
+          "Vinje_G3": 440,
+          "Haukeli_G1": 184,
+          "Songa_G1": 189,
+          "Kjela_G1": 626,
+          "Vesle Kjela_G1": 34
+        }
+      },
+      "trees_by_generator": {
+        "Hogga_G1": 294,
+        "Tokke_G1": 623,
+        "Tokke_G2": 430,
+        "Tokke_G3": 398,
+        "Tokke_G4": 511,
+        "Lio_G1": 348,
+        "Byrte_G1": 272,
+        "Vinje_G1": 960,
+        "Vinje_G2": 524,
+        "Vinje_G3": 366,
+        "Haukeli_G1": 358,
+        "Songa_G1": 297,
+        "Kjela_G1": 352,
+        "Vesle Kjela_G1": 129
+      }
+    },
+    "relative": {
+      "sources": [
+        {
+          "path": "reports/round5_lgb_peer_relative_2019_metrics.json",
+          "sha256": "2c076d128207b7d1a15c43681f051da035f36b2d292a7ee5e73554e14ca7001d"
+        },
+        {
+          "path": "reports/round5_lgb_peer_relative_2020_metrics.json",
+          "sha256": "136b88d38af386baabec42cddc2376d1ef66259d959c333ae23371d2c8956afc"
+        }
+      ],
+      "raw_counts": {
+        "2019": {
+          "Hogga_G1": 270,
+          "Tokke_G1": 1092,
+          "Tokke_G2": 464,
+          "Tokke_G3": 480,
+          "Tokke_G4": 359,
+          "Lio_G1": 437,
+          "Byrte_G1": 138,
+          "Vinje_G1": 531,
+          "Vinje_G2": 1731,
+          "Vinje_G3": 294,
+          "Haukeli_G1": 222,
+          "Songa_G1": 147,
+          "Kjela_G1": 87,
+          "Vesle Kjela_G1": 158
+        },
+        "2020": {
+          "Hogga_G1": 285,
+          "Tokke_G1": 332,
+          "Tokke_G2": 464,
+          "Tokke_G3": 362,
+          "Tokke_G4": 55,
+          "Lio_G1": 210,
+          "Byrte_G1": 215,
+          "Vinje_G1": 796,
+          "Vinje_G2": 768,
+          "Vinje_G3": 416,
+          "Haukeli_G1": 36,
+          "Songa_G1": 345,
+          "Kjela_G1": 435,
+          "Vesle Kjela_G1": 988
+        }
+      },
+      "trees_by_generator": {
+        "Hogga_G1": 278,
+        "Tokke_G1": 712,
+        "Tokke_G2": 464,
+        "Tokke_G3": 421,
+        "Tokke_G4": 207,
+        "Lio_G1": 324,
+        "Byrte_G1": 177,
+        "Vinje_G1": 664,
+        "Vinje_G2": 1250,
+        "Vinje_G3": 355,
+        "Haukeli_G1": 129,
+        "Songa_G1": 246,
+        "Kjela_G1": 261,
+        "Vesle Kjela_G1": 573
+      }
+    }
+  }
+}

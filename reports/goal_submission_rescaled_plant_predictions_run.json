@@ -1,0 +1,88 @@
+{
+  "config": {
+    "sources": {
+      "xgb_rescaled": "data/processed/goal_submission_xgb_rescaled_predictions.csv",
+      "transformer": "data/processed/submission_transformer_rescaled_predictions.csv"
+    },
+    "plant_weights": {
+      "Hogga": {
+        "xgb_rescaled": 0.7,
+        "transformer": 0.3
+      },
+      "Tokke": {
+        "xgb_rescaled": 0.09999999999999998,
+        "transformer": 0.9
+      },
+      "Lio": {
+        "xgb_rescaled": 0.7,
+        "transformer": 0.3
+      },
+      "Byrte": {
+        "xgb_rescaled": 1.0
+      },
+      "Vinje": {
+        "xgb_rescaled": 0.5,
+        "transformer": 0.5
+      },
+      "Songa": {
+        "xgb_rescaled": 1.0
+      },
+      "Kjela": {
+        "xgb_rescaled": 0.8,
+        "transformer": 0.2
+      },
+      "Vesle Kjela": {
+        "xgb_rescaled": 1.0
+      },
+      "Haukeli": {
+        "xgb_rescaled": 1.0
+      }
+    },
+    "historical_report": "reports/goal_rescaled_plant_blend_comparison.json",
+    "historical_variant": "selected_plant",
+    "note": "Plant weights selected on 2021 and checked unchanged on 2022. Haukeli uses only rescaled XGBoost. The final tree fit uses all supplied labeled cases and the 1,305 trees selected on 2022."
+  },
+  "config_sha256": "8321b2bd3d8fbc7958d4adaded300864727eba54f056517e013887fba503abfa",
+  "historical_source": "reports/goal_rescaled_plant_blend_comparison.json",
+  "historical_sha256": "a6ab17708dcc995d8bb39e7a78a3de9977316ea9a242c4185c6806224837c2df",
+  "historical_results": [
+    {
+      "year": 2021,
+      "baseline_micro_roc_auc": 0.9868456865125457,
+      "selected_micro_roc_auc": 0.9878645643215969,
+      "delta_vs_baseline": 0.0010188778090511885
+    },
+    {
+      "year": 2022,
+      "baseline_micro_roc_auc": 0.9843832046746634,
+      "selected_micro_roc_auc": 0.9877036444789515,
+      "delta_vs_baseline": 0.003320439804288089
+    }
+  ],
+  "test_cases": 725,
+  "outputs_per_case": 2352,
+  "template_sha256": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba",
+  "sources": {
+    "xgb_rescaled": {
+      "path": "data/processed/goal_submission_xgb_rescaled_predictions.csv",
+      "sha256": "98c2ceaee61d12ff8941f8544093349d8e625a746e8ea7afbe457ae862a84f28",
+      "outputs_per_case": 2352
+    },
+    "transformer": {
+      "path": "data/processed/submission_transformer_rescaled_predictions.csv",
+      "sha256": "a2a37788c932d5cc7c078ede9fbd3c8aec0c403234514c552eaeff637642b296",
+      "outputs_per_case": 2352
+    }
+  },
+  "submission": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/data/processed/goal_submission_rescaled_plant_predictions.csv",
+  "submission_sha256": "6b7a9343ce83f31b31b59ffd4debbce9ba9881c71d63d2f7c3707d618625efb7",
+  "checks": {
+    "unique_case_ids": true,
+    "template_case_order": true,
+    "template_column_order": true,
+    "all_plant_weights_sum_to_one": true,
+    "finite_probabilities_in_unit_interval": true,
+    "improves_both_historical_years": true
+  },
+  "note": "Saved predictions only; no fitting, hard thresholds or weight optimization. Historical results use reused development years, not an untouched holdout. Kaggle score remains unknown."
+}

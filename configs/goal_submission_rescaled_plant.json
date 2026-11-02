@@ -1,0 +1,43 @@
+{
+  "sources": {
+    "xgb_rescaled": "data/processed/goal_submission_xgb_rescaled_predictions.csv",
+    "transformer": "data/processed/submission_transformer_rescaled_predictions.csv"
+  },
+  "plant_weights": {
+    "Hogga": {
+      "xgb_rescaled": 0.7,
+      "transformer": 0.3
+    },
+    "Tokke": {
+      "xgb_rescaled": 0.09999999999999998,
+      "transformer": 0.9
+    },
+    "Lio": {
+      "xgb_rescaled": 0.7,
+      "transformer": 0.3
+    },
+    "Byrte": {
+      "xgb_rescaled": 1.0
+    },
+    "Vinje": {
+      "xgb_rescaled": 0.5,
+      "transformer": 0.5
+    },
+    "Songa": {
+      "xgb_rescaled": 1.0
+    },
+    "Kjela": {
+      "xgb_rescaled": 0.8,
+      "transformer": 0.2
+    },
+    "Vesle Kjela": {
+      "xgb_rescaled": 1.0
+    },
+    "Haukeli": {
+      "xgb_rescaled": 1.0
+    }
+  },
+  "historical_report": "reports/goal_rescaled_plant_blend_comparison.json",
+  "historical_variant": "selected_plant",
+  "note": "Plant weights selected on 2021 and checked unchanged on 2022. Haukeli uses only rescaled XGBoost. The final tree fit uses all supplied labeled cases and the 1,305 trees selected on 2022."
+}

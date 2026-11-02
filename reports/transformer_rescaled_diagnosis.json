@@ -1,0 +1,111 @@
+{
+  "models": [
+    {
+      "year": 2021,
+      "model": "transformer_rescaled_2021",
+      "parameters": 165326,
+      "best_epoch": 31,
+      "training_epochs": 39,
+      "training_cases": 2186,
+      "validation_cases": 365,
+      "purged_cases": 6,
+      "feature_names_equal_to_cnn": true,
+      "scaler_equal_to_cnn": true,
+      "competition_ids_excluded": true,
+      "reloaded_validation_max_absolute_difference": 2.980194091506405e-08,
+      "training": {
+        "micro_roc_auc": 0.9927146000808715,
+        "generator_auc": {
+          "Hogga_G1": 0.9763260490745653,
+          "Tokke_G1": 0.9912983891900371,
+          "Tokke_G2": 0.9950857592672523,
+          "Tokke_G3": 0.9950471958934332,
+          "Tokke_G4": 0.9952625902570708,
+          "Lio_G1": 0.9956246805305521,
+          "Byrte_G1": 0.9965711218132611,
+          "Vinje_G1": 0.993405748993453,
+          "Vinje_G2": 0.9898650232226922,
+          "Vinje_G3": 0.9704871029457561,
+          "Haukeli_G1": 0.994052471494066,
+          "Songa_G1": 0.995291748844862,
+          "Kjela_G1": 0.99392462733319,
+          "Vesle Kjela_G1": 0.9945137050894125
+        }
+      },
+      "validation": {
+        "micro_roc_auc": 0.9672536670387081,
+        "generator_auc": {
+          "Hogga_G1": 0.9560193193094315,
+          "Tokke_G1": 0.9885360120924037,
+          "Tokke_G2": 0.9924119317103727,
+          "Tokke_G3": 0.9919589642905908,
+          "Tokke_G4": 0.9924548450061842,
+          "Lio_G1": 0.9093872081682058,
+          "Byrte_G1": 0.9799286368143972,
+          "Vinje_G1": 0.9890460018982943,
+          "Vinje_G2": 0.9852768233153207,
+          "Vinje_G3": 0.975924248074137,
+          "Haukeli_G1": 0.913220029255037,
+          "Songa_G1": 0.9569424799693939,
+          "Kjela_G1": 0.9607542966156615,
+          "Vesle Kjela_G1": 0.9838080560020463
+        }
+      },
+      "training_validation_gap": 0.02546093304216346
+    },
+    {
+      "year": 2022,
+      "model": "transformer_rescaled_2022",
+      "parameters": 165326,
+      "best_epoch": 15,
+      "training_epochs": 23,
+      "training_cases": 2551,
+      "validation_cases": 365,
+      "purged_cases": 6,
+      "feature_names_equal_to_cnn": true,
+      "scaler_equal_to_cnn": true,
+      "competition_ids_excluded": true,
+      "reloaded_validation_max_absolute_difference": 2.980194091506405e-08,
+      "training": {
+        "micro_roc_auc": 0.9894355212278958,
+        "generator_auc": {
+          "Hogga_G1": 0.969911414773076,
+          "Tokke_G1": 0.9887809140740893,
+          "Tokke_G2": 0.9930385870912904,
+          "Tokke_G3": 0.9931189455387486,
+          "Tokke_G4": 0.9936332316455697,
+          "Lio_G1": 0.9904281426056344,
+          "Byrte_G1": 0.9948002761810724,
+          "Vinje_G1": 0.9908212514941447,
+          "Vinje_G2": 0.9861379661459966,
+          "Vinje_G3": 0.9641104654676772,
+          "Haukeli_G1": 0.9878768530675567,
+          "Songa_G1": 0.9931025186688923,
+          "Kjela_G1": 0.9882016385759408,
+          "Vesle Kjela_G1": 0.9916953278421623
+        }
+      },
+      "validation": {
+        "micro_roc_auc": 0.9740149631686138,
+        "generator_auc": {
+          "Hogga_G1": 0.963678307368811,
+          "Tokke_G1": 0.9922897294487714,
+          "Tokke_G2": 0.9915476248131403,
+          "Tokke_G3": 0.994640773866952,
+          "Tokke_G4": 0.9943572821739048,
+          "Lio_G1": 0.8924328743978804,
+          "Byrte_G1": 0.9749209719989087,
+          "Vinje_G1": 0.9811816146148498,
+          "Vinje_G2": 0.9795440009178343,
+          "Vinje_G3": 0.9633486892648454,
+          "Haukeli_G1": 0.921498152231675,
+          "Songa_G1": 0.9799052019683563,
+          "Kjela_G1": 0.9480545396476692,
+          "Vesle Kjela_G1": 0.976048274668749
+        }
+      },
+      "training_validation_gap": 0.015420558059281997
+    }
+  ],
+  "note": "Frozen selected checkpoints, no fitting. Validation years have been used for development and early stopping."
+}

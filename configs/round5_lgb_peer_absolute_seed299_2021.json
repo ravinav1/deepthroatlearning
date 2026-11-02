@@ -1,0 +1,61 @@
+{
+  "validation_start": "2021-01-01",
+  "validation_end": "2022-01-01",
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "use_price_context": true,
+  "use_economic_rescaling": false,
+  "loss": "binary",
+  "early_stopping_rounds": null,
+  "model": {
+    "n_estimators": 1800,
+    "learning_rate": 0.04,
+    "num_leaves": 63,
+    "min_child_samples": 100,
+    "max_bin": 63,
+    "random_state": 299,
+    "n_jobs": 4,
+    "deterministic": true,
+    "force_col_wise": true,
+    "verbosity": -1,
+    "reg_alpha": 0.2,
+    "reg_lambda": 4.0,
+    "subsample": 0.85,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.85
+  },
+  "hour_stride": 4,
+  "deadline_utc": "2026-10-14T20:35:07+00:00",
+  "experiment": "Separate generator LightGBM, absolute monetary inputs, stride 4, peer regularization. Counts selected on 2019/2020 only. Seed 299; seed 673 is used only in uniform seed means.",
+  "trees_by_generator": {
+    "Hogga_G1": 294,
+    "Tokke_G1": 623,
+    "Tokke_G2": 430,
+    "Tokke_G3": 398,
+    "Tokke_G4": 511,
+    "Lio_G1": 348,
+    "Byrte_G1": 272,
+    "Vinje_G1": 960,
+    "Vinje_G2": 524,
+    "Vinje_G3": 366,
+    "Haukeli_G1": 358,
+    "Songa_G1": 297,
+    "Kjela_G1": 352,
+    "Vesle Kjela_G1": 129
+  },
+  "count_selection": {
+    "sources": [
+      {
+        "path": "reports/round5_lgb_peer_absolute_2019_metrics.json",
+        "sha256": "a9dfe649d11c7311b5c80584a33b399c978bdf7f8e09a73a4cc840804674539f"
+      },
+      {
+        "path": "reports/round5_lgb_peer_absolute_2020_metrics.json",
+        "sha256": "6108db1c87620dbb931dc4fa76b78a9e0b5d337633fa2d28084fd59bdb9986c0"
+      }
+    ],
+    "rule": "Per generator: median of 2019/2020 raw best tree counts, round half up, then clip to [100, 1800]. Fixed for 2021, 2022, final fitting and both seeds.",
+    "selection_seed": 299
+  }
+}

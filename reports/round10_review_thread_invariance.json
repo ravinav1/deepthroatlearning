@@ -1,0 +1,29 @@
+{
+  "created_utc": "2026-10-18T12:09:07.913360+00:00",
+  "status": "passed",
+  "purpose": "Check deterministic reference invariance at two threads and unchanged optional-feature defaults before interpreting Round10 ablations.",
+  "generator": "Haukeli_G1",
+  "training_cases": 2186,
+  "training_rows": 91812,
+  "evaluation_cases": 365,
+  "probabilities_verified": 61320,
+  "feature_count": 113,
+  "trees": 129,
+  "reference_threads": 4,
+  "probe_threads": 2,
+  "only_training_parameter_change": "n_jobs 4 to 2",
+  "default_context_flags_false_manual_builder_exact": true,
+  "max_absolute_difference_vs_archived_seed299_2021_predictions": 0.0,
+  "bitwise_predictions_equal": true,
+  "training_case_ids_sha256": "e5d4ff3d96e4f6bc6b5d9a945c4c628ab156dfdf5e3f295898baaf5733621f99",
+  "training_seconds": 6.273736333008856,
+  "source_sha256": {
+    "src/round5_lightgbm.py": "e1d29e86f1dab9779206d68715a4011eb32e103e31cb9280e0dc4cd401c501b5",
+    "configs/round5_lgb_peer_relative_seed299_2021.json": "765542f15dd99f9398619f1cf093b449d6f3a7032fb93690151c1ca7f4ba93c1",
+    "reports/round5_lgb_peer_relative_seed299_2021_metrics.json": "00dc21063fb9c5a90e466b4fbb627822a87796a0b81425deacf02577676e038f",
+    "data/processed/round5_lgb_peer_relative_seed299_2021_validation_predictions.csv": "0f54e6bb9fb4a1271d7eaa9108663beb9a6ca857ccb4e70db7384298ee5bc9f4"
+  },
+  "models_saved": false,
+  "competition_predictions_generated": false,
+  "limitations": "One complete low-cost generator reference fit, not a repeat of all 14 fits; fixed counts, original random seed/stride/cohort, no early stopping or score-based model selection."
+}

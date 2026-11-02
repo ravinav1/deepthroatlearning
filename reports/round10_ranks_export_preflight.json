@@ -1,0 +1,39 @@
+{
+  "created_utc": "2026-10-18T12:46:25.960336+00:00",
+  "before_export": true,
+  "full_fit_checks": [
+    {
+      "seed": 299,
+      "report": "reports/round10_ranks_seed299_full_run.json",
+      "report_sha256": "e0ef13f32027eb54ef06984c15ef68ba1f0aa69d658ad04c61952f1592b0affd",
+      "training_cases": 2922,
+      "evaluation_cases": 725,
+      "training_case_ids_sha256": "9ea86abb2dfaa9bb06b020cdf00bb50e69e6b95246c1971b31afab0fb230296c",
+      "competition_training_id_overlap": 0,
+      "models": 14,
+      "training_rows_per_generator": 122724,
+      "prediction_path": "data/processed/round10_ranks_seed299_full_predictions.csv",
+      "prediction_sha256": "ead657081b83cb0e8493b014d6d2eaa9cb99f02c947ca1682369ce860dc5c356"
+    },
+    {
+      "seed": 673,
+      "report": "reports/round10_ranks_seed673_full_run.json",
+      "report_sha256": "c5cc1f669c041e5b74e17355cc45f6f0fdbb51a215d9e0387b654ae22b307f45",
+      "training_cases": 2922,
+      "evaluation_cases": 725,
+      "training_case_ids_sha256": "9ea86abb2dfaa9bb06b020cdf00bb50e69e6b95246c1971b31afab0fb230296c",
+      "competition_training_id_overlap": 0,
+      "models": 14,
+      "training_rows_per_generator": 122724,
+      "prediction_path": "data/processed/round10_ranks_seed673_full_predictions.csv",
+      "prediction_sha256": "f5df032cb58919592c59f3befc012f459863d5e1430d1a70a877579de9b4cec4"
+    }
+  ],
+  "independent_case_id_overlap_check": 0,
+  "training_first_start": "2015-01-01 00:00:00+00:00",
+  "training_last_start": "2022-12-31 00:00:00+00:00",
+  "incumbent_path": "submissions/submission_round5_lgb_generators.csv",
+  "incumbent_sha256": "5b736f51f14028eaee5382124314fd4c368b72f546116d0a6ac053fafa086a29",
+  "fitting_performed_by_this_check": false,
+  "temporal_combination": false
+}

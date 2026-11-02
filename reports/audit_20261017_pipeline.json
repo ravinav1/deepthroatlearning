@@ -1,0 +1,984 @@
+{
+  "audit_created_utc": "2026-10-17T19:50:47.278573+00:00",
+  "scope": "Read-only audit of the actual Round5 best submission pipeline. No training, production edits, model changes, submission export or Kaggle access.",
+  "applicable_agents_md": "No AGENTS.md found in workspace or its ancestor chain.",
+  "summary": "The best CSV is internally consistent: all final Round5 model predictions fully replay exactly, both blend layers reconstruct exactly, and current recorded source hashes match. No active prediction-order, preprocessing or model-to-cache mismatch was found. One confirmed stale-deadline inference defect affects reproducibility, not the existing CSV. Validation remains adaptive development. A previously unused fixed Round4 neural integration gives tiny positive historical gains in all scenarios, without establishing a replacement.",
+  "actual_best": {
+    "path": "submissions/submission_round5_lgb_generators.csv",
+    "user_reported_public_auc": 0.99172,
+    "public_score_independently_verified": false,
+    "sha256": "5b736f51f14028eaee5382124314fd4c368b72f546116d0a6ac053fafa086a29",
+    "recipe": "0.5 Round3 ensemble + 0.25 Round5 separate-generator seed299 + 0.25 Round5 separate-generator seed673",
+    "round5_models": 28,
+    "tree_count_per_seed": 6061,
+    "round5_features_per_model": 113,
+    "train_cases": 2922,
+    "test_cases": 725,
+    "outputs_per_case": 2352,
+    "round5_training": "One binary LGBM per generator; 42 of168 hourly rows per case via hour%4 == (Run No+seed)%4; features built from complete weekly supplied inputs before thinning. Counts fixed per generator from2019/2020.",
+    "preprocessing": "Case-local monetary scaling by max(mean(abs(168 supplied prices)),10); log scale retained; no validation/test labels used. Separate-generator builder restores global generator_id.",
+    "inherited_sources": {
+      "xgb_rescaled": "data/processed/goal_submission_xgb_rescaled_predictions.csv",
+      "lightgbm_rescaled": "data/processed/goal_submission_lightgbm_rescaled_predictions.csv",
+      "transformer": "data/processed/submission_transformer_rescaled_predictions.csv",
+      "xgb_depth8": "data/processed/round3_xgb_ranks_full_predictions.csv",
+      "haukeli_specialist": "data/processed/round2_xgb_haukeli_full_predictions.csv",
+      "transformer_weighted": "data/processed/round2_submission_transformer_task_weights_predictions.csv"
+    },
+    "expanded_final_plant_weights": {
+      "Hogga": {
+        "round5_seed299": 0.25,
+        "round5_seed673": 0.25,
+        "lightgbm_rescaled": 0.175,
+        "transformer": 0.075,
+        "xgb_depth8": 0.175,
+        "transformer_weighted": 0.075
+      },
+      "Tokke": {
+        "round5_seed299": 0.25,
+        "round5_seed673": 0.25,
+        "lightgbm_rescaled": 0.024999999999999994,
+        "transformer": 0.225,
+        "xgb_depth8": 0.024999999999999994,
+        "transformer_weighted": 0.225
+      },
+      "Lio": {
+        "round5_seed299": 0.25,
+        "round5_seed673": 0.25,
+        "lightgbm_rescaled": 0.175,
+        "transformer": 0.075,
+        "xgb_depth8": 0.175,
+        "transformer_weighted": 0.075
+      },
+      "Byrte": {
+        "round5_seed299": 0.25,
+        "round5_seed673": 0.25,
+        "lightgbm_rescaled": 0.25,
+        "xgb_depth8": 0.25
+      },
+      "Vinje": {
+        "round5_seed299": 0.25,
+        "round5_seed673": 0.25,
+        "lightgbm_rescaled": 0.125,
+        "transformer": 0.125,
+        "xgb_depth8": 0.125,
+        "transformer_weighted": 0.125
+      },
+      "Songa": {
+        "round5_seed299": 0.25,
+        "round5_seed673": 0.25,
+        "lightgbm_rescaled": 0.25,
+        "xgb_depth8": 0.25
+      },
+      "Kjela": {
+        "round5_seed299": 0.25,
+        "round5_seed673": 0.25,
+        "lightgbm_rescaled": 0.2,
+        "transformer": 0.05,
+        "xgb_depth8": 0.2,
+        "transformer_weighted": 0.05
+      },
+      "Vesle Kjela": {
+        "round5_seed299": 0.25,
+        "round5_seed673": 0.25,
+        "lightgbm_rescaled": 0.25,
+        "xgb_depth8": 0.25
+      },
+      "Haukeli": {
+        "round5_seed299": 0.25,
+        "round5_seed673": 0.25,
+        "xgb_rescaled": 0.125,
+        "lightgbm_rescaled": 0.25,
+        "haukeli_specialist": 0.125
+      }
+    },
+    "source_references": [
+      "src/features.py:20",
+      "src/features.py:78",
+      "src/features.py:209",
+      "src/features.py:216",
+      "src/round5_lightgbm.py:30",
+      "src/round5_lightgbm.py:39",
+      "src/round5_lightgbm.py:49",
+      "src/round5_lightgbm.py:130",
+      "src/tree_preprocessing.py:8",
+      "src/round5_average.py:24",
+      "src/make_goal_submission.py:65",
+      "evaluation/kaggle_metric.py:24"
+    ]
+  },
+  "fresh_verification": {
+    "all_1705200_final_blend_probabilities_exact": true,
+    "all_1705200_seed_mean_probabilities_exact": true,
+    "entire_round3_six_component_reconstruction_exact": true,
+    "full_round5_saved_model_replay": {
+      "all_28_generator_models_full_replay_exact": true,
+      "checks": [
+        {
+          "seed": 299,
+          "generator": "Hogga_G1",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 299,
+          "generator": "Tokke_G1",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 299,
+          "generator": "Tokke_G2",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 299,
+          "generator": "Tokke_G3",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 299,
+          "generator": "Tokke_G4",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 299,
+          "generator": "Lio_G1",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 299,
+          "generator": "Byrte_G1",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 299,
+          "generator": "Vinje_G1",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 299,
+          "generator": "Vinje_G2",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 299,
+          "generator": "Vinje_G3",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 299,
+          "generator": "Haukeli_G1",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 299,
+          "generator": "Songa_G1",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 299,
+          "generator": "Kjela_G1",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 299,
+          "generator": "Vesle Kjela_G1",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 673,
+          "generator": "Hogga_G1",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 673,
+          "generator": "Tokke_G1",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 673,
+          "generator": "Tokke_G2",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 673,
+          "generator": "Tokke_G3",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 673,
+          "generator": "Tokke_G4",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 673,
+          "generator": "Lio_G1",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 673,
+          "generator": "Byrte_G1",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 673,
+          "generator": "Vinje_G1",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 673,
+          "generator": "Vinje_G2",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 673,
+          "generator": "Vinje_G3",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 673,
+          "generator": "Haukeli_G1",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 673,
+          "generator": "Songa_G1",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 673,
+          "generator": "Kjela_G1",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        },
+        {
+          "seed": 673,
+          "generator": "Vesle Kjela_G1",
+          "max_absolute_error": 0.0,
+          "probabilities": 121800
+        }
+      ],
+      "total_model_probabilities": 3410400,
+      "cases_per_model": 725,
+      "cpu_threads_prediction": 1,
+      "loaded_models_concurrently": 1,
+      "seconds": 65.51328992843628
+    },
+    "single_vs_pooled_features": {
+      "single_vs_pooled_exact": true,
+      "cases": 3,
+      "generators": 14,
+      "columns": 113,
+      "scale_fitted_using_labels": false
+    },
+    "recorded_hashes_vs_current": {
+      "reports/round5_seed299_full_verification.json": {
+        "artifacts": 22,
+        "mismatches": []
+      },
+      "reports/round5_seed673_and_blend_verification.json": {
+        "artifacts": 30,
+        "mismatches": []
+      }
+    },
+    "split_checks": [
+      {
+        "year": 2019,
+        "fit_cases": 1455,
+        "purged": 6,
+        "last_training_start": "2018-12-25 00:00:00+00:00",
+        "last_training_end_exclusive": "2019-01-01 00:00:00+00:00"
+      },
+      {
+        "year": 2020,
+        "fit_cases": 1820,
+        "purged": 6,
+        "last_training_start": "2019-12-25 00:00:00+00:00",
+        "last_training_end_exclusive": "2020-01-01 00:00:00+00:00"
+      },
+      {
+        "year": 2021,
+        "fit_cases": 2186,
+        "purged": 6,
+        "last_training_start": "2020-12-25 00:00:00+00:00",
+        "last_training_end_exclusive": "2021-01-01 00:00:00+00:00"
+      },
+      {
+        "year": 2022,
+        "fit_cases": 2551,
+        "purged": 6,
+        "last_training_start": "2021-12-25 00:00:00+00:00",
+        "last_training_end_exclusive": "2022-01-01 00:00:00+00:00"
+      }
+    ],
+    "train_test_id_overlap": 0,
+    "limits": "The inherited Round3 component CSVs and their blend were freshly verified; inherited six model checkpoints were not independently replayed in this audit. Full checkpoint replay here covers all28 new Round5 models and all725 cases. Predictions use num_threads=1, and only one model is loaded at a time."
+  },
+  "confirmed_issues": [
+    {
+      "id": "PIPE-01",
+      "severity": "medium_reproducibility",
+      "title": "Frozen inference inherits an expired training deadline and has no override.",
+      "evidence": [
+        "src/round5_lightgbm.py:69-72 selects source[config] in frozen mode and disallows a simultaneous config.",
+        "src/round5_lightgbm.py:114-119 computes remaining runtime from source deadline; after expiry this is zero.",
+        "src/round5_lightgbm.py:130-131 checks deadline before first generator prediction.",
+        "configs/round5_lgb_peer_relative_seed299_2021.json:29 stores2026-10-14T20:35:07+00:00; current audit is2026-10-17.",
+        "Same logic in src/round6_lightgbm.py:114-119 and src/round9_lightgbm.py:142-147."
+      ],
+      "read_only_reproduction": {
+        "source_report": "reports/round5_lgb_peer_relative_seed299_2021_metrics.json",
+        "saved_deadline": "2026-10-14T20:35:07+00:00",
+        "checked_utc": "2026-10-17T19:47:25.110901+00:00",
+        "expired_seconds": 256338.110901,
+        "clamped_remaining_seconds": 0
+      },
+      "impact": "A new-name frozen-inference replay now raises TimeoutError before first prediction, even though saved models are valid. Existing predictions/submission are unaffected.",
+      "minimal_fix_and_test": "Separate runtime budget from model config; let frozen inference omit or explicitly override deadline. In a non-writing unit test, an archived report deadline must not prevent an otherwise valid inference request. Preserve training deadlines."
+    }
+  ],
+  "confirmed_validation_limits": [
+    {
+      "id": "VAL-01",
+      "title": "Native2022 is not independent of checkpoint selection for all inherited components.",
+      "evidence": {
+        "goal_xgboost_rescaled_2022": "1305 trees selected on2022; final contribution12.5% to Haukeli.",
+        "goal_lightgbm_rescaled_2022": "800 trees at budget cap, with2022 AUC monitoring; final pooled LGB contribution2.5\u201325% depending plant.",
+        "transformer_rescaled_2022": "15epochs selected by2022 AUC; final Transformer contribution0\u201322.5%; native2021 counterpart selected31epochs.",
+        "round3_xgb_ranks_2022": "748 trees fixed from2021.",
+        "round2_xgb_haukeli_2022": "121 trees fixed from2021.",
+        "round2_transformer_task_weights_2022": "28epochs fixed from2021.",
+        "round5_models": "Counts fixed from2019/2020; new family/blend selected among24 entries on2021."
+      },
+      "references": [
+        "src/train_cnn.py:166-190",
+        "src/train_xgboost.py:105-118",
+        "configs/submission_transformer_rescaled.json:13",
+        "configs/goal_submission_xgb_rescaled.json:8",
+        "reports/round2_validation_protocol_review.json:76",
+        "reports/round5_selection_2021.json:19",
+        "reports/round5_report_20261014.md:33"
+      ],
+      "impact": "A frozen candidate schedule does not make an old ensemble independent of the evaluation-year labels. Frozen2022 addresses direct2022 checkpoint selection but is still reused development and shares labels with native2022. Positive tiny deltas should not be called fresh validation.",
+      "minimal_future_test": "Use a predeclared purged rolling-origin protocol with inner checkpoint/weight selection and outer assessment; fit all preprocessing and selectors only inside each origin. Treat already observed outer years as development, and avoid repeated adaptive promotion from the same two years."
+    },
+    {
+      "id": "VAL-02",
+      "title": "Confidence intervals and split checks have limited scope.",
+      "references": [
+        "src/round5_lightgbm.py:99-107",
+        "src/round5_compare.py:147-150",
+        "reports/round5_report_20261014.md:37-45"
+      ],
+      "evidence": "Purging correctly removes six daily training starts crossing each weekly evaluation boundary. Jan7+ removes selection-horizon overlap. Existing14-day circular block intervals condition on chosen predictions and do not account for all prior model/blend selection. Frozen and native2022 are not independent replications.",
+      "impact": "The reported uncertainty is conditional, not evidence of unbiased private2024 performance. This is a known documented limitation rather than a newly discovered leakage bug."
+    }
+  ],
+  "omitted_or_untried_integration": [
+    {
+      "id": "EXT-01",
+      "title": "The two temporal price ranks have not been tested in the separate-generator Round5 models.",
+      "evidence": [
+        "src/round5_lightgbm.py:30-32 already exposes use_temporal_ranks.",
+        "None of current Round5/Round6/Round9 configs enables it; current final models have113 features, without temporal_rank_week/temporal_rank_remaining.",
+        "Round3 ranks improved the depth8 XGBoost contribution and are inherited at2.5\u201325% of final probability, depending plant (zero for Haukeli).",
+        "Round4 tested ranks in pooled31-leaf LGBM, not separate63-leaf models, and rejected after native2022 ensemble loss0.000053013."
+      ],
+      "references": [
+        "configs/round5_lgb_peer_relative_seed299_full.json:1",
+        "configs/round4_lgb_ranks_2021.json:13",
+        "configs/round4_lgb_ranks_2021.json:25",
+        "reports/round4_report_20261014.md:24",
+        "reports/round3_report_20261014.md:43"
+      ],
+      "classification": "Untried model/feature interaction, not an established improvement or a forgotten proven gain.",
+      "minimal_future_test": "One fixed seed299 arm adding exactly the two ranks to the current separate-generator model, identical counts/data/parameters; score the full Round5 ensemble against its matched seed299 reference before any second-seed confirmation."
+    },
+    {
+      "id": "EXT-02",
+      "title": "Round4 selected neural mean was never integrated with Round5 before this audit.",
+      "classification": "Fresh fixed cached-prediction arithmetic; tiny positive reused-development deltas. No new candidate exported or promoted.",
+      "evidence": "Current Round5 sources Round3. Search across current Round5\u20139 configs/reports found no references to round4_transformer_lr or round4_neural_lr. The exact selected Round4 recipe differs from Round3 only in the weighted Transformer slot.",
+      "fixed_combination_audit": {
+        "created_utc": "2026-10-17T19:49:47.924861+00:00",
+        "protocol": {
+          "recorded_utc": "2026-10-17T19:49:19.746984+00:00",
+          "scope": "ONE fixed cached-prediction combination. No fitting, grid, weight selection, competition export or promotion.",
+          "baseline": "Actual Round5: 0.5 Round3 + 0.5 uniform seed299/673 separate-generator LGB mean.",
+          "candidate": "0.5 Round4 neural mean recipe + 0.5 same Round5 LGB mean. Round4 is Round3 with only weighted Transformer slot changed to fixed 0.5 old + 0.5 lower-LR model.",
+          "column_formula": "P_candidate = P_round5 + 0.25 * Round3_plant_weight[transformer_weighted] * (P_round4_lr - P_original_weighted_transformer)",
+          "coefficient_source": "configs/round3_submission_temporal_ranks.json",
+          "selected_round4_recipe": "configs/round4_submission_transformer_lr_mean.json",
+          "selection_evidence": "reports/round4_neural_final_decision.json",
+          "scenarios": [
+            "native2021 all",
+            "native2022 all",
+            "native2022 Jan7+",
+            "frozen2022 all",
+            "frozen2022 Jan7+"
+          ],
+          "checks": [
+            "strict ID and all2352-column alignment",
+            "actualRound5 baseline reconstruction reproduces existingreportedAUC",
+            "standaloneRound4 mean matches priorselectedRound4 report",
+            "officialmetric agreement",
+            "unchanged non-neural plants",
+            "no artifacts overwritten"
+          ],
+          "interpretation": "Exploratory integration audit on reused development years. Native/frozen2022 share labels. No clean holdout or causal claim.",
+          "coefficient_source_sha256": "a567449724194812fa0252c1b32f7a02fd38da3ddbbc116ead57d5c3e8d82261",
+          "selected_round4_recipe_sha256": "156e65f975f0d7654fb455ae01aec4cbb2f2a2ed38e016d5b5f375596f7cbea4",
+          "selection_evidence_sha256": "a788ead94e1ac60addbd33ce4f19680593d46bf8a164f8f4740d64d23c8b852b"
+        },
+        "protocol_sha256": "1b9d803ae7e7ed0b7697e65e327b552864b0f1aa9a077cb7c496be13120a3316",
+        "no_existing_combination_found": "Searched current configs/reports round5, round6, round7, round8, round9 for round4_transformer_lr/round4_neural_lr references; none. Actual Round5 recipe sources Round3.",
+        "baseline_and_round4_reproduction": [
+          {
+            "mode": "native",
+            "year": 2021,
+            "subset": "all",
+            "round4_prior_difference": 0.0,
+            "round5_prior_difference": 0.0
+          },
+          {
+            "mode": "native",
+            "year": 2022,
+            "subset": "all",
+            "round4_prior_difference": 0.0,
+            "round5_prior_difference": 0.0
+          },
+          {
+            "mode": "native",
+            "year": 2022,
+            "subset": "jan7_onward",
+            "round4_prior_difference": 0.0,
+            "round5_prior_difference": 0.0
+          },
+          {
+            "mode": "frozen",
+            "year": 2022,
+            "subset": "all",
+            "round4_prior_difference": 0.0,
+            "round5_prior_difference": 0.0
+          },
+          {
+            "mode": "frozen",
+            "year": 2022,
+            "subset": "jan7_onward",
+            "round4_prior_difference": 0.0,
+            "round5_prior_difference": 0.0
+          }
+        ],
+        "results": [
+          {
+            "mode": "native",
+            "year": 2021,
+            "subset": "all",
+            "cases": 365,
+            "round5_auc": 0.9903748458953463,
+            "fixed_combination_auc": 0.990400473194313,
+            "delta": 2.5627298966712786e-05,
+            "official_metric_equal": true,
+            "per_generator": {
+              "Hogga_G1": {
+                "baseline_auc": 0.9741324229614169,
+                "candidate_auc": 0.973993494151479,
+                "delta": -0.00013892880993793266
+              },
+              "Tokke_G1": {
+                "baseline_auc": 0.9924241053340418,
+                "candidate_auc": 0.9925325847822208,
+                "delta": 0.00010847944817904409
+              },
+              "Tokke_G2": {
+                "baseline_auc": 0.9932231525550856,
+                "candidate_auc": 0.9932689325405453,
+                "delta": 4.577998545962636e-05
+              },
+              "Tokke_G3": {
+                "baseline_auc": 0.9929025431351146,
+                "candidate_auc": 0.9929403798503997,
+                "delta": 3.7836715285122224e-05
+              },
+              "Tokke_G4": {
+                "baseline_auc": 0.9929954723682403,
+                "candidate_auc": 0.9931198646756683,
+                "delta": 0.00012439230742800067
+              },
+              "Lio_G1": {
+                "baseline_auc": 0.9684898026383538,
+                "candidate_auc": 0.9682423046779246,
+                "delta": -0.00024749796042922156
+              },
+              "Byrte_G1": {
+                "baseline_auc": 0.9984431532138403,
+                "candidate_auc": 0.9984431532138403,
+                "delta": 0.0
+              },
+              "Vinje_G1": {
+                "baseline_auc": 0.9913405755055543,
+                "candidate_auc": 0.991362538475022,
+                "delta": 2.19629694676593e-05
+              },
+              "Vinje_G2": {
+                "baseline_auc": 0.9879157851334741,
+                "candidate_auc": 0.987936126156884,
+                "delta": 2.0341023409864434e-05
+              },
+              "Vinje_G3": {
+                "baseline_auc": 0.9834045974362875,
+                "candidate_auc": 0.983384119220571,
+                "delta": -2.0478215716490666e-05
+              },
+              "Haukeli_G1": {
+                "baseline_auc": 0.9617821366853236,
+                "candidate_auc": 0.9617821366853236,
+                "delta": 0.0
+              },
+              "Songa_G1": {
+                "baseline_auc": 0.9965716395506798,
+                "candidate_auc": 0.9965716395506798,
+                "delta": 0.0
+              },
+              "Kjela_G1": {
+                "baseline_auc": 0.994356725633998,
+                "candidate_auc": 0.9942806503627876,
+                "delta": -7.607527121045177e-05
+              },
+              "Vesle Kjela_G1": {
+                "baseline_auc": 0.9990181578457883,
+                "candidate_auc": 0.9990181578457883,
+                "delta": 0.0
+              }
+            }
+          },
+          {
+            "mode": "native",
+            "year": 2022,
+            "subset": "all",
+            "cases": 365,
+            "round5_auc": 0.9894979113990909,
+            "fixed_combination_auc": 0.989537113264064,
+            "delta": 3.920186497308187e-05,
+            "official_metric_equal": true,
+            "per_generator": {
+              "Hogga_G1": {
+                "baseline_auc": 0.9803234349696778,
+                "candidate_auc": 0.9802683107786089,
+                "delta": -5.512419106890043e-05
+              },
+              "Tokke_G1": {
+                "baseline_auc": 0.9963514375731213,
+                "candidate_auc": 0.9964404334362097,
+                "delta": 8.899586308841467e-05
+              },
+              "Tokke_G2": {
+                "baseline_auc": 0.9948007639357267,
+                "candidate_auc": 0.9948428962448483,
+                "delta": 4.213230912164523e-05
+              },
+              "Tokke_G3": {
+                "baseline_auc": 0.9966247952475877,
+                "candidate_auc": 0.996702148981886,
+                "delta": 7.735373429829107e-05
+              },
+              "Tokke_G4": {
+                "baseline_auc": 0.995205536132071,
+                "candidate_auc": 0.9952732372002419,
+                "delta": 6.770106817088895e-05
+              },
+              "Lio_G1": {
+                "baseline_auc": 0.9640010515524661,
+                "candidate_auc": 0.9641243235049343,
+                "delta": 0.00012327195246819578
+              },
+              "Byrte_G1": {
+                "baseline_auc": 0.9964121047081195,
+                "candidate_auc": 0.9964121047081195,
+                "delta": 0.0
+              },
+              "Vinje_G1": {
+                "baseline_auc": 0.9886946268674219,
+                "candidate_auc": 0.9887092720741001,
+                "delta": 1.4645206678154388e-05
+              },
+              "Vinje_G2": {
+                "baseline_auc": 0.9866211172686152,
+                "candidate_auc": 0.9866932905388375,
+                "delta": 7.217327022224218e-05
+              },
+              "Vinje_G3": {
+                "baseline_auc": 0.9766429329369721,
+                "candidate_auc": 0.9769750858125014,
+                "delta": 0.00033215287552923467
+              },
+              "Haukeli_G1": {
+                "baseline_auc": 0.960500382037586,
+                "candidate_auc": 0.960500382037586,
+                "delta": 0.0
+              },
+              "Songa_G1": {
+                "baseline_auc": 0.9981037038305686,
+                "candidate_auc": 0.9981037038305686,
+                "delta": 0.0
+              },
+              "Kjela_G1": {
+                "baseline_auc": 0.9844045206156263,
+                "candidate_auc": 0.9840087111401469,
+                "delta": -0.00039580947547945833
+              },
+              "Vesle Kjela_G1": {
+                "baseline_auc": 0.993318367575327,
+                "candidate_auc": 0.993318367575327,
+                "delta": 0.0
+              }
+            }
+          },
+          {
+            "mode": "native",
+            "year": 2022,
+            "subset": "jan7_onward",
+            "cases": 359,
+            "round5_auc": 0.9894111659365935,
+            "fixed_combination_auc": 0.9894542329526229,
+            "delta": 4.306701602940777e-05,
+            "official_metric_equal": true,
+            "per_generator": {
+              "Hogga_G1": {
+                "baseline_auc": 0.9817203195317329,
+                "candidate_auc": 0.9817346664783367,
+                "delta": 1.4346946603849275e-05
+              },
+              "Tokke_G1": {
+                "baseline_auc": 0.9962950675039814,
+                "candidate_auc": 0.9963858654847165,
+                "delta": 9.079798073508005e-05
+              },
+              "Tokke_G2": {
+                "baseline_auc": 0.9947163137605475,
+                "candidate_auc": 0.9947591969523131,
+                "delta": 4.288319176559696e-05
+              },
+              "Tokke_G3": {
+                "baseline_auc": 0.9965725914140934,
+                "candidate_auc": 0.9966519594546199,
+                "delta": 7.936804052655066e-05
+              },
+              "Tokke_G4": {
+                "baseline_auc": 0.9951316164029314,
+                "candidate_auc": 0.9952002386605219,
+                "delta": 6.862225759052265e-05
+              },
+              "Lio_G1": {
+                "baseline_auc": 0.9636912341972252,
+                "candidate_auc": 0.963820503467178,
+                "delta": 0.00012926926995271426
+              },
+              "Byrte_G1": {
+                "baseline_auc": 0.9963415328570068,
+                "candidate_auc": 0.9963415328570068,
+                "delta": 0.0
+              },
+              "Vinje_G1": {
+                "baseline_auc": 0.9885107459617624,
+                "candidate_auc": 0.9885256795882449,
+                "delta": 1.4933626482527274e-05
+              },
+              "Vinje_G2": {
+                "baseline_auc": 0.9863906116767915,
+                "candidate_auc": 0.9864646884326356,
+                "delta": 7.40767558440325e-05
+              },
+              "Vinje_G3": {
+                "baseline_auc": 0.9759065354724389,
+                "candidate_auc": 0.9762481269026688,
+                "delta": 0.0003415914302299372
+              },
+              "Haukeli_G1": {
+                "baseline_auc": 0.9599069173713685,
+                "candidate_auc": 0.9599069173713685,
+                "delta": 0.0
+              },
+              "Songa_G1": {
+                "baseline_auc": 0.9980680814419867,
+                "candidate_auc": 0.9980680814419867,
+                "delta": 0.0
+              },
+              "Kjela_G1": {
+                "baseline_auc": 0.9841780703909525,
+                "candidate_auc": 0.9837785338616986,
+                "delta": -0.0003995365292539521
+              },
+              "Vesle Kjela_G1": {
+                "baseline_auc": 0.9933709324733857,
+                "candidate_auc": 0.9933709324733857,
+                "delta": 0.0
+              }
+            }
+          },
+          {
+            "mode": "frozen",
+            "year": 2022,
+            "subset": "all",
+            "cases": 365,
+            "round5_auc": 0.9870830517775449,
+            "fixed_combination_auc": 0.9870945311247251,
+            "delta": 1.1479347180265442e-05,
+            "official_metric_equal": true,
+            "per_generator": {
+              "Hogga_G1": {
+                "baseline_auc": 0.9778336962022021,
+                "candidate_auc": 0.9778531527885929,
+                "delta": 1.945658639079806e-05
+              },
+              "Tokke_G1": {
+                "baseline_auc": 0.995651636040938,
+                "candidate_auc": 0.9956809894234884,
+                "delta": 2.9353382550389995e-05
+              },
+              "Tokke_G2": {
+                "baseline_auc": 0.9936746212467061,
+                "candidate_auc": 0.9937310571342132,
+                "delta": 5.6435887507033655e-05
+              },
+              "Tokke_G3": {
+                "baseline_auc": 0.9958041545838652,
+                "candidate_auc": 0.9958447733972594,
+                "delta": 4.061881339423312e-05
+              },
+              "Tokke_G4": {
+                "baseline_auc": 0.9945025134248925,
+                "candidate_auc": 0.9945839907145856,
+                "delta": 8.147728969309931e-05
+              },
+              "Lio_G1": {
+                "baseline_auc": 0.9493115896215207,
+                "candidate_auc": 0.9490007401464,
+                "delta": -0.0003108494751207225
+              },
+              "Byrte_G1": {
+                "baseline_auc": 0.9945541272711803,
+                "candidate_auc": 0.9945541272711803,
+                "delta": 0.0
+              },
+              "Vinje_G1": {
+                "baseline_auc": 0.9873355931975693,
+                "candidate_auc": 0.9873238418903345,
+                "delta": -1.1751307234741937e-05
+              },
+              "Vinje_G2": {
+                "baseline_auc": 0.9855592268564719,
+                "candidate_auc": 0.9854982918899307,
+                "delta": -6.0934966541248414e-05
+              },
+              "Vinje_G3": {
+                "baseline_auc": 0.9753386088326625,
+                "candidate_auc": 0.9752248317152431,
+                "delta": -0.00011377711741944463
+              },
+              "Haukeli_G1": {
+                "baseline_auc": 0.950337807348557,
+                "candidate_auc": 0.950337807348557,
+                "delta": 0.0
+              },
+              "Songa_G1": {
+                "baseline_auc": 0.9971714988785411,
+                "candidate_auc": 0.9971714988785411,
+                "delta": 0.0
+              },
+              "Kjela_G1": {
+                "baseline_auc": 0.9827244448493035,
+                "candidate_auc": 0.9832178735898225,
+                "delta": 0.0004934287405189419
+              },
+              "Vesle Kjela_G1": {
+                "baseline_auc": 0.9920327704833171,
+                "candidate_auc": 0.9920327704833171,
+                "delta": 0.0
+              }
+            }
+          },
+          {
+            "mode": "frozen",
+            "year": 2022,
+            "subset": "jan7_onward",
+            "cases": 359,
+            "round5_auc": 0.9870453044407653,
+            "fixed_combination_auc": 0.9870568910685998,
+            "delta": 1.1586627834514474e-05,
+            "official_metric_equal": true,
+            "per_generator": {
+              "Hogga_G1": {
+                "baseline_auc": 0.9792204492975558,
+                "candidate_auc": 0.9792482113895608,
+                "delta": 2.776209200494595e-05
+              },
+              "Tokke_G1": {
+                "baseline_auc": 0.9956542277448069,
+                "candidate_auc": 0.995680613672391,
+                "delta": 2.6385927584082758e-05
+              },
+              "Tokke_G2": {
+                "baseline_auc": 0.9935940165352876,
+                "candidate_auc": 0.9936503258067617,
+                "delta": 5.63092714741531e-05
+              },
+              "Tokke_G3": {
+                "baseline_auc": 0.9957608332450452,
+                "candidate_auc": 0.9958010936825168,
+                "delta": 4.026043747162866e-05
+              },
+              "Tokke_G4": {
+                "baseline_auc": 0.9944385609607788,
+                "candidate_auc": 0.994512729689953,
+                "delta": 7.416872917420658e-05
+              },
+              "Lio_G1": {
+                "baseline_auc": 0.9494493836516091,
+                "candidate_auc": 0.949156932323872,
+                "delta": -0.0002924513277371421
+              },
+              "Byrte_G1": {
+                "baseline_auc": 0.994456346400352,
+                "candidate_auc": 0.994456346400352,
+                "delta": 0.0
+              },
+              "Vinje_G1": {
+                "baseline_auc": 0.9871754167675094,
+                "candidate_auc": 0.9871603446624619,
+                "delta": -1.5072105047475581e-05
+              },
+              "Vinje_G2": {
+                "baseline_auc": 0.9853761212452508,
+                "candidate_auc": 0.9853105220033734,
+                "delta": -6.559924187732324e-05
+              },
+              "Vinje_G3": {
+                "baseline_auc": 0.9746611980206474,
+                "candidate_auc": 0.9745452744285937,
+                "delta": -0.00011592359205370162
+              },
+              "Haukeli_G1": {
+                "baseline_auc": 0.9497872184850438,
+                "candidate_auc": 0.9497872184850438,
+                "delta": 0.0
+              },
+              "Songa_G1": {
+                "baseline_auc": 0.997129487814435,
+                "candidate_auc": 0.997129487814435,
+                "delta": 0.0
+              },
+              "Kjela_G1": {
+                "baseline_auc": 0.9824896969172425,
+                "candidate_auc": 0.9829948801941176,
+                "delta": 0.0005051832768750986
+              },
+              "Vesle Kjela_G1": {
+                "baseline_auc": 0.992225548060382,
+                "candidate_auc": 0.992225548060382,
+                "delta": 0.0
+              }
+            }
+          }
+        ],
+        "source_hashes": {
+          "data/processed/goal_xgboost_rescaled_2021_validation_predictions.csv": "3f0b8a5a2bcb4034c5de0ac7c526800df475dbee95f108d15d7b76d021c6a661",
+          "data/processed/goal_lightgbm_rescaled_2021_validation_predictions.csv": "c6293900ee822e35913ceed1e03195e9609be95b692af75b2fb664340750fc48",
+          "data/processed/transformer_rescaled_2021_validation_predictions.csv": "3c2a99925d32df75b0526a1ed88dc9f5dfd246e05b2436d0ba3e282001884e2f",
+          "data/processed/round3_xgb_ranks_2021_validation_predictions.csv": "050687f05e860f86cbafb41a9df099e908ff359868cbe34a7e33b2cdec0f0fe7",
+          "data/processed/round2_xgb_haukeli_2021_validation_predictions.csv": "da4fbddde38768640a5c57d690233370c5e7bf2f3b49d5a4560c20c45706e132",
+          "data/processed/round2_transformer_task_weights_2021_validation_predictions.csv": "f7334a3e3c0ec83615a67da440c9732c6f6c781df3a7b3f486b44080cc738726",
+          "data/processed/round4_transformer_lr_2021_validation_predictions.csv": "9bfb1fcaa7127c66562bd55a9ef6dd9654de1876b62e28b69fbd7af4d7e5c151",
+          "data/processed/round5_lgb_peer_relative_seeds_2021_validation_predictions.csv": "e6061444e1b99c5cdb814f28489e4ebb90b0975fa9ba179e75ea72e2402eea44",
+          "data/processed/goal_xgboost_rescaled_2022_validation_predictions.csv": "a884a72f6125eeea5f19ff4acb698d4c646940c6632848c67c69020ed507f2c9",
+          "data/processed/goal_lightgbm_rescaled_2022_validation_predictions.csv": "c2b5a67d254afe54a9a311fed933d2a6295a905a934003c2c64033e1350ad71a",
+          "data/processed/transformer_rescaled_2022_validation_predictions.csv": "bef295276b85eb963e427220b08ffd74f4e545613e9ce2b203ddb3841556d4c1",
+          "data/processed/round3_xgb_ranks_2022_validation_predictions.csv": "b5bf897da43c8575d851192b78f968505c0aef202b30cbce4fe173b3bf91182f",
+          "data/processed/round2_xgb_haukeli_2022_validation_predictions.csv": "2d4b8b94e4c253fe8e8ff70bbee04c665ffd66707577f6d34a436d7f5861de37",
+          "data/processed/round2_transformer_task_weights_2022_validation_predictions.csv": "792e2b10c11783ad7f01d7f3de7a1a9e3ebd8b33d82faadb96d60598b5b0febf",
+          "data/processed/round4_transformer_lr_2022_validation_predictions.csv": "4781a1a20ff6b2c6879b1fc047dc6f7575aa7b63f06b27982817cd9ecd3a1b3e",
+          "data/processed/round5_lgb_peer_relative_seeds_2022_validation_predictions.csv": "188976fdd15eb9afd682c575451940c2553d77308c3a0e76270ff11728078364",
+          "data/processed/round2_frozen_xgb_2022_validation_predictions.csv": "de55844475a2387e7bc6a1b67b326ef2da596d47affc5bd6f561c7c7cb41d035",
+          "data/processed/round2_frozen_lgb_2022_validation_predictions.csv": "c04c56d6ee8b354fc90109c0f54b90792e17a1ac692c700353153ad9ecbeb657",
+          "data/processed/round2_frozen_transformer_2022_validation_predictions.csv": "e0d797a92f97965efbb4b8ecbfe71bba103d3a52d9f844cc86bbb263e4a7c511",
+          "data/processed/round3_frozen_xgb_ranks_2022_validation_predictions.csv": "013e4e2b7b575018a44d551c15f3dc7d654ed12b8680e30f5266ea3410cfc6da",
+          "data/processed/round3_frozen_haukeli_specialist_2022_validation_predictions.csv": "9f6f7c1c724c8637edd3b34ee657d15e3e33a6928927d362cc5d501e2ec60dcc",
+          "data/processed/round3_frozen_transformer_weighted_2022_validation_predictions.csv": "20093ccf848ab1473e252aeb0a22c8c8e5a344be5084c04f57510e93a596f0e2",
+          "data/processed/round4_frozen_transformer_lr_2022_validation_predictions.csv": "fb1081594c801f9d3c00c506e814de52175b21ee4d2d095966bd1e1b2a843452",
+          "data/processed/round5_frozen_lgb_peer_relative_seeds_2022_validation_predictions.csv": "1f59cfa75c840490434e77832680fae169589b7f59bb2bb93c7bf20a2877b618"
+        },
+        "source_hashes_unchanged": true,
+        "fitting_performed": false,
+        "submission_exported": false,
+        "candidate_variants_scored": 1,
+        "cpu_threads": 1,
+        "limitations": [
+          "Adaptive audit hypothesis; previously inspected historical labels.",
+          "No new untouched validation or leaderboard result.",
+          "Native and frozen2022 use the same labels.",
+          "No uncertainty interval computed here; tiny gains may be fragile."
+        ]
+      }
+    }
+  ],
+  "future_extension_traps_not_affecting_current_best": [
+    {
+      "title": "Feature flag support differs between trainers and exporters.",
+      "evidence": [
+        "src/train_cnn.py:88-93 and src/make_sequence_submission.py:84-89 omit temporal-rank/favourable-period flags, silently ignoring them in sequence configs.",
+        "src/train_baseline.py:115-125 and155-168 accepts temporal ranks but omits favourable periods; src/make_submission.py:41-44 accepts both.",
+        "src/train_catboost.py:26-35 and64-76 omits economic rescaling and both temporal options, while src/make_submission.py:41-57 supports them for final CatBoost fitting."
+      ],
+      "impact": "Future copied configs can silently ignore requested features or validate a different representation from final fit. Current contributing configs do not use these unsupported combinations.",
+      "minimal_test": "Centralize a supported-feature schema, reject unknown/enabled-unsupported flags, and compare one-case training/export feature names and values for each supported option."
+    },
+    {
+      "title": "Replay verifier depends on an external temporary manifest.",
+      "evidence": "src/round5_verify.py:158-161 unconditionally reads/private/tmp/tdt4173-round5-protection.json and asserts432 entries. This manifest exists on this machine at audit time but is outside the repository.",
+      "impact": "Reproduction on a clean machine or after temp cleanup fails independently of model correctness. Treat as portability risk, not current data corruption.",
+      "minimal_test": "Run verifier with a caller-supplied archived manifest or separate historical protection check from core replay; test when the old temp file is absent."
+    }
+  ],
+  "ruled_out_suspicions": [
+    "eval_X/eval_y is supported by installed and pinned LightGBM4.7.0; it is not an API bug.",
+    "Single-generator construction preserves all shared feature values and global generator_id; fresh comparison was exact.",
+    "Hourly thinning occurs after complete weekly features; inference evaluates all168 hours.",
+    "Both contributing Transformer configs use stable_scaling=true; the earlier float32 scaler issue is not active here.",
+    "The official metric is global pooled micro-AUC, and current comparers strictly check all2352 columns/IDs before scoring.",
+    "No direct neighbouring-case label feature is used in the audited prediction path."
+  ],
+  "already_tried_do_not_present_as_new": [
+    "Separate per-generator trees and stride4 sampling (Round5).",
+    "Raw versus relative economic input variants (Round5).",
+    "Leaves31/127, L2zero/strong, minimum leaf300, half/double rounds,255bins (Round6).",
+    "Dropping absolute price scale, dropping51 system features, everyfourth whole-case sampling, extra_trees thresholds (Round9).",
+    "Plant-specific Round5 weights, Vinje ordering and shared-slope/generator-offset calibration (Round9).",
+    "Price ranks in pooled LightGBM (Round4), favourable periods in pooled XGBoost (Round3)."
+  ],
+  "artifact_creation_policy": "This audit report is a new file opened exclusively. All production models, predictions, configs, source and earlier reports are unchanged."
+}

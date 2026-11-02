@@ -1,0 +1,33 @@
+{
+  "validation_start": "2022-01-01",
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "use_price_context": true,
+  "use_economic_rescaling": true,
+  "record_training_auc": true,
+  "loss": "binary",
+  "early_stopping_rounds": null,
+  "model": {
+    "n_estimators": 1895,
+    "learning_rate": 0.05,
+    "num_leaves": 31,
+    "min_child_samples": 100,
+    "max_bin": 63,
+    "random_state": 42,
+    "n_jobs": 4,
+    "deterministic": true,
+    "force_col_wise": true,
+    "verbosity": -1,
+    "max_delta_step": 10.0
+  },
+  "note": "Two-stage continuation: preserve the original 800 uncapped trees, then fit exactly 1095 new trees with max_delta_step=10 at learning_rate=0.05, bounding each new leaf contribution by 0.5 log-odds. Fixed total 1895; no validation stopping or fallback. The cap starts at different original prefix lengths in the two years. This is a diagnosis-driven experiment on reused development years, not independent forward confirmation.",
+  "init_model": "models/lightgbm_goal_lightgbm_rescaled_2022.txt",
+  "init_model_report": "reports/goal_lightgbm_rescaled_2022_metrics.json",
+  "continuation_parameter_overrides": {
+    "max_delta_step": 10.0
+  },
+  "iteration_selection_source": "reports/round2_lgb_converged_2022_metrics.json",
+  "override_motivation_source": "reports/round2_lgb_2021_drop_diagnosis.json",
+  "experiment_hypothesis": "Limit unstable low-Hessian Newton leaf updates during continuation, prompted by the large negative Lio leaf in the uncapped 2021 continuation. All other parameters, features and fitting cohorts remain unchanged."
+}

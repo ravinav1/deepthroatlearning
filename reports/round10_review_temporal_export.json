@@ -1,0 +1,12 @@
+{
+  "created_utc": "2026-10-18T12:38:05.145748+00:00",
+  "status": "passed",
+  "submission": "submissions/submission_round10_temporal.csv",
+  "submission_sha256": "4d362d219c97cbb24d13f6a69194d686b81674cb3ece2cb9205ad485a277b688",
+  "independent_all_probabilities_match": true,
+  "verified_probabilities": 1705200,
+  "numeric_values_sha256": "31575f1ea0f74436d85567a5940bd067cae9c8a332b1ade3bafa41c3b013f84d",
+  "reference_remains_unchanged": true,
+  "prior_independent_recipe_check": "reports/round10_review_temporal_results.json",
+  "notes": "Exported CSV equals the independent in-memory frozen-model recipe exactly after round-trip parsing. No fitting or export was performed by this review."
+}

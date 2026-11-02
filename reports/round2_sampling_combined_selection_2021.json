@@ -1,0 +1,64 @@
+{
+  "created_utc": "2026-10-14T14:55:27.093521+00:00",
+  "selection_year": 2021,
+  "comparison_report": "reports/round2_xgb_sampling_2021_comparison.json",
+  "source_metrics": "reports/round2_xgb_sampling_2021_metrics.json",
+  "source_prediction_path": "data/processed/round2_xgb_sampling_2021_validation_predictions.csv",
+  "source_prediction_sha256": "fac56a31b9920240c0eb50f868faa9034eae0b694d033021c0513c5ffc1f790c",
+  "comparison_basis": "Replace depth8 everywhere except Haukeli, preserving original shared/Haukeli-specialist prediction mean, original/weighted-transformer mean, original LightGBM and all plant weights. Sampling mean means 50% original XGBoost plus50% sampled XGBoost outside Haukeli, not a mean with depth8.",
+  "advance_criterion": "Advance only if the better of these two predeclared 2021 combined recipes exceeds the already selected depth8 combined AUC of0.9889184502673686. Criterion recorded before fit.",
+  "advance_threshold_auc": 0.9889184502673686,
+  "selected_variant": "sampling_haukeli_weighted_mean",
+  "selected_tree_count": 846,
+  "selected_auc": 0.9886586259942993,
+  "delta_vs_advance_threshold": -0.0002598242730692535,
+  "advance_to_2022": false,
+  "status": "not_selected",
+  "results": [
+    {
+      "year": 2021,
+      "variant": "sampling_haukeli_weighted_replace",
+      "micro_roc_auc": 0.9886105202349793,
+      "generator_auc": {
+        "Hogga_G1": 0.9691898446324236,
+        "Tokke_G1": 0.9904482587517128,
+        "Tokke_G2": 0.9925704767422513,
+        "Tokke_G3": 0.9922486423574561,
+        "Tokke_G4": 0.9929095031952174,
+        "Lio_G1": 0.9519941182797258,
+        "Byrte_G1": 0.9985154534580211,
+        "Vinje_G1": 0.9906479556255648,
+        "Vinje_G2": 0.98662242432624,
+        "Vinje_G3": 0.9804938099039138,
+        "Haukeli_G1": 0.9638157046579812,
+        "Songa_G1": 0.9952950851014686,
+        "Kjela_G1": 0.9836995193571022,
+        "Vesle Kjela_G1": 0.9991382375805797
+      },
+      "delta_vs_advance_threshold": -0.00030793003238926975
+    },
+    {
+      "year": 2021,
+      "variant": "sampling_haukeli_weighted_mean",
+      "micro_roc_auc": 0.9886586259942993,
+      "generator_auc": {
+        "Hogga_G1": 0.9695207886090362,
+        "Tokke_G1": 0.990490228764928,
+        "Tokke_G2": 0.9925740001935638,
+        "Tokke_G3": 0.9922554182719917,
+        "Tokke_G4": 0.992899226104583,
+        "Lio_G1": 0.952840907977449,
+        "Byrte_G1": 0.9984636259625032,
+        "Vinje_G1": 0.9906690128834962,
+        "Vinje_G2": 0.9867210898396059,
+        "Vinje_G3": 0.9807285684312165,
+        "Haukeli_G1": 0.9638157046579812,
+        "Songa_G1": 0.9952117485003763,
+        "Kjela_G1": 0.9840653755552896,
+        "Vesle Kjela_G1": 0.9990942400648712
+      },
+      "delta_vs_advance_threshold": -0.0002598242730692535
+    }
+  ],
+  "validation_note": "Reused 2021 development/selection year. No 2022 sampling result evaluated or claimed."
+}

@@ -1,0 +1,64 @@
+{
+  "sources": {
+    "xgb_rescaled": "data/processed/goal_submission_xgb_rescaled_predictions.csv",
+    "lightgbm_rescaled": "data/processed/goal_submission_lightgbm_rescaled_predictions.csv",
+    "transformer": "data/processed/submission_transformer_rescaled_predictions.csv",
+    "xgb_depth8": "data/processed/round3_xgb_ranks_full_predictions.csv",
+    "haukeli_specialist": "data/processed/round2_xgb_haukeli_full_predictions.csv",
+    "transformer_weighted": "data/processed/round4_transformer_lr_slot_full_predictions.csv"
+  },
+  "plant_weights": {
+    "Hogga": {
+      "lightgbm_rescaled": 0.35,
+      "transformer": 0.15,
+      "xgb_depth8": 0.35,
+      "transformer_weighted": 0.15
+    },
+    "Tokke": {
+      "lightgbm_rescaled": 0.04999999999999999,
+      "transformer": 0.45,
+      "xgb_depth8": 0.04999999999999999,
+      "transformer_weighted": 0.45
+    },
+    "Lio": {
+      "lightgbm_rescaled": 0.35,
+      "transformer": 0.15,
+      "xgb_depth8": 0.35,
+      "transformer_weighted": 0.15
+    },
+    "Byrte": {
+      "lightgbm_rescaled": 0.5,
+      "xgb_depth8": 0.5
+    },
+    "Vinje": {
+      "lightgbm_rescaled": 0.25,
+      "transformer": 0.25,
+      "xgb_depth8": 0.25,
+      "transformer_weighted": 0.25
+    },
+    "Songa": {
+      "lightgbm_rescaled": 0.5,
+      "xgb_depth8": 0.5
+    },
+    "Kjela": {
+      "lightgbm_rescaled": 0.4,
+      "transformer": 0.1,
+      "xgb_depth8": 0.4,
+      "transformer_weighted": 0.1
+    },
+    "Vesle Kjela": {
+      "lightgbm_rescaled": 0.5,
+      "xgb_depth8": 0.5
+    },
+    "Haukeli": {
+      "xgb_rescaled": 0.25,
+      "lightgbm_rescaled": 0.5,
+      "haukeli_specialist": 0.25
+    }
+  },
+  "historical_report": "reports/round4_neural_both_comparison.json",
+  "historical_variant": "candidate_mean",
+  "note": "Candidate: fixed 50/50 old/new mean within the existing weighted Transformer slot. New model uses LR0.0005, weight decay0.0001,39epochs chosen on2021. Original features, tree components, other Transformer and all plant coefficients retained. LightGBM rank replacement and combined candidate rejected. Kaggle score unknown; historical years reused.",
+  "selection_report": "reports/round4_neural_selection_2021.json",
+  "frozen_confirmation": "reports/round4_transformer_lr_frozen_comparison_2022.json"
+}

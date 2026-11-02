@@ -1,0 +1,19 @@
+{
+  "validation_start": "2022-01-01",
+  "use_extended": true,
+  "use_system_context": true,
+  "early_stopping_rounds": 100,
+  "model": {
+    "n_estimators": 1500,
+    "learning_rate": 0.05,
+    "tree_method": "hist",
+    "max_depth": 6,
+    "min_child_weight": 25,
+    "max_bin": 63,
+    "n_jobs": 4,
+    "random_state": 42
+  },
+  "use_topology": true,
+  "use_price_context": true,
+  "use_inflow_profiles": true
+}

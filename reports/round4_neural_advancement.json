@@ -1,0 +1,9 @@
+{
+  "decided_utc": "2026-10-14T17:53:06.982173+00:00",
+  "decision": "Advance locked LRmean to native2022 at39 fixedepochs; include matched39epoch reference for optimizer attribution",
+  "variant": "candidate_mean",
+  "selected_arm": "lr",
+  "frozen_jan7_gain": 3.559852557188936e-05,
+  "source": "reports/round4_transformer_lr_frozen_comparison_2022.json",
+  "pure_replacement_frozen_jan7_gain": -4.052769362583586e-05
+}

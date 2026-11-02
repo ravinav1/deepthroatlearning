@@ -1,0 +1,91 @@
+{
+  "scope": "Independent methodology and code review; no training or prediction loading from models.",
+  "reviewed_files": {
+    "src/round2_compare.py": "4b9d232a455f80f3d2548576c04624adcd3ea8a20050532d2b6521e1556964c9",
+    "src/round2_diagnostics.py": "b85550fab55d419b54df7e2f1b687b8a91de2113f30e06c2f9352c6f15e508b9",
+    "src/train_xgboost.py": "d8b2d884ac8f027068bf83fd63470c83833491c6bf596d2ede4d1fbbea211c47"
+  },
+  "comparator": {
+    "verdict": "Correct for aligned cached complete-generator predictions and frozen plant weights.",
+    "checks": [
+      "Truth excludes competition IDs.",
+      "read_predictions enforces exact Run No order and exact submission column order.",
+      "Baseline pooled AUC is recomputed and checked against authoritative current-winner report.",
+      "Candidate replacement changes only requested components and preserves all plant weights.",
+      "Multiple component means correspond to a fixed 50/50 blend of the complete baseline and complete replacement ensemble, not an arbitrary new global component weight."
+    ],
+    "synthetic_single_and_multiple_replacement_mean_max_absolute_error": 1.1102230246251565e-16,
+    "caveats": [
+      "Exported variant choice must be frozen before confirmation year if it is described as confirmation.",
+      "The comparator itself checks prediction alignment, not candidate training provenance; inspect candidate config/metrics separately.",
+      "Existing CLI is limited to 2021/2022. A 2020 baseline requires compatible historical component predictions; do not substitute in-sample outputs from models trained beyond 2020."
+    ]
+  },
+  "bootstrap": {
+    "verdict": "Correct exact weighted pooled AUC, with ties; correct paired complete-case temporal-block resampling for these full-year comparisons.",
+    "checks": {
+      "weighted_tie_tests": 40,
+      "maximum_error_versus_explicit_case_replication": 1.1102230246251565e-16,
+      "constant_predictions_auc": 0.5,
+      "single_class_weighted_auc_returns_nan": true,
+      "generic_single_class_bootstrap_draw_rejected_by_assertion": true,
+      "same_model_difference_zero": true
+    },
+    "observed_case_labels": {
+      "2021": {
+        "minimum_positives_per_case": 20,
+        "maximum_positives_per_case": 2203
+      },
+      "2022": {
+        "minimum_positives_per_case": 0,
+        "maximum_positives_per_case": 2249,
+        "all_off_case": {
+          "Run No": 2742,
+          "starttime": "2022-07-04"
+        },
+        "minimum_positive_count_per_circular_block": {
+          "7": 119,
+          "14": 877,
+          "28": 2464
+        }
+      }
+    },
+    "single_class_interpretation": "Every full 7/14/28-day block in both validation years contains both classes; a whole-year draw retains multiple complete blocks. Thus these requested bootstrap draws cannot be single-class. Reuse on narrower slices could fail intentionally and would need an explicit invalid-draw policy, never a fabricated AUC.",
+    "limits": [
+      "Circular blocks join year-end to year-start; this is a dependence sensitivity diagnostic, not proof of stationarity.",
+      "Intervals are conditional on fitted models and already-selected cached predictions.",
+      "Repeated selection of models, counts, weights, and variants on these years is not corrected.",
+      "120-200 repetitions give approximate percentile endpoints; avoid presenting them as precise significance thresholds.",
+      "Positive-draw fraction is not a p-value or a probability the candidate will improve Kaggle."
+    ]
+  },
+  "fixed_round_xgboost": {
+    "verdict": "Explicit null stopping disables callback-based best-round selection; eval_set remains observation only. num_boosted_rounds records actual saved rounds in both modes.",
+    "required_provenance": [
+      "Freeze 2021-selected candidate parameters, selected tree count, and component replace/mean variant before looking at 2022.",
+      "Set 2022 early_stopping_rounds to null and n_estimators to the selected actual 2021 tree count.",
+      "Verify 2022 saved num_boosted_rounds equals that frozen count.",
+      "Do not choose a different count or variant after inspecting 2022 without labeling the new result additional development."
+    ],
+    "minor_review_note": "At review time config.get(early_stopping_rounds) made omission disable stopping. To retain a default 100, use get(early_stopping_rounds,100); explicit null still disables it. Existing configs explicitly specifying100 are unchanged."
+  },
+  "screening_plan": {
+    "verdict": "Six prespecified 2021 candidates, at most two advanced unchanged into 2022 at fixed 2021-selected rounds, is a reasonable bounded development screen.",
+    "qualifications": [
+      "2021 is selection data and both years are already reused; call 2022 frozen-candidate historical confirmation, not an untouched holdout.",
+      "Existing winner includes model checkpoints selected using 2022, so fixed-round new-component confirmation does not make the whole ensemble independent of 2022.",
+      "Prefer advancing on final-ensemble micro AUC instead of standalone-model AUC alone.",
+      "Freeze which candidate and which averaging variant is primary; comparing two variants for six candidates means more than six comparisons.",
+      "A modest 2020 check adds temporal-regime evidence only if training precedes its purged boundary; it is also known reused and should be described accordingly."
+    ]
+  },
+  "final_candidate_checklist": [
+    "Recompute current and candidate full-ensemble pooled micro AUC from identical cases/columns, separately for2021 and2022.",
+    "Verify candidate training case IDs exclude competition IDs, dates obey the seven-day purged boundary, and fixed-round provenance matches the selected2021 count.",
+    "Freeze complete recipe before final uncertainty comparisons; include every changed component and averaging choice.",
+    "Use paired circular blocks of7/14/28 case-start days, retaining all2352 outputs and identical draws across models; inspect sign stability and interval widths.",
+    "Report actual deltas with per-generator, transition, month and horizon checks for material regressions; compare error shares with available-pair shares.",
+    "Describe repeated-year development and remaining uncertainty explicitly; do not convert positive bootstrap fraction into probability of future improvement.",
+    "Before final export, verify all-case training uses only supplied labeled cases, original artifacts remain intact, and725-row submission has exact2353-column template ordering and finite probabilities in[0,1]."
+  ]
+}

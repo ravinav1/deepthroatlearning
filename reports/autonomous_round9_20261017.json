@@ -1,0 +1,52 @@
+{
+  "objective": "try to find new ideas and approach and execute them and only stop if no improvement; maximum one hour",
+  "started_utc": "2026-10-17T18:43:16+00:00",
+  "deadline_utc": "2026-10-17T19:43:16+00:00",
+  "status": "complete_no_promoted_candidate",
+  "previous_goal_turn_classification": "progress: authorized new bounded experiment search; current saved artifacts inspected",
+  "reference": {
+    "submission": "submissions/submission_round5_lgb_generators.csv",
+    "user_reported_public_auc": 0.99172
+  },
+  "experiments": {
+    "plant_specific_blend": "Rejected: 2021 gain did not transfer to either 2022 evaluation.",
+    "vinje_unit_order": "Rejected: 2021 gain was only 0.000000500.",
+    "feature_ablation_no_absolute_scale": "Rejected on 2021: replacement -0.000205952; old/new mean -0.000044973.",
+    "feature_ablation_local_context": "Rejected on 2021: replacement -0.004266279; old/new mean -0.001322195.",
+    "current_ensemble_group_calibration": "Rejected on second-half 2021: -0.000483284; no 2022 evaluation.",
+    "case_thinning": "Rejected on 2021: replacement -0.001161218; old/new mean -0.000291150.",
+    "randomized_thresholds": "Rejected on 2021: replacement -0.001014059; old/new mean -0.000204928."
+  },
+  "rules": [
+    "No competition labels enter fitting or selection.",
+    "OneCPU4 treefit atatime; cheap independent analyses useCPU1.",
+    "Select on2021 beforecandidate2022; yearsare reuseddevelopmentdata.",
+    "Retain originals; exportonlyifhistoricalgatespass.",
+    "No Kaggle upload or git push.",
+    "Stopfailedbranches; harddeadline forfits."
+  ],
+  "last_updated_utc": "2026-10-17T18:56:45.044189+00:00",
+  "adaptive_addenda": [
+    "reports/round9_sampling_randomization_protocol.json",
+    "reports/round9_tree_ensemble_protocol.json"
+  ],
+  "finished_utc": "2026-10-17T18:56:45.044189+00:00",
+  "elapsed_seconds": 809.044189,
+  "report": "reports/round9_report_20261017.md",
+  "completion_audit": {
+    "ideas_tested": 7,
+    "new_lightgbm_models_fitted": 56,
+    "new_calibrators_fitted": 1,
+    "new_full_training_fits": 0,
+    "new_submissions": 0,
+    "competition_labels_used": false,
+    "all_branches_finished": true,
+    "active_training_processes": 0,
+    "independent_comparison_replays": "Passed for all eight tree comparisons, plant blend, unit ordering and calibration.",
+    "independent_training_checks": "Passed: cohort reconstruction, saved parameters/features/counts/checkpoint hashes, and prediction replay for both sampling and randomized-threshold runs.",
+    "recorded_source_hash_check": "52 recorded source hashes verified before the last tree evaluations; last evaluations verified their own source hashes and were independently replayed.",
+    "reference_submission_unchanged": true,
+    "reference_submission_sha256": "5b736f51f14028eaee5382124314fd4c368b72f546116d0a6ac053fafa086a29",
+    "remaining_required_work": null
+  }
+}

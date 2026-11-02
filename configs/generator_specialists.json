@@ -1,0 +1,22 @@
+{
+  "years": [2021, 2022],
+  "baseline_prefix": "cnn_rescaled",
+  "specialists": {
+    "Lio_G1": "cnn_specialist_lio",
+    "Haukeli_G1": "cnn_specialist_haukeli"
+  },
+  "subsets": {
+    "lio": ["Lio_G1"],
+    "haukeli": ["Haukeli_G1"],
+    "both": ["Lio_G1", "Haukeli_G1"]
+  },
+  "routes": ["cnn_component", "direct"],
+  "mixed_routes": {
+    "lio_cnn_haukeli_direct": {"Lio_G1": "cnn_component", "Haukeli_G1": "direct"},
+    "lio_direct_haukeli_cnn": {"Lio_G1": "direct", "Haukeli_G1": "cnn_component"}
+  },
+  "xgboost_weight": 0.8,
+  "cnn_weight": 0.2,
+  "seed": 42,
+  "note": "Train each specialist from scratch on its own 168 labels, retaining all 306 original system input channels. Baseline CNN settings and chronological purges stay fixed. Compare one generator and both: either replace its 20% CNN component or its entire final probability with the specialist. Untargeted generators stay unchanged. These two routes are declared before scoring; no weight sweep. A one-output head changes initialization, so this tests the full specialization recipe. Evaluate unweighted global micro ROC-AUC on both historical years."
+}

@@ -1,0 +1,2530 @@
+{
+  "candidate": "round2_xgb_lio",
+  "target_generator": "Lio_G1",
+  "chosen_variant": "candidate_replace",
+  "baseline_config": "configs/goal_submission_rescaled_tree_mean.json",
+  "baseline_components": {
+    "xgb_rescaled": "goal_xgboost_rescaled",
+    "lightgbm_rescaled": "goal_lightgbm_rescaled",
+    "transformer": "transformer_rescaled"
+  },
+  "selection": "Tree count and candidate variant selected on 2021; 2022 specialist uses frozen 2021 tree count and no early stopping. Other cached components retain their original selection histories.",
+  "uncertainty": "Conditional paired circular moving-block bootstrap over consecutive daily case starts, preserving all 2352 outputs per sampled case. 120 draws per block length, seed 4173. Percentile intervals do not correct for repeated experimentation or model selection; positive draw fractions are not p-values or probabilities of future improvement.",
+  "validation_caveat": "Both 2021 and 2022 are heavily reused development years. Jan7+ removes 6 case starts whose prediction horizons overlap 2021 selection cases; it does not create an independent holdout. Competition labels are not used.",
+  "slice_note": "Subset AUC describes ranking within a slice, not its contribution to overall micro AUC. Incident metrics count misordered positive-negative pairs touching a slice, adjusted for the availability of such pairs. Shares overlap across slices. Negative incident_error_delta_in_global_pair_units is beneficial.",
+  "years": [
+    {
+      "year": 2021,
+      "cases": 365,
+      "outputs": 858480,
+      "baseline_auc": 0.9882719381376425,
+      "candidate_auc": 0.9889557320026957,
+      "delta": 0.0006837938650532394,
+      "only_target_probabilities_changed": true,
+      "candidate_prediction_sha256": "0500ca8361bc652f68a68cb4d234829920034505e8b03a6caf2927294fcef097",
+      "specialist_provenance": {
+        "best_iteration": 692,
+        "target_micro_roc_auc": 0.9694796196418651,
+        "reference_target_micro_roc_auc": 0.9357614538672484,
+        "iteration_selection": "target_generator_validation_early_stopping",
+        "selection_source": null
+      },
+      "specialist_early_stopping_rounds": 100,
+      "specialist_selection_source": null,
+      "bootstrap": [
+        {
+          "block_days": 7,
+          "repetitions": 120,
+          "reference_auc": 0.9882719381376425,
+          "candidate_auc": 0.9889557320026957,
+          "observed_delta": 0.0006837938650532394,
+          "bootstrap_delta_mean": 0.0007288416097781294,
+          "bootstrap_delta_std": 0.0002625997545604109,
+          "percentile_interval_95": [
+            0.0003014179526494826,
+            0.0013506167632405084
+          ],
+          "fraction_positive_draws": 1.0
+        },
+        {
+          "block_days": 14,
+          "repetitions": 120,
+          "reference_auc": 0.9882719381376425,
+          "candidate_auc": 0.9889557320026957,
+          "observed_delta": 0.0006837938650532394,
+          "bootstrap_delta_mean": 0.0006960450598718813,
+          "bootstrap_delta_std": 0.00031210615873353064,
+          "percentile_interval_95": [
+            0.00011390035355147155,
+            0.001315398331033854
+          ],
+          "fraction_positive_draws": 1.0
+        },
+        {
+          "block_days": 28,
+          "repetitions": 120,
+          "reference_auc": 0.9882719381376425,
+          "candidate_auc": 0.9889557320026957,
+          "observed_delta": 0.0006837938650532394,
+          "bootstrap_delta_mean": 0.0006986374370857511,
+          "bootstrap_delta_std": 0.00036168151536498293,
+          "percentile_interval_95": [
+            5.2256255057658854e-05,
+            0.001438760275673867
+          ],
+          "fraction_positive_draws": 0.9916666666666667
+        }
+      ],
+      "by_generator": [
+        {
+          "generator": "Hogga_G1",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.5462002609262884,
+            "mean_probability": 0.5334240460233048,
+            "micro_roc_auc": 0.9696893447926744,
+            "incident_wrong_pair_share": 0.21416646716707438,
+            "incident_available_pair_share": 0.14009442091199667,
+            "error_enrichment_vs_pair_availability": 1.5287294509865432,
+            "incident_pair_error_rate": 0.017929033571977983
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.5462002609262884,
+            "mean_probability": 0.5334240460233048,
+            "micro_roc_auc": 0.9696893447926744,
+            "incident_wrong_pair_share": 0.22065151021701618,
+            "incident_available_pair_share": 0.14009442091199667,
+            "error_enrichment_vs_pair_availability": 1.575019967109348,
+            "incident_pair_error_rate": 0.017394942617861064
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": -7.482316293134584e-05
+        },
+        {
+          "generator": "Tokke_G1",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.5946673189823874,
+            "mean_probability": 0.621532068694706,
+            "micro_roc_auc": 0.9894627561921396,
+            "incident_wrong_pair_share": 0.13853819338398993,
+            "incident_available_pair_share": 0.14148134876292703,
+            "error_enrichment_vs_pair_availability": 0.9791975733573985,
+            "incident_pair_error_rate": 0.011484089715805905
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.5946673189823874,
+            "mean_probability": 0.621532068694706,
+            "micro_roc_auc": 0.9894627561921396,
+            "incident_wrong_pair_share": 0.14136117852586452,
+            "incident_available_pair_share": 0.14148134876292703,
+            "error_enrichment_vs_pair_availability": 0.9991506284177155,
+            "incident_pair_error_rate": 0.011034887309920267
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": -6.355376225225203e-05
+        },
+        {
+          "generator": "Tokke_G2",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.4354696673189824,
+            "mean_probability": 0.43947067568328124,
+            "micro_roc_auc": 0.9924289036679768,
+            "incident_wrong_pair_share": 0.11168401799349234,
+            "incident_available_pair_share": 0.13728841451186366,
+            "error_enrichment_vs_pair_availability": 0.8134992190753376,
+            "incident_pair_error_rate": 0.009540769166295067
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.4354696673189824,
+            "mean_probability": 0.43947067568328124,
+            "micro_roc_auc": 0.9924289036679768,
+            "incident_wrong_pair_share": 0.11451471877885039,
+            "incident_available_pair_share": 0.13728841451186366,
+            "error_enrichment_vs_pair_availability": 0.8341178619187469,
+            "incident_pair_error_rate": 0.009212221208369113
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": -4.510582823476477e-05
+        },
+        {
+          "generator": "Tokke_G3",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.5160958904109589,
+            "mean_probability": 0.5233524548563658,
+            "micro_roc_auc": 0.9921447545852833,
+            "incident_wrong_pair_share": 0.11423983112997062,
+            "incident_available_pair_share": 0.1392816179628638,
+            "error_enrichment_vs_pair_availability": 0.8202075248754649,
+            "incident_pair_error_rate": 0.00961944459171057
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.5160958904109589,
+            "mean_probability": 0.5233524548563658,
+            "micro_roc_auc": 0.9921447545852833,
+            "incident_wrong_pair_share": 0.11813346012487948,
+            "incident_available_pair_share": 0.1392816179628638,
+            "error_enrichment_vs_pair_availability": 0.8481626064709917,
+            "incident_pair_error_rate": 0.009367335131157783
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": -3.511421356953699e-05
+        },
+        {
+          "generator": "Tokke_G4",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.4520547945205479,
+            "mean_probability": 0.4461659503521479,
+            "micro_roc_auc": 0.9923364372895623,
+            "incident_wrong_pair_share": 0.11207360292949645,
+            "incident_available_pair_share": 0.13767657385960883,
+            "error_enrichment_vs_pair_availability": 0.8140353858876517,
+            "incident_pair_error_rate": 0.00954705736383843
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.4520547945205479,
+            "mean_probability": 0.4461659503521479,
+            "micro_roc_auc": 0.9923364372895623,
+            "incident_wrong_pair_share": 0.11564065866788985,
+            "incident_available_pair_share": 0.13767657385960883,
+            "error_enrichment_vs_pair_availability": 0.8399443378494487,
+            "incident_pair_error_rate": 0.009276570370027626
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": -3.7239722581456584e-05
+        },
+        {
+          "generator": "Lio_G1",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.5453848662752773,
+            "mean_probability": 0.49168993664179445,
+            "micro_roc_auc": 0.9496274150107702,
+            "incident_wrong_pair_share": 0.2851013477459492,
+            "incident_available_pair_share": 0.14007191435743152,
+            "error_enrichment_vs_pair_availability": 2.0353926699283607,
+            "incident_pair_error_rate": 0.023871211147108787
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.5453848662752773,
+            "mean_probability": 0.5140100770209702,
+            "micro_roc_auc": 0.9662296155237818,
+            "incident_wrong_pair_share": 0.24083917367833127,
+            "incident_available_pair_share": 0.14007191435743152,
+            "error_enrichment_vs_pair_availability": 1.7193966026891352,
+            "incident_pair_error_rate": 0.01898947687375337
+          },
+          "subset_auc_delta": 0.016602200513011645,
+          "incident_error_delta_in_global_pair_units": -0.0006837938650531782
+        },
+        {
+          "generator": "Byrte_G1",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.5374755381604697,
+            "mean_probability": 0.5401615671792448,
+            "micro_roc_auc": 0.9983813241649311,
+            "incident_wrong_pair_share": 0.053686708521101426,
+            "incident_available_pair_share": 0.13985502039753034,
+            "error_enrichment_vs_pair_availability": 0.3838740173109257,
+            "incident_pair_error_rate": 0.004502098222374226
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.5374755381604697,
+            "mean_probability": 0.5401615671792448,
+            "micro_roc_auc": 0.9983813241649311,
+            "incident_wrong_pair_share": 0.054947052626634886,
+            "incident_available_pair_share": 0.13985502039753034,
+            "error_enrichment_vs_pair_availability": 0.39288580753448005,
+            "incident_pair_error_rate": 0.004339136150748119
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": -2.2791063851293047e-05
+        },
+        {
+          "generator": "Vinje_G1",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.4601761252446184,
+            "mean_probability": 0.4699060987719817,
+            "micro_roc_auc": 0.9906998862987294,
+            "incident_wrong_pair_share": 0.12142661532084319,
+            "incident_available_pair_share": 0.13787077378600737,
+            "error_enrichment_vs_pair_availability": 0.8807277422647416,
+            "incident_pair_error_rate": 0.010329229445175333
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.4601761252446184,
+            "mean_probability": 0.4699060987719817,
+            "micro_roc_auc": 0.9906998862987294,
+            "incident_wrong_pair_share": 0.12506302282125423,
+            "incident_available_pair_share": 0.13787077378600737,
+            "error_enrichment_vs_pair_availability": 0.9071032198264705,
+            "incident_pair_error_rate": 0.010018291060981186
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": -4.286931562861793e-05
+        },
+        {
+          "generator": "Vinje_G2",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.39739073711676454,
+            "mean_probability": 0.4024090604086563,
+            "micro_roc_auc": 0.9868319870646906,
+            "incident_wrong_pair_share": 0.1425786493150363,
+            "incident_available_pair_share": 0.13644003489710324,
+            "error_enrichment_vs_pair_availability": 1.0449912990902013,
+            "incident_pair_error_rate": 0.012255722601355197
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.39739073711676454,
+            "mean_probability": 0.4024090604086563,
+            "micro_roc_auc": 0.9868319870646906,
+            "incident_wrong_pair_share": 0.14642284523135835,
+            "incident_available_pair_share": 0.13644003489710324,
+            "error_enrichment_vs_pair_availability": 1.0731662839413936,
+            "incident_pair_error_rate": 0.011852336045519924
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": -5.503807575518694e-05
+        },
+        {
+          "generator": "Vinje_G3",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.2810828440965427,
+            "mean_probability": 0.2561435494171819,
+            "micro_roc_auc": 0.9806822805568618,
+            "incident_wrong_pair_share": 0.16456333302337936,
+            "incident_available_pair_share": 0.13421815566023645,
+            "error_enrichment_vs_pair_availability": 1.226088469282498,
+            "incident_pair_error_rate": 0.01437964141646834
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.2810828440965427,
+            "mean_probability": 0.2561435494171819,
+            "micro_roc_auc": 0.9806822805568618,
+            "incident_wrong_pair_share": 0.1697217375166898,
+            "incident_available_pair_share": 0.13421815566023645,
+            "error_enrichment_vs_pair_availability": 1.2645214552517627,
+            "incident_pair_error_rate": 0.013965713840141721
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": -5.5556595871470446e-05
+        },
+        {
+          "generator": "Haukeli_G1",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.37146118721461185,
+            "mean_probability": 0.3997633666006549,
+            "micro_roc_auc": 0.9633766162066998,
+            "incident_wrong_pair_share": 0.23496575933525607,
+            "incident_available_pair_share": 0.1358964813338484,
+            "error_enrichment_vs_pair_availability": 1.7290054681992122,
+            "incident_pair_error_rate": 0.020277883091394736
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.37146118721461185,
+            "mean_probability": 0.3997633666006549,
+            "micro_roc_auc": 0.9633766162066998,
+            "incident_wrong_pair_share": 0.24006718261836957,
+            "incident_available_pair_share": 0.1358964813338484,
+            "error_enrichment_vs_pair_availability": 1.7665445069811005,
+            "incident_pair_error_rate": 0.01951019096426509
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": -0.00010432665882461603
+        },
+        {
+          "generator": "Songa_G1",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.3967221135029354,
+            "mean_probability": 0.3968696078411729,
+            "micro_roc_auc": 0.995074153157005,
+            "incident_wrong_pair_share": 0.08508895446977188,
+            "incident_available_pair_share": 0.1364256712705512,
+            "error_enrichment_vs_pair_availability": 0.6237019299764235,
+            "incident_pair_error_rate": 0.007314814818435253
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.3967221135029354,
+            "mean_probability": 0.3968696078411729,
+            "micro_roc_auc": 0.995074153157005,
+            "incident_wrong_pair_share": 0.08729378309473232,
+            "incident_available_pair_share": 0.1364256712705512,
+            "error_enrichment_vs_pair_availability": 0.63986332104327,
+            "incident_pair_error_rate": 0.007066821999247042
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": -3.3832586828028144e-05
+        },
+        {
+          "generator": "Kjela_G1",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.14256360078277885,
+            "mean_probability": 0.1261401964913947,
+            "micro_roc_auc": 0.9834578894840456,
+            "incident_wrong_pair_share": 0.09623555101468924,
+            "incident_available_pair_share": 0.1322981304793388,
+            "error_enrichment_vs_pair_availability": 0.7274142927493483,
+            "incident_pair_error_rate": 0.008531159824927378
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.14256360078277885,
+            "mean_probability": 0.1261401964913947,
+            "micro_roc_auc": 0.9834578894840456,
+            "incident_wrong_pair_share": 0.10075596206216524,
+            "incident_available_pair_share": 0.1322981304793388,
+            "error_enrichment_vs_pair_availability": 0.7615826595365265,
+            "incident_pair_error_rate": 0.008411122994021164
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": -1.5880648317556558e-05
+        },
+        {
+          "generator": "Vesle Kjela_G1",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.6981898238747554,
+            "mean_probability": 0.6952626506513991,
+            "micro_roc_auc": 0.9990278342450003,
+            "incident_wrong_pair_share": 0.03796380986833236,
+            "incident_available_pair_share": 0.14476742701326822,
+            "error_enrichment_vs_pair_availability": 0.26223999867631065,
+            "incident_pair_error_rate": 0.0030755669272603176
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.6981898238747554,
+            "mean_probability": 0.6952626506513991,
+            "micro_roc_auc": 0.9990278342450003,
+            "incident_wrong_pair_share": 0.039139045839929214,
+            "incident_available_pair_share": 0.14476742701326822,
+            "error_enrichment_vs_pair_availability": 0.2703580953769527,
+            "incident_pair_error_rate": 0.0029859072605838252
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": -1.2979799251623095e-05
+        }
+      ],
+      "by_start_month": [
+        {
+          "month": 1,
+          "cases": 31,
+          "baseline": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.5117264647794602,
+            "mean_probability": 0.5088461720254197,
+            "micro_roc_auc": 0.9957733024648814,
+            "incident_wrong_pair_share": 0.10132941955986108,
+            "incident_available_pair_share": 0.16431957173812745,
+            "error_enrichment_vs_pair_availability": 0.6166606843483476,
+            "incident_pair_error_rate": 0.007232234654121127
+          },
+          "candidate": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.5117264647794602,
+            "mean_probability": 0.5089570956684305,
+            "micro_roc_auc": 0.9957798288082101,
+            "incident_wrong_pair_share": 0.10394304116842766,
+            "incident_available_pair_share": 0.16431957173812745,
+            "error_enrichment_vs_pair_availability": 0.6325664074519343,
+            "incident_pair_error_rate": 0.006986232929991156
+          },
+          "subset_auc_delta": 6.526343328761008e-06,
+          "incident_error_delta_in_global_pair_units": -4.042289795587765e-05
+        },
+        {
+          "month": 2,
+          "cases": 28,
+          "baseline": {
+            "outputs": 65856,
+            "output_fraction": 0.07671232876712329,
+            "on_fraction": 0.6852071185617103,
+            "mean_probability": 0.6889689776853926,
+            "micro_roc_auc": 0.9910834917291019,
+            "incident_wrong_pair_share": 0.12195477407064899,
+            "incident_available_pair_share": 0.15465516371732865,
+            "error_enrichment_vs_pair_availability": 0.7885593415655497,
+            "incident_pair_error_rate": 0.009248272740020658
+          },
+          "candidate": {
+            "outputs": 65856,
+            "output_fraction": 0.07671232876712329,
+            "on_fraction": 0.6852071185617103,
+            "mean_probability": 0.6895453886212238,
+            "micro_roc_auc": 0.9911151201961654,
+            "incident_wrong_pair_share": 0.12487532439593872,
+            "incident_available_pair_share": 0.15465516371732865,
+            "error_enrichment_vs_pair_availability": 0.8074436145189429,
+            "incident_pair_error_rate": 0.00891762367145928
+          },
+          "subset_auc_delta": 3.162846706350475e-05,
+          "incident_error_delta_in_global_pair_units": -5.1136585831342224e-05
+        },
+        {
+          "month": 3,
+          "cases": 31,
+          "baseline": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.727452271231073,
+            "mean_probability": 0.7204671910247673,
+            "micro_roc_auc": 0.9961602502623123,
+            "incident_wrong_pair_share": 0.08199481151904998,
+            "incident_available_pair_share": 0.17241711522400294,
+            "error_enrichment_vs_pair_availability": 0.475560743563787,
+            "incident_pair_error_rate": 0.005577405819824821
+          },
+          "candidate": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.727452271231073,
+            "mean_probability": 0.7207157598076948,
+            "micro_roc_auc": 0.9961809938812017,
+            "incident_wrong_pair_share": 0.084292529873101,
+            "incident_available_pair_share": 0.17241711522400294,
+            "error_enrichment_vs_pair_availability": 0.488887253238107,
+            "incident_pair_error_rate": 0.005399401845227633
+          },
+          "subset_auc_delta": 2.074361888948495e-05,
+          "incident_error_delta_in_global_pair_units": -3.069093179845371e-05
+        },
+        {
+          "month": 4,
+          "cases": 30,
+          "baseline": {
+            "outputs": 70560,
+            "output_fraction": 0.0821917808219178,
+            "on_fraction": 0.6844246031746032,
+            "mean_probability": 0.6642539167559834,
+            "micro_roc_auc": 0.9844051319605097,
+            "incident_wrong_pair_share": 0.1630935561330648,
+            "incident_available_pair_share": 0.16527922931841205,
+            "error_enrichment_vs_pair_availability": 0.9867758750185329,
+            "incident_pair_error_rate": 0.011572968506499297
+          },
+          "candidate": {
+            "outputs": 70560,
+            "output_fraction": 0.0821917808219178,
+            "on_fraction": 0.6844246031746032,
+            "mean_probability": 0.6647676365347547,
+            "micro_roc_auc": 0.9845659954667872,
+            "incident_wrong_pair_share": 0.16843717361643737,
+            "incident_available_pair_share": 0.16527922931841205,
+            "error_enrichment_vs_pair_availability": 1.0191067220669423,
+            "incident_pair_error_rate": 0.01125528775636163
+          },
+          "subset_auc_delta": 0.000160863506277531,
+          "incident_error_delta_in_global_pair_units": -5.250602955204843e-05
+        },
+        {
+          "month": 5,
+          "cases": 31,
+          "baseline": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.47915295150318193,
+            "mean_probability": 0.509857791416305,
+            "micro_roc_auc": 0.9857450848218697,
+            "incident_wrong_pair_share": 0.1938291422918769,
+            "incident_available_pair_share": 0.16333212517480586,
+            "error_enrichment_vs_pair_availability": 1.186717812459929,
+            "incident_pair_error_rate": 0.013917899917691599
+          },
+          "candidate": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.47915295150318193,
+            "mean_probability": 0.5104818845250066,
+            "micro_roc_auc": 0.9860602530522091,
+            "incident_wrong_pair_share": 0.196004450561567,
+            "incident_available_pair_share": 0.16333212517480586,
+            "error_enrichment_vs_pair_availability": 1.2000361248700686,
+            "incident_pair_error_rate": 0.01325352056951158
+          },
+          "subset_auc_delta": 0.000315168230339391,
+          "incident_error_delta_in_global_pair_units": -0.00010851449086049514
+        },
+        {
+          "month": 6,
+          "cases": 30,
+          "baseline": {
+            "outputs": 70560,
+            "output_fraction": 0.0821917808219178,
+            "on_fraction": 0.5822420634920635,
+            "mean_probability": 0.5972981415723466,
+            "micro_roc_auc": 0.9858543747291003,
+            "incident_wrong_pair_share": 0.17610415662979825,
+            "incident_available_pair_share": 0.16151308652728164,
+            "error_enrichment_vs_pair_availability": 1.0903398629562564,
+            "incident_pair_error_rate": 0.012787573363745364
+          },
+          "candidate": {
+            "outputs": 70560,
+            "output_fraction": 0.0821917808219178,
+            "on_fraction": 0.5822420634920635,
+            "mean_probability": 0.5964637437711312,
+            "micro_roc_auc": 0.9862485601828408,
+            "incident_wrong_pair_share": 0.17640110747624158,
+            "incident_available_pair_share": 0.16151308652728164,
+            "error_enrichment_vs_pair_availability": 1.0921784189075303,
+            "incident_pair_error_rate": 0.012062311159286859
+          },
+          "subset_auc_delta": 0.000394185453740481,
+          "incident_error_delta_in_global_pair_units": -0.0001171393371836736
+        },
+        {
+          "month": 7,
+          "cases": 31,
+          "baseline": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.4063802940531051,
+            "mean_probability": 0.39053734391849665,
+            "micro_roc_auc": 0.9858154910048976,
+            "incident_wrong_pair_share": 0.17933304950700377,
+            "incident_available_pair_share": 0.1613490432995029,
+            "error_enrichment_vs_pair_availability": 1.1114602593218865,
+            "incident_pair_error_rate": 0.01303527467887898
+          },
+          "candidate": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.4063802940531051,
+            "mean_probability": 0.3911755562518799,
+            "micro_roc_auc": 0.9860804924865199,
+            "incident_wrong_pair_share": 0.18316040619091098,
+            "incident_available_pair_share": 0.1613490432995029,
+            "error_enrichment_vs_pair_availability": 1.1351812347032075,
+            "incident_pair_error_rate": 0.01253724578157303
+          },
+          "subset_auc_delta": 0.00026500148162222903,
+          "incident_error_delta_in_global_pair_units": -8.035648611582182e-05
+        },
+        {
+          "month": 8,
+          "cases": 31,
+          "baseline": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.157806671055519,
+            "mean_probability": 0.17073139284498795,
+            "micro_roc_auc": 0.9666110940510729,
+            "incident_wrong_pair_share": 0.19476089072590896,
+            "incident_available_pair_share": 0.15689860633656816,
+            "error_enrichment_vs_pair_availability": 1.241316894224804,
+            "incident_pair_error_rate": 0.014558241326257972
+          },
+          "candidate": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.157806671055519,
+            "mean_probability": 0.16927650817411907,
+            "micro_roc_auc": 0.9667632261172923,
+            "incident_wrong_pair_share": 0.19950895404593894,
+            "incident_available_pair_share": 0.15689860633656816,
+            "error_enrichment_vs_pair_availability": 1.2715788795342513,
+            "incident_pair_error_rate": 0.014043657925288206
+          },
+          "subset_auc_delta": 0.00015213206621933484,
+          "incident_error_delta_in_global_pair_units": -8.073741845608749e-05
+        },
+        {
+          "month": 9,
+          "cases": 30,
+          "baseline": {
+            "outputs": 70560,
+            "output_fraction": 0.0821917808219178,
+            "on_fraction": 0.1826530612244898,
+            "mean_probability": 0.1880141591990488,
+            "micro_roc_auc": 0.9632161338088752,
+            "incident_wrong_pair_share": 0.22651417904694932,
+            "incident_available_pair_share": 0.15224694562081326,
+            "error_enrichment_vs_pair_availability": 1.4878077069020896,
+            "incident_pair_error_rate": 0.017449100825839947
+          },
+          "candidate": {
+            "outputs": 70560,
+            "output_fraction": 0.0821917808219178,
+            "on_fraction": 0.1826530612244898,
+            "mean_probability": 0.190482053572686,
+            "micro_roc_auc": 0.9665898476338161,
+            "incident_wrong_pair_share": 0.22291236085204047,
+            "incident_available_pair_share": 0.15224694562081326,
+            "error_enrichment_vs_pair_availability": 1.464149969926009,
+            "incident_pair_error_rate": 0.016170464656107893
+          },
+          "subset_auc_delta": 0.0033737138249408938,
+          "incident_error_delta_in_global_pair_units": -0.00019466845140200112
+        },
+        {
+          "month": 10,
+          "cases": 31,
+          "baseline": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.24348529734474436,
+            "mean_probability": 0.20709814956696945,
+            "micro_roc_auc": 0.9831733872728946,
+            "incident_wrong_pair_share": 0.1871547394086989,
+            "incident_available_pair_share": 0.1580266544981715,
+            "error_enrichment_vs_pair_availability": 1.1843238724696563,
+            "incident_pair_error_rate": 0.01388982364139091
+          },
+          "candidate": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.24348529734474436,
+            "mean_probability": 0.2169154983349851,
+            "micro_roc_auc": 0.9882202843273418,
+            "incident_wrong_pair_share": 0.15923044589817087,
+            "incident_available_pair_share": 0.1580266544981715,
+            "error_enrichment_vs_pair_availability": 1.0076176478191108,
+            "incident_pair_error_rate": 0.011128399341327653
+          },
+          "subset_auc_delta": 0.005046897054447164,
+          "incident_error_delta_in_global_pair_units": -0.00043637864378895147
+        },
+        {
+          "month": 11,
+          "cases": 30,
+          "baseline": {
+            "outputs": 70560,
+            "output_fraction": 0.0821917808219178,
+            "on_fraction": 0.35459183673469385,
+            "mean_probability": 0.3366229152531647,
+            "micro_roc_auc": 0.9910390852886424,
+            "incident_wrong_pair_share": 0.13844211850668386,
+            "incident_available_pair_share": 0.15516787256648792,
+            "error_enrichment_vs_pair_availability": 0.8922086525827875,
+            "incident_pair_error_rate": 0.010463878271621553
+          },
+          "candidate": {
+            "outputs": 70560,
+            "output_fraction": 0.0821917808219178,
+            "on_fraction": 0.35459183673469385,
+            "mean_probability": 0.3391251444948814,
+            "micro_roc_auc": 0.9916371285931289,
+            "incident_wrong_pair_share": 0.1375075200156431,
+            "incident_available_pair_share": 0.15516787256648792,
+            "error_enrichment_vs_pair_availability": 0.8861855082579834,
+            "incident_pair_error_rate": 0.009787270248528502
+          },
+          "subset_auc_delta": 0.0005980433044865396,
+          "incident_error_delta_in_global_pair_units": -0.00010498782750476584
+        },
+        {
+          "month": 12,
+          "cases": 31,
+          "baseline": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.47078670177748516,
+            "mean_probability": 0.47555187576606656,
+            "micro_roc_auc": 0.9902467192230733,
+            "incident_wrong_pair_share": 0.15173263623197322,
+            "incident_available_pair_share": 0.1630884694131384,
+            "error_enrichment_vs_pair_availability": 0.9303701038949701,
+            "incident_pair_error_rate": 0.010911438133368173
+          },
+          "candidate": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.47078670177748516,
+            "mean_probability": 0.4793190677237795,
+            "micro_roc_auc": 0.9898050660262887,
+            "incident_wrong_pair_share": 0.15930338383473344,
+            "incident_available_pair_share": 0.1630884694131384,
+            "error_enrichment_vs_pair_availability": 0.9767912128182618,
+            "incident_pair_error_rate": 0.010787943931776794
+          },
+          "subset_auc_delta": -0.00044165319678457493,
+          "incident_error_delta_in_global_pair_units": -2.0140480318935538e-05
+        }
+      ],
+      "target_by_start_month": [
+        {
+          "month": 1,
+          "baseline": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.9959677419354839,
+            "mean_probability": 0.9816839765960622,
+            "micro_roc_auc": 0.9981180056368026,
+            "incident_wrong_pair_share": 0.0012390271927659878,
+            "incident_available_pair_share": 0.013313322169621127,
+            "error_enrichment_vs_pair_availability": 0.0930667174563874,
+            "incident_pair_error_rate": 0.001091492219655057
+          },
+          "candidate": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.9959677419354839,
+            "mean_probability": 0.9832369075982127,
+            "micro_roc_auc": 0.9981547274780358,
+            "incident_wrong_pair_share": 0.0012100080489080719,
+            "incident_available_pair_share": 0.013313322169621127,
+            "error_enrichment_vs_pair_availability": 0.09088701028125923,
+            "incident_pair_error_rate": 0.0010037804990199793
+          },
+          "subset_auc_delta": 3.672184123315603e-05,
+          "incident_error_delta_in_global_pair_units": -1.1677343948665942e-06
+        },
+        {
+          "month": 2,
+          "baseline": {
+            "outputs": 4704,
+            "output_fraction": 0.005479452054794521,
+            "on_fraction": 0.7106717687074829,
+            "mean_probability": 0.755101223002344,
+            "micro_roc_auc": 0.9898431213697765,
+            "incident_wrong_pair_share": 0.013337619134919113,
+            "incident_available_pair_share": 0.011437726394789962,
+            "error_enrichment_vs_pair_availability": 1.1661075527208429,
+            "incident_pair_error_rate": 0.013676181516472345
+          },
+          "candidate": {
+            "outputs": 4704,
+            "output_fraction": 0.005479452054794521,
+            "on_fraction": 0.7106717687074829,
+            "mean_probability": 0.7631709761039815,
+            "micro_roc_auc": 0.9925276214041733,
+            "incident_wrong_pair_share": 0.013168659701298482,
+            "incident_available_pair_share": 0.011437726394789962,
+            "error_enrichment_vs_pair_availability": 1.1513354356244248,
+            "incident_pair_error_rate": 0.012715657105829253
+          },
+          "subset_auc_delta": 0.0026845000343967973,
+          "incident_error_delta_in_global_pair_units": -1.0986215404452568e-05
+        },
+        {
+          "month": 3,
+          "baseline": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.8519585253456221,
+            "mean_probability": 0.894344674622687,
+            "micro_roc_auc": 0.9860505646568898,
+            "incident_wrong_pair_share": 0.01282904585359734,
+            "incident_available_pair_share": 0.01298064786094283,
+            "error_enrichment_vs_pair_availability": 0.98832092134618,
+            "incident_pair_error_rate": 0.01159108890541015
+          },
+          "candidate": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.8519585253456221,
+            "mean_probability": 0.8978246375836723,
+            "micro_roc_auc": 0.9901968092274405,
+            "incident_wrong_pair_share": 0.01262398170513088,
+            "incident_available_pair_share": 0.01298064786094283,
+            "error_enrichment_vs_pair_availability": 0.9725232392379185,
+            "incident_pair_error_rate": 0.010740807287750068
+          },
+          "subset_auc_delta": 0.004146244570550683,
+          "incident_error_delta_in_global_pair_units": -1.1037206261478366e-05
+        },
+        {
+          "month": 4,
+          "baseline": {
+            "outputs": 5040,
+            "output_fraction": 0.005870841487279843,
+            "on_fraction": 0.8970238095238096,
+            "mean_probability": 0.8976138420859116,
+            "micro_roc_auc": 0.9624019614737305,
+            "incident_wrong_pair_share": 0.012338631022178886,
+            "incident_available_pair_share": 0.012662451519795243,
+            "error_enrichment_vs_pair_availability": 0.9744267137283703,
+            "incident_pair_error_rate": 0.011428136778940038
+          },
+          "candidate": {
+            "outputs": 5040,
+            "output_fraction": 0.005870841487279843,
+            "on_fraction": 0.8970238095238096,
+            "mean_probability": 0.9048059189887085,
+            "micro_roc_auc": 0.9723700018624284,
+            "incident_wrong_pair_share": 0.011931013843574884,
+            "incident_available_pair_share": 0.012662451519795243,
+            "error_enrichment_vs_pair_availability": 0.9422356977969945,
+            "incident_pair_error_rate": 0.010406303563097042
+          },
+          "subset_auc_delta": 0.009968040388697919,
+          "incident_error_delta_in_global_pair_units": -1.293891355692842e-05
+        },
+        {
+          "month": 5,
+          "baseline": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.3872887864823349,
+            "mean_probability": 0.4119467094903611,
+            "micro_roc_auc": 0.9868227555592568,
+            "incident_wrong_pair_share": 0.01559714934625811,
+            "incident_available_pair_share": 0.0119491899235733,
+            "error_enrichment_vs_pair_availability": 1.305289266135785,
+            "incident_pair_error_rate": 0.015308513261511697
+          },
+          "candidate": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.3872887864823349,
+            "mean_probability": 0.420684013012185,
+            "micro_roc_auc": 0.9898976841628359,
+            "incident_wrong_pair_share": 0.014342475699978855,
+            "incident_available_pair_share": 0.0119491899235733,
+            "error_enrichment_vs_pair_availability": 1.2002885376927597,
+            "incident_pair_error_rate": 0.013256308284371335
+          },
+          "subset_auc_delta": 0.0030749286035790524,
+          "incident_error_delta_in_global_pair_units": -2.4522187033952582e-05
+        },
+        {
+          "month": 6,
+          "baseline": {
+            "outputs": 5040,
+            "output_fraction": 0.005870841487279843,
+            "on_fraction": 0.3101190476190476,
+            "mean_probability": 0.37362332658915093,
+            "micro_roc_auc": 0.9767301843335354,
+            "incident_wrong_pair_share": 0.019584646047368082,
+            "incident_available_pair_share": 0.011404955074322709,
+            "error_enrichment_vs_pair_availability": 1.717205014815118,
+            "incident_pair_error_rate": 0.02013948664410221
+          },
+          "candidate": {
+            "outputs": 5040,
+            "output_fraction": 0.005870841487279843,
+            "on_fraction": 0.3101190476190476,
+            "mean_probability": 0.36194175737213413,
+            "micro_roc_auc": 0.9825549525618583,
+            "incident_wrong_pair_share": 0.016765387795901063,
+            "incident_available_pair_share": 0.011404955074322709,
+            "error_enrichment_vs_pair_availability": 1.470009104520448,
+            "incident_pair_error_rate": 0.016235174508801152
+          },
+          "subset_auc_delta": 0.005824768228322896,
+          "incident_error_delta_in_global_pair_units": -4.452850449924154e-05
+        },
+        {
+          "month": 7,
+          "baseline": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.3554147465437788,
+            "mean_probability": 0.2704087428784198,
+            "micro_roc_auc": 0.9630773855705528,
+            "incident_wrong_pair_share": 0.028325846264283118,
+            "incident_available_pair_share": 0.011880785645104225,
+            "error_enrichment_vs_pair_availability": 2.3841728241225772,
+            "incident_pair_error_rate": 0.02796172637186115
+          },
+          "candidate": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.3554147465437788,
+            "mean_probability": 0.27934371554578624,
+            "micro_roc_auc": 0.9702369256077634,
+            "incident_wrong_pair_share": 0.02675470624424139,
+            "incident_available_pair_share": 0.011880785645104225,
+            "error_enrichment_vs_pair_availability": 2.2519307260851336,
+            "incident_pair_error_rate": 0.024870926450248302
+          },
+          "subset_auc_delta": 0.007159540037210643,
+          "incident_error_delta_in_global_pair_units": -3.67211313405872e-05
+        },
+        {
+          "month": 8,
+          "baseline": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.22407834101382487,
+            "mean_probability": 0.16586423664964856,
+            "micro_roc_auc": 0.8697635864776783,
+            "incident_wrong_pair_share": 0.0343434893864749,
+            "incident_available_pair_share": 0.011602107962224217,
+            "error_enrichment_vs_pair_availability": 2.9601077233805517,
+            "incident_pair_error_rate": 0.0347163264990493
+          },
+          "candidate": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.22407834101382487,
+            "mean_probability": 0.145495851257484,
+            "micro_roc_auc": 0.8834584752219484,
+            "incident_wrong_pair_share": 0.03481603500716593,
+            "incident_available_pair_share": 0.011602107962224217,
+            "error_enrichment_vs_pair_availability": 3.000837013456942,
+            "incident_pair_error_rate": 0.03314204819284875
+          },
+          "subset_auc_delta": 0.013694888744270162,
+          "incident_error_delta_in_global_pair_units": -1.826494687112625e-05
+        },
+        {
+          "month": 9,
+          "baseline": {
+            "outputs": 5040,
+            "output_fraction": 0.005870841487279843,
+            "on_fraction": 0.5597222222222222,
+            "mean_probability": 0.3043087687008565,
+            "micro_roc_auc": 0.926921295715725,
+            "incident_wrong_pair_share": 0.05089051762676489,
+            "incident_available_pair_share": 0.011928051871695893,
+            "error_enrichment_vs_pair_availability": 4.266456767137569,
+            "incident_pair_error_rate": 0.050037268898063154
+          },
+          "candidate": {
+            "outputs": 5040,
+            "output_fraction": 0.005870841487279843,
+            "on_fraction": 0.5597222222222222,
+            "mean_probability": 0.33885928993177755,
+            "micro_roc_auc": 0.9701492012762711,
+            "incident_wrong_pair_share": 0.04084754651117238,
+            "incident_available_pair_share": 0.011928051871695893,
+            "error_enrichment_vs_pair_availability": 3.4244943726393107,
+            "incident_pair_error_rate": 0.03782103360668904
+          },
+          "subset_auc_delta": 0.04322790556054612,
+          "incident_error_delta_in_global_pair_units": -0.0001457158882323524
+        },
+        {
+          "month": 10,
+          "baseline": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.6232718894009217,
+            "mean_probability": 0.24206747488952138,
+            "micro_roc_auc": 0.9598004412864763,
+            "incident_wrong_pair_share": 0.071692090039086,
+            "incident_available_pair_share": 0.012465008821090353,
+            "error_enrichment_vs_pair_availability": 5.751467252697449,
+            "incident_pair_error_rate": 0.06745356373895894
+          },
+          "candidate": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.6232718894009217,
+            "mean_probability": 0.37951035764174107,
+            "micro_roc_auc": 0.988949780895549,
+            "incident_wrong_pair_share": 0.038005210566385055,
+            "incident_available_pair_share": 0.012465008821090353,
+            "error_enrichment_vs_pair_availability": 3.048951758628649,
+            "incident_pair_error_rate": 0.033673440333147085
+          },
+          "subset_auc_delta": 0.029149339609072622,
+          "incident_error_delta_in_global_pair_units": -0.0004210695362309655
+        },
+        {
+          "month": 11,
+          "baseline": {
+            "outputs": 5040,
+            "output_fraction": 0.005870841487279843,
+            "on_fraction": 0.3892857142857143,
+            "mean_probability": 0.3078690578777964,
+            "micro_roc_auc": 0.9578452587465948,
+            "incident_wrong_pair_share": 0.02612854320643169,
+            "incident_available_pair_share": 0.011568990565934953,
+            "error_enrichment_vs_pair_availability": 2.258498099511597,
+            "incident_pair_error_rate": 0.026487805427088833
+          },
+          "candidate": {
+            "outputs": 5040,
+            "output_fraction": 0.005870841487279843,
+            "on_fraction": 0.3892857142857143,
+            "mean_probability": 0.34290026726183137,
+            "micro_roc_auc": 0.9730249993542015,
+            "incident_wrong_pair_share": 0.021152847218743238,
+            "incident_available_pair_share": 0.011568990565934953,
+            "error_enrichment_vs_pair_availability": 1.8284090645754418,
+            "incident_pair_error_rate": 0.020193439717871662
+          },
+          "subset_auc_delta": 0.01517974060760674,
+          "incident_error_delta_in_global_pair_units": -7.281945750847792e-05
+        },
+        {
+          "month": 12,
+          "baseline": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.25499231950844853,
+            "mean_probability": 0.31825008076290867,
+            "micro_roc_auc": 0.9690090904856541,
+            "incident_wrong_pair_share": 0.019599131288933862,
+            "incident_available_pair_share": 0.011667242462928757,
+            "error_enrichment_vs_pair_availability": 1.67984263215646,
+            "incident_pair_error_rate": 0.019701298308956398
+          },
+          "candidate": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.25499231950844853,
+            "mean_probability": 0.3709907681708892,
+            "micro_roc_auc": 0.9750370683765992,
+            "incident_wrong_pair_share": 0.024037219224989404,
+            "incident_available_pair_share": 0.011667242462928757,
+            "error_enrichment_vs_pair_availability": 2.0602313958387977,
+            "incident_pair_error_rate": 0.022753747672104023
+          },
+          "subset_auc_delta": 0.006027977890945113,
+          "incident_error_delta_in_global_pair_units": 3.561366682565582e-05
+        }
+      ],
+      "transition_regions": {
+        "definition": "Within +/-2 hours of true-label state change, first new-state hour as center; diagnostic only.",
+        "near": {
+          "baseline": {
+            "outputs": 69107,
+            "output_fraction": 0.08049925449631908,
+            "on_fraction": 0.47983561723125007,
+            "mean_probability": 0.4843691445891493,
+            "micro_roc_auc": 0.8633446227949251,
+            "incident_wrong_pair_share": 0.5001045810089834,
+            "incident_available_pair_share": 0.1551865330152972,
+            "error_enrichment_vs_pair_availability": 3.2226029623310586,
+            "incident_pair_error_rate": 0.03779488690003515
+          },
+          "candidate": {
+            "outputs": 69107,
+            "output_fraction": 0.08049925449631908,
+            "on_fraction": 0.47983561723125007,
+            "mean_probability": 0.48541972208553436,
+            "micro_roc_auc": 0.8644315886177825,
+            "incident_wrong_pair_share": 0.5119852355378446,
+            "incident_available_pair_share": 0.1551865330152972,
+            "error_enrichment_vs_pair_availability": 3.299160214420002,
+            "incident_pair_error_rate": 0.03643680957409845
+          },
+          "subset_auc_delta": 0.0010869658228573886,
+          "incident_error_delta_in_global_pair_units": -0.0002107553117788024
+        },
+        "away": {
+          "baseline": {
+            "outputs": 789373,
+            "output_fraction": 0.9195007455036809,
+            "on_fraction": 0.4532090659295415,
+            "mean_probability": 0.4502763582295878,
+            "micro_roc_auc": 0.9930602379960145,
+            "incident_wrong_pair_share": 0.9240104190139311,
+            "incident_available_pair_share": 0.9934784087905899,
+            "error_enrichment_vs_pair_availability": 0.9300759944433764,
+            "incident_pair_error_rate": 0.010907988799525578
+          },
+          "candidate": {
+            "outputs": 789373,
+            "output_fraction": 0.9195007455036809,
+            "on_fraction": 0.4532090659295415,
+            "mean_probability": 0.4519182547081961,
+            "micro_roc_auc": 0.9936201705394229,
+            "incident_wrong_pair_share": 0.9199474550816984,
+            "incident_available_pair_share": 0.9934784087905899,
+            "error_enrichment_vs_pair_availability": 0.9259863595843977,
+            "incident_pair_error_rate": 0.010226841517098286
+          },
+          "subset_auc_delta": 0.0005599325434083591,
+          "incident_error_delta_in_global_pair_units": -0.0006767051182979007
+        }
+      },
+      "economic_boundary": {
+        "definition": "abs((price - local terminal water value)/max(mean(abs(weekly prices)),10)) < 0.1; proxy, not exact optimizer opportunity cost.",
+        "near": {
+          "baseline": {
+            "outputs": 99019,
+            "output_fraction": 0.11534223278352437,
+            "on_fraction": 0.5028731859542108,
+            "mean_probability": 0.49810883326739014,
+            "micro_roc_auc": 0.9498898060313212,
+            "incident_wrong_pair_share": 0.4156318042055942,
+            "incident_available_pair_share": 0.2192476371922284,
+            "error_enrichment_vs_pair_availability": 1.8957185104858543,
+            "incident_pair_error_rate": 0.022233103964594297
+          },
+          "candidate": {
+            "outputs": 99019,
+            "output_fraction": 0.11534223278352437,
+            "on_fraction": 0.5028731859542108,
+            "mean_probability": 0.49857200551270303,
+            "micro_roc_auc": 0.9501641882891695,
+            "incident_wrong_pair_share": 0.42587942742534846,
+            "incident_available_pair_share": 0.2192476371922284,
+            "error_enrichment_vs_pair_availability": 1.9424584587516114,
+            "incident_pair_error_rate": 0.02145303179208348
+          },
+          "subset_auc_delta": 0.0002743822578482602,
+          "incident_error_delta_in_global_pair_units": -0.00017102898066240473
+        },
+        "away": {
+          "baseline": {
+            "outputs": 759461,
+            "output_fraction": 0.8846577672164756,
+            "on_fraction": 0.4491567045575744,
+            "mean_probability": 0.4471421964242839,
+            "micro_roc_auc": 0.9912219204485987,
+            "incident_wrong_pair_share": 0.9427020644501938,
+            "incident_available_pair_share": 0.9865896800732097,
+            "error_enrichment_vs_pair_availability": 0.9555158375265397,
+            "incident_pair_error_rate": 0.011206348852973586
+          },
+          "candidate": {
+            "outputs": 759461,
+            "output_fraction": 0.8846577672164756,
+            "on_fraction": 0.4491567045575744,
+            "mean_probability": 0.4488839687542553,
+            "micro_roc_auc": 0.9918786778390557,
+            "incident_wrong_pair_share": 0.9394876890875298,
+            "incident_available_pair_share": 0.9865896800732097,
+            "error_enrichment_vs_pair_availability": 0.952257770441928,
+            "incident_pair_error_rate": 0.010516990019276142
+          },
+          "subset_auc_delta": 0.0006567573904570079,
+          "incident_error_delta_in_global_pair_units": -0.0006801143111932022
+        }
+      },
+      "changed_pair_decomposition": {
+        "within_target_error_delta_in_global_pair_units": -8.468243115543015e-05,
+        "target_other_generator_cross_pair_error_delta_in_global_pair_units": -0.000599111433897748,
+        "total_error_delta_in_global_pair_units": -0.0006837938650531781,
+        "note": "Only target probabilities changed. These two disjoint categories sum to minus the overall AUC delta; unlike incident shares they are additive."
+      },
+      "configured_tree_cap": 2200,
+      "saved_model_tree_count": 692
+    },
+    {
+      "year": 2022,
+      "cases": 365,
+      "outputs": 858480,
+      "baseline_auc": 0.987770674860208,
+      "candidate_auc": 0.9877433822033665,
+      "delta": -2.7292656841426677e-05,
+      "only_target_probabilities_changed": true,
+      "candidate_prediction_sha256": "64b971000f2ed2ba90faea38912f7d2586ae3aed2429daefce51c4d5ba4a9a1c",
+      "specialist_provenance": {
+        "best_iteration": 692,
+        "target_micro_roc_auc": 0.9596735247881587,
+        "reference_target_micro_roc_auc": 0.9670742473841141,
+        "iteration_selection": "fixed_by_config",
+        "selection_source": {
+          "path": "reports/round2_xgb_lio_2021_metrics.json",
+          "sha256": "6c7dfc9a5fabb57e8fa7c91c1bdd1593901bf3df101b0e8ce06c399da3ead6c0",
+          "selected_total_rounds": 692,
+          "selection_year": 2021
+        }
+      },
+      "specialist_early_stopping_rounds": null,
+      "specialist_selection_source": "reports/round2_xgb_lio_2021_metrics.json",
+      "bootstrap": [
+        {
+          "block_days": 7,
+          "repetitions": 120,
+          "reference_auc": 0.987770674860208,
+          "candidate_auc": 0.9877433822033664,
+          "observed_delta": -2.72926568415377e-05,
+          "bootstrap_delta_mean": -2.1634922846100468e-05,
+          "bootstrap_delta_std": 0.0001248917637345434,
+          "percentile_interval_95": [
+            -0.0002811613263295376,
+            0.00018706137873910052
+          ],
+          "fraction_positive_draws": 0.475
+        },
+        {
+          "block_days": 14,
+          "repetitions": 120,
+          "reference_auc": 0.987770674860208,
+          "candidate_auc": 0.9877433822033664,
+          "observed_delta": -2.72926568415377e-05,
+          "bootstrap_delta_mean": -2.8784174264370743e-05,
+          "bootstrap_delta_std": 0.00014336284669721504,
+          "percentile_interval_95": [
+            -0.0003278650433301278,
+            0.00019447529215050878
+          ],
+          "fraction_positive_draws": 0.45
+        },
+        {
+          "block_days": 28,
+          "repetitions": 120,
+          "reference_auc": 0.987770674860208,
+          "candidate_auc": 0.9877433822033664,
+          "observed_delta": -2.72926568415377e-05,
+          "bootstrap_delta_mean": -3.1492921971376654e-05,
+          "bootstrap_delta_std": 0.00017137933952204645,
+          "percentile_interval_95": [
+            -0.0003691069820712628,
+            0.00031803477493715364
+          ],
+          "fraction_positive_draws": 0.44166666666666665
+        }
+      ],
+      "by_generator": [
+        {
+          "generator": "Hogga_G1",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.3865949119373777,
+            "mean_probability": 0.42610014967021265,
+            "micro_roc_auc": 0.9775100186335982,
+            "incident_wrong_pair_share": 0.19589611749924754,
+            "incident_available_pair_share": 0.14214396545284355,
+            "error_enrichment_vs_pair_availability": 1.378152895025546,
+            "incident_pair_error_rate": 0.016853879845613103
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.3865949119373777,
+            "mean_probability": 0.42610014967021265,
+            "micro_roc_auc": 0.9775100186335982,
+            "incident_wrong_pair_share": 0.19437588683240434,
+            "incident_available_pair_share": 0.14214396545284355,
+            "error_enrichment_vs_pair_availability": 1.3674578882976836,
+            "incident_pair_error_rate": 0.016760408689856263
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": -1.3286360734737594e-05
+        },
+        {
+          "generator": "Tokke_G1",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.4566699282452707,
+            "mean_probability": 0.4858762787111335,
+            "micro_roc_auc": 0.9937337966817539,
+            "incident_wrong_pair_share": 0.11358784341117986,
+            "incident_available_pair_share": 0.14900377516577595,
+            "error_enrichment_vs_pair_availability": 0.7623152049993789,
+            "incident_pair_error_rate": 0.009322600500944633
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.4566699282452707,
+            "mean_probability": 0.4858762787111335,
+            "micro_roc_auc": 0.9937337966817539,
+            "incident_wrong_pair_share": 0.11248587981885433,
+            "incident_available_pair_share": 0.14900377516577595,
+            "error_enrichment_vs_pair_availability": 0.7549196635703143,
+            "incident_pair_error_rate": 0.009252761783544493
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": -1.0406232545356582e-05
+        },
+        {
+          "generator": "Tokke_G2",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.35712654924983694,
+            "mean_probability": 0.36895467341094085,
+            "micro_roc_auc": 0.9926142231231896,
+            "incident_wrong_pair_share": 0.10906530938576933,
+            "incident_available_pair_share": 0.13932588260993461,
+            "error_enrichment_vs_pair_availability": 0.7828072382725566,
+            "incident_pair_error_rate": 0.00957320423861776
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.35712654924983694,
+            "mean_probability": 0.36895467341094085,
+            "micro_roc_auc": 0.9926142231231896,
+            "incident_wrong_pair_share": 0.10846628083177702,
+            "incident_available_pair_share": 0.13932588260993461,
+            "error_enrichment_vs_pair_availability": 0.778507760366722,
+            "incident_pair_error_rate": 0.009541872070528059
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": -4.36538197318018e-06
+        },
+        {
+          "generator": "Tokke_G3",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.41087736464448793,
+            "mean_probability": 0.41965486605645436,
+            "micro_roc_auc": 0.9954396389133615,
+            "incident_wrong_pair_share": 0.08946060753217554,
+            "incident_available_pair_share": 0.14449576924079038,
+            "error_enrichment_vs_pair_availability": 0.6191226774473705,
+            "incident_pair_error_rate": 0.00757145252392249
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.41087736464448793,
+            "mean_probability": 0.41965486605645436,
+            "micro_roc_auc": 0.9954396389133615,
+            "incident_wrong_pair_share": 0.08926397571152407,
+            "incident_available_pair_share": 0.14449576924079038,
+            "error_enrichment_vs_pair_availability": 0.6177618637592978,
+            "incident_pair_error_rate": 0.007571671053433692
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": 3.157658982292505e-08
+        },
+        {
+          "generator": "Tokke_G4",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.3732550554468363,
+            "mean_probability": 0.38244748364382064,
+            "micro_roc_auc": 0.9948887626158267,
+            "incident_wrong_pair_share": 0.09085323594205133,
+            "incident_available_pair_share": 0.14086337626043913,
+            "error_enrichment_vs_pair_availability": 0.64497414696404,
+            "incident_pair_error_rate": 0.007887598549983266
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.3732550554468363,
+            "mean_probability": 0.38244748364382064,
+            "micro_roc_auc": 0.9948887626158267,
+            "incident_wrong_pair_share": 0.09043592692358272,
+            "incident_available_pair_share": 0.14086337626043913,
+            "error_enrichment_vs_pair_availability": 0.6420116379744993,
+            "incident_pair_error_rate": 0.007868891267644076
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": -2.635170950955612e-06
+        },
+        {
+          "generator": "Lio_G1",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.5499184605348989,
+            "mean_probability": 0.5407456822889946,
+            "micro_roc_auc": 0.96488435459231,
+            "incident_wrong_pair_share": 0.25162307572737996,
+            "incident_available_pair_share": 0.15847810718701474,
+            "error_enrichment_vs_pair_availability": 1.5877465991592639,
+            "incident_pair_error_rate": 0.019417069400717718
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.5499184605348989,
+            "mean_probability": 0.568338469834978,
+            "micro_roc_auc": 0.96510534689969,
+            "incident_wrong_pair_share": 0.2532895382801936,
+            "incident_available_pair_share": 0.15847810718701474,
+            "error_enrichment_vs_pair_availability": 1.5982620109242918,
+            "incident_pair_error_rate": 0.01958928660677793
+          },
+          "subset_auc_delta": 0.00022099230737993025,
+          "incident_error_delta_in_global_pair_units": 2.7292656841458336e-05
+        },
+        {
+          "generator": "Byrte_G1",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.38308871493803,
+            "mean_probability": 0.3779051387142717,
+            "micro_roc_auc": 0.9963864239225171,
+            "incident_wrong_pair_share": 0.07806067332159074,
+            "incident_available_pair_share": 0.1418065969315864,
+            "error_enrichment_vs_pair_availability": 0.5504727918916957,
+            "incident_pair_error_rate": 0.006731910752652632
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.38308871493803,
+            "mean_probability": 0.3779051387142717,
+            "micro_roc_auc": 0.9963864239225171,
+            "incident_wrong_pair_share": 0.07809195951545886,
+            "incident_available_pair_share": 0.1418065969315864,
+            "error_enrichment_vs_pair_availability": 0.5506934176915181,
+            "incident_pair_error_rate": 0.006749638743766791
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": 2.5139460903322646e-06
+        },
+        {
+          "generator": "Vinje_G1",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.34354207436399214,
+            "mean_probability": 0.35454866900489446,
+            "micro_roc_auc": 0.9860335306670862,
+            "incident_wrong_pair_share": 0.14543514008188727,
+            "incident_available_pair_share": 0.1380400760718528,
+            "error_enrichment_vs_pair_availability": 1.0535718627551696,
+            "incident_pair_error_rate": 0.012884472867769331
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.34354207436399214,
+            "mean_probability": 0.35454866900489446,
+            "micro_roc_auc": 0.9860335306670862,
+            "incident_wrong_pair_share": 0.14471959804914247,
+            "incident_available_pair_share": 0.1380400760718528,
+            "error_enrichment_vs_pair_availability": 1.0483882809062843,
+            "incident_pair_error_rate": 0.012849694461537971
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": -4.800813841834752e-06
+        },
+        {
+          "generator": "Vinje_G2",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.2969993476842792,
+            "mean_probability": 0.31218088083937046,
+            "micro_roc_auc": 0.9841237529648079,
+            "incident_wrong_pair_share": 0.14334633654932996,
+            "incident_available_pair_share": 0.13369826403508808,
+            "error_enrichment_vs_pair_availability": 1.0721630350541411,
+            "incident_pair_error_rate": 0.013111830358543353
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.2969993476842792,
+            "mean_probability": 0.31218088083937046,
+            "micro_roc_auc": 0.9841237529648079,
+            "incident_wrong_pair_share": 0.14253273537780262,
+            "incident_available_pair_share": 0.13369826403508808,
+            "error_enrichment_vs_pair_availability": 1.0660776817595476,
+            "incident_pair_error_rate": 0.013066506686847865
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": -6.059696225383e-06
+        },
+        {
+          "generator": "Vinje_G3",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.19204174820613176,
+            "mean_probability": 0.19160414924163824,
+            "micro_roc_auc": 0.9720330802791017,
+            "incident_wrong_pair_share": 0.16815997226702772,
+            "incident_available_pair_share": 0.12426839439004816,
+            "error_enrichment_vs_pair_availability": 1.3531998469314297,
+            "incident_pair_error_rate": 0.016548720907241285
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.19204174820613176,
+            "mean_probability": 0.19160414924163824,
+            "micro_roc_auc": 0.9720330802791017,
+            "incident_wrong_pair_share": 0.16847186028700062,
+            "incident_available_pair_share": 0.12426839439004816,
+            "error_enrichment_vs_pair_availability": 1.355709640523789,
+            "incident_pair_error_rate": 0.016616414907111486
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": 8.412224673709934e-06
+        },
+        {
+          "generator": "Haukeli_G1",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.14145466405740378,
+            "mean_probability": 0.14516607785731042,
+            "micro_roc_auc": 0.9475982997306192,
+            "incident_wrong_pair_share": 0.1974514286704526,
+            "incident_available_pair_share": 0.11990219004790846,
+            "error_enrichment_vs_pair_availability": 1.6467708270512684,
+            "incident_pair_error_rate": 0.020138895874734223
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.14145466405740378,
+            "mean_probability": 0.14516607785731042,
+            "micro_roc_auc": 0.9475982997306192,
+            "incident_wrong_pair_share": 0.19873758061944594,
+            "incident_available_pair_share": 0.11990219004790846,
+            "error_enrichment_vs_pair_availability": 1.6574975030901253,
+            "incident_pair_error_rate": 0.020315313394250033
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": 2.1152846952765276e-05
+        },
+        {
+          "generator": "Songa_G1",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.11705805609915199,
+            "mean_probability": 0.11732724183618314,
+            "micro_roc_auc": 0.9973672474059961,
+            "incident_wrong_pair_share": 0.046041384024697506,
+            "incident_available_pair_share": 0.11783806484196527,
+            "error_enrichment_vs_pair_availability": 0.3907174144996732,
+            "incident_pair_error_rate": 0.004778210299695403
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.11705805609915199,
+            "mean_probability": 0.11732724183618314,
+            "micro_roc_auc": 0.9973672474059961,
+            "incident_wrong_pair_share": 0.046283148051139554,
+            "incident_available_pair_share": 0.11783806484196527,
+            "error_enrichment_vs_pair_availability": 0.3927690777441967,
+            "incident_pair_error_rate": 0.0048140204682468515
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": 4.219800963767392e-06
+        },
+        {
+          "generator": "Kjela_G1",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.45280495759947814,
+            "mean_probability": 0.4475718807075903,
+            "micro_roc_auc": 0.9804630574581361,
+            "incident_wrong_pair_share": 0.1795783345060273,
+            "incident_available_pair_share": 0.14861961007797916,
+            "error_enrichment_vs_pair_availability": 1.2083084756567752,
+            "incident_pair_error_rate": 0.01477679721797321
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.45280495759947814,
+            "mean_probability": 0.4475718807075903,
+            "micro_roc_auc": 0.9804630574581361,
+            "incident_wrong_pair_share": 0.18148132367095265,
+            "incident_available_pair_share": 0.14861961007797916,
+            "error_enrichment_vs_pair_availability": 1.2211129041162958,
+            "incident_pair_error_rate": 0.014966714152290618
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": 2.822538072545875e-05
+        },
+        {
+          "generator": "Vesle Kjela_G1",
+          "baseline": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.3058382257012394,
+            "mean_probability": 0.2964705417166711,
+            "micro_roc_auc": 0.9931095606117835,
+            "incident_wrong_pair_share": 0.10937757251994774,
+            "incident_available_pair_share": 0.13451524126447717,
+            "error_enrichment_vs_pair_availability": 0.8131240110174207,
+            "incident_pair_error_rate": 0.009943957909703888
+          },
+          "candidate": {
+            "outputs": 61320,
+            "output_fraction": 0.07142857142857142,
+            "on_fraction": 0.3058382257012394,
+            "mean_probability": 0.2964705417166711,
+            "micro_roc_auc": 0.9931095606117835,
+            "incident_wrong_pair_share": 0.10958546297972804,
+            "incident_available_pair_share": 0.13451524126447717,
+            "error_enrichment_vs_pair_availability": 0.8146694898629856,
+            "incident_pair_error_rate": 0.009985092567829009
+          },
+          "subset_auc_delta": 0.0,
+          "incident_error_delta_in_global_pair_units": 5.5332384620322955e-06
+        }
+      ],
+      "by_start_month": [
+        {
+          "month": 1,
+          "cases": 31,
+          "baseline": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.3432082510423524,
+            "mean_probability": 0.3632787059522429,
+            "micro_roc_auc": 0.99117211409556,
+            "incident_wrong_pair_share": 0.15007064348477084,
+            "incident_available_pair_share": 0.16294671065773766,
+            "error_enrichment_vs_pair_availability": 0.9209798889404253,
+            "incident_pair_error_rate": 0.01126296250906203
+          },
+          "candidate": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.3432082510423524,
+            "mean_probability": 0.3693761272392075,
+            "micro_roc_auc": 0.9910886300905224,
+            "incident_wrong_pair_share": 0.15367368377628252,
+            "incident_available_pair_share": 0.16294671065773766,
+            "error_enrichment_vs_pair_availability": 0.9430916595737073,
+            "incident_pair_error_rate": 0.01155911401858773
+          },
+          "subset_auc_delta": -8.348400503765951e-05,
+          "incident_error_delta_in_global_pair_units": 4.825691433353661e-05
+        },
+        {
+          "month": 2,
+          "cases": 28,
+          "baseline": {
+            "outputs": 65856,
+            "output_fraction": 0.07671232876712329,
+            "on_fraction": 0.24744897959183673,
+            "mean_probability": 0.26706598071060417,
+            "micro_roc_auc": 0.9940445297607655,
+            "incident_wrong_pair_share": 0.0991288451199998,
+            "incident_available_pair_share": 0.13840402501839727,
+            "error_enrichment_vs_pair_availability": 0.7162280512204985,
+            "incident_pair_error_rate": 0.00875898571261511
+          },
+          "candidate": {
+            "outputs": 65856,
+            "output_fraction": 0.07671232876712329,
+            "on_fraction": 0.24744897959183673,
+            "mean_probability": 0.27837566145763315,
+            "micro_roc_auc": 0.9932216650857443,
+            "incident_wrong_pair_share": 0.11227795909744143,
+            "incident_available_pair_share": 0.13840402501839727,
+            "error_enrichment_vs_pair_availability": 0.8112333371989503,
+            "incident_pair_error_rate": 0.009942976957935045
+          },
+          "subset_auc_delta": -0.0008228646750212398,
+          "incident_error_delta_in_global_pair_units": 0.00016386915393882357
+        },
+        {
+          "month": 3,
+          "cases": 31,
+          "baseline": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.27102534562211983,
+            "mean_probability": 0.25433002138372823,
+            "micro_roc_auc": 0.9932585756490786,
+            "incident_wrong_pair_share": 0.12634328366811032,
+            "incident_available_pair_share": 0.15513357241148806,
+            "error_enrichment_vs_pair_availability": 0.8144161299463136,
+            "incident_pair_error_rate": 0.0099597596522046
+          },
+          "candidate": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.27102534562211983,
+            "mean_probability": 0.260803525730462,
+            "micro_roc_auc": 0.9936093859579873,
+            "incident_wrong_pair_share": 0.12021085631056212,
+            "incident_available_pair_share": 0.15513357241148806,
+            "error_enrichment_vs_pair_availability": 0.7748861477366468,
+            "incident_pair_error_rate": 0.009497483348713765
+          },
+          "subset_auc_delta": 0.0003508103089087111,
+          "incident_error_delta_in_global_pair_units": -7.171457440171029e-05
+        },
+        {
+          "month": 4,
+          "cases": 30,
+          "baseline": {
+            "outputs": 70560,
+            "output_fraction": 0.0821917808219178,
+            "on_fraction": 0.41169217687074827,
+            "mean_probability": 0.41899215096210707,
+            "micro_roc_auc": 0.9634250446998294,
+            "incident_wrong_pair_share": 0.2792719677184065,
+            "incident_available_pair_share": 0.16540632528575866,
+            "error_enrichment_vs_pair_availability": 1.6883995653487356,
+            "incident_pair_error_rate": 0.02064798725053326
+          },
+          "candidate": {
+            "outputs": 70560,
+            "output_fraction": 0.0821917808219178,
+            "on_fraction": 0.41169217687074827,
+            "mean_probability": 0.42060453432027295,
+            "micro_roc_auc": 0.9640914094839379,
+            "incident_wrong_pair_share": 0.2773979451146106,
+            "incident_available_pair_share": 0.16540632528575866,
+            "error_enrichment_vs_pair_availability": 1.6770697531389647,
+            "incident_pair_error_rate": 0.0205552029825188
+          },
+          "subset_auc_delta": 0.0006663647841085307,
+          "incident_error_delta_in_global_pair_units": -1.5347104816600902e-05
+        },
+        {
+          "month": 5,
+          "cases": 31,
+          "baseline": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.4375274303269695,
+            "mean_probability": 0.4255668269455293,
+            "micro_roc_auc": 0.9809365327490739,
+            "incident_wrong_pair_share": 0.21295808592071855,
+            "incident_available_pair_share": 0.17366034242282913,
+            "error_enrichment_vs_pair_availability": 1.2262908327233806,
+            "incident_pair_error_rate": 0.014996709309320564
+          },
+          "candidate": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.4375274303269695,
+            "mean_probability": 0.42655060676189493,
+            "micro_roc_auc": 0.9810802736056968,
+            "incident_wrong_pair_share": 0.21298830409449554,
+            "incident_available_pair_share": 0.17366034242282913,
+            "error_enrichment_vs_pair_availability": 1.2264648400606655,
+            "incident_pair_error_rate": 0.015032310785632821
+          },
+          "subset_auc_delta": 0.00014374085662294256,
+          "incident_error_delta_in_global_pair_units": 6.182564567144312e-06
+        },
+        {
+          "month": 6,
+          "cases": 30,
+          "baseline": {
+            "outputs": 70560,
+            "output_fraction": 0.0821917808219178,
+            "on_fraction": 0.18479308390022675,
+            "mean_probability": 0.18096923271746926,
+            "micro_roc_auc": 0.9822442450082209,
+            "incident_wrong_pair_share": 0.15475980447631613,
+            "incident_available_pair_share": 0.14167220087475235,
+            "error_enrichment_vs_pair_availability": 1.0923794754422858,
+            "incident_pair_error_rate": 0.013359063781219196
+          },
+          "candidate": {
+            "outputs": 70560,
+            "output_fraction": 0.0821917808219178,
+            "on_fraction": 0.18479308390022675,
+            "mean_probability": 0.17922226502230387,
+            "micro_roc_auc": 0.9830391743782845,
+            "incident_wrong_pair_share": 0.15301949961212652,
+            "incident_available_pair_share": 0.14167220087475235,
+            "error_enrichment_vs_pair_availability": 1.0800954503940114,
+            "incident_pair_error_rate": 0.013238317119362126
+          },
+          "subset_auc_delta": 0.0007949293700635351,
+          "incident_error_delta_in_global_pair_units": -1.7106445333570607e-05
+        },
+        {
+          "month": 7,
+          "cases": 31,
+          "baseline": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.1211734693877551,
+            "mean_probability": 0.14236967457329872,
+            "micro_roc_auc": 0.9749532332169791,
+            "incident_wrong_pair_share": 0.17263280031971467,
+            "incident_available_pair_share": 0.13998223184166814,
+            "error_enrichment_vs_pair_availability": 1.2332479490323967,
+            "incident_pair_error_rate": 0.015081790146698871
+          },
+          "candidate": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.1211734693877551,
+            "mean_probability": 0.1404856556595123,
+            "micro_roc_auc": 0.9755614096117152,
+            "incident_wrong_pair_share": 0.17104019859869615,
+            "incident_available_pair_share": 0.13998223184166814,
+            "error_enrichment_vs_pair_availability": 1.2218707785153564,
+            "incident_pair_error_rate": 0.014976003129137756
+          },
+          "subset_auc_delta": 0.000608176394736093,
+          "incident_error_delta_in_global_pair_units": -1.4808302818078607e-05
+        },
+        {
+          "month": 8,
+          "cases": 31,
+          "baseline": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.0945249067368883,
+            "mean_probability": 0.12149270430250267,
+            "micro_roc_auc": 0.9956892470721074,
+            "incident_wrong_pair_share": 0.07988017506789051,
+            "incident_available_pair_share": 0.13743891039302117,
+            "error_enrichment_vs_pair_availability": 0.5812049501808816,
+            "incident_pair_error_rate": 0.007107744308618639
+          },
+          "candidate": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.0945249067368883,
+            "mean_probability": 0.12031506722054751,
+            "micro_roc_auc": 0.9957131938069735,
+            "incident_wrong_pair_share": 0.07720978461869857,
+            "incident_available_pair_share": 0.13743891039302117,
+            "error_enrichment_vs_pair_availability": 0.561775296369194,
+            "incident_pair_error_rate": 0.006885465095187725
+          },
+          "subset_auc_delta": 2.394673486616483e-05,
+          "incident_error_delta_in_global_pair_units": -3.0549812896962575e-05
+        },
+        {
+          "month": 9,
+          "cases": 30,
+          "baseline": {
+            "outputs": 70560,
+            "output_fraction": 0.0821917808219178,
+            "on_fraction": 0.3201814058956916,
+            "mean_probability": 0.3361767933423185,
+            "micro_roc_auc": 0.9958892871230135,
+            "incident_wrong_pair_share": 0.09737942304420132,
+            "incident_available_pair_share": 0.1554613993404608,
+            "error_enrichment_vs_pair_availability": 0.6263897241201346,
+            "incident_pair_error_rate": 0.007660323600489767
+          },
+          "candidate": {
+            "outputs": 70560,
+            "output_fraction": 0.0821917808219178,
+            "on_fraction": 0.3201814058956916,
+            "mean_probability": 0.33712163396712885,
+            "micro_roc_auc": 0.9958351703233577,
+            "incident_wrong_pair_share": 0.09742331226391986,
+            "incident_available_pair_share": 0.1554613993404608,
+            "error_enrichment_vs_pair_availability": 0.6266720399869976,
+            "incident_pair_error_rate": 0.00768087967795726
+          },
+          "subset_auc_delta": -5.411679965583449e-05,
+          "incident_error_delta_in_global_pair_units": 3.195676568047137e-06
+        },
+        {
+          "month": 10,
+          "cases": 31,
+          "baseline": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.5372092385341233,
+            "mean_probability": 0.5402552604916274,
+            "micro_roc_auc": 0.987933585871953,
+            "incident_wrong_pair_share": 0.16988381951214263,
+            "incident_available_pair_share": 0.18560428504461274,
+            "error_enrichment_vs_pair_availability": 0.9153011713673989,
+            "incident_pair_error_rate": 0.01119351562548444
+          },
+          "candidate": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.5372092385341233,
+            "mean_probability": 0.5411474045045989,
+            "micro_roc_auc": 0.988367039648726,
+            "incident_wrong_pair_share": 0.16691741691947828,
+            "incident_available_pair_share": 0.18560428504461274,
+            "error_enrichment_vs_pair_availability": 0.8993187677717528,
+            "incident_pair_error_rate": 0.011022606413917781
+          },
+          "subset_auc_delta": 0.0004334537767729518,
+          "incident_error_delta_in_global_pair_units": -3.1721482020368244e-05
+        },
+        {
+          "month": 11,
+          "cases": 30,
+          "baseline": {
+            "outputs": 70560,
+            "output_fraction": 0.0821917808219178,
+            "on_fraction": 0.4951814058956916,
+            "mean_probability": 0.49040099325532266,
+            "micro_roc_auc": 0.9721305433522519,
+            "incident_wrong_pair_share": 0.26157933414035267,
+            "incident_available_pair_share": 0.17491903363689282,
+            "error_enrichment_vs_pair_availability": 1.4954309356828164,
+            "incident_pair_error_rate": 0.018288111136568613
+          },
+          "candidate": {
+            "outputs": 70560,
+            "output_fraction": 0.0821917808219178,
+            "on_fraction": 0.4951814058956916,
+            "mean_probability": 0.49109812595838054,
+            "micro_roc_auc": 0.9717234751030643,
+            "incident_wrong_pair_share": 0.26384475706732846,
+            "incident_available_pair_share": 0.17491903363689282,
+            "error_enrichment_vs_pair_availability": 1.508382201647837,
+            "incident_pair_error_rate": 0.01848766413684211
+          },
+          "subset_auc_delta": -0.0004070682491875699,
+          "incident_error_delta_in_global_pair_units": 3.490561796718264e-05
+        },
+        {
+          "month": 12,
+          "cases": 31,
+          "baseline": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.6148644941847707,
+            "mean_probability": 0.6238030956260119,
+            "micro_roc_auc": 0.996056758505923,
+            "incident_wrong_pair_share": 0.10667225267122037,
+            "incident_available_pair_share": 0.1953513391779618,
+            "error_enrichment_vs_pair_availability": 0.5460533473693965,
+            "incident_pair_error_rate": 0.00667786392865216
+          },
+          "candidate": {
+            "outputs": 72912,
+            "output_fraction": 0.08493150684931507,
+            "on_fraction": 0.6148644941847707,
+            "mean_probability": 0.623949858899003,
+            "micro_roc_auc": 0.9961232372141635,
+            "incident_wrong_pair_share": 0.10556345038548841,
+            "incident_available_pair_share": 0.1953513391779618,
+            "error_enrichment_vs_pair_availability": 0.540377408364331,
+            "incident_pair_error_rate": 0.0066231993602569525
+          },
+          "subset_auc_delta": 6.647870824050273e-05,
+          "incident_error_delta_in_global_pair_units": -1.0678796641589144e-05
+        }
+      ],
+      "target_by_start_month": [
+        {
+          "month": 1,
+          "baseline": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.11693548387096774,
+            "mean_probability": 0.17671530157420048,
+            "micro_roc_auc": 0.9598438441140378,
+            "incident_wrong_pair_share": 0.01993073931894751,
+            "incident_available_pair_share": 0.010189620758455356,
+            "error_enrichment_vs_pair_availability": 1.9559844072125026,
+            "incident_pair_error_rate": 0.02392036928416511
+          },
+          "candidate": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.11693548387096774,
+            "mean_probability": 0.262079199591705,
+            "micro_roc_auc": 0.9726620086968288,
+            "incident_wrong_pair_share": 0.02447796578238394,
+            "incident_available_pair_share": 0.010189620758455356,
+            "error_enrichment_vs_pair_availability": 2.4022450258585044,
+            "incident_pair_error_rate": 0.029443399135811666
+          },
+          "subset_auc_delta": 0.012818164582791058,
+          "incident_error_delta_in_global_pair_units": 5.627757962590636e-05
+        },
+        {
+          "month": 2,
+          "baseline": {
+            "outputs": 4704,
+            "output_fraction": 0.005479452054794521,
+            "on_fraction": 0.057185374149659865,
+            "mean_probability": 0.19751569581822817,
+            "micro_roc_auc": 0.9609845643181352,
+            "incident_wrong_pair_share": 0.018796793036292628,
+            "incident_available_pair_share": 0.00874658679667167,
+            "error_enrichment_vs_pair_availability": 2.1490432180293864,
+            "incident_pair_error_rate": 0.026281348252746382
+          },
+          "candidate": {
+            "outputs": 4704,
+            "output_fraction": 0.005479452054794521,
+            "on_fraction": 0.057185374149659865,
+            "mean_probability": 0.35585122627663446,
+            "micro_roc_auc": 0.982937347812056,
+            "incident_wrong_pair_share": 0.032902910535058956,
+            "incident_available_pair_share": 0.00874658679667167,
+            "error_enrichment_vs_pair_availability": 3.7618000369675024,
+            "incident_pair_error_rate": 0.046106945280472475
+          },
+          "subset_auc_delta": 0.021952783493920824,
+          "incident_error_delta_in_global_pair_units": 0.00017340630519884214
+        },
+        {
+          "month": 3,
+          "baseline": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.7158218125960062,
+            "mean_probability": 0.5355333217527156,
+            "micro_roc_auc": 0.9331902114023896,
+            "incident_wrong_pair_share": 0.03868668021567635,
+            "incident_available_pair_share": 0.015333560646847063,
+            "error_enrichment_vs_pair_availability": 2.523006958832568,
+            "incident_pair_error_rate": 0.030854672429521404
+          },
+          "candidate": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.7158218125960062,
+            "mean_probability": 0.6261623826069886,
+            "micro_roc_auc": 0.952950643776824,
+            "incident_wrong_pair_share": 0.0319162421247846,
+            "incident_available_pair_share": 0.015333560646847063,
+            "error_enrichment_vs_pair_availability": 2.081463194352534,
+            "incident_pair_error_rate": 0.025511698830938897
+          },
+          "subset_auc_delta": 0.019760432374434478,
+          "incident_error_delta_in_global_pair_units": -8.192680970836754e-05
+        },
+        {
+          "month": 4,
+          "baseline": {
+            "outputs": 5040,
+            "output_fraction": 0.005870841487279843,
+            "on_fraction": 0.8184523809523809,
+            "mean_probability": 0.6324312060474696,
+            "micro_roc_auc": 0.9029036595462825,
+            "incident_wrong_pair_share": 0.035464025757037825,
+            "incident_available_pair_share": 0.015704184537657234,
+            "error_enrichment_vs_pair_availability": 2.258253249125942,
+            "incident_pair_error_rate": 0.027616913231552954
+          },
+          "candidate": {
+            "outputs": 5040,
+            "output_fraction": 0.005870841487279843,
+            "on_fraction": 0.8184523809523809,
+            "mean_probability": 0.6550045730617924,
+            "micro_roc_auc": 0.9090962079814539,
+            "incident_wrong_pair_share": 0.03318233486163143,
+            "incident_available_pair_share": 0.015704184537657234,
+            "error_enrichment_vs_pair_availability": 2.112961343650996,
+            "incident_pair_error_rate": 0.025897759608191444
+          },
+          "subset_auc_delta": 0.006192548435171363,
+          "incident_error_delta_in_global_pair_units": -2.699790574985122e-05
+        },
+        {
+          "month": 5,
+          "baseline": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.7901305683563749,
+            "mean_probability": 0.660061313939381,
+            "micro_roc_auc": 0.9978987014459628,
+            "incident_wrong_pair_share": 0.016851775853065232,
+            "incident_available_pair_share": 0.015980009808014957,
+            "error_enrichment_vs_pair_availability": 1.0545535362946419,
+            "incident_pair_error_rate": 0.012896478072664667
+          },
+          "candidate": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.7901305683563749,
+            "mean_probability": 0.6738342313685014,
+            "micro_roc_auc": 0.9967747924214514,
+            "incident_wrong_pair_share": 0.015845162423186225,
+            "incident_available_pair_share": 0.015980009808014957,
+            "error_enrichment_vs_pair_availability": 0.9915614954903784,
+            "incident_pair_error_rate": 0.012153190272083907
+          },
+          "subset_auc_delta": -0.001123909024511427,
+          "incident_error_delta_in_global_pair_units": -1.1877746343458425e-05
+        },
+        {
+          "month": 6,
+          "baseline": {
+            "outputs": 5040,
+            "output_fraction": 0.005870841487279843,
+            "on_fraction": 0.18928571428571428,
+            "mean_probability": 0.24228549333850952,
+            "micro_roc_auc": 0.9899665062785336,
+            "incident_wrong_pair_share": 0.016526947390487295,
+            "incident_available_pair_share": 0.010457049368872507,
+            "error_enrichment_vs_pair_availability": 1.5804599182330583,
+            "incident_pair_error_rate": 0.01932795821048123
+          },
+          "candidate": {
+            "outputs": 5040,
+            "output_fraction": 0.005870841487279843,
+            "on_fraction": 0.18928571428571428,
+            "mean_probability": 0.21782794560619445,
+            "micro_roc_auc": 0.9959425804326478,
+            "incident_wrong_pair_share": 0.013678000524523767,
+            "incident_available_pair_share": 0.010457049368872507,
+            "error_enrichment_vs_pair_availability": 1.308017208490864,
+            "incident_pair_error_rate": 0.016031866995892007
+          },
+          "subset_auc_delta": 0.005976074154114275,
+          "incident_error_delta_in_global_pair_units": -3.446738855526646e-05
+        },
+        {
+          "month": 7,
+          "baseline": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.27092933947772657,
+            "mean_probability": 0.3389954319516792,
+            "micro_roc_auc": 0.9110934123642318,
+            "incident_wrong_pair_share": 0.030550206654271335,
+            "incident_available_pair_share": 0.011501073197361883,
+            "error_enrichment_vs_pair_availability": 2.6562918199041587,
+            "incident_pair_error_rate": 0.032484656331777904
+          },
+          "candidate": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.27092933947772657,
+            "mean_probability": 0.3126191671586693,
+            "micro_roc_auc": 0.9158074924681298,
+            "incident_wrong_pair_share": 0.028929598972593687,
+            "incident_available_pair_share": 0.011501073197361883,
+            "error_enrichment_vs_pair_availability": 2.5153825626663746,
+            "incident_pair_error_rate": 0.030830082682918286
+          },
+          "subset_auc_delta": 0.004714080103897955,
+          "incident_error_delta_in_global_pair_units": -1.902937264596058e-05
+        },
+        {
+          "month": 8,
+          "baseline": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.5566436251920123,
+            "mean_probability": 0.6919596047619481,
+            "micro_roc_auc": 0.9767179764052984,
+            "incident_wrong_pair_share": 0.028390377790684426,
+            "incident_available_pair_share": 0.013954880639158495,
+            "error_enrichment_vs_pair_availability": 2.0344407469182353,
+            "incident_pair_error_rate": 0.024879837371704485
+          },
+          "candidate": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.5566436251920123,
+            "mean_probability": 0.6754726856145759,
+            "micro_roc_auc": 0.9708961633250874,
+            "incident_wrong_pair_share": 0.025918906512435565,
+            "incident_available_pair_share": 0.013954880639158495,
+            "error_enrichment_vs_pair_availability": 1.8573363099720874,
+            "incident_pair_error_rate": 0.022764661271137496
+          },
+          "subset_auc_delta": -0.0058218130802110135,
+          "incident_error_delta_in_global_pair_units": -2.951703001421302e-05
+        },
+        {
+          "month": 9,
+          "baseline": {
+            "outputs": 5040,
+            "output_fraction": 0.005870841487279843,
+            "on_fraction": 0.8053571428571429,
+            "mean_probability": 0.8357027758190978,
+            "micro_roc_auc": 0.9765969784616759,
+            "incident_wrong_pair_share": 0.014923772160064226,
+            "incident_available_pair_share": 0.015593734411887095,
+            "error_enrichment_vs_pair_availability": 0.9570364459130356,
+            "incident_pair_error_rate": 0.011703909867701518
+          },
+          "candidate": {
+            "outputs": 5040,
+            "output_fraction": 0.005870841487279843,
+            "on_fraction": 0.8053571428571429,
+            "mean_probability": 0.8489305445664425,
+            "micro_roc_auc": 0.9731360495886489,
+            "incident_wrong_pair_share": 0.015595528102171944,
+            "incident_available_pair_share": 0.015593734411887095,
+            "error_enrichment_vs_pair_availability": 1.0001150263456764,
+            "incident_pair_error_rate": 0.012258027630589006
+          },
+          "subset_auc_delta": -0.0034609288730270693,
+          "incident_error_delta_in_global_pair_units": 8.640765227376499e-06
+        },
+        {
+          "month": 10,
+          "baseline": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.4412442396313364,
+            "mean_probability": 0.44746723514975745,
+            "micro_roc_auc": 0.9842539007474003,
+            "incident_wrong_pair_share": 0.017701139087978275,
+            "incident_available_pair_share": 0.012960572066782805,
+            "error_enrichment_vs_pair_availability": 1.3657683470118782,
+            "incident_pair_error_rate": 0.016702425181244596
+          },
+          "candidate": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.4412442396313364,
+            "mean_probability": 0.45995725133135695,
+            "micro_roc_auc": 0.9906133826216731,
+            "incident_wrong_pair_share": 0.014564504237561123,
+            "incident_available_pair_share": 0.012960572066782805,
+            "error_enrichment_vs_pair_availability": 1.123754735710247,
+            "incident_pair_error_rate": 0.013773432292757399
+          },
+          "subset_auc_delta": 0.006359481874272821,
+          "incident_error_delta_in_global_pair_units": -3.796142341433263e-05
+        },
+        {
+          "month": 11,
+          "baseline": {
+            "outputs": 5040,
+            "output_fraction": 0.005870841487279843,
+            "on_fraction": 0.8365079365079365,
+            "mean_probability": 0.7618762770806237,
+            "micro_roc_auc": 0.9455780452644572,
+            "incident_wrong_pair_share": 0.02356901553239463,
+            "incident_available_pair_share": 0.015856558157334964,
+            "error_enrichment_vs_pair_availability": 1.4863891204215727,
+            "incident_pair_error_rate": 0.01817753583788493
+          },
+          "candidate": {
+            "outputs": 5040,
+            "output_fraction": 0.005870841487279843,
+            "on_fraction": 0.8365079365079365,
+            "mean_probability": 0.7716361349234342,
+            "micro_roc_auc": 0.935912197638216,
+            "incident_wrong_pair_share": 0.02655501475056594,
+            "incident_available_pair_share": 0.015856558157334964,
+            "error_enrichment_vs_pair_availability": 1.6747023210886443,
+            "incident_pair_error_rate": 0.02052618627271852
+          },
+          "subset_auc_delta": -0.00966584762624123,
+          "incident_error_delta_in_global_pair_units": 3.724151221118886e-05
+        },
+        {
+          "month": 12,
+          "baseline": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.967357910906298,
+            "mean_probability": 0.9451665645477889,
+            "micro_roc_auc": 0.9697323868014852,
+            "incident_wrong_pair_share": 0.005396075833612639,
+            "incident_available_pair_share": 0.017529105226917994,
+            "error_enrichment_vs_pair_availability": 0.3078352125655754,
+            "incident_pair_error_rate": 0.0037646169039414197
+          },
+          "candidate": {
+            "outputs": 5208,
+            "output_fraction": 0.006066536203522505,
+            "on_fraction": 0.967357910906298,
+            "mean_probability": 0.9472212503696654,
+            "micro_roc_auc": 0.9763771804871214,
+            "incident_wrong_pair_share": 0.0048512177859374355,
+            "incident_available_pair_share": 0.017529105226917994,
+            "error_enrichment_vs_pair_availability": 0.27675216293914545,
+            "incident_pair_error_rate": 0.0033920454855367464
+          },
+          "subset_auc_delta": 0.006644793685636197,
+          "incident_error_delta_in_global_pair_units": -6.530843597757608e-06
+        }
+      ],
+      "transition_regions": {
+        "definition": "Within +/-2 hours of true-label state change, first new-state hour as center; diagnostic only.",
+        "near": {
+          "baseline": {
+            "outputs": 101881,
+            "output_fraction": 0.11867603205665828,
+            "on_fraction": 0.4795005938300566,
+            "mean_probability": 0.5049142125607228,
+            "micro_roc_auc": 0.8679306977397524,
+            "incident_wrong_pair_share": 0.6734184863616377,
+            "incident_available_pair_share": 0.24512612112715473,
+            "error_enrichment_vs_pair_availability": 2.747232662374297,
+            "incident_pair_error_rate": 0.03359680146283183
+          },
+          "candidate": {
+            "outputs": 101881,
+            "output_fraction": 0.11867603205665828,
+            "on_fraction": 0.4795005938300566,
+            "mean_probability": 0.506339037770722,
+            "micro_roc_auc": 0.867913192344185,
+            "incident_wrong_pair_share": 0.6723685649638029,
+            "incident_available_pair_share": 0.24512612112715473,
+            "error_enrichment_vs_pair_availability": 2.7429494738140288,
+            "incident_pair_error_rate": 0.03361928333601554
+          },
+          "subset_auc_delta": -1.7505395567440907e-05,
+          "incident_error_delta_in_global_pair_units": 5.51089436919526e-06
+        },
+        "away": {
+          "baseline": {
+            "outputs": 756599,
+            "output_fraction": 0.8813239679433417,
+            "on_fraction": 0.3218045490411698,
+            "mean_probability": 0.3264290711911509,
+            "micro_roc_auc": 0.9947092201403334,
+            "incident_wrong_pair_share": 0.8309594107634505,
+            "incident_available_pair_share": 0.9843472154981011,
+            "error_enrichment_vs_pair_availability": 0.8441730699090432,
+            "incident_pair_error_rate": 0.010323666946174093
+          },
+          "candidate": {
+            "outputs": 756599,
+            "output_fraction": 0.8813239679433417,
+            "on_fraction": 0.3218045490411698,
+            "mean_probability": 0.3284735189304418,
+            "micro_roc_auc": 0.9946803653036753,
+            "incident_wrong_pair_share": 0.8313134691735173,
+            "incident_available_pair_share": 0.9843472154981011,
+            "error_enrichment_vs_pair_availability": 0.8445327584462711,
+            "incident_pair_error_rate": 0.010351115237012551
+          },
+          "subset_auc_delta": -2.8854836658043226e-05,
+          "incident_error_delta_in_global_pair_units": 2.7018648657018904e-05
+        }
+      },
+      "economic_boundary": {
+        "definition": "abs((price - local terminal water value)/max(mean(abs(weekly prices)),10)) < 0.1; proxy, not exact optimizer opportunity cost.",
+        "near": {
+          "baseline": {
+            "outputs": 100988,
+            "output_fraction": 0.11763582145186842,
+            "on_fraction": 0.3795995563829366,
+            "mean_probability": 0.40334322830452246,
+            "micro_roc_auc": 0.9416278290512661,
+            "incident_wrong_pair_share": 0.450259729295563,
+            "incident_available_pair_share": 0.22728911931598006,
+            "error_enrichment_vs_pair_availability": 1.980999929299768,
+            "incident_pair_error_rate": 0.024226292237311924
+          },
+          "candidate": {
+            "outputs": 100988,
+            "output_fraction": 0.11763582145186842,
+            "on_fraction": 0.3795995563829366,
+            "mean_probability": 0.40404705963712984,
+            "micro_roc_auc": 0.9418717216851558,
+            "incident_wrong_pair_share": 0.44836073524977493,
+            "incident_available_pair_share": 0.22728911931598006,
+            "error_enrichment_vs_pair_availability": 1.9726449581005172,
+            "incident_pair_error_rate": 0.02417795529989416
+          },
+          "subset_auc_delta": 0.0002438926338896863,
+          "incident_error_delta_in_global_pair_units": -1.098645993611539e-05
+        },
+        "away": {
+          "baseline": {
+            "outputs": 757492,
+            "output_fraction": 0.8823641785481315,
+            "on_fraction": 0.3353091517798208,
+            "mean_probability": 0.3401808174661058,
+            "micro_roc_auc": 0.9912995239475202,
+            "incident_wrong_pair_share": 0.9307313836007264,
+            "incident_available_pair_share": 0.9854878032089258,
+            "error_enrichment_vs_pair_availability": 0.9444372427239559,
+            "incident_pair_error_rate": 0.01154983011539996
+          },
+          "candidate": {
+            "outputs": 757492,
+            "output_fraction": 0.8823641785481315,
+            "on_fraction": 0.3353091517798208,
+            "mean_probability": 0.342320656848835,
+            "micro_roc_auc": 0.9912499852161079,
+            "incident_wrong_pair_share": 0.9311744048783954,
+            "incident_available_pair_share": 0.9854878032089258,
+            "error_enrichment_vs_pair_availability": 0.9448867878895343,
+            "incident_pair_error_rate": 0.011581116220250737
+          },
+          "subset_auc_delta": -4.9538731412335224e-05,
+          "incident_error_delta_in_global_pair_units": 3.0832074740357734e-05
+        }
+      },
+      "changed_pair_decomposition": {
+        "within_target_error_delta_in_global_pair_units": -1.2427013449821048e-06,
+        "target_other_generator_cross_pair_error_delta_in_global_pair_units": 2.8535358186440866e-05,
+        "total_error_delta_in_global_pair_units": 2.729265684145876e-05,
+        "note": "Only target probabilities changed. These two disjoint categories sum to minus the overall AUC delta; unlike incident shares they are additive."
+      },
+      "after_2021_selection_horizon": {
+        "cases": 359,
+        "excluded_cases": 6,
+        "baseline_auc": 0.9876900893640298,
+        "candidate_auc": 0.9876534039752981,
+        "delta": -3.6685388731694246e-05,
+        "bootstrap": [
+          {
+            "block_days": 7,
+            "repetitions": 120,
+            "reference_auc": 0.9876900893640298,
+            "candidate_auc": 0.9876534039752981,
+            "observed_delta": -3.6685388731694246e-05,
+            "bootstrap_delta_mean": -1.560407349037174e-05,
+            "bootstrap_delta_std": 0.00013179269975706275,
+            "percentile_interval_95": [
+              -0.00027246710237736617,
+              0.00024083092429654502
+            ],
+            "fraction_positive_draws": 0.49166666666666664
+          },
+          {
+            "block_days": 14,
+            "repetitions": 120,
+            "reference_auc": 0.9876900893640298,
+            "candidate_auc": 0.9876534039752981,
+            "observed_delta": -3.6685388731694246e-05,
+            "bootstrap_delta_mean": -4.099456954875791e-05,
+            "bootstrap_delta_std": 0.00015671852635912648,
+            "percentile_interval_95": [
+              -0.00036625439472406094,
+              0.00023182208160999184
+            ],
+            "fraction_positive_draws": 0.425
+          },
+          {
+            "block_days": 28,
+            "repetitions": 120,
+            "reference_auc": 0.9876900893640298,
+            "candidate_auc": 0.9876534039752981,
+            "observed_delta": -3.6685388731694246e-05,
+            "bootstrap_delta_mean": -4.144633135033012e-05,
+            "bootstrap_delta_std": 0.00019984913252154294,
+            "percentile_interval_95": [
+              -0.0004616433557186883,
+              0.0003936591452732557
+            ],
+            "fraction_positive_draws": 0.44166666666666665
+          }
+        ]
+      },
+      "configured_tree_cap": 692,
+      "saved_model_tree_count": 692
+    }
+  ],
+  "conclusion": {
+    "promotion": "Do not promote the preselected Lio replacement as a robust improvement. The large 2021 gain did not reproduce in frozen-count 2022 confirmation.",
+    "2021": "Pooled AUC +0.000683794; all three conditional block intervals are positive. This was the selection year.",
+    "2022": "Pooled AUC -0.000027293; Jan7+ -0.000036685. All conditional intervals span zero. 8 of 12 monthly within-month AUCs improve, but February and November regress most.",
+    "ranking_detail": "The final ensemble slightly improves within-Lio AUC (+0.000220992) in 2022, yet worsens Lio-to-other-generator ordering enough to offset that small gain. This is a specific candidate comparison, not evidence that cross-generator calibration is the general dominant problem.",
+    "selection_discipline": "The slightly positive 2022 candidate_mean comparator is not promoted: replacement was selected from 2021 before this confirmation. No additional blend weights were scanned."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "selected_utc": "2026-10-14T17:52:12.990380+00:00",
+  "selected_arm": "lr",
+  "selected_variant": "candidate_mean",
+  "selected_epoch": 39,
+  "arms": {
+    "reference": {
+      "variant": "candidate_mean",
+      "auc": 0.9890192536713462,
+      "delta": 3.51902457520481e-05,
+      "best_epoch": 39
+    },
+    "lr": {
+      "variant": "candidate_mean",
+      "auc": 0.9890446183017454,
+      "delta": 6.055487615119759e-05,
+      "best_epoch": 39
+    },
+    "decay": {
+      "variant": "candidate_mean",
+      "auc": 0.9890271233769977,
+      "delta": 4.305995140352348e-05,
+      "best_epoch": 39
+    }
+  },
+  "candidate_2022_evaluated": false,
+  "gate": "Positive frozen2022 Jan7+ gain for this fixed variant before native refit. No runner-up switch.",
+  "source_hashes": {
+    "configs/round4_transformer_lr_2021.json": "e8b8ac9e929eb4f7ccbaf1720f77c79074563dcf82331f9958dbf3c71d3fcf96",
+    "reports/round4_transformer_lr_2021_metrics.json": "86745f75869bbdf6b1e4a82fcc539838a0eb8fcb313ecee3009fc28758412270",
+    "models/round4_transformer_lr_2021.pt": "6f1640de08fd643ef85e3c90e6537b8887aea396563e41f80f0681304c107b01",
+    "data/processed/round4_transformer_lr_2021_validation_predictions.csv": "9bfb1fcaa7127c66562bd55a9ef6dd9654de1876b62e28b69fbd7af4d7e5c151",
+    "configs/round3_submission_temporal_ranks.json": "a567449724194812fa0252c1b32f7a02fd38da3ddbbc116ead57d5c3e8d82261",
+    "reports/round4_transformer_reference_comparison_2021.json": "a56800aa40629fb70131e5f85094499e06a230309823a7341361d4b812d19e18"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "created_utc": "2026-10-18T12:09:38.949464+00:00",
+  "status": "Fixed before any correction fit or new2022 scoring.",
+  "script_sha256": "e2b6415005a60645b3b813d5c2947379fa9891dc0c89bff4ee81c4e8a4fbe2fb",
+  "l2_penalty": 0.01,
+  "shrinkage": 0.1,
+  "bootstrap_repetitions": 200,
+  "model": "Shared linear logistic residual with exact original branch-logit offset; zero coefficients give identity.",
+  "base_branch": "p0=0.5*old299+0.5*old673; the existing separate-generator LightGBM mean only.",
+  "ensemble": "Exact original .5*Round3+.25*old299+.25*old673 plus .5*(corrected_p0-p0). Round3 stays fixed.",
+  "training": "Cached native2021 base predictions fitted before2021. Fixed Jan1-Dec25 starts,359cases; labels used only for these correction fits. Context built for full168h before seed299 stride4 yields211092rows.",
+  "same_hour_features": "Own branch logit and14 generator indicators;15 coefficients.",
+  "temporal_features": "Same-hour features plus own-generator neighbour-minus-own logits at offsets[-24,-6,-2,-1,1,2,6,24] and8 missing-neighbour indicators;31 coefficients; no case-boundary wrapping.",
+  "preprocessing": "Clip only feature logits to probabilities[1e-6,1-1e-6]. Offset and original probabilities remain exact. Center/standardize continuous features using sampled meta-training rows only. Binary indicators stay unscaled.",
+  "objective": "mean BCE(logit(p0)+Xbeta,y)+0.5*0.01*||beta||\u00b2. Fit unshrunken coefficients, then apply fixed0.10 prediction shrinkage. All coefficients penalized.",
+  "optimizer": "L-BFGS-B, zero initialization,maxiter200,gtol1e-7,ftol1e-12,maxls30; deterministic,CPU1. No early stopping, parameter search, shrinkage search or postscore refit.",
+  "controls": [
+    "exact_identity",
+    "same_hour_residual",
+    "temporal_residual"
+  ],
+  "primary_evaluation": "Native2022 and frozen2022 Jan7 onward,359cases each; same labels, distinct deployment scenarios. Evaluate complete Round5 ensemble microROC-AUC with official metric.",
+  "diagnostics": "Calendar quarters,all14 generator AUCs including previously weakLio/Haukeli/Hogga/Kjela/VinjeG3; label-defined near-transition\u00b12h diagnostics only,never training features.",
+  "uncertainty": "Paired circular block bootstrap of complete daily-start cases;7/14/28-day blocks,200draws each,seed4173. Compare temporal with identity and same-hour control separately.",
+  "decision": "No progression unless temporal beats both controls on total microAUC in both2022scenarios. Robust-positive flag additionally requires all12 predeclared95% block intervals abovezero. No promotion from transition accuracy or2021training score.",
+  "artifacts": "New files only,round10_temporal prefix. Save both tiny models and2022Jan7+ predictions/provenance regardless of result. No new base fits or competition prediction/submission.",
+  "limitations": "Reused development data; recipe/checkpoint choices depended on2021/2022 historically. Cached pilot is not selection-independent OOF or a clean holdout. Linear shared-neighbour coefficients do not test a nonlinear input-conditioned stacker."
+}

@@ -1,0 +1,35 @@
+{
+  "generated_utc": "2026-10-18T12:08:52.592560+00:00",
+  "checks": [
+    "First-hour and last-hour changes, multiple changes, constant requirement, horizon censoring and signed deltas verified independently.",
+    "Equal-volume different-timing inflows remain distinguishable; cumulative/remaining current-hour convention and mass identities verified.",
+    "Duplicate requested timestamps retain separate case ordering.",
+    "Partial and incorrectly ordered weeks rejected.",
+    "Real r_Vest known changes and exact release volumes match independent case calculations.",
+    "constraint: default false preserves all113 columns bit-exactly; enabled adds only3 finite columns, original values unchanged. Full weeks built before exact existing stride4 selection.",
+    "water: default false preserves all113 columns bit-exactly; enabled adds only6 finite columns, original values unchanged. Full weeks built before exact existing stride4 selection."
+  ],
+  "real_constraint_examples": {
+    "2871": {
+      "time_to_change": 144.0,
+      "required_Mm3": 7.689599999999976
+    },
+    "2872": {
+      "time_to_change": 120.0,
+      "required_Mm3": 6.9119999999999795
+    }
+  },
+  "source_sha256": {
+    "src/scheduling_context.py": "f6f70200505ca9b574cd218f521812255d467bbe284a7e9e16bf739c94b80882",
+    "src/round5_lightgbm.py": "e1d29e86f1dab9779206d68715a4011eb32e103e31cb9280e0dc4cd401c501b5",
+    "src/features.py": "6eea354fb4f7c80ff4c495ed3ac958777334b72a93ce1d19c14a4b0f41d66133",
+    "src/tree_preprocessing.py": "21bfa82dce77473bd10faf83f8f72aec8af34246c0195a6062617868ff929235",
+    "configs/round10_water_seed299_2021.json": "a78ee851bc597ad7ce565b036a5c34795e79641b45f13fa8033e183d9e2ace48",
+    "configs/round10_water_seed299_2022.json": "299b6cd84765ae0d92a03b326b720f3a442491b8d65c84e5d85552fffce51301",
+    "configs/round10_constraint_seed299_2021.json": "3da40fc9d224e8fac323014d61b444afc34082f150589d8f8e5d15909f4967ae",
+    "configs/round10_constraint_seed299_2022.json": "44dd206353f7038cf32a930867f67db707b684b6e04b9d622aecf1721f72f3c3",
+    "reports/round10_water_protocol.json": "3d2c9631191cb4df671acd6156205c6ffe48f9d5261b8fded9adb3230c882679",
+    "reports/round10_constraint_protocol.json": "93da5ac6ec43ded9d2aabfb2d4893e37ffeb670a485bf0c384a62b440d394dcf"
+  },
+  "training_performed": false
+}

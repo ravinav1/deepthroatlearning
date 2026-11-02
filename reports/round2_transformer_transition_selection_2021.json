@@ -1,0 +1,64 @@
+{
+  "created_utc": "2026-10-14T15:01:05.184321+00:00",
+  "selection_year": 2021,
+  "comparison_report": "reports/round2_transformer_transition_2021_comparison.json",
+  "source_metrics": "reports/round2_transformer_transition_2021_metrics.json",
+  "comparison_basis": "Original frozen ensemble with original tree components; compare transformer replacement and50/50 original/control transformer prediction mean, retaining all plant weights.",
+  "advance_criterion": "Advance only if better predeclared 2021 variant exceeds the task-weighted neural mean2021 AUC0.9886489440779661 with the same original trees.",
+  "advance_threshold_auc": 0.9886489440779661,
+  "selected_variant": "candidate_replace",
+  "selected_epoch_count": 37,
+  "selected_auc": 0.9885344302501627,
+  "delta_vs_advance_threshold": -0.00011451382780336417,
+  "advance_to_2022": false,
+  "status": "not_selected",
+  "candidates": [
+    {
+      "year": 2021,
+      "variant": "candidate_replace",
+      "validation_cases": 365,
+      "delta_vs_baseline": 0.00026249211252027393,
+      "micro_roc_auc": 0.9885344302501627,
+      "generator_auc": {
+        "Hogga_G1": 0.9698747591697572,
+        "Tokke_G1": 0.9897992434000101,
+        "Tokke_G2": 0.993777484373918,
+        "Tokke_G3": 0.9926630018308142,
+        "Tokke_G4": 0.9936224554215626,
+        "Lio_G1": 0.9524878871152642,
+        "Byrte_G1": 0.9983813241649311,
+        "Vinje_G1": 0.990706630959107,
+        "Vinje_G2": 0.9870974098782938,
+        "Vinje_G3": 0.9811076404717683,
+        "Haukeli_G1": 0.9633766162066998,
+        "Songa_G1": 0.995074153157005,
+        "Kjela_G1": 0.9834950536040105,
+        "Vesle Kjela_G1": 0.9990278342450003
+      }
+    },
+    {
+      "year": 2021,
+      "variant": "candidate_mean",
+      "validation_cases": 365,
+      "delta_vs_baseline": 0.0002512747969226625,
+      "micro_roc_auc": 0.9885232129345651,
+      "generator_auc": {
+        "Hogga_G1": 0.9699567829932194,
+        "Tokke_G1": 0.9897731184763028,
+        "Tokke_G2": 0.9933744283726275,
+        "Tokke_G3": 0.9925534104914163,
+        "Tokke_G4": 0.9932798735655878,
+        "Lio_G1": 0.9511397697793367,
+        "Byrte_G1": 0.9983813241649311,
+        "Vinje_G1": 0.9907698509090467,
+        "Vinje_G2": 0.98708932388837,
+        "Vinje_G3": 0.9810437026391251,
+        "Haukeli_G1": 0.9633766162066998,
+        "Songa_G1": 0.995074153157005,
+        "Kjela_G1": 0.9834147510827655,
+        "Vesle Kjela_G1": 0.9990278342450003
+      }
+    }
+  ],
+  "validation_note": "Reused2021 development/selection year. No2022 transition-control result evaluated or claimed."
+}

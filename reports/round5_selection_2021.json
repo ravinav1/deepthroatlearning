@@ -1,0 +1,205 @@
+{
+  "locked_utc": "2026-10-14T19:18:57.669552+00:00",
+  "selected": {
+    "prefix": "round5_lgb_peer_relative_seeds",
+    "variant": "candidate_global_mean",
+    "micro_roc_auc": 0.9903748458953463,
+    "delta_vs_baseline": 0.0013907824697521054,
+    "comparison": "reports/round5_lgb_peer_relative_seeds_comparison_2021.json"
+  },
+  "source_fits": [
+    "round5_lgb_peer_relative_seed299_2021",
+    "round5_lgb_peer_relative_seed673_2021"
+  ],
+  "component_rule": "Uniform mean of seeds 299 and 673, relative monetary inputs only.",
+  "ensemble_rule": "50% complete incumbent round3 ensemble + 50% new LightGBM seed mean.",
+  "screen_year": 2021,
+  "ranking": [
+    {
+      "prefix": "round5_lgb_peer_relative_seeds",
+      "variant": "candidate_global_mean",
+      "micro_roc_auc": 0.9903748458953463,
+      "delta_vs_baseline": 0.0013907824697521054,
+      "comparison": "reports/round5_lgb_peer_relative_seeds_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_peer_relative_seed299",
+      "variant": "candidate_global_mean",
+      "micro_roc_auc": 0.9902748710982663,
+      "delta_vs_baseline": 0.0012908076726720896,
+      "comparison": "reports/round5_lgb_peer_relative_seed299_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_stride",
+      "variant": "candidate_global_mean",
+      "micro_roc_auc": 0.9900703391768185,
+      "delta_vs_baseline": 0.0010862757512243304,
+      "comparison": "reports/round5_lgb_stride_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_peer_prices_seeds",
+      "variant": "candidate_replace",
+      "micro_roc_auc": 0.9899927305617264,
+      "delta_vs_baseline": 0.0010086671361322352,
+      "comparison": "reports/round5_lgb_peer_prices_seeds_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_separate",
+      "variant": "candidate_global_mean",
+      "micro_roc_auc": 0.9899750313671677,
+      "delta_vs_baseline": 0.000990967941573495,
+      "comparison": "reports/round5_lgb_separate_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_peer_relative_seeds",
+      "variant": "candidate_replace",
+      "micro_roc_auc": 0.9899569001728162,
+      "delta_vs_baseline": 0.0009728367472220389,
+      "comparison": "reports/round5_lgb_peer_relative_seeds_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_peer_prices_seed299",
+      "variant": "candidate_replace",
+      "micro_roc_auc": 0.9899558673125208,
+      "delta_vs_baseline": 0.0009718038869266366,
+      "comparison": "reports/round5_lgb_peer_prices_seed299_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_peer_relative_seed299",
+      "variant": "candidate_replace",
+      "micro_roc_auc": 0.9898973209344956,
+      "delta_vs_baseline": 0.0009132575089013661,
+      "comparison": "reports/round5_lgb_peer_relative_seed299_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_peer_prices_seeds",
+      "variant": "candidate_mean",
+      "micro_roc_auc": 0.9898635139798738,
+      "delta_vs_baseline": 0.000879450554279626,
+      "comparison": "reports/round5_lgb_peer_prices_seeds_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_peer_prices_seed299",
+      "variant": "candidate_mean",
+      "micro_roc_auc": 0.9898455951635362,
+      "delta_vs_baseline": 0.0008615317379420118,
+      "comparison": "reports/round5_lgb_peer_prices_seed299_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_peer_relative_seeds",
+      "variant": "candidate_mean",
+      "micro_roc_auc": 0.9897623545590454,
+      "delta_vs_baseline": 0.0007782911334511811,
+      "comparison": "reports/round5_lgb_peer_relative_seeds_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_peer_relative_seed299",
+      "variant": "candidate_mean",
+      "micro_roc_auc": 0.9897403977428185,
+      "delta_vs_baseline": 0.0007563343172243275,
+      "comparison": "reports/round5_lgb_peer_relative_seed299_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_peer_absolute_seeds",
+      "variant": "candidate_mean",
+      "micro_roc_auc": 0.9897001601900627,
+      "delta_vs_baseline": 0.0007160967644684879,
+      "comparison": "reports/round5_lgb_peer_absolute_seeds_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_peer_absolute_seed299",
+      "variant": "candidate_mean",
+      "micro_roc_auc": 0.9896929699922922,
+      "delta_vs_baseline": 0.0007089065666979755,
+      "comparison": "reports/round5_lgb_peer_absolute_seed299_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_stride",
+      "variant": "candidate_mean",
+      "micro_roc_auc": 0.9895744260047178,
+      "delta_vs_baseline": 0.0005903625791235934,
+      "comparison": "reports/round5_lgb_stride_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_separate",
+      "variant": "candidate_mean",
+      "micro_roc_auc": 0.9895637135533156,
+      "delta_vs_baseline": 0.0005796501277214317,
+      "comparison": "reports/round5_lgb_separate_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_stride",
+      "variant": "candidate_replace",
+      "micro_roc_auc": 0.9895412567640766,
+      "delta_vs_baseline": 0.0005571933384823646,
+      "comparison": "reports/round5_lgb_stride_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_separate",
+      "variant": "candidate_replace",
+      "micro_roc_auc": 0.9895158224862941,
+      "delta_vs_baseline": 0.0005317590606999101,
+      "comparison": "reports/round5_lgb_separate_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_peer_prices_seeds",
+      "variant": "candidate_global_mean",
+      "micro_roc_auc": 0.9894504701090983,
+      "delta_vs_baseline": 0.00046640668350406145,
+      "comparison": "reports/round5_lgb_peer_prices_seeds_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_peer_prices_seed299",
+      "variant": "candidate_global_mean",
+      "micro_roc_auc": 0.9893718127072748,
+      "delta_vs_baseline": 0.00038774928168061606,
+      "comparison": "reports/round5_lgb_peer_prices_seed299_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_peer_absolute_seed299",
+      "variant": "candidate_replace",
+      "micro_roc_auc": 0.989193437213415,
+      "delta_vs_baseline": 0.00020937378782082128,
+      "comparison": "reports/round5_lgb_peer_absolute_seed299_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_peer_absolute_seeds",
+      "variant": "candidate_replace",
+      "micro_roc_auc": 0.9891893375430392,
+      "delta_vs_baseline": 0.0002052741174449757,
+      "comparison": "reports/round5_lgb_peer_absolute_seeds_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_peer_absolute_seeds",
+      "variant": "candidate_global_mean",
+      "micro_roc_auc": 0.9861770368198712,
+      "delta_vs_baseline": -0.002807026605722962,
+      "comparison": "reports/round5_lgb_peer_absolute_seeds_comparison_2021.json"
+    },
+    {
+      "prefix": "round5_lgb_peer_absolute_seed299",
+      "variant": "candidate_global_mean",
+      "micro_roc_auc": 0.986093376345065,
+      "delta_vs_baseline": -0.0028906870805291973,
+      "comparison": "reports/round5_lgb_peer_absolute_seed299_comparison_2021.json"
+    }
+  ],
+  "artifact_hashes": {
+    "reports/round5_lgb_peer_absolute_seed299_comparison_2021.json": "d36d9aab57682a0b3a6aabaa6ec4b11b43613f39ab86e19086610054ebc5c73d",
+    "reports/round5_lgb_peer_absolute_seeds_comparison_2021.json": "1ab8dcf0982fef07da5746609207c1d953d7bdd1e35906f8e0a03cc3ce020986",
+    "reports/round5_lgb_peer_prices_seed299_comparison_2021.json": "456442e77f8e569add9cb8a190ded61b8d8e2f06124843ba3a90f0398b8b43da",
+    "reports/round5_lgb_peer_prices_seeds_comparison_2021.json": "58c6bdb2877bf6794592ef323d2e4c0caa1f84e6bbe9dff6aec2dfc7b7111583",
+    "reports/round5_lgb_peer_relative_seed299_comparison_2021.json": "18d4814514d71b689e4017b3de4a3f810b7aa4926940a7c087337303b74209b8",
+    "reports/round5_lgb_peer_relative_seeds_comparison_2021.json": "234412f58555d64813ff784e0cf0e5ed8f2b818a50478757a0f62e35b147d089",
+    "reports/round5_lgb_separate_comparison_2021.json": "66fa9768a843767f6c550ca47bac68b09658e725d7e03ace28ab9318c43264bb",
+    "reports/round5_lgb_stride_comparison_2021.json": "85b8540f45f6ebc5d4e5aeaefa6f3c99325121c0478f01b9e798e4249497a4b2",
+    "reports/round5_tree_count_selection.json": "0221718a1c3356999c3d36a5916f7704d78ab64ad341580716f607475f2180e3",
+    "data/processed/round5_lgb_peer_relative_seeds_2021_validation_predictions.csv": "e6061444e1b99c5cdb814f28489e4ebb90b0975fa9ba179e75ea72e2402eea44",
+    "configs/round5_lgb_peer_relative_seed299_2021.json": "765542f15dd99f9398619f1cf093b449d6f3a7032fb93690151c1ca7f4ba93c1",
+    "reports/round5_lgb_peer_relative_seed299_2021_metrics.json": "00dc21063fb9c5a90e466b4fbb627822a87796a0b81425deacf02577676e038f",
+    "configs/round5_lgb_peer_relative_seed673_2021.json": "26c77e9b269747fb99b4d86dd4fa5a137d4ba5261eb02f468bb969efa836a3a7",
+    "reports/round5_lgb_peer_relative_seed673_2021_metrics.json": "cc22f1a7a48a8d14fc87124af8f91d1f08c28972f96b0f275370d4a4224dbc75"
+  },
+  "later_gate": "Only this selected family/variant is assessed. Require positive frozen2022 Jan7+ delta, then positive native2022 all and Jan7+ deltas. No fallback after observing2022.",
+  "limitations": "2021 and 2022 are reused development years, not fresh holdouts."
+}

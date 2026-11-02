@@ -1,0 +1,40 @@
+{
+  "created_utc": "2026-10-18T12:48:06.961904+00:00",
+  "authorization": "Root explicitly authorized seed673 confirmation iff all three seed299 development gates pass; no full-fit/export authorization.",
+  "screen_checks": [
+    {
+      "source": "reports/round10_water_native_2021_comparison.json",
+      "sha256": "87dea2de9c5a139b22ab113671708e0aa4585dda15c90caa177c4c33d96333df",
+      "year": 2021,
+      "mode": "native",
+      "subset": "all",
+      "delta_vs_baseline": 2.6221057952802163e-05
+    },
+    {
+      "source": "reports/round10_water_native_2022_comparison.json",
+      "sha256": "752db84096df6b410623f7f74e7874da961da9c2311fed26dccad87c12fdc007",
+      "year": 2022,
+      "mode": "native",
+      "subset": "jan7_onward",
+      "delta_vs_baseline": 1.4692574762387167e-06
+    },
+    {
+      "source": "reports/round10_water_frozen_2022_comparison.json",
+      "sha256": "b1e31f56bdfb48d744e595215215659bca77c7d5f3892c7742ee8dfa7a0f23c3",
+      "year": 2022,
+      "mode": "frozen",
+      "subset": "jan7_onward",
+      "delta_vs_baseline": 4.588003204886171e-05
+    }
+  ],
+  "primary_two_seed_definition": ".5*Round3+.25*new299+.25*new673 versus actual Round5 .5*Round3+.25*old299+.25*old673",
+  "changes": "Only random_state changes from299 to673; features, fixed tree counts, all other fitting parameters and stride rule unchanged. Two2CPU fits may run in parallel after rank full fits finish.",
+  "evaluations": "Native2021 all cases, native2022 and frozen2022 Jan7+ primary; also report all2022. Fixed14-day paired case-block bootstrap200 draws using existing evaluator. No weight or hyperparameter tuning.",
+  "limitations": "All years are reused development data. Native and frozen2022 share labels; seed confirmation is a stochastic robustness check, not new independent data.",
+  "source_sha256": {
+    "src/scheduling_context.py": "f6f70200505ca9b574cd218f521812255d467bbe284a7e9e16bf739c94b80882",
+    "src/round5_lightgbm.py": "e1d29e86f1dab9779206d68715a4011eb32e103e31cb9280e0dc4cd401c501b5",
+    "src/round6_evaluate.py": "072d11614450abdec417f4512345c5d6f7540daf054defa43d733f317340bf72",
+    "reports/round10_water_protocol.json": "3d2c9631191cb4df671acd6156205c6ffe48f9d5261b8fded9adb3230c882679"
+  }
+}

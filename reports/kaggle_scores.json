@@ -1,0 +1,141 @@
+{
+  "scores": [
+    {
+      "submission": "submissions/submission_xgb_cnn_80_20.csv",
+      "public_score": 0.98152,
+      "previous_best_public_score": 0.97898,
+      "improvement": 0.00254,
+      "source": "user_reported",
+      "reported_date": "2026-10-10",
+      "new_personal_best": false
+    },
+    {
+      "submission": "submissions/submission_xgb_cnn_ema_80_20.csv",
+      "public_score": 0.98165,
+      "new_personal_best": false,
+      "source": "user_screenshot",
+      "reported_date": "2026-10-12"
+    },
+    {
+      "submission": "submissions/submission_xgb_cnn_seeds_80_20.csv",
+      "public_score": 0.98213,
+      "source": "user_screenshot",
+      "reported_date": "2026-10-12",
+      "new_personal_best": false
+    },
+    {
+      "submission": "submissions/submission_xgb_cnn_swa_80_20.csv",
+      "public_score": 0.98163,
+      "source": "user_screenshot",
+      "reported_date": "2026-10-12",
+      "new_personal_best": false
+    },
+    {
+      "submission": "submissions/submission_xgb_cnn_5seeds_80_20.csv",
+      "public_score": 0.98217,
+      "previous_best_public_score": 0.98213,
+      "improvement": 4e-05,
+      "new_personal_best": false,
+      "source": "user_reported",
+      "reported_date": "2026-10-12"
+    },
+    {
+      "submission": "submissions/submission_xgb_cnn_rescaled_80_20.csv",
+      "public_score": 0.98278,
+      "previous_best_public_score": 0.98217,
+      "improvement": 0.00061,
+      "new_personal_best": false,
+      "source": "user_reported",
+      "reported_date": "2026-10-13"
+    },
+    {
+      "submission": "submissions/submission_xgb_cnn_haukeli_specialist_80_20.csv",
+      "public_score": 0.983,
+      "previous_best_public_score": 0.98278,
+      "improvement": 0.00022,
+      "new_personal_best": false,
+      "source": "user_reported",
+      "reported_date": "2026-10-13"
+    },
+    {
+      "submission": "submissions/submission_xgb_transformer_haukeli_80_20.csv",
+      "public_score": 0.98365,
+      "previous_best_public_score": 0.983,
+      "improvement": 0.00065,
+      "new_personal_best": false,
+      "source": "user_reported",
+      "reported_date": "2026-10-13"
+    },
+    {
+      "submission": "submissions/submission_xgb_transformer_plant_blend.csv",
+      "public_score": 0.98717,
+      "previous_best_public_score": 0.98365,
+      "improvement": 0.00352,
+      "new_personal_best": false,
+      "source": "user_reported",
+      "reported_date": "2026-10-13"
+    },
+    {
+      "submission": "submissions/submission_xgb_transformer_plant_refined.csv",
+      "public_score": 0.98726,
+      "previous_best_public_score": 0.98717,
+      "improvement": 9e-05,
+      "new_personal_best": false,
+      "source": "user_reported",
+      "reported_date": "2026-10-13"
+    },
+    {
+      "submission": "submissions/submission_rescaled_xgb_lgb_transformer.csv",
+      "public_score": 0.989,
+      "reported_score_text": "0.989",
+      "previous_best_public_score": 0.98726,
+      "improvement": 0.00174,
+      "new_personal_best": false,
+      "source": "user_reported",
+      "reported_date": "2026-10-14"
+    },
+    {
+      "submission": "submissions/submission_round2_depth8_haukeli_weighted.csv",
+      "public_score": 0.99053,
+      "previous_best_public_score": 0.989,
+      "improvement": 0.00153,
+      "new_personal_best": false,
+      "source": "user_reported",
+      "recorded_date": "2026-11-02",
+      "evidence": "reports/round2_report_20261014.md"
+    },
+    {
+      "submission": "submissions/submission_round3_temporal_ranks.csv",
+      "public_score": 0.99068,
+      "previous_best_public_score": 0.99053,
+      "improvement": 0.00015,
+      "new_personal_best": false,
+      "source": "user_reported",
+      "recorded_date": "2026-11-02",
+      "evidence": "reports/round3_report_20261014.md"
+    },
+    {
+      "submission": "submissions/submission_round5_lgb_generators.csv",
+      "public_score": 0.99172,
+      "previous_best_public_score": 0.99068,
+      "improvement": 0.00104,
+      "new_personal_best": true,
+      "source": "user_reported",
+      "recorded_date": "2026-11-02",
+      "evidence": "reports/round5_report_20261014.md"
+    }
+  ],
+  "unscored_candidates": [
+    {
+      "submission": "submissions/submission_round10_ranks.csv",
+      "public_score": null,
+      "evidence": "reports/round10_report_20261018.md"
+    },
+    {
+      "submission": "submissions/submission_round10_temporal.csv",
+      "public_score": null,
+      "evidence": "reports/round10_report_20261018.md"
+    }
+  ],
+  "note": "Recorded on 2026-11-02 from user-reported results and existing project reports; not independently fetched from Kaggle. A missing candidate score means no result is recorded here."
+}

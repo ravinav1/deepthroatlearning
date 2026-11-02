@@ -1,0 +1,130 @@
+{
+  "checked_utc": "2026-10-17T20:46:04.098440+00:00",
+  "archive": "/Users/hallvardgrundt/Downloads/project materials.zip",
+  "archive_sha256": "4240ef55e8ce8602ef82ac74f23ecd1444081199f720b9bb83ddd8c64fc527e6",
+  "original_files_verified": 15,
+  "all_byte_identical_to_supplied_archive": true,
+  "files": [
+    {
+      "archive_member": "sintef_project/prediction_mapping.csv",
+      "project_path": "data/raw/prediction_mapping.csv",
+      "bytes": 11617,
+      "original_sha256": "c8b0e5bc500a5f1dec2337f5ac680847f6a7794a7c2b7a8fb19384910a029519",
+      "current_sha256": "c8b0e5bc500a5f1dec2337f5ac680847f6a7794a7c2b7a8fb19384910a029519",
+      "exact_match": true
+    },
+    {
+      "archive_member": "sintef_project/schedule_visualization.ipynb",
+      "project_path": "notebooks/schedule_visualization.ipynb",
+      "bytes": 147254,
+      "original_sha256": "3546e04d26729b5bfcfa45afeb3c0575efc91eea179a5fd40353bda430088544",
+      "current_sha256": "3546e04d26729b5bfcfa45afeb3c0575efc91eea179a5fd40353bda430088544",
+      "exact_match": true
+    },
+    {
+      "archive_member": "sintef_project/Dataset_definitions_and_explanation.pdf",
+      "project_path": "docs/Dataset_definitions_and_explanation.pdf",
+      "bytes": 179456,
+      "original_sha256": "256adf9a662446d391650dc1e8e764b819b38ddd435126b8c4ea93a613488cb8",
+      "current_sha256": "256adf9a662446d391650dc1e8e764b819b38ddd435126b8c4ea93a613488cb8",
+      "exact_match": true
+    },
+    {
+      "archive_member": "sintef_project/data/extended/Constraint_min_volume.csv",
+      "project_path": "data/raw/extended/Constraint_min_volume.csv",
+      "bytes": 3989767,
+      "original_sha256": "8b639b8339b84c5ff7db34ba4b4618e99d05a03819bf99fa5032a54490278806",
+      "current_sha256": "8b639b8339b84c5ff7db34ba4b4618e99d05a03819bf99fa5032a54490278806",
+      "exact_match": true
+    },
+    {
+      "archive_member": "sintef_project/data/extended/Tokke_Vinje_topology.yaml",
+      "project_path": "configs/Tokke_Vinje_topology.yaml",
+      "bytes": 50990,
+      "original_sha256": "29cfa233cec7fc4b5401d0d571a566e6e17b7bb7b46a175abcd37a53fe175497",
+      "current_sha256": "29cfa233cec7fc4b5401d0d571a566e6e17b7bb7b46a175abcd37a53fe175497",
+      "exact_match": true
+    },
+    {
+      "archive_member": "sintef_project/data/extended/Constraint_min_flow.csv",
+      "project_path": "data/raw/extended/Constraint_min_flow.csv",
+      "bytes": 4977514,
+      "original_sha256": "146062702f58920440fc064d461d544e9cd7c503c8df74ce96e721bee04629ea",
+      "current_sha256": "146062702f58920440fc064d461d544e9cd7c503c8df74ce96e721bee04629ea",
+      "exact_match": true
+    },
+    {
+      "archive_member": "sintef_project/data/extended/Tokke_topology.pdf",
+      "project_path": "docs/Tokke_topology.pdf",
+      "bytes": 31806,
+      "original_sha256": "ea6e62174fd037f42d95bcfb16e0e5408d7866802d7a196e529aafcbc42bb54c",
+      "current_sha256": "ea6e62174fd037f42d95bcfb16e0e5408d7866802d7a196e529aafcbc42bb54c",
+      "exact_match": true
+    },
+    {
+      "archive_member": "sintef_project/data/kernel/Historical_day_ahead_price_2015_2025.csv",
+      "project_path": "data/raw/kernel/Historical_day_ahead_price_2015_2025.csv",
+      "bytes": 3395789,
+      "original_sha256": "e5edd141b34a61139f3ee3022305175446d4b4f74618df85552c4f2b5e556ee4",
+      "current_sha256": "e5edd141b34a61139f3ee3022305175446d4b4f74618df85552c4f2b5e556ee4",
+      "exact_match": true
+    },
+    {
+      "archive_member": "sintef_project/data/kernel/Historical_volume_2015_2024.csv",
+      "project_path": "data/raw/kernel/Historical_volume_2015_2024.csv",
+      "bytes": 514671,
+      "original_sha256": "ef3d9c69699eef0d953b495ba69bf6676858e6b9c536087498135074912dd3b6",
+      "current_sha256": "ef3d9c69699eef0d953b495ba69bf6676858e6b9c536087498135074912dd3b6",
+      "exact_match": true
+    },
+    {
+      "archive_member": "sintef_project/data/kernel/Historical_inflow_1958_2025.csv",
+      "project_path": "data/raw/kernel/Historical_inflow_1958_2025.csv",
+      "bytes": 70151894,
+      "original_sha256": "ff4f87d2768133b4a717c0ad366969244f7a86901695e1d4fef3c2ed8963ad66",
+      "current_sha256": "ff4f87d2768133b4a717c0ad366969244f7a86901695e1d4fef3c2ed8963ad66",
+      "exact_match": true
+    },
+    {
+      "archive_member": "sintef_project/data/kernel/Unit_commitment_decisions.csv",
+      "project_path": "data/raw/kernel/Unit_commitment_decisions.csv",
+      "bytes": 13916389,
+      "original_sha256": "6d51f8cc6869cb82b44708168808c305c1e007cf79878ca1c1d316d07aae3ab3",
+      "current_sha256": "6d51f8cc6869cb82b44708168808c305c1e007cf79878ca1c1d316d07aae3ab3",
+      "exact_match": true
+    },
+    {
+      "archive_member": "sintef_project/data/kernel/Synthetic_water_value_2015_2024.csv",
+      "project_path": "data/raw/kernel/Synthetic_water_value_2015_2024.csv",
+      "bytes": 463176,
+      "original_sha256": "a5f09ff96b551d3c297d90ccf3a0bbe92d8814b537ad63a46579cb0ff44aa4cb",
+      "current_sha256": "a5f09ff96b551d3c297d90ccf3a0bbe92d8814b537ad63a46579cb0ff44aa4cb",
+      "exact_match": true
+    },
+    {
+      "archive_member": "sintef_project/ML_Task_TDT4173.pdf",
+      "project_path": "docs/ML_Task_TDT4173.pdf",
+      "bytes": 38159,
+      "original_sha256": "90a84ac45e16e1bc89f963d7846ca2a4e17c047247154e1f7f3947096e056804",
+      "current_sha256": "90a84ac45e16e1bc89f963d7846ca2a4e17c047247154e1f7f3947096e056804",
+      "exact_match": true
+    },
+    {
+      "archive_member": "sintef_project/kaggle_metric.py",
+      "project_path": "evaluation/kaggle_metric.py",
+      "bytes": 3236,
+      "original_sha256": "6ba062eeb8c2983a490cad411071dfc77831e3f2233278e5a67b68810df90553",
+      "current_sha256": "6ba062eeb8c2983a490cad411071dfc77831e3f2233278e5a67b68810df90553",
+      "exact_match": true
+    },
+    {
+      "archive_member": "sintef_project/sample_submission.csv",
+      "project_path": "data/raw/sample_submission.csv",
+      "bytes": 3486412,
+      "original_sha256": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba",
+      "current_sha256": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba",
+      "exact_match": true
+    }
+  ],
+  "extraction_or_mutation_performed": false
+}

@@ -1,0 +1,25 @@
+{
+  "validation_start": "2021-01-01",
+  "validation_end": "2022-01-01",
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "use_price_context": true,
+  "use_economic_rescaling": true,
+  "record_training_auc": true,
+  "early_stopping_rounds": null,
+  "model": {
+    "n_estimators": 748,
+    "learning_rate": 0.05,
+    "tree_method": "hist",
+    "max_depth": 8,
+    "min_child_weight": 25,
+    "max_bin": 63,
+    "n_jobs": 4,
+    "random_state": 42
+  },
+  "experiment_hypothesis": "Duration, elapsed/remaining hours, distance and censor flags for positive price-terminal-water-value blocks may distinguish short near-break-even opportunities; not an operational constraint.",
+  "reference_model": "models/round2_xgb_depth8_2021.ubj",
+  "reference_metrics": "reports/round2_xgb_depth8_2021_metrics.json",
+  "use_favourable_periods": true
+}

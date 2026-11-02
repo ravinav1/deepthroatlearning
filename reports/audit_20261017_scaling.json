@@ -1,0 +1,1394 @@
+{
+  "created_utc": "2026-10-17T20:02:27.496260+00:00",
+  "fitting_performed": false,
+  "test_labels_used": false,
+  "threshold": "mean(abs(168 hourly prices)) <= 10 EUR/MWh, fixed by current implementation, not searched against labels",
+  "input_coverage": [
+    {
+      "year": 2015,
+      "cases": 365,
+      "floor_active_cases": 34,
+      "floor_active_fraction": 0.09315068493150686,
+      "consecutive_runs": 2,
+      "longest_run_days": 26,
+      "mean_absolute_week_price": {
+        "minimum": 7.115535714285714,
+        "quantiles_05_25_50_75_95": [
+          8.710607142857143,
+          13.228035714285713,
+          21.884940476190476,
+          25.013273809523806,
+          28.966380952380955
+        ],
+        "maximum": 34.011250000000004
+      },
+      "unfloored_to_current_water_ratio_multiplier": {
+        "minimum": 1.0,
+        "quantiles_05_25_50_75_95": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.1480270828174801
+        ],
+        "maximum": 1.405375561522825
+      },
+      "rare_joint_condition_cases": 0,
+      "rare_joint_condition_floor_active_cases": 0,
+      "rare_joint_condition_runs": {
+        "consecutive_runs": 0,
+        "longest_run_days": 0
+      },
+      "floor_active_case_ids": [
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218
+      ]
+    },
+    {
+      "year": 2016,
+      "cases": 366,
+      "floor_active_cases": 0,
+      "floor_active_fraction": 0.0,
+      "consecutive_runs": 0,
+      "longest_run_days": 0,
+      "mean_absolute_week_price": {
+        "minimum": 16.730535714285715,
+        "quantiles_05_25_50_75_95": [
+          19.268645833333334,
+          21.592827380952382,
+          23.285357142857144,
+          28.93808035714286,
+          35.99264880952381
+        ],
+        "maximum": 40.16059523809524
+      },
+      "unfloored_to_current_water_ratio_multiplier": {
+        "minimum": 1.0,
+        "quantiles_05_25_50_75_95": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "maximum": 1.0
+      },
+      "rare_joint_condition_cases": 0,
+      "rare_joint_condition_floor_active_cases": 0,
+      "rare_joint_condition_runs": {
+        "consecutive_runs": 0,
+        "longest_run_days": 0
+      },
+      "floor_active_case_ids": []
+    },
+    {
+      "year": 2017,
+      "cases": 365,
+      "floor_active_cases": 0,
+      "floor_active_fraction": 0.0,
+      "consecutive_runs": 0,
+      "longest_run_days": 0,
+      "mean_absolute_week_price": {
+        "minimum": 21.98035714285714,
+        "quantiles_05_25_50_75_95": [
+          23.43078571428571,
+          26.627797619047616,
+          29.398809523809526,
+          30.766726190476188,
+          33.165440476190476
+        ],
+        "maximum": 37.61017857142857
+      },
+      "unfloored_to_current_water_ratio_multiplier": {
+        "minimum": 1.0,
+        "quantiles_05_25_50_75_95": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "maximum": 1.0
+      },
+      "rare_joint_condition_cases": 0,
+      "rare_joint_condition_floor_active_cases": 0,
+      "rare_joint_condition_runs": {
+        "consecutive_runs": 0,
+        "longest_run_days": 0
+      },
+      "floor_active_case_ids": []
+    },
+    {
+      "year": 2018,
+      "cases": 365,
+      "floor_active_cases": 0,
+      "floor_active_fraction": 0.0,
+      "consecutive_runs": 0,
+      "longest_run_days": 0,
+      "mean_absolute_week_price": {
+        "minimum": 25.114226190476188,
+        "quantiles_05_25_50_75_95": [
+          31.13425,
+          38.53535714285714,
+          43.40696428571429,
+          49.71232142857144,
+          54.74565476190476
+        ],
+        "maximum": 57.96232142857143
+      },
+      "unfloored_to_current_water_ratio_multiplier": {
+        "minimum": 1.0,
+        "quantiles_05_25_50_75_95": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "maximum": 1.0
+      },
+      "rare_joint_condition_cases": 0,
+      "rare_joint_condition_floor_active_cases": 0,
+      "rare_joint_condition_runs": {
+        "consecutive_runs": 0,
+        "longest_run_days": 0
+      },
+      "floor_active_case_ids": []
+    },
+    {
+      "year": 2019,
+      "cases": 365,
+      "floor_active_cases": 0,
+      "floor_active_fraction": 0.0,
+      "consecutive_runs": 0,
+      "longest_run_days": 0,
+      "mean_absolute_week_price": {
+        "minimum": 27.28363095238095,
+        "quantiles_05_25_50_75_95": [
+          28.862190476190477,
+          33.53857142857142,
+          38.55434523809524,
+          42.66130952380953,
+          52.50953571428572
+        ],
+        "maximum": 64.49428571428572
+      },
+      "unfloored_to_current_water_ratio_multiplier": {
+        "minimum": 1.0,
+        "quantiles_05_25_50_75_95": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "maximum": 1.0
+      },
+      "rare_joint_condition_cases": 0,
+      "rare_joint_condition_floor_active_cases": 0,
+      "rare_joint_condition_runs": {
+        "consecutive_runs": 0,
+        "longest_run_days": 0
+      },
+      "floor_active_case_ids": []
+    },
+    {
+      "year": 2020,
+      "cases": 366,
+      "floor_active_cases": 226,
+      "floor_active_fraction": 0.6174863387978142,
+      "consecutive_runs": 6,
+      "longest_run_days": 101,
+      "mean_absolute_week_price": {
+        "minimum": 1.1198214285714285,
+        "quantiles_05_25_50_75_95": [
+          1.2506994047619049,
+          2.700907738095238,
+          7.145416666666667,
+          13.621755952380955,
+          24.720491071428572
+        ],
+        "maximum": 33.33607142857143
+      },
+      "unfloored_to_current_water_ratio_multiplier": {
+        "minimum": 1.0,
+        "quantiles_05_25_50_75_95": [
+          1.0,
+          1.0,
+          1.399505698231791,
+          3.7025046641507395,
+          7.995549659299613
+        ],
+        "maximum": 8.929995216073992
+      },
+      "rare_joint_condition_cases": 3,
+      "rare_joint_condition_floor_active_cases": 3,
+      "rare_joint_condition_runs": {
+        "consecutive_runs": 1,
+        "longest_run_days": 3
+      },
+      "floor_active_case_ids": [
+        1873,
+        1874,
+        1875,
+        1876,
+        1877,
+        1878,
+        1879,
+        1880,
+        1881,
+        1885,
+        1892,
+        1893,
+        1894,
+        1895,
+        1896,
+        1897,
+        1898,
+        1899,
+        1900,
+        1901,
+        1902,
+        1903,
+        1904,
+        1905,
+        1906,
+        1907,
+        1908,
+        1909,
+        1910,
+        1911,
+        1912,
+        1913,
+        1914,
+        1915,
+        1916,
+        1917,
+        1918,
+        1919,
+        1920,
+        1921,
+        1922,
+        1923,
+        1924,
+        1925,
+        1926,
+        1927,
+        1928,
+        1929,
+        1930,
+        1931,
+        1932,
+        1933,
+        1934,
+        1935,
+        1936,
+        1937,
+        1938,
+        1939,
+        1940,
+        1941,
+        1942,
+        1943,
+        1944,
+        1945,
+        1946,
+        1947,
+        1948,
+        1949,
+        1950,
+        1951,
+        1952,
+        1953,
+        1954,
+        1964,
+        1965,
+        1966,
+        1967,
+        1968,
+        1969,
+        1970,
+        1971,
+        1972,
+        1973,
+        1974,
+        1975,
+        1976,
+        1977,
+        1978,
+        1979,
+        1980,
+        1981,
+        1982,
+        1983,
+        1984,
+        1985,
+        1986,
+        1987,
+        1988,
+        1989,
+        1990,
+        1991,
+        1992,
+        1993,
+        1994,
+        1995,
+        1996,
+        1997,
+        1998,
+        1999,
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026,
+        2027,
+        2028,
+        2029,
+        2030,
+        2031,
+        2032,
+        2033,
+        2034,
+        2035,
+        2036,
+        2037,
+        2038,
+        2039,
+        2040,
+        2041,
+        2042,
+        2043,
+        2044,
+        2045,
+        2046,
+        2047,
+        2048,
+        2049,
+        2050,
+        2051,
+        2052,
+        2053,
+        2054,
+        2055,
+        2056,
+        2057,
+        2058,
+        2059,
+        2060,
+        2061,
+        2062,
+        2063,
+        2064,
+        2084,
+        2085,
+        2086,
+        2087,
+        2088,
+        2089,
+        2090,
+        2091,
+        2092,
+        2093,
+        2094,
+        2095,
+        2096,
+        2097,
+        2098,
+        2099,
+        2100,
+        2101,
+        2102,
+        2103,
+        2104,
+        2105,
+        2127,
+        2128,
+        2129,
+        2130,
+        2131,
+        2132,
+        2133,
+        2134,
+        2135,
+        2136,
+        2137,
+        2138,
+        2139,
+        2140,
+        2141,
+        2142,
+        2143,
+        2144,
+        2145,
+        2146,
+        2147,
+        2148,
+        2149,
+        2150,
+        2151,
+        2152,
+        2153,
+        2154,
+        2155,
+        2156
+      ]
+    },
+    {
+      "year": 2021,
+      "cases": 365,
+      "floor_active_cases": 0,
+      "floor_active_fraction": 0.0,
+      "consecutive_runs": 0,
+      "longest_run_days": 0,
+      "mean_absolute_week_price": {
+        "minimum": 32.38928571428571,
+        "quantiles_05_25_50_75_95": [
+          38.23402380952381,
+          49.03190476190476,
+          57.378035714285716,
+          97.0252380952381,
+          155.23032142857144
+        ],
+        "maximum": 254.75172619047623
+      },
+      "unfloored_to_current_water_ratio_multiplier": {
+        "minimum": 1.0,
+        "quantiles_05_25_50_75_95": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "maximum": 1.0
+      },
+      "rare_joint_condition_cases": 0,
+      "rare_joint_condition_floor_active_cases": 0,
+      "rare_joint_condition_runs": {
+        "consecutive_runs": 0,
+        "longest_run_days": 0
+      },
+      "floor_active_case_ids": []
+    },
+    {
+      "year": 2022,
+      "cases": 365,
+      "floor_active_cases": 0,
+      "floor_active_fraction": 0.0,
+      "consecutive_runs": 0,
+      "longest_run_days": 0,
+      "mean_absolute_week_price": {
+        "minimum": 27.367738095238092,
+        "quantiles_05_25_50_75_95": [
+          92.02682142857142,
+          138.2030357142857,
+          179.91988095238096,
+          260.53017857142856,
+          439.6061071428573
+        ],
+        "maximum": 601.2855357142857
+      },
+      "unfloored_to_current_water_ratio_multiplier": {
+        "minimum": 1.0,
+        "quantiles_05_25_50_75_95": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "maximum": 1.0
+      },
+      "rare_joint_condition_cases": 4,
+      "rare_joint_condition_floor_active_cases": 0,
+      "rare_joint_condition_runs": {
+        "consecutive_runs": 2,
+        "longest_run_days": 3
+      },
+      "floor_active_case_ids": []
+    },
+    {
+      "year": 2023,
+      "cases": 365,
+      "floor_active_cases": 0,
+      "floor_active_fraction": 0.0,
+      "consecutive_runs": 0,
+      "longest_run_days": 0,
+      "mean_absolute_week_price": {
+        "minimum": 14.53077380952381,
+        "quantiles_05_25_50_75_95": [
+          29.316238095238095,
+          60.14291666666666,
+          80.3920238095238,
+          97.53232142857144,
+          120.74607142857145
+        ],
+        "maximum": 151.0364880952381
+      },
+      "unfloored_to_current_water_ratio_multiplier": {
+        "minimum": 1.0,
+        "quantiles_05_25_50_75_95": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "maximum": 1.0
+      },
+      "rare_joint_condition_cases": 0,
+      "rare_joint_condition_floor_active_cases": 0,
+      "rare_joint_condition_runs": {
+        "consecutive_runs": 0,
+        "longest_run_days": 0
+      },
+      "floor_active_case_ids": []
+    },
+    {
+      "year": 2024,
+      "cases": 360,
+      "floor_active_cases": 0,
+      "floor_active_fraction": 0.0,
+      "consecutive_runs": 0,
+      "longest_run_days": 0,
+      "mean_absolute_week_price": {
+        "minimum": 23.335357142857145,
+        "quantiles_05_25_50_75_95": [
+          29.888741071428573,
+          38.32495535714286,
+          46.93074404761906,
+          57.74665178571429,
+          85.79935416666669
+        ],
+        "maximum": 139.76863095238093
+      },
+      "unfloored_to_current_water_ratio_multiplier": {
+        "minimum": 1.0,
+        "quantiles_05_25_50_75_95": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "maximum": 1.0
+      },
+      "rare_joint_condition_cases": 0,
+      "rare_joint_condition_floor_active_cases": 0,
+      "rare_joint_condition_runs": {
+        "consecutive_runs": 0,
+        "longest_run_days": 0
+      },
+      "floor_active_case_ids": []
+    }
+  ],
+  "evaluations": [
+    {
+      "year": 2021,
+      "mode": "native",
+      "overall_micro_auc": 0.9903748458953463,
+      "overall_mean_bce": 0.12702155973204676,
+      "regimes": [
+        {
+          "regime": "price_floor_active",
+          "cases": 0,
+          "consecutive_runs": 0,
+          "longest_run_days": 0,
+          "outputs": 0,
+          "output_fraction": 0.0,
+          "on_fraction": null,
+          "mean_probability": null,
+          "micro_roc_auc": null,
+          "incident_wrong_pair_share": 0.0,
+          "incident_available_pair_share": 0.0,
+          "error_enrichment_vs_pair_availability": null,
+          "incident_pair_error_rate": null,
+          "mean_bce": null,
+          "allocated_wrong_pair_share": 0.0,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            }
+          ]
+        },
+        {
+          "regime": "price_floor_inactive",
+          "cases": 365,
+          "consecutive_runs": 1,
+          "longest_run_days": 365,
+          "outputs": 858480,
+          "output_fraction": 1.0,
+          "on_fraction": 0.4553524834591371,
+          "mean_probability": 0.45879858716738636,
+          "micro_roc_auc": 0.9903748458953463,
+          "incident_wrong_pair_share": 1.0,
+          "incident_available_pair_share": 1.0,
+          "error_enrichment_vs_pair_availability": 1.0,
+          "incident_pair_error_rate": 0.00962515410465359,
+          "mean_bce": 0.12702155973204676,
+          "allocated_wrong_pair_share": 1.0,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": 0.9741324229614169,
+              "mean_bce": 0.2068114104321855,
+              "allocated_global_wrong_pair_share": 0.11661093063869138
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": 0.9924241053340418,
+              "mean_bce": 0.11364221390762795,
+              "allocated_global_wrong_pair_share": 0.06365625917504904
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": 0.9932231525550856,
+              "mean_bce": 0.10688159915729929,
+              "allocated_global_wrong_pair_share": 0.06044677986883138
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": 0.9929025431351146,
+              "mean_bce": 0.10820817717357036,
+              "allocated_global_wrong_pair_share": 0.062033303393161515
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": 0.9929954723682403,
+              "mean_bce": 0.10948735860061369,
+              "allocated_global_wrong_pair_share": 0.06090415919750392
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": 0.9684898026383538,
+              "mean_bce": 0.23597738715389224,
+              "allocated_global_wrong_pair_share": 0.1327058146115545
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": 0.9984431532138403,
+              "mean_bce": 0.05290736938467212,
+              "allocated_global_wrong_pair_share": 0.028752052999975325
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": 0.9913405755055543,
+              "mean_bce": 0.11909851228274022,
+              "allocated_global_wrong_pair_share": 0.06742991723303766
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": 0.9879157851334741,
+              "mean_bce": 0.1386693692153114,
+              "allocated_global_wrong_pair_share": 0.07899974048311732
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": 0.9834045974362875,
+              "mean_bce": 0.15651049675541698,
+              "allocated_global_wrong_pair_share": 0.08774663276007733
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": 0.9617821366853236,
+              "mean_bce": 0.24867011822040552,
+              "allocated_global_wrong_pair_share": 0.13880185429993527
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": 0.9965716395506798,
+              "mean_bce": 0.07044079157562365,
+              "allocated_global_wrong_pair_share": 0.038715238076956114
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": 0.994356725633998,
+              "mean_bce": 0.07219597911508518,
+              "allocated_global_wrong_pair_share": 0.041807201837886034
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": 0.9990181578457883,
+              "mean_bce": 0.03880105327421061,
+              "allocated_global_wrong_pair_share": 0.021390115424223203
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "mode": "native",
+      "overall_micro_auc": 0.9894979113990909,
+      "overall_mean_bce": 0.12331883437146597,
+      "regimes": [
+        {
+          "regime": "price_floor_active",
+          "cases": 0,
+          "consecutive_runs": 0,
+          "longest_run_days": 0,
+          "outputs": 0,
+          "output_fraction": 0.0,
+          "on_fraction": null,
+          "mean_probability": null,
+          "micro_roc_auc": null,
+          "incident_wrong_pair_share": 0.0,
+          "incident_available_pair_share": 0.0,
+          "error_enrichment_vs_pair_availability": null,
+          "incident_pair_error_rate": null,
+          "mean_bce": null,
+          "allocated_wrong_pair_share": 0.0,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            }
+          ]
+        },
+        {
+          "regime": "price_floor_inactive",
+          "cases": 365,
+          "consecutive_runs": 1,
+          "longest_run_days": 365,
+          "outputs": 858480,
+          "output_fraction": 1.0,
+          "on_fraction": 0.34051928990774394,
+          "mean_probability": 0.34744137689305676,
+          "micro_roc_auc": 0.9894979113990909,
+          "incident_wrong_pair_share": 1.0,
+          "incident_available_pair_share": 1.0,
+          "error_enrichment_vs_pair_availability": 1.0,
+          "incident_pair_error_rate": 0.010502088600908923,
+          "mean_bce": 0.12331883437146596,
+          "allocated_wrong_pair_share": 1.0,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": 0.9803234349696778,
+              "mean_bce": 0.18580999225756673,
+              "allocated_global_wrong_pair_share": 0.10327330643503183
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": 0.9963514375731213,
+              "mean_bce": 0.08435185170068908,
+              "allocated_global_wrong_pair_share": 0.04713835868826171
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": 0.9948007639357267,
+              "mean_bce": 0.09070175220189498,
+              "allocated_global_wrong_pair_share": 0.04968432068972151
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": 0.9966247952475877,
+              "mean_bce": 0.07638272926237852,
+              "allocated_global_wrong_pair_share": 0.042583300542499876
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": 0.995205536132071,
+              "mean_bce": 0.08717856960346165,
+              "allocated_global_wrong_pair_share": 0.0488556157291711
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": 0.9640010515524661,
+              "mean_bce": 0.24514657559255082,
+              "allocated_global_wrong_pair_share": 0.13770735162355724
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": 0.9964121047081195,
+              "mean_bce": 0.0699263486573613,
+              "allocated_global_wrong_pair_share": 0.045776034193414854
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": 0.9886946268674219,
+              "mean_bce": 0.12921575386541112,
+              "allocated_global_wrong_pair_share": 0.07397382815257132
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": 0.9866211172686152,
+              "mean_bce": 0.13576792967856935,
+              "allocated_global_wrong_pair_share": 0.07441649052433337
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": 0.9766429329369721,
+              "mean_bce": 0.15383215916002452,
+              "allocated_global_wrong_pair_share": 0.0884818927011928
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": 0.960500382037586,
+              "mean_bce": 0.18249101239286994,
+              "allocated_global_wrong_pair_share": 0.10574853657016763
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": 0.9981037038305686,
+              "mean_bce": 0.03378731736019125,
+              "allocated_global_wrong_pair_share": 0.021323788292242952
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": 0.9844045206156263,
+              "mean_bce": 0.15114204526498393,
+              "allocated_global_wrong_pair_share": 0.09392272694010831
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": 0.993318367575327,
+              "mean_bce": 0.10072964420257015,
+              "allocated_global_wrong_pair_share": 0.06711444891772553
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "mode": "frozen",
+      "overall_micro_auc": 0.9870830517775449,
+      "overall_mean_bce": 0.13700259034521406,
+      "regimes": [
+        {
+          "regime": "price_floor_active",
+          "cases": 0,
+          "consecutive_runs": 0,
+          "longest_run_days": 0,
+          "outputs": 0,
+          "output_fraction": 0.0,
+          "on_fraction": null,
+          "mean_probability": null,
+          "micro_roc_auc": null,
+          "incident_wrong_pair_share": 0.0,
+          "incident_available_pair_share": 0.0,
+          "error_enrichment_vs_pair_availability": null,
+          "incident_pair_error_rate": null,
+          "mean_bce": null,
+          "allocated_wrong_pair_share": 0.0,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": null,
+              "mean_bce": null,
+              "allocated_global_wrong_pair_share": 0.0
+            }
+          ]
+        },
+        {
+          "regime": "price_floor_inactive",
+          "cases": 365,
+          "consecutive_runs": 1,
+          "longest_run_days": 365,
+          "outputs": 858480,
+          "output_fraction": 1.0,
+          "on_fraction": 0.34051928990774394,
+          "mean_probability": 0.34835858439937467,
+          "micro_roc_auc": 0.9870830517775449,
+          "incident_wrong_pair_share": 1.0,
+          "incident_available_pair_share": 1.0,
+          "error_enrichment_vs_pair_availability": 1.0,
+          "incident_pair_error_rate": 0.012916948222455156,
+          "mean_bce": 0.1370025903452141,
+          "allocated_wrong_pair_share": 1.0,
+          "generators": [
+            {
+              "generator": "Hogga_G1",
+              "micro_auc": 0.9778336962022021,
+              "mean_bce": 0.19627858392567946,
+              "allocated_global_wrong_pair_share": 0.09795335748671857
+            },
+            {
+              "generator": "Tokke_G1",
+              "micro_auc": 0.995651636040938,
+              "mean_bce": 0.09494478424526605,
+              "allocated_global_wrong_pair_share": 0.047408978676609974
+            },
+            {
+              "generator": "Tokke_G2",
+              "micro_auc": 0.9936746212467061,
+              "mean_bce": 0.09958583120621667,
+              "allocated_global_wrong_pair_share": 0.04862650806469482
+            },
+            {
+              "generator": "Tokke_G3",
+              "micro_auc": 0.9958041545838652,
+              "mean_bce": 0.08378111149981732,
+              "allocated_global_wrong_pair_share": 0.04170344493410856
+            },
+            {
+              "generator": "Tokke_G4",
+              "micro_auc": 0.9945025134248925,
+              "mean_bce": 0.09293926404094163,
+              "allocated_global_wrong_pair_share": 0.04787058371840968
+            },
+            {
+              "generator": "Lio_G1",
+              "micro_auc": 0.9493115896215207,
+              "mean_bce": 0.28038340694144637,
+              "allocated_global_wrong_pair_share": 0.1470010586783142
+            },
+            {
+              "generator": "Byrte_G1",
+              "micro_auc": 0.9945541272711803,
+              "mean_bce": 0.08807998711288963,
+              "allocated_global_wrong_pair_share": 0.048536445936058076
+            },
+            {
+              "generator": "Vinje_G1",
+              "micro_auc": 0.9873355931975693,
+              "mean_bce": 0.14049068345687477,
+              "allocated_global_wrong_pair_share": 0.07112484649587311
+            },
+            {
+              "generator": "Vinje_G2",
+              "micro_auc": 0.9855592268564719,
+              "mean_bce": 0.14273335859177408,
+              "allocated_global_wrong_pair_share": 0.06925625548734053
+            },
+            {
+              "generator": "Vinje_G3",
+              "micro_auc": 0.9753386088326625,
+              "mean_bce": 0.15750706996693728,
+              "allocated_global_wrong_pair_share": 0.08304669351044985
+            },
+            {
+              "generator": "Haukeli_G1",
+              "micro_auc": 0.950337807348557,
+              "mean_bce": 0.22877935989012907,
+              "allocated_global_wrong_pair_share": 0.11909306092314761
+            },
+            {
+              "generator": "Songa_G1",
+              "micro_auc": 0.9971714988785411,
+              "mean_bce": 0.0401796934101074,
+              "allocated_global_wrong_pair_share": 0.023341583751579992
+            },
+            {
+              "generator": "Kjela_G1",
+              "micro_auc": 0.9827244448493035,
+              "mean_bce": 0.1579896242310149,
+              "allocated_global_wrong_pair_share": 0.08855052014602183
+            },
+            {
+              "generator": "Vesle Kjela_G1",
+              "micro_auc": 0.9920327704833171,
+              "mean_bce": 0.11436350631390253,
+              "allocated_global_wrong_pair_share": 0.06648666219067319
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rare_joint_condition_examples": [
+    {
+      "case_id": 2148,
+      "starttime": "2020-11-17 00:00:00+00:00",
+      "mean_absolute_week_price": 1.3053571428571427,
+      "actual_scale": 10.0,
+      "floor_active": true,
+      "terminal_water_value": 5.17,
+      "normalized_water_value_current": 0.517,
+      "normalized_water_value_without_floor": 3.960601915184679,
+      "normalized_mean_margin_current": -0.3864642857142857,
+      "normalized_mean_margin_without_floor": -2.9606019151846787,
+      "gross_pressure_million_m3": 1.1216719999999896
+    },
+    {
+      "case_id": 2149,
+      "starttime": "2020-11-18 00:00:00+00:00",
+      "mean_absolute_week_price": 1.4879166666666666,
+      "actual_scale": 10.0,
+      "floor_active": true,
+      "terminal_water_value": 5.46,
+      "normalized_water_value_current": 0.546,
+      "normalized_water_value_without_floor": 3.6695603472416694,
+      "normalized_mean_margin_current": -0.39720833333333333,
+      "normalized_mean_margin_without_floor": -2.6695603472416694,
+      "gross_pressure_million_m3": 4.515951999999999
+    },
+    {
+      "case_id": 2150,
+      "starttime": "2020-11-19 00:00:00+00:00",
+      "mean_absolute_week_price": 1.6697619047619046,
+      "actual_scale": 10.0,
+      "floor_active": true,
+      "terminal_water_value": 6.17,
+      "normalized_water_value_current": 0.617,
+      "normalized_water_value_without_floor": 3.6951376015970343,
+      "normalized_mean_margin_current": -0.4500238095238095,
+      "normalized_mean_margin_without_floor": -2.6951376015970343,
+      "gross_pressure_million_m3": 1.7847719999999967
+    },
+    {
+      "case_id": 2869,
+      "starttime": "2022-11-08 00:00:00+00:00",
+      "mean_absolute_week_price": 29.020952380952384,
+      "actual_scale": 29.020952380952384,
+      "floor_active": false,
+      "terminal_water_value": 85.67,
+      "normalized_water_value_current": 2.9520051194539247,
+      "normalized_water_value_without_floor": 2.9520051194539247,
+      "normalized_mean_margin_current": -1.9520051194539247,
+      "normalized_mean_margin_without_floor": -1.9520051194539247,
+      "gross_pressure_million_m3": 2.5863280000000017
+    },
+    {
+      "case_id": 2871,
+      "starttime": "2022-11-10 00:00:00+00:00",
+      "mean_absolute_week_price": 27.367738095238092,
+      "actual_scale": 27.367738095238092,
+      "floor_active": false,
+      "terminal_water_value": 123.87,
+      "normalized_water_value_current": 4.526132176833168,
+      "normalized_water_value_without_floor": 4.526132176833168,
+      "normalized_mean_margin_current": -3.5261321768331677,
+      "normalized_mean_margin_without_floor": -3.5261321768331677,
+      "gross_pressure_million_m3": 4.8734639999999985
+    },
+    {
+      "case_id": 2872,
+      "starttime": "2022-11-11 00:00:00+00:00",
+      "mean_absolute_week_price": 30.729642857142856,
+      "actual_scale": 30.729642857142856,
+      "floor_active": false,
+      "terminal_water_value": 146.05,
+      "normalized_water_value_current": 4.752739909115211,
+      "normalized_water_value_without_floor": 4.752739909115211,
+      "normalized_mean_margin_current": -3.7527399091152103,
+      "normalized_mean_margin_without_floor": -3.7527399091152103,
+      "gross_pressure_million_m3": 6.229051999999996
+    },
+    {
+      "case_id": 2873,
+      "starttime": "2022-11-12 00:00:00+00:00",
+      "mean_absolute_week_price": 46.202678571428564,
+      "actual_scale": 46.202678571428564,
+      "floor_active": false,
+      "terminal_water_value": 159.28,
+      "normalized_water_value_current": 3.4474191740584,
+      "normalized_water_value_without_floor": 3.4474191740584,
+      "normalized_mean_margin_current": -2.4474191740584,
+      "normalized_mean_margin_without_floor": -2.4474191740584,
+      "gross_pressure_million_m3": 0.38934000000000424
+    }
+  ],
+  "rare_joint_condition_definition": "Staavatn+Kjelavatn initial storage plus weekly natural inflow exceeds their combined capacity AND maximum weekly price is below Kjelavatn terminal water value. This previously inspected retrospective condition is descriptive, not a physical necessity or a newly independent test.",
+  "source_sha256": {
+    "data/processed/round6_native_2021_baseline.npz": "b7e8422abbd77ba4ec2fcc1c0a8957a1594bc7ac043111f2535ef8e2fc7dd8dd",
+    "data/processed/round6_native_2022_baseline.npz": "90cb0e574d16b03e0a537bd641d945885a756414874d331075bbcf61713538a5",
+    "data/processed/round6_frozen_2022_baseline.npz": "c02d61695d1842e717abf152ee0d84063611623867bcc5b5fe1124d3cc2a5c92",
+    "reports/audit_20261017_scaling.py": "12c3223463e4ce4ed685d26d9865b53ded3093831eeaac697cc043a3a5c28a36",
+    "src/tree_preprocessing.py": "21bfa82dce77473bd10faf83f8f72aec8af34246c0195a6062617868ff929235",
+    "src/features.py": "6eea354fb4f7c80ff4c495ed3ac958777334b72a93ce1d19c14a4b0f41d66133",
+    "src/round2_diagnostics.py": "b85550fab55d419b54df7e2f1b687b8a91de2113f30e06c2f9352c6f15e508b9",
+    "configs/Tokke_Vinje_topology.yaml": "29cfa233cec7fc4b5401d0d571a566e6e17b7bb7b46a175abcd37a53fe175497",
+    "data/raw/prediction_mapping.csv": "c8b0e5bc500a5f1dec2337f5ac680847f6a7794a7c2b7a8fb19384910a029519",
+    "data/raw/kernel/Historical_day_ahead_price_2015_2025.csv": "e5edd141b34a61139f3ee3022305175446d4b4f74618df85552c4f2b5e556ee4",
+    "data/raw/kernel/Historical_volume_2015_2024.csv": "ef3d9c69699eef0d953b495ba69bf6676858e6b9c536087498135074912dd3b6",
+    "data/raw/kernel/Synthetic_water_value_2015_2024.csv": "a5f09ff96b551d3c297d90ccf3a0bbe92d8814b537ad63a46579cb0ff44aa4cb",
+    "data/raw/kernel/Historical_inflow_1958_2025.csv": "ff4f87d2768133b4a717c0ad366969244f7a86901695e1d4fef3c2ed8963ad66"
+  },
+  "interpretation_limits": "No counterfactual feature replacement, fitting, floor tuning or predictions changed. Conditional AUC can vary with case/label composition. Incident pair enrichment adjusts available pairs; endpoint allocations are bookkeeping, not causal blame. Consecutive daily-start weeks remain dependent. Current scaling retains absolute scale and economic information; alternative ratios change representation, not measured information. Near-zero absolute prices make unfloored ratios numerically large. Absolute startup costs can break economic scale invariance. Test input coverage alone cannot identify label error. The rare condition was discovered from historical errors and must not be treated as an untouched validation target."
+}

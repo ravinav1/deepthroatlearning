@@ -1,0 +1,1289 @@
+{
+  "selected_variant": "depth8_haukeli_weighted_mean",
+  "scope": "Updated error profile of the frozen selected candidate, not the initial winner. Read cached comparison/diagnostic reports only; no fits, feature changes or weight choices.",
+  "sources": [
+    "reports/round2_depth8_combined_both_comparison.json",
+    "reports/round2_depth8_combined_uncertainty.json",
+    "reports/round2_depth8_attribution.json",
+    "reports/round2_xgb_depth8_both_comparison.json",
+    "reports/round2_transformer_task_weights_both_comparison.json"
+  ],
+  "pair_interpretation": "Incident wrong-pair share counts positive-negative ranking pairs touching at least one output in a slice. Compare with incident available-pair share. Slices overlap; shares do not sum to 100%. Increasing error share/enrichment can reflect improvements elsewhere rather than worsening absolute performance.",
+  "years": [
+    {
+      "year": 2021,
+      "cases": 365,
+      "original_winner_auc": 0.9882719381376425,
+      "candidate_auc": 0.9889184502673686,
+      "delta": 0.0006465121297261067,
+      "relative_reduction_in_pooled_wrong_pairs": 0.05512523188517248,
+      "delta_vs_confirmed_fallback": 0.0003950988587058113,
+      "conditional_block_intervals": {
+        "original_winner": [
+          {
+            "days": 7,
+            "interval95": [
+              0.00034894103609577065,
+              0.0010119366336285738
+            ]
+          },
+          {
+            "days": 14,
+            "interval95": [
+              0.00031089827560129845,
+              0.0011297764070880094
+            ]
+          },
+          {
+            "days": 28,
+            "interval95": [
+              0.0001911588262294983,
+              0.0011532796374699606
+            ]
+          }
+        ],
+        "incumbent_fallback": [
+          {
+            "days": 7,
+            "interval95": [
+              8.20822502925589e-05,
+              0.0007536598717293143
+            ]
+          },
+          {
+            "days": 14,
+            "interval95": [
+              3.976837005628398e-05,
+              0.0008812733421352382
+            ]
+          },
+          {
+            "days": 28,
+            "interval95": [
+              -0.00011459936754850407,
+              0.0008874681863476117
+            ]
+          }
+        ]
+      },
+      "generators": [
+        {
+          "generator": "Hogga_G1",
+          "focus": true,
+          "outputs": 61320,
+          "on_fraction": 0.5462002609262884,
+          "original_winner_auc": 0.9696893447926744,
+          "candidate_auc": 0.9705129252671488,
+          "auc_delta": 0.0008235804744743946,
+          "remaining_incident_wrong_pair_share": 0.21650613041245373,
+          "incident_available_pair_share": 0.14009442091199667,
+          "remaining_error_enrichment_vs_pair_availability": 1.5454300678287305,
+          "incident_pair_error_rate_before": 0.017929033571977983,
+          "incident_pair_error_rate_after": 0.017125760154948294
+        },
+        {
+          "generator": "Tokke_G1",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.5946673189823874,
+          "original_winner_auc": 0.9894627561921396,
+          "candidate_auc": 0.9905671427116989,
+          "auc_delta": 0.0011043865195592417,
+          "remaining_incident_wrong_pair_share": 0.12909893266548833,
+          "incident_available_pair_share": 0.14148134876292703,
+          "remaining_error_enrichment_vs_pair_availability": 0.9124802229713878,
+          "incident_pair_error_rate_before": 0.011484089715805905,
+          "incident_pair_error_rate_after": 0.0101116949709002
+        },
+        {
+          "generator": "Tokke_G2",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.4354696673189824,
+          "original_winner_auc": 0.9924289036679768,
+          "candidate_auc": 0.992643516146247,
+          "auc_delta": 0.00021461247827025964,
+          "remaining_incident_wrong_pair_share": 0.11265806588161598,
+          "incident_available_pair_share": 0.13728841451186366,
+          "remaining_error_enrichment_vs_pair_availability": 0.8205941213770862,
+          "incident_pair_error_rate_before": 0.009540769166295067,
+          "incident_pair_error_rate_after": 0.009093454566345308
+        },
+        {
+          "generator": "Tokke_G3",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.5160958904109589,
+          "original_winner_auc": 0.9921447545852833,
+          "candidate_auc": 0.9923414616311721,
+          "auc_delta": 0.00019670704588881094,
+          "remaining_incident_wrong_pair_share": 0.11731451807707446,
+          "incident_available_pair_share": 0.1392816179628638,
+          "remaining_error_enrichment_vs_pair_availability": 0.8422828496173389,
+          "incident_pair_error_rate_before": 0.00961944459171057,
+          "incident_pair_error_rate_after": 0.0093337992869772
+        },
+        {
+          "generator": "Tokke_G4",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.4520547945205479,
+          "original_winner_auc": 0.9923364372895623,
+          "candidate_auc": 0.992921774075792,
+          "auc_delta": 0.0005853367862296288,
+          "remaining_incident_wrong_pair_share": 0.11069371799941514,
+          "incident_available_pair_share": 0.13767657385960883,
+          "remaining_error_enrichment_vs_pair_availability": 0.80401272995282,
+          "incident_pair_error_rate_before": 0.00954705736383843,
+          "incident_pair_error_rate_after": 0.008909707052641071
+        },
+        {
+          "generator": "Lio_G1",
+          "focus": true,
+          "outputs": 61320,
+          "on_fraction": 0.5453848662752773,
+          "original_winner_auc": 0.9496274150107702,
+          "candidate_auc": 0.9563248466871932,
+          "auc_delta": 0.006697431676423005,
+          "remaining_incident_wrong_pair_share": 0.2804444978961726,
+          "incident_available_pair_share": 0.14007191435743152,
+          "remaining_error_enrichment_vs_pair_availability": 2.0021465343904867,
+          "incident_pair_error_rate_before": 0.023871211147108787,
+          "incident_pair_error_rate_after": 0.022186886392864168
+        },
+        {
+          "generator": "Byrte_G1",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.5374755381604697,
+          "original_winner_auc": 0.9983813241649311,
+          "candidate_auc": 0.9984421133689481,
+          "auc_delta": 6.078920401697552e-05,
+          "remaining_incident_wrong_pair_share": 0.05382344409862184,
+          "incident_available_pair_share": 0.13985502039753034,
+          "remaining_error_enrichment_vs_pair_availability": 0.3848517124779047,
+          "incident_pair_error_rate_before": 0.004502098222374226,
+          "incident_pair_error_rate_after": 0.004264753391512335
+        },
+        {
+          "generator": "Vinje_G1",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.4601761252446184,
+          "original_winner_auc": 0.9906998862987294,
+          "candidate_auc": 0.9910234608450561,
+          "auc_delta": 0.00032357454632669924,
+          "remaining_incident_wrong_pair_share": 0.12345601960575903,
+          "incident_available_pair_share": 0.13787077378600737,
+          "remaining_error_enrichment_vs_pair_availability": 0.8954473541823894,
+          "incident_pair_error_rate_before": 0.010329229445175333,
+          "incident_pair_error_rate_after": 0.009922944388325527
+        },
+        {
+          "generator": "Vinje_G2",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.39739073711676454,
+          "original_winner_auc": 0.9868319870646906,
+          "candidate_auc": 0.9873776120290636,
+          "auc_delta": 0.0005456249643730482,
+          "remaining_incident_wrong_pair_share": 0.14352337900310305,
+          "incident_available_pair_share": 0.13644003489710324,
+          "remaining_error_enrichment_vs_pair_availability": 1.0519154375132032,
+          "incident_pair_error_rate_before": 0.012255722601355197,
+          "incident_pair_error_rate_after": 0.011656853235325481
+        },
+        {
+          "generator": "Vinje_G3",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.2810828440965427,
+          "original_winner_auc": 0.9806822805568618,
+          "candidate_auc": 0.981412503985882,
+          "auc_delta": 0.0007302234290201826,
+          "remaining_incident_wrong_pair_share": 0.16318378729597546,
+          "incident_available_pair_share": 0.13421815566023645,
+          "remaining_error_enrichment_vs_pair_availability": 1.2158100854035232,
+          "incident_pair_error_rate_before": 0.01437964141646834,
+          "incident_pair_error_rate_after": 0.01347305992683421
+        },
+        {
+          "generator": "Haukeli_G1",
+          "focus": true,
+          "outputs": 61320,
+          "on_fraction": 0.37146118721461185,
+          "original_winner_auc": 0.9633766162066998,
+          "candidate_auc": 0.9638157046579812,
+          "auc_delta": 0.0004390884512813775,
+          "remaining_incident_wrong_pair_share": 0.24184469606972459,
+          "incident_available_pair_share": 0.1358964813338484,
+          "remaining_error_enrichment_vs_pair_availability": 1.779624414819099,
+          "incident_pair_error_rate_before": 0.020277883091394736,
+          "incident_pair_error_rate_after": 0.019720996458223245
+        },
+        {
+          "generator": "Songa_G1",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.3967221135029354,
+          "original_winner_auc": 0.995074153157005,
+          "candidate_auc": 0.9949541869878178,
+          "auc_delta": -0.00011996616918719116,
+          "remaining_incident_wrong_pair_share": 0.08765383530361509,
+          "incident_available_pair_share": 0.1364256712705512,
+          "remaining_error_enrichment_vs_pair_availability": 0.6425025032846294,
+          "incident_pair_error_rate_before": 0.007314814818435253,
+          "incident_pair_error_rate_after": 0.007119923443488915
+        },
+        {
+          "generator": "Kjela_G1",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.14256360078277885,
+          "original_winner_auc": 0.9834578894840456,
+          "candidate_auc": 0.9845078052440682,
+          "auc_delta": 0.0010499157600226683,
+          "remaining_incident_wrong_pair_share": 0.09519409128585456,
+          "incident_available_pair_share": 0.1322981304793388,
+          "remaining_error_enrichment_vs_pair_availability": 0.7195422258874713,
+          "incident_pair_error_rate_before": 0.008531159824927378,
+          "incident_pair_error_rate_after": 0.00797364296090045
+        },
+        {
+          "generator": "Vesle Kjela_G1",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.6981898238747554,
+          "original_winner_auc": 0.9990278342450003,
+          "candidate_auc": 0.9991207047075061,
+          "auc_delta": 9.287046250583408e-05,
+          "remaining_incident_wrong_pair_share": 0.03732150581615082,
+          "incident_available_pair_share": 0.14476742701326822,
+          "remaining_error_enrichment_vs_pair_availability": 0.2578031991459669,
+          "incident_pair_error_rate_before": 0.0030755669272603176,
+          "incident_pair_error_rate_after": 0.0028568589725675594
+        }
+      ],
+      "transition_regions": {
+        "near": {
+          "definition": "+/-2 hours around true label state changes; diagnostic only.",
+          "outputs": 69107,
+          "output_fraction": 0.08049925449631908,
+          "original_winner_auc": 0.8633446227949251,
+          "candidate_auc": 0.8670751610491563,
+          "auc_delta": 0.003730538254231197,
+          "remaining_incident_wrong_pair_share": 0.5078309671871628,
+          "incident_available_pair_share": 0.1551865330152972,
+          "remaining_error_enrichment_vs_pair_availability": 3.2723906985995,
+          "incident_pair_error_rate_before": 0.03779488690003515,
+          "incident_pair_error_rate_after": 0.036263160271131405
+        },
+        "away": {
+          "definition": "+/-2 hours around true label state changes; diagnostic only.",
+          "outputs": 789373,
+          "output_fraction": 0.9195007455036809,
+          "original_winner_auc": 0.9930602379960145,
+          "candidate_auc": 0.9935441421957406,
+          "auc_delta": 0.000483904199726104,
+          "remaining_incident_wrong_pair_share": 0.9217725424575417,
+          "incident_available_pair_share": 0.9934784087905899,
+          "remaining_error_enrichment_vs_pair_availability": 0.927823427566645,
+          "incident_pair_error_rate_before": 0.010907988799525578,
+          "incident_pair_error_rate_after": 0.010281721455680485
+        }
+      },
+      "months": [
+        {
+          "month": 1,
+          "cases": 31,
+          "outputs": 72912,
+          "on_fraction": 0.5117264647794602,
+          "original_winner_auc": 0.9957733024648814,
+          "candidate_auc": 0.9960754294751547,
+          "auc_delta": 0.0003021270102733231,
+          "incident_error_delta_in_global_pair_units": -6.438618252207606e-05,
+          "remaining_error_enrichment_vs_pair_availability": 0.6172782398129435
+        },
+        {
+          "month": 2,
+          "cases": 28,
+          "outputs": 65856,
+          "on_fraction": 0.6852071185617103,
+          "original_winner_auc": 0.9910834917291019,
+          "candidate_auc": 0.9915445235640125,
+          "auc_delta": 0.00046103183491053024,
+          "incident_error_delta_in_global_pair_units": -7.077013387038716e-05,
+          "remaining_error_enrichment_vs_pair_availability": 0.7932711036427106
+        },
+        {
+          "month": 3,
+          "cases": 31,
+          "outputs": 72912,
+          "on_fraction": 0.727452271231073,
+          "original_winner_auc": 0.9961602502623123,
+          "candidate_auc": 0.9966436722171217,
+          "auc_delta": 0.0004834219548094376,
+          "incident_error_delta_in_global_pair_units": -5.397796380115247e-05,
+          "remaining_error_enrichment_vs_pair_availability": 0.47505446341397134
+        },
+        {
+          "month": 4,
+          "cases": 30,
+          "outputs": 70560,
+          "on_fraction": 0.6844246031746032,
+          "original_winner_auc": 0.9844051319605097,
+          "candidate_auc": 0.9851235548165779,
+          "auc_delta": 0.0007184228560681571,
+          "incident_error_delta_in_global_pair_units": -0.00010121303782416151,
+          "remaining_error_enrichment_vs_pair_availability": 0.9890848070691106
+        },
+        {
+          "month": 5,
+          "cases": 31,
+          "outputs": 72912,
+          "on_fraction": 0.47915295150318193,
+          "original_winner_auc": 0.9857450848218697,
+          "candidate_auc": 0.987708346307593,
+          "auc_delta": 0.0019632614857232333,
+          "incident_error_delta_in_global_pair_units": -0.00019468798877865772,
+          "remaining_error_enrichment_vs_pair_availability": 1.148388459158052
+        },
+        {
+          "month": 6,
+          "cases": 30,
+          "outputs": 70560,
+          "on_fraction": 0.5822420634920635,
+          "original_winner_auc": 0.9858543747291003,
+          "candidate_auc": 0.9878451466953577,
+          "auc_delta": 0.0019907719662574097,
+          "incident_error_delta_in_global_pair_units": -0.0001849078056230611,
+          "remaining_error_enrichment_vs_pair_availability": 1.0506406089415663
+        },
+        {
+          "month": 7,
+          "cases": 31,
+          "outputs": 72912,
+          "on_fraction": 0.4063802940531051,
+          "original_winner_auc": 0.9858154910048976,
+          "candidate_auc": 0.9864947034091097,
+          "auc_delta": 0.0006792124042120928,
+          "incident_error_delta_in_global_pair_units": -0.00010178086369189545,
+          "remaining_error_enrichment_vs_pair_availability": 1.1193798053446387
+        },
+        {
+          "month": 8,
+          "cases": 31,
+          "outputs": 72912,
+          "on_fraction": 0.157806671055519,
+          "original_winner_auc": 0.9666110940510729,
+          "candidate_auc": 0.9672398236517505,
+          "auc_delta": 0.0006287296006776133,
+          "incident_error_delta_in_global_pair_units": -3.937222368729067e-05,
+          "remaining_error_enrichment_vs_pair_availability": 1.2910920506899726
+        },
+        {
+          "month": 9,
+          "cases": 30,
+          "outputs": 70560,
+          "on_fraction": 0.1826530612244898,
+          "original_winner_auc": 0.9632161338088752,
+          "candidate_auc": 0.9632880868210034,
+          "auc_delta": 7.195301212825633e-05,
+          "incident_error_delta_in_global_pair_units": -2.563000170069168e-05,
+          "remaining_error_enrichment_vs_pair_availability": 1.5594168966277349
+        },
+        {
+          "month": 10,
+          "cases": 31,
+          "outputs": 72912,
+          "on_fraction": 0.24348529734474436,
+          "original_winner_auc": 0.9831733872728946,
+          "candidate_auc": 0.9848278312912672,
+          "auc_delta": 0.0016544440183725584,
+          "incident_error_delta_in_global_pair_units": -0.00017715946587077,
+          "remaining_error_enrichment_vs_pair_availability": 1.152253126285866
+        },
+        {
+          "month": 11,
+          "cases": 30,
+          "outputs": 70560,
+          "on_fraction": 0.35459183673469385,
+          "original_winner_auc": 0.9910390852886424,
+          "candidate_auc": 0.9916955631805491,
+          "auc_delta": 0.0006564778919067038,
+          "incident_error_delta_in_global_pair_units": -7.099960366924716e-05,
+          "remaining_error_enrichment_vs_pair_availability": 0.9029704437222644
+        },
+        {
+          "month": 12,
+          "cases": 31,
+          "outputs": 72912,
+          "on_fraction": 0.47078670177748516,
+          "original_winner_auc": 0.9902467192230733,
+          "candidate_auc": 0.9913962145119612,
+          "auc_delta": 0.0011494952888879695,
+          "incident_error_delta_in_global_pair_units": -0.00014035400812682048,
+          "remaining_error_enrichment_vs_pair_availability": 0.9069884572443744
+        }
+      ],
+      "weakest_generators": [
+        {
+          "generator": "Lio_G1",
+          "focus": true,
+          "outputs": 61320,
+          "on_fraction": 0.5453848662752773,
+          "original_winner_auc": 0.9496274150107702,
+          "candidate_auc": 0.9563248466871932,
+          "auc_delta": 0.006697431676423005,
+          "remaining_incident_wrong_pair_share": 0.2804444978961726,
+          "incident_available_pair_share": 0.14007191435743152,
+          "remaining_error_enrichment_vs_pair_availability": 2.0021465343904867,
+          "incident_pair_error_rate_before": 0.023871211147108787,
+          "incident_pair_error_rate_after": 0.022186886392864168
+        },
+        {
+          "generator": "Haukeli_G1",
+          "focus": true,
+          "outputs": 61320,
+          "on_fraction": 0.37146118721461185,
+          "original_winner_auc": 0.9633766162066998,
+          "candidate_auc": 0.9638157046579812,
+          "auc_delta": 0.0004390884512813775,
+          "remaining_incident_wrong_pair_share": 0.24184469606972459,
+          "incident_available_pair_share": 0.1358964813338484,
+          "remaining_error_enrichment_vs_pair_availability": 1.779624414819099,
+          "incident_pair_error_rate_before": 0.020277883091394736,
+          "incident_pair_error_rate_after": 0.019720996458223245
+        },
+        {
+          "generator": "Hogga_G1",
+          "focus": true,
+          "outputs": 61320,
+          "on_fraction": 0.5462002609262884,
+          "original_winner_auc": 0.9696893447926744,
+          "candidate_auc": 0.9705129252671488,
+          "auc_delta": 0.0008235804744743946,
+          "remaining_incident_wrong_pair_share": 0.21650613041245373,
+          "incident_available_pair_share": 0.14009442091199667,
+          "remaining_error_enrichment_vs_pair_availability": 1.5454300678287305,
+          "incident_pair_error_rate_before": 0.017929033571977983,
+          "incident_pair_error_rate_after": 0.017125760154948294
+        },
+        {
+          "generator": "Vinje_G3",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.2810828440965427,
+          "original_winner_auc": 0.9806822805568618,
+          "candidate_auc": 0.981412503985882,
+          "auc_delta": 0.0007302234290201826,
+          "remaining_incident_wrong_pair_share": 0.16318378729597546,
+          "incident_available_pair_share": 0.13421815566023645,
+          "remaining_error_enrichment_vs_pair_availability": 1.2158100854035232,
+          "incident_pair_error_rate_before": 0.01437964141646834,
+          "incident_pair_error_rate_after": 0.01347305992683421
+        },
+        {
+          "generator": "Kjela_G1",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.14256360078277885,
+          "original_winner_auc": 0.9834578894840456,
+          "candidate_auc": 0.9845078052440682,
+          "auc_delta": 0.0010499157600226683,
+          "remaining_incident_wrong_pair_share": 0.09519409128585456,
+          "incident_available_pair_share": 0.1322981304793388,
+          "remaining_error_enrichment_vs_pair_availability": 0.7195422258874713,
+          "incident_pair_error_rate_before": 0.008531159824927378,
+          "incident_pair_error_rate_after": 0.00797364296090045
+        }
+      ],
+      "focus_generators": [
+        {
+          "generator": "Lio_G1",
+          "focus": true,
+          "outputs": 61320,
+          "on_fraction": 0.5453848662752773,
+          "original_winner_auc": 0.9496274150107702,
+          "candidate_auc": 0.9563248466871932,
+          "auc_delta": 0.006697431676423005,
+          "remaining_incident_wrong_pair_share": 0.2804444978961726,
+          "incident_available_pair_share": 0.14007191435743152,
+          "remaining_error_enrichment_vs_pair_availability": 2.0021465343904867,
+          "incident_pair_error_rate_before": 0.023871211147108787,
+          "incident_pair_error_rate_after": 0.022186886392864168
+        },
+        {
+          "generator": "Haukeli_G1",
+          "focus": true,
+          "outputs": 61320,
+          "on_fraction": 0.37146118721461185,
+          "original_winner_auc": 0.9633766162066998,
+          "candidate_auc": 0.9638157046579812,
+          "auc_delta": 0.0004390884512813775,
+          "remaining_incident_wrong_pair_share": 0.24184469606972459,
+          "incident_available_pair_share": 0.1358964813338484,
+          "remaining_error_enrichment_vs_pair_availability": 1.779624414819099,
+          "incident_pair_error_rate_before": 0.020277883091394736,
+          "incident_pair_error_rate_after": 0.019720996458223245
+        },
+        {
+          "generator": "Hogga_G1",
+          "focus": true,
+          "outputs": 61320,
+          "on_fraction": 0.5462002609262884,
+          "original_winner_auc": 0.9696893447926744,
+          "candidate_auc": 0.9705129252671488,
+          "auc_delta": 0.0008235804744743946,
+          "remaining_incident_wrong_pair_share": 0.21650613041245373,
+          "incident_available_pair_share": 0.14009442091199667,
+          "remaining_error_enrichment_vs_pair_availability": 1.5454300678287305,
+          "incident_pair_error_rate_before": 0.017929033571977983,
+          "incident_pair_error_rate_after": 0.017125760154948294
+        }
+      ],
+      "within_month_auc_improvements": 12,
+      "month_incident_error_improvements": 12,
+      "weakest_months": [
+        {
+          "month": 9,
+          "cases": 30,
+          "outputs": 70560,
+          "on_fraction": 0.1826530612244898,
+          "original_winner_auc": 0.9632161338088752,
+          "candidate_auc": 0.9632880868210034,
+          "auc_delta": 7.195301212825633e-05,
+          "incident_error_delta_in_global_pair_units": -2.563000170069168e-05,
+          "remaining_error_enrichment_vs_pair_availability": 1.5594168966277349
+        },
+        {
+          "month": 8,
+          "cases": 31,
+          "outputs": 72912,
+          "on_fraction": 0.157806671055519,
+          "original_winner_auc": 0.9666110940510729,
+          "candidate_auc": 0.9672398236517505,
+          "auc_delta": 0.0006287296006776133,
+          "incident_error_delta_in_global_pair_units": -3.937222368729067e-05,
+          "remaining_error_enrichment_vs_pair_availability": 1.2910920506899726
+        },
+        {
+          "month": 10,
+          "cases": 31,
+          "outputs": 72912,
+          "on_fraction": 0.24348529734474436,
+          "original_winner_auc": 0.9831733872728946,
+          "candidate_auc": 0.9848278312912672,
+          "auc_delta": 0.0016544440183725584,
+          "incident_error_delta_in_global_pair_units": -0.00017715946587077,
+          "remaining_error_enrichment_vs_pair_availability": 1.152253126285866
+        }
+      ],
+      "lio_component_diagnosis": {
+        "original_winner_auc": 0.9496274150107702,
+        "depth8_only_auc": 0.9525429804573009,
+        "weighted_neural_mean_only_auc": 0.9532081250583488,
+        "selected_combined_auc": 0.9563248466871932,
+        "note": "Descriptive fixed component comparisons; nonlinear AUC changes need not add. No plant weights were changed in response."
+      },
+      "depth8_attribution": {
+        "year": 2021,
+        "depth8_alone_selected_replacement_auc": 0.9885618651367127,
+        "depth8_alone_delta_vs_original_winner": 0.00028992699907026687,
+        "fixed_no_depth8_ablation": {
+          "micro_roc_auc": 0.9886566835435585,
+          "generator_auc": {
+            "Hogga_G1": 0.9696687012309468,
+            "Tokke_G1": 0.990530676166659,
+            "Tokke_G2": 0.9925763109371938,
+            "Tokke_G3": 0.9922622197439606,
+            "Tokke_G4": 0.9928864420136742,
+            "Lio_G1": 0.9532081250583488,
+            "Byrte_G1": 0.9983813241649311,
+            "Vinje_G1": 0.9906590147274221,
+            "Vinje_G2": 0.9867831979272997,
+            "Vinje_G3": 0.9808806178668296,
+            "Haukeli_G1": 0.9638157046579812,
+            "Songa_G1": 0.995074153157005,
+            "Kjela_G1": 0.9844061032213611,
+            "Vesle Kjela_G1": 0.9990278342450003
+          }
+        },
+        "selected_combined_auc": 0.9889184502673686,
+        "depth8_marginal_auc_delta": 0.00026176672381006405
+      }
+    },
+    {
+      "year": 2022,
+      "cases": 365,
+      "original_winner_auc": 0.987770674860208,
+      "candidate_auc": 0.9883755349637956,
+      "delta": 0.0006048601035876233,
+      "relative_reduction_in_pooled_wrong_pairs": 0.04945981046979586,
+      "delta_vs_confirmed_fallback": 0.00022675134650518292,
+      "conditional_block_intervals": {
+        "original_winner": [
+          {
+            "days": 7,
+            "interval95": [
+              0.0002699860848269814,
+              0.0009467790980228926
+            ]
+          },
+          {
+            "days": 14,
+            "interval95": [
+              0.00031749447308961065,
+              0.0009843131748410836
+            ]
+          },
+          {
+            "days": 28,
+            "interval95": [
+              0.0002564296779673486,
+              0.0010907658965638991
+            ]
+          }
+        ],
+        "incumbent_fallback": [
+          {
+            "days": 7,
+            "interval95": [
+              -1.544163052263625e-05,
+              0.00043648697374457616
+            ]
+          },
+          {
+            "days": 14,
+            "interval95": [
+              2.044609708240498e-06,
+              0.0004981966189846891
+            ]
+          },
+          {
+            "days": 28,
+            "interval95": [
+              -1.839409612256759e-05,
+              0.0004937741002872055
+            ]
+          }
+        ]
+      },
+      "generators": [
+        {
+          "generator": "Hogga_G1",
+          "focus": true,
+          "outputs": 61320,
+          "on_fraction": 0.3865949119373777,
+          "original_winner_auc": 0.9775100186335982,
+          "candidate_auc": 0.9789397093265617,
+          "auc_delta": 0.0014296906929635034,
+          "remaining_incident_wrong_pair_share": 0.19614232566891682,
+          "incident_available_pair_share": 0.14214396545284355,
+          "remaining_error_enrichment_vs_pair_availability": 1.3798849992966271,
+          "incident_pair_error_rate_before": 0.016853879845613103,
+          "incident_pair_error_rate_after": 0.016040424928306575
+        },
+        {
+          "generator": "Tokke_G1",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.4566699282452707,
+          "original_winner_auc": 0.9937337966817539,
+          "candidate_auc": 0.9953392625015262,
+          "auc_delta": 0.0016054658197722782,
+          "remaining_incident_wrong_pair_share": 0.09769027634913795,
+          "incident_available_pair_share": 0.14900377516577595,
+          "remaining_error_enrichment_vs_pair_availability": 0.6556228272770368,
+          "incident_pair_error_rate_before": 0.009322600500944633,
+          "incident_pair_error_rate_after": 0.007621264632619388
+        },
+        {
+          "generator": "Tokke_G2",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.35712654924983694,
+          "original_winner_auc": 0.9926142231231896,
+          "candidate_auc": 0.9930639124297863,
+          "auc_delta": 0.00044968930659672335,
+          "remaining_incident_wrong_pair_share": 0.1064475434293595,
+          "incident_available_pair_share": 0.13932588260993461,
+          "remaining_error_enrichment_vs_pair_availability": 0.764018439613095,
+          "incident_pair_error_rate_before": 0.00957320423861776,
+          "incident_pair_error_rate_after": 0.008881305638297865
+        },
+        {
+          "generator": "Tokke_G3",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.41087736464448793,
+          "original_winner_auc": 0.9954396389133615,
+          "candidate_auc": 0.9959537575080463,
+          "auc_delta": 0.0005141185946847537,
+          "remaining_incident_wrong_pair_share": 0.0866426879564937,
+          "incident_available_pair_share": 0.14449576924079038,
+          "remaining_error_enrichment_vs_pair_availability": 0.5996209329292593,
+          "incident_pair_error_rate_before": 0.00757145252392249,
+          "incident_pair_error_rate_after": 0.006970272569812437
+        },
+        {
+          "generator": "Tokke_G4",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.3732550554468363,
+          "original_winner_auc": 0.9948887626158267,
+          "candidate_auc": 0.9950988664782144,
+          "auc_delta": 0.00021010386238773382,
+          "remaining_incident_wrong_pair_share": 0.09055928374590075,
+          "incident_available_pair_share": 0.14086337626043913,
+          "remaining_error_enrichment_vs_pair_availability": 0.6428873575944093,
+          "incident_pair_error_rate_before": 0.007887598549983266,
+          "incident_pair_error_rate_after": 0.007473221610574045
+        },
+        {
+          "generator": "Lio_G1",
+          "focus": true,
+          "outputs": 61320,
+          "on_fraction": 0.5499184605348989,
+          "original_winner_auc": 0.96488435459231,
+          "candidate_auc": 0.9616171089904114,
+          "auc_delta": -0.0032672456018986162,
+          "remaining_incident_wrong_pair_share": 0.25930079850396953,
+          "incident_available_pair_share": 0.15847810718701474,
+          "remaining_error_enrichment_vs_pair_availability": 1.6361931821786417,
+          "incident_pair_error_rate_before": 0.019417069400717718,
+          "incident_pair_error_rate_after": 0.019019870438711638
+        },
+        {
+          "generator": "Byrte_G1",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.38308871493803,
+          "original_winner_auc": 0.9963864239225171,
+          "candidate_auc": 0.996385602443463,
+          "auc_delta": -8.214790541138939e-07,
+          "remaining_incident_wrong_pair_share": 0.08154638485193665,
+          "incident_available_pair_share": 0.1418065969315864,
+          "remaining_error_enrichment_vs_pair_availability": 0.5750535350007597,
+          "incident_pair_error_rate_before": 0.006731910752652632,
+          "incident_pair_error_rate_after": 0.006684689711562074
+        },
+        {
+          "generator": "Vinje_G1",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.34354207436399214,
+          "original_winner_auc": 0.9860335306670862,
+          "candidate_auc": 0.9866241856851166,
+          "auc_delta": 0.0005906550180303505,
+          "remaining_incident_wrong_pair_share": 0.1466404072381893,
+          "incident_available_pair_share": 0.1380400760718528,
+          "remaining_error_enrichment_vs_pair_availability": 1.0623031471082343,
+          "incident_pair_error_rate_before": 0.012884472867769331,
+          "incident_pair_error_rate_after": 0.012348705791409568
+        },
+        {
+          "generator": "Vinje_G2",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.2969993476842792,
+          "original_winner_auc": 0.9841237529648079,
+          "candidate_auc": 0.9846940214068809,
+          "auc_delta": 0.0005702684420729742,
+          "remaining_incident_wrong_pair_share": 0.14428539569752297,
+          "incident_available_pair_share": 0.13369826403508808,
+          "remaining_error_enrichment_vs_pair_availability": 1.079186754883043,
+          "incident_pair_error_rate_before": 0.013111830358543353,
+          "incident_pair_error_rate_after": 0.012544968699672822
+        },
+        {
+          "generator": "Vinje_G3",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.19204174820613176,
+          "original_winner_auc": 0.9720330802791017,
+          "candidate_auc": 0.9721433111279215,
+          "auc_delta": 0.00011023084881978118,
+          "remaining_incident_wrong_pair_share": 0.17150538053784806,
+          "incident_available_pair_share": 0.12426839439004816,
+          "remaining_error_enrichment_vs_pair_availability": 1.3801206765377085,
+          "incident_pair_error_rate_before": 0.016548720907241285,
+          "incident_pair_error_rate_after": 0.01604316455015535
+        },
+        {
+          "generator": "Haukeli_G1",
+          "focus": true,
+          "outputs": 61320,
+          "on_fraction": 0.14145466405740378,
+          "original_winner_auc": 0.9475982997306192,
+          "candidate_auc": 0.9580938746002412,
+          "auc_delta": 0.010495574869622049,
+          "remaining_incident_wrong_pair_share": 0.1889984325484303,
+          "incident_available_pair_share": 0.11990219004790846,
+          "remaining_error_enrichment_vs_pair_availability": 1.5762717300902807,
+          "incident_pair_error_rate_before": 0.020138895874734223,
+          "incident_pair_error_rate_after": 0.018323315613991885
+        },
+        {
+          "generator": "Songa_G1",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.11705805609915199,
+          "original_winner_auc": 0.9973672474059961,
+          "candidate_auc": 0.997739579765577,
+          "auc_delta": 0.00037233235958089583,
+          "remaining_incident_wrong_pair_share": 0.04601811033128732,
+          "incident_available_pair_share": 0.11783806484196527,
+          "remaining_error_enrichment_vs_pair_availability": 0.39051990876634834,
+          "incident_pair_error_rate_before": 0.004778210299695403,
+          "incident_pair_error_rate_after": 0.004539585025396148
+        },
+        {
+          "generator": "Kjela_G1",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.45280495759947814,
+          "original_winner_auc": 0.9804630574581361,
+          "candidate_auc": 0.9816657178301942,
+          "auc_delta": 0.001202660372058073,
+          "remaining_incident_wrong_pair_share": 0.18418902470138845,
+          "incident_available_pair_share": 0.14861961007797916,
+          "remaining_error_enrichment_vs_pair_availability": 1.2393319065010762,
+          "incident_pair_error_rate_before": 0.01477679721797321,
+          "incident_pair_error_rate_after": 0.014406570415374298
+        },
+        {
+          "generator": "Vesle Kjela_G1",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.3058382257012394,
+          "original_winner_auc": 0.9931095606117835,
+          "candidate_auc": 0.9930410259991533,
+          "auc_delta": -6.853461263012228e-05,
+          "remaining_incident_wrong_pair_share": 0.11774923495122111,
+          "incident_available_pair_share": 0.13451524126447717,
+          "remaining_error_enrichment_vs_pair_availability": 0.8753598019402755,
+          "incident_pair_error_rate_before": 0.009943957909703888,
+          "incident_pair_error_rate_after": 0.01017558941175354
+        }
+      ],
+      "transition_regions": {
+        "near": {
+          "definition": "+/-2 hours around true label state changes; diagnostic only.",
+          "outputs": 101881,
+          "output_fraction": 0.11867603205665828,
+          "original_winner_auc": 0.8679306977397524,
+          "candidate_auc": 0.8723846298623168,
+          "auc_delta": 0.004453932122564397,
+          "remaining_incident_wrong_pair_share": 0.6779833543013043,
+          "incident_available_pair_share": 0.24512612112715473,
+          "remaining_error_enrichment_vs_pair_availability": 2.765855189906965,
+          "incident_pair_error_rate_before": 0.03359680146283183,
+          "incident_pair_error_rate_after": 0.03215158695027799
+        },
+        "away": {
+          "definition": "+/-2 hours around true label state changes; diagnostic only.",
+          "outputs": 756599,
+          "output_fraction": 0.8813239679433417,
+          "original_winner_auc": 0.9947092201403334,
+          "candidate_auc": 0.9950411964915388,
+          "auc_delta": 0.0003319763512054097,
+          "remaining_incident_wrong_pair_share": 0.8281610481279024,
+          "incident_available_pair_share": 0.9843472154981011,
+          "remaining_error_enrichment_vs_pair_availability": 0.8413302085777069,
+          "incident_pair_error_rate_before": 0.010323666946174093,
+          "incident_pair_error_rate_after": 0.009780013593514107
+        }
+      },
+      "months": [
+        {
+          "month": 1,
+          "cases": 31,
+          "outputs": 72912,
+          "on_fraction": 0.3432082510423524,
+          "original_winner_auc": 0.99117211409556,
+          "candidate_auc": 0.9927883473429155,
+          "auc_delta": 0.001616233247355492,
+          "incident_error_delta_in_global_pair_units": -0.00017877941300961436,
+          "remaining_error_enrichment_vs_pair_availability": 0.8745174567742692
+        },
+        {
+          "month": 2,
+          "cases": 28,
+          "outputs": 65856,
+          "on_fraction": 0.24744897959183673,
+          "original_winner_auc": 0.9940445297607655,
+          "candidate_auc": 0.9945127207793828,
+          "auc_delta": 0.0004681910186172811,
+          "incident_error_delta_in_global_pair_units": -0.00010992645950784192,
+          "remaining_error_enrichment_vs_pair_availability": 0.6851706689698102
+        },
+        {
+          "month": 3,
+          "cases": 31,
+          "outputs": 72912,
+          "on_fraction": 0.27102534562211983,
+          "original_winner_auc": 0.9932585756490786,
+          "candidate_auc": 0.9932036769804995,
+          "auc_delta": -5.489866857910641e-05,
+          "incident_error_delta_in_global_pair_units": 4.8938131223395754e-05,
+          "remaining_error_enrichment_vs_pair_availability": 0.8839303701926375
+        },
+        {
+          "month": 4,
+          "cases": 30,
+          "outputs": 70560,
+          "on_fraction": 0.41169217687074827,
+          "original_winner_auc": 0.9634250446998294,
+          "candidate_auc": 0.9641256682191768,
+          "auc_delta": 0.0007006235193474097,
+          "incident_error_delta_in_global_pair_units": -0.0001309052303885062,
+          "remaining_error_enrichment_vs_pair_availability": 1.7081707484626227
+        },
+        {
+          "month": 5,
+          "cases": 31,
+          "outputs": 72912,
+          "on_fraction": 0.4375274303269695,
+          "original_winner_auc": 0.9809365327490739,
+          "candidate_auc": 0.9831409062346482,
+          "auc_delta": 0.00220437348557434,
+          "incident_error_delta_in_global_pair_units": -0.00021754874637454217,
+          "remaining_error_enrichment_vs_pair_availability": 1.1823325826805753
+        },
+        {
+          "month": 6,
+          "cases": 30,
+          "outputs": 70560,
+          "on_fraction": 0.18479308390022675,
+          "original_winner_auc": 0.9822442450082209,
+          "candidate_auc": 0.9823358883475175,
+          "auc_delta": 9.164333929656543e-05,
+          "incident_error_delta_in_global_pair_units": -5.4440929031098146e-05,
+          "remaining_error_enrichment_vs_pair_availability": 1.116162321591631
+        },
+        {
+          "month": 7,
+          "cases": 31,
+          "outputs": 72912,
+          "on_fraction": 0.1211734693877551,
+          "original_winner_auc": 0.9749532332169791,
+          "candidate_auc": 0.9751794907829616,
+          "auc_delta": 0.00022625756598249058,
+          "incident_error_delta_in_global_pair_units": -3.1399583278919185e-05,
+          "remaining_error_enrichment_vs_pair_availability": 1.2781215216501132
+        },
+        {
+          "month": 8,
+          "cases": 31,
+          "outputs": 72912,
+          "on_fraction": 0.0945249067368883,
+          "original_winner_auc": 0.9956892470721074,
+          "candidate_auc": 0.9962108138144881,
+          "auc_delta": 0.0005215667423806858,
+          "incident_error_delta_in_global_pair_units": -4.5165030850062094e-05,
+          "remaining_error_enrichment_vs_pair_availability": 0.5831774051015782
+        },
+        {
+          "month": 9,
+          "cases": 30,
+          "outputs": 70560,
+          "on_fraction": 0.3201814058956916,
+          "original_winner_auc": 0.9958892871230135,
+          "candidate_auc": 0.9963548266936573,
+          "auc_delta": 0.0004655395706437693,
+          "incident_error_delta_in_global_pair_units": -8.78797763350838e-05,
+          "remaining_error_enrichment_vs_pair_availability": 0.6103541108019336
+        },
+        {
+          "month": 10,
+          "cases": 31,
+          "outputs": 72912,
+          "on_fraction": 0.5372092385341233,
+          "original_winner_auc": 0.987933585871953,
+          "candidate_auc": 0.988792097290553,
+          "auc_delta": 0.0008585114185999387,
+          "incident_error_delta_in_global_pair_units": -0.0001238550286242297,
+          "remaining_error_enrichment_vs_pair_availability": 0.9055219871766164
+        },
+        {
+          "month": 11,
+          "cases": 30,
+          "outputs": 70560,
+          "on_fraction": 0.4951814058956916,
+          "original_winner_auc": 0.9721305433522519,
+          "candidate_auc": 0.9730978420695203,
+          "auc_delta": 0.0009672987172684167,
+          "incident_error_delta_in_global_pair_units": -0.00011967462891232603,
+          "remaining_error_enrichment_vs_pair_availability": 1.5143870721959745
+        },
+        {
+          "month": 12,
+          "cases": 31,
+          "outputs": 72912,
+          "on_fraction": 0.6148644941847707,
+          "original_winner_auc": 0.996056758505923,
+          "candidate_auc": 0.9964749809923441,
+          "auc_delta": 0.0004182224864210937,
+          "incident_error_delta_in_global_pair_units": -9.99316470883234e-05,
+          "remaining_error_enrichment_vs_pair_availability": 0.5304601632081791
+        }
+      ],
+      "weakest_generators": [
+        {
+          "generator": "Haukeli_G1",
+          "focus": true,
+          "outputs": 61320,
+          "on_fraction": 0.14145466405740378,
+          "original_winner_auc": 0.9475982997306192,
+          "candidate_auc": 0.9580938746002412,
+          "auc_delta": 0.010495574869622049,
+          "remaining_incident_wrong_pair_share": 0.1889984325484303,
+          "incident_available_pair_share": 0.11990219004790846,
+          "remaining_error_enrichment_vs_pair_availability": 1.5762717300902807,
+          "incident_pair_error_rate_before": 0.020138895874734223,
+          "incident_pair_error_rate_after": 0.018323315613991885
+        },
+        {
+          "generator": "Lio_G1",
+          "focus": true,
+          "outputs": 61320,
+          "on_fraction": 0.5499184605348989,
+          "original_winner_auc": 0.96488435459231,
+          "candidate_auc": 0.9616171089904114,
+          "auc_delta": -0.0032672456018986162,
+          "remaining_incident_wrong_pair_share": 0.25930079850396953,
+          "incident_available_pair_share": 0.15847810718701474,
+          "remaining_error_enrichment_vs_pair_availability": 1.6361931821786417,
+          "incident_pair_error_rate_before": 0.019417069400717718,
+          "incident_pair_error_rate_after": 0.019019870438711638
+        },
+        {
+          "generator": "Vinje_G3",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.19204174820613176,
+          "original_winner_auc": 0.9720330802791017,
+          "candidate_auc": 0.9721433111279215,
+          "auc_delta": 0.00011023084881978118,
+          "remaining_incident_wrong_pair_share": 0.17150538053784806,
+          "incident_available_pair_share": 0.12426839439004816,
+          "remaining_error_enrichment_vs_pair_availability": 1.3801206765377085,
+          "incident_pair_error_rate_before": 0.016548720907241285,
+          "incident_pair_error_rate_after": 0.01604316455015535
+        },
+        {
+          "generator": "Hogga_G1",
+          "focus": true,
+          "outputs": 61320,
+          "on_fraction": 0.3865949119373777,
+          "original_winner_auc": 0.9775100186335982,
+          "candidate_auc": 0.9789397093265617,
+          "auc_delta": 0.0014296906929635034,
+          "remaining_incident_wrong_pair_share": 0.19614232566891682,
+          "incident_available_pair_share": 0.14214396545284355,
+          "remaining_error_enrichment_vs_pair_availability": 1.3798849992966271,
+          "incident_pair_error_rate_before": 0.016853879845613103,
+          "incident_pair_error_rate_after": 0.016040424928306575
+        },
+        {
+          "generator": "Kjela_G1",
+          "focus": false,
+          "outputs": 61320,
+          "on_fraction": 0.45280495759947814,
+          "original_winner_auc": 0.9804630574581361,
+          "candidate_auc": 0.9816657178301942,
+          "auc_delta": 0.001202660372058073,
+          "remaining_incident_wrong_pair_share": 0.18418902470138845,
+          "incident_available_pair_share": 0.14861961007797916,
+          "remaining_error_enrichment_vs_pair_availability": 1.2393319065010762,
+          "incident_pair_error_rate_before": 0.01477679721797321,
+          "incident_pair_error_rate_after": 0.014406570415374298
+        }
+      ],
+      "focus_generators": [
+        {
+          "generator": "Lio_G1",
+          "focus": true,
+          "outputs": 61320,
+          "on_fraction": 0.5499184605348989,
+          "original_winner_auc": 0.96488435459231,
+          "candidate_auc": 0.9616171089904114,
+          "auc_delta": -0.0032672456018986162,
+          "remaining_incident_wrong_pair_share": 0.25930079850396953,
+          "incident_available_pair_share": 0.15847810718701474,
+          "remaining_error_enrichment_vs_pair_availability": 1.6361931821786417,
+          "incident_pair_error_rate_before": 0.019417069400717718,
+          "incident_pair_error_rate_after": 0.019019870438711638
+        },
+        {
+          "generator": "Haukeli_G1",
+          "focus": true,
+          "outputs": 61320,
+          "on_fraction": 0.14145466405740378,
+          "original_winner_auc": 0.9475982997306192,
+          "candidate_auc": 0.9580938746002412,
+          "auc_delta": 0.010495574869622049,
+          "remaining_incident_wrong_pair_share": 0.1889984325484303,
+          "incident_available_pair_share": 0.11990219004790846,
+          "remaining_error_enrichment_vs_pair_availability": 1.5762717300902807,
+          "incident_pair_error_rate_before": 0.020138895874734223,
+          "incident_pair_error_rate_after": 0.018323315613991885
+        },
+        {
+          "generator": "Hogga_G1",
+          "focus": true,
+          "outputs": 61320,
+          "on_fraction": 0.3865949119373777,
+          "original_winner_auc": 0.9775100186335982,
+          "candidate_auc": 0.9789397093265617,
+          "auc_delta": 0.0014296906929635034,
+          "remaining_incident_wrong_pair_share": 0.19614232566891682,
+          "incident_available_pair_share": 0.14214396545284355,
+          "remaining_error_enrichment_vs_pair_availability": 1.3798849992966271,
+          "incident_pair_error_rate_before": 0.016853879845613103,
+          "incident_pair_error_rate_after": 0.016040424928306575
+        }
+      ],
+      "within_month_auc_improvements": 11,
+      "month_incident_error_improvements": 11,
+      "weakest_months": [
+        {
+          "month": 4,
+          "cases": 30,
+          "outputs": 70560,
+          "on_fraction": 0.41169217687074827,
+          "original_winner_auc": 0.9634250446998294,
+          "candidate_auc": 0.9641256682191768,
+          "auc_delta": 0.0007006235193474097,
+          "incident_error_delta_in_global_pair_units": -0.0001309052303885062,
+          "remaining_error_enrichment_vs_pair_availability": 1.7081707484626227
+        },
+        {
+          "month": 11,
+          "cases": 30,
+          "outputs": 70560,
+          "on_fraction": 0.4951814058956916,
+          "original_winner_auc": 0.9721305433522519,
+          "candidate_auc": 0.9730978420695203,
+          "auc_delta": 0.0009672987172684167,
+          "incident_error_delta_in_global_pair_units": -0.00011967462891232603,
+          "remaining_error_enrichment_vs_pair_availability": 1.5143870721959745
+        },
+        {
+          "month": 7,
+          "cases": 31,
+          "outputs": 72912,
+          "on_fraction": 0.1211734693877551,
+          "original_winner_auc": 0.9749532332169791,
+          "candidate_auc": 0.9751794907829616,
+          "auc_delta": 0.00022625756598249058,
+          "incident_error_delta_in_global_pair_units": -3.1399583278919185e-05,
+          "remaining_error_enrichment_vs_pair_availability": 1.2781215216501132
+        }
+      ],
+      "lio_component_diagnosis": {
+        "original_winner_auc": 0.96488435459231,
+        "depth8_only_auc": 0.9619890673997731,
+        "weighted_neural_mean_only_auc": 0.9642447663002803,
+        "selected_combined_auc": 0.9616171089904114,
+        "note": "Descriptive fixed component comparisons; nonlinear AUC changes need not add. No plant weights were changed in response."
+      },
+      "depth8_attribution": {
+        "year": 2022,
+        "depth8_alone_selected_replacement_auc": 0.987760193939904,
+        "depth8_alone_delta_vs_original_winner": -1.0480920303979069e-05,
+        "fixed_no_depth8_ablation": {
+          "micro_roc_auc": 0.988499876384288,
+          "generator_auc": {
+            "Hogga_G1": 0.9780888803961321,
+            "Tokke_G1": 0.9953090955931833,
+            "Tokke_G2": 0.9931327996587307,
+            "Tokke_G3": 0.9959358916025931,
+            "Tokke_G4": 0.995134576881784,
+            "Lio_G1": 0.9642447663002803,
+            "Byrte_G1": 0.9963864239225171,
+            "Vinje_G1": 0.9867474783015444,
+            "Vinje_G2": 0.9846282054271119,
+            "Vinje_G3": 0.9719365528703297,
+            "Haukeli_G1": 0.9580938746002412,
+            "Songa_G1": 0.9973672474059961,
+            "Kjela_G1": 0.9823835996096963,
+            "Vesle Kjela_G1": 0.9931095606117835
+          }
+        },
+        "selected_combined_auc": 0.9883755349637956,
+        "depth8_marginal_auc_delta": -0.00012434142049244645,
+        "after_2021_selection_horizon": {
+          "cases": 359,
+          "selected_combined_auc": 0.9882779415435364,
+          "fixed_no_depth8_ablation_auc": 0.9884072763833556,
+          "depth8_marginal_auc_delta": -0.00012933483981913962,
+          "depth8_alone_delta_vs_original_winner": -1.4520677433460527e-05
+        }
+      }
+    }
+  ],
+  "findings": [
+    "The selected candidate improves pooled AUC in both years and reduces pooled misordered pairs by about 5.5% in 2021 and 4.9% in 2022 relative to the original winner. This is a historical improvement; the evidence does not support saying that generalization fails everywhere.",
+    "Remaining difficulty is concentrated around ON/OFF transitions: only 8.05%/11.87% of outputs in 2021/2022, yet 50.78%/67.80% of remaining wrong pairs involve them. Available-pair shares are 15.52%/24.51%, giving 3.27x/2.77x enrichment. Transition AUC improves but remains 0.8671/0.8724 versus 0.9935/0.9950 away from transitions.",
+    "Lio remains unstable across years: AUC improves +0.006697 in 2021 but declines -0.003267 in 2022. Both depth8 alone and the weighted neural mean alone reduce Lio 2022 AUC. Its ON fraction is similar across years (about 54.5%/55.0%), so prevalence change alone does not explain this instability.",
+    "Haukeli improves +0.000439/+0.010496 in 2021/2022, but remains one of the weakest generators (0.9638/0.9581). Hogga improves both years to 0.9705/0.9789. These plants still have more incident errors than pair availability alone would predict.",
+    "Within-month AUC improves 12/12 months in 2021 and 11/12 in 2022; March 2022 is the sole small decline (-0.000055). The hardest calendar periods differ by year, so a single fixed bad-season explanation is insufficient.",
+    "Depth8 does not independently confirm as a 2022 improvement: holding the selected weighted-neural and Haukeli means fixed, its marginal 2022 effect is -0.00012434. The full selected recipe still improves because other component changes compensate. The no-depth8 ablation is attribution, not a newly selected 2022 recipe.",
+    "The transition-loss emphasis control was subsequently tested on 2021 and did not beat the selected weighted-neural threshold (0.98853443 versus 0.98864894). Error concentration identifies a difficulty; it does not imply that simple extra loss weight solves it. RDrop, RankNet and row/column sampling also missed their prespecified advancement criteria."
+  ],
+  "next_steps_after_this_run": [
+    {
+      "priority": 1,
+      "action": "Evaluate the frozen recipe on a prespecified temporal split not already used to choose it, if one is available; keep further reused historical folds explicitly developmental.",
+      "reason": "Intervals over cached predictions do not account for the many model and blend decisions already informed by 2021/2022."
+    },
+    {
+      "priority": 2,
+      "action": "For Lio, inspect ON-start and OFF-stop timing errors separately from confidence errors during stable states before choosing another model change.",
+      "reason": "This candidate improves other difficult plants but has a reproducible 2022 Lio regression; whole-model tuning would obscure that local failure."
+    }
+  ],
+  "limitations": [
+    "2021 and 2022 are heavily reused development years, and checkpoint selection used 2021.",
+    "The proposed combined recipe is frozen; this report does not alter selection based on 2022 component ablations.",
+    "Subgroup AUC is not an additive decomposition of pooled micro AUC; incident pair shares overlap.",
+    "Conditional bootstrap shows stronger evidence versus the original winner than versus the already improved fallback.",
+    "This report contains no competition test labels and cannot establish the future public or private leaderboard score."
+  ],
+  "completed_followup_controls": {
+    "rdrop": {
+      "source_report": "reports/round2_transformer_rdrop_selection_2021.json",
+      "status": "not_selected",
+      "best_screened_2021_auc": 0.9884367521699151,
+      "advance_threshold_auc": 0.9886489440779661,
+      "delta_vs_threshold": -0.00021219190805099597,
+      "note": "Did not advance under the prespecified 2021 rule. No 2022 result is claimed."
+    },
+    "sampling": {
+      "source_report": "reports/round2_sampling_combined_selection_2021.json",
+      "status": "not_selected",
+      "best_screened_2021_auc": 0.9886586259942993,
+      "advance_threshold_auc": 0.9889184502673686,
+      "delta_vs_threshold": -0.0002598242730692535,
+      "note": "Did not advance under the prespecified 2021 rule. No 2022 result is claimed."
+    },
+    "transition_loss_emphasis": {
+      "source_report": "reports/round2_transformer_transition_selection_2021.json",
+      "status": "not_selected",
+      "best_screened_2021_auc": 0.9885344302501627,
+      "advance_threshold_auc": 0.9886489440779661,
+      "delta_vs_threshold": -0.00011451382780336417,
+      "note": "Did not advance under the prespecified 2021 rule. No 2022 result is claimed."
+    },
+    "ranknet": {
+      "source_report": "reports/round2_transformer_ranknet_selection_2021.json",
+      "status": "not_selected",
+      "best_screened_2021_auc": 0.9885078710495153,
+      "advance_threshold_auc": 0.9886489440779661,
+      "delta_vs_threshold": -0.00014107302845078884,
+      "note": "Did not advance under the prespecified 2021 rule. No 2022 result is claimed."
+    }
+  }
+}

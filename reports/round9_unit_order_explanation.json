@@ -1,0 +1,13 @@
+{
+  "scope": "Post-screen explanation only; no new variant, tuning or further data year.",
+  "prediction_violating_casehours": 14486,
+  "violating_with_identical_three_labels": 14443,
+  "violating_with_mixed_labels": 43,
+  "mean_abs_change_all_vinje_probabilities": 0.00013558566637681448,
+  "max_abs_change": 0.1757825592710847,
+  "interpretation": "Sorting within triplets having identical labels preserves their class-specific score multisets, so those changes cannot affect pooled AUC. Only43 violating case-hours have mixed labels.",
+  "source_sha256": {
+    "data/processed/round6_native_2021_baseline.npz": "b7e8422abbd77ba4ec2fcc1c0a8957a1594bc7ac043111f2535ef8e2fc7dd8dd",
+    "reports/round9_unit_order_results.json": "9ddfcd13d63e15c4bf1bd461e64399274ff5cf35fc005076495a8f0dd89e0204"
+  }
+}

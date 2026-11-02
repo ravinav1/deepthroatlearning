@@ -1,0 +1,95 @@
+{
+  "status": "Implemented, integrated in training/export mappings and tiny-checked; no real-data fitting by this subagent. Root owns scheduling.",
+  "source": {
+    "title": "Chen et al. (2023), TSMixer: An All-MLP Architecture for Time Series Forecasting",
+    "paper": "https://arxiv.org/abs/2303.06053",
+    "full_text": "https://arxiv.org/html/2303.06053v5",
+    "official_implementation": "https://github.com/google-research/google-research/tree/master/tsmixer"
+  },
+  "paper_assessment": "The paper alternates residual mixing across time and features, sharing temporal weights across channels and feature weights across times. Its basic temporal branch uses one dense layer; feature mixing uses two. The paper includes different normalization and auxiliary-feature alignment designs and evaluates forecasting, including retail demand. These results motivate a competing architecture; they do not establish hydropower commitment accuracy or micro-AUC gains.",
+  "adaptation": {
+    "label": "TSMixer-inspired adaptation, not a paper benchmark replication",
+    "module": "src/weekly_mixer.py",
+    "class": "WeeklyMixer",
+    "input": "Batch x 306 supplied feature channels x 168 hours",
+    "input_projection": "Per-hour linear 306 to 64",
+    "blocks": 4,
+    "time_branch": "Pre-LayerNorm over 64 latent channels; transpose; dense 168 to 168, GELU, dropout 0.1, dense 168 to 168, dropout 0.1; residual",
+    "channel_branch": "Pre-LayerNorm over 64 latent channels; dense 64 to 128, GELU, dropout 0.1, dense 128 to 64, dropout 0.1; residual",
+    "output": "Final LayerNorm; per-hour dense 64 to 14 logits; transpose to batch x generator x hour",
+    "differences_from_paper": "Two-layer temporal MLP, per-hour channel LayerNorm, GELU, fixed same-week output horizon and binary labels. No historical target-series input, forecast projection, auxiliary alignment subnetwork, or paper-specific benchmark training recipe.",
+    "positions": "Time-mixing matrices depend on absolute horizon positions; no extra learned positional embeddings.",
+    "causality": "Noncausal full-week mixing is valid because the complete supplied input horizon is available. No labels or future unprovided state are inputs."
+  },
+  "checks": {
+    "input_shape": [
+      2,
+      306,
+      168
+    ],
+    "output_shape": [
+      2,
+      14,
+      168
+    ],
+    "finite_logits": true,
+    "finite_parameter_and_input_gradients": true,
+    "cross_week_noncausal_dependency": true,
+    "no_cross_case_input_gradients": true,
+    "no_batchnorm_running_statistics": true,
+    "batch_composition_max_absolute_difference": 0.0,
+    "prediction_export_shape": [
+      2,
+      14,
+      168
+    ],
+    "finite_probability_outputs": true,
+    "threads": 1,
+    "parameters": 315150,
+    "reference_transformer_parameters": 165326,
+    "2021_config_differences_from_budget_control": [
+      "model",
+      "note",
+      "model_type"
+    ]
+  },
+  "control_protocol": {
+    "2021_config": "configs/round2_mixer_2021.json",
+    "reference_control": "configs/round2_transformer_monitor_budget_2021.json",
+    "training": "Identical features, economic rescaling, training-only stable scaler, chronological six-case purge, AdamW LR0.001, weight_decay0.0001 default, seed42, batch32, CPU four threads, BCE and clipping1.0. Architecture is the sole model change.",
+    "budget": "39 epochs; patience40 prevents early termination within that budget; retain checkpoint with best current frozen-ensemble micro-AUC. This is budget-matched but validation-selected, not fixed final-checkpoint selection.",
+    "2022_template": "configs/round2_mixer_2022.json uses fixed mode with no monitor or scheduler. Its placeholder39 epochs must be replaced by the chosen 2021 best_epoch before any confirmation fit. Freeze blend replacement/averaging choice on2021 first.",
+    "final_export": "Neural agent owns train/export model-map integration. For full fit, use the selected epoch/architecture/features and preserve the exact frozen blend recipe."
+  },
+  "why_it_might_help": [
+    "Time mixing gives every hourly prediction direct whole-week context using position-specific shared weights rather than input-dependent attention.",
+    "A different representation may fit weekly commitment patterns or produce complementary errors under the existing blend.",
+    "It tests a model-family hypothesis with current features fixed, avoiding another round of feature accumulation."
+  ],
+  "why_it_might_fail": [
+    "Hydraulic allocation depends on case-specific relationships between price peaks, storage and constraints; static temporal mixing may be less adaptive than attention.",
+    "Daily overlapping cases provide fewer independent examples than the raw hourly-output count suggests; temporal dense matrices can memorize horizon-specific patterns.",
+    "This version has more parameters than the current small Transformer, so reduced overfitting is not guaranteed by its MLP design.",
+    "The chosen width, activation and normalization are adaptations; the original paper does not validate these exact choices.",
+    "Fixed current blend weights may underuse a strong Mixer at some plants; tuning new weights immediately would confound the controlled architecture test.",
+    "Benchmark forecasting gains need not transfer to simultaneous full-week ON/OFF labeling or pooled ranking."
+  ],
+  "validation_limits": [
+    "2021 checkpoint selection is optimistic after repeated development and multiple candidates.",
+    "2022 is reused historical confirmation, not a pristine holdout; baseline components can themselves be2022-selected.",
+    "Report all2022cases plus Jan7 onward to exclude six starts overlapping2021selection-label horizons; that purge does not erase earlier model-selection reuse.",
+    "Same39epoch budget does not imply equal wall time, parameter count or optimizer trajectory."
+  ],
+  "file_sha256": {
+    "src/weekly_mixer.py": "d9806b274fdcc1e9671566478ce4bf974f8acbdb01de2bcb60e31fa67e5d00d5",
+    "configs/round2_mixer_2021.json": "41e6e415f9db175b016cfb300d9f695a36567b6ec2ec7515c58427dc29ae75b4",
+    "configs/round2_mixer_2022.json": "0a2d42ffd8ed6b9aee6a37fd8ae9e82214816a0fede3211693b13e2ca5898647"
+  },
+  "integration_checks_reported_by_neural_agent": {
+    "training_export_model_dictionaries_identical": true,
+    "seeded_constructors_identical": true,
+    "matching_mixer_export_selection_accepted": true,
+    "mismatched_transformer_mixer_selection_rejected": true,
+    "source": "Message from /root/round2_neural after its model-mapping edits and tiny checks."
+  }
+}

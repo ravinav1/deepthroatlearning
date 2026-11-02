@@ -19,6 +19,9 @@ venv/
 env/
 venvs/
 .env/
+.env
+.env.*
+!.env.example
 .tox/
 .nox/
 
@@ -27,6 +30,9 @@ venvs/
 __pycache__/
 *.py[cod]
 .pytest_cache/
+
+# Generated console logs; retain structured experiment reports.
+/reports/*.log
 
 # Lokale OS-filer.
 .DS_Store

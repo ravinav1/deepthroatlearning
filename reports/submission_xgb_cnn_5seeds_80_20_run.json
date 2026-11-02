@@ -1,0 +1,56 @@
+{
+  "config": {
+    "seeds": [
+      42,
+      7,
+      21,
+      67,
+      103
+    ],
+    "years": [
+      2021,
+      2022
+    ],
+    "xgboost_weight": 0.8,
+    "cnn_weight": 0.2,
+    "note": "Fixed equal five-seed CNN ensemble. Only seeds67/103 are new; architecture/features/optimizer/splits/raw stopping remain unchanged. Historical validation is development data."
+  },
+  "output": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/submissions/submission_xgb_cnn_5seeds_80_20.csv",
+  "xgboost_source": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/submissions/submission_xgb_ensemble.csv",
+  "xgboost_weight": 0.8,
+  "cnn_weight": 0.2,
+  "cnn_sources": [
+    {
+      "seed": 42,
+      "file": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/submissions/submission_cnn.csv",
+      "weight_within_cnn": 0.2,
+      "weight_in_final_blend": 0.04
+    },
+    {
+      "seed": 7,
+      "file": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/data/processed/submission_cnn_seed7_predictions.csv",
+      "weight_within_cnn": 0.2,
+      "weight_in_final_blend": 0.04
+    },
+    {
+      "seed": 21,
+      "file": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/data/processed/submission_cnn_seed21_predictions.csv",
+      "weight_within_cnn": 0.2,
+      "weight_in_final_blend": 0.04
+    },
+    {
+      "seed": 67,
+      "file": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/data/processed/submission_cnn_seed67_predictions.csv",
+      "weight_within_cnn": 0.2,
+      "weight_in_final_blend": 0.04
+    },
+    {
+      "seed": 103,
+      "file": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/data/processed/submission_cnn_seed103_predictions.csv",
+      "weight_within_cnn": 0.2,
+      "weight_in_final_blend": 0.04
+    }
+  ],
+  "test_cases": 725,
+  "outputs_per_case": 2352
+}

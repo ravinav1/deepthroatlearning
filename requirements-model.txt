@@ -1,0 +1,7 @@
+-r requirements-eda.txt
+lightgbm==4.7.0
+scikit-learn==1.9.1
+scipy==1.18.1
+xgboost==3.4.1
+catboost==1.2.10
+torch==2.14.1

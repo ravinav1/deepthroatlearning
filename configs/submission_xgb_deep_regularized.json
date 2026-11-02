@@ -1,0 +1,21 @@
+{
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "use_price_context": true,
+  "model_type": "xgboost",
+  "model": {
+    "n_estimators": 645,
+    "learning_rate": 0.05,
+    "tree_method": "hist",
+    "max_depth": 8,
+    "min_child_weight": 100,
+    "max_bin": 63,
+    "n_jobs": 4,
+    "random_state": 42,
+    "reg_lambda": 10,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8
+  },
+  "selection_source": "reports/xgboost_deep_regularized_2022_metrics.json"
+}

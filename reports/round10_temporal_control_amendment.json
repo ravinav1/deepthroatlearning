@@ -1,0 +1,12 @@
+{
+  "created_utc": "2026-10-18T12:10:24.770691+00:00",
+  "status": "Additional matched control specified after original run began, before any2022 correction scores were observed by this agent.",
+  "original_protocol_sha256": "6ee15e8c2c20b5f9296af00eaecf5cbd9012615f1b7df5bcdc0f5b260e013ed9",
+  "reason": "Independent code reviewer noted temporal features include8 boundary-missing indicators absent from ordinary same-hour control. These encode horizon position, so original temporal-vs-same-hour contrast cannot isolate neighbouring predictions.",
+  "additional_control": "One boundary-matched same-hour residual: original logit,14generator indicators,same8 missing-neighbour indicators;23 activecoefficients. No neighbour-logit differences.",
+  "settings": "Exactly original cohort,offset,scaling,ridge0.01,postfitshrinkage0.10,optimizer and bootstrap. No search or original artifact overwrite.",
+  "ordering": "Preserve original two fits/protocol/evaluations. Wait for original process to finish before fitting additional control to maintain one CPU.",
+  "comparisons": "Final assessment compares unchanged temporal model with identity,ordinary same-hour and boundary-matched same-hour. Primary mechanism comparison is temporal minus boundary-matched same-hour; all original contrasts retained.",
+  "promotion": "Temporal must improve pooledmicroAUC againstallthreecontrols inbothnative/frozen2022Jan7+scenarios. Report7/14/28day200drawpairedblocks,quarters and generator diagnostics for matched comparison; do not tune basedonresults.",
+  "limitations": "This amendment repairs an independently identified control-design issue. It does not make the cached2021/2022 data independent, and it does not test a nonlinear input-conditioned stacker."
+}

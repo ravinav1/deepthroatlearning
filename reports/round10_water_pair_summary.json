@@ -1,0 +1,732 @@
+{
+  "created_utc": "2026-10-18T12:53:22.859612+00:00",
+  "stage": "locked_two_seed_confirmation",
+  "baseline": ".5*Round3+.25*old299+.25*old673",
+  "candidate": ".5*Round3+.25*water299+.25*water673",
+  "seed299_screen": "reports/round10_water_constraint_summary.json",
+  "confirmation_gate": "reports/round10_water_seed673_gate.json",
+  "interpretation": "Seed299 native2022 Jan7+ gain was only1.469e-6 AUC, effectively flat. Confirming a second fixed seed tests stochastic stability on reused years; it is not independent held-out evidence. No blend tuning, full fit or competition export performed by this track.",
+  "runs": [
+    {
+      "year": 2021,
+      "mode": "native",
+      "primary_subset": "all",
+      "primary_delta": -4.633411153653899e-05,
+      "results": [
+        {
+          "subset": "all",
+          "cases": 365,
+          "micro_roc_auc": 0.9903285117838098,
+          "delta_vs_baseline": -4.633411153653899e-05
+        }
+      ],
+      "bootstrap": [
+        {
+          "subset": "all",
+          "results": [
+            {
+              "block_days": 14,
+              "repetitions": 200,
+              "reference_auc": 0.9903748458953464,
+              "candidate_auc": 0.9903285117838097,
+              "observed_delta": -4.6334111536761036e-05,
+              "bootstrap_delta_mean": -4.755226605790031e-05,
+              "bootstrap_delta_std": 5.087052300134953e-05,
+              "percentile_interval_95": [
+                -0.00016552097883436033,
+                3.2240782477543923e-05
+              ],
+              "fraction_positive_draws": 0.16
+            }
+          ]
+        }
+      ],
+      "quarterly": [
+        {
+          "quarter": 1,
+          "cases": 90,
+          "baseline_micro_roc_auc": 0.9959442400227317,
+          "candidate_micro_roc_auc": 0.995940678547952,
+          "delta_vs_baseline": -3.561474779756324e-06
+        },
+        {
+          "quarter": 2,
+          "cases": 91,
+          "baseline_micro_roc_auc": 0.9889493884012146,
+          "candidate_micro_roc_auc": 0.9888501403118215,
+          "delta_vs_baseline": -9.924808939310026e-05
+        },
+        {
+          "quarter": 3,
+          "cases": 92,
+          "baseline_micro_roc_auc": 0.9791850553121629,
+          "candidate_micro_roc_auc": 0.9788514614575323,
+          "delta_vs_baseline": -0.0003335938546306094
+        },
+        {
+          "quarter": 4,
+          "cases": 92,
+          "baseline_micro_roc_auc": 0.9908871642559784,
+          "candidate_micro_roc_auc": 0.991070184802036,
+          "delta_vs_baseline": 0.00018302054605756624
+        }
+      ],
+      "models": {
+        "299": {
+          "report": "reports/round10_water_seed299_2021_metrics.json",
+          "elapsed_seconds": 223.29914904211182,
+          "sum_training_seconds": 193.53876116906758,
+          "component_auc": 0.9884457695418861,
+          "fitting_performed": true
+        },
+        "673": {
+          "report": "reports/round10_water_seed673_2021_metrics.json",
+          "elapsed_seconds": 224.55501729203388,
+          "sum_training_seconds": 194.82803612726275,
+          "component_auc": 0.9883954404553639,
+          "fitting_performed": true
+        }
+      },
+      "case_diagnostics": [
+        {
+          "case_id": 2438,
+          "baseline_auc": 0.8794947663290211,
+          "candidate_auc": 0.8836982766744984,
+          "generators": {
+            "Vesle Kjela_G1": {
+              "true_on": 0,
+              "baseline_expected_on": 0.094350421633285,
+              "candidate_expected_on": 0.09416590633508064
+            },
+            "Byrte_G1": {
+              "true_on": 0,
+              "baseline_expected_on": 0.6496376179660897,
+              "candidate_expected_on": 0.7161534356460073
+            },
+            "Lio_G1": {
+              "true_on": 9,
+              "baseline_expected_on": 7.865265495191188,
+              "candidate_expected_on": 7.871496321950653
+            },
+            "Tokke_G1": {
+              "true_on": 113,
+              "baseline_expected_on": 167.33539125052727,
+              "candidate_expected_on": 167.21974149782164
+            },
+            "Tokke_G2": {
+              "true_on": 66,
+              "baseline_expected_on": 150.03959709716563,
+              "candidate_expected_on": 150.07065327855244
+            },
+            "Tokke_G3": {
+              "true_on": 97,
+              "baseline_expected_on": 163.8854222600117,
+              "candidate_expected_on": 164.03358079230833
+            },
+            "Tokke_G4": {
+              "true_on": 50,
+              "baseline_expected_on": 147.1035997949435,
+              "candidate_expected_on": 147.6070570793824
+            },
+            "Vinje_G1": {
+              "true_on": 82,
+              "baseline_expected_on": 147.3134739294816,
+              "candidate_expected_on": 148.59047285026094
+            },
+            "Vinje_G2": {
+              "true_on": 61,
+              "baseline_expected_on": 125.09600698041572,
+              "candidate_expected_on": 129.24711841905838
+            },
+            "Vinje_G3": {
+              "true_on": 31,
+              "baseline_expected_on": 44.02691782525455,
+              "candidate_expected_on": 49.66431926954206
+            }
+          }
+        }
+      ],
+      "comparison": "reports/round10_water_pair_native_2021_comparison.json"
+    },
+    {
+      "year": 2022,
+      "mode": "native",
+      "primary_subset": "jan7_onward",
+      "primary_delta": 2.457505754704936e-05,
+      "results": [
+        {
+          "subset": "all",
+          "cases": 365,
+          "micro_roc_auc": 0.9895232672134102,
+          "delta_vs_baseline": 2.5355814319283354e-05
+        },
+        {
+          "subset": "jan7_onward",
+          "cases": 359,
+          "micro_roc_auc": 0.9894357409941406,
+          "delta_vs_baseline": 2.457505754704936e-05
+        }
+      ],
+      "bootstrap": [
+        {
+          "subset": "all",
+          "results": [
+            {
+              "block_days": 14,
+              "repetitions": 200,
+              "reference_auc": 0.989497911399091,
+              "candidate_auc": 0.9895232672134103,
+              "observed_delta": 2.5355814319283354e-05,
+              "bootstrap_delta_mean": 2.5128232575926668e-05,
+              "bootstrap_delta_std": 3.8583937769798806e-05,
+              "percentile_interval_95": [
+                -4.3667140331951626e-05,
+                0.0001027477353320705
+              ],
+              "fraction_positive_draws": 0.74
+            }
+          ]
+        },
+        {
+          "subset": "jan7_onward",
+          "results": [
+            {
+              "block_days": 14,
+              "repetitions": 200,
+              "reference_auc": 0.9894111659365936,
+              "candidate_auc": 0.9894357409941404,
+              "observed_delta": 2.4575057546827317e-05,
+              "bootstrap_delta_mean": 2.2664776084819204e-05,
+              "bootstrap_delta_std": 3.705009733671918e-05,
+              "percentile_interval_95": [
+                -4.6595903626184265e-05,
+                9.170467030089338e-05
+              ],
+              "fraction_positive_draws": 0.72
+            }
+          ]
+        }
+      ],
+      "quarterly": [
+        {
+          "quarter": 1,
+          "cases": 90,
+          "baseline_micro_roc_auc": 0.9941231674576714,
+          "candidate_micro_roc_auc": 0.9941046237173321,
+          "delta_vs_baseline": -1.8543740339271864e-05
+        },
+        {
+          "quarter": 2,
+          "cases": 91,
+          "baseline_micro_roc_auc": 0.979440703150664,
+          "candidate_micro_roc_auc": 0.9795235429205752,
+          "delta_vs_baseline": 8.283976991119157e-05
+        },
+        {
+          "quarter": 3,
+          "cases": 92,
+          "baseline_micro_roc_auc": 0.992573793549233,
+          "candidate_micro_roc_auc": 0.9925315934187116,
+          "delta_vs_baseline": -4.2200130521474755e-05
+        },
+        {
+          "quarter": 4,
+          "cases": 92,
+          "baseline_micro_roc_auc": 0.98838780461141,
+          "candidate_micro_roc_auc": 0.9884259876490515,
+          "delta_vs_baseline": 3.8183037641581485e-05
+        }
+      ],
+      "models": {
+        "299": {
+          "report": "reports/round10_water_seed299_2022_metrics.json",
+          "elapsed_seconds": 256.27544683299493,
+          "sum_training_seconds": 225.71021833398845,
+          "component_auc": 0.9876010470692027,
+          "fitting_performed": true
+        },
+        "673": {
+          "report": "reports/round10_water_seed673_2022_metrics.json",
+          "elapsed_seconds": 251.6789095000131,
+          "sum_training_seconds": 221.4528567920206,
+          "component_auc": 0.9875457838044444,
+          "fitting_performed": true
+        }
+      },
+      "case_diagnostics": [
+        {
+          "case_id": 2871,
+          "baseline_auc": 0.7104295969474768,
+          "candidate_auc": 0.7132312231571435,
+          "generators": {
+            "Vesle Kjela_G1": {
+              "true_on": 78,
+              "baseline_expected_on": 0.6504059447097827,
+              "candidate_expected_on": 0.6564985588893132
+            },
+            "Byrte_G1": {
+              "true_on": 139,
+              "baseline_expected_on": 36.54549103821954,
+              "candidate_expected_on": 36.655880769956674
+            },
+            "Lio_G1": {
+              "true_on": 97,
+              "baseline_expected_on": 28.862608860699623,
+              "candidate_expected_on": 28.745993546198168
+            },
+            "Tokke_G1": {
+              "true_on": 77,
+              "baseline_expected_on": 95.26661495035165,
+              "candidate_expected_on": 95.0426525512461
+            },
+            "Tokke_G2": {
+              "true_on": 59,
+              "baseline_expected_on": 77.99041434970634,
+              "candidate_expected_on": 77.22023846393475
+            },
+            "Tokke_G3": {
+              "true_on": 72,
+              "baseline_expected_on": 84.66966406413863,
+              "candidate_expected_on": 84.77142541772379
+            },
+            "Tokke_G4": {
+              "true_on": 54,
+              "baseline_expected_on": 70.98631141762976,
+              "candidate_expected_on": 72.24129611262033
+            },
+            "Vinje_G1": {
+              "true_on": 11,
+              "baseline_expected_on": 64.34609492976475,
+              "candidate_expected_on": 62.13838900690928
+            },
+            "Vinje_G2": {
+              "true_on": 5,
+              "baseline_expected_on": 60.374030261655975,
+              "candidate_expected_on": 58.60974845462127
+            },
+            "Vinje_G3": {
+              "true_on": 2,
+              "baseline_expected_on": 30.328194891739763,
+              "candidate_expected_on": 29.486047159432253
+            }
+          }
+        },
+        {
+          "case_id": 2872,
+          "baseline_auc": 0.6415520452754495,
+          "candidate_auc": 0.6431173436492585,
+          "generators": {
+            "Vesle Kjela_G1": {
+              "true_on": 100,
+              "baseline_expected_on": 0.5229334080693819,
+              "candidate_expected_on": 0.5302116533737011
+            },
+            "Byrte_G1": {
+              "true_on": 132,
+              "baseline_expected_on": 38.34308460878231,
+              "candidate_expected_on": 38.25981461838043
+            },
+            "Lio_G1": {
+              "true_on": 98,
+              "baseline_expected_on": 31.904948772588504,
+              "candidate_expected_on": 32.038063084605255
+            },
+            "Tokke_G1": {
+              "true_on": 74,
+              "baseline_expected_on": 91.52749675965488,
+              "candidate_expected_on": 90.90630782270884
+            },
+            "Tokke_G2": {
+              "true_on": 42,
+              "baseline_expected_on": 77.38247728208023,
+              "candidate_expected_on": 76.90482556020714
+            },
+            "Tokke_G3": {
+              "true_on": 67,
+              "baseline_expected_on": 82.08911011119949,
+              "candidate_expected_on": 82.15921288112057
+            },
+            "Tokke_G4": {
+              "true_on": 52,
+              "baseline_expected_on": 70.62085903323275,
+              "candidate_expected_on": 72.51763861219412
+            },
+            "Vinje_G1": {
+              "true_on": 6,
+              "baseline_expected_on": 62.767308741376624,
+              "candidate_expected_on": 61.33881419241628
+            },
+            "Vinje_G2": {
+              "true_on": 5,
+              "baseline_expected_on": 58.28262274077284,
+              "candidate_expected_on": 57.000605004964186
+            },
+            "Vinje_G3": {
+              "true_on": 2,
+              "baseline_expected_on": 32.532844729450865,
+              "candidate_expected_on": 31.79480155986574
+            }
+          }
+        }
+      ],
+      "comparison": "reports/round10_water_pair_native_2022_comparison.json"
+    },
+    {
+      "year": 2022,
+      "mode": "frozen",
+      "primary_subset": "jan7_onward",
+      "primary_delta": 3.694556120892312e-05,
+      "results": [
+        {
+          "subset": "all",
+          "cases": 365,
+          "micro_roc_auc": 0.9871282437143564,
+          "delta_vs_baseline": 4.519193681151723e-05
+        },
+        {
+          "subset": "jan7_onward",
+          "cases": 359,
+          "micro_roc_auc": 0.9870822500019742,
+          "delta_vs_baseline": 3.694556120892312e-05
+        }
+      ],
+      "bootstrap": [
+        {
+          "subset": "all",
+          "results": [
+            {
+              "block_days": 14,
+              "repetitions": 200,
+              "reference_auc": 0.9870830517775449,
+              "candidate_auc": 0.9871282437143564,
+              "observed_delta": 4.519193681151723e-05,
+              "bootstrap_delta_mean": 4.508180464491141e-05,
+              "bootstrap_delta_std": 5.257185098702666e-05,
+              "percentile_interval_95": [
+                -5.2746754503321664e-05,
+                0.00014623776110478937
+              ],
+              "fraction_positive_draws": 0.81
+            }
+          ]
+        },
+        {
+          "subset": "jan7_onward",
+          "results": [
+            {
+              "block_days": 14,
+              "repetitions": 200,
+              "reference_auc": 0.9870453044407653,
+              "candidate_auc": 0.9870822500019742,
+              "observed_delta": 3.694556120892312e-05,
+              "bootstrap_delta_mean": 3.718138382016956e-05,
+              "bootstrap_delta_std": 5.5266516015082696e-05,
+              "percentile_interval_95": [
+                -8.024767897825136e-05,
+                0.00013152251920603157
+              ],
+              "fraction_positive_draws": 0.78
+            }
+          ]
+        }
+      ],
+      "quarterly": [
+        {
+          "quarter": 1,
+          "cases": 90,
+          "baseline_micro_roc_auc": 0.9915092607177152,
+          "candidate_micro_roc_auc": 0.9916356044684311,
+          "delta_vs_baseline": 0.0001263437507159626
+        },
+        {
+          "quarter": 2,
+          "cases": 91,
+          "baseline_micro_roc_auc": 0.9769738602345686,
+          "candidate_micro_roc_auc": 0.9770169785955768,
+          "delta_vs_baseline": 4.3118361008231965e-05
+        },
+        {
+          "quarter": 3,
+          "cases": 92,
+          "baseline_micro_roc_auc": 0.9896910225148724,
+          "candidate_micro_roc_auc": 0.9895748043845414,
+          "delta_vs_baseline": -0.00011621813033102502
+        },
+        {
+          "quarter": 4,
+          "cases": 92,
+          "baseline_micro_roc_auc": 0.9863006059739817,
+          "candidate_micro_roc_auc": 0.9864529496858832,
+          "delta_vs_baseline": 0.00015234371190142593
+        }
+      ],
+      "models": {
+        "299": {
+          "report": "reports/round10_water_frozen_seed299_2022_metrics.json",
+          "elapsed_seconds": 21.560463666915894,
+          "sum_training_seconds": 0.0,
+          "component_auc": 0.9841557151755229,
+          "fitting_performed": false
+        },
+        "673": {
+          "report": "reports/round10_water_frozen_seed673_2022_metrics.json",
+          "elapsed_seconds": 19.66431458306033,
+          "sum_training_seconds": 0.0,
+          "component_auc": 0.9839401216702001,
+          "fitting_performed": false
+        }
+      },
+      "case_diagnostics": [
+        {
+          "case_id": 2871,
+          "baseline_auc": 0.7238361570656345,
+          "candidate_auc": 0.7243367530743868,
+          "generators": {
+            "Vesle Kjela_G1": {
+              "true_on": 78,
+              "baseline_expected_on": 0.5390493939508498,
+              "candidate_expected_on": 0.5411877919262208
+            },
+            "Byrte_G1": {
+              "true_on": 139,
+              "baseline_expected_on": 40.7391316899795,
+              "candidate_expected_on": 40.621022917122566
+            },
+            "Lio_G1": {
+              "true_on": 97,
+              "baseline_expected_on": 32.64033244871349,
+              "candidate_expected_on": 32.86107370271098
+            },
+            "Tokke_G1": {
+              "true_on": 77,
+              "baseline_expected_on": 96.079702301601,
+              "candidate_expected_on": 96.95469216732438
+            },
+            "Tokke_G2": {
+              "true_on": 59,
+              "baseline_expected_on": 78.75297365668408,
+              "candidate_expected_on": 77.64540388339196
+            },
+            "Tokke_G3": {
+              "true_on": 72,
+              "baseline_expected_on": 82.67562218069651,
+              "candidate_expected_on": 83.03188348104574
+            },
+            "Tokke_G4": {
+              "true_on": 54,
+              "baseline_expected_on": 70.39462549654134,
+              "candidate_expected_on": 71.20174313357975
+            },
+            "Vinje_G1": {
+              "true_on": 11,
+              "baseline_expected_on": 61.3245745528921,
+              "candidate_expected_on": 61.42668263679798
+            },
+            "Vinje_G2": {
+              "true_on": 5,
+              "baseline_expected_on": 58.43465137574468,
+              "candidate_expected_on": 56.690213506833814
+            },
+            "Vinje_G3": {
+              "true_on": 2,
+              "baseline_expected_on": 30.243714638945846,
+              "candidate_expected_on": 30.115414682026376
+            }
+          }
+        },
+        {
+          "case_id": 2872,
+          "baseline_auc": 0.6553567590801633,
+          "candidate_auc": 0.6556021204957375,
+          "generators": {
+            "Vesle Kjela_G1": {
+              "true_on": 100,
+              "baseline_expected_on": 0.49623975990992125,
+              "candidate_expected_on": 0.5100675821773424
+            },
+            "Byrte_G1": {
+              "true_on": 132,
+              "baseline_expected_on": 38.682643413025154,
+              "candidate_expected_on": 38.440039978654504
+            },
+            "Lio_G1": {
+              "true_on": 98,
+              "baseline_expected_on": 35.75791768118372,
+              "candidate_expected_on": 36.3592301924712
+            },
+            "Tokke_G1": {
+              "true_on": 74,
+              "baseline_expected_on": 93.59572955414234,
+              "candidate_expected_on": 94.22597151239586
+            },
+            "Tokke_G2": {
+              "true_on": 42,
+              "baseline_expected_on": 79.81047451436251,
+              "candidate_expected_on": 78.02716782102675
+            },
+            "Tokke_G3": {
+              "true_on": 67,
+              "baseline_expected_on": 83.370622745828,
+              "candidate_expected_on": 82.83125052954446
+            },
+            "Tokke_G4": {
+              "true_on": 52,
+              "baseline_expected_on": 71.19246367614102,
+              "candidate_expected_on": 72.25700323766145
+            },
+            "Vinje_G1": {
+              "true_on": 6,
+              "baseline_expected_on": 58.046747243529126,
+              "candidate_expected_on": 57.804668266946045
+            },
+            "Vinje_G2": {
+              "true_on": 5,
+              "baseline_expected_on": 56.26350151036425,
+              "candidate_expected_on": 54.47639697594393
+            },
+            "Vinje_G3": {
+              "true_on": 2,
+              "baseline_expected_on": 30.83148738091174,
+              "candidate_expected_on": 31.514742020954778
+            }
+          }
+        }
+      ],
+      "comparison": "reports/round10_water_pair_frozen_2022_comparison.json"
+    }
+  ],
+  "source_sha256": {
+    "reports/round10_water_constraint_summary.json": "6eb9d982f3753992d621f704dc195ad7e58cd68565f349d50bc4dd2391673699",
+    "reports/round10_water_seed673_gate.json": "a5abd2ebb959f7e3db4b74bb8918a25a8ea24900bf7b7d1f71a66087099f88a9",
+    "src/scheduling_context.py": "f6f70200505ca9b574cd218f521812255d467bbe284a7e9e16bf739c94b80882",
+    "src/round5_lightgbm.py": "e1d29e86f1dab9779206d68715a4011eb32e103e31cb9280e0dc4cd401c501b5",
+    "src/round6_evaluate.py": "072d11614450abdec417f4512345c5d6f7540daf054defa43d733f317340bf72",
+    "src/round2_diagnostics.py": "b85550fab55d419b54df7e2f1b687b8a91de2113f30e06c2f9352c6f15e508b9",
+    "configs/round10_water_seed673_2021.json": "7edc38aeef2f9e3856c2240150b9b664f48cc254dbf9fb84d226293f3678212e",
+    "configs/round10_water_seed673_2022.json": "a1043ff3e2670961716e254780ec206eb73d04fb93cb75767c0dd856688f36b1",
+    "reports/round10_water_pair_native_2021_comparison.json": "1bc85a3204c1e8b3f74f2218fb4d958400669475499ca159560ba29d1bc52c6d",
+    "reports/round10_water_seed299_2021_metrics.json": "1916904fd3286dd5506e1d6b90ca277725d7614282d70d985dad90ce8d3b1152",
+    "data/processed/round10_water_seed299_2021_validation_predictions.csv": "bad6177a8a470bd062bef98e322f01c5cbf89058a51eaea2ed9277c9e9b2130e",
+    "models/round10_water_seed299_2021/Hogga_G1.txt": "aa1177198fd9e769942f4806d273ff8ae27e95a75298f2491e810d5f3d9a038f",
+    "models/round10_water_seed299_2021/Tokke_G1.txt": "bd216c134e0ff237bcc43ed8df46d255b559c32699eae60f3f7ae00ff8567536",
+    "models/round10_water_seed299_2021/Tokke_G2.txt": "619edcb6eadc016978c570f03bc7b5beffc6eb130427957150a094c678ac889e",
+    "models/round10_water_seed299_2021/Tokke_G3.txt": "e0268e5c3ac343c49d58864b918bb7fbe38d9c29ef754e9bed122869ef995b2b",
+    "models/round10_water_seed299_2021/Tokke_G4.txt": "d853650b6b980bb4c4596fb5f8fac56d39799c8c1445919766fd065b1dc0598a",
+    "models/round10_water_seed299_2021/Lio_G1.txt": "64738d812da9f40bf1ee561a248d7c32c0043f67fc2e52dd242a7d1958fd5b55",
+    "models/round10_water_seed299_2021/Byrte_G1.txt": "c38cfa950de588e37a6e96f37b01c20c93ac1daba5e7673c4cd5e456a8e4a3f3",
+    "models/round10_water_seed299_2021/Vinje_G1.txt": "142c785331ee55522209fd9c55f72f547ced928582352af44b55699b7a25e835",
+    "models/round10_water_seed299_2021/Vinje_G2.txt": "95067ece0a7bf6c914b66c52637726c83076752ab792bf7b3532422035e18ef1",
+    "models/round10_water_seed299_2021/Vinje_G3.txt": "7bd3814d626dffbdf408bd79636a618687faf249fa3fdd1a25a57c7eda1c2a81",
+    "models/round10_water_seed299_2021/Haukeli_G1.txt": "cf4f04d24487172f09c0758392f624a71e7bf7dd09a277ad03438eb9d1ae2adf",
+    "models/round10_water_seed299_2021/Songa_G1.txt": "aee775f90cabf25052352035b28668e45eb2d3874e8f2577b56b7d914bce4efc",
+    "models/round10_water_seed299_2021/Kjela_G1.txt": "c132983e9b1b0e5a186a5c458ad6005c2e1e03fa611f1fcbda89ffe92010aab8",
+    "models/round10_water_seed299_2021/Vesle_Kjela_G1.txt": "97000be11f176886770257d0e555f2ad1c8e26cddd4a68c386e5291bd20b6e0a",
+    "reports/round10_water_seed673_2021_metrics.json": "06b101f9e5ef316c83cad52a6d4a0da680401b0dad3367c9a0f6558f89627c33",
+    "data/processed/round10_water_seed673_2021_validation_predictions.csv": "4170f9b4d0fb5aa2d0e1669229090187e9b784ec8a7a48aa73c739b70daa0031",
+    "models/round10_water_seed673_2021/Hogga_G1.txt": "b654be53aa983b1c19221a37f929659675d964ea183cc4745dc3835285235dc2",
+    "models/round10_water_seed673_2021/Tokke_G1.txt": "afe99196e941ddfa84859b68f4904e9194a0b884e9f642579b8fb1067f374697",
+    "models/round10_water_seed673_2021/Tokke_G2.txt": "b3196b3bd8d775bae3a9f39a4d34a20b9f971395e6d9597d2fb52334166746b1",
+    "models/round10_water_seed673_2021/Tokke_G3.txt": "198dcfe0263faf9945454f1f6210aaed90dc4d2626533a51d43a8f2911773f68",
+    "models/round10_water_seed673_2021/Tokke_G4.txt": "adedfeddf580a1b9ee049585953bf44b1c10255b67ced8e140e20f80ce8caeba",
+    "models/round10_water_seed673_2021/Lio_G1.txt": "1fa50209fc8f7ed32d896dc63bfa24cb45541cdcf7cc966002e60fd1fcee9cd1",
+    "models/round10_water_seed673_2021/Byrte_G1.txt": "1535eb4a7b20210f9c239cd03aba93518d8e621d1c1e8e73a47eacca363fa110",
+    "models/round10_water_seed673_2021/Vinje_G1.txt": "56a13503a37d64b15d010a400cdbaade5d5bc035ea399fca9541d4cb19677e7c",
+    "models/round10_water_seed673_2021/Vinje_G2.txt": "0d88da7dc510c929dba5ba3c222c359ea0e08002c11da3fe496766e9bc752dfb",
+    "models/round10_water_seed673_2021/Vinje_G3.txt": "7969e25f4fb5627cd539b259a6cb40b133d403ba24b25f2b0ed05565ccc4edb2",
+    "models/round10_water_seed673_2021/Haukeli_G1.txt": "6024975005e983881de25a142b8e88cfe4f50bb7796f7fe72c47819dd6cc8127",
+    "models/round10_water_seed673_2021/Songa_G1.txt": "d4861384f11ccf72615767235140b824eae5262eb6c8f67666ba6b202ef65857",
+    "models/round10_water_seed673_2021/Kjela_G1.txt": "2bd2a20175137cf3e915312a90692d1ecb9589760cad3060601c5e78c9c227c9",
+    "models/round10_water_seed673_2021/Vesle_Kjela_G1.txt": "4edbc0292a4bb0dbb0aba131268d66c0a82696f394b7feb68dea8972d4a44dc5",
+    "reports/round10_water_pair_native_2022_comparison.json": "f97456cbb6f0ff66d60043da4044aa766ff9368a33d6b55e25dc442a37af3bb2",
+    "reports/round10_water_seed299_2022_metrics.json": "b27334499755e18b6d0ba9e27bfcc188bc1631a724efa924e6f201e2ea3d6750",
+    "data/processed/round10_water_seed299_2022_validation_predictions.csv": "e69ef3e97dcfbbfa3182561b970dbb370677b9aba1da6db44179524e996d748a",
+    "models/round10_water_seed299_2022/Hogga_G1.txt": "bd08da3f0511618ebbe448798a25451d35f92c20c39dd015a7756da63ec6d4dd",
+    "models/round10_water_seed299_2022/Tokke_G1.txt": "47982f8100f522109e8b698348d1076b0dab9399379a01f918fc3065db8ff568",
+    "models/round10_water_seed299_2022/Tokke_G2.txt": "694acca5c5ba2229802482552e162f156db9c9a068bb5b2d654d0d53423487d1",
+    "models/round10_water_seed299_2022/Tokke_G3.txt": "28bc7e7b3c355f56c2176c185680c0ae32054db3ee3a2f2b8332724ad00f2487",
+    "models/round10_water_seed299_2022/Tokke_G4.txt": "b61af27d324883b090de69ef567d12572cae71e219a2dac2ddf75e9f62978757",
+    "models/round10_water_seed299_2022/Lio_G1.txt": "b0873265691bea8af6d0d15dbf38dabc0ce21699f8c5ce69f3b16b47e1203df0",
+    "models/round10_water_seed299_2022/Byrte_G1.txt": "aaf5fdbe2f3ef990ff28022ff0f04486fbde096c7a5d8dd12b3d780cc3e3cf37",
+    "models/round10_water_seed299_2022/Vinje_G1.txt": "b029891f0be4b474b4a6c4413d16ae9a4f02abfe43e41f4153d7dee5b7f05f6e",
+    "models/round10_water_seed299_2022/Vinje_G2.txt": "7ab7b25d9b723a107c5ad849c6801ec7e888b3355a082db42cdbc03bdff56a00",
+    "models/round10_water_seed299_2022/Vinje_G3.txt": "aa20b1c87fee64012afab4e7dea22294da2bce33774177fc9c4f5bf13ea36da9",
+    "models/round10_water_seed299_2022/Haukeli_G1.txt": "13353c42aed85c1bc308340bbfaade54912d6aba8ac3a04ba0af58f0eefd9ee6",
+    "models/round10_water_seed299_2022/Songa_G1.txt": "02b9d1eb1bed151ac7d9153455d8054197e1cd302456d6f91bce2b3f43968830",
+    "models/round10_water_seed299_2022/Kjela_G1.txt": "4afbe300002aeb978c7a23531368e9f6688b5bcfc8b50318563d74f543758148",
+    "models/round10_water_seed299_2022/Vesle_Kjela_G1.txt": "3d62a62715102831476a3c77d490489c51b74567eb8f5c04c940e64039413250",
+    "reports/round10_water_seed673_2022_metrics.json": "b29ff9278cbeb58aebd54a7ea3e6bf93fe32342e166fde006a71c1ce1d413378",
+    "data/processed/round10_water_seed673_2022_validation_predictions.csv": "d1c349154666afd29df4a269db0404c3558aff647faa36bb02a111143bb0d661",
+    "models/round10_water_seed673_2022/Hogga_G1.txt": "acb3e59f1b9ff49a4793c35d1e8886db8dd62a976ba0bc2530dacaa4a5db60dc",
+    "models/round10_water_seed673_2022/Tokke_G1.txt": "f7b5b5fed05353f176afafd26f5751e0375c89270707cafe2ce17c1d21cd963d",
+    "models/round10_water_seed673_2022/Tokke_G2.txt": "d04a29cc918bedeee2f30b1cc17b59657124286f8db15a6420d5816401b34c67",
+    "models/round10_water_seed673_2022/Tokke_G3.txt": "5a23f5b553250ba9cfb4f3a01230f82bafb364ca94bdbd975c1af1b01b2cc739",
+    "models/round10_water_seed673_2022/Tokke_G4.txt": "a6e41491d1867c0ba6d2d91f31b6ed25157b0d20ac004481c4e478994d2a40e0",
+    "models/round10_water_seed673_2022/Lio_G1.txt": "6b2d4b19156b253b474b2cd06b9f96d301f3f66f83d74b1e65987b91f6922132",
+    "models/round10_water_seed673_2022/Byrte_G1.txt": "d5888692bcdd5b296ffbd27f38955c31e089b2e8c2c2a38c48d7b0a1e150a80c",
+    "models/round10_water_seed673_2022/Vinje_G1.txt": "13a7f453370b2671637dd3f5924e86d9d08e8550b05f854a428135337cfd4a96",
+    "models/round10_water_seed673_2022/Vinje_G2.txt": "5b56cf9cf83e72ea69b71390a710bcaed420b000827cfe23946708a068d18e49",
+    "models/round10_water_seed673_2022/Vinje_G3.txt": "c89d34982863970a7bf04112f193c30e524ba05e77f270a08574577dd8fc6696",
+    "models/round10_water_seed673_2022/Haukeli_G1.txt": "ad99b96e788b8d48cb7613a86f4fac3b8745f8f26b6bd6e180b51b47eb3f9264",
+    "models/round10_water_seed673_2022/Songa_G1.txt": "3c2e8ac4cec9feb6ec21ca230a645b719365ffc0284f1c2b66c970dc716be51d",
+    "models/round10_water_seed673_2022/Kjela_G1.txt": "5d8c9834087f4bed356ff212bd3bdc2d94cfe7a60d28595553a43d34f0ec02b3",
+    "models/round10_water_seed673_2022/Vesle_Kjela_G1.txt": "89d40f124f5a5d78f01cbbef979588b93cd88981a4fe1c9f3ec3fb191c5aa675",
+    "reports/round10_water_pair_frozen_2022_comparison.json": "6dac549dd36ca7837dbe6e46d77830f3688ffb6fecea05a9f35f65a9a3e1c2c9",
+    "reports/round10_water_frozen_seed299_2022_metrics.json": "e91fcf8ca37fe5de6dc84e4b08ef854441bd720fc49125c132f016e1480a7a8f",
+    "data/processed/round10_water_frozen_seed299_2022_validation_predictions.csv": "e622485dcf3ee243ed36a01cc30749a67b5ca8a7d550c582c57a0934ce130570",
+    "reports/round10_water_frozen_seed673_2022_metrics.json": "1755ab93c3accc4836f762ada990ff6b956d664777721751103b208725ed81bd",
+    "data/processed/round10_water_frozen_seed673_2022_validation_predictions.csv": "5a3c53af579b256d21303093877029088959e8c0895c95b7e9abf5a0e83b8660"
+  },
+  "all_three_primary_point_deltas_positive": false,
+  "primary_bootstrap_intervals": [
+    {
+      "year": 2021,
+      "mode": "native",
+      "block_days": 14,
+      "repetitions": 200,
+      "reference_auc": 0.9903748458953464,
+      "candidate_auc": 0.9903285117838097,
+      "observed_delta": -4.6334111536761036e-05,
+      "bootstrap_delta_mean": -4.755226605790031e-05,
+      "bootstrap_delta_std": 5.087052300134953e-05,
+      "percentile_interval_95": [
+        -0.00016552097883436033,
+        3.2240782477543923e-05
+      ],
+      "fraction_positive_draws": 0.16
+    },
+    {
+      "year": 2022,
+      "mode": "native",
+      "block_days": 14,
+      "repetitions": 200,
+      "reference_auc": 0.9894111659365936,
+      "candidate_auc": 0.9894357409941404,
+      "observed_delta": 2.4575057546827317e-05,
+      "bootstrap_delta_mean": 2.2664776084819204e-05,
+      "bootstrap_delta_std": 3.705009733671918e-05,
+      "percentile_interval_95": [
+        -4.6595903626184265e-05,
+        9.170467030089338e-05
+      ],
+      "fraction_positive_draws": 0.72
+    },
+    {
+      "year": 2022,
+      "mode": "frozen",
+      "block_days": 14,
+      "repetitions": 200,
+      "reference_auc": 0.9870453044407653,
+      "candidate_auc": 0.9870822500019742,
+      "observed_delta": 3.694556120892312e-05,
+      "bootstrap_delta_mean": 3.718138382016956e-05,
+      "bootstrap_delta_std": 5.5266516015082696e-05,
+      "percentile_interval_95": [
+        -8.024767897825136e-05,
+        0.00013152251920603157
+      ],
+      "fraction_positive_draws": 0.78
+    }
+  ],
+  "no_existing_artifacts_overwritten": true,
+  "full_fit_or_export_performed": false
+}

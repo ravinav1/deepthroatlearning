@@ -1,0 +1,9 @@
+{
+  "decided_utc": "2026-10-14T18:05:52.865774+00:00",
+  "decision": "Reject LightGBM rank replacement; preserve incumbent LightGBM",
+  "locked_variant": "candidate_replace",
+  "native2022_jan7_delta": -5.157296933422373e-05,
+  "full_fit": false,
+  "combination_decision": "Reject combination because required individual LightGBM gate failed; no native combined search or export.",
+  "comparison": "reports/round4_lgb_ranks_native_comparison_2022.json"
+}

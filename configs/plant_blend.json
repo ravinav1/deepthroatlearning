@@ -1,0 +1,14 @@
+{
+  "selection_year": 2021,
+  "confirmation_year": 2022,
+  "baseline_transformer_weight": 0.2,
+  "candidate_transformer_weights": [0.0, 0.2, 0.5, 0.8, 1.0],
+  "xgboost_profiles": ["price", "sampling", "regularized", "deep_regularized", "recency"],
+  "transformer_prefix": "transformer_rescaled",
+  "fixed_generator": "Haukeli_G1",
+  "specialist_prefix": "cnn_specialist_haukeli",
+  "baseline_submission": "submissions/submission_xgb_transformer_haukeli_80_20.csv",
+  "xgboost_submission": "submissions/submission_xgb_ensemble.csv",
+  "transformer_predictions": "data/processed/submission_transformer_rescaled_predictions.csv",
+  "note": "Choose a shared weight on 2021, then one coordinate pass over plants in template order, starting from that shared weight. Optimize pooled micro ROC-AUC. Freeze all weights before checking 2022; no second pass or 2022 tuning. Haukeli stays fixed. Both years are reused historical development data."
+}

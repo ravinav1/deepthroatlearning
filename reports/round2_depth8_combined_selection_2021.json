@@ -1,0 +1,169 @@
+{
+  "created_utc": "2026-10-14T14:34:31.951163+00:00",
+  "selection_year": 2021,
+  "selection_criterion": "Higher pooled micro ROC-AUC on 2021 among exactly two predefined combined recipes, before opening depth8 or task-weighted 2022 results.",
+  "selected_recipe": "depth8_haukeli_weighted_mean",
+  "neural_means_are_prediction_means": true,
+  "common_tree_recipe": "Global XGBoost depth8 replacement for every generator except Haukeli_G1, whose XGBoost component remains 50% original shared XGBoost + 50% original depth6 Haukeli specialist (121 trees). LightGBM and all plant weights unchanged.",
+  "neural_recipes": {
+    "depth8_haukeli_monitor_mean": "50% original transformer + 50% monitor-budget transformer selected at epoch37 on 2021.",
+    "depth8_haukeli_weighted_mean": "50% original transformer + 50% task-weighted transformer selected at epoch28 on 2021."
+  },
+  "fixed_2022_counts": {
+    "depth8_xgboost_trees": 748,
+    "haukeli_specialist_trees": 121,
+    "monitor_transformer_epochs": 37,
+    "task_weighted_transformer_epochs": 28
+  },
+  "source_paths": {
+    "depth8": "data/processed/round2_xgb_depth8_2021_validation_predictions.csv",
+    "haukeli": "data/processed/round2_xgb_haukeli_2021_validation_predictions.csv",
+    "monitor": "data/processed/round2_transformer_monitor_budget_2021_validation_predictions.csv",
+    "weighted": "data/processed/round2_transformer_task_weights_2021_validation_predictions.csv"
+  },
+  "source_sha256": {
+    "depth8": "7f1cdf0e49074cc65b436da11994cef0b515ce42a0fad1cc39fb976bc0ef7b93",
+    "haukeli": "da4fbddde38768640a5c57d690233370c5e7bf2f3b49d5a4560c20c45706e132",
+    "monitor": "dea7839c8f94302fff2b0631abb97db2e110306db29543b4a1f38ae1d45038c4",
+    "weighted": "f7334a3e3c0ec83615a67da440c9732c6f6c781df3a7b3f486b44080cc738726"
+  },
+  "baseline_config": "configs/goal_submission_rescaled_tree_mean.json",
+  "plant_weights": {
+    "Hogga": {
+      "xgb_rescaled": 0.35,
+      "lightgbm_rescaled": 0.35,
+      "transformer": 0.3
+    },
+    "Tokke": {
+      "xgb_rescaled": 0.04999999999999999,
+      "lightgbm_rescaled": 0.04999999999999999,
+      "transformer": 0.9
+    },
+    "Lio": {
+      "xgb_rescaled": 0.35,
+      "lightgbm_rescaled": 0.35,
+      "transformer": 0.3
+    },
+    "Byrte": {
+      "xgb_rescaled": 0.5,
+      "lightgbm_rescaled": 0.5
+    },
+    "Vinje": {
+      "xgb_rescaled": 0.25,
+      "lightgbm_rescaled": 0.25,
+      "transformer": 0.5
+    },
+    "Songa": {
+      "xgb_rescaled": 0.5,
+      "lightgbm_rescaled": 0.5
+    },
+    "Kjela": {
+      "xgb_rescaled": 0.4,
+      "lightgbm_rescaled": 0.4,
+      "transformer": 0.2
+    },
+    "Vesle Kjela": {
+      "xgb_rescaled": 0.5,
+      "lightgbm_rescaled": 0.5
+    },
+    "Haukeli": {
+      "xgb_rescaled": 0.5,
+      "lightgbm_rescaled": 0.5
+    }
+  },
+  "validation_note": "2021 is a heavily reused development/selection year. No weighted or depth8 2022 results were read for this selection. No new blend weights were searched. Confirmation must retain selected recipe unchanged.",
+  "results": [
+    {
+      "recipe": "original_winner",
+      "year": 2021,
+      "micro_roc_auc": 0.9882719381376425,
+      "generator_auc": {
+        "Hogga_G1": 0.9696893447926744,
+        "Tokke_G1": 0.9894627561921396,
+        "Tokke_G2": 0.9924289036679768,
+        "Tokke_G3": 0.9921447545852833,
+        "Tokke_G4": 0.9923364372895623,
+        "Lio_G1": 0.9496274150107702,
+        "Byrte_G1": 0.9983813241649311,
+        "Vinje_G1": 0.9906998862987294,
+        "Vinje_G2": 0.9868319870646906,
+        "Vinje_G3": 0.9806822805568618,
+        "Haukeli_G1": 0.9633766162066998,
+        "Songa_G1": 0.995074153157005,
+        "Kjela_G1": 0.9834578894840456,
+        "Vesle Kjela_G1": 0.9990278342450003
+      },
+      "delta_vs_incumbent_fallback": -0.0002514132710202954,
+      "delta_vs_original_winner": 0.0
+    },
+    {
+      "recipe": "incumbent_fallback",
+      "year": 2021,
+      "micro_roc_auc": 0.9885233514086628,
+      "generator_auc": {
+        "Hogga_G1": 0.9699851721823958,
+        "Tokke_G1": 0.9897546628804395,
+        "Tokke_G2": 0.9933401025789077,
+        "Tokke_G3": 0.992543628383775,
+        "Tokke_G4": 0.9932744419106027,
+        "Lio_G1": 0.9514637868066854,
+        "Byrte_G1": 0.9983813241649311,
+        "Vinje_G1": 0.9907812590203141,
+        "Vinje_G2": 0.9870784093012291,
+        "Vinje_G3": 0.9810729512166365,
+        "Haukeli_G1": 0.9638157046579812,
+        "Songa_G1": 0.995074153157005,
+        "Kjela_G1": 0.983449876636965,
+        "Vesle Kjela_G1": 0.9990278342450003
+      },
+      "delta_vs_incumbent_fallback": 0.0,
+      "delta_vs_original_winner": 0.0002514132710202954
+    },
+    {
+      "recipe": "depth8_haukeli_monitor_mean",
+      "year": 2021,
+      "micro_roc_auc": 0.988775649671964,
+      "generator_auc": {
+        "Hogga_G1": 0.9707907936165271,
+        "Tokke_G1": 0.9897896366042201,
+        "Tokke_G2": 0.9934014552022683,
+        "Tokke_G3": 0.9926243504723389,
+        "Tokke_G4": 0.9933120007472686,
+        "Lio_G1": 0.9543804688579525,
+        "Byrte_G1": 0.9984421133689481,
+        "Vinje_G1": 0.9911221341557999,
+        "Vinje_G2": 0.9876310630020708,
+        "Vinje_G3": 0.9815696900844731,
+        "Haukeli_G1": 0.9638157046579812,
+        "Songa_G1": 0.9949541869878178,
+        "Kjela_G1": 0.9835236283348162,
+        "Vesle Kjela_G1": 0.9991207047075061
+      },
+      "delta_vs_incumbent_fallback": 0.0002522982633011983,
+      "delta_vs_original_winner": 0.0005037115343214937
+    },
+    {
+      "recipe": "depth8_haukeli_weighted_mean",
+      "year": 2021,
+      "micro_roc_auc": 0.9889184502673686,
+      "generator_auc": {
+        "Hogga_G1": 0.9705129252671488,
+        "Tokke_G1": 0.9905671427116989,
+        "Tokke_G2": 0.992643516146247,
+        "Tokke_G3": 0.9923414616311721,
+        "Tokke_G4": 0.992921774075792,
+        "Lio_G1": 0.9563248466871932,
+        "Byrte_G1": 0.9984421133689481,
+        "Vinje_G1": 0.9910234608450561,
+        "Vinje_G2": 0.9873776120290636,
+        "Vinje_G3": 0.981412503985882,
+        "Haukeli_G1": 0.9638157046579812,
+        "Songa_G1": 0.9949541869878178,
+        "Kjela_G1": 0.9845078052440682,
+        "Vesle Kjela_G1": 0.9991207047075061
+      },
+      "delta_vs_incumbent_fallback": 0.0003950988587058113,
+      "delta_vs_original_winner": 0.0006465121297261067
+    }
+  ]
+}

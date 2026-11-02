@@ -1,0 +1,45 @@
+{
+  "config": {
+    "validation_start": "2022-01-01",
+    "early_stopping_rounds": 30,
+    "model": {
+      "n_estimators": 300,
+      "learning_rate": 0.05,
+      "num_leaves": 31,
+      "min_child_samples": 100,
+      "max_bin": 63,
+      "random_state": 42,
+      "n_jobs": 4,
+      "deterministic": true,
+      "force_col_wise": true,
+      "verbosity": -1
+    }
+  },
+  "training_cases": 2551,
+  "validation_cases": 365,
+  "purged_cases": 6,
+  "last_training_start": "2021-12-25 00:00:00+00:00",
+  "first_validation_start": "2022-01-01 00:00:00+00:00",
+  "frequency_micro_roc_auc": 0.5544519407172613,
+  "lightgbm_micro_roc_auc": 0.9373668202396754,
+  "best_iteration": 55,
+  "feature_names": [
+    "horizon_hour",
+    "hour_of_day",
+    "day_of_week",
+    "month",
+    "price",
+    "week_mean_price",
+    "week_max_price",
+    "price_minus_week_mean",
+    "remaining_max_price",
+    "generator_id",
+    "initial_volume_million_m3",
+    "initial_fill_fraction",
+    "terminal_water_value",
+    "price_minus_water_value",
+    "natural_inflow_m3_s",
+    "cumulative_natural_inflow_million_m3",
+    "week_natural_inflow_million_m3"
+  ]
+}

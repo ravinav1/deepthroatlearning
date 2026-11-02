@@ -1,0 +1,782 @@
+{
+  "config": {
+    "seeds": [
+      42,
+      7,
+      21
+    ],
+    "years": [
+      2021,
+      2022
+    ],
+    "averaging_seed": 42,
+    "weight_averaging": {
+      "ema_start_epoch": 6,
+      "ema_decay": 0.99,
+      "swa_start_epoch": 10
+    },
+    "xgboost_weight": 0.8,
+    "cnn_weight": 0.2,
+    "note": "Fixed CNN stability experiments. Features, chronological splits and BCE unchanged. Historical validation is development data."
+  },
+  "baseline_variant": "seed42",
+  "xgboost_member_weights": {
+    "2021": {
+      "xgboost_price_2021": 0.2,
+      "xgboost_sampling_2021": 0.2,
+      "xgboost_regularized_2021": 0.2,
+      "xgboost_deep_regularized_2021": 0.2,
+      "xgboost_recency_2021": 0.2
+    },
+    "2022": {
+      "xgboost_price_2022": 0.2,
+      "xgboost_sampling_2022": 0.2,
+      "xgboost_regularized_2022": 0.2,
+      "xgboost_deep_regularized_2022": 0.2,
+      "xgboost_recency_2022": 0.2
+    }
+  },
+  "blend_weights": {
+    "xgboost_ensemble": 0.8,
+    "cnn": 0.2
+  },
+  "raw_averaging_controls": {
+    "2021": {
+      "baseline": "cnn_2021",
+      "averaging_raw": "cnn_averaging_2021",
+      "exact_equal": true,
+      "different_outputs": 0,
+      "maximum_absolute_difference": 0.0
+    },
+    "2022": {
+      "baseline": "cnn_2022",
+      "averaging_raw": "cnn_averaging_2022",
+      "exact_equal": true,
+      "different_outputs": 0,
+      "maximum_absolute_difference": 0.0
+    }
+  },
+  "results": [
+    {
+      "year": 2021,
+      "variant": "seed42",
+      "validation_cases": 365,
+      "seeds": [
+        42
+      ],
+      "cnn_member_weights": {
+        "cnn_2021": 1.0
+      },
+      "blend_member_weights": {
+        "xgboost_price_2021": 0.16,
+        "xgboost_sampling_2021": 0.16,
+        "xgboost_regularized_2021": 0.16,
+        "xgboost_deep_regularized_2021": 0.16,
+        "xgboost_recency_2021": 0.16,
+        "cnn_2021": 0.2
+      },
+      "cnn": {
+        "micro_roc_auc": 0.9334209902216654,
+        "generator_auc": {
+          "Hogga_G1": 0.8877597354776918,
+          "Tokke_G1": 0.9732914339339844,
+          "Tokke_G2": 0.9773361015263121,
+          "Tokke_G3": 0.9753213237867503,
+          "Tokke_G4": 0.9787950878899538,
+          "Lio_G1": 0.8351266438021271,
+          "Byrte_G1": 0.9456200286775527,
+          "Vinje_G1": 0.9714003917786931,
+          "Vinje_G2": 0.9699028127313075,
+          "Vinje_G3": 0.9634907533170131,
+          "Haukeli_G1": 0.8685979085848463,
+          "Songa_G1": 0.9354012698012476,
+          "Kjela_G1": 0.9496304893952853,
+          "Vesle Kjela_G1": 0.9693443601928808
+        }
+      },
+      "blend": {
+        "micro_roc_auc": 0.9740177080322481,
+        "generator_auc": {
+          "Hogga_G1": 0.9647600742649344,
+          "Tokke_G1": 0.970307937415041,
+          "Tokke_G2": 0.9651050763985773,
+          "Tokke_G3": 0.9738325782650529,
+          "Tokke_G4": 0.9642237017281661,
+          "Lio_G1": 0.9071952379873575,
+          "Byrte_G1": 0.9988013583831882,
+          "Vinje_G1": 0.9749857793653552,
+          "Vinje_G2": 0.9703924643433721,
+          "Vinje_G3": 0.9652163305547465,
+          "Haukeli_G1": 0.9318470320630114,
+          "Songa_G1": 0.9943959038773238,
+          "Kjela_G1": 0.9868961101371683,
+          "Vesle Kjela_G1": 0.99961963307753
+        }
+      },
+      "cnn_delta_baseline": 0.0,
+      "blend_delta_baseline": 0.0
+    },
+    {
+      "year": 2021,
+      "variant": "seed7",
+      "validation_cases": 365,
+      "seeds": [
+        7
+      ],
+      "cnn_member_weights": {
+        "cnn_seed7_2021": 1.0
+      },
+      "blend_member_weights": {
+        "xgboost_price_2021": 0.16,
+        "xgboost_sampling_2021": 0.16,
+        "xgboost_regularized_2021": 0.16,
+        "xgboost_deep_regularized_2021": 0.16,
+        "xgboost_recency_2021": 0.16,
+        "cnn_seed7_2021": 0.2
+      },
+      "cnn": {
+        "micro_roc_auc": 0.9286180962017809,
+        "generator_auc": {
+          "Hogga_G1": 0.8928334867961478,
+          "Tokke_G1": 0.9660832499413918,
+          "Tokke_G2": 0.9742262213967978,
+          "Tokke_G3": 0.9723129923754689,
+          "Tokke_G4": 0.9714772593065003,
+          "Lio_G1": 0.8114344993049061,
+          "Byrte_G1": 0.9619660191612431,
+          "Vinje_G1": 0.9633289485760926,
+          "Vinje_G2": 0.9628134130138768,
+          "Vinje_G3": 0.9582923885272802,
+          "Haukeli_G1": 0.8780491434064112,
+          "Songa_G1": 0.8981885199571104,
+          "Kjela_G1": 0.9481837060001254,
+          "Vesle Kjela_G1": 0.9701647496005917
+        }
+      },
+      "blend": {
+        "micro_roc_auc": 0.9713435707233348,
+        "generator_auc": {
+          "Hogga_G1": 0.9642972990439151,
+          "Tokke_G1": 0.966052885979046,
+          "Tokke_G2": 0.9646581865858863,
+          "Tokke_G3": 0.968273654931953,
+          "Tokke_G4": 0.9603660016405552,
+          "Lio_G1": 0.9036266958207837,
+          "Byrte_G1": 0.9988449623317043,
+          "Vinje_G1": 0.9671439575900209,
+          "Vinje_G2": 0.9645009894293135,
+          "Vinje_G3": 0.9640701900898534,
+          "Haukeli_G1": 0.9306496446452197,
+          "Songa_G1": 0.9946006823200464,
+          "Kjela_G1": 0.986011011440257,
+          "Vesle Kjela_G1": 0.9996404877560983
+        }
+      },
+      "cnn_delta_baseline": -0.004802894019884429,
+      "blend_delta_baseline": -0.0026741373089133047
+    },
+    {
+      "year": 2021,
+      "variant": "seed21",
+      "validation_cases": 365,
+      "seeds": [
+        21
+      ],
+      "cnn_member_weights": {
+        "cnn_seed21_2021": 1.0
+      },
+      "blend_member_weights": {
+        "xgboost_price_2021": 0.16,
+        "xgboost_sampling_2021": 0.16,
+        "xgboost_regularized_2021": 0.16,
+        "xgboost_deep_regularized_2021": 0.16,
+        "xgboost_recency_2021": 0.16,
+        "cnn_seed21_2021": 0.2
+      },
+      "cnn": {
+        "micro_roc_auc": 0.9353170431344145,
+        "generator_auc": {
+          "Hogga_G1": 0.9143157055581366,
+          "Tokke_G1": 0.9629962875587499,
+          "Tokke_G2": 0.9775420103117562,
+          "Tokke_G3": 0.9756934160572505,
+          "Tokke_G4": 0.9792255790258022,
+          "Lio_G1": 0.7816856783389485,
+          "Byrte_G1": 0.9627234921402854,
+          "Vinje_G1": 0.9725772375917188,
+          "Vinje_G2": 0.969871369436057,
+          "Vinje_G3": 0.9606585167193524,
+          "Haukeli_G1": 0.9181030481090177,
+          "Songa_G1": 0.8742957785241724,
+          "Kjela_G1": 0.9493933402332149,
+          "Vesle Kjela_G1": 0.9728034129219123
+        }
+      },
+      "blend": {
+        "micro_roc_auc": 0.9732739347819532,
+        "generator_auc": {
+          "Hogga_G1": 0.9649753499188594,
+          "Tokke_G1": 0.967462781182828,
+          "Tokke_G2": 0.9631465091374748,
+          "Tokke_G3": 0.9713771121753162,
+          "Tokke_G4": 0.9615688056156805,
+          "Lio_G1": 0.900114338930561,
+          "Byrte_G1": 0.998747824557832,
+          "Vinje_G1": 0.9718258717198398,
+          "Vinje_G2": 0.9688820334097068,
+          "Vinje_G3": 0.9641691304048355,
+          "Haukeli_G1": 0.9378455500700051,
+          "Songa_G1": 0.9943116394249589,
+          "Kjela_G1": 0.9849998849961724,
+          "Vesle Kjela_G1": 0.999662620925915
+        }
+      },
+      "cnn_delta_baseline": 0.001896052912749191,
+      "blend_delta_baseline": -0.0007437732502948435
+    },
+    {
+      "year": 2021,
+      "variant": "seed_mean",
+      "validation_cases": 365,
+      "seeds": [
+        42,
+        7,
+        21
+      ],
+      "cnn_member_weights": {
+        "cnn_2021": 0.3333333333333333,
+        "cnn_seed7_2021": 0.3333333333333333,
+        "cnn_seed21_2021": 0.3333333333333333
+      },
+      "blend_member_weights": {
+        "xgboost_price_2021": 0.16,
+        "xgboost_sampling_2021": 0.16,
+        "xgboost_regularized_2021": 0.16,
+        "xgboost_deep_regularized_2021": 0.16,
+        "xgboost_recency_2021": 0.16,
+        "cnn_2021": 0.06666666666666667,
+        "cnn_seed7_2021": 0.06666666666666667,
+        "cnn_seed21_2021": 0.06666666666666667
+      },
+      "cnn": {
+        "micro_roc_auc": 0.9422426806015863,
+        "generator_auc": {
+          "Hogga_G1": 0.9177744533179012,
+          "Tokke_G1": 0.9746659686927356,
+          "Tokke_G2": 0.9798840955660347,
+          "Tokke_G3": 0.9793654995718803,
+          "Tokke_G4": 0.9803641179009482,
+          "Lio_G1": 0.8242951085876707,
+          "Byrte_G1": 0.961233118936573,
+          "Vinje_G1": 0.9805818444217198,
+          "Vinje_G2": 0.9754549709223316,
+          "Vinje_G3": 0.9655431831452219,
+          "Haukeli_G1": 0.9114613540265846,
+          "Songa_G1": 0.9073883625655321,
+          "Kjela_G1": 0.9539027586637763,
+          "Vesle Kjela_G1": 0.9716596983782184
+        }
+      },
+      "blend": {
+        "micro_roc_auc": 0.9737926027197465,
+        "generator_auc": {
+          "Hogga_G1": 0.9653428911536309,
+          "Tokke_G1": 0.9694814341113466,
+          "Tokke_G2": 0.9658729345596291,
+          "Tokke_G3": 0.9734070805427424,
+          "Tokke_G4": 0.9642812274531025,
+          "Lio_G1": 0.9045788872134086,
+          "Byrte_G1": 0.9988398058992145,
+          "Vinje_G1": 0.9728296474064133,
+          "Vinje_G2": 0.9692942045576828,
+          "Vinje_G3": 0.9650013540364689,
+          "Haukeli_G1": 0.9342473974509424,
+          "Songa_G1": 0.9946751982224512,
+          "Kjela_G1": 0.9859983862565456,
+          "Vesle Kjela_G1": 0.9996502891016417
+        }
+      },
+      "cnn_delta_baseline": 0.008821690379920977,
+      "blend_delta_baseline": -0.00022510531250152788
+    },
+    {
+      "year": 2021,
+      "variant": "ema_seed42",
+      "validation_cases": 365,
+      "seeds": [
+        42
+      ],
+      "cnn_member_weights": {
+        "cnn_averaging_2021_ema": 1.0
+      },
+      "blend_member_weights": {
+        "xgboost_price_2021": 0.16,
+        "xgboost_sampling_2021": 0.16,
+        "xgboost_regularized_2021": 0.16,
+        "xgboost_deep_regularized_2021": 0.16,
+        "xgboost_recency_2021": 0.16,
+        "cnn_averaging_2021_ema": 0.2
+      },
+      "cnn": {
+        "micro_roc_auc": 0.9275019341867615,
+        "generator_auc": {
+          "Hogga_G1": 0.8977718602333319,
+          "Tokke_G1": 0.9680511232252509,
+          "Tokke_G2": 0.977346915287233,
+          "Tokke_G3": 0.9751632233738284,
+          "Tokke_G4": 0.9747638411109393,
+          "Lio_G1": 0.830558762921915,
+          "Byrte_G1": 0.9517602838809077,
+          "Vinje_G1": 0.970103903719926,
+          "Vinje_G2": 0.9705072968390644,
+          "Vinje_G3": 0.9636498628675494,
+          "Haukeli_G1": 0.8783030926520964,
+          "Songa_G1": 0.9254723177734019,
+          "Kjela_G1": 0.9484543892426942,
+          "Vesle Kjela_G1": 0.9727563125723102
+        }
+      },
+      "blend": {
+        "micro_roc_auc": 0.9734605011363258,
+        "generator_auc": {
+          "Hogga_G1": 0.9657349010175711,
+          "Tokke_G1": 0.9680386802897364,
+          "Tokke_G2": 0.9648282361136146,
+          "Tokke_G3": 0.9730948294052555,
+          "Tokke_G4": 0.9640043440355942,
+          "Lio_G1": 0.9049760713482152,
+          "Byrte_G1": 0.9988031278311836,
+          "Vinje_G1": 0.9746261781620923,
+          "Vinje_G2": 0.969997471342923,
+          "Vinje_G3": 0.9649008567980168,
+          "Haukeli_G1": 0.933686424023421,
+          "Songa_G1": 0.9944331290481518,
+          "Kjela_G1": 0.98650948537036,
+          "Vesle Kjela_G1": 0.9996201353870234
+        }
+      },
+      "cnn_delta_baseline": -0.005919056034903836,
+      "blend_delta_baseline": -0.0005572068959223131
+    },
+    {
+      "year": 2021,
+      "variant": "swa_seed42",
+      "validation_cases": 365,
+      "seeds": [
+        42
+      ],
+      "cnn_member_weights": {
+        "cnn_averaging_2021_swa": 1.0
+      },
+      "blend_member_weights": {
+        "xgboost_price_2021": 0.16,
+        "xgboost_sampling_2021": 0.16,
+        "xgboost_regularized_2021": 0.16,
+        "xgboost_deep_regularized_2021": 0.16,
+        "xgboost_recency_2021": 0.16,
+        "cnn_averaging_2021_swa": 0.2
+      },
+      "cnn": {
+        "micro_roc_auc": 0.9287764759155558,
+        "generator_auc": {
+          "Hogga_G1": 0.8991022090326697,
+          "Tokke_G1": 0.9657403942454886,
+          "Tokke_G2": 0.9752302167861243,
+          "Tokke_G3": 0.9731937979039414,
+          "Tokke_G4": 0.9726008222101972,
+          "Lio_G1": 0.8412431846579204,
+          "Byrte_G1": 0.9528943080170087,
+          "Vinje_G1": 0.9665155757825136,
+          "Vinje_G2": 0.9692501441862716,
+          "Vinje_G3": 0.9676904076342032,
+          "Haukeli_G1": 0.8711901587470372,
+          "Songa_G1": 0.9489556617779694,
+          "Kjela_G1": 0.9519647429245864,
+          "Vesle Kjela_G1": 0.971110978264133
+        }
+      },
+      "blend": {
+        "micro_roc_auc": 0.9737846215563976,
+        "generator_auc": {
+          "Hogga_G1": 0.9655519394046315,
+          "Tokke_G1": 0.9691721078649971,
+          "Tokke_G2": 0.9651591917209613,
+          "Tokke_G3": 0.9731241416516021,
+          "Tokke_G4": 0.963667423598227,
+          "Lio_G1": 0.9066313096905477,
+          "Byrte_G1": 0.9988196936729062,
+          "Vinje_G1": 0.9747002329271673,
+          "Vinje_G2": 0.9702624754752736,
+          "Vinje_G3": 0.9663869659136571,
+          "Haukeli_G1": 0.9325897593820346,
+          "Songa_G1": 0.9945496316096532,
+          "Kjela_G1": 0.9866170028533569,
+          "Vesle Kjela_G1": 0.9996212939802771
+        }
+      },
+      "cnn_delta_baseline": -0.004644514306109571,
+      "blend_delta_baseline": -0.00023308647585051911
+    },
+    {
+      "year": 2022,
+      "variant": "seed42",
+      "validation_cases": 365,
+      "seeds": [
+        42
+      ],
+      "cnn_member_weights": {
+        "cnn_2022": 1.0
+      },
+      "blend_member_weights": {
+        "xgboost_price_2022": 0.16,
+        "xgboost_sampling_2022": 0.16,
+        "xgboost_regularized_2022": 0.16,
+        "xgboost_deep_regularized_2022": 0.16,
+        "xgboost_recency_2022": 0.16,
+        "cnn_2022": 0.2
+      },
+      "cnn": {
+        "micro_roc_auc": 0.9534946011467762,
+        "generator_auc": {
+          "Hogga_G1": 0.9485842231943136,
+          "Tokke_G1": 0.9587140001211027,
+          "Tokke_G2": 0.9833242007085856,
+          "Tokke_G3": 0.9755296869882047,
+          "Tokke_G4": 0.9799878844964116,
+          "Lio_G1": 0.8009429262636587,
+          "Byrte_G1": 0.9693270749337968,
+          "Vinje_G1": 0.9783970335790118,
+          "Vinje_G2": 0.9778237373547366,
+          "Vinje_G3": 0.950332334045462,
+          "Haukeli_G1": 0.8752127038242938,
+          "Songa_G1": 0.9319666490249229,
+          "Kjela_G1": 0.9032563405262564,
+          "Vesle Kjela_G1": 0.9681832357588018
+        }
+      },
+      "blend": {
+        "micro_roc_auc": 0.9775756293330458,
+        "generator_auc": {
+          "Hogga_G1": 0.9712075728492882,
+          "Tokke_G1": 0.9839917642207263,
+          "Tokke_G2": 0.9845711233787784,
+          "Tokke_G3": 0.9865770653951085,
+          "Tokke_G4": 0.9832290748403476,
+          "Lio_G1": 0.9349212962818849,
+          "Byrte_G1": 0.9962401747687009,
+          "Vinje_G1": 0.9709958951864244,
+          "Vinje_G2": 0.9690220050342301,
+          "Vinje_G3": 0.956142377518293,
+          "Haukeli_G1": 0.9229678444172701,
+          "Songa_G1": 0.9850254949629942,
+          "Kjela_G1": 0.9777874880163948,
+          "Vesle Kjela_G1": 0.9898710853288571
+        }
+      },
+      "cnn_delta_baseline": 0.0,
+      "blend_delta_baseline": 0.0
+    },
+    {
+      "year": 2022,
+      "variant": "seed7",
+      "validation_cases": 365,
+      "seeds": [
+        7
+      ],
+      "cnn_member_weights": {
+        "cnn_seed7_2022": 1.0
+      },
+      "blend_member_weights": {
+        "xgboost_price_2022": 0.16,
+        "xgboost_sampling_2022": 0.16,
+        "xgboost_regularized_2022": 0.16,
+        "xgboost_deep_regularized_2022": 0.16,
+        "xgboost_recency_2022": 0.16,
+        "cnn_seed7_2022": 0.2
+      },
+      "cnn": {
+        "micro_roc_auc": 0.9549993652178268,
+        "generator_auc": {
+          "Hogga_G1": 0.9607931700336622,
+          "Tokke_G1": 0.9681002361656801,
+          "Tokke_G2": 0.9850771333148609,
+          "Tokke_G3": 0.9813912218261573,
+          "Tokke_G4": 0.9827804552218369,
+          "Lio_G1": 0.7986709535313263,
+          "Byrte_G1": 0.970377734827977,
+          "Vinje_G1": 0.9787030675725615,
+          "Vinje_G2": 0.9769406573595766,
+          "Vinje_G3": 0.9522771752773886,
+          "Haukeli_G1": 0.8591107660319379,
+          "Songa_G1": 0.9283245463754184,
+          "Kjela_G1": 0.8917177408225558,
+          "Vesle Kjela_G1": 0.969561711594214
+        }
+      },
+      "blend": {
+        "micro_roc_auc": 0.9769488615050325,
+        "generator_auc": {
+          "Hogga_G1": 0.9735157493334214,
+          "Tokke_G1": 0.9840232355571188,
+          "Tokke_G2": 0.9843976386265536,
+          "Tokke_G3": 0.9867734211558151,
+          "Tokke_G4": 0.983115290844662,
+          "Lio_G1": 0.9289559717489115,
+          "Byrte_G1": 0.9950056391667502,
+          "Vinje_G1": 0.9698196300166307,
+          "Vinje_G2": 0.9673412831554031,
+          "Vinje_G3": 0.957021346500739,
+          "Haukeli_G1": 0.9139486123204824,
+          "Songa_G1": 0.9888862367320124,
+          "Kjela_G1": 0.973298867311264,
+          "Vesle Kjela_G1": 0.9904735948927491
+        }
+      },
+      "cnn_delta_baseline": 0.0015047640710506016,
+      "blend_delta_baseline": -0.0006267678280132971
+    },
+    {
+      "year": 2022,
+      "variant": "seed21",
+      "validation_cases": 365,
+      "seeds": [
+        21
+      ],
+      "cnn_member_weights": {
+        "cnn_seed21_2022": 1.0
+      },
+      "blend_member_weights": {
+        "xgboost_price_2022": 0.16,
+        "xgboost_sampling_2022": 0.16,
+        "xgboost_regularized_2022": 0.16,
+        "xgboost_deep_regularized_2022": 0.16,
+        "xgboost_recency_2022": 0.16,
+        "cnn_seed21_2022": 0.2
+      },
+      "cnn": {
+        "micro_roc_auc": 0.9451947337831703,
+        "generator_auc": {
+          "Hogga_G1": 0.9383055297603544,
+          "Tokke_G1": 0.968304936511702,
+          "Tokke_G2": 0.9775259032586094,
+          "Tokke_G3": 0.9785071481887643,
+          "Tokke_G4": 0.9828470308188652,
+          "Lio_G1": 0.8236000403534726,
+          "Byrte_G1": 0.9499019969299436,
+          "Vinje_G1": 0.9734406352567301,
+          "Vinje_G2": 0.970554708148934,
+          "Vinje_G3": 0.9414734714152858,
+          "Haukeli_G1": 0.8542631854034549,
+          "Songa_G1": 0.9512648372129473,
+          "Kjela_G1": 0.8568676159759867,
+          "Vesle Kjela_G1": 0.9615291224050531
+        }
+      },
+      "blend": {
+        "micro_roc_auc": 0.9768918453286689,
+        "generator_auc": {
+          "Hogga_G1": 0.9696050651874484,
+          "Tokke_G1": 0.9853534917107419,
+          "Tokke_G2": 0.9845257453111018,
+          "Tokke_G3": 0.9876546999837256,
+          "Tokke_G4": 0.9845516819168083,
+          "Lio_G1": 0.9353141751960588,
+          "Byrte_G1": 0.995097759602795,
+          "Vinje_G1": 0.9691650368022168,
+          "Vinje_G2": 0.9650166178120381,
+          "Vinje_G3": 0.9551042378091456,
+          "Haukeli_G1": 0.9212870218176314,
+          "Songa_G1": 0.9880160314220311,
+          "Kjela_G1": 0.9728491562189072,
+          "Vesle Kjela_G1": 0.9884536765471238
+        }
+      },
+      "cnn_delta_baseline": -0.008299867363605884,
+      "blend_delta_baseline": -0.0006837840043768528
+    },
+    {
+      "year": 2022,
+      "variant": "seed_mean",
+      "validation_cases": 365,
+      "seeds": [
+        42,
+        7,
+        21
+      ],
+      "cnn_member_weights": {
+        "cnn_2022": 0.3333333333333333,
+        "cnn_seed7_2022": 0.3333333333333333,
+        "cnn_seed21_2022": 0.3333333333333333
+      },
+      "blend_member_weights": {
+        "xgboost_price_2022": 0.16,
+        "xgboost_sampling_2022": 0.16,
+        "xgboost_regularized_2022": 0.16,
+        "xgboost_deep_regularized_2022": 0.16,
+        "xgboost_recency_2022": 0.16,
+        "cnn_2022": 0.06666666666666667,
+        "cnn_seed7_2022": 0.06666666666666667,
+        "cnn_seed21_2022": 0.06666666666666667
+      },
+      "cnn": {
+        "micro_roc_auc": 0.9613313007676297,
+        "generator_auc": {
+          "Hogga_G1": 0.9622394339835096,
+          "Tokke_G1": 0.9725579646800564,
+          "Tokke_G2": 0.9844398832977664,
+          "Tokke_G3": 0.9832048375611406,
+          "Tokke_G4": 0.9855677987590659,
+          "Lio_G1": 0.837064150602646,
+          "Byrte_G1": 0.9704658665893553,
+          "Vinje_G1": 0.9789408691012582,
+          "Vinje_G2": 0.9780154171133539,
+          "Vinje_G3": 0.9501499223187206,
+          "Haukeli_G1": 0.888536148024194,
+          "Songa_G1": 0.953770455160176,
+          "Kjela_G1": 0.9078824372955722,
+          "Vesle Kjela_G1": 0.974135074774081
+        }
+      },
+      "blend": {
+        "micro_roc_auc": 0.9780149196966283,
+        "generator_auc": {
+          "Hogga_G1": 0.9726537145576281,
+          "Tokke_G1": 0.9850634284998842,
+          "Tokke_G2": 0.9847772371556198,
+          "Tokke_G3": 0.9873843514016278,
+          "Tokke_G4": 0.9839500061807692,
+          "Lio_G1": 0.9355173678823568,
+          "Byrte_G1": 0.9952872703192812,
+          "Vinje_G1": 0.970856511592855,
+          "Vinje_G2": 0.9683694280864832,
+          "Vinje_G3": 0.9570616203882669,
+          "Haukeli_G1": 0.9228851095353251,
+          "Songa_G1": 0.986757710154033,
+          "Kjela_G1": 0.975290255022591,
+          "Vesle Kjela_G1": 0.9896837582227944
+        }
+      },
+      "cnn_delta_baseline": 0.007836699620853538,
+      "blend_delta_baseline": 0.00043929036358258955
+    },
+    {
+      "year": 2022,
+      "variant": "ema_seed42",
+      "validation_cases": 365,
+      "seeds": [
+        42
+      ],
+      "cnn_member_weights": {
+        "cnn_averaging_2022_ema": 1.0
+      },
+      "blend_member_weights": {
+        "xgboost_price_2022": 0.16,
+        "xgboost_sampling_2022": 0.16,
+        "xgboost_regularized_2022": 0.16,
+        "xgboost_deep_regularized_2022": 0.16,
+        "xgboost_recency_2022": 0.16,
+        "cnn_averaging_2022_ema": 0.2
+      },
+      "cnn": {
+        "micro_roc_auc": 0.9533412619789084,
+        "generator_auc": {
+          "Hogga_G1": 0.9489640185867922,
+          "Tokke_G1": 0.9560878879502864,
+          "Tokke_G2": 0.9829433575087245,
+          "Tokke_G3": 0.9749852745814481,
+          "Tokke_G4": 0.9797503594959459,
+          "Lio_G1": 0.8059081029229395,
+          "Byrte_G1": 0.9713659201147922,
+          "Vinje_G1": 0.9777670361513513,
+          "Vinje_G2": 0.9778639547638293,
+          "Vinje_G3": 0.9549838215078582,
+          "Haukeli_G1": 0.8752024761102015,
+          "Songa_G1": 0.9401461901383357,
+          "Kjela_G1": 0.9071078647926681,
+          "Vesle Kjela_G1": 0.9592690967833548
+        }
+      },
+      "blend": {
+        "micro_roc_auc": 0.9771719761570778,
+        "generator_auc": {
+          "Hogga_G1": 0.9709804088761761,
+          "Tokke_G1": 0.9836387143916853,
+          "Tokke_G2": 0.9840498258272327,
+          "Tokke_G3": 0.9859882321353648,
+          "Tokke_G4": 0.983024867764644,
+          "Lio_G1": 0.924388641952135,
+          "Byrte_G1": 0.9961740502061147,
+          "Vinje_G1": 0.9709159910142607,
+          "Vinje_G2": 0.9687869546963102,
+          "Vinje_G3": 0.9574396347954213,
+          "Haukeli_G1": 0.9244072640582531,
+          "Songa_G1": 0.9865413045140504,
+          "Kjela_G1": 0.9766047587272908,
+          "Vesle Kjela_G1": 0.9894439384388363
+        }
+      },
+      "cnn_delta_baseline": -0.00015333916786774981,
+      "blend_delta_baseline": -0.0004036531759679107
+    },
+    {
+      "year": 2022,
+      "variant": "swa_seed42",
+      "validation_cases": 365,
+      "seeds": [
+        42
+      ],
+      "cnn_member_weights": {
+        "cnn_averaging_2022_swa": 1.0
+      },
+      "blend_member_weights": {
+        "xgboost_price_2022": 0.16,
+        "xgboost_sampling_2022": 0.16,
+        "xgboost_regularized_2022": 0.16,
+        "xgboost_deep_regularized_2022": 0.16,
+        "xgboost_recency_2022": 0.16,
+        "cnn_averaging_2022_swa": 0.2
+      },
+      "cnn": {
+        "micro_roc_auc": 0.9522070751437427,
+        "generator_auc": {
+          "Hogga_G1": 0.9496837530328399,
+          "Tokke_G1": 0.9531025071406155,
+          "Tokke_G2": 0.9831666261968145,
+          "Tokke_G3": 0.976051653572721,
+          "Tokke_G4": 0.9803917728896184,
+          "Lio_G1": 0.8036607743733558,
+          "Byrte_G1": 0.9646123275654839,
+          "Vinje_G1": 0.9765478949249499,
+          "Vinje_G2": 0.9774063820643979,
+          "Vinje_G3": 0.9519967646717961,
+          "Haukeli_G1": 0.8839008014962766,
+          "Songa_G1": 0.9380277206510781,
+          "Kjela_G1": 0.8951251075225521,
+          "Vesle Kjela_G1": 0.9568159647751081
+        }
+      },
+      "blend": {
+        "micro_roc_auc": 0.9772705797384774,
+        "generator_auc": {
+          "Hogga_G1": 0.9713149513597001,
+          "Tokke_G1": 0.9833196407867538,
+          "Tokke_G2": 0.9843374310795692,
+          "Tokke_G3": 0.9862124266705852,
+          "Tokke_G4": 0.9831387824968765,
+          "Lio_G1": 0.9327272940668323,
+          "Byrte_G1": 0.9958052061109008,
+          "Vinje_G1": 0.9700708119976645,
+          "Vinje_G2": 0.9682184223766354,
+          "Vinje_G3": 0.9568623163221405,
+          "Haukeli_G1": 0.9247097924175002,
+          "Songa_G1": 0.986151827368624,
+          "Kjela_G1": 0.9768080227141658,
+          "Vesle Kjela_G1": 0.9888879437211548
+        }
+      },
+      "cnn_delta_baseline": -0.0012875260030335012,
+      "blend_delta_baseline": -0.0003050495945683407
+    }
+  ],
+  "note": "Unweighted micro AUC; historical validation is development data. Variants and blend weights were fixed before these runs."
+}

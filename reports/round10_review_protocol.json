@@ -1,0 +1,105 @@
+{
+  "created_utc": "2026-10-18T12:38:45.958812+00:00",
+  "status": "passed",
+  "scope": "Independent protocol and feature review, recorded after results began. The control-design refinement was communicated before its implementer inspected 2022 scores.",
+  "primary_tree_comparison": "0.5 Round3 + 0.25 new299 + 0.25 old673 versus actual Round5. Old673 remains fixed.",
+  "secondary_tree_comparison": "0.5 Round3 + 0.5 new299 versus 0.5 Round3 + 0.5 old299; never versus the two-seed incumbent.",
+  "config_checks": [
+    {
+      "arm": "ranks",
+      "year": 2021,
+      "training_changes_verified": [
+        "use_temporal_ranks",
+        "n_jobs 4 to 2",
+        "removed expired deadline"
+      ],
+      "fixed_counts_and_cohort_settings_match": true
+    },
+    {
+      "arm": "ranks",
+      "year": 2022,
+      "training_changes_verified": [
+        "use_temporal_ranks",
+        "n_jobs 4 to 2",
+        "removed expired deadline"
+      ],
+      "fixed_counts_and_cohort_settings_match": true
+    },
+    {
+      "arm": "constraint",
+      "year": 2021,
+      "training_changes_verified": [
+        "use_shared_river_constraint_timing",
+        "n_jobs 4 to 2",
+        "removed expired deadline"
+      ],
+      "fixed_counts_and_cohort_settings_match": true
+    },
+    {
+      "arm": "constraint",
+      "year": 2022,
+      "training_changes_verified": [
+        "use_shared_river_constraint_timing",
+        "n_jobs 4 to 2",
+        "removed expired deadline"
+      ],
+      "fixed_counts_and_cohort_settings_match": true
+    },
+    {
+      "arm": "water",
+      "year": 2021,
+      "training_changes_verified": [
+        "use_distinct_inflow_timing",
+        "n_jobs 4 to 2",
+        "removed expired deadline"
+      ],
+      "fixed_counts_and_cohort_settings_match": true
+    },
+    {
+      "arm": "water",
+      "year": 2022,
+      "training_changes_verified": [
+        "use_distinct_inflow_timing",
+        "n_jobs 4 to 2",
+        "removed expired deadline"
+      ],
+      "fixed_counts_and_cohort_settings_match": true
+    }
+  ],
+  "feature_module_checks": {
+    "status": "passed",
+    "synthetic_cases": 4,
+    "hours_per_case": 168,
+    "independent_direct_loop_oracle": true,
+    "coverage": "Constant schedules, first/last/multiple changes, duplicate case starts, required-release sums and current-hour inclusion in cumulative/remaining inflow.",
+    "module_sha256": "f6f70200505ca9b574cd218f521812255d467bbe284a7e9e16bf739c94b80882"
+  },
+  "baseline_cache_checks": {
+    "native2021_auc": 0.9903748458953463,
+    "native2022_auc": 0.9894979113990909,
+    "frozen2022_auc": 0.9870830517775449,
+    "all_source_hashes_validated": true,
+    "identity_swap_exact": true,
+    "daily_dates_checked_in_nanoseconds": true,
+    "cases": 365,
+    "jan7_onward_cases": 359
+  },
+  "training_cohorts": {
+    "native2021": 2186,
+    "native2022": 2551,
+    "frozen2022": "Reuse exact pre-2021 model and cohort from native2021 run"
+  },
+  "temporal_control_refinement": "Add identical eight boundary indicators to same-hour control, so temporal treatment adds only the eight neighbouring-logit differences. Preserve original results and timestamped amendment. This is not a test of richer multi-component or nonlinear stacking.",
+  "temporal_amendment_sha256": "4f0b106dec169c32a81a060c7d33ac9239c73200eefcbd50965cf00332a88fb8",
+  "thread_reference_check": "reports/round10_review_thread_invariance.json",
+  "temporal_results_and_export": [
+    "reports/round10_review_temporal_results.json",
+    "reports/round10_review_temporal_export.json"
+  ],
+  "limitations": [
+    "Historical development years are reused.",
+    "Native and frozen 2022 share labels.",
+    "Block bootstrap does not correct selection bias.",
+    "The two-thread reference reproduction covers one generator."
+  ]
+}

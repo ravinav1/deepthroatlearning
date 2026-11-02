@@ -1,0 +1,26 @@
+{
+  "validation_start": "2021-01-01",
+  "validation_end": "2022-01-01",
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "use_price_context": true,
+  "use_economic_rescaling": true,
+  "record_training_auc": true,
+  "loss": "binary",
+  "early_stopping_rounds": null,
+  "model": {
+    "n_estimators": 1499,
+    "learning_rate": 0.05,
+    "num_leaves": 31,
+    "min_child_samples": 100,
+    "max_bin": 63,
+    "random_state": 42,
+    "n_jobs": 4,
+    "deterministic": true,
+    "force_col_wise": true,
+    "verbosity": -1
+  },
+  "use_temporal_ranks": true,
+  "experiment_hypothesis": "Transfer exactlythetwo round3 price ranks toLightGBM; original1499selectedtrees andallotherparametersunchanged. Judge currentfullensemble, notstandaloneAUC."
+}

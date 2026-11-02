@@ -1,0 +1,581 @@
+{
+  "created_utc": "2026-10-14T13:10:39.300624+00:00",
+  "scope": "Tree tuning and temporal validation review for the second autonomous run. Research/config preparation only; root owns sequential training.",
+  "package_versions": {
+    "xgboost": "3.4.1",
+    "lightgbm": "4.7.0"
+  },
+  "current_winner": {
+    "config": "configs/goal_submission_rescaled_tree_mean.json",
+    "report": "reports/goal_lightgbm_comparison.json",
+    "variant": "candidate_equal_tree_mean",
+    "2021_auc": 0.9882719381376425,
+    "2022_auc": 0.987770674860208,
+    "recipe": "Frozen plant-specific Transformer fractions; remaining probability weight split equally between rescaled XGBoost and LightGBM."
+  },
+  "facts_from_source_review": [
+    "src/train_xgboost.py and src/train_baseline.py split complete cases chronologically and require last training end <= first validation start.",
+    "Both trainers exclude all prediction_mapping Run No values from fitting and validation labels.",
+    "Feature and label ordering is generator -> case -> hour; rescale_tree_features reshapes each contiguous168-hour case and does not use labels or cross-case fitted statistics.",
+    "The baseline active economic columns are monetary prices, price differences, and terminal water values. All are rescaled together by max(mean(abs(provided168-hourprices)),10), with log scale retained.",
+    "XGBoost native categorical generator identity has a fixed category set across training and validation; LightGBM marks generator_id categorical.",
+    "Pooled flattened binary AUC is the same ranking target as the provided micro ROC-AUC. Generator-specific AUC is diagnostic, not a substitute selection metric.",
+    "Rescaled XGBoost2021 best1451 with cap1500 did not allow the full100-round patience after the best score; convergence remains unverified.",
+    "LightGBM2021 best1499/cap1500 and2022 best800/cap800 are truncated fits. Establish convergence before interpreting other hyperparameter changes.",
+    "Earlier unscaled regularization/sampling results have conflicting year effects. They do not establish the best settings after the large rescaling change."
+  ],
+  "pitfalls": [
+    {
+      "finding": "The old comparison helper uses the pre-LightGBM blend as baseline. Its candidate_equal_tree_mean can silently drop the current LightGBM when testing a new XGBoost.",
+      "file": "src/compare_goal_tree_candidates.py",
+      "action": "Use a comparison anchored to current winner config, replacing only the component under test and preserving frozen plant weights. Root confirmed implementing src/round2_compare.py."
+    },
+    {
+      "finding": "The same validation labels select early-stopping iteration and report that iteration score. Hyperparameter selection and repeated year reuse add optimism.",
+      "action": "Call these development results. Freeze candidate architecture/parameters before2022. Prefer fixed2021-selected tree count for the2022 confirmation, or an earlier chronological inner stop set; if native early stopping is retained, report that limitation."
+    },
+    {
+      "finding": "Warm-start LightGBM n_estimators is additional rounds, not a total cap.",
+      "local_evidence": ".venv/lib/python3.12/site-packages/lightgbm/engine.py:308 loops range(init_iteration,init_iteration + num_boost_round)",
+      "action": "Record initial, additional, and total tree counts. Do not compare800old trees to800additional trees as if equal budgets."
+    },
+    {
+      "finding": "Overlapping case-hours are not independent observations; ordinary random-row CV or row-wise bootstrap yields misleading precision.",
+      "action": "Keep all2352 outputs per case together. Temporal training/validation splits purge six overlapping starts. For uncertainty, use paired multiweek blocks, retain all generators/hours, and label uncertainty approximate under seasonal drift."
+    },
+    {
+      "finding": "XGBoost min_child_weight is Hessian mass, not a minimum sample count. LightGBM min_child_samples is a different quantity.",
+      "action": "Do not numerically equate their regularization strengths."
+    },
+    {
+      "finding": "LightGBM subsample alone has no effect with default subsample_freq0.",
+      "action": "A future LGB sampling candidate must specify subsample_freq>0 and subsample<1."
+    }
+  ],
+  "verified_splits": [
+    {
+      "year": 2020,
+      "training_cases": 1820,
+      "validation_cases": 366,
+      "purged_cases": 6,
+      "last_training_start": "2019-12-25",
+      "first_validation_start": "2020-01-01",
+      "competition_id_overlap": 0
+    },
+    {
+      "year": 2021,
+      "training_cases": 2186,
+      "validation_cases": 365,
+      "purged_cases": 6,
+      "last_training_start": "2020-12-25",
+      "first_validation_start": "2021-01-01",
+      "competition_id_overlap": 0
+    },
+    {
+      "year": 2022,
+      "training_cases": 2551,
+      "validation_cases": 365,
+      "purged_cases": 6,
+      "last_training_start": "2021-12-25",
+      "first_validation_start": "2022-01-01",
+      "competition_id_overlap": 0
+    }
+  ],
+  "screen_protocol": [
+    "Use all existing training cases, exactly the same feature flags113columns, case ordering, random_state42, four threads, patience100, and2200-tree caps in all six2021 screens. Only named settings differ. Avoid random-row training reduction.",
+    "Budget permits at most these six configurations; stop launching candidates if it threatens cross-year checks or final model/export time.",
+    "Score standalone AUC and substitution into the actual current ensemble with identical frozen weights. Primary promotion criterion is ensemble improvement, not standalone accuracy alone.",
+    "After2021screen, freeze at most two candidates for2022. Record every rejection. Rank by consistency across years and months, not maximum of any available score.",
+    "Do not search plant blend weights simultaneously with tree settings. A candidate helping only one year is inconclusive; a smaller benefit in both can be more useful.",
+    "For an additional2020check, train original rescaled baseline plus the selected candidate using <=2019-12-25 starts, score all2020case starts. Existingconfigs/goal_xgboost_rescaled_2020.json is ready. Prior2020price/hydraulic/recency reports mean this is an additional temporal check, not pristine validation.",
+    "Compare2020tree models directly unless all needed2020neural/LGB OOF components exist. Never apply a2021/2022-trained model to2020 and call that held-out performance.",
+    "Repeated2021/2022development and public leaderboard feedback already influenced formulation. No statistical procedure can retroactively make these untouched; report local results as development evidence."
+  ],
+  "candidate_configs": [
+    {
+      "name": "longer",
+      "config": "configs/round2_xgb_longer_2021.json",
+      "hypothesis": "Check whether the prior 1500-tree cap truncated early stopping; all substantive settings unchanged.",
+      "model": {
+        "n_estimators": 2200,
+        "learning_rate": 0.05,
+        "tree_method": "hist",
+        "max_depth": 6,
+        "min_child_weight": 25,
+        "max_bin": 63,
+        "n_jobs": 4,
+        "random_state": 42
+      },
+      "status": "prepared_not_trained_by_research_agent"
+    },
+    {
+      "name": "depth4",
+      "config": "configs/round2_xgb_depth4_2021.json",
+      "hypothesis": "Test lower interaction capacity after economic rescaling; depth6 may overfit correlated case-hours.",
+      "model": {
+        "n_estimators": 2200,
+        "learning_rate": 0.05,
+        "tree_method": "hist",
+        "max_depth": 4,
+        "min_child_weight": 25,
+        "max_bin": 63,
+        "n_jobs": 4,
+        "random_state": 42
+      },
+      "status": "prepared_not_trained_by_research_agent"
+    },
+    {
+      "name": "depth8",
+      "config": "configs/round2_xgb_depth8_2021.json",
+      "hypothesis": "Test whether depth6 restricts reservoir/generator interactions; increased capacity may improve fit or widen generalization gap.",
+      "model": {
+        "n_estimators": 2200,
+        "learning_rate": 0.05,
+        "tree_method": "hist",
+        "max_depth": 8,
+        "min_child_weight": 25,
+        "max_bin": 63,
+        "n_jobs": 4,
+        "random_state": 42
+      },
+      "status": "prepared_not_trained_by_research_agent"
+    },
+    {
+      "name": "child100",
+      "config": "configs/round2_xgb_child100_2021.json",
+      "hypothesis": "Require more Hessian mass per leaf; isolate leaf support regularization from depth and L2.",
+      "model": {
+        "n_estimators": 2200,
+        "learning_rate": 0.05,
+        "tree_method": "hist",
+        "max_depth": 6,
+        "min_child_weight": 100,
+        "max_bin": 63,
+        "n_jobs": 4,
+        "random_state": 42
+      },
+      "status": "prepared_not_trained_by_research_agent"
+    },
+    {
+      "name": "lambda10",
+      "config": "configs/round2_xgb_lambda10_2021.json",
+      "hypothesis": "Shrink leaf scores with stronger L2; isolate leaf-weight regularization from depth and minimum child Hessian.",
+      "model": {
+        "n_estimators": 2200,
+        "learning_rate": 0.05,
+        "tree_method": "hist",
+        "max_depth": 6,
+        "min_child_weight": 25,
+        "max_bin": 63,
+        "n_jobs": 4,
+        "random_state": 42,
+        "reg_lambda": 10
+      },
+      "status": "prepared_not_trained_by_research_agent"
+    },
+    {
+      "name": "sampling",
+      "config": "configs/round2_xgb_sampling_2021.json",
+      "hypothesis": "Test stochastic boosting using mild row and column sampling; this is row sampling within training, not grouped validation.",
+      "model": {
+        "n_estimators": 2200,
+        "learning_rate": 0.05,
+        "tree_method": "hist",
+        "max_depth": 6,
+        "min_child_weight": 25,
+        "max_bin": 63,
+        "n_jobs": 4,
+        "random_state": 42,
+        "subsample": 0.8,
+        "colsample_bytree": 0.9
+      },
+      "status": "prepared_not_trained_by_research_agent"
+    }
+  ],
+  "deferred_alternatives": [
+    {
+      "idea": "Lower tree learning rate .025 with approximately doubled iteration budget",
+      "why_deferred": "Neural optimization lane already tests lower learning rate; six bounded tree screens isolate capacity/regularization first."
+    },
+    {
+      "idea": "XGBoost gradient-based sampling with hist on CPU",
+      "why_relevant": "Official stable docs report CPU support since3.2; installed3.4.1 can emphasize high-gradient observations without old GPU-only restriction. Would require a separate controlled subsample comparison."
+    },
+    {
+      "idea": "LightGBM extra_trees random-threshold boosting",
+      "why_relevant": "Different inductive bias and a documented way to regularize/speed splits; feasible future alternative after convergence."
+    },
+    {
+      "idea": "Chronological nested stopping/selection",
+      "why_relevant": "Provides cleaner evaluation of selection procedure but adds fits and must retain the six-day case purge at each boundary."
+    },
+    {
+      "idea": "Block bagging or selecting different weekly start phases",
+      "why_relevant": "Controls dependence among heavily overlapping weekly cases and offers diversity; any changed subset must be compared on the same validation cases and not mistaken for a format fix."
+    }
+  ],
+  "prior_results": [
+    {
+      "name": "xgboost_price",
+      "year": 2021,
+      "auc": 0.9657186899179886,
+      "best_iteration": 625,
+      "training_seconds": null,
+      "training_sample_auc": null,
+      "config": {
+        "n_estimators": 1500,
+        "learning_rate": 0.05,
+        "tree_method": "hist",
+        "max_depth": 6,
+        "min_child_weight": 25,
+        "max_bin": 63,
+        "n_jobs": 4,
+        "random_state": 42
+      },
+      "economic_rescaling": false,
+      "source": "reports/xgboost_price_2021_metrics.json"
+    },
+    {
+      "name": "xgboost_price",
+      "year": 2022,
+      "auc": 0.971632643219859,
+      "best_iteration": 749,
+      "training_seconds": null,
+      "training_sample_auc": null,
+      "config": {
+        "n_estimators": 1500,
+        "learning_rate": 0.05,
+        "tree_method": "hist",
+        "max_depth": 6,
+        "min_child_weight": 25,
+        "max_bin": 63,
+        "n_jobs": 4,
+        "random_state": 42
+      },
+      "economic_rescaling": false,
+      "source": "reports/xgboost_price_2022_metrics.json"
+    },
+    {
+      "name": "xgboost_regularized",
+      "year": 2021,
+      "auc": 0.9673310936049512,
+      "best_iteration": 1094,
+      "training_seconds": 260.98475212499034,
+      "training_sample_auc": 0.9944540128110559,
+      "config": {
+        "n_estimators": 1500,
+        "learning_rate": 0.05,
+        "tree_method": "hist",
+        "max_depth": 5,
+        "min_child_weight": 100,
+        "max_bin": 63,
+        "n_jobs": 4,
+        "random_state": 42,
+        "reg_lambda": 10
+      },
+      "economic_rescaling": false,
+      "source": "reports/xgboost_regularized_2021_metrics.json"
+    },
+    {
+      "name": "xgboost_regularized",
+      "year": 2022,
+      "auc": 0.969021583862262,
+      "best_iteration": 635,
+      "training_seconds": 177.5906625839998,
+      "training_sample_auc": 0.9916204001946006,
+      "config": {
+        "n_estimators": 1500,
+        "learning_rate": 0.05,
+        "tree_method": "hist",
+        "max_depth": 5,
+        "min_child_weight": 100,
+        "max_bin": 63,
+        "n_jobs": 4,
+        "random_state": 42,
+        "reg_lambda": 10
+      },
+      "economic_rescaling": false,
+      "source": "reports/xgboost_regularized_2022_metrics.json"
+    },
+    {
+      "name": "xgboost_deep_regularized",
+      "year": 2021,
+      "auc": 0.9657153475165507,
+      "best_iteration": 885,
+      "training_seconds": 273.472142625018,
+      "training_sample_auc": 0.9985008169592877,
+      "config": {
+        "n_estimators": 1500,
+        "learning_rate": 0.05,
+        "tree_method": "hist",
+        "max_depth": 8,
+        "min_child_weight": 100,
+        "max_bin": 63,
+        "n_jobs": 4,
+        "random_state": 42,
+        "reg_lambda": 10,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8
+      },
+      "economic_rescaling": false,
+      "source": "reports/xgboost_deep_regularized_2021_metrics.json"
+    },
+    {
+      "name": "xgboost_deep_regularized",
+      "year": 2022,
+      "auc": 0.971547678689038,
+      "best_iteration": 645,
+      "training_seconds": 238.17504770800588,
+      "training_sample_auc": 0.9976487744085881,
+      "config": {
+        "n_estimators": 1500,
+        "learning_rate": 0.05,
+        "tree_method": "hist",
+        "max_depth": 8,
+        "min_child_weight": 100,
+        "max_bin": 63,
+        "n_jobs": 4,
+        "random_state": 42,
+        "reg_lambda": 10,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8
+      },
+      "economic_rescaling": false,
+      "source": "reports/xgboost_deep_regularized_2022_metrics.json"
+    },
+    {
+      "name": "xgboost_sampling",
+      "year": 2021,
+      "auc": 0.9643160231700406,
+      "best_iteration": 601,
+      "training_seconds": 171.36773412500042,
+      "training_sample_auc": 0.99477905737659,
+      "config": {
+        "n_estimators": 1500,
+        "learning_rate": 0.05,
+        "tree_method": "hist",
+        "max_depth": 6,
+        "min_child_weight": 25,
+        "max_bin": 63,
+        "n_jobs": 4,
+        "random_state": 42,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8
+      },
+      "economic_rescaling": false,
+      "source": "reports/xgboost_sampling_2021_metrics.json"
+    },
+    {
+      "name": "xgboost_sampling",
+      "year": 2022,
+      "auc": 0.9723460173710342,
+      "best_iteration": 855,
+      "training_seconds": 266.33943729198654,
+      "training_sample_auc": 0.9958082649343891,
+      "config": {
+        "n_estimators": 1500,
+        "learning_rate": 0.05,
+        "tree_method": "hist",
+        "max_depth": 6,
+        "min_child_weight": 25,
+        "max_bin": 63,
+        "n_jobs": 4,
+        "random_state": 42,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8
+      },
+      "economic_rescaling": false,
+      "source": "reports/xgboost_sampling_2022_metrics.json"
+    },
+    {
+      "name": "xgboost_recency",
+      "year": 2021,
+      "auc": 0.9673066776835197,
+      "best_iteration": 984,
+      "training_seconds": 250.6572928329988,
+      "training_sample_auc": 0.9964854995805952,
+      "config": {
+        "n_estimators": 1500,
+        "learning_rate": 0.05,
+        "tree_method": "hist",
+        "max_depth": 6,
+        "min_child_weight": 25,
+        "max_bin": 63,
+        "n_jobs": 4,
+        "random_state": 42
+      },
+      "economic_rescaling": false,
+      "source": "reports/xgboost_recency_2021_metrics.json"
+    },
+    {
+      "name": "xgboost_recency",
+      "year": 2022,
+      "auc": 0.9718167088748463,
+      "best_iteration": 978,
+      "training_seconds": 276.30114679198596,
+      "training_sample_auc": 0.9959157837800154,
+      "config": {
+        "n_estimators": 1500,
+        "learning_rate": 0.05,
+        "tree_method": "hist",
+        "max_depth": 6,
+        "min_child_weight": 25,
+        "max_bin": 63,
+        "n_jobs": 4,
+        "random_state": 42
+      },
+      "economic_rescaling": false,
+      "source": "reports/xgboost_recency_2022_metrics.json"
+    },
+    {
+      "name": "goal_xgboost_rescaled",
+      "year": 2021,
+      "auc": 0.9844790579623633,
+      "best_iteration": 1451,
+      "training_seconds": 354.2172549170209,
+      "training_sample_auc": 0.9978202532693023,
+      "config": {
+        "n_estimators": 1500,
+        "learning_rate": 0.05,
+        "tree_method": "hist",
+        "max_depth": 6,
+        "min_child_weight": 25,
+        "max_bin": 63,
+        "n_jobs": 4,
+        "random_state": 42
+      },
+      "economic_rescaling": true,
+      "source": "reports/goal_xgboost_rescaled_2021_metrics.json"
+    },
+    {
+      "name": "goal_xgboost_rescaled",
+      "year": 2022,
+      "auc": 0.9877781813696767,
+      "best_iteration": 1305,
+      "training_seconds": 385.5446227080538,
+      "training_sample_auc": 0.9974476099539701,
+      "config": {
+        "n_estimators": 1500,
+        "learning_rate": 0.05,
+        "tree_method": "hist",
+        "max_depth": 6,
+        "min_child_weight": 25,
+        "max_bin": 63,
+        "n_jobs": 4,
+        "random_state": 42
+      },
+      "economic_rescaling": true,
+      "source": "reports/goal_xgboost_rescaled_2022_metrics.json"
+    },
+    {
+      "name": "goal_xgboost_fine_bins",
+      "year": 2021,
+      "auc": 0.9844098608690767,
+      "best_iteration": 982,
+      "training_seconds": 258.21483637497295,
+      "training_sample_auc": 0.9970094484290501,
+      "config": {
+        "n_estimators": 1500,
+        "learning_rate": 0.05,
+        "tree_method": "hist",
+        "max_depth": 6,
+        "min_child_weight": 25,
+        "max_bin": 255,
+        "n_jobs": 4,
+        "random_state": 42
+      },
+      "economic_rescaling": true,
+      "source": "reports/goal_xgboost_fine_bins_2021_metrics.json"
+    },
+    {
+      "name": "goal_xgboost_fine_bins",
+      "year": 2022,
+      "auc": 0.9870244010866821,
+      "best_iteration": 1451,
+      "training_seconds": 399.39292479201686,
+      "training_sample_auc": 0.9977683335695674,
+      "config": {
+        "n_estimators": 1500,
+        "learning_rate": 0.05,
+        "tree_method": "hist",
+        "max_depth": 6,
+        "min_child_weight": 25,
+        "max_bin": 255,
+        "n_jobs": 4,
+        "random_state": 42
+      },
+      "economic_rescaling": true,
+      "source": "reports/goal_xgboost_fine_bins_2022_metrics.json"
+    },
+    {
+      "name": "goal_lightgbm_rescaled",
+      "year": 2021,
+      "auc": 0.9848728433332485,
+      "best_iteration": 1499,
+      "training_seconds": 1119.7269543750444,
+      "training_sample_auc": 0.9973708224970079,
+      "config": {
+        "n_estimators": 1500,
+        "learning_rate": 0.05,
+        "num_leaves": 31,
+        "min_child_samples": 100,
+        "max_bin": 63,
+        "random_state": 42,
+        "n_jobs": 4,
+        "deterministic": true,
+        "force_col_wise": true,
+        "verbosity": -1
+      },
+      "economic_rescaling": true,
+      "source": "reports/goal_lightgbm_rescaled_2021_metrics.json"
+    },
+    {
+      "name": "goal_lightgbm_rescaled",
+      "year": 2022,
+      "auc": 0.986684160101779,
+      "best_iteration": 800,
+      "training_seconds": 810.031528832973,
+      "training_sample_auc": 0.995245019478163,
+      "config": {
+        "n_estimators": 800,
+        "learning_rate": 0.05,
+        "num_leaves": 31,
+        "min_child_samples": 100,
+        "max_bin": 63,
+        "random_state": 42,
+        "n_jobs": 4,
+        "deterministic": true,
+        "force_col_wise": true,
+        "verbosity": -1
+      },
+      "economic_rescaling": true,
+      "source": "reports/goal_lightgbm_rescaled_2022_metrics.json"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://xgboost.readthedocs.io/en/stable/parameter.html",
+      "supports": "Parameter meanings: depth, child Hessian, L2, row/column sampling; CPU gradient-based sampling added3.2."
+    },
+    {
+      "url": "https://xgboost.readthedocs.io/en/stable/tutorials/param_tuning.html",
+      "supports": "Complexity, stochastic sampling, smaller step sizes with more rounds, and sequential HPO to avoid memory contention."
+    },
+    {
+      "url": "https://lightgbm.readthedocs.io/en/stable/Parameters-Tuning.html",
+      "supports": "Leaf-wise capacity, minimum leaf support, learning-rate/round interaction and extra_trees."
+    },
+    {
+      "url": "https://lightgbm.readthedocs.io/en/stable/Parameters.html",
+      "supports": "Bagging requires nonzero bagging_freq and bagging_fraction<1; leaf Hessian versus sample count."
+    },
+    {
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "supports": "Time-dependent observations require chronology-aware validation rather than ordinary shuffled IID splits."
+    },
+    {
+      "url": "https://scikit-learn.org/stable/auto_examples/model_selection/plot_nested_cross_validation_iris.html",
+      "supports": "Reusing scored folds for hyperparameter selection produces optimistic estimates; nested selection separates roles."
+    }
+  ]
+}

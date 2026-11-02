@@ -1,0 +1,16 @@
+{
+  "baseline": "submissions/submission_xgb_cnn_rescaled_80_20.csv",
+  "xgboost_source": "submissions/submission_xgb_ensemble.csv",
+  "xgboost_weight": 0.8,
+  "cnn_weight": 0.2,
+  "components": {
+    "Haukeli_G1": {
+      "route": "cnn_component",
+      "predictions": "data/processed/submission_cnn_specialist_haukeli_predictions.csv",
+      "report": "reports/submission_cnn_specialist_haukeli_run.json"
+    }
+  },
+  "selection_source": "reports/generator_specialists_comparison.json",
+  "selected_variant": "haukeli_cnn_component",
+  "note": "Haukeli improves global AUC on both historical years. Lio's global contribution is mixed. Preserve the current baseline for the other 13 generators; replace only Haukeli's 20% CNN contribution. No competition-test labels are used."
+}

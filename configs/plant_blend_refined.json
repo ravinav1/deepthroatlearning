@@ -1,0 +1,15 @@
+{
+  "selection_year": 2021,
+  "confirmation_year": 2022,
+  "baseline_transformer_weight": 0.2,
+  "candidate_transformer_weights": [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+  "initial_plant_weights_source": "reports/plant_blend_comparison.json",
+  "xgboost_profiles": ["price", "sampling", "regularized", "deep_regularized", "recency"],
+  "transformer_prefix": "transformer_rescaled",
+  "fixed_generator": "Haukeli_G1",
+  "specialist_prefix": "cnn_specialist_haukeli",
+  "baseline_submission": "submissions/submission_xgb_transformer_haukeli_80_20.csv",
+  "xgboost_submission": "submissions/submission_xgb_ensemble.csv",
+  "transformer_predictions": "data/processed/submission_transformer_rescaled_predictions.csv",
+  "note": "One coordinate pass starting from the existing 2021-selected plant weights, with Transformer weights in steps of 0.1. Select using 2021 pooled micro ROC-AUC, then check frozen weights on 2022. Compare against the current winner and one fixed mean of the old/refined weights, both selected on 2021. These years are reused development data; this is a refinement experiment after a separate reverse-year diagnostic, not an untouched holdout. No further grid or coordinate passes. Haukeli stays unchanged."
+}

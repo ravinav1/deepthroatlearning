@@ -1,0 +1,174 @@
+{
+  "created_utc": "2026-10-17T20:02:51.214268+00:00",
+  "evaluations": [
+    {
+      "year": 2021,
+      "mode": "native",
+      "baseline_auc": 0.9903748458953464,
+      "slices": [
+        {
+          "slice": "generators: Lio_G1, Haukeli_G1",
+          "output_fraction": 0.14285714285714285,
+          "wrong_pairs_touching_slice_fraction": 0.46910793782513693,
+          "maximum_auc_gain_if_all_incident_errors_removed": 0.004515236193283197,
+          "idealized_auc_ceiling_if_other_predictions_unchanged": 0.9948900820886296
+        },
+        {
+          "slice": "generators: Hogga_G1, Lio_G1, Haukeli_G1, Kjela_G1, Vinje_G3",
+          "output_fraction": 0.35714285714285715,
+          "wrong_pairs_touching_slice_fraction": 0.769155335286159,
+          "maximum_auc_gain_if_all_incident_errors_removed": 0.00740323863254578,
+          "idealized_auc_ceiling_if_other_predictions_unchanged": 0.9977780845278922
+        },
+        {
+          "slice": "1 cases with greatest allocated errors (selected using labels)",
+          "output_fraction": 0.0027397260273972603,
+          "wrong_pairs_touching_slice_fraction": 0.032643415886831534,
+          "maximum_auc_gain_if_all_incident_errors_removed": 0.0003141979084130507,
+          "idealized_auc_ceiling_if_other_predictions_unchanged": 0.9906890438037594
+        },
+        {
+          "slice": "5 cases with greatest allocated errors (selected using labels)",
+          "output_fraction": 0.0136986301369863,
+          "wrong_pairs_touching_slice_fraction": 0.12999785380272993,
+          "maximum_auc_gain_if_all_incident_errors_removed": 0.0012512493761255032,
+          "idealized_auc_ceiling_if_other_predictions_unchanged": 0.9916260952714719
+        },
+        {
+          "slice": "10 cases with greatest allocated errors (selected using labels)",
+          "output_fraction": 0.0273972602739726,
+          "wrong_pairs_touching_slice_fraction": 0.21143798712303352,
+          "maximum_auc_gain_if_all_incident_errors_removed": 0.0020351232096369586,
+          "idealized_auc_ceiling_if_other_predictions_unchanged": 0.9924099691049834
+        },
+        {
+          "slice": "37 cases with greatest allocated errors (selected using labels)",
+          "output_fraction": 0.10136986301369863,
+          "wrong_pairs_touching_slice_fraction": 0.47134013975600214,
+          "maximum_auc_gain_if_all_incident_errors_removed": 0.0045367214808604795,
+          "idealized_auc_ceiling_if_other_predictions_unchanged": 0.9949115673762069
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "mode": "native",
+      "baseline_auc": 0.989497911399091,
+      "slices": [
+        {
+          "slice": "generators: Lio_G1, Haukeli_G1",
+          "output_fraction": 0.14285714285714285,
+          "wrong_pairs_touching_slice_fraction": 0.4295972469520571,
+          "maximum_auc_gain_if_all_incident_errors_removed": 0.0045116683501970675,
+          "idealized_auc_ceiling_if_other_predictions_unchanged": 0.9940095797492882
+        },
+        {
+          "slice": "generators: Hogga_G1, Lio_G1, Haukeli_G1, Kjela_G1, Vinje_G3",
+          "output_fraction": 0.35714285714285715,
+          "wrong_pairs_touching_slice_fraction": 0.7774452515876715,
+          "maximum_auc_gain_if_all_incident_errors_removed": 0.008164798914529679,
+          "idealized_auc_ceiling_if_other_predictions_unchanged": 0.9976627103136207
+        },
+        {
+          "slice": "two inspected November cases 2871,2872",
+          "output_fraction": 0.005479452054794521,
+          "wrong_pairs_touching_slice_fraction": 0.08838360319276455,
+          "maximum_auc_gain_if_all_incident_errors_removed": 0.0009282124315979928,
+          "idealized_auc_ceiling_if_other_predictions_unchanged": 0.9904261238306891
+        },
+        {
+          "slice": "1 cases with greatest allocated errors (selected using labels)",
+          "output_fraction": 0.0027397260273972603,
+          "wrong_pairs_touching_slice_fraction": 0.04914228948269241,
+          "maximum_auc_gain_if_all_incident_errors_removed": 0.000516096678198752,
+          "idealized_auc_ceiling_if_other_predictions_unchanged": 0.9900140080772898
+        },
+        {
+          "slice": "5 cases with greatest allocated errors (selected using labels)",
+          "output_fraction": 0.0136986301369863,
+          "wrong_pairs_touching_slice_fraction": 0.15780726382739552,
+          "maximum_auc_gain_if_all_incident_errors_removed": 0.0016573058665823224,
+          "idealized_auc_ceiling_if_other_predictions_unchanged": 0.9911552172656733
+        },
+        {
+          "slice": "10 cases with greatest allocated errors (selected using labels)",
+          "output_fraction": 0.0273972602739726,
+          "wrong_pairs_touching_slice_fraction": 0.2616785069751005,
+          "maximum_auc_gain_if_all_incident_errors_removed": 0.002748170865206077,
+          "idealized_auc_ceiling_if_other_predictions_unchanged": 0.9922460822642971
+        },
+        {
+          "slice": "37 cases with greatest allocated errors (selected using labels)",
+          "output_fraction": 0.10136986301369863,
+          "wrong_pairs_touching_slice_fraction": 0.5678180730728123,
+          "maximum_auc_gain_if_all_incident_errors_removed": 0.005963275712608069,
+          "idealized_auc_ceiling_if_other_predictions_unchanged": 0.9954611871116991
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "mode": "frozen",
+      "baseline_auc": 0.9870830517775449,
+      "slices": [
+        {
+          "slice": "generators: Lio_G1, Haukeli_G1",
+          "output_fraction": 0.14285714285714285,
+          "wrong_pairs_touching_slice_fraction": 0.4620098677549227,
+          "maximum_auc_gain_if_all_incident_errors_removed": 0.005967757540053687,
+          "idealized_auc_ceiling_if_other_predictions_unchanged": 0.9930508093175986
+        },
+        {
+          "slice": "generators: Hogga_G1, Lio_G1, Haukeli_G1, Kjela_G1, Vinje_G3",
+          "output_fraction": 0.35714285714285715,
+          "wrong_pairs_touching_slice_fraction": 0.7814747013617283,
+          "maximum_auc_gain_if_all_incident_errors_removed": 0.010094268254648044,
+          "idealized_auc_ceiling_if_other_predictions_unchanged": 0.997177320032193
+        },
+        {
+          "slice": "two inspected November cases 2871,2872",
+          "output_fraction": 0.005479452054794521,
+          "wrong_pairs_touching_slice_fraction": 0.07331807346333313,
+          "maximum_auc_gain_if_all_incident_errors_removed": 0.000947045758696037,
+          "idealized_auc_ceiling_if_other_predictions_unchanged": 0.9880300975362409
+        },
+        {
+          "slice": "1 cases with greatest allocated errors (selected using labels)",
+          "output_fraction": 0.0027397260273972603,
+          "wrong_pairs_touching_slice_fraction": 0.040921497395286444,
+          "maximum_auc_gain_if_all_incident_errors_removed": 0.0005285808630402483,
+          "idealized_auc_ceiling_if_other_predictions_unchanged": 0.987611632640585
+        },
+        {
+          "slice": "5 cases with greatest allocated errors (selected using labels)",
+          "output_fraction": 0.0136986301369863,
+          "wrong_pairs_touching_slice_fraction": 0.14410138824418808,
+          "maximum_auc_gain_if_all_incident_errors_removed": 0.0018613501707340845,
+          "idealized_auc_ceiling_if_other_predictions_unchanged": 0.9889444019482789
+        },
+        {
+          "slice": "10 cases with greatest allocated errors (selected using labels)",
+          "output_fraction": 0.0273972602739726,
+          "wrong_pairs_touching_slice_fraction": 0.2441914763810486,
+          "maximum_auc_gain_if_all_incident_errors_removed": 0.0031542086567788842,
+          "idealized_auc_ceiling_if_other_predictions_unchanged": 0.9902372604343237
+        },
+        {
+          "slice": "37 cases with greatest allocated errors (selected using labels)",
+          "output_fraction": 0.10136986301369863,
+          "wrong_pairs_touching_slice_fraction": 0.5471457637576608,
+          "maximum_auc_gain_if_all_incident_errors_removed": 0.0070674535005933814,
+          "idealized_auc_ceiling_if_other_predictions_unchanged": 0.9941505052781382
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "data/processed/round6_native_2021_baseline.npz": "b7e8422abbd77ba4ec2fcc1c0a8957a1594bc7ac043111f2535ef8e2fc7dd8dd",
+    "data/processed/round6_native_2022_baseline.npz": "90cb0e574d16b03e0a537bd641d945885a756414874d331075bbcf61713538a5",
+    "data/processed/round6_frozen_2022_baseline.npz": "c02d61695d1842e717abf152ee0d84063611623867bcc5b5fe1124d3cc2a5c92"
+  },
+  "fitting_performed": false,
+  "oracle_predictions_created": false,
+  "definition": "Pure error-budget arithmetic: baseline_auc + (1-baseline_auc)*fraction_of_wrong_positive_negative_pairs_touching_slice. This assumes every incident error can be removed without adding any elsewhere. It is an idealized maximum repair budget with all other predictions fixed, not an attainable model score. Overlapping slices cannot be added. Top cases are selected retrospectively using validation labels. No implication for unknown competition labels."
+}

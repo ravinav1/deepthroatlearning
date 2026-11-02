@@ -1,0 +1,105 @@
+{
+  "scope": "Independent specialist review with real-feature comparisons and mocked main-loop routing; no real model fit.",
+  "reviewed_files": {
+    "src/round2_tree_specialist.py": "a09785f700df987085f637b780adcd4b80bb671029d60696bcf0c8485b2d714f",
+    "configs/round2_xgb_haukeli_2021.json": "cafbe76658fb9bc457b5e634c468e718658c59148f00036f01dd8915c3e1defa",
+    "configs/round2_xgb_lio_2021.json": "fc7620fd40c54b97d953c892277c13106ffdbad5d1261e3b7fea3ce2975009c3"
+  },
+  "checks": {
+    "actual_features": {
+      "Haukeli_G1": {
+        "features": 113,
+        "rows": 336,
+        "non_identity_features_exact_shared_slice": true,
+        "constant_category_zero": true,
+        "all_reservoir_context_count": 17
+      },
+      "Lio_G1": {
+        "features": 113,
+        "rows": 336,
+        "non_identity_features_exact_shared_slice": true,
+        "constant_category_zero": true,
+        "all_reservoir_context_count": 17
+      }
+    },
+    "actual_splits": [
+      {
+        "year": 2021,
+        "train": 2186,
+        "validation": 365,
+        "purged": 6,
+        "last_training_start": "2020-12-25 00:00:00+00:00",
+        "test_ids_excluded": true
+      },
+      {
+        "year": 2022,
+        "train": 2551,
+        "validation": 365,
+        "purged": 6,
+        "last_training_start": "2021-12-25 00:00:00+00:00",
+        "test_ids_excluded": true
+      }
+    ],
+    "main_routing_with_mock_estimator": {
+      "no_real_estimator_fit": true,
+      "default_2021_stopping_preserved": true,
+      "selection_source_with_omitted_stopping_cannot_reenable_stopping": true,
+      "frozen_count_exact": true,
+      "full_fit_has_no_eval_set": true,
+      "validation_id_order_exact": true,
+      "full_fit_template_id_order_exact": true,
+      "other_generator_probabilities_unchanged": true,
+      "target_metrics_and_output_columns_correct": true,
+      "records": [
+        {
+          "callbacks": 1,
+          "rounds": 7,
+          "rows": 504,
+          "eval_sets": 1
+        },
+        {
+          "callbacks": 0,
+          "rounds": 7,
+          "rows": 840,
+          "eval_sets": 1
+        },
+        {
+          "callbacks": 0,
+          "rounds": 7,
+          "rows": 1176,
+          "eval_sets": 0
+        }
+      ]
+    }
+  },
+  "material_fix": {
+    "issue": "A selection_source config could omit early_stopping_rounds, pass frozen_selection because .get returned None, then enable100-round validation stopping via the default in main.",
+    "resolution": "Any validated selection_source now forces stopping=None. The raw2021 no-source default remains100.",
+    "coordination": "Author /root/round2_diagnosis agreed before the edit."
+  },
+  "metadata_fix": "Added output_columns to reports so full-fit partial predictions carry explicit target schema and are compatible with specialist component readers.",
+  "score_interpretation": "Target-only early stopping uses the target generator AUC. Its best count must be frozen for confirmation/full fit; standalone specialist gains must be assessed again under the entire current frozen ensemble because micro-AUC includes cross-generator comparisons.",
+  "full_fit_blending": {
+    "compatible_exporter": "src/make_goal_submission.py accepts partial component sources when they contain every output for the plant. Haukeli and Lio each have one generator, so their168-column files qualify.",
+    "required_recipe": "Replace only the target plant XGBoost source with the specialist source at the existing XGBoost weight, retaining LightGBM/Transformer contributions. If the preselected historical variant averages old and new XGBoost, split the original XGBoost weight equally between shared and specialist sources.",
+    "current_weights": {
+      "Haukeli": {
+        "specialist_replacement": 0.5,
+        "lightgbm_rescaled": 0.5
+      },
+      "Lio": {
+        "specialist_replacement": 0.35,
+        "lightgbm_rescaled": 0.35,
+        "transformer": 0.3
+      }
+    },
+    "warning": "The legacy make_specialist_submission direct route replaces the final generator forecast, not just the XGBoost component; that would not reproduce this experiment unless its complete recipe were intentionally rebuilt."
+  },
+  "limits": [
+    "2021 specialist cap2200 differs from the current shared baseline cap1500; this experiment changes capacity allocation and allowed tree budget, not architecture alone. Non-cap tree parameters and features match.",
+    "2021 early stopping selects on target AUC, while promotion must use the final ensemble pooled micro-AUC.",
+    "2021/2022 are reused development years; fixed counts remove fresh2022 stopping selection but not historical reuse or2022-selected retained components.",
+    "If claiming no selection-horizon overlap, also report2022Jan7 onward; the first six daily starts overlap2021validation-label horizons.",
+    "Current scripts intentionally do not create a full competition submission from partial specialist probabilities."
+  ]
+}

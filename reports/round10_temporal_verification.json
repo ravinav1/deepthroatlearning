@@ -1,0 +1,58 @@
+{
+  "created_utc": "2026-10-18T12:34:49.156890+00:00",
+  "saved_model_replays": [
+    {
+      "mode": "native",
+      "model": "same_hour",
+      "case_count": 359,
+      "probabilities": 844368,
+      "exact_match": true,
+      "maximum_absolute_error": 0.0
+    },
+    {
+      "mode": "native",
+      "model": "temporal",
+      "case_count": 359,
+      "probabilities": 844368,
+      "exact_match": true,
+      "maximum_absolute_error": 0.0
+    },
+    {
+      "mode": "native",
+      "model": "same_hour_boundary_matched",
+      "case_count": 359,
+      "probabilities": 844368,
+      "exact_match": true,
+      "maximum_absolute_error": 0.0
+    },
+    {
+      "mode": "frozen",
+      "model": "same_hour",
+      "case_count": 359,
+      "probabilities": 844368,
+      "exact_match": true,
+      "maximum_absolute_error": 0.0
+    },
+    {
+      "mode": "frozen",
+      "model": "temporal",
+      "case_count": 359,
+      "probabilities": 844368,
+      "exact_match": true,
+      "maximum_absolute_error": 0.0
+    },
+    {
+      "mode": "frozen",
+      "model": "same_hour_boundary_matched",
+      "case_count": 359,
+      "probabilities": 844368,
+      "exact_match": true,
+      "maximum_absolute_error": 0.0
+    }
+  ],
+  "total_probabilities_replayed": 5066208,
+  "all_source_hashes_unchanged": true,
+  "identity_exact_in_both_scenarios": true,
+  "fitting_performed": false,
+  "matched_neighbor_coefficients_exactly_zero": true
+}

@@ -1,0 +1,78 @@
+{
+  "checked_utc": "2026-10-14T15:11:35.262832+00:00",
+  "status": "passed",
+  "scope": "Read-only checkpoint inference on 17 fixed competition cases; no fitting.",
+  "kind": "specialist",
+  "cpu_threads": 1,
+  "model": {
+    "framework": "xgboost",
+    "trees": 121,
+    "generator_id_categories": [
+      0
+    ],
+    "feature_count": 113,
+    "torch_imported": false
+  },
+  "sample_selection": "np.linspace(0,724,17,dtype=int), fixed before inspecting predictions",
+  "template_row_positions": [
+    0,
+    45,
+    90,
+    135,
+    181,
+    226,
+    271,
+    316,
+    362,
+    407,
+    452,
+    497,
+    543,
+    588,
+    633,
+    678,
+    724
+  ],
+  "run_ids": [
+    2923,
+    2968,
+    3013,
+    3058,
+    3104,
+    3149,
+    3194,
+    3239,
+    3285,
+    3330,
+    3375,
+    3420,
+    3466,
+    3511,
+    3556,
+    3601,
+    3647
+  ],
+  "sample_cases": 17,
+  "all_cached_cases": 725,
+  "output_columns_per_case": 168,
+  "max_absolute_difference": 2.978515623031086e-08,
+  "absolute_tolerance": 1e-07,
+  "relative_tolerance": 0,
+  "tolerance_note": "Float32 CSV serialization; neural replay may differ slightly with CPU batch size/thread arithmetic.",
+  "input_sha256": {
+    "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/configs/round2_xgb_haukeli_full.json": "7ff3a0af22f45ef4577e8d6fa610f7b15361ea9a6346690654c36c3cff52a22d",
+    "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/models/round2_xgb_haukeli_full.ubj": "a62c214630e5ab6c365712438d6bae6946b2b4e789b95ab93d5c4fcebd5b1bf6",
+    "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/data/processed/round2_xgb_haukeli_full_predictions.csv": "eb9d6d8243369519937b2e84d8acfaeb584142da57be9f19836b0586b79e4500",
+    "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/reports/round2_xgb_haukeli_full_run.json": "da0f0924347294727959877995ae3ccf6eaa379762c8af863d744ad28c36c168"
+  },
+  "input_hashes_unchanged_during_replay": true,
+  "checks": {
+    "full_cached_id_and_column_order": true,
+    "sample_id_and_column_order": true,
+    "saved_feature_names_order": true,
+    "finite_unit_interval_probabilities": true,
+    "competition_training_ids_disjoint": true,
+    "frameworks_in_separate_processes": true
+  },
+  "limitations": "Checks sampled checkpoint/export agreement, not every test prediction or model generalization."
+}

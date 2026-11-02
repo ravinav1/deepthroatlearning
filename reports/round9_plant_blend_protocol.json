@@ -1,0 +1,20 @@
+{
+  "created_utc": "2026-10-17T18:44:25.458439+00:00",
+  "baseline": ".5 Round3 + .25 original Round5 seed299 + .25 original Round5 seed673",
+  "candidate": "Per plant: (1-w)*Round3 + w*mean(original Round5 seeds299,673)",
+  "selection": "2021 pooled micro AUC, one coordinate pass, plant order is first appearance in template columns",
+  "initial_weight": 0.5,
+  "weight_candidates": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "minimum_coordinate_gain": 2e-05,
+  "minimum_final_2021_gain": 5e-05,
+  "minimum_native_2022_gain_all_and_jan7": 5e-05,
+  "minimum_frozen_2022_gain_all_and_jan7": 0,
+  "no_retries": true,
+  "no_model_fitting": true,
+  "confirmation": "Lock weights on disk before loading either 2022 candidate evaluation",
+  "source_code_sha256": "83e386aecd2e54d803ac61a9965663b1ec4c10e21dba17c9b9c5d33691739d15"
+}

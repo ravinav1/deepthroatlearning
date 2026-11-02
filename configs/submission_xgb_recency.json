@@ -1,0 +1,19 @@
+{
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "use_price_context": true,
+  "model_type": "xgboost",
+  "model": {
+    "n_estimators": 978,
+    "learning_rate": 0.05,
+    "tree_method": "hist",
+    "max_depth": 6,
+    "min_child_weight": 25,
+    "max_bin": 63,
+    "n_jobs": 4,
+    "random_state": 42
+  },
+  "recency_half_life_years": 4,
+  "selection_source": "reports/xgboost_recency_2022_metrics.json"
+}

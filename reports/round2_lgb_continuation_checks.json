@@ -1,0 +1,60 @@
+{
+  "validation_end_to_end": {
+    "source_rounds": 1,
+    "requested_total": 7,
+    "retained_initial_model": true,
+    "selected_total_rounds": 1,
+    "evaluated_total_rounds": 7,
+    "source_unchanged": true,
+    "auc": 0.9996456916099773
+  },
+  "full_fit_end_to_end": {
+    "initial_rounds": 3,
+    "additional_rounds": 4,
+    "selected_total_rounds": 7,
+    "source_unchanged": true,
+    "submission_shape": [
+      1,
+      169
+    ]
+  },
+  "actual_2021_metadata": {
+    "source_model": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/models/lightgbm_goal_lightgbm_rescaled_2021.txt",
+    "source_report": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/reports/goal_lightgbm_rescaled_2021_metrics.json",
+    "source_model_sha256": "67b5b8657ca83462ea8f4513f77646963e7c9ea70677f0f214c95206bd5a6474",
+    "source_report_sha256": "cbaa552396492d0e3ac800b05289e5a08c3f358a583bc897d0b1ce61aa9221dd",
+    "initial_rounds": 1499,
+    "requested_total_rounds": 2400,
+    "requested_additional_rounds": 901,
+    "training_case_ids_sha256": "e5d4ff3d96e4f6bc6b5d9a945c4c628ab156dfdf5e3f295898baaf5733621f99",
+    "cohort_verification": "legacy_report_split_dates_count_and_preserved_original_data",
+    "note": "Continue from the saved best iteration; early-stopping patience restarts.",
+    "training_cases": 2186,
+    "features": 113
+  },
+  "synthetic_equivalence": {
+    "rows": 256,
+    "threads": 1,
+    "full_rounds": 20,
+    "initial_rounds": 9,
+    "additional_rounds": 11,
+    "maximum_absolute_probability_difference": 0.0,
+    "bit_identical": true,
+    "source_unchanged": true,
+    "note": "Verified in prior tiny test during this task."
+  },
+  "guard_tests_passed": [
+    "changed feature order",
+    "changed num_leaves",
+    "changed use_extended",
+    "changed cohort IDs with same count",
+    "validation model used for full fit",
+    "total cap not above source count",
+    "default no-init parameters unchanged"
+  ],
+  "limits": [
+    "Old source report has no full cohort hash; split configuration, case count, end date, preserved original data and reproduction of validation AUC are checked. New reports store the cohort hash.",
+    "Early-stopping patience restarts from saved best model. Selected source model is retained if continuation does not improve.",
+    "No real-data training was run by this verification."
+  ]
+}

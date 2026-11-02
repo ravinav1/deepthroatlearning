@@ -1,0 +1,15 @@
+{
+  "sources": [
+    {
+      "file": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/submissions/submission_xgboost.csv",
+      "weight": 0.75
+    },
+    {
+      "file": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/submissions/submission_topology.csv",
+      "weight": 0.25
+    }
+  ],
+  "test_cases": 725,
+  "outputs_per_case": 2352,
+  "submission": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/submissions/submission_xgb_lgb_75_25.csv"
+}

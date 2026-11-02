@@ -1,0 +1,39 @@
+{
+  "full_fit_checks": [
+    {
+      "model_type": "xgboost",
+      "training_cases": 2922,
+      "test_cases": 725,
+      "trees": 1305,
+      "feature_count": 113,
+      "selection_source": "reports/goal_xgboost_rescaled_2022_metrics.json",
+      "matching_selection_recipe": true
+    },
+    {
+      "model_type": "lightgbm",
+      "training_cases": 2922,
+      "test_cases": 725,
+      "trees": 800,
+      "feature_count": 113,
+      "selection_source": "reports/goal_lightgbm_rescaled_2022_metrics.json",
+      "matching_selection_recipe": true
+    }
+  ],
+  "python_syntax_checked": true,
+  "competition_labels_used": false,
+  "original_files_audit": "reports/goal_original_files_audit.json",
+  "submission_checks": {
+    "path": "submissions/submission_rescaled_xgb_lgb_transformer.csv",
+    "shape": [
+      725,
+      2353
+    ],
+    "unique_and_matching_case_ids": true,
+    "exact_template_column_order": true,
+    "finite_unit_interval_probabilities": true,
+    "min_probability": 5.692650965378107e-06,
+    "max_probability": 0.9999987793224219,
+    "sha256": "30ab918cc77a8bd3aa63850a41f92fd633635ce0adbd2900d88f292488fa3a53",
+    "recipe_matches_historical_fixed_mean": true
+  }
+}

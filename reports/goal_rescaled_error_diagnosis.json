@@ -1,0 +1,1008 @@
+{
+  "selection_source": "reports/goal_rescaled_plant_blend_comparison.json",
+  "selected_plant_weights": {
+    "Hogga": 0.3,
+    "Tokke": 0.9,
+    "Lio": 0.3,
+    "Byrte": 0.0,
+    "Vinje": 0.5,
+    "Songa": 0.0,
+    "Kjela": 0.2,
+    "Vesle Kjela": 0.0
+  },
+  "selected_haukeli_cnn_weight": 0.0,
+  "prediction_sources": [
+    "data/processed/xgboost_price_2021_validation_predictions.csv",
+    "data/processed/xgboost_sampling_2021_validation_predictions.csv",
+    "data/processed/xgboost_regularized_2021_validation_predictions.csv",
+    "data/processed/xgboost_deep_regularized_2021_validation_predictions.csv",
+    "data/processed/xgboost_recency_2021_validation_predictions.csv",
+    "data/processed/goal_xgboost_rescaled_2021_validation_predictions.csv",
+    "data/processed/transformer_rescaled_2021_validation_predictions.csv",
+    "data/processed/cnn_specialist_haukeli_2021_validation_predictions.csv",
+    "data/processed/xgboost_price_2022_validation_predictions.csv",
+    "data/processed/xgboost_sampling_2022_validation_predictions.csv",
+    "data/processed/xgboost_regularized_2022_validation_predictions.csv",
+    "data/processed/xgboost_deep_regularized_2022_validation_predictions.csv",
+    "data/processed/xgboost_recency_2022_validation_predictions.csv",
+    "data/processed/goal_xgboost_rescaled_2022_validation_predictions.csv",
+    "data/processed/transformer_rescaled_2022_validation_predictions.csv",
+    "data/processed/cnn_specialist_haukeli_2022_validation_predictions.csv"
+  ],
+  "test_case_ids_excluded_from_labels": true,
+  "note": "Read-only cached historical diagnosis. Selected weights were chosen on 2021 and frozen on 2022; both years are reused development data. True-label transition masks are diagnostic only. Incident ranking-loss shares count pairs involving a group at least once and overlap between groups. Monthly and horizon-day AUCs use different subsets and do not add to global AUC. No weight tuning, training, test labels or causal claims.",
+  "results": [
+    {
+      "year": 2021,
+      "cases": 365,
+      "initial_reference": {
+        "micro_roc_auc": 0.9868456865125457,
+        "ranking_loss": 0.013154313487454328,
+        "per_generator": [
+          {
+            "generator": "Hogga_G1",
+            "auc": 0.9674186581517281,
+            "on_fraction": 0.5462002609262884,
+            "mean_probability": 0.5348315982164149,
+            "fraction_of_remaining_ranking_loss": 0.2094520430920845,
+            "fraction_of_possible_pairs": 0.14009442091199667
+          },
+          {
+            "generator": "Tokke_G1",
+            "auc": 0.9885360120924037,
+            "on_fraction": 0.5946673189823874,
+            "mean_probability": 0.6238770953312813,
+            "fraction_of_remaining_ranking_loss": 0.14015601870179,
+            "fraction_of_possible_pairs": 0.14148134876292703
+          },
+          {
+            "generator": "Tokke_G2",
+            "auc": 0.9924119317103727,
+            "on_fraction": 0.4354696673189824,
+            "mean_probability": 0.4403959670214188,
+            "fraction_of_remaining_ranking_loss": 0.10663978181570653,
+            "fraction_of_possible_pairs": 0.13728841451186366
+          },
+          {
+            "generator": "Tokke_G3",
+            "auc": 0.9919589642905908,
+            "on_fraction": 0.5160958904109589,
+            "mean_probability": 0.5247541190412185,
+            "fraction_of_remaining_ranking_loss": 0.11248451090746708,
+            "fraction_of_possible_pairs": 0.1392816179628638
+          },
+          {
+            "generator": "Tokke_G4",
+            "auc": 0.9924548450061842,
+            "on_fraction": 0.4520547945205479,
+            "mean_probability": 0.44628828692370687,
+            "fraction_of_remaining_ranking_loss": 0.10519843776221288,
+            "fraction_of_possible_pairs": 0.13767657385960883
+          },
+          {
+            "generator": "Lio_G1",
+            "auc": 0.9342618815949743,
+            "on_fraction": 0.5453848662752773,
+            "mean_probability": 0.4915916660905392,
+            "fraction_of_remaining_ranking_loss": 0.29650067372065386,
+            "fraction_of_possible_pairs": 0.14007191435743152
+          },
+          {
+            "generator": "Byrte_G1",
+            "auc": 0.998769651672373,
+            "on_fraction": 0.5374755381604697,
+            "mean_probability": 0.5413586781266028,
+            "fraction_of_remaining_ranking_loss": 0.042422795786687374,
+            "fraction_of_possible_pairs": 0.13985502039753034
+          },
+          {
+            "generator": "Vinje_G1",
+            "auc": 0.9895660810541425,
+            "on_fraction": 0.4601761252446184,
+            "mean_probability": 0.46280335516589133,
+            "fraction_of_remaining_ranking_loss": 0.12120339491483337,
+            "fraction_of_possible_pairs": 0.13787077378600737
+          },
+          {
+            "generator": "Vinje_G2",
+            "auc": 0.985822738691226,
+            "on_fraction": 0.39739073711676454,
+            "mean_probability": 0.38951137943774383,
+            "fraction_of_remaining_ranking_loss": 0.1393752270112928,
+            "fraction_of_possible_pairs": 0.13644003489710324
+          },
+          {
+            "generator": "Vinje_G3",
+            "auc": 0.9786040311994093,
+            "on_fraction": 0.2810828440965427,
+            "mean_probability": 0.23364090485673214,
+            "fraction_of_remaining_ranking_loss": 0.17294708446700865,
+            "fraction_of_possible_pairs": 0.13421815566023645
+          },
+          {
+            "generator": "Haukeli_G1",
+            "auc": 0.945593717319958,
+            "on_fraction": 0.37146118721461185,
+            "mean_probability": 0.4103607040654606,
+            "fraction_of_remaining_ranking_loss": 0.2749609145344684,
+            "fraction_of_possible_pairs": 0.1358964813338484
+          },
+          {
+            "generator": "Songa_G1",
+            "auc": 0.9949640744376698,
+            "on_fraction": 0.3967221135029354,
+            "mean_probability": 0.3931069932125416,
+            "fraction_of_remaining_ranking_loss": 0.08047342495988351,
+            "fraction_of_possible_pairs": 0.1364256712705512
+          },
+          {
+            "generator": "Kjela_G1",
+            "auc": 0.9858216075770214,
+            "on_fraction": 0.14256360078277885,
+            "mean_probability": 0.13513531939494527,
+            "fraction_of_remaining_ranking_loss": 0.08215680257959558,
+            "fraction_of_possible_pairs": 0.1322981304793388
+          },
+          {
+            "generator": "Vesle Kjela_G1",
+            "auc": 0.9996396106076109,
+            "on_fraction": 0.6981898238747554,
+            "mean_probability": 0.6951775098590219,
+            "fraction_of_remaining_ranking_loss": 0.023423099594545017,
+            "fraction_of_possible_pairs": 0.14476742701326822
+          }
+        ],
+        "lio_haukeli_union": {
+          "fraction_of_remaining_ranking_loss": 0.5194854454028697,
+          "fraction_of_possible_pairs": 0.2654422720371869
+        },
+        "within_generator_ranking_loss_contribution": 0.001218165594409796,
+        "cross_generator_ranking_loss_contribution": 0.011936147893044504,
+        "transitions": {
+          "definition": "Within +/-2 hours of a truth-label transition, centered on the first hour with the new state; no assumed label before t0. Diagnostic labels only.",
+          "output_fraction_near_switch": 0.08049925449631908,
+          "fraction_of_remaining_ranking_loss": 0.46234450845460034,
+          "fraction_of_possible_pairs": 0.1551865330152972,
+          "near_micro_roc_auc": 0.8720241707207128,
+          "away_micro_roc_auc": 0.9916283426336909
+        }
+      },
+      "selected_plant": {
+        "micro_roc_auc": 0.9878645643215969,
+        "ranking_loss": 0.01213543567840314,
+        "per_generator": [
+          {
+            "generator": "Hogga_G1",
+            "auc": 0.9694240256687625,
+            "on_fraction": 0.5462002609262884,
+            "mean_probability": 0.534091570493449,
+            "fraction_of_remaining_ranking_loss": 0.21131677492538484,
+            "fraction_of_possible_pairs": 0.14009442091199667
+          },
+          {
+            "generator": "Tokke_G1",
+            "auc": 0.9895405301937306,
+            "on_fraction": 0.5946673189823874,
+            "mean_probability": 0.6216620347389241,
+            "fraction_of_remaining_ranking_loss": 0.1369882791429172,
+            "fraction_of_possible_pairs": 0.14148134876292703
+          },
+          {
+            "generator": "Tokke_G2",
+            "auc": 0.9923767442559313,
+            "on_fraction": 0.4354696673189824,
+            "mean_probability": 0.43929070808672993,
+            "fraction_of_remaining_ranking_loss": 0.1109687707920602,
+            "fraction_of_possible_pairs": 0.13728841451186366
+          },
+          {
+            "generator": "Tokke_G3",
+            "auc": 0.9921038658864906,
+            "on_fraction": 0.5160958904109589,
+            "mean_probability": 0.5232749321939539,
+            "fraction_of_remaining_ranking_loss": 0.11228249714053351,
+            "fraction_of_possible_pairs": 0.1392816179628638
+          },
+          {
+            "generator": "Tokke_G4",
+            "auc": 0.99227421214698,
+            "on_fraction": 0.4520547945205479,
+            "mean_probability": 0.4460498376008262,
+            "fraction_of_remaining_ranking_loss": 0.11094086298529293,
+            "fraction_of_possible_pairs": 0.13767657385960883
+          },
+          {
+            "generator": "Lio_G1",
+            "auc": 0.9440511585342093,
+            "on_fraction": 0.5453848662752773,
+            "mean_probability": 0.48513185567879774,
+            "fraction_of_remaining_ranking_loss": 0.2938434175208761,
+            "fraction_of_possible_pairs": 0.14007191435743152
+          },
+          {
+            "generator": "Byrte_G1",
+            "auc": 0.9980450969518214,
+            "on_fraction": 0.5374755381604697,
+            "mean_probability": 0.5398540448932789,
+            "fraction_of_remaining_ranking_loss": 0.0572309397273591,
+            "fraction_of_possible_pairs": 0.13985502039753034
+          },
+          {
+            "generator": "Vinje_G1",
+            "auc": 0.9906894475985688,
+            "on_fraction": 0.4601761252446184,
+            "mean_probability": 0.4690264273227603,
+            "fraction_of_remaining_ranking_loss": 0.1201088148748309,
+            "fraction_of_possible_pairs": 0.13787077378600737
+          },
+          {
+            "generator": "Vinje_G2",
+            "auc": 0.9868733437769244,
+            "on_fraction": 0.39739073711676454,
+            "mean_probability": 0.4001116938887996,
+            "fraction_of_remaining_ranking_loss": 0.14011804576220147,
+            "fraction_of_possible_pairs": 0.13644003489710324
+          },
+          {
+            "generator": "Vinje_G3",
+            "auc": 0.9804239457598711,
+            "on_fraction": 0.2810828440965427,
+            "mean_probability": 0.25362910795626964,
+            "fraction_of_remaining_ranking_loss": 0.16372348261673933,
+            "fraction_of_possible_pairs": 0.13421815566023645
+          },
+          {
+            "generator": "Haukeli_G1",
+            "auc": 0.9637095912358984,
+            "on_fraction": 0.37146118721461185,
+            "mean_probability": 0.3981911109564941,
+            "fraction_of_remaining_ranking_loss": 0.23268348153231036,
+            "fraction_of_possible_pairs": 0.1358964813338484
+          },
+          {
+            "generator": "Songa_G1",
+            "auc": 0.9950994751627609,
+            "on_fraction": 0.3967221135029354,
+            "mean_probability": 0.39297277721685325,
+            "fraction_of_remaining_ranking_loss": 0.08407125620476419,
+            "fraction_of_possible_pairs": 0.1364256712705512
+          },
+          {
+            "generator": "Kjela_G1",
+            "auc": 0.9830517210285799,
+            "on_fraction": 0.14256360078277885,
+            "mean_probability": 0.12355493285076637,
+            "fraction_of_remaining_ranking_loss": 0.09913064497176471,
+            "fraction_of_possible_pairs": 0.1322981304793388
+          },
+          {
+            "generator": "Vesle Kjela_G1",
+            "auc": 0.9989042383437545,
+            "on_fraction": 0.6981898238747554,
+            "mean_probability": 0.6963854281384221,
+            "fraction_of_remaining_ranking_loss": 0.039156437313399746,
+            "fraction_of_possible_pairs": 0.14476742701326822
+          }
+        ],
+        "lio_haukeli_union": {
+          "fraction_of_remaining_ranking_loss": 0.48442498799366834,
+          "fraction_of_possible_pairs": 0.2654422720371869
+        },
+        "within_generator_ranking_loss_contribution": 0.0010610775277360507,
+        "cross_generator_ranking_loss_contribution": 0.011074358150667232,
+        "transitions": {
+          "definition": "Within +/-2 hours of a truth-label transition, centered on the first hour with the new state; no assumed label before t0. Diagnostic labels only.",
+          "output_fraction_near_switch": 0.08049925449631908,
+          "fraction_of_remaining_ranking_loss": 0.49473713268493363,
+          "fraction_of_possible_pairs": 0.1551865330152972,
+          "near_micro_roc_auc": 0.8614284775169772,
+          "away_micro_roc_auc": 0.9927420841799879
+        }
+      },
+      "micro_auc_gain": 0.0010188778090511885,
+      "relative_ranking_loss_reduction": 0.07745579501529468,
+      "per_generator_changes": [
+        {
+          "generator": "Hogga_G1",
+          "initial_auc": 0.9674186581517281,
+          "selected_auc": 0.9694240256687625,
+          "delta": 0.0020053675170343954
+        },
+        {
+          "generator": "Tokke_G1",
+          "initial_auc": 0.9885360120924037,
+          "selected_auc": 0.9895405301937306,
+          "delta": 0.0010045181013268456
+        },
+        {
+          "generator": "Tokke_G2",
+          "initial_auc": 0.9924119317103727,
+          "selected_auc": 0.9923767442559313,
+          "delta": -3.518745444142102e-05
+        },
+        {
+          "generator": "Tokke_G3",
+          "initial_auc": 0.9919589642905908,
+          "selected_auc": 0.9921038658864906,
+          "delta": 0.00014490159589974905
+        },
+        {
+          "generator": "Tokke_G4",
+          "initial_auc": 0.9924548450061842,
+          "selected_auc": 0.99227421214698,
+          "delta": -0.00018063285920422167
+        },
+        {
+          "generator": "Lio_G1",
+          "initial_auc": 0.9342618815949743,
+          "selected_auc": 0.9440511585342093,
+          "delta": 0.009789276939235037
+        },
+        {
+          "generator": "Byrte_G1",
+          "initial_auc": 0.998769651672373,
+          "selected_auc": 0.9980450969518214,
+          "delta": -0.0007245547205515512
+        },
+        {
+          "generator": "Vinje_G1",
+          "initial_auc": 0.9895660810541425,
+          "selected_auc": 0.9906894475985688,
+          "delta": 0.0011233665444263519
+        },
+        {
+          "generator": "Vinje_G2",
+          "initial_auc": 0.985822738691226,
+          "selected_auc": 0.9868733437769244,
+          "delta": 0.0010506050856983196
+        },
+        {
+          "generator": "Vinje_G3",
+          "initial_auc": 0.9786040311994093,
+          "selected_auc": 0.9804239457598711,
+          "delta": 0.0018199145604618217
+        },
+        {
+          "generator": "Haukeli_G1",
+          "initial_auc": 0.945593717319958,
+          "selected_auc": 0.9637095912358984,
+          "delta": 0.018115873915940384
+        },
+        {
+          "generator": "Songa_G1",
+          "initial_auc": 0.9949640744376698,
+          "selected_auc": 0.9950994751627609,
+          "delta": 0.000135400725091106
+        },
+        {
+          "generator": "Kjela_G1",
+          "initial_auc": 0.9858216075770214,
+          "selected_auc": 0.9830517210285799,
+          "delta": -0.002769886548441569
+        },
+        {
+          "generator": "Vesle Kjela_G1",
+          "initial_auc": 0.9996396106076109,
+          "selected_auc": 0.9989042383437545,
+          "delta": -0.0007353722638563376
+        }
+      ],
+      "by_start_month": [
+        {
+          "month": 1,
+          "cases": 31,
+          "initial_auc": 0.9955717303774076,
+          "selected_auc": 0.9953756118406406,
+          "delta": -0.0001961185367670426
+        },
+        {
+          "month": 2,
+          "cases": 28,
+          "initial_auc": 0.9876733202020178,
+          "selected_auc": 0.9906277223973464,
+          "delta": 0.0029544021953286093
+        },
+        {
+          "month": 3,
+          "cases": 31,
+          "initial_auc": 0.9951753951534161,
+          "selected_auc": 0.9961021094962511,
+          "delta": 0.0009267143428349778
+        },
+        {
+          "month": 4,
+          "cases": 30,
+          "initial_auc": 0.9825971823051786,
+          "selected_auc": 0.9842052333667409,
+          "delta": 0.0016080510615623655
+        },
+        {
+          "month": 5,
+          "cases": 31,
+          "initial_auc": 0.9838057400419553,
+          "selected_auc": 0.9851790267221427,
+          "delta": 0.0013732866801874355
+        },
+        {
+          "month": 6,
+          "cases": 30,
+          "initial_auc": 0.9839005555847273,
+          "selected_auc": 0.9855259545634162,
+          "delta": 0.0016253989786888523
+        },
+        {
+          "month": 7,
+          "cases": 31,
+          "initial_auc": 0.9819678823662595,
+          "selected_auc": 0.9848999106909528,
+          "delta": 0.002932028324693303
+        },
+        {
+          "month": 8,
+          "cases": 31,
+          "initial_auc": 0.9706007573815238,
+          "selected_auc": 0.9669576050602928,
+          "delta": -0.0036431523212310246
+        },
+        {
+          "month": 9,
+          "cases": 30,
+          "initial_auc": 0.9607600882856098,
+          "selected_auc": 0.9630044629837574,
+          "delta": 0.0022443746981476442
+        },
+        {
+          "month": 10,
+          "cases": 31,
+          "initial_auc": 0.9803230543832998,
+          "selected_auc": 0.9807936801438208,
+          "delta": 0.00047062576052103733
+        },
+        {
+          "month": 11,
+          "cases": 30,
+          "initial_auc": 0.9879899817519721,
+          "selected_auc": 0.9906077452486847,
+          "delta": 0.0026177634967126107
+        },
+        {
+          "month": 12,
+          "cases": 31,
+          "initial_auc": 0.987241151178456,
+          "selected_auc": 0.9899906186398503,
+          "delta": 0.0027494674613942616
+        }
+      ],
+      "by_horizon_day": [
+        {
+          "day": 1,
+          "initial_auc": 0.985094251455332,
+          "selected_auc": 0.9857884214224002,
+          "delta": 0.00069416996706817
+        },
+        {
+          "day": 2,
+          "initial_auc": 0.9854471400604397,
+          "selected_auc": 0.986547168405111,
+          "delta": 0.0011000283446713777
+        },
+        {
+          "day": 3,
+          "initial_auc": 0.9858877325571782,
+          "selected_auc": 0.9870416526452488,
+          "delta": 0.0011539200880705813
+        },
+        {
+          "day": 4,
+          "initial_auc": 0.9862216156642221,
+          "selected_auc": 0.9872267511527868,
+          "delta": 0.0010051354885647346
+        },
+        {
+          "day": 5,
+          "initial_auc": 0.98747344233602,
+          "selected_auc": 0.9884261405232928,
+          "delta": 0.000952698187272838
+        },
+        {
+          "day": 6,
+          "initial_auc": 0.9882092923931289,
+          "selected_auc": 0.9891291999708856,
+          "delta": 0.0009199075777566179
+        },
+        {
+          "day": 7,
+          "initial_auc": 0.9896375742186856,
+          "selected_auc": 0.9908243930627715,
+          "delta": 0.0011868188440858907
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "cases": 365,
+      "initial_reference": {
+        "micro_roc_auc": 0.9843832046746634,
+        "ranking_loss": 0.015616795325336552,
+        "per_generator": [
+          {
+            "generator": "Hogga_G1",
+            "auc": 0.9745727122117172,
+            "on_fraction": 0.3865949119373777,
+            "mean_probability": 0.4105614090081767,
+            "fraction_of_remaining_ranking_loss": 0.18466155957317587,
+            "fraction_of_possible_pairs": 0.14214396545284355
+          },
+          {
+            "generator": "Tokke_G1",
+            "auc": 0.9922897294487714,
+            "on_fraction": 0.4566699282452707,
+            "mean_probability": 0.4867320930811316,
+            "fraction_of_remaining_ranking_loss": 0.1157239071616211,
+            "fraction_of_possible_pairs": 0.14900377516577595
+          },
+          {
+            "generator": "Tokke_G2",
+            "auc": 0.9915476248131403,
+            "on_fraction": 0.35712654924983694,
+            "mean_probability": 0.3692424035756169,
+            "fraction_of_remaining_ranking_loss": 0.10601228173079065,
+            "fraction_of_possible_pairs": 0.13932588260993461
+          },
+          {
+            "generator": "Tokke_G3",
+            "auc": 0.994640773866952,
+            "on_fraction": 0.41087736464448793,
+            "mean_probability": 0.4191293921534885,
+            "fraction_of_remaining_ranking_loss": 0.08724391450698961,
+            "fraction_of_possible_pairs": 0.14449576924079038
+          },
+          {
+            "generator": "Tokke_G4",
+            "auc": 0.9943572821739048,
+            "on_fraction": 0.3732550554468363,
+            "mean_probability": 0.3832722190002544,
+            "fraction_of_remaining_ranking_loss": 0.08627260751307125,
+            "fraction_of_possible_pairs": 0.14086337626043913
+          },
+          {
+            "generator": "Lio_G1",
+            "auc": 0.9374534370352692,
+            "on_fraction": 0.5499184605348989,
+            "mean_probability": 0.4860831676084737,
+            "fraction_of_remaining_ranking_loss": 0.28354351960647584,
+            "fraction_of_possible_pairs": 0.15847810718701474
+          },
+          {
+            "generator": "Byrte_G1",
+            "auc": 0.997640269908804,
+            "on_fraction": 0.38308871493803,
+            "mean_probability": 0.36439283243908044,
+            "fraction_of_remaining_ranking_loss": 0.0649040173075168,
+            "fraction_of_possible_pairs": 0.1418065969315864
+          },
+          {
+            "generator": "Vinje_G1",
+            "auc": 0.9839155594859759,
+            "on_fraction": 0.34354207436399214,
+            "mean_probability": 0.3457834044704761,
+            "fraction_of_remaining_ranking_loss": 0.13931723136164428,
+            "fraction_of_possible_pairs": 0.1380400760718528
+          },
+          {
+            "generator": "Vinje_G2",
+            "auc": 0.9816590692863598,
+            "on_fraction": 0.2969993476842792,
+            "mean_probability": 0.30418837188521897,
+            "fraction_of_remaining_ranking_loss": 0.13928835048029523,
+            "fraction_of_possible_pairs": 0.13369826403508808
+          },
+          {
+            "generator": "Vinje_G3",
+            "auc": 0.9669884849144855,
+            "on_fraction": 0.19204174820613176,
+            "mean_probability": 0.19319007283164838,
+            "fraction_of_remaining_ranking_loss": 0.1608225223162994,
+            "fraction_of_possible_pairs": 0.12426839439004816
+          },
+          {
+            "generator": "Haukeli_G1",
+            "auc": 0.9393207318377148,
+            "on_fraction": 0.14145466405740378,
+            "mean_probability": 0.15263239205912776,
+            "fraction_of_remaining_ranking_loss": 0.1926794878366273,
+            "fraction_of_possible_pairs": 0.11990219004790846
+          },
+          {
+            "generator": "Songa_G1",
+            "auc": 0.9954529212929326,
+            "on_fraction": 0.11705805609915199,
+            "mean_probability": 0.11341571186087242,
+            "fraction_of_remaining_ranking_loss": 0.049115909922965474,
+            "fraction_of_possible_pairs": 0.11783806484196527
+          },
+          {
+            "generator": "Kjela_G1",
+            "auc": 0.9772635073697308,
+            "on_fraction": 0.45280495759947814,
+            "mean_probability": 0.4387750622080979,
+            "fraction_of_remaining_ranking_loss": 0.16809182614591028,
+            "fraction_of_possible_pairs": 0.14861961007797916
+          },
+          {
+            "generator": "Vesle Kjela_G1",
+            "auc": 0.9909569486834118,
+            "on_fraction": 0.3058382257012394,
+            "mean_probability": 0.2846658289950899,
+            "fraction_of_remaining_ranking_loss": 0.1401102933373017,
+            "fraction_of_possible_pairs": 0.13451524126447717
+          }
+        ],
+        "lio_haukeli_union": {
+          "fraction_of_remaining_ranking_loss": 0.44281327649983476,
+          "fraction_of_possible_pairs": 0.2662072409437635
+        },
+        "within_generator_ranking_loss_contribution": 0.0012838968975893636,
+        "cross_generator_ranking_loss_contribution": 0.014332898427747221,
+        "transitions": {
+          "definition": "Within +/-2 hours of a truth-label transition, centered on the first hour with the new state; no assumed label before t0. Diagnostic labels only.",
+          "output_fraction_near_switch": 0.11867603205665828,
+          "fraction_of_remaining_ranking_loss": 0.60539237804179,
+          "fraction_of_possible_pairs": 0.24512612112715473,
+          "near_micro_roc_auc": 0.8736314458617388,
+          "away_micro_roc_auc": 0.9918363760643819
+        }
+      },
+      "selected_plant": {
+        "micro_roc_auc": 0.9877036444789515,
+        "ranking_loss": 0.012296355521048463,
+        "per_generator": [
+          {
+            "generator": "Hogga_G1",
+            "auc": 0.9770974950400338,
+            "on_fraction": 0.3865949119373777,
+            "mean_probability": 0.42576052561543953,
+            "fraction_of_remaining_ranking_loss": 0.19566604399780577,
+            "fraction_of_possible_pairs": 0.14214396545284355
+          },
+          {
+            "generator": "Tokke_G1",
+            "auc": 0.9937429555459142,
+            "on_fraction": 0.4566699282452707,
+            "mean_probability": 0.48558990766961496,
+            "fraction_of_remaining_ranking_loss": 0.11307777623546558,
+            "fraction_of_possible_pairs": 0.14900377516577595
+          },
+          {
+            "generator": "Tokke_G2",
+            "auc": 0.9926948782540465,
+            "on_fraction": 0.35712654924983694,
+            "mean_probability": 0.36902589399194424,
+            "fraction_of_remaining_ranking_loss": 0.10717630786239926,
+            "fraction_of_possible_pairs": 0.13932588260993461
+          },
+          {
+            "generator": "Tokke_G3",
+            "auc": 0.9954731590480067,
+            "on_fraction": 0.41087736464448793,
+            "mean_probability": 0.41968225410396154,
+            "fraction_of_remaining_ranking_loss": 0.08904873275715644,
+            "fraction_of_possible_pairs": 0.14449576924079038
+          },
+          {
+            "generator": "Tokke_G4",
+            "auc": 0.9949660563360196,
+            "on_fraction": 0.3732550554468363,
+            "mean_probability": 0.382551124550724,
+            "fraction_of_remaining_ranking_loss": 0.08978234326755213,
+            "fraction_of_possible_pairs": 0.14086337626043913
+          },
+          {
+            "generator": "Lio_G1",
+            "auc": 0.9642996130515709,
+            "on_fraction": 0.5499184605348989,
+            "mean_probability": 0.5475925118807294,
+            "fraction_of_remaining_ranking_loss": 0.24902806507495184,
+            "fraction_of_possible_pairs": 0.15847810718701474
+          },
+          {
+            "generator": "Byrte_G1",
+            "auc": 0.9951783236290531,
+            "on_fraction": 0.38308871493803,
+            "mean_probability": 0.3778036772317379,
+            "fraction_of_remaining_ranking_loss": 0.08650940007613131,
+            "fraction_of_possible_pairs": 0.1418065969315864
+          },
+          {
+            "generator": "Vinje_G1",
+            "auc": 0.9866517060320247,
+            "on_fraction": 0.34354207436399214,
+            "mean_probability": 0.35437703816416327,
+            "fraction_of_remaining_ranking_loss": 0.14104680464224773,
+            "fraction_of_possible_pairs": 0.1380400760718528
+          },
+          {
+            "generator": "Vinje_G2",
+            "auc": 0.9844000467181238,
+            "on_fraction": 0.2969993476842792,
+            "mean_probability": 0.3122322894791174,
+            "fraction_of_remaining_ranking_loss": 0.14110907775251152,
+            "fraction_of_possible_pairs": 0.13369826403508808
+          },
+          {
+            "generator": "Vinje_G3",
+            "auc": 0.9728478102084488,
+            "on_fraction": 0.19204174820613176,
+            "mean_probability": 0.19118673204263276,
+            "fraction_of_remaining_ranking_loss": 0.16664588128204885,
+            "fraction_of_possible_pairs": 0.12426839439004816
+          },
+          {
+            "generator": "Haukeli_G1",
+            "auc": 0.9454597330001859,
+            "on_fraction": 0.14145466405740378,
+            "mean_probability": 0.1488540294326988,
+            "fraction_of_remaining_ranking_loss": 0.2040221413275561,
+            "fraction_of_possible_pairs": 0.11990219004790846
+          },
+          {
+            "generator": "Songa_G1",
+            "auc": 0.9968781565588662,
+            "on_fraction": 0.11705805609915199,
+            "mean_probability": 0.11675242039864321,
+            "fraction_of_remaining_ranking_loss": 0.047823065735873166,
+            "fraction_of_possible_pairs": 0.11783806484196527
+          },
+          {
+            "generator": "Kjela_G1",
+            "auc": 0.9808899603461074,
+            "on_fraction": 0.45280495759947814,
+            "mean_probability": 0.4530131310823162,
+            "fraction_of_remaining_ranking_loss": 0.17344963938579183,
+            "fraction_of_possible_pairs": 0.14861961007797916
+          },
+          {
+            "generator": "Vesle Kjela_G1",
+            "auc": 0.9923642138163463,
+            "on_fraction": 0.3058382257012394,
+            "mean_probability": 0.2979681282207487,
+            "fraction_of_remaining_ranking_loss": 0.11303775757876498,
+            "fraction_of_possible_pairs": 0.13451524126447717
+          }
+        ],
+        "lio_haukeli_union": {
+          "fraction_of_remaining_ranking_loss": 0.42265552486385144,
+          "fraction_of_possible_pairs": 0.2662072409437635
+        },
+        "within_generator_ranking_loss_contribution": 0.0010153956951884267,
+        "cross_generator_ranking_loss_contribution": 0.011280959825860047,
+        "transitions": {
+          "definition": "Within +/-2 hours of a truth-label transition, centered on the first hour with the new state; no assumed label before t0. Diagnostic labels only.",
+          "output_fraction_near_switch": 0.11867603205665828,
+          "fraction_of_remaining_ranking_loss": 0.6643727568664205,
+          "fraction_of_possible_pairs": 0.24512612112715473,
+          "near_micro_roc_auc": 0.8694309673473175,
+          "away_micro_roc_auc": 0.9945328722855238
+        }
+      },
+      "micro_auc_gain": 0.003320439804288089,
+      "relative_ranking_loss_reduction": 0.2126197939535672,
+      "per_generator_changes": [
+        {
+          "generator": "Hogga_G1",
+          "initial_auc": 0.9745727122117172,
+          "selected_auc": 0.9770974950400338,
+          "delta": 0.002524782828316696
+        },
+        {
+          "generator": "Tokke_G1",
+          "initial_auc": 0.9922897294487714,
+          "selected_auc": 0.9937429555459142,
+          "delta": 0.0014532260971428235
+        },
+        {
+          "generator": "Tokke_G2",
+          "initial_auc": 0.9915476248131403,
+          "selected_auc": 0.9926948782540465,
+          "delta": 0.0011472534409061597
+        },
+        {
+          "generator": "Tokke_G3",
+          "initial_auc": 0.994640773866952,
+          "selected_auc": 0.9954731590480067,
+          "delta": 0.0008323851810546623
+        },
+        {
+          "generator": "Tokke_G4",
+          "initial_auc": 0.9943572821739048,
+          "selected_auc": 0.9949660563360196,
+          "delta": 0.0006087741621148002
+        },
+        {
+          "generator": "Lio_G1",
+          "initial_auc": 0.9374534370352692,
+          "selected_auc": 0.9642996130515709,
+          "delta": 0.02684617601630168
+        },
+        {
+          "generator": "Byrte_G1",
+          "initial_auc": 0.997640269908804,
+          "selected_auc": 0.9951783236290531,
+          "delta": -0.0024619462797508262
+        },
+        {
+          "generator": "Vinje_G1",
+          "initial_auc": 0.9839155594859759,
+          "selected_auc": 0.9866517060320247,
+          "delta": 0.002736146546048812
+        },
+        {
+          "generator": "Vinje_G2",
+          "initial_auc": 0.9816590692863598,
+          "selected_auc": 0.9844000467181238,
+          "delta": 0.0027409774317639357
+        },
+        {
+          "generator": "Vinje_G3",
+          "initial_auc": 0.9669884849144855,
+          "selected_auc": 0.9728478102084488,
+          "delta": 0.005859325293963269
+        },
+        {
+          "generator": "Haukeli_G1",
+          "initial_auc": 0.9393207318377148,
+          "selected_auc": 0.9454597330001859,
+          "delta": 0.006139001162471125
+        },
+        {
+          "generator": "Songa_G1",
+          "initial_auc": 0.9954529212929326,
+          "selected_auc": 0.9968781565588662,
+          "delta": 0.0014252352659336331
+        },
+        {
+          "generator": "Kjela_G1",
+          "initial_auc": 0.9772635073697308,
+          "selected_auc": 0.9808899603461074,
+          "delta": 0.0036264529763766484
+        },
+        {
+          "generator": "Vesle Kjela_G1",
+          "initial_auc": 0.9909569486834118,
+          "selected_auc": 0.9923642138163463,
+          "delta": 0.0014072651329345431
+        }
+      ],
+      "by_start_month": [
+        {
+          "month": 1,
+          "cases": 31,
+          "initial_auc": 0.9891513235165941,
+          "selected_auc": 0.9908087359088832,
+          "delta": 0.0016574123922891149
+        },
+        {
+          "month": 2,
+          "cases": 28,
+          "initial_auc": 0.9937649499196265,
+          "selected_auc": 0.994080898529544,
+          "delta": 0.0003159486099174602
+        },
+        {
+          "month": 3,
+          "cases": 31,
+          "initial_auc": 0.99104994797137,
+          "selected_auc": 0.9933234827254913,
+          "delta": 0.002273534754121287
+        },
+        {
+          "month": 4,
+          "cases": 30,
+          "initial_auc": 0.9531993185116482,
+          "selected_auc": 0.9640113607575358,
+          "delta": 0.01081204224588761
+        },
+        {
+          "month": 5,
+          "cases": 31,
+          "initial_auc": 0.9766940311687061,
+          "selected_auc": 0.9801466409892066,
+          "delta": 0.0034526098205004407
+        },
+        {
+          "month": 6,
+          "cases": 30,
+          "initial_auc": 0.9777017371804679,
+          "selected_auc": 0.9828543237337213,
+          "delta": 0.005152586553253347
+        },
+        {
+          "month": 7,
+          "cases": 31,
+          "initial_auc": 0.9695385439237786,
+          "selected_auc": 0.9756900518819944,
+          "delta": 0.0061515079582158405
+        },
+        {
+          "month": 8,
+          "cases": 31,
+          "initial_auc": 0.9940680107049993,
+          "selected_auc": 0.9958423206847571,
+          "delta": 0.0017743099797578044
+        },
+        {
+          "month": 9,
+          "cases": 30,
+          "initial_auc": 0.9935917195726682,
+          "selected_auc": 0.996103563664433,
+          "delta": 0.0025118440917647478
+        },
+        {
+          "month": 10,
+          "cases": 31,
+          "initial_auc": 0.9854237271415729,
+          "selected_auc": 0.9878980470006766,
+          "delta": 0.002474319859103735
+        },
+        {
+          "month": 11,
+          "cases": 30,
+          "initial_auc": 0.9688455520283912,
+          "selected_auc": 0.9717304152912171,
+          "delta": 0.0028848632628258875
+        },
+        {
+          "month": 12,
+          "cases": 31,
+          "initial_auc": 0.994814269939655,
+          "selected_auc": 0.9958048074585052,
+          "delta": 0.000990537518850143
+        }
+      ],
+      "by_horizon_day": [
+        {
+          "day": 1,
+          "initial_auc": 0.9821780570599193,
+          "selected_auc": 0.9853817917787635,
+          "delta": 0.0032037347188441645
+        },
+        {
+          "day": 2,
+          "initial_auc": 0.9833711851261959,
+          "selected_auc": 0.98665685631322,
+          "delta": 0.003285671187024053
+        },
+        {
+          "day": 3,
+          "initial_auc": 0.9840020197541693,
+          "selected_auc": 0.9872749041728294,
+          "delta": 0.003272884418660027
+        },
+        {
+          "day": 4,
+          "initial_auc": 0.9838323376482051,
+          "selected_auc": 0.987190123997535,
+          "delta": 0.0033577863493299276
+        },
+        {
+          "day": 5,
+          "initial_auc": 0.98591675610444,
+          "selected_auc": 0.9888889645979598,
+          "delta": 0.002972208493519868
+        },
+        {
+          "day": 6,
+          "initial_auc": 0.9858249117536931,
+          "selected_auc": 0.9891762562480895,
+          "delta": 0.0033513444943963355
+        },
+        {
+          "day": 7,
+          "initial_auc": 0.9856287390648835,
+          "selected_auc": 0.9893958187954563,
+          "delta": 0.0037670797305728865
+        }
+      ]
+    }
+  ]
+}

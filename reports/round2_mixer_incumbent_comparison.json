@@ -1,0 +1,63 @@
+{
+  "selection": "Mixer candidate_mean and 38 epochs selected on 2021, then frozen for 2022. No blend weights searched. Haukeli candidate_mean is retained when comparing alternative neural components against the incumbent Haukeli + transformer-monitor mean fallback.",
+  "sources": {
+    "mixer": "reports/round2_mixer_both_comparison.json",
+    "haukeli_mixer": "reports/round2_haukeli_mixer_both_comparison.json",
+    "haukeli_transformer": "reports/round2_haukeli_transformer_both_comparison.json",
+    "transformer_monitor_budget": "reports/round2_transformer_monitor_budget_both_comparison.json"
+  },
+  "validation_note": "Reused historical development years; Jan7+ removes six starts overlapping 2021 selection horizons. Baseline component selection remains historical. No competition labels used.",
+  "results": [
+    {
+      "year": 2021,
+      "candidate": "mixer",
+      "variant": "candidate_mean",
+      "micro_roc_auc": 0.988359760002552,
+      "delta_vs_original_winner": 8.782186490952082e-05,
+      "fallback_micro_roc_auc": 0.9885233514086628,
+      "delta_vs_fallback": -0.0001635914061107746
+    },
+    {
+      "year": 2021,
+      "candidate": "haukeli_mixer",
+      "variant": "candidate_mean",
+      "micro_roc_auc": 0.9883656281091626,
+      "delta_vs_original_winner": 9.368997152015002e-05,
+      "fallback_micro_roc_auc": 0.9885233514086628,
+      "delta_vs_fallback": -0.0001577232995001454
+    },
+    {
+      "year": 2022,
+      "candidate": "mixer",
+      "variant": "candidate_mean",
+      "micro_roc_auc": 0.9881351748260997,
+      "delta_vs_original_winner": 0.00036449996589171807,
+      "fallback_micro_roc_auc": 0.9881487836172904,
+      "delta_vs_fallback": -1.3608791190722336e-05,
+      "after_2021_selection_horizon": {
+        "cases": 359,
+        "micro_roc_auc": 0.9880564951775666,
+        "delta_vs_original_winner": 0.00036640581353675206,
+        "fallback_micro_roc_auc": 0.9880687258418835,
+        "delta_vs_fallback": -1.2230664316992268e-05
+      }
+    },
+    {
+      "year": 2022,
+      "candidate": "haukeli_mixer",
+      "variant": "candidate_mean",
+      "micro_roc_auc": 0.9883297442379241,
+      "delta_vs_original_winner": 0.0005590693777161038,
+      "fallback_micro_roc_auc": 0.9881487836172904,
+      "delta_vs_fallback": 0.00018096062063366336,
+      "after_2021_selection_horizon": {
+        "cases": 359,
+        "micro_roc_auc": 0.9882516681509029,
+        "delta_vs_original_winner": 0.0005615787868731292,
+        "fallback_micro_roc_auc": 0.9880687258418835,
+        "delta_vs_fallback": 0.0001829423090193849
+      }
+    }
+  ],
+  "conclusion": "Frozen Mixer mean improves the original winner in both years. With the existing Haukeli mean preserved, it underperforms the incumbent fallback in 2021 and outperforms it in 2022. This is a year tradeoff, not a consistent win over the fallback; do not select between neural means using 2022 alone."
+}

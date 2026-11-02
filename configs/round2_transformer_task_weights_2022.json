@@ -1,0 +1,38 @@
+{
+  "validation_start": "2022-01-01",
+  "validation_end": "2023-01-01",
+  "use_extended": true,
+  "use_system_context": true,
+  "use_topology": true,
+  "stable_scaling": true,
+  "use_economic_rescaling": true,
+  "model_type": "transformer",
+  "seed": 42,
+  "epochs": 28,
+  "patience": 40,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "early_stopping_metric": "fixed",
+  "model": {
+    "width": 64,
+    "heads": 4,
+    "layers": 4,
+    "feedforward": 128,
+    "dropout": 0.1
+  },
+  "device": "cpu",
+  "plant_loss_weights": {
+    "Hogga": 0.3,
+    "Tokke": 0.9,
+    "Lio": 0.3,
+    "Byrte": 0.0,
+    "Vinje": 0.5,
+    "Songa": 0.0,
+    "Kjela": 0.2,
+    "Vesle Kjela": 0.0,
+    "Haukeli": 0.0
+  },
+  "iteration_selection_source": "reports/round2_transformer_task_weights_2021_metrics.json",
+  "selected_ensemble_variant": "candidate_mean",
+  "note": "Fixed28epochs and50/50originalTransformer/newweightedTransformer mean selected on2021 before2022 evaluation. Zero-weight heads are unused ensemble components, not standalone predictions. No2022 stopping."
+}
