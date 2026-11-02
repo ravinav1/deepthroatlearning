@@ -1,0 +1,127 @@
+{
+  "status": "local_validation_passed_public_restore_pending",
+  "recorded_utc": "2026-11-02T22:58:07.401493+00:00",
+  "operation": "Migrate useful research code/models/predictions/protocols and continuation setup; no model refit or new Kaggle submission",
+  "destination": "ravinav1/deepthroatlearning",
+  "base_commit": "3a9ae32f4ab7ad53aa95c0bde517fa86d673fcf6",
+  "working_checkout": "/Users/heap/programming/tdt4173/deepthroatlearning",
+  "original_workspace_preserved": true,
+  "source_snapshot_sha256": "d8480e9e28486c6bfd7ef1584f433cc68c2e070950d75d2a74b423ca7098c0fb",
+  "artifact_index_sha256": "edc136d564ee98cdc29d48bc674c8cd047f56e10aa323ef48275f772031332de",
+  "environment": {
+    "os": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "cpu_count": 12,
+    "replay_python": "3.11.15 (main, Jun 23 2026, 15:46:51) [Clang 22.1.3 ]",
+    "packages": {
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "lightgbm": "4.7.0",
+      "xgboost": "3.2.0",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.9.1"
+    }
+  },
+  "seed": "No training/random sampling in migration; inherited model seed4173 and frozen samples unchanged",
+  "raw_data_hashes": "configs/hydraulic_surrogate_best.json:data",
+  "training_started": false,
+  "kaggle_submission_made": false,
+  "tests": {
+    "root": {
+      "command": "../.venv-ml/bin/python -m unittest discover -s tests -v",
+      "cwd": "/Users/heap/programming/tdt4173/deepthroatlearning",
+      "passed": 26,
+      "runtime_seconds": 3.766,
+      "log_sha256": "24e146623a1e4a88e4baf0c0ef6afdea6c34158e14e118cdf8a2f0649c10293d"
+    },
+    "imported": {
+      "command": "../../../.venv-ml/bin/python -m unittest discover -s tests -v",
+      "cwd": "/Users/heap/programming/tdt4173/deepthroatlearning/experiments/hydraulic_surrogate",
+      "passed": 419,
+      "runtime_seconds": 16.028,
+      "log_sha256": "aeb925bd4712687cfeedff165c6ab0fa8af4ae8020f24631b8b52022e6834608"
+    },
+    "initial_imported_failure": {
+      "tests_run": 419,
+      "errors": 5,
+      "runtime_seconds": 16.634,
+      "cause": "Omitted code-only final-dataset discovery fixtures",
+      "resolution": "Retained 19 original code/manifest fixture files in hydraulic-research-09.tar.gz; no raw dataset contents",
+      "log_sha256": "9e77d46747d5672feb56ec3566193d8ec3bc02a3fe10916527ee23214d8f6aa6"
+    }
+  },
+  "original_destination_files_unchanged": 975,
+  "official_scorer_verification": "reports/hydraulic_surrogate/official_metric_verification.json",
+  "checkpoint_replay": {
+    "report": "reports/hydraulic_surrogate/verification/migration-replay-003.json",
+    "sha256": "f00bf46fa4817673f41f6835e566bc1dc16ac5b8da2c3e401090343e2d02d90d",
+    "adapter_snapshot": "reports/hydraulic_surrogate/verification/replay_adapter_snapshot.py",
+    "adapter_sha256": "84492bf0eeeb5027a5bf69dfe045285383fc28b24e84f4cbc71586027528af5e",
+    "runtime_seconds": 83.23543979199894,
+    "models": 98,
+    "exact_lightgbm_models": 70,
+    "xgboost_cpu_models_checked": 28,
+    "xgboost_cpu_max_absolute_error": 1.4007091522216797e-06,
+    "xgboost_cpu_tolerance": 1e-05,
+    "cpu_gpu_bitwise_claim": false,
+    "exact_csv_uses_original_cuda_arrays": true,
+    "submission_sha256": "1c1d173816127997e711d54c8269406830666af66b6f4eb6d24f4f227b70d496"
+  },
+  "failed_replay_attempts": [
+    "reports/hydraulic_surrogate/verification/migration-replay-001.json",
+    "reports/hydraulic_surrogate/verification/migration-replay-002.json"
+  ],
+  "portability_decision": "A new adapter-only absolute1e-5 XGBoost CPU tolerance was set after observing the CPU3.2.0/CUDA3.4.1 mismatch. Original strict CUDA replay proofs and all frozen validators were unchanged. This is not a selection threshold or a new model result.",
+  "river726_snapshot": {
+    "lgb-river726-2022-001": {
+      "sha256": "61d82a2cfde93d0b5e9d117f2cd81617c1d2065122e23d54b5f52dcbb669e2bc",
+      "status": "complete",
+      "accepted": false,
+      "selected_micro_auc": 0.9938778756239264,
+      "control_micro_auc": 0.9938790447855327
+    },
+    "lgb-river726-2022-independent-audit-001": {
+      "sha256": "502241b21d85c7488e5cc99017a9844fd6a05c3d092fbd52d5abc425310dbabc",
+      "status": "passed",
+      "accepted": false,
+      "selected_micro_auc": null,
+      "control_micro_auc": 0.9938790447855327
+    }
+  },
+  "independent_review": {
+    "model": "gpt-6-astra",
+    "reasoning_effort": "ultra",
+    "source_hashes_checked": 643,
+    "inline_artifacts_checked": 523,
+    "raw_inputs_checked": 10,
+    "submission_hash_independently_checked": true,
+    "startup_final_conclusion": "No blocking bugs found after agent settings checks and regression tests were added."
+  },
+  "publication": {
+    "release_id": 432048907,
+    "tag": "hydraulic-surrogate-20261102",
+    "archive_count": 20,
+    "compressed_archive_bytes": 7152503184,
+    "raw_data_published": false,
+    "state": "draft_uploading"
+  },
+  "all_artifact_hashes_verified": 159566,
+  "frozen_source_hashes_verified": 643,
+  "agent_setup": {
+    "requested_model": "gpt-6-astra",
+    "requested_reasoning_effort": "ultra",
+    "roles": [
+      "coordinator",
+      "research",
+      "experiment",
+      "independent_audit"
+    ],
+    "effective_child_settings_checked": true,
+    "regression_tests": 21,
+    "shell_toml_and_embedded_python_syntax": "passed",
+    "live_cli_model_execution_verified": false,
+    "live_cli_metadata_checks": "Two observed attempts failed because nested app-server could not initialize in managed sandbox; project trust was not established. Personal trust/auth were not changed.",
+    "runtime_review_evidence": "Two independent agents were explicitly spawned with model=gpt-6-astra and reasoning_effort=ultra; both completed their tasks. This is separate from unverified nested CLI account access.",
+    "offline_hash_preflight": "passed:10 raw/topology inputs and504 best files"
+  }
+}

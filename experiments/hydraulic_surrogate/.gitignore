@@ -1,0 +1,8 @@
+# Mapped into the root repository's ignored data and model directories.
+/artifacts
+/sintef_project/data/
+/sintef_project/sample_submission.csv
+/sintef_project/prediction_mapping.csv
+.venv*/
+__pycache__/
+*.pyc

@@ -1,0 +1,13 @@
+# Requested preference, not proof of account access or the active session model.
+# Run scripts/codex-start.sh check; see docs/CODEX_AUTOSTART.md.
+model = "gpt-6-astra"
+model_reasoning_effort = "ultra"
+sandbox_mode = "workspace-write"
+approval_policy = "on-request"
+
+[agents]
+enabled = true
+max_concurrent_threads_per_session = 3
+default_subagent_model = "gpt-6-astra"
+default_subagent_reasoning_effort = "ultra"
+interrupt_message = true

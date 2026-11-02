@@ -1,0 +1,72 @@
+{
+  "version": "integer_water_budget_screen_v1",
+  "created_utc": "2026-11-02T17:55:39.385577+00:00",
+  "case_ids": [
+    1,
+    532,
+    930,
+    1461,
+    1462,
+    1594,
+    1694,
+    1826,
+    1827,
+    1958,
+    2055,
+    2186
+  ],
+  "blocks": [
+    "2015_2018",
+    "2015_2018",
+    "2015_2018",
+    "2015_2018",
+    "2019",
+    "2019",
+    "2019",
+    "2019",
+    "2020",
+    "2020",
+    "2020",
+    "2020"
+  ],
+  "targets": [
+    "Hogga_G1",
+    "Lio_G1",
+    "Haukeli_G1"
+  ],
+  "source": {
+    "scripts/diagnose_integer_water_budget.py": "007986aa0b445b59b25a154edc6db871739eef2349f2018a54367a2c43bc3947",
+    "sintef_project/integer_water_budget.py": "a0a5de1695617641cc52b70292a67e071fccb096b2400770f791c96dc7b6eb7f",
+    "sintef_project/lp_shop_relaxation.py": "1ac82e04d2df6571c71acfbc6be6c4ac482ea69de441471804c2b1bce1ce1aaf",
+    "sintef_project/lp_features.py": "bd16e0b4e9e32976b7eb50d5334e05b94f2b074bc0d8eb83a787f26f95268720",
+    "sintef_project/physics.py": "c9b0b2b81399a49c88802613a3ee85ba29fe97d5b7a3681f041d866972f82f41",
+    "sintef_project/features.py": "d6dd97719c125ca9af859c3251ca408ef05af541743ea2f1524d31961f2fba30",
+    "scripts/diagnose_lp_shop_relaxation.py": "162c00f6974a81001873b69797fd4b97c8ddd73b470122b2624d514e79e5da4c",
+    "tests/test_integer_water_budget.py": "c10e58a3c26693e4c58ece554f42cb967bd21428807fb2abe3db78d715c1fb01",
+    "tests/test_lp_shop_relaxation.py": "2efc9332d86df40e1086fced1531d0af709a1c8647aebcfc4d6b22661803836b",
+    "docs/integer_water_budget.md": "07a620e62614076de4bc685f24492a429e435a04e4f3c142d8a75feaff1056c6"
+  },
+  "data": {
+    "sintef_project/data/extended/Constraint_min_flow.csv": "146062702f58920440fc064d461d544e9cd7c503c8df74ce96e721bee04629ea",
+    "sintef_project/data/extended/Constraint_min_volume.csv": "8b639b8339b84c5ff7db34ba4b4618e99d05a03819bf99fa5032a54490278806",
+    "sintef_project/data/extended/Tokke_Vinje_topology.yaml": "29cfa233cec7fc4b5401d0d571a566e6e17b7bb7b46a175abcd37a53fe175497",
+    "sintef_project/data/kernel/Historical_day_ahead_price_2015_2025.csv": "e5edd141b34a61139f3ee3022305175446d4b4f74618df85552c4f2b5e556ee4",
+    "sintef_project/data/kernel/Historical_inflow_1958_2025.csv": "ff4f87d2768133b4a717c0ad366969244f7a86901695e1d4fef3c2ed8963ad66",
+    "sintef_project/data/kernel/Historical_volume_2015_2024.csv": "ef3d9c69699eef0d953b495ba69bf6676858e6b9c536087498135074912dd3b6",
+    "sintef_project/data/kernel/Synthetic_water_value_2015_2024.csv": "a5f09ff96b551d3c297d90ccf3a0bbe92d8814b537ad63a46579cb0ff44aa4cb",
+    "sintef_project/data/kernel/Unit_commitment_decisions.csv": "6d51f8cc6869cb82b44708168808c305c1e007cf79878ca1c1d316d07aae3ab3",
+    "sintef_project/prediction_mapping.csv": "c8b0e5bc500a5f1dec2337f5ac680847f6a7794a7c2b7a8fb19384910a029519",
+    "sintef_project/sample_submission.csv": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba"
+  },
+  "cache": "artifacts/lp-shop-full-001",
+  "cache_manifest_sha256": "e3d9f53ec7ac67a0afcc48c9630a215ad0a2be4abbfc07aa03cdc3a4345d8163",
+  "milp_seconds": 8.0,
+  "conditional_lp_seconds_each": 1.0,
+  "mip_rel_gap": 0.0,
+  "threads": 1,
+  "formulation": "Exact saved linked supplied-cost network LP. Only three selected unit-state vectors become binary. All other states, constraints, segment curves, initial heads, terminal values and costs unchanged. No extra runtime/ramp constraints.",
+  "replay": "After one MILP, fix chosen binary states and solve identical LP twice with1second caps. Require bitwise solution and conditional-dual agreement. These duals are conditional, not global MILP shadow prices.",
+  "time_limit": "8seconds MILP plus two1second LP caps percase; measured wall time includes Python/HiGHS overhead and is separately reported. Timeouts/unproven incumbents are retained and never pass promotion.",
+  "gate": "All12 cases must have a proven optimum and exact fixed-state replay, all slacks zero, physical feasibility/objective subset check. Weak3 cutoff errors reduce at least10%, no dateblock weak3 deterioration, no targetunit error rise over5%, all14 cutoff errors do not rise, and all14 Q-proxy AUC does not fall.",
+  "selection": "No parameter/threshold/unit/weight search. Metadata-selected cases only. Labels decoded only after all physical solves; no2021/2022 labels."
+}

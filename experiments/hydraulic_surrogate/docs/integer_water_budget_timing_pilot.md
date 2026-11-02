@@ -1,0 +1,11 @@
+# Label-free integer water-budget timing and replay pilot
+
+This pilot runs 24 cases selected by evenly spaced metadata positions over the complete 3,647-case input order. It does not select from validation errors and never parses any target column. No prediction model, feature-selection rule or leaderboard submission is produced.
+
+Each case receives two independent MILP attempts in fresh spawned processes, with a 60-second solver limit and one HiGHS thread. Each attempt uses the exact previously reviewed mathematical model and selected Hogga, Lio and Haukeli binary states. The existing two fixed-state LP replays each retain their 1-second limit. Both complete LP solution vectors and all equality, inequality and bound marginal arrays are saved separately. The original solver source remains unchanged; a recording wrapper observes its two existing LP calls.
+
+Two workers run concurrently. Every attempt has its own immutable output directory, proof and raw arrays. A time-limited, failed or infeasible attempt is retained explicitly and cannot be called a proven result. There are no retries, fallback to the relaxed LP or labels in this pilot. Fresh MILP result arrays and both fixed-state replays are compared bitwise; any alternative optimal state or dual is reported as a determinism failure, even if the economic objective agrees.
+
+The protocol pins original source/data/cache/audit identities, selected IDs and dates, exact solver and package versions, thread controls, both time limits, scheduling and this document. Before solving, reconstruct the selected case inputs independently, compare every array with the frozen continuous cache, and hash the saved files. Workers receive only those input arrays and the physical network; they have no reason to read the commitment CSV.
+
+Report every status, relative and absolute bound, runtime, node count, RSS, physical feasibility check and replay comparison. Summarize median, upper-tail and maximum observed time and extrapolate the measured two-worker throughput, with explicit small-sample limitations. There is no target-based acceptance gate. The result informs a later decision about the proposed full input-only cache; it does not launch that cache automatically.

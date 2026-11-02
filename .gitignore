@@ -36,3 +36,10 @@ __pycache__/
 
 # Lokale OS-filer.
 .DS_Store
+
+# Portable hydraulic experiment environments and local artifact restore state.
+.venv*/
+artifacts/
+.cache/
+.kaggle/
+*.key

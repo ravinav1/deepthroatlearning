@@ -123,6 +123,210 @@
       "source": "user_reported",
       "recorded_date": "2026-11-02",
       "evidence": "reports/round5_report_20261014.md"
+    },
+    {
+      "submission": "models/hydraulic_surrogate/submission-physics-001/submission.csv",
+      "public_score": 0.99116,
+      "sha256": "2bf904ad8337c1f5884be8385ababb9aa761ec9fc098de0761dbd6c04ae40590",
+      "rank_at_observation": null,
+      "observation_time": "2026-11-02T10:16:50+00:00",
+      "source": "Imported dated Kaggle observation",
+      "submission_id": null,
+      "private_score": null,
+      "family": "hydraulic_surrogate",
+      "historical_source": "experiments/hydraulic_surrogate/docs/kaggle_scores.json"
+    },
+    {
+      "submission": "models/hydraulic_surrogate/submission-ensemble-001/submission.csv",
+      "public_score": 0.99254,
+      "sha256": "cd972841fa1e8da50a0fbfd07d30dece5b695ea893d867e68b83df97283600d6",
+      "rank_at_observation": 82,
+      "observation_time": "2026-11-02T10:43:25Z",
+      "source": "Imported dated Kaggle observation",
+      "submission_id": null,
+      "private_score": null,
+      "family": "hydraulic_surrogate",
+      "historical_source": "experiments/hydraulic_surrogate/docs/kaggle_scores.json"
+    },
+    {
+      "submission": "models/hydraulic_surrogate/submission-lp-blend-001/submission.csv",
+      "public_score": 0.9958,
+      "sha256": "ff6c52f78c000d5235f460ca4ea814403f0fe5096249fb4b8f2a85a4e31b9e58",
+      "rank_at_observation": 34,
+      "observation_time": "2026-11-02T11:27:19Z",
+      "source": "Imported dated Kaggle observation",
+      "submission_id": null,
+      "private_score": null,
+      "family": "hydraulic_surrogate",
+      "historical_source": "experiments/hydraulic_surrogate/docs/kaggle_scores.json"
+    },
+    {
+      "submission": "models/hydraulic_surrogate/vinje-count-combined-final-001/submission.csv",
+      "public_score": 0.99584,
+      "sha256": "e769f2c77336ad958f14c6c38b18248707c55b248453d9012cf76fbc07ea4039",
+      "rank_at_observation": 33,
+      "observation_time": "2026-11-02T11:41:14Z",
+      "source": "Imported dated Kaggle observation",
+      "submission_id": null,
+      "private_score": null,
+      "family": "hydraulic_surrogate",
+      "historical_source": "experiments/hydraulic_surrogate/docs/kaggle_scores.json"
+    },
+    {
+      "submission": "models/hydraulic_surrogate/submission-lp-context-blend-001/submission.csv",
+      "public_score": 0.99604,
+      "sha256": "36aa5a2f9378139916ee79aa710e9003875e3a81ce419f74f8fe1f75b50f3c98",
+      "rank_at_observation": 28,
+      "observation_time": "2026-11-02T12:02:42Z",
+      "source": "Imported dated Kaggle observation",
+      "submission_id": null,
+      "private_score": null,
+      "family": "hydraulic_surrogate",
+      "historical_source": "experiments/hydraulic_surrogate/docs/kaggle_scores.json"
+    },
+    {
+      "submission": "models/hydraulic_surrogate/submission-lp-joint-blend-001/submission.csv",
+      "public_score": 0.99625,
+      "sha256": "911ec76d34b7bc2c1134286537a6bf068662effb80f93b200ddb6ec1fc1b110c",
+      "rank_at_observation": 24,
+      "observation_time": "2026-11-02T13:12:22.956714+00:00",
+      "source": "Imported dated Kaggle observation",
+      "submission_id": null,
+      "private_score": null,
+      "family": "hydraulic_surrogate",
+      "historical_source": "experiments/hydraulic_surrogate/docs/kaggle_scores.json"
+    },
+    {
+      "submission": "models/hydraulic_surrogate/submission-lp-context-joint-blend-001/submission.csv",
+      "public_score": 0.99631,
+      "sha256": "f7907cce9d7348a1c77959e64d5e6099303123846c0648b37c816bb495411fcf",
+      "rank_at_observation": 23,
+      "observation_time": "2026-11-02T14:28:26.911798+00:00",
+      "source": "Imported dated Kaggle observation",
+      "submission_id": null,
+      "private_score": null,
+      "family": "hydraulic_surrogate",
+      "historical_source": "experiments/hydraulic_surrogate/docs/kaggle_scores.json"
+    },
+    {
+      "submission": "models/hydraulic_surrogate/submission-cuda-xgb-joint-blend-001/submission.csv",
+      "public_score": 0.99626,
+      "sha256": "895b957f2c2fb19d1228b4cc6b960a24477ff977a06d2d790e68dd5b3d50cf92",
+      "rank_at_observation": null,
+      "observation_time": "2026-11-02T15:46:51.840329+00:00",
+      "source": "User reported0.99626; root independently observed exactchecksumdescription and Complete/publicscore0.99626 via authenticatedKaggleUI",
+      "submission_id": null,
+      "private_score": null,
+      "family": "hydraulic_surrogate",
+      "historical_source": "experiments/hydraulic_surrogate/docs/kaggle_scores.json"
+    },
+    {
+      "submission": "models/hydraulic_surrogate/submission-cuda-xgb608-context-joint-blend-001/submission.csv",
+      "public_score": 0.9964,
+      "sha256": "729ce3e406560b30ab867ad6e0f448650a304168e56293d3d681c5fd7d638c76",
+      "rank_at_observation": 20,
+      "observation_time": "2026-11-02T17:41:33.893926+00:00",
+      "source": "Root independently observed Complete/publicscore and exact checksum description in authenticated Kaggle UI; leaderboard best0.99640,rank20,32entries. User separately confirmed primary0.99640.",
+      "submission_id": null,
+      "private_score": null,
+      "family": "hydraulic_surrogate",
+      "historical_source": "experiments/hydraulic_surrogate/docs/kaggle_scores.json"
+    },
+    {
+      "submission": "models/hydraulic_surrogate/submission-cuda-xgb608-standalone-001/submission.csv",
+      "public_score": 0.99627,
+      "sha256": "80c41cbdb328905edc400793e282de8b6411a6cddd3f1ebdbd9915541ac0e428",
+      "rank_at_observation": 20,
+      "observation_time": "2026-11-02T17:41:33.893926+00:00",
+      "source": "Root independently observed Complete/publicscore and exact checksum description in authenticated Kaggle UI; leaderboard best0.99640,rank20,32entries. User separately confirmed primary0.99640.",
+      "submission_id": null,
+      "private_score": null,
+      "family": "hydraulic_surrogate",
+      "historical_source": "experiments/hydraulic_surrogate/docs/kaggle_scores.json"
+    },
+    {
+      "submission": "models/hydraulic_surrogate/submission-cuda-xgb664-anchor-blend-001/submission.csv",
+      "public_score": 0.99651,
+      "sha256": "898d29699cda7aa93cc5b22e410d63eb7fa371ce4afc9f0e9b5a176993e9e96a",
+      "rank_at_observation": 18,
+      "observation_time": "2026-11-02T19:03:21.197613+00:00",
+      "source": "Native Brave authenticated submission Complete row with exact description/SHA and publicscore; leaderboard18 Deepthroat Learning .99651/33entries. User independently confirmedrank18/.99651.",
+      "submission_id": null,
+      "private_score": null,
+      "family": "hydraulic_surrogate",
+      "historical_source": "experiments/hydraulic_surrogate/docs/kaggle_scores.json"
+    },
+    {
+      "submission": "models/hydraulic_surrogate/submission-cuda-xgb608-capacity-anchor-blend-002/submission.csv",
+      "public_score": 0.99644,
+      "sha256": "b7d42b0752ed0de639337b93ac57dc05498f478bea2f3217e86d16917a34cc47",
+      "rank_at_observation": null,
+      "observation_time": "2026-11-02T19:05:57.040353+00:00",
+      "source": "NativeBrave Complete row with exact description/SHA and publicscore",
+      "submission_id": null,
+      "private_score": null,
+      "family": "hydraulic_surrogate",
+      "historical_source": "experiments/hydraulic_surrogate/docs/kaggle_scores.json"
+    },
+    {
+      "submission": "models/hydraulic_surrogate/submission-cuda-xgb664-anchor-blend-001/submission_standalone_projected.csv",
+      "public_score": 0.99647,
+      "sha256": "4c96e9f69459417fd138af7d33f5339275bb5ef29ffdd59f0a4590ee8f60ae42",
+      "rank_at_observation": null,
+      "observation_time": "2026-11-02T19:07:08.881645+00:00",
+      "source": "NativeBrave Complete row with exactdescription/SHA and publicscore",
+      "submission_id": null,
+      "private_score": null,
+      "family": "hydraulic_surrogate",
+      "historical_source": "experiments/hydraulic_surrogate/docs/kaggle_scores.json"
+    },
+    {
+      "submission": "models/hydraulic_surrogate/submission-cuda-xgb608-capacity-standalone-001/submission_standalone_projected.csv",
+      "public_score": 0.99637,
+      "sha256": "85ac35d8d5c8ba460e034b3f43b0d5bfc3c461906e97daa579a5a290c167acd7",
+      "rank_at_observation": null,
+      "observation_time": "2026-11-02T19:07:37.083736+00:00",
+      "source": "NativeBrave Complete row with exactdescription/SHA and publicscore",
+      "submission_id": null,
+      "private_score": null,
+      "family": "hydraulic_surrogate",
+      "historical_source": "experiments/hydraulic_surrogate/docs/kaggle_scores.json"
+    },
+    {
+      "submission": "models/hydraulic_surrogate/submission-cuda-xgb608-fullsample-anchor-blend-001/submission.csv",
+      "public_score": 0.99643,
+      "sha256": "621c8df2470c9962e2e45441e138263cac67fe7fe9a384b1bf6e96803b96c20d",
+      "rank_at_observation": null,
+      "observation_time": "2026-11-02T22:14:09.799432+00:00",
+      "source": "AuthenticatedKaggle submissions list, exactdescription/SHA matched",
+      "submission_id": null,
+      "private_score": null,
+      "family": "hydraulic_surrogate",
+      "observation_artifact": "models/hydraulic_surrogate/submission-cuda-xgb608-fullsample-anchor-blend-001/kaggle_observation.json"
+    },
+    {
+      "submission": "models/hydraulic_surrogate/submission-cuda-xgb608-fullsample-standalone-001/submission_standalone_projected.csv",
+      "public_score": 0.99631,
+      "sha256": "bbe1c25b28f5c1be129ae7303f85669e8803e873df3e977e9b23a6d690ec7284",
+      "rank_at_observation": null,
+      "observation_time": "2026-11-02T22:16:37.435356+00:00",
+      "source": "AuthenticatedKaggle submissiondetails plusactualsubmittedCSVdownload",
+      "submission_id": null,
+      "private_score": null,
+      "family": "hydraulic_surrogate",
+      "observation_artifact": "models/hydraulic_surrogate/submission-cuda-xgb608-fullsample-standalone-001/kaggle_observation.json"
+    },
+    {
+      "submission": "models/hydraulic_surrogate/submission-lgb-shop664-anchor-blend-001/submission.csv",
+      "public_score": 0.99652,
+      "sha256": "1c1d173816127997e711d54c8269406830666af66b6f4eb6d24f4f227b70d496",
+      "rank_at_observation": 18,
+      "observation_time": "2026-11-02T22:04:37.100265+00:00",
+      "source": "Authenticated native Brave Kaggle submission details and leaderboard row",
+      "submission_id": null,
+      "private_score": null,
+      "family": "hydraulic_surrogate",
+      "observation_artifact": "models/hydraulic_surrogate/submission-lgb-shop664-anchor-blend-001/kaggle_observation.json"
     }
   ],
   "unscored_candidates": [
@@ -137,5 +341,14 @@
       "evidence": "reports/round10_report_20261018.md"
     }
   ],
-  "note": "Recorded on 2026-11-02 from user-reported results and existing project reports; not independently fetched from Kaggle. A missing candidate score means no result is recorded here."
+  "note": "Recorded on 2026-11-02 from user-reported results and existing project reports; not independently fetched from Kaggle. A missing candidate score means no result is recorded here.",
+  "current_best": {
+    "public_score": 0.99652,
+    "rank_at_observation": 18,
+    "observation_time": "2026-11-02T22:04:37.100265+00:00",
+    "submission": "models/hydraulic_surrogate/submission-lgb-shop664-anchor-blend-001/submission.csv",
+    "sha256": "1c1d173816127997e711d54c8269406830666af66b6f4eb6d24f4f227b70d496",
+    "recipe": "configs/hydraulic_surrogate_best.json",
+    "private_score": null
+  }
 }

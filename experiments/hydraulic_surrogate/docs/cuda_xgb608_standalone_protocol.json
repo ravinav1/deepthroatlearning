@@ -1,0 +1,69 @@
+{
+  "version": "cuda_xgb608_standalone_diagnostic_v1",
+  "created_utc": "2026-11-02T17:29:19.878112+00:00",
+  "purpose": "Second distinct predeclared public architecture diagnostic after primary locked50%blend; no leaderboard weight tuning",
+  "final_protocol_sha256": "a5939edb8ec7f46dbdb4c6edd0c06909ea09ed0ac029709b06945a5c6434683b",
+  "units": [
+    "Hogga_G1",
+    "Tokke_G1",
+    "Tokke_G2",
+    "Tokke_G3",
+    "Tokke_G4",
+    "Lio_G1",
+    "Byrte_G1",
+    "Vinje_G1",
+    "Vinje_G2",
+    "Vinje_G3",
+    "Haukeli_G1",
+    "Songa_G1",
+    "Kjela_G1",
+    "Vesle Kjela_G1"
+  ],
+  "source": {
+    "scripts/export_cuda_xgb608_standalone.py": "b3dcd813dacaecba3a3a8d7e12b963266e39b1217b4f43d376797e20abddc015",
+    "scripts/export_cuda_xgb608_final.py": "dac14e27f026f7dcd7d682e7ebbc359dbb4c609f9e406424043400ebbe2cbc4f",
+    "scripts/train_cuda_xgb608_final.py": "9e5a44abae95447cd672895d40669a7a90465a6a1cdaf3193c9ba1bd0451f492",
+    "sintef_project/postprocess.py": "ffbfa7974df4d0363f655bed00da1778aebe485988bdaef0309ac488f17c903b"
+  },
+  "inputs": {
+    "docs/cuda_xgb608_final_protocol.json": "a5939edb8ec7f46dbdb4c6edd0c06909ea09ed0ac029709b06945a5c6434683b",
+    "sintef_project/sample_submission.csv": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba",
+    "artifacts/verify-cuda-xgb608-2021-return-001/download/cuda-xgb608-2021-001/validation_2021.npz": "a59c05c9da12720d3349b915f42746b70d12e861a20f49334486b92235e365a0",
+    "artifacts/verify-cuda-xgb608-2021-return-001/download/cuda-xgb608-2021-001/manifest.json": "61f1526cb1ace06e819467e66394ddb2abbfde8462865f5bbfa14b08b479011f",
+    "artifacts/verify-cuda-xgb608-2022-return-001/download/cuda-xgb608-2022-001/validation_2022.npz": "7dde507df800668a4514d15a40c2ccdcbf9989f82d673ef28bb7ba8d14b58a4c",
+    "artifacts/verify-cuda-xgb608-2022-return-001/download/cuda-xgb608-2022-001/manifest.json": "affc4722227ed1e71d8dee74919ab28eba5f204c75b78b4339ef94e8580391e0"
+  },
+  "folds": {
+    "2021": {
+      "prediction": "artifacts/verify-cuda-xgb608-2021-return-001/download/cuda-xgb608-2021-001/validation_2021.npz",
+      "manifest": "artifacts/verify-cuda-xgb608-2021-return-001/download/cuda-xgb608-2021-001/manifest.json",
+      "raw_auc": 0.9948276701112405,
+      "projected_standalone_auc": 0.99483023883311
+    },
+    "2022": {
+      "prediction": "artifacts/verify-cuda-xgb608-2022-return-001/download/cuda-xgb608-2022-001/validation_2022.npz",
+      "manifest": "artifacts/verify-cuda-xgb608-2022-return-001/download/cuda-xgb608-2022-001/manifest.json",
+      "raw_auc": 0.9935514201255842,
+      "projected_standalone_auc": 0.9935545164712399
+    }
+  },
+  "formula": "project_vinje(raw608GPU),float64",
+  "primary_selection": {
+    "selected_weight": 0.5,
+    "accepted": true,
+    "selected_scores": {
+      "2021": 0.9950359172801482,
+      "2022": 0.9937529477072502
+    },
+    "anchor_scores": {
+      "2021": 0.9949377186691472,
+      "2022": 0.9936914879536517
+    },
+    "selection_lock_sha256": "5ab61a227270502d0f3a1387ea856a4cd0c10e2b50fec6b3864bad12629ee11f",
+    "validation_protocol_sha256": "789c2a6419c526079e18ea83ac5dd1143ef0b2c590e522b163ddf4e890a72401",
+    "evidence": "Reused chronological development years, six-day purge; no leaderboard claim."
+  },
+  "new_training": false,
+  "kaggle_score_at_declaration": null,
+  "promotion": "Diagnostic only; development inferiority disclosed; no automatic promotion"
+}

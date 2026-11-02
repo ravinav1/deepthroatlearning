@@ -1,0 +1,57 @@
+{
+  "version": "cpu_vector14_synthetic_timing_v1",
+  "created_utc": "2026-11-02T21:35:03.496125+00:00",
+  "source": {
+    "scripts/pilot_cpu_vector14_timing.py": "9b3b98fbcbf249eb95374621b1c91ccafb8e7e4b4fc07cc0f492c7c41724a996",
+    "scripts/smoke_cpu_vector14.py": "1525c005b20eb1cf1083c96d64f63462b14603b97c887c1b2afbe89b1b98955b",
+    "tests/test_cpu_vector14_timing.py": "7f228a0e4e9504d4c30d3bd3a5947be1bec7953d8e62c3466d197d668a49e54b"
+  },
+  "environment_manifest": "artifacts/xgb341-cpu-environment-001/manifest.json",
+  "environment_manifest_sha256": "2094900a418de72fa78499a0ad92b2fab2019c24002f60edfa048d17bec0b92e",
+  "capability_manifest_sha256": "b160fb7ef6784a3e64a7ce6b5a326a6353f49291e46355b32cb799c5faac482f",
+  "independent_capability_audit_sha256": "6bff707f56cc3deb552fbcf0c21afe9a86f15224da18f43db93c4cc5f1fefb2a",
+  "parameters": {
+    "max_depth": 6,
+    "learning_rate": 0.05,
+    "min_child_weight": 20,
+    "reg_lambda": 4.0,
+    "reg_alpha": 0.0,
+    "max_bin": 128,
+    "subsample": 0.9,
+    "colsample_bytree": 0.9,
+    "colsample_bylevel": 1.0,
+    "colsample_bynode": 1.0,
+    "random_state": 4173,
+    "n_jobs": 2,
+    "objective": "binary:logistic",
+    "tree_method": "hist",
+    "device": "cpu",
+    "eval_metric": "logloss",
+    "grow_policy": "depthwise",
+    "max_delta_step": 0.0,
+    "validate_parameters": true,
+    "verbosity": 1,
+    "multi_strategy": "multi_output_tree"
+  },
+  "rounds": [
+    64,
+    16
+  ],
+  "shape": [
+    10000,
+    664
+  ],
+  "target_shape": [
+    10000,
+    14
+  ],
+  "seed": 4173,
+  "combined_timeout_seconds": 120,
+  "maximum_phase_rss_bytes": 2147483648,
+  "memory_contract": "Post-exit OS ru_maxrss <=2GiB; live RSS inspection unavailable. Parent hard combined120s subprocess wall timeout.",
+  "synthetic_only": true,
+  "competition_data_read": false,
+  "full_fold_authorized": false,
+  "authorization": "Root explicitly authorized fixed10000-row64-depth6 timing plus independent16-round exact tree/base/prediction prefix comparison, combined120s, CPU2threads. No actual competition inputs or labels.",
+  "interpretation": "Synthetic timing extrapolation is descriptive only; real600/1800 prefix and costs must be verified if a prospective full fold is authorized."
+}

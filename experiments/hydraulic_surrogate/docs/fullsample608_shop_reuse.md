@@ -1,0 +1,9 @@
+# Fullsample608 complementarity with the accepted SHOP blend
+
+The accepted fullsample608 blend was compared with the earlier GPU608 anchor. This separate experiment asks whether its raw probabilities add value to the current accepted SHOP664 blend. It reuses already audited chronological development predictions and fits no models. The prior fullsample final recipe and its submissions remain independent.
+
+Freeze one global 2021 grid `[0, 0.1, 0.25, 0.5]`, with lower-weight ties. Each prediction is `project_vinje((1-w)*acceptedSHOP664blend + w*rawFullsample608)` in float64. At the selected weight, compare the same formula replacing the candidate with the original 40% training-row GPU608 output. Eligibility requires a positive winner whose pooled micro-AUC strictly exceeds both the zero-weight SHOP identity and the matched original-row control. Preserve rejection without expanding the grid.
+
+An independent source/protocol review precedes any new score evaluation. Save the exact 2021 lock and independent result audit before decoding any 2022 prediction array. On 2022, evaluate only zero and that locked weight, with the same matched control and strict gate. Both years are reused development data, and this does not create untouched holdout evidence. No public leaderboard score enters weight selection. A final export requires both-year acceptance and an independent result audit; this protocol does not itself export or submit anything.
+
+All component arrays, their owning manifests, prior independent audits, original data, fold IDs, unit order, code and projection sources are frozen by SHA256. Every attempted execution records its command, environment, runtime, input hashes, predictions, selection lock and failure details in a unique artifact directory. No training, early stopping, seed draw or feature construction occurs.

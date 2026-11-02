@@ -1,0 +1,3335 @@
+{
+  "version": 1,
+  "snapshot_utc": "2026-11-02T22:40:26.177710+00:00",
+  "repository": "ravinav1/deepthroatlearning",
+  "release_tag": "hydraulic-surrogate-20261102",
+  "raw_data_included": false,
+  "original_files_deleted": false,
+  "omitted_categories": {
+    "rebuildable_private_upload_archive": {
+      "files": 22,
+      "bytes": 282749319
+    },
+    "cache_or_environment": {
+      "files": 77,
+      "bytes": 38519594
+    },
+    "rebuildable_staging_copy": {
+      "files": 297,
+      "bytes": 1076791946
+    },
+    "private_dataset_copy": {
+      "files": 4,
+      "bytes": 12270
+    },
+    "supplied_raw_data": {
+      "files": 80,
+      "bytes": 807665752
+    },
+    "existing_destination_snapshot": {
+      "files": 996,
+      "bytes": 25897949
+    }
+  },
+  "files_changed_during_snapshot": [],
+  "assets": [
+    {
+      "name": "hydraulic-research-01.tar.gz",
+      "group": "research",
+      "size_bytes": 493191602,
+      "sha256": "b8bb7386a2ec411ff576ccf45bcdc19e231125baa422a73a18446d8b4a762407",
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-research-01.tar.gz"
+    },
+    {
+      "name": "hydraulic-research-02.tar.gz",
+      "group": "research",
+      "size_bytes": 235536879,
+      "sha256": "90ecb697d0f1b26673f3a6c6f9efaca106b1c2dc16dac040eb31ed3576ba46e6",
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-research-02.tar.gz"
+    },
+    {
+      "name": "hydraulic-research-03.tar.gz",
+      "group": "research",
+      "size_bytes": 426556493,
+      "sha256": "fc99c96145bc93894ba0363220d40ce41fafc1412c3587326cfee152fec8cb75",
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-research-03.tar.gz"
+    },
+    {
+      "name": "hydraulic-research-04.tar.gz",
+      "group": "research",
+      "size_bytes": 303474483,
+      "sha256": "a5237f0865068f975a0a0333435b2e2255cd944ce519e051b7b019bdea3d166e",
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-research-04.tar.gz"
+    },
+    {
+      "name": "hydraulic-research-05.tar.gz",
+      "group": "research",
+      "size_bytes": 431121165,
+      "sha256": "120642170d55173c531e1019750996c12c4dd85351e956318566899f07781b80",
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-research-05.tar.gz"
+    },
+    {
+      "name": "hydraulic-research-06.tar.gz",
+      "group": "research",
+      "size_bytes": 368027254,
+      "sha256": "60d1bb2bf1ccb8f4ba9b056ae81733ccf1ef395e2ffc6fb6b9f34d24071b2a9b",
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-research-06.tar.gz"
+    },
+    {
+      "name": "hydraulic-research-07.tar.gz",
+      "group": "research",
+      "size_bytes": 278372180,
+      "sha256": "6b90836bb5041905a9464690bf6b5898a5918400e9eb00a8ab8879bae8777497",
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-research-07.tar.gz"
+    },
+    {
+      "name": "hydraulic-research-08.tar.gz",
+      "group": "research",
+      "size_bytes": 139103365,
+      "sha256": "72827ff26336e46e272617fee81b5f45b2872fea64376c8b418667115f992bd2",
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-research-08.tar.gz"
+    },
+    {
+      "name": "hydraulic-best-01.tar.gz",
+      "group": "best",
+      "size_bytes": 343615610,
+      "sha256": "8286f5cceb15c3e447e4166396791b9b48d2ce22adb1f05692c96480c9dc160f",
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-best-01.tar.gz"
+    },
+    {
+      "name": "hydraulic-best-02.tar.gz",
+      "group": "best",
+      "size_bytes": 8354057,
+      "sha256": "0e7528b38f7054cce0ea202c937eba89c6928a4350eaa7c357d2886c5176b617",
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-best-02.tar.gz"
+    },
+    {
+      "name": "hydraulic-physics-01.tar.gz",
+      "group": "physics",
+      "size_bytes": 489616250,
+      "sha256": "2a1fc88b40d203b5a1827b05c67db348e6c247f2c9e3b4d7cc6fedb870630eb9",
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-physics-01.tar.gz"
+    },
+    {
+      "name": "hydraulic-physics-02.tar.gz",
+      "group": "physics",
+      "size_bytes": 483937550,
+      "sha256": "9ed86eb4fafe0057295505dd80edc832a652ae0bd0eda545746c30619662f236",
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-physics-02.tar.gz"
+    },
+    {
+      "name": "hydraulic-physics-03.tar.gz",
+      "group": "physics",
+      "size_bytes": 489558382,
+      "sha256": "7f02cdc302a6156ceb6b3d4e1682badb76dd08b0cdc8920d81f665818723b48c",
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-physics-03.tar.gz"
+    },
+    {
+      "name": "hydraulic-physics-04.tar.gz",
+      "group": "physics",
+      "size_bytes": 439202266,
+      "sha256": "02cf89224b43ebf3161edd8afe33f86aeb6c5073c28104730edc59607389a08b",
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-physics-04.tar.gz"
+    },
+    {
+      "name": "hydraulic-physics-05.tar.gz",
+      "group": "physics",
+      "size_bytes": 491842602,
+      "sha256": "54fee28027aad4a4a09f4117208adbeafcb639d433cfeafd50ddd1534c99f212",
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-physics-05.tar.gz"
+    },
+    {
+      "name": "hydraulic-physics-06.tar.gz",
+      "group": "physics",
+      "size_bytes": 513061098,
+      "sha256": "b01a477720544174e103428e50b8ffb740b8bc1587a7f26797823c7514d1b99c",
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-physics-06.tar.gz"
+    },
+    {
+      "name": "hydraulic-physics-07.tar.gz",
+      "group": "physics",
+      "size_bytes": 513659056,
+      "sha256": "2a7f66f5885da6b8c41f930b9641a7367e87ecb53d69d223e2a7e5aa3e5ff7f8",
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-physics-07.tar.gz"
+    },
+    {
+      "name": "hydraulic-physics-08.tar.gz",
+      "group": "physics",
+      "size_bytes": 510372462,
+      "sha256": "daf4b406807a70df4ebd7186f4dc96bc49d902202af8814099e2c79be9bc71e8",
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-physics-08.tar.gz"
+    },
+    {
+      "name": "hydraulic-physics-09.tar.gz",
+      "group": "physics",
+      "size_bytes": 193766792,
+      "sha256": "b2e8315c94b0366730fbda4870aa1caf4f5bd0768b0fcf3d224d1981987a468a",
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-physics-09.tar.gz"
+    },
+    {
+      "name": "hydraulic-research-09.tar.gz",
+      "group": "research",
+      "size_bytes": 133638,
+      "sha256": "5fc66eb62fc22de4783523ee01025ad2b135e47bd0c9ad64a8d1f663873f7cff",
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-research-09.tar.gz"
+    }
+  ],
+  "files": {
+    "cuda-dual-final-submissions-independent-audit-001/audit_cuda_dual_final_submissions.py": {
+      "size_bytes": 8864,
+      "sha256": "861d66d33ba2cb3fcc7fd177beeb0f7595ce66c42a27e37fc835da5dc6fdda2e",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "cuda-dual-final-submissions-independent-audit-001/manifest.json": {
+      "size_bytes": 5123,
+      "sha256": "ff88843e5eb8aa1d351ceb36b0640afb08dfc82d2490ecba294e3dacf272aa7d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "cuda-xgb608-submissions-independent-audit-001/audit.py": {
+      "size_bytes": 4726,
+      "sha256": "95698db320d94b9c9e6e53f6a8a39749d68e64f74618f016215e84227aad5131",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "cuda-xgb608-submissions-independent-audit-001/manifest.json": {
+      "size_bytes": 2039,
+      "sha256": "4d8bce81e8748dd274968a0a53bf6d5fc274e60b056451369eefd3c41210f19d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-001/manifest.json": {
+      "size_bytes": 146632,
+      "sha256": "bf7b863dc6094deb7bf8383c2068868b5dde936621a68bdd9373ae13fa5c25d8",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/final_Byrte_G1.txt": {
+      "size_bytes": 1287879,
+      "sha256": "af61a80400c8dbcabd90ec61db1316caaaeb452ee6b52036a34b2bae8b4b0c2a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/final_Haukeli_G1.txt": {
+      "size_bytes": 1285502,
+      "sha256": "61813db5756a0e648006ac897629fdc589acde8e78103ce5284d4e87e9107bf4",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/final_Hogga_G1.txt": {
+      "size_bytes": 1284326,
+      "sha256": "325b2e94a1a45c2ed555508335d8cf22757b81d7ee07793dca33ba2be78d0d7b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/final_Kjela_G1.txt": {
+      "size_bytes": 1287539,
+      "sha256": "b89beab6d49bfe7b53233fcbc1070485854d124d41a2abdde6af877d1eede23d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/final_Lio_G1.txt": {
+      "size_bytes": 1287854,
+      "sha256": "07df529ea48b4428f00bdc7d0091555557b0bb4f4cd3d4e49d3ea519346b4952",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/final_Songa_G1.txt": {
+      "size_bytes": 1290682,
+      "sha256": "0630624fc477bc61fa61e99225d6b3a7138cdc7d7d679bfa51017e3670d04b8f",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/final_Tokke_G1.txt": {
+      "size_bytes": 1290112,
+      "sha256": "1e2ba37a284bb0dc879700e0fca8901736532b206eacd0723e059aaf3a58470e",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/final_Tokke_G2.txt": {
+      "size_bytes": 1286280,
+      "sha256": "3e1f464691f1ae5b47c89de66d6179c8b37e9fb58e5ac7b5ea229e1bdbbf3fc3",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/final_Tokke_G3.txt": {
+      "size_bytes": 1286914,
+      "sha256": "55c0e9c3cddf685ed4afd821c64a6b9efb4ec97d923365be85116f65cd067782",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/final_Tokke_G4.txt": {
+      "size_bytes": 1286858,
+      "sha256": "21d35aed71afadf72bb07ad18f96fd60ae35de46e29b90477c3d9889aa7900d3",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/final_Vesle Kjela_G1.txt": {
+      "size_bytes": 1287327,
+      "sha256": "25f1186e6e137ef1de2025a1974d2c4e26196e3e23e3b6691c6e1b70ec12f717",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/final_Vinje_G1.txt": {
+      "size_bytes": 1286558,
+      "sha256": "8e149d6af327eb947846eea67123e6a61e48b47590e1949816ee333f98408788",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/final_Vinje_G2.txt": {
+      "size_bytes": 1285381,
+      "sha256": "c1b168d06b19f234c964672456d8699f221379c35ae02b7ec6e25eaa013b66f5",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/final_Vinje_G3.txt": {
+      "size_bytes": 1285287,
+      "sha256": "e8939a37119f16547006ad7b8a5f58226ebaeb74247288fe44b1bc2009f25de1",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/importance_Byrte_G1.csv": {
+      "size_bytes": 16959,
+      "sha256": "9b04b3b0d5e405cd1ec64b37bb0c200a9787b146597c6ef609baecdc0593f560",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/importance_Haukeli_G1.csv": {
+      "size_bytes": 16977,
+      "sha256": "1324f519b7cf57088e5ebf4fee1a417abe929dceea81ace2babd88752c03a53c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/importance_Hogga_G1.csv": {
+      "size_bytes": 16969,
+      "sha256": "148dac00ac4304c7a521772bcb8b4f249842ea742dd0c79c2cdcb5b631096f41",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/importance_Kjela_G1.csv": {
+      "size_bytes": 16985,
+      "sha256": "3fd12035bc395aecd3279abcd04a1b2c62f6e161d472dfb09411669cb46570a4",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/importance_Lio_G1.csv": {
+      "size_bytes": 16979,
+      "sha256": "ffa9f8e44122012729641f87b405bbdf4306f2b4248676dc33c0ae109bcc9dc1",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/importance_Songa_G1.csv": {
+      "size_bytes": 16972,
+      "sha256": "e26c30d3477b548a93915b7ee23a04d6fb0d71d920526e5ceba54c0b85138e8c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/importance_Tokke_G1.csv": {
+      "size_bytes": 16969,
+      "sha256": "282f9fe2045ccdee8addb809f5f9b6148cb673ded8c1d870b42b299e38a98fc5",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/importance_Tokke_G2.csv": {
+      "size_bytes": 16994,
+      "sha256": "0124dc9beb9ca9acc443dc9c78617caf3d021a242c1e21847343dce58785fc15",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/importance_Tokke_G3.csv": {
+      "size_bytes": 16988,
+      "sha256": "6ae9a25ff0e3fbba258b9328647a2822f1dee698db63aad0f3f99aaea9a8cce6",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/importance_Tokke_G4.csv": {
+      "size_bytes": 16989,
+      "sha256": "0bc9f115c467552312bc5aacd968fb7de2c0bb0b425eb48ca7fd3e90561e4043",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/importance_Vesle Kjela_G1.csv": {
+      "size_bytes": 16972,
+      "sha256": "da9e71f2f8a665600fe43abd225bfef310f2142c10aadacb0c98c27ac293f0db",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/importance_Vinje_G1.csv": {
+      "size_bytes": 16992,
+      "sha256": "f64a50e659d5aa276e458235eda6dc606277e44af2c481756b2203957c43f63f",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/importance_Vinje_G2.csv": {
+      "size_bytes": 16989,
+      "sha256": "02bb5ddad43de423cd4e6b5cedb609f0105c749b67ff45af1b9197f05b918d47",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/importance_Vinje_G3.csv": {
+      "size_bytes": 16987,
+      "sha256": "bbe5aacf6a9a1c791b3ebd55aa6201bcdb5e642f5f3e9dfbc4b60c9d3875b258",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/manifest.json": {
+      "size_bytes": 93093,
+      "sha256": "69e3db7e7c3d6a1af1be053d99537b4cf80b4a97bbc88e99515ec6bf69bab76e",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/analyze_lp_head_update.py": {
+      "size_bytes": 12046,
+      "sha256": "aca398d21802012791a97b774b612b9f834dd54fa8aecb1f8019631345f941f8",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/analyze_predictions.py": {
+      "size_bytes": 7320,
+      "sha256": "248ba174901e30765ebc2a1d2f1e24037734233950ba76a85ad0bf824099f8bf",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/benchmark_lp_shared_losses.py": {
+      "size_bytes": 9279,
+      "sha256": "63079174134fd1ff0aa5867c4a59089df83a60f1e6e6f70a988e3a0528003896",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/benchmark_lp_v2.py": {
+      "size_bytes": 7620,
+      "sha256": "f58553b2faac377426771c33ea3470ad2b83e3c481694ec9001f3c694548f35b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/build_lp_features.py": {
+      "size_bytes": 5781,
+      "sha256": "8d2a4cf366b08ea08ba9c6b8483c1d89f20316272689846a53853e27e160f37d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/build_lp_features_v2.py": {
+      "size_bytes": 5904,
+      "sha256": "87d26d0b1d2fb7a9161b39136f7d961da78779152bb84b03f86bb86feece89a3",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/case_calibration.py": {
+      "size_bytes": 15965,
+      "sha256": "a93a3d7c007f21fea6beef262b3f9da7b1461157d9e8e11c109b70a4f271652c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/economic_probe.py": {
+      "size_bytes": 13960,
+      "sha256": "36629b6ebcf8952cafcf3e30ba90f6ee3347ab2ebd46de281631aa87fc9ab9c0",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/ensemble_compare.py": {
+      "size_bytes": 8915,
+      "sha256": "f1c65bbe781da6054caa3b414e5a773a24f6a88c75b7f0941fbcfe8f2fab4139",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/export_ensemble.py": {
+      "size_bytes": 18594,
+      "sha256": "d682f039d4d881a540948ef637d84390e9647fd05339b097e2479fba1845161a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/export_selected_blend.py": {
+      "size_bytes": 6397,
+      "sha256": "b26515ecde4ef9602a4e1a7436f05a4d0e49f6dec6a23f8b6cea7079fe50f138",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/export_submission.py": {
+      "size_bytes": 6602,
+      "sha256": "ca1e97435744be61f8f9115a345e89507d2d86d2134e55b0361b49084be38506",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/iterate_lp_shared_losses.py": {
+      "size_bytes": 9999,
+      "sha256": "9b5182d7f4f2ed121b80ad224aada805430106517ececea558aa44c1bf9d430f",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/lp_candidate_compare.py": {
+      "size_bytes": 12211,
+      "sha256": "0a8b4e606672eb48d1b413e21f7768744f6d97756f4a5450e3f60ad67067cc5f",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/lp_ensemble_compare.py": {
+      "size_bytes": 8857,
+      "sha256": "dcd69823fb81e0ba1479590078a5957696718f054bcd678552e8baaaf9fffe48",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/lp_error_analysis.py": {
+      "size_bytes": 28257,
+      "sha256": "d7279be620b20cf099cde64c996be99dc6de8486e6655211065ca99a2d70ff00",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/plot_validation.py": {
+      "size_bytes": 1438,
+      "sha256": "2e2945c3d49ef6e59045152c79c81d341436f5818711727d407ff891e1e62225",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/prefix_selection.py": {
+      "size_bytes": 19769,
+      "sha256": "319f9a52762cc3a38c468b609b5557837b33164f1322a66834e05cebcc600193",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/repair_lp_cache_schema.py": {
+      "size_bytes": 2944,
+      "sha256": "ab3a55b24b7739473390f3429a8018987275a1477a5b1e016dd29a48966327c5",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/score_lp_diagnostic.py": {
+      "size_bytes": 4147,
+      "sha256": "8a823457b3e6e1f7d7274e9a861c017b45cc34a61a2115e25a231c6ddd3b6d4a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/score_lp_v2_diagnostic.py": {
+      "size_bytes": 4154,
+      "sha256": "1a3e687a0a73476018c41e5fc16acfd8ec027968a97ad1de3ca3f2ac0ba95ef8",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/train.py": {
+      "size_bytes": 16114,
+      "sha256": "3c3b2fd8c9a8a854edb7095d2992de809713f7418dbba85e21c439519e4a1389",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/vinje_count.py": {
+      "size_bytes": 43284,
+      "sha256": "28964f0a348aa0bd2b8353435fb0f5f5ebd83b9a07bc3857b522c8d8a37cb05e",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/xgb_lp_specialists.py": {
+      "size_bytes": 14031,
+      "sha256": "207e8f315a7efefdab3acc902e87a7bbc9a966ba0716bb6e2f45eaadb9bb962e",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/scripts/xgb_lp_specialists_final.py": {
+      "size_bytes": 13607,
+      "sha256": "caaf8b42158c984ec704359a51165eea43f50454e6e3e1864353ef0eb2c21f71",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/sintef_project/context_features.py": {
+      "size_bytes": 3876,
+      "sha256": "5a9d544dff941a9e810426cfe01c91fb9045fb8a4281a606dbf1b578ae01d3c0",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/sintef_project/features.py": {
+      "size_bytes": 10246,
+      "sha256": "d6dd97719c125ca9af859c3251ca408ef05af541743ea2f1524d31961f2fba30",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/sintef_project/kaggle_metric.py": {
+      "size_bytes": 4821,
+      "sha256": "27f9c7dcaff5a2a6be1d02f713a35d422825fad7c21ccec6f91471717ab828b6",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/sintef_project/lp_context.py": {
+      "size_bytes": 5299,
+      "sha256": "44b329a78ec9271d00dbd7e6c57469c31d01bc307d9b45a176768ea8583fd291",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/sintef_project/lp_features.py": {
+      "size_bytes": 25878,
+      "sha256": "bd16e0b4e9e32976b7eb50d5334e05b94f2b074bc0d8eb83a787f26f95268720",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/sintef_project/lp_features_v2.py": {
+      "size_bytes": 8496,
+      "sha256": "8a559105af5de34447072b4d1ad87f055ba6024b1712b0f085d647d1b9ba2d79",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/sintef_project/lp_head_update.py": {
+      "size_bytes": 8748,
+      "sha256": "8f2a01f47f7c83307178e6ed030c13d174cb03a8d560d6109f5a59c35019421b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/sintef_project/lp_shared_loss_update.py": {
+      "size_bytes": 3627,
+      "sha256": "90bd01fda2952b9defdc2b9dd97fa5adc92d137997ccea3f142b6f0adc74c31a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/sintef_project/lp_switching.py": {
+      "size_bytes": 6044,
+      "sha256": "7e989743262d2b23e83501dd5cd87ed841afefc38641d13d0303988a3d2c73fc",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/sintef_project/normalized.py": {
+      "size_bytes": 3987,
+      "sha256": "2836de6aeffd992bf530abd2643df26650ade7c02e1c70e9aae1319bb5c3e16c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/sintef_project/physics.py": {
+      "size_bytes": 10015,
+      "sha256": "c9b0b2b81399a49c88802613a3ee85ba29fe97d5b7a3681f041d866972f82f41",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/source/sintef_project/postprocess.py": {
+      "size_bytes": 3600,
+      "sha256": "ffbfa7974df4d0363f655bed00da1778aebe485988bdaef0309ac488f17c903b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/submission.csv": {
+      "size_bytes": 22480464,
+      "sha256": "64fc8f5dbd5c00142a2961c6b039a396f047e05b8e13e1c4ecdafbec1c202232",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/test_predictions.npy": {
+      "size_bytes": 6820928,
+      "sha256": "2867660286ab1a241f35afe98255d674c096c05bdc94231a1e552151b042fb79",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-final-001/train_sample_final.npy": {
+      "size_bytes": 1570992,
+      "sha256": "4e38d45e87950d4d84849224ddb64fa9b5bf7b21d20a7d9b998223ce5e0fa83d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-001/manifest.json": {
+      "size_bytes": 198874,
+      "sha256": "5bde64b56c5b789148eb2bc72b8296274e8a9e49e77ee75e977de3b6d8c02e88",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/final_Byrte_G1.txt": {
+      "size_bytes": 1294081,
+      "sha256": "153c11d966880bcc47b2eed5e06f2a193509191ad203547eb0c7ffeb96b31cbb",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/final_Haukeli_G1.txt": {
+      "size_bytes": 1290788,
+      "sha256": "d8ae966b7c69a9d7b35592155f7967762a51961a12ddf851981a9e185d5218ac",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/final_Hogga_G1.txt": {
+      "size_bytes": 1290215,
+      "sha256": "a72f1a9371828a144257f1ae9d34cc4406602ac7943f35c700bcf2df33bfbc39",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/final_Kjela_G1.txt": {
+      "size_bytes": 1293178,
+      "sha256": "abe86598b85418e6781b1d84cbcbe6fb8b6eed90430c5dce1c72d9b48fd304eb",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/final_Lio_G1.txt": {
+      "size_bytes": 1293009,
+      "sha256": "018f4cf997b89a44ecf1ac6a56210166f47b5177b9235b88017c9350fc3530bf",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/final_Songa_G1.txt": {
+      "size_bytes": 1295527,
+      "sha256": "a94b4cb4436452175e753a929cfcdd99e5034988def9243c21a144870b47a174",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/final_Tokke_G1.txt": {
+      "size_bytes": 1295128,
+      "sha256": "54b3db6ffaf1a16283fad5ef450a53258a973368d4fc9110a0cd159c858b7c92",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/final_Tokke_G2.txt": {
+      "size_bytes": 1291670,
+      "sha256": "b3da632b2e15c4a02bde5be681ee237b87c54178bafc7879f2ad42691bac095d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/final_Tokke_G3.txt": {
+      "size_bytes": 1292240,
+      "sha256": "dd73cb9e5e11cdc8a955fc41021f754f3d019fce57f6443842fddfc2bb199d63",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/final_Tokke_G4.txt": {
+      "size_bytes": 1291926,
+      "sha256": "4c586faf6fb337f714bcfc7adfaf1434aa306496a6595ec4e1569008ad93e32f",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/final_Vesle Kjela_G1.txt": {
+      "size_bytes": 1293051,
+      "sha256": "dae8779f35ae9f36917e3f12af43c6dcb88a6136d2fa694344b9b5f178479363",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/final_Vinje_G1.txt": {
+      "size_bytes": 1292262,
+      "sha256": "dc652bd549d150475d941da22224984278fba0114db01e4bd2bc33afc38e9641",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/final_Vinje_G2.txt": {
+      "size_bytes": 1291038,
+      "sha256": "8ed6b2e18d2f15996a9cff96c35bf5682ee1ae3e8913349ac0aea88889d78ea6",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/final_Vinje_G3.txt": {
+      "size_bytes": 1290076,
+      "sha256": "a9560f05292be8a6a464b28c0372aa43b50dc9f7b70a584ecbe120c3925d1a4b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/importance_Byrte_G1.csv": {
+      "size_bytes": 19898,
+      "sha256": "ffe77e741a7cbf17b9dbda5be08f867f3ac7357bb0a891c5d62627f5225c1491",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/importance_Haukeli_G1.csv": {
+      "size_bytes": 19898,
+      "sha256": "66d73106bbc24d142115a3c08b675a5129e1609decfaf43031d24111fa5ac717",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/importance_Hogga_G1.csv": {
+      "size_bytes": 19896,
+      "sha256": "ec15519abae1bc2ee5995ae75ce95a128ed4520f1f6d558e935341f04fff5eab",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/importance_Kjela_G1.csv": {
+      "size_bytes": 19912,
+      "sha256": "6efac01c5ff3c749588c1a62b1bb4e8c60a47d6214340dc95fdedd3d912eb078",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/importance_Lio_G1.csv": {
+      "size_bytes": 19905,
+      "sha256": "577754ed48f2de1b9fd0e70a1806abcb5d5866798608e2f9b12241150fee3eab",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/importance_Songa_G1.csv": {
+      "size_bytes": 19893,
+      "sha256": "910ca863a5eda586f54f65c86373f82666ec0a11e51462009a7a67bd941a8a88",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/importance_Tokke_G1.csv": {
+      "size_bytes": 19903,
+      "sha256": "2d9aacf347335c60515c6b105d762858e98b736f3c901af3c23771ca02a94cc5",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/importance_Tokke_G2.csv": {
+      "size_bytes": 19925,
+      "sha256": "eb6f1209a7c0399b03aa1da41a5be45fa46bdd970b01d18287cf4a9706fda145",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/importance_Tokke_G3.csv": {
+      "size_bytes": 19905,
+      "sha256": "8851a8f54dc908a7ff735127d0adb9ad71d9e2147b333c4bb5f5a91808351607",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/importance_Tokke_G4.csv": {
+      "size_bytes": 19923,
+      "sha256": "8320f82fc61b8c1a56484307617562c0a494f1598cee0c418cfc1e2977cafa55",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/importance_Vesle Kjela_G1.csv": {
+      "size_bytes": 19888,
+      "sha256": "f53a5d6012ee67398730cf59b56f8a2a6f9ce3c469f75c81d426cc60949776ad",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/importance_Vinje_G1.csv": {
+      "size_bytes": 19928,
+      "sha256": "22211850a857c0d82e7ee95c3de100ce98c5c47655d117557c0f1a2da57d3c8b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/importance_Vinje_G2.csv": {
+      "size_bytes": 19922,
+      "sha256": "d111ba739e0893b8a92c5678b0235777a54535fd0b9ab1c59bc28a82b9a8116a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/importance_Vinje_G3.csv": {
+      "size_bytes": 19915,
+      "sha256": "586e1e805b3c6d66bec1b2b046931a4e51dcae02a2fb398e4ab20a78b95c7bef",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/manifest.json": {
+      "size_bytes": 122026,
+      "sha256": "bf14d938dc63270d2b5c1d1b47309dda08540176844b68e3fb049ee80376393f",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/analyze_lp_head_update.py": {
+      "size_bytes": 12046,
+      "sha256": "aca398d21802012791a97b774b612b9f834dd54fa8aecb1f8019631345f941f8",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/analyze_predictions.py": {
+      "size_bytes": 7320,
+      "sha256": "248ba174901e30765ebc2a1d2f1e24037734233950ba76a85ad0bf824099f8bf",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/analyze_tokke_exchangeability.py": {
+      "size_bytes": 5501,
+      "sha256": "def9879333b1394e179723894db7d49ab804295ba404d9e96d90c815aff2951c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/audit_cuda_tcn.py": {
+      "size_bytes": 7896,
+      "sha256": "46f8041879edc1936167ce74cad76915c3dd5c360c6538a1eae04591b3047e12",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/audit_lp_joint.py": {
+      "size_bytes": 9702,
+      "sha256": "ec81952bdb249b93c62f0ab9a921765fe64de79d11b975e7eae29dd6e96bfb6b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/audit_past_state.py": {
+      "size_bytes": 8777,
+      "sha256": "061581724f99bda1d9da63d9e0c6ee2af72ae79a7f70d39e4bb39b62da739164",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/benchmark_lp_joint_plant.py": {
+      "size_bytes": 10735,
+      "sha256": "fe9e03384f8f2d71d4a0ee855030d28c9a73c6b4755966f780202b93ad001a41",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/benchmark_lp_joint_switching.py": {
+      "size_bytes": 10443,
+      "sha256": "15795315019728efd4791224cbe4cf3c03546097850138a0e57a3e5c6d9830b6",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/benchmark_lp_shared_losses.py": {
+      "size_bytes": 9279,
+      "sha256": "63079174134fd1ff0aa5867c4a59089df83a60f1e6e6f70a988e3a0528003896",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/benchmark_lp_v2.py": {
+      "size_bytes": 7620,
+      "sha256": "f58553b2faac377426771c33ea3470ad2b83e3c481694ec9001f3c694548f35b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/build_kaggle_neural_bundle.py": {
+      "size_bytes": 9864,
+      "sha256": "594100ed9986c3c19691f2cf8021460f8486666c205a6a3739d595baed63f171",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/build_lp_features.py": {
+      "size_bytes": 5781,
+      "sha256": "8d2a4cf366b08ea08ba9c6b8483c1d89f20316272689846a53853e27e160f37d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/build_lp_features_v2.py": {
+      "size_bytes": 5904,
+      "sha256": "87d26d0b1d2fb7a9161b39136f7d961da78779152bb84b03f86bb86feece89a3",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/build_lp_joint_features.py": {
+      "size_bytes": 6839,
+      "sha256": "e7f4c336cdb0f4de81a7d68e0b083c5d729b86657799422302abf785776c0e74",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/case_calibration.py": {
+      "size_bytes": 15965,
+      "sha256": "a93a3d7c007f21fea6beef262b3f9da7b1461157d9e8e11c109b70a4f271652c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/catboost_specialists.py": {
+      "size_bytes": 13773,
+      "sha256": "ab9bf553904ef32c3879eaeef05d0391f6336086df797021530e11075a12e973",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/compare_lp_large.py": {
+      "size_bytes": 15429,
+      "sha256": "6533a9bb1bf46669dafdd2289ea7ff21134ed2d13c20ff1291368ceaccf8d69d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/compare_tokke_order.py": {
+      "size_bytes": 9492,
+      "sha256": "366111070f7d0b9464d0f6c764a795be01194709a9af62018ec005860ae3d088",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/cpu_mlp.py": {
+      "size_bytes": 20006,
+      "sha256": "1faa5afc1d6d58aefe4a4b336f5eb65e78d3ea497a780bec7f19607d6384c572",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/economic_probe.py": {
+      "size_bytes": 13960,
+      "sha256": "36629b6ebcf8952cafcf3e30ba90f6ee3347ab2ebd46de281631aa87fc9ab9c0",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/ensemble_compare.py": {
+      "size_bytes": 8915,
+      "sha256": "f1c65bbe781da6054caa3b414e5a773a24f6a88c75b7f0941fbcfe8f2fab4139",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/export_ensemble.py": {
+      "size_bytes": 18984,
+      "sha256": "4296237222c8d9eb9e3b51cb23cfb17922847132eef4753ffc709aa22be2b77b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/export_selected_blend.py": {
+      "size_bytes": 7817,
+      "sha256": "de6d6bf90ca188787fc6607b62f14fcd44b5a7c02a231869e4f23b45e1da5e25",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/export_submission.py": {
+      "size_bytes": 6602,
+      "sha256": "ca1e97435744be61f8f9115a345e89507d2d86d2134e55b0361b49084be38506",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/iterate_lp_shared_losses.py": {
+      "size_bytes": 9999,
+      "sha256": "9b5182d7f4f2ed121b80ad224aada805430106517ececea558aa44c1bf9d430f",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/kaggle_runtime_probe.py": {
+      "size_bytes": 1384,
+      "sha256": "01a1dca59fbbd8c52bc73f2404cb2b475dc82ff96b84221ee6e3a586ebd2c8d3",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/lp_candidate_compare.py": {
+      "size_bytes": 12211,
+      "sha256": "0a8b4e606672eb48d1b413e21f7768744f6d97756f4a5450e3f60ad67067cc5f",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/lp_context_joint_compare.py": {
+      "size_bytes": 19723,
+      "sha256": "666150cd250395195f763204ee4d90fd261af8be0ccaa58425c3f5d87af05194",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/lp_ensemble_compare.py": {
+      "size_bytes": 8857,
+      "sha256": "dcd69823fb81e0ba1479590078a5957696718f054bcd678552e8baaaf9fffe48",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/lp_error_analysis.py": {
+      "size_bytes": 28257,
+      "sha256": "d7279be620b20cf099cde64c996be99dc6de8486e6655211065ca99a2d70ff00",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/lp_joint_compare.py": {
+      "size_bytes": 16997,
+      "sha256": "476dcde08b204c8c85efc1266c4d89dd202d296c58edadaf4c869353aa1cb275",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/lp_locality_ablation.py": {
+      "size_bytes": 14308,
+      "sha256": "df5c7c38abee5667b46c296143406f7b3c77c5b5169a776799ab6e49bb85f487",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/lp_past_state_specialists.py": {
+      "size_bytes": 16794,
+      "sha256": "c57757439a15acaa80e0034805858f29e285dfb6334626bf2df26d0e2b9bb697",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/monotonic_specialists.py": {
+      "size_bytes": 22435,
+      "sha256": "adfeee4282bd52a028995ffc63ad0572bc03013f0a2248452bc675a4485e773b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/paired_auc_uncertainty.py": {
+      "size_bytes": 6919,
+      "sha256": "c22f3405dbd89dc6637f5df77d48cfab953bc9c654a85715708c217dbd116084",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/plot_validation.py": {
+      "size_bytes": 1438,
+      "sha256": "2e2945c3d49ef6e59045152c79c81d341436f5818711727d407ff891e1e62225",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/prefix_selection.py": {
+      "size_bytes": 19769,
+      "sha256": "319f9a52762cc3a38c468b609b5557837b33164f1322a66834e05cebcc600193",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/repair_lp_cache_schema.py": {
+      "size_bytes": 2944,
+      "sha256": "ab3a55b24b7739473390f3429a8018987275a1477a5b1e016dd29a48966327c5",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/score_lp_diagnostic.py": {
+      "size_bytes": 4147,
+      "sha256": "8a823457b3e6e1f7d7274e9a861c017b45cc34a61a2115e25a231c6ddd3b6d4a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/score_lp_joint_diagnostic.py": {
+      "size_bytes": 4929,
+      "sha256": "c6583d7fd2c46133f2911baf7f9132775547254640ff3a79117a47f19b1f1270",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/score_lp_v2_diagnostic.py": {
+      "size_bytes": 4154,
+      "sha256": "1a3e687a0a73476018c41e5fc16acfd8ec027968a97ad1de3ca3f2ac0ba95ef8",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/smoke_cpu_mlp.py": {
+      "size_bytes": 4353,
+      "sha256": "67dc03490183caadfcef8595da937f88804394c1873ba3d3fd7ecc64bdad0b6d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/smoke_mps_tcn.py": {
+      "size_bytes": 8673,
+      "sha256": "3ca6b3913cf35d6cf4f564373b29f70dc1785739ddd50c752120ead9b8fb9e51",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/train.py": {
+      "size_bytes": 18288,
+      "sha256": "0d1c9204a0916d4609d096bb2018ea022a4ae2bd2f4950de6d256e889fdc3cbc",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/train_cuda_tcn.py": {
+      "size_bytes": 31149,
+      "sha256": "1afae39884da9d210a8ef695fb0c99636536bc688ce79961d502bf4c4b743e57",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/train_cuda_xgb.py": {
+      "size_bytes": 18615,
+      "sha256": "ea759725d96290ca205ea9b53fc4fbb41d97fabcfb0674a57844de3d41942708",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/verify_cpu_mlp.py": {
+      "size_bytes": 10342,
+      "sha256": "7abb60d555717d910389d9cf7e944b0b9a33e66ab566fb0f46edfab87f26e5c4",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/verify_lp_context_export.py": {
+      "size_bytes": 7785,
+      "sha256": "2eb085e079291dbcbca6fbc9bbfcbf8ae44731f74c2b09c06b8107977f867b57",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/verify_lp_context_joint_comparison.py": {
+      "size_bytes": 7138,
+      "sha256": "94ca352eac2e8940bb01ffb19b1244ac711a213965aae24ba5f708b4fb40872a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/verify_lp_joint_cache.py": {
+      "size_bytes": 3671,
+      "sha256": "6342846cb68df715f428f684f0290ed7793739f0312447f8a1dbc54ca150bcbd",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/verify_lp_joint_comparison.py": {
+      "size_bytes": 7070,
+      "sha256": "27c3c8938c75a2e755f620346e6e1629c83974afa488a38120dece3c91c3bcf7",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/verify_lp_joint_export.py": {
+      "size_bytes": 21154,
+      "sha256": "41e54c7fdbaccde003432c877ae3214b10a5b831a83b5f1c3b18a3c1057d6be5",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/verify_specialist_ablation.py": {
+      "size_bytes": 4140,
+      "sha256": "247d1820443ac7619e7d726ea2683b3e59e0e397787cc5bb2148336992157452",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/vinje_count.py": {
+      "size_bytes": 43284,
+      "sha256": "28964f0a348aa0bd2b8353435fb0f5f5ebd83b9a07bc3857b522c8d8a37cb05e",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/xgb_lp_specialists.py": {
+      "size_bytes": 14031,
+      "sha256": "207e8f315a7efefdab3acc902e87a7bbc9a966ba0716bb6e2f45eaadb9bb962e",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/scripts/xgb_lp_specialists_final.py": {
+      "size_bytes": 13607,
+      "sha256": "caaf8b42158c984ec704359a51165eea43f50454e6e3e1864353ef0eb2c21f71",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/sintef_project/auc_uncertainty.py": {
+      "size_bytes": 2662,
+      "sha256": "b679ec24ec20587ca8073aec3b4adbb61eb9bf98a0c9fbdde1f7e2845e422175",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/sintef_project/context_features.py": {
+      "size_bytes": 3876,
+      "sha256": "5a9d544dff941a9e810426cfe01c91fb9045fb8a4281a606dbf1b578ae01d3c0",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/sintef_project/features.py": {
+      "size_bytes": 10246,
+      "sha256": "d6dd97719c125ca9af859c3251ca408ef05af541743ea2f1524d31961f2fba30",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/sintef_project/kaggle_metric.py": {
+      "size_bytes": 4821,
+      "sha256": "27f9c7dcaff5a2a6be1d02f713a35d422825fad7c21ccec6f91471717ab828b6",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/sintef_project/lp_context.py": {
+      "size_bytes": 5299,
+      "sha256": "44b329a78ec9271d00dbd7e6c57469c31d01bc307d9b45a176768ea8583fd291",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/sintef_project/lp_features.py": {
+      "size_bytes": 25878,
+      "sha256": "bd16e0b4e9e32976b7eb50d5334e05b94f2b074bc0d8eb83a787f26f95268720",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/sintef_project/lp_features_v2.py": {
+      "size_bytes": 8496,
+      "sha256": "8a559105af5de34447072b4d1ad87f055ba6024b1712b0f085d647d1b9ba2d79",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/sintef_project/lp_head_update.py": {
+      "size_bytes": 8748,
+      "sha256": "8f2a01f47f7c83307178e6ed030c13d174cb03a8d560d6109f5a59c35019421b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/sintef_project/lp_joint_plant.py": {
+      "size_bytes": 19943,
+      "sha256": "475001f6f5e77a26c25aaa952b330760dce9bda5ae84b36ae55599b7ef7a3176",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/sintef_project/lp_joint_switching.py": {
+      "size_bytes": 13614,
+      "sha256": "cfe530ad67946b8e0aafa483bc3705a33abfa7bdb487b52d864717b0effa7786",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/sintef_project/lp_shared_loss_update.py": {
+      "size_bytes": 3627,
+      "sha256": "90bd01fda2952b9defdc2b9dd97fa5adc92d137997ccea3f142b6f0adc74c31a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/sintef_project/lp_switching.py": {
+      "size_bytes": 6044,
+      "sha256": "7e989743262d2b23e83501dd5cd87ed841afefc38641d13d0303988a3d2c73fc",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/sintef_project/mlp_helpers.py": {
+      "size_bytes": 4963,
+      "sha256": "45fc705f440a784c5d22acc069ecd3c68e216a14090eb87be01e472795e4a911",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/sintef_project/normalized.py": {
+      "size_bytes": 3987,
+      "sha256": "2836de6aeffd992bf530abd2643df26650ade7c02e1c70e9aae1319bb5c3e16c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/sintef_project/pair_order.py": {
+      "size_bytes": 1689,
+      "sha256": "6ee6548ba80ebe3c73256f82be1f0679d04f504d8e47ff60fd59da421fe131f9",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/sintef_project/past_state_features.py": {
+      "size_bytes": 6852,
+      "sha256": "1bf0154cd4c61e87a434f7f804b9dbd23986bb3392818080b690a5dd30347ccd",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/sintef_project/physics.py": {
+      "size_bytes": 10015,
+      "sha256": "c9b0b2b81399a49c88802613a3ee85ba29fe97d5b7a3681f041d866972f82f41",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/source/sintef_project/postprocess.py": {
+      "size_bytes": 3600,
+      "sha256": "ffbfa7974df4d0363f655bed00da1778aebe485988bdaef0309ac488f17c903b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/submission.csv": {
+      "size_bytes": 22502568,
+      "sha256": "ea03802cc1630a8c8e9a3c86b8e83a37916bbaff6ebed32297ad58543d760d29",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/test_predictions.npy": {
+      "size_bytes": 6820928,
+      "sha256": "0d334556a8828b37ceb930a76b3d38b4c46ee7c26a525b4faa70dcfc32afc479",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-context-joint-final-001/train_sample_final.npy": {
+      "size_bytes": 1570992,
+      "sha256": "4e38d45e87950d4d84849224ddb64fa9b5bf7b21d20a7d9b998223ce5e0fa83d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/final_Byrte_G1.txt": {
+      "size_bytes": 1277011,
+      "sha256": "ac109c7070808a116cf356ce76e454dd2d267e69b3da0c01707744cc49febd29",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/final_Haukeli_G1.txt": {
+      "size_bytes": 1275041,
+      "sha256": "74bf62fcce8b58373389a7efe0086be865e0ed57e7c4a3a4a15c1d64d19f7b49",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/final_Hogga_G1.txt": {
+      "size_bytes": 1272980,
+      "sha256": "e002adf103604af67027f68f84762b77927271089abe871ad419f5c466d0e755",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/final_Kjela_G1.txt": {
+      "size_bytes": 1275871,
+      "sha256": "360dc0385edac91b12285ee8bede6ebc4ff9c6ec95733942e4b0f3f93d80b731",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/final_Lio_G1.txt": {
+      "size_bytes": 1275894,
+      "sha256": "01b28ab10b51b4fc62ebd9a9d740a772c79c654aeb3115bdf0c43968c6f2874a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/final_Songa_G1.txt": {
+      "size_bytes": 1278550,
+      "sha256": "75d476bf721ee160b4e4abe2824643803b4aa40705eb0788dbb833d82d5140d5",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/final_Tokke_G1.txt": {
+      "size_bytes": 1278790,
+      "sha256": "1b91be03feb94540b14ebf3a64a755cebbeb011bb2fbde37521eefed8773031d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/final_Tokke_G2.txt": {
+      "size_bytes": 1275145,
+      "sha256": "8b60e9e99141a3c509d06a47a450e65e51049b5d6fbd38d92008e830e07a53c5",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/final_Tokke_G3.txt": {
+      "size_bytes": 1276050,
+      "sha256": "46d69519ac7b7cc868851c79279b62d66e16cc008532d7703450db1ed8a76edd",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/final_Tokke_G4.txt": {
+      "size_bytes": 1275459,
+      "sha256": "2ee3bcf1479102efe5d37c3513acca64ee7900f3fd6edaac2d43e6c2c4d4a86a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/final_Vesle Kjela_G1.txt": {
+      "size_bytes": 1276326,
+      "sha256": "2a4c2238ce8516efe3cd4307575f7d95986c394978b07a1fd0c517c8724b3ed4",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/final_Vinje_G1.txt": {
+      "size_bytes": 1276458,
+      "sha256": "7ee538447df13170c0009d36885cba6580292844a889fdcdb053707b861cf3e6",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/final_Vinje_G2.txt": {
+      "size_bytes": 1275597,
+      "sha256": "65bb76861fc6d829b66ce25f0bbd2192eaa5c0bc12e7e232bc4ab1a43d1b75b1",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/final_Vinje_G3.txt": {
+      "size_bytes": 1273272,
+      "sha256": "cb7e58452a6e67e56c3392527fc7843ba0377fdc0d70d995e1a3ca86bddef1bc",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/importance_Byrte_G1.csv": {
+      "size_bytes": 11669,
+      "sha256": "555e8a0952cd3cf5e7f61175a4b772d458298fdef868347dbc9792fb610b1c87",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/importance_Haukeli_G1.csv": {
+      "size_bytes": 11672,
+      "sha256": "de45ef17cd6096c155fd7ead0bad0695190ce26044be46e0b6cd20b8b3e9d6cf",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/importance_Hogga_G1.csv": {
+      "size_bytes": 11673,
+      "sha256": "2a04f701d59833aa387d0ea3970e935be2ba6cd3b2a6b16bab1e9f1cbb39d41a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/importance_Kjela_G1.csv": {
+      "size_bytes": 11688,
+      "sha256": "479992a7fe033e92c30c60d5f1d19a217a3d10acebf1db829c9fc0cc107684d0",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/importance_Lio_G1.csv": {
+      "size_bytes": 11675,
+      "sha256": "6721b88188ce754f0913ab4afd0b451cc9b3c0775034439a6578acb4217397ee",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/importance_Songa_G1.csv": {
+      "size_bytes": 11671,
+      "sha256": "e2c10374005ac63294185e8ead839fb70549d56070e1c28d72dd13047afcf02b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/importance_Tokke_G1.csv": {
+      "size_bytes": 11674,
+      "sha256": "0bb2d0ad2a5179fc8572ec3d9ff79dd8aa8408dee70c1480da3aa5de8397f1e7",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/importance_Tokke_G2.csv": {
+      "size_bytes": 11673,
+      "sha256": "e2a4cb3a425bc3fbca4df939e8eece67c79b5dda604eba458ba64314b304065b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/importance_Tokke_G3.csv": {
+      "size_bytes": 11667,
+      "sha256": "e8187a63326f8a587f46d88a3f88d03f8581bfd42040a79ddadcc272de035e82",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/importance_Tokke_G4.csv": {
+      "size_bytes": 11674,
+      "sha256": "75547995502e5644e0168acde5620ef4696e06251cbf322d31a51069cffdff45",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/importance_Vesle Kjela_G1.csv": {
+      "size_bytes": 11670,
+      "sha256": "369ea81605723b8d5db074090122f2e7ba19b1413eba66d8e22e68592ca62810",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/importance_Vinje_G1.csv": {
+      "size_bytes": 11680,
+      "sha256": "817c943955245778478eb83be9da542946e0a7666ef866f5c6b2625294d9f316",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/importance_Vinje_G2.csv": {
+      "size_bytes": 11679,
+      "sha256": "8bc3a46a842e7d43b0836d8fca9516ccc6f0d50307143a1700f0258be5dcabfb",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/importance_Vinje_G3.csv": {
+      "size_bytes": 11672,
+      "sha256": "bbce2a085256ba5addd69e88247e30ca14250936c16477e502e3a68f6e06cdf6",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/manifest.json": {
+      "size_bytes": 69529,
+      "sha256": "b6c55a407649ffee4729f49b7217d0e1233abb165da40c1fc71f6cedb8e995fd",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/scripts/analyze_predictions.py": {
+      "size_bytes": 7320,
+      "sha256": "248ba174901e30765ebc2a1d2f1e24037734233950ba76a85ad0bf824099f8bf",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/scripts/benchmark_lp_v2.py": {
+      "size_bytes": 7620,
+      "sha256": "f58553b2faac377426771c33ea3470ad2b83e3c481694ec9001f3c694548f35b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/scripts/build_lp_features.py": {
+      "size_bytes": 5781,
+      "sha256": "8d2a4cf366b08ea08ba9c6b8483c1d89f20316272689846a53853e27e160f37d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/scripts/build_lp_features_v2.py": {
+      "size_bytes": 5904,
+      "sha256": "87d26d0b1d2fb7a9161b39136f7d961da78779152bb84b03f86bb86feece89a3",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/scripts/case_calibration.py": {
+      "size_bytes": 15965,
+      "sha256": "a93a3d7c007f21fea6beef262b3f9da7b1461157d9e8e11c109b70a4f271652c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/scripts/economic_probe.py": {
+      "size_bytes": 13960,
+      "sha256": "36629b6ebcf8952cafcf3e30ba90f6ee3347ab2ebd46de281631aa87fc9ab9c0",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/scripts/ensemble_compare.py": {
+      "size_bytes": 8915,
+      "sha256": "f1c65bbe781da6054caa3b414e5a773a24f6a88c75b7f0941fbcfe8f2fab4139",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/scripts/export_ensemble.py": {
+      "size_bytes": 18010,
+      "sha256": "ea75cf62e3ee07e0bf306edd98d4d51b1b1b260bb403bb735c4bbadf718f76d9",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/scripts/export_submission.py": {
+      "size_bytes": 6602,
+      "sha256": "ca1e97435744be61f8f9115a345e89507d2d86d2134e55b0361b49084be38506",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/scripts/lp_error_analysis.py": {
+      "size_bytes": 28257,
+      "sha256": "d7279be620b20cf099cde64c996be99dc6de8486e6655211065ca99a2d70ff00",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/scripts/plot_validation.py": {
+      "size_bytes": 1438,
+      "sha256": "2e2945c3d49ef6e59045152c79c81d341436f5818711727d407ff891e1e62225",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/scripts/prefix_selection.py": {
+      "size_bytes": 19769,
+      "sha256": "319f9a52762cc3a38c468b609b5557837b33164f1322a66834e05cebcc600193",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/scripts/repair_lp_cache_schema.py": {
+      "size_bytes": 2944,
+      "sha256": "ab3a55b24b7739473390f3429a8018987275a1477a5b1e016dd29a48966327c5",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/scripts/score_lp_diagnostic.py": {
+      "size_bytes": 4147,
+      "sha256": "8a823457b3e6e1f7d7274e9a861c017b45cc34a61a2115e25a231c6ddd3b6d4a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/scripts/score_lp_v2_diagnostic.py": {
+      "size_bytes": 4154,
+      "sha256": "1a3e687a0a73476018c41e5fc16acfd8ec027968a97ad1de3ca3f2ac0ba95ef8",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/scripts/train.py": {
+      "size_bytes": 15649,
+      "sha256": "73bcb9ce16c2d6c9e1a8dda8750cd4873cfe4e9ab99f8d9d389a92b8b70e82b9",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/scripts/xgb_lp_specialists.py": {
+      "size_bytes": 13903,
+      "sha256": "a2dbbd2dc4ace7c39c84c04518919d2a7d8f17dcab295b209feec34eef5ff3eb",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/sintef_project/context_features.py": {
+      "size_bytes": 3876,
+      "sha256": "5a9d544dff941a9e810426cfe01c91fb9045fb8a4281a606dbf1b578ae01d3c0",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/sintef_project/features.py": {
+      "size_bytes": 10246,
+      "sha256": "d6dd97719c125ca9af859c3251ca408ef05af541743ea2f1524d31961f2fba30",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/sintef_project/kaggle_metric.py": {
+      "size_bytes": 4821,
+      "sha256": "27f9c7dcaff5a2a6be1d02f713a35d422825fad7c21ccec6f91471717ab828b6",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/sintef_project/lp_context.py": {
+      "size_bytes": 5299,
+      "sha256": "44b329a78ec9271d00dbd7e6c57469c31d01bc307d9b45a176768ea8583fd291",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/sintef_project/lp_features.py": {
+      "size_bytes": 25878,
+      "sha256": "bd16e0b4e9e32976b7eb50d5334e05b94f2b074bc0d8eb83a787f26f95268720",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/sintef_project/lp_features_v2.py": {
+      "size_bytes": 8496,
+      "sha256": "8a559105af5de34447072b4d1ad87f055ba6024b1712b0f085d647d1b9ba2d79",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/sintef_project/normalized.py": {
+      "size_bytes": 3987,
+      "sha256": "2836de6aeffd992bf530abd2643df26650ade7c02e1c70e9aae1319bb5c3e16c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/sintef_project/physics.py": {
+      "size_bytes": 10015,
+      "sha256": "c9b0b2b81399a49c88802613a3ee85ba29fe97d5b7a3681f041d866972f82f41",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/source/sintef_project/postprocess.py": {
+      "size_bytes": 3600,
+      "sha256": "ffbfa7974df4d0363f655bed00da1778aebe485988bdaef0309ac488f17c903b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/submission.csv": {
+      "size_bytes": 22473257,
+      "sha256": "83b759ec4cd29f74aa527bbc016f3d0f40e3fe74743479b2f4299afa0da5178c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/test_predictions.npy": {
+      "size_bytes": 6820928,
+      "sha256": "92d2173a18bdad5ef9847755aae1bc279141c64c6279c2a424a1af8f0ca149c3",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-final-001/train_sample_final.npy": {
+      "size_bytes": 1570992,
+      "sha256": "4e38d45e87950d4d84849224ddb64fa9b5bf7b21d20a7d9b998223ce5e0fa83d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/final_Byrte_G1.txt": {
+      "size_bytes": 1278870,
+      "sha256": "34658b849eb6dc5ef6b3f3f9d07e16e33f20edde8de20d119b196403d0bffe1f",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/final_Haukeli_G1.txt": {
+      "size_bytes": 1275807,
+      "sha256": "a6730692d026edac0702eaedd3209303c9f0442495cb6ace90de3f01211f1b1b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/final_Hogga_G1.txt": {
+      "size_bytes": 1274119,
+      "sha256": "d5a17b562d5b0493fa0192254bcfb50520e980651eb9545f25c79cf6d7800bf6",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/final_Kjela_G1.txt": {
+      "size_bytes": 1277720,
+      "sha256": "daa1f6d4b93d3442adb8665f0e16c3e7e71d2f3eda664eadc29cc0afd0798d22",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/final_Lio_G1.txt": {
+      "size_bytes": 1276895,
+      "sha256": "b2f3af27fedf4fbe81847a441ca732e681674b8a0fe2b723cd075f0ce678a123",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/final_Songa_G1.txt": {
+      "size_bytes": 1279536,
+      "sha256": "8e9c9402bf9d90af572237bb9b186447e10b9a8ddd39c9f0a0eb8a5d7de902b3",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/final_Tokke_G1.txt": {
+      "size_bytes": 1279438,
+      "sha256": "3de299b511227cfed62b48b3dad563cf317dca7c3b954b6e2b5f51a9207fd254",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/final_Tokke_G2.txt": {
+      "size_bytes": 1276362,
+      "sha256": "c58e64c6ef287cd0bcb8474287ef9d90ff59f7c03ef9d062f26c7d50250c999d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/final_Tokke_G3.txt": {
+      "size_bytes": 1277331,
+      "sha256": "4edf8b1ddad37232c0912322eb16fbd819f72ed9751ccc2a3ba434df8546d3bc",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/final_Tokke_G4.txt": {
+      "size_bytes": 1276586,
+      "sha256": "bfab46efc17dc518bbeb72680a20f577aec2c560c0aeb5a0d648a3b02ca85d95",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/final_Vesle Kjela_G1.txt": {
+      "size_bytes": 1276814,
+      "sha256": "62ee425dad5c4f16ba69827ff7c971e7f6c352cfdca2fc5293eaf9032063e7a3",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/final_Vinje_G1.txt": {
+      "size_bytes": 1276828,
+      "sha256": "04dc9f7dd1d583fd9c38bea1115eef585df583e48e582a426117d7f1bad4f88f",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/final_Vinje_G2.txt": {
+      "size_bytes": 1275395,
+      "sha256": "22c287471779aa1dcb18b93eb9147078c5b4790c789b23f07a9b14d2aef0d7d9",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/final_Vinje_G3.txt": {
+      "size_bytes": 1273291,
+      "sha256": "889d291e5f68b0ca6886fa456fd5cc60423998650d60acd954c40e3de468e1d2",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/importance_Byrte_G1.csv": {
+      "size_bytes": 12341,
+      "sha256": "af0d51282e5ba1d6644a32dc018e8a744965c1d1ea43810350d9ea134250dba5",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/importance_Haukeli_G1.csv": {
+      "size_bytes": 12349,
+      "sha256": "0b85067d4e716df8eec1e9780451778810ffa9f3d21433926bd865023bd597b8",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/importance_Hogga_G1.csv": {
+      "size_bytes": 12348,
+      "sha256": "a824a05972df2dd634bfb0ec7c928cc55306f181758b493e65ec948239d9ad5e",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/importance_Kjela_G1.csv": {
+      "size_bytes": 12361,
+      "sha256": "de55b943c5847745c9267b1d15fd11f5362f7a8323075f8a5f8d631ba1efd93d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/importance_Lio_G1.csv": {
+      "size_bytes": 12356,
+      "sha256": "96715624d8195619b57f4b78220dca6d03f48c25757e7df06feb4e5096e809d7",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/importance_Songa_G1.csv": {
+      "size_bytes": 12355,
+      "sha256": "631c1a99b0e85da1bcb6be962fd953972e17a38ce3556794bf93be029831e799",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/importance_Tokke_G1.csv": {
+      "size_bytes": 12350,
+      "sha256": "fc9105a6338ee3574ccf6400addfe5e6b0bde0d4783421dc467a39de7add5582",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/importance_Tokke_G2.csv": {
+      "size_bytes": 12363,
+      "sha256": "f75f37ce6eb7e0005114ae682de9c5635f9fd6d9611148e91394d33cac1ad9b4",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/importance_Tokke_G3.csv": {
+      "size_bytes": 12343,
+      "sha256": "d61515e56be4559a2f15f9dd5addd27404d502dff1715b646a8c0885bda74894",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/importance_Tokke_G4.csv": {
+      "size_bytes": 12355,
+      "sha256": "a9158856038094a2d1295b9c8e1eb0534b5e72eb2c4ff0ab62a836e0e70f89d2",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/importance_Vesle Kjela_G1.csv": {
+      "size_bytes": 12345,
+      "sha256": "7e302d563a15345437af5cffd2defbb1f4e3509f4b7cfe94315665a52765c65b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/importance_Vinje_G1.csv": {
+      "size_bytes": 12361,
+      "sha256": "7363dd029fd9241ee76c8e065c27d25408244055fca4ee14be0b7df1f3be9738",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/importance_Vinje_G2.csv": {
+      "size_bytes": 12362,
+      "sha256": "f9eeda0b0ee9ea5582b1f53c571713390fe85f7e712e875a1cf21b245f5c779b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/importance_Vinje_G3.csv": {
+      "size_bytes": 12352,
+      "sha256": "811e7289194ce4530f0e19396679b3e5263f78c0cd44aea9f95031264deed2ca",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/manifest.json": {
+      "size_bytes": 84547,
+      "sha256": "fce2423ccd61702a8cb78dc3ba35ff16851f4971f82fdd432f73e554ecb226d3",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/analyze_lp_head_update.py": {
+      "size_bytes": 12046,
+      "sha256": "aca398d21802012791a97b774b612b9f834dd54fa8aecb1f8019631345f941f8",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/analyze_predictions.py": {
+      "size_bytes": 7320,
+      "sha256": "248ba174901e30765ebc2a1d2f1e24037734233950ba76a85ad0bf824099f8bf",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/audit_lp_joint.py": {
+      "size_bytes": 9702,
+      "sha256": "ec81952bdb249b93c62f0ab9a921765fe64de79d11b975e7eae29dd6e96bfb6b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/audit_past_state.py": {
+      "size_bytes": 8777,
+      "sha256": "061581724f99bda1d9da63d9e0c6ee2af72ae79a7f70d39e4bb39b62da739164",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/benchmark_lp_joint_plant.py": {
+      "size_bytes": 10735,
+      "sha256": "fe9e03384f8f2d71d4a0ee855030d28c9a73c6b4755966f780202b93ad001a41",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/benchmark_lp_shared_losses.py": {
+      "size_bytes": 9279,
+      "sha256": "63079174134fd1ff0aa5867c4a59089df83a60f1e6e6f70a988e3a0528003896",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/benchmark_lp_v2.py": {
+      "size_bytes": 7620,
+      "sha256": "f58553b2faac377426771c33ea3470ad2b83e3c481694ec9001f3c694548f35b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/build_lp_features.py": {
+      "size_bytes": 5781,
+      "sha256": "8d2a4cf366b08ea08ba9c6b8483c1d89f20316272689846a53853e27e160f37d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/build_lp_features_v2.py": {
+      "size_bytes": 5904,
+      "sha256": "87d26d0b1d2fb7a9161b39136f7d961da78779152bb84b03f86bb86feece89a3",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/build_lp_joint_features.py": {
+      "size_bytes": 6839,
+      "sha256": "e7f4c336cdb0f4de81a7d68e0b083c5d729b86657799422302abf785776c0e74",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/case_calibration.py": {
+      "size_bytes": 15965,
+      "sha256": "a93a3d7c007f21fea6beef262b3f9da7b1461157d9e8e11c109b70a4f271652c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/catboost_specialists.py": {
+      "size_bytes": 13773,
+      "sha256": "ab9bf553904ef32c3879eaeef05d0391f6336086df797021530e11075a12e973",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/compare_lp_large.py": {
+      "size_bytes": 15429,
+      "sha256": "6533a9bb1bf46669dafdd2289ea7ff21134ed2d13c20ff1291368ceaccf8d69d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/economic_probe.py": {
+      "size_bytes": 13960,
+      "sha256": "36629b6ebcf8952cafcf3e30ba90f6ee3347ab2ebd46de281631aa87fc9ab9c0",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/ensemble_compare.py": {
+      "size_bytes": 8915,
+      "sha256": "f1c65bbe781da6054caa3b414e5a773a24f6a88c75b7f0941fbcfe8f2fab4139",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/export_ensemble.py": {
+      "size_bytes": 18818,
+      "sha256": "87560752685c38209d736d299f141898f64d828c463600b1d76bf52e38194ff7",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/export_selected_blend.py": {
+      "size_bytes": 7817,
+      "sha256": "de6d6bf90ca188787fc6607b62f14fcd44b5a7c02a231869e4f23b45e1da5e25",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/export_submission.py": {
+      "size_bytes": 6602,
+      "sha256": "ca1e97435744be61f8f9115a345e89507d2d86d2134e55b0361b49084be38506",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/iterate_lp_shared_losses.py": {
+      "size_bytes": 9999,
+      "sha256": "9b5182d7f4f2ed121b80ad224aada805430106517ececea558aa44c1bf9d430f",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/lp_candidate_compare.py": {
+      "size_bytes": 12211,
+      "sha256": "0a8b4e606672eb48d1b413e21f7768744f6d97756f4a5450e3f60ad67067cc5f",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/lp_ensemble_compare.py": {
+      "size_bytes": 8857,
+      "sha256": "dcd69823fb81e0ba1479590078a5957696718f054bcd678552e8baaaf9fffe48",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/lp_error_analysis.py": {
+      "size_bytes": 28257,
+      "sha256": "d7279be620b20cf099cde64c996be99dc6de8486e6655211065ca99a2d70ff00",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/lp_joint_compare.py": {
+      "size_bytes": 16997,
+      "sha256": "476dcde08b204c8c85efc1266c4d89dd202d296c58edadaf4c869353aa1cb275",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/lp_locality_ablation.py": {
+      "size_bytes": 14308,
+      "sha256": "df5c7c38abee5667b46c296143406f7b3c77c5b5169a776799ab6e49bb85f487",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/lp_past_state_specialists.py": {
+      "size_bytes": 16794,
+      "sha256": "c57757439a15acaa80e0034805858f29e285dfb6334626bf2df26d0e2b9bb697",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/monotonic_specialists.py": {
+      "size_bytes": 22435,
+      "sha256": "adfeee4282bd52a028995ffc63ad0572bc03013f0a2248452bc675a4485e773b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/paired_auc_uncertainty.py": {
+      "size_bytes": 6919,
+      "sha256": "c22f3405dbd89dc6637f5df77d48cfab953bc9c654a85715708c217dbd116084",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/plot_validation.py": {
+      "size_bytes": 1438,
+      "sha256": "2e2945c3d49ef6e59045152c79c81d341436f5818711727d407ff891e1e62225",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/prefix_selection.py": {
+      "size_bytes": 19769,
+      "sha256": "319f9a52762cc3a38c468b609b5557837b33164f1322a66834e05cebcc600193",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/repair_lp_cache_schema.py": {
+      "size_bytes": 2944,
+      "sha256": "ab3a55b24b7739473390f3429a8018987275a1477a5b1e016dd29a48966327c5",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/score_lp_diagnostic.py": {
+      "size_bytes": 4147,
+      "sha256": "8a823457b3e6e1f7d7274e9a861c017b45cc34a61a2115e25a231c6ddd3b6d4a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/score_lp_joint_diagnostic.py": {
+      "size_bytes": 4929,
+      "sha256": "c6583d7fd2c46133f2911baf7f9132775547254640ff3a79117a47f19b1f1270",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/score_lp_v2_diagnostic.py": {
+      "size_bytes": 4154,
+      "sha256": "1a3e687a0a73476018c41e5fc16acfd8ec027968a97ad1de3ca3f2ac0ba95ef8",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/smoke_cpu_mlp.py": {
+      "size_bytes": 4353,
+      "sha256": "67dc03490183caadfcef8595da937f88804394c1873ba3d3fd7ecc64bdad0b6d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/smoke_mps_tcn.py": {
+      "size_bytes": 8673,
+      "sha256": "3ca6b3913cf35d6cf4f564373b29f70dc1785739ddd50c752120ead9b8fb9e51",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/train.py": {
+      "size_bytes": 17522,
+      "sha256": "319530ef0a9c3e3dd12f565c6a986cc21b107914ec103d330c754bb4b778046a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/verify_lp_context_export.py": {
+      "size_bytes": 7785,
+      "sha256": "2eb085e079291dbcbca6fbc9bbfcbf8ae44731f74c2b09c06b8107977f867b57",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/verify_lp_joint_cache.py": {
+      "size_bytes": 3671,
+      "sha256": "6342846cb68df715f428f684f0290ed7793739f0312447f8a1dbc54ca150bcbd",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/verify_lp_joint_comparison.py": {
+      "size_bytes": 7070,
+      "sha256": "27c3c8938c75a2e755f620346e6e1629c83974afa488a38120dece3c91c3bcf7",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/verify_specialist_ablation.py": {
+      "size_bytes": 4140,
+      "sha256": "247d1820443ac7619e7d726ea2683b3e59e0e397787cc5bb2148336992157452",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/vinje_count.py": {
+      "size_bytes": 43284,
+      "sha256": "28964f0a348aa0bd2b8353435fb0f5f5ebd83b9a07bc3857b522c8d8a37cb05e",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/xgb_lp_specialists.py": {
+      "size_bytes": 14031,
+      "sha256": "207e8f315a7efefdab3acc902e87a7bbc9a966ba0716bb6e2f45eaadb9bb962e",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/scripts/xgb_lp_specialists_final.py": {
+      "size_bytes": 13607,
+      "sha256": "caaf8b42158c984ec704359a51165eea43f50454e6e3e1864353ef0eb2c21f71",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/sintef_project/auc_uncertainty.py": {
+      "size_bytes": 2662,
+      "sha256": "b679ec24ec20587ca8073aec3b4adbb61eb9bf98a0c9fbdde1f7e2845e422175",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/sintef_project/context_features.py": {
+      "size_bytes": 3876,
+      "sha256": "5a9d544dff941a9e810426cfe01c91fb9045fb8a4281a606dbf1b578ae01d3c0",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/sintef_project/features.py": {
+      "size_bytes": 10246,
+      "sha256": "d6dd97719c125ca9af859c3251ca408ef05af541743ea2f1524d31961f2fba30",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/sintef_project/kaggle_metric.py": {
+      "size_bytes": 4821,
+      "sha256": "27f9c7dcaff5a2a6be1d02f713a35d422825fad7c21ccec6f91471717ab828b6",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/sintef_project/lp_context.py": {
+      "size_bytes": 5299,
+      "sha256": "44b329a78ec9271d00dbd7e6c57469c31d01bc307d9b45a176768ea8583fd291",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/sintef_project/lp_features.py": {
+      "size_bytes": 25878,
+      "sha256": "bd16e0b4e9e32976b7eb50d5334e05b94f2b074bc0d8eb83a787f26f95268720",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/sintef_project/lp_features_v2.py": {
+      "size_bytes": 8496,
+      "sha256": "8a559105af5de34447072b4d1ad87f055ba6024b1712b0f085d647d1b9ba2d79",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/sintef_project/lp_head_update.py": {
+      "size_bytes": 8748,
+      "sha256": "8f2a01f47f7c83307178e6ed030c13d174cb03a8d560d6109f5a59c35019421b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/sintef_project/lp_joint_plant.py": {
+      "size_bytes": 19943,
+      "sha256": "475001f6f5e77a26c25aaa952b330760dce9bda5ae84b36ae55599b7ef7a3176",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/sintef_project/lp_shared_loss_update.py": {
+      "size_bytes": 3627,
+      "sha256": "90bd01fda2952b9defdc2b9dd97fa5adc92d137997ccea3f142b6f0adc74c31a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/sintef_project/lp_switching.py": {
+      "size_bytes": 6044,
+      "sha256": "7e989743262d2b23e83501dd5cd87ed841afefc38641d13d0303988a3d2c73fc",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/sintef_project/normalized.py": {
+      "size_bytes": 3987,
+      "sha256": "2836de6aeffd992bf530abd2643df26650ade7c02e1c70e9aae1319bb5c3e16c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/sintef_project/past_state_features.py": {
+      "size_bytes": 6852,
+      "sha256": "1bf0154cd4c61e87a434f7f804b9dbd23986bb3392818080b690a5dd30347ccd",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/sintef_project/physics.py": {
+      "size_bytes": 10015,
+      "sha256": "c9b0b2b81399a49c88802613a3ee85ba29fe97d5b7a3681f041d866972f82f41",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/source/sintef_project/postprocess.py": {
+      "size_bytes": 3600,
+      "sha256": "ffbfa7974df4d0363f655bed00da1778aebe485988bdaef0309ac488f17c903b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/submission.csv": {
+      "size_bytes": 22494280,
+      "sha256": "2a0de19bb3dad535eda858611f6b62b63dd54011577a2ddd7e1480f877623fa6",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/test_predictions.npy": {
+      "size_bytes": 6820928,
+      "sha256": "f97dc6b63aa52bd37133e006bd7efa8901a1039863118bb156f1e6f0602e4d21",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-normalized-lp-joint-final-001/train_sample_final.npy": {
+      "size_bytes": 1570992,
+      "sha256": "4e38d45e87950d4d84849224ddb64fa9b5bf7b21d20a7d9b998223ce5e0fa83d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/experiment_record.md": {
+      "size_bytes": 803,
+      "sha256": "7de0189b52fa926e922286f10763c52d7aed0c1e0d7be0d8b0f62c728a1d8857",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/final_Byrte_G1.txt": {
+      "size_bytes": 1299374,
+      "sha256": "bc3d6f69c3e0cc213ce08da4f19f225333357a93651a31de4beaf37de3ab38e1",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/final_Haukeli_G1.txt": {
+      "size_bytes": 1296195,
+      "sha256": "70cb9223842dc51b0ee42776362976f6b65621947575621ad2d89e0526b1ddcc",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/final_Hogga_G1.txt": {
+      "size_bytes": 1295592,
+      "sha256": "24e7ebf9e01fd6e5fa1840805b5ccbb350844dd18b0b3430ebb320d797106ac3",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/final_Kjela_G1.txt": {
+      "size_bytes": 1299216,
+      "sha256": "07e44dd4c3d3c6ed7273689ced07e89447946b5f374875e1353c84d194855322",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/final_Lio_G1.txt": {
+      "size_bytes": 1298262,
+      "sha256": "28847f05723b5b2a90fdeee403dd4e7ac7c592ee6154d20965a8cd7cae43ce1c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/final_Songa_G1.txt": {
+      "size_bytes": 1301274,
+      "sha256": "b176d140b13e48df1fad5a8c26779e7988ede3532cc057e28188cb5a94dcbf11",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/final_Tokke_G1.txt": {
+      "size_bytes": 1299983,
+      "sha256": "536a4f0a748f0ee68927af41eb00ba3bf242160ca1eb52e6c6a420638d39ff57",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/final_Tokke_G2.txt": {
+      "size_bytes": 1298273,
+      "sha256": "833f35fbb0002dce91d32a1e6b8400c03378269d9cb79c42a8761b66a03e9d71",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/final_Tokke_G3.txt": {
+      "size_bytes": 1298310,
+      "sha256": "2857a82dbee17854f473ca319daedc23519d0d7bedb07bd353442aef997515f3",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/final_Tokke_G4.txt": {
+      "size_bytes": 1297940,
+      "sha256": "6b0bc6a21489a89803547ee2b558dff9a00f867fbe6efaf6774d9a834f015463",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/final_Vesle Kjela_G1.txt": {
+      "size_bytes": 1298529,
+      "sha256": "54ecea4b89f9c268161c94b3039968bb5b4a1f1f835931b726dec12b6238fdd1",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/final_Vinje_G1.txt": {
+      "size_bytes": 1298302,
+      "sha256": "2fae58df2e971c7bea4d5c746788dd2b8baec8d86b50227b3cbe82c642212b0e",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/final_Vinje_G2.txt": {
+      "size_bytes": 1296762,
+      "sha256": "964ce85c3ac2d4241919fc86fb67f81b67973842bb35fbc3aa1efd65b9c3f122",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/final_Vinje_G3.txt": {
+      "size_bytes": 1295556,
+      "sha256": "d54a441c22cbee3367a6b7be1f6b5b9adb1ad40acef17a33b00ccf4425b3da2a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/manifest.json": {
+      "size_bytes": 158190,
+      "sha256": "2d3e2f85e40a7bbf8d849664a063a09a61eb30306746018935689754a6295ada",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/progress.json": {
+      "size_bytes": 153555,
+      "sha256": "61141978219ed7d1785f8f56088d6cf75cd9f4f18be5fe7041f29557426b7ca3",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/protocol.json": {
+      "size_bytes": 45754,
+      "sha256": "5513e67123a968ded3790ec6bcda898d50d3682685fa7f62020ea25108e322ad",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/replay_test_predictions.npy": {
+      "size_bytes": 6820928,
+      "sha256": "45f1bc9ef5c9fbef7f2e2da14e4733d72ceb27552f6a659764832d0dcacbd95c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/docs/lgb_shop664.md": {
+      "size_bytes": 3522,
+      "sha256": "a1a2e1f29c92f045fb4f199d94cd83b607a41d9cc59116f8c48cff503c27d2b8",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/docs/lgb_shop664_final.md": {
+      "size_bytes": 2075,
+      "sha256": "babb07a3f438b6c50b9ef4c81df8028ea1c51841b84d4af957740c1c0a7dacd0",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/scripts/cuda_xgb608_loader.py": {
+      "size_bytes": 6903,
+      "sha256": "4a3f7422989c49e830756bb9c660c2f6b601185be3989099616debb9a79aaf52",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/scripts/cuda_xgb664_loader.py": {
+      "size_bytes": 2849,
+      "sha256": "7f36d9c2a9c823f0e8ca90f02a0556a88ce2adaca718751be5af9a1c5a2043ac",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/scripts/export_lgb_shop664_final.py": {
+      "size_bytes": 7011,
+      "sha256": "812dcdadd0adb4e013816f19ef0db5cddcca6628c7a78614d2e1dd8326c092c4",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/scripts/prepare_lgb_shop664.py": {
+      "size_bytes": 5826,
+      "sha256": "7691df9a765de6897748f9d6569cdb8c135c6bfba2b3b449c3f87cb5a684fb39",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/scripts/prepare_lgb_shop664_final.py": {
+      "size_bytes": 5644,
+      "sha256": "a1aa5289cb5da43823d25fc1626b2466359c40550c2a33db8f44d0f9a734e662",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/scripts/train_cuda_tcn.py": {
+      "size_bytes": 31149,
+      "sha256": "1afae39884da9d210a8ef695fb0c99636536bc688ce79961d502bf4c4b743e57",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/scripts/train_lgb_shop664.py": {
+      "size_bytes": 19618,
+      "sha256": "afa05a4569dcc182fe1ca6c6109ddcac5e0d3464f5296d85e3898b9a83331d37",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/scripts/train_lgb_shop664_final.py": {
+      "size_bytes": 10633,
+      "sha256": "db48c96c74e21f2f1c225a3bdd1e155d85878181a2b8405bedf0dd018c7ad9fc",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/sintef_project/context_features.py": {
+      "size_bytes": 3876,
+      "sha256": "5a9d544dff941a9e810426cfe01c91fb9045fb8a4281a606dbf1b578ae01d3c0",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/sintef_project/features.py": {
+      "size_bytes": 10246,
+      "sha256": "d6dd97719c125ca9af859c3251ca408ef05af541743ea2f1524d31961f2fba30",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/sintef_project/lp_context.py": {
+      "size_bytes": 5299,
+      "sha256": "44b329a78ec9271d00dbd7e6c57469c31d01bc307d9b45a176768ea8583fd291",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/sintef_project/lp_features.py": {
+      "size_bytes": 25878,
+      "sha256": "bd16e0b4e9e32976b7eb50d5334e05b94f2b074bc0d8eb83a787f26f95268720",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/sintef_project/lp_head_update.py": {
+      "size_bytes": 8748,
+      "sha256": "8f2a01f47f7c83307178e6ed030c13d174cb03a8d560d6109f5a59c35019421b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/sintef_project/lp_joint_plant.py": {
+      "size_bytes": 19943,
+      "sha256": "475001f6f5e77a26c25aaa952b330760dce9bda5ae84b36ae55599b7ef7a3176",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/sintef_project/lp_shared_loss_update.py": {
+      "size_bytes": 3627,
+      "sha256": "90bd01fda2952b9defdc2b9dd97fa5adc92d137997ccea3f142b6f0adc74c31a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/sintef_project/lp_shop_features.py": {
+      "size_bytes": 6609,
+      "sha256": "5d23c8df5d42794f9b0f62f1451ec36bafc1d5ada24f486b6ab0a27383064c1b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/sintef_project/normalized.py": {
+      "size_bytes": 3987,
+      "sha256": "2836de6aeffd992bf530abd2643df26650ade7c02e1c70e9aae1319bb5c3e16c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/sintef_project/physics.py": {
+      "size_bytes": 10015,
+      "sha256": "c9b0b2b81399a49c88802613a3ee85ba29fe97d5b7a3681f041d866972f82f41",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/sintef_project/postprocess.py": {
+      "size_bytes": 3600,
+      "sha256": "ffbfa7974df4d0363f655bed00da1778aebe485988bdaef0309ac488f17c903b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/tests/test_lgb_shop664.py": {
+      "size_bytes": 3509,
+      "sha256": "fb980708e5ab09561cd4b654d75899bfd0ed157b685c26335b0553e95fae225a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/source/tests/test_lgb_shop664_final.py": {
+      "size_bytes": 3618,
+      "sha256": "a2b7c43c96ebfa29ba0bcb2ce571ddf9a14cedb7dde280334ab9e55fb5f920fd",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/test_predictions.npy": {
+      "size_bytes": 6820928,
+      "sha256": "45f1bc9ef5c9fbef7f2e2da14e4733d72ceb27552f6a659764832d0dcacbd95c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-001/train_sample_final.npy": {
+      "size_bytes": 1570992,
+      "sha256": "4e38d45e87950d4d84849224ddb64fa9b5bf7b21d20a7d9b998223ce5e0fa83d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-independent-audit-001/audit_lgb_shop664_final.py": {
+      "size_bytes": 11540,
+      "sha256": "a84739888990f64d99ac1f0057c9b7ac28c75cdedbf0193880b9514f4486fe46",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lgb-shop664-final-independent-audit-001/manifest.json": {
+      "size_bytes": 1979,
+      "sha256": "b63b5872411fa59eaea6c7c6cbc132803b6ea3ae445c7f871b3df67875d976b8",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lp-full-001/features.npz": {
+      "size_bytes": 50396508,
+      "sha256": "0ebba7d10ffb29294e36e5e8742c73165e202ac1d96e6d15fbef7ea9d7cca7b9",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lp-full-001/manifest.json": {
+      "size_bytes": 2257065,
+      "sha256": "0c52829ff84f464cbf3ed00bcd7746e3e5e8b373ea21134dea0f50e61814b9d1",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lp-full-001/repair_lp_cache_schema.py": {
+      "size_bytes": 2944,
+      "sha256": "ab3a55b24b7739473390f3429a8018987275a1477a5b1e016dd29a48966327c5",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lp-joint-full-001/features.npz": {
+      "size_bytes": 52083247,
+      "sha256": "5fd1de4d08bf5db95892dc66a870431f38c3571e1bcc65ec62cbbe8882eb5db6",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lp-joint-full-001/manifest.json": {
+      "size_bytes": 3188915,
+      "sha256": "d858afd124d33593e43186e0ff1097f58b73d9f48e388a4d3635dd0a50b8cb12",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lp-shop-full-001/features.npz": {
+      "size_bytes": 3640223,
+      "sha256": "0b079dc41472a822723fadf0d34c2e07f8301ed4f088612217537634c726b62d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "lp-shop-full-001/manifest.json": {
+      "size_bytes": 3808547,
+      "sha256": "e3d9f53ec7ac67a0afcc48c9630a215ad0a2be4abbfc07aa03cdc3a4345d8163",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/config_final_Byrte_G1.json": {
+      "size_bytes": 9217,
+      "sha256": "98c30caa7547310c7676f626b80854f948597344eaddbc69a503a1f7a15d94fa",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/config_final_Haukeli_G1.json": {
+      "size_bytes": 9218,
+      "sha256": "82c4c3d8220ba69293958260aab4df331283338c4bc98ba8194e2f6085010821",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/config_final_Hogga_G1.json": {
+      "size_bytes": 9218,
+      "sha256": "da45af39b7402928cfa2056aad00e043e4c862ae403fe8f11a584acaa225d62f",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/config_final_Kjela_G1.json": {
+      "size_bytes": 9219,
+      "sha256": "5681e47559a72d73305f9c0d7208f48f22f675bd8fb00bd582f61da3bf0fe890",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/config_final_Lio_G1.json": {
+      "size_bytes": 9218,
+      "sha256": "38c2ba1ed02b4ce25b192eba4db32e60905e9c59325e1ff70f3bd21d2a80b2d5",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/config_final_Songa_G1.json": {
+      "size_bytes": 9219,
+      "sha256": "ed8b0f06af81104c6c6966e5c0ba6ddc460514b446427463c820b7a223ea9428",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/config_final_Tokke_G1.json": {
+      "size_bytes": 9219,
+      "sha256": "539f5e70808b1f130aa34842ed52a7896a68215866a513cf953930d9129e9684",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/config_final_Tokke_G2.json": {
+      "size_bytes": 9219,
+      "sha256": "73c0d63c599f7b728016799ee8db36d7ca0356e92abefe62c3b33ea4f8eb6393",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/config_final_Tokke_G3.json": {
+      "size_bytes": 9218,
+      "sha256": "076205c2d500063d22a0cf3517d05f9e1371052103e8edb693ecc26fb728e5ba",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/config_final_Tokke_G4.json": {
+      "size_bytes": 9219,
+      "sha256": "6b1b2d3a5e669b3948cecc141f0751e67601ba8b91fd7e4a6f1d0513bc38111d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/config_final_Vesle Kjela_G1.json": {
+      "size_bytes": 9219,
+      "sha256": "10dd10ad1cd7434d9a97aca248bd67ff19b412b67669478ff376133ff034cd5d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/config_final_Vinje_G1.json": {
+      "size_bytes": 9219,
+      "sha256": "de6b4546505b503a38ac50d46858349d39204a235a1a28b44b03072abefe277c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/config_final_Vinje_G2.json": {
+      "size_bytes": 9218,
+      "sha256": "f4fc6dec6f23b64f0106223ab7b256972569111c9073eb7cdfca48ddf29932db",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/config_final_Vinje_G3.json": {
+      "size_bytes": 9219,
+      "sha256": "d34799a50b526ee0206f29086003615056ad33857db4d46de3ebd7a3eddca0e0",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/core_loader.py": {
+      "size_bytes": 31149,
+      "sha256": "1afae39884da9d210a8ef695fb0c99636536bc688ce79961d502bf4c4b743e57",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/final_Byrte_G1.ubj": {
+      "size_bytes": 1256030,
+      "sha256": "42042ac2a160f49ce17a13c8dbd24538385c256342f2ae36bd20883197bcd575",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/final_Haukeli_G1.ubj": {
+      "size_bytes": 1541393,
+      "sha256": "e3f8b62422c30a4c611bc55356e073d862ad23e400d24eb95e124ab78756a4d4",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/final_Hogga_G1.ubj": {
+      "size_bytes": 1812607,
+      "sha256": "84b75f39c75f9fb93ba9a465e92d0de9404f5dc7251bbae80e9b0b427f28e185",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/final_Kjela_G1.ubj": {
+      "size_bytes": 1653020,
+      "sha256": "7b462c541d7be75428bf7e2b29a8054b5b5527a960254eb575e730789e7a0995",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/final_Lio_G1.ubj": {
+      "size_bytes": 1502618,
+      "sha256": "9953ff17ef78fd738bb329232ed1391d3658eee9e573b782deade35d8d0231cf",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/final_Songa_G1.ubj": {
+      "size_bytes": 1495561,
+      "sha256": "d5f83768db5b8c2cbf929b79fb5a277b3a704b8074c856f98ba9071993544cdf",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/final_Tokke_G1.ubj": {
+      "size_bytes": 1604093,
+      "sha256": "ce9e8e1af612f7e33d7b3fb8778e4c3f3ce1591e7247781f254b418b103c6294",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/final_Tokke_G2.ubj": {
+      "size_bytes": 1653139,
+      "sha256": "cdfc259df3034994fd72231f6d45533918d23f79b2429dec9b8ebb229cd70b65",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/final_Tokke_G3.ubj": {
+      "size_bytes": 1613269,
+      "sha256": "3972aef308c0cd236ba82b7e911df7b6ab5905f441ae8d8a1c8a9ccff6ef8df3",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/final_Tokke_G4.ubj": {
+      "size_bytes": 1607161,
+      "sha256": "31dc088dd5b33f0f42b7933e0c6c7fb4b42983efc6550c8646ce56bee4d27189",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/final_Vesle Kjela_G1.ubj": {
+      "size_bytes": 1501738,
+      "sha256": "bb93822af8e229824d7f010cc5ca9628f893fc4f74b3b2257fe635e82c26c5fc",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/final_Vinje_G1.ubj": {
+      "size_bytes": 1750245,
+      "sha256": "d6d9bb2c1650d86bed2acc982b407ee3833b2fbb1302241c4f4bf91cb7814478",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/final_Vinje_G2.ubj": {
+      "size_bytes": 1798730,
+      "sha256": "8167590eea30d85f02cf3eef74d804523764497bdbb3af8b712d4ed53b1fc44b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/final_Vinje_G3.ubj": {
+      "size_bytes": 1817494,
+      "sha256": "937e0ef76e8f903dc8cb0e83bc11706654748590b3bc0638b4080d066ad53fc5",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/manifest.json": {
+      "size_bytes": 177717,
+      "sha256": "0177350df6a91f1d0d1eb5eb84f10bc27e01bfe6db3b7c8140a3dc6a63a286db",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/protocol.json": {
+      "size_bytes": 39480,
+      "sha256": "a5939edb8ec7f46dbdb4c6edd0c06909ea09ed0ac029709b06945a5c6434683b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/replay_test_predictions.npy": {
+      "size_bytes": 6820928,
+      "sha256": "7395c9840478b3d4bfd8f1799fce8e23b079f5024786b330219e6464a3ae255c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/shared_loader.py": {
+      "size_bytes": 6903,
+      "sha256": "4a3f7422989c49e830756bb9c660c2f6b601185be3989099616debb9a79aaf52",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/test_predictions.npz": {
+      "size_bytes": 5661396,
+      "sha256": "8a8a13633b58e7d3b7c2fd7199f29bccce4e70af8d72bf873457f9c7e8904378",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/train_cuda_xgb608_final.py": {
+      "size_bytes": 11172,
+      "sha256": "9e5a44abae95447cd672895d40669a7a90465a6a1cdaf3193c9ba1bd0451f492",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/train_sample_final.npy": {
+      "size_bytes": 1570992,
+      "sha256": "4e38d45e87950d4d84849224ddb64fa9b5bf7b21d20a7d9b998223ce5e0fa83d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/validation_protocol.json": {
+      "size_bytes": 183597,
+      "sha256": "789c2a6419c526079e18ea83ac5dd1143ef0b2c590e522b163ddf4e890a72401",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/validation_runner.py": {
+      "size_bytes": 19905,
+      "sha256": "c2a8e083fb9d09a874bda148996af86ae892513e95a2bb1d48d3b3ad3f07def8",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003.log": {
+      "size_bytes": 1773,
+      "sha256": "5f2a27b0910d4efa9a9448762f2013d9f95a73fae927bf82cefdbdb28b40fffd",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-smoke-001/core_loader.py": {
+      "size_bytes": 31149,
+      "sha256": "1afae39884da9d210a8ef695fb0c99636536bc688ce79961d502bf4c4b743e57",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-smoke-001/manifest.json": {
+      "size_bytes": 13629,
+      "sha256": "56baf65e855f47c0c57aca4b14c0cbd774fffff59b4ee9ecb1748b720880d2e8",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-smoke-001/protocol.json": {
+      "size_bytes": 183597,
+      "sha256": "789c2a6419c526079e18ea83ac5dd1143ef0b2c590e522b163ddf4e890a72401",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-smoke-001/shared_loader.py": {
+      "size_bytes": 6903,
+      "sha256": "4a3f7422989c49e830756bb9c660c2f6b601185be3989099616debb9a79aaf52",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-smoke-001/synthetic_smoke.ubj": {
+      "size_bytes": 9769,
+      "sha256": "6d1c529f4c8cc505eb24e0d703ca04e0eb42ef2365aade496fb345a244f31001",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-smoke-001/train_cuda_xgb608.py": {
+      "size_bytes": 19905,
+      "sha256": "c2a8e083fb9d09a874bda148996af86ae892513e95a2bb1d48d3b3ad3f07def8",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/export_cuda_xgb608_final.py": {
+      "size_bytes": 15360,
+      "sha256": "dac14e27f026f7dcd7d682e7ebbc359dbb4c609f9e406424043400ebbe2cbc4f",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/kaggle_observation.json": {
+      "size_bytes": 1440,
+      "sha256": "dce6b1168261da4481c4165eb2b4c81040b14f7dc18da87821bd7e6c9616eed4",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/manifest.json": {
+      "size_bytes": 7468,
+      "sha256": "6d13425abe03f5aa7ffe36baffd9b6c06e197f28a4b1afec90c79a8313053555",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/submission.csv": {
+      "size_bytes": 22493693,
+      "sha256": "729ce3e406560b30ab867ad6e0f448650a304168e56293d3d681c5fd7d638c76",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb608-context-joint-blend-001/test_predictions.npy": {
+      "size_bytes": 13641728,
+      "sha256": "741500ecc3235ee5448305dd355d52ddb6cdc93667b780b3512685f2a29f418c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/config_final_Byrte_G1.json": {
+      "size_bytes": 9217,
+      "sha256": "1ce29bc255b805485d0d6c0fec4cadd39cf2a2d853e07c2134ef030da524d94a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/config_final_Haukeli_G1.json": {
+      "size_bytes": 9218,
+      "sha256": "80d9376334e2fee43f31eb4c97860af2123192d4f49b1005a7435741af01e27f",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/config_final_Hogga_G1.json": {
+      "size_bytes": 9218,
+      "sha256": "ec67639ee93b447614717ce972d84e502eb42d19c7ecec3675272afcfee503d8",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/config_final_Kjela_G1.json": {
+      "size_bytes": 9219,
+      "sha256": "4333202ce9ba24a9f8924179b6c2ee0de972b8b883981bd83e2720c11e9798d1",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/config_final_Lio_G1.json": {
+      "size_bytes": 9218,
+      "sha256": "801a89b6f9a383f6205ae6af0bd39345d100d9868c7f0021db4515a1e22233d4",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/config_final_Songa_G1.json": {
+      "size_bytes": 9219,
+      "sha256": "1bc1a21d36f28b8043d7d48e4ebcac54b5c3ecc293a87561c0bb2213a7f48181",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/config_final_Tokke_G1.json": {
+      "size_bytes": 9219,
+      "sha256": "1b1760641e5a265e46621f0a8899f143c81aefa421859d5ef73a57a5a2ae6bb6",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/config_final_Tokke_G2.json": {
+      "size_bytes": 9219,
+      "sha256": "58675bb534fb122894a7c742993074750612cb7cdda2ffd8f6dbd910f11e1923",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/config_final_Tokke_G3.json": {
+      "size_bytes": 9218,
+      "sha256": "981b240b1d8469e84633ac86f5d7106c2c6207c476918a907bb22f89301921c6",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/config_final_Tokke_G4.json": {
+      "size_bytes": 9219,
+      "sha256": "3bdacd9297bf6e681c5003176d8a3223a0a8055b5473f4573fc534dff8001ce3",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/config_final_Vesle Kjela_G1.json": {
+      "size_bytes": 9219,
+      "sha256": "b8fc50026fe22cad557ecfec776cfe32caffdec423a5f972067b38edd651a22c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/config_final_Vinje_G1.json": {
+      "size_bytes": 9219,
+      "sha256": "d8502f4fdc70e49ebe99b014ab7eb24c86dc609129be25ee03f83f6ad5549ee4",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/config_final_Vinje_G2.json": {
+      "size_bytes": 9218,
+      "sha256": "182b0bece7d7de1fc0b529e353a6ba0c794f830533622db4b9c1f1181af2f2ec",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/config_final_Vinje_G3.json": {
+      "size_bytes": 9219,
+      "sha256": "f971349fb75b622e653a4ea9b53ffb02d518af88e2b9cd3e9cce906ad5445e9a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/core_loader.py": {
+      "size_bytes": 31149,
+      "sha256": "1afae39884da9d210a8ef695fb0c99636536bc688ce79961d502bf4c4b743e57",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/final_Byrte_G1.ubj": {
+      "size_bytes": 1148130,
+      "sha256": "8f9a9da6ea79e708b78623cd25a3b5a520021cda7358d611e9603f3a9d656c8c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/final_Haukeli_G1.ubj": {
+      "size_bytes": 1525839,
+      "sha256": "05f8181c822278ebb4e6680126c8d1ad8550fea747ff34f32aaf56faef1b2807",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/final_Hogga_G1.ubj": {
+      "size_bytes": 1768821,
+      "sha256": "b4ade816ade05ebafe5ae752c76d746bf6d260fa890b6cb1e9e8594f9b28eab0",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/final_Kjela_G1.ubj": {
+      "size_bytes": 1648273,
+      "sha256": "9ec21dd49e0243c7337acdeaf8b46f56006c69d42a03cefacd55834bdcefa646",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/final_Lio_G1.ubj": {
+      "size_bytes": 1481695,
+      "sha256": "32f164f0157a1e5552a7cbd14834c91807a198bed87ed8e538a2f413611cb709",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/final_Songa_G1.ubj": {
+      "size_bytes": 1461173,
+      "sha256": "599d82cc28be44522a6c2717e3608d6821062a2012fad7ee633659dc4034e439",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/final_Tokke_G1.ubj": {
+      "size_bytes": 1581117,
+      "sha256": "5a7d200b1310946fcea5f3aa2c63831d4c5d6ec5a491866d35d5dfc019ff45f2",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/final_Tokke_G2.ubj": {
+      "size_bytes": 1612543,
+      "sha256": "a90d52ba68431f163c8a13d7757b515083f38092f41b83e3b731c6642a2e6638",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/final_Tokke_G3.ubj": {
+      "size_bytes": 1569614,
+      "sha256": "dbbb51f80466751971c97466771340ef8c618e1e75deb28909bceb9d32e09558",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/final_Tokke_G4.ubj": {
+      "size_bytes": 1573436,
+      "sha256": "0e066d72bc3fc9e12517f556d864dccde6715f306ee4745b0df1684e9588d31e",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/final_Vesle Kjela_G1.ubj": {
+      "size_bytes": 1453187,
+      "sha256": "197a606b2f8045e1ce1a3ecb712e23fcb16c68e1e53cf31dadf1a85739445fb0",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/final_Vinje_G1.ubj": {
+      "size_bytes": 1742509,
+      "sha256": "0bbfcd0f1b23d579b69c47dae631965bf3eac8a3ec9e6252ab9d2b3a19e967b9",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/final_Vinje_G2.ubj": {
+      "size_bytes": 1753924,
+      "sha256": "d7a22d30bf17fba97584399cb719f3879d22c446b72e1cf413b3bd993c13e9d6",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/final_Vinje_G3.ubj": {
+      "size_bytes": 1813626,
+      "sha256": "32c682ca8caab1e801c2c8deadb6095560179d179181d71d72e3bbe2bd780a70",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/loader608.py": {
+      "size_bytes": 6903,
+      "sha256": "4a3f7422989c49e830756bb9c660c2f6b601185be3989099616debb9a79aaf52",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/manifest.json": {
+      "size_bytes": 191184,
+      "sha256": "c914fc7f3b2c739e162eea8e9809ee0399713a378e036d8a175bc58e3e9cdec3",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/protocol.json": {
+      "size_bytes": 42396,
+      "sha256": "e571c6607bd797f65c76db5d7617dec7b031774a41af44e65283ccf1ad964ab7",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/replay_test_predictions.npy": {
+      "size_bytes": 6820928,
+      "sha256": "fb93e159925b1b4c1b97af062fda204c9a2bd3a7b13136922eaada1e108da30b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/return_verifier.py": {
+      "size_bytes": 14441,
+      "sha256": "1c55c0073ab7a19a9d69c63d496b58a0b1bf60ecf6151e3fdddfef3eb4489b2f",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/shared_loader.py": {
+      "size_bytes": 2849,
+      "sha256": "7f36d9c2a9c823f0e8ca90f02a0556a88ce2adaca718751be5af9a1c5a2043ac",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/test_predictions.npz": {
+      "size_bytes": 5658180,
+      "sha256": "9c5f6a7f4386071b7612f20ea92d0e6d5a7b0a9c93b00f76b825270368f8f333",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/train_cuda_xgb664_final.py": {
+      "size_bytes": 13737,
+      "sha256": "054dc0e52d15417c00e33e68671fd8b555ad085cccdf59b4e8a8b2ce77786251",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/train_sample_final.npy": {
+      "size_bytes": 1570992,
+      "sha256": "4e38d45e87950d4d84849224ddb64fa9b5bf7b21d20a7d9b998223ce5e0fa83d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/validation_protocol.json": {
+      "size_bytes": 191193,
+      "sha256": "4e09f0fe59973d7a9c2c5e5792feb30c29b8af04a67c27bafbe1386ae9da8182",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/validation_runner.py": {
+      "size_bytes": 20281,
+      "sha256": "89787caf33324cf3c52f4d452aa4af8b0c6b7c38823f39bf40c5e169b22c52d7",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001.log": {
+      "size_bytes": 1627,
+      "sha256": "3acf86008f0b515451215f604ade7b065a1f7f71a01a596507dbc305c477ecdd",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-smoke-003/core_loader.py": {
+      "size_bytes": 31149,
+      "sha256": "1afae39884da9d210a8ef695fb0c99636536bc688ce79961d502bf4c4b743e57",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-smoke-003/loader608.py": {
+      "size_bytes": 6903,
+      "sha256": "4a3f7422989c49e830756bb9c660c2f6b601185be3989099616debb9a79aaf52",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-smoke-003/manifest.json": {
+      "size_bytes": 13735,
+      "sha256": "0d405c8f3dd3554053f0208b50ad60840f082119c467d2e3b40ff84f0a471aab",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-smoke-003/protocol.json": {
+      "size_bytes": 191193,
+      "sha256": "4e09f0fe59973d7a9c2c5e5792feb30c29b8af04a67c27bafbe1386ae9da8182",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-smoke-003/shared_loader.py": {
+      "size_bytes": 2849,
+      "sha256": "7f36d9c2a9c823f0e8ca90f02a0556a88ce2adaca718751be5af9a1c5a2043ac",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-smoke-003/synthetic_smoke.ubj": {
+      "size_bytes": 9360,
+      "sha256": "1e8a52f93c71a212a54f50445a46d379b38b95815d7025547244a4d7bf7d5259",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-smoke-003/train_cuda_xgb664.py": {
+      "size_bytes": 20281,
+      "sha256": "89787caf33324cf3c52f4d452aa4af8b0c6b7c38823f39bf40c5e169b22c52d7",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/experiment_record.md": {
+      "size_bytes": 1115,
+      "sha256": "4ca302e5035c7649c88a11f2c79795339aa09aab6562d7e06da529c3c58b8e9a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/export_cuda_xgb664_final.py": {
+      "size_bytes": 17973,
+      "sha256": "65880fc7b7de8d31dd38a38b1aa85005c1e5d7106639582504fc36274d144ae9",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/kaggle_observation.json": {
+      "size_bytes": 1337,
+      "sha256": "2b5f35df4d661b0e4a4e05cfc264fa545861dbca8036c6ac90fc00d09e48ee71",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/kaggle_observation_standalone.json": {
+      "size_bytes": 1197,
+      "sha256": "86a8e990012df128b5b7b5c975333fdde5da83094844e9a509855a51910a151d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/manifest.json": {
+      "size_bytes": 8966,
+      "sha256": "dcd1617cb60aa29dce9c9a64bff16fbc25f00ef569912ea1b80c21eea5aa973c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/standalone_test_predictions.npy": {
+      "size_bytes": 13641728,
+      "sha256": "d9bbbb4ac88ac53982db803ed124d6ffea1bed2c732f3850e914bf0fffacfb6a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/submission.csv": {
+      "size_bytes": 22505943,
+      "sha256": "898d29699cda7aa93cc5b22e410d63eb7fa371ce4afc9f0e9b5a176993e9e96a",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/submission_standalone_projected.csv": {
+      "size_bytes": 22580107,
+      "sha256": "4c96e9f69459417fd138af7d33f5339275bb5ef29ffdd59f0a4590ee8f60ae42",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-cuda-xgb664-anchor-blend-001/test_predictions.npy": {
+      "size_bytes": 13641728,
+      "sha256": "85f7668db3be0d66a824a17f351fd6e2ec25c6bb5bf50b1ee58b5117054db05d",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-lgb-shop664-anchor-blend-001/export_lgb_shop664_final.py": {
+      "size_bytes": 7011,
+      "sha256": "812dcdadd0adb4e013816f19ef0db5cddcca6628c7a78614d2e1dd8326c092c4",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-lgb-shop664-anchor-blend-001/kaggle_observation.json": {
+      "size_bytes": 1126,
+      "sha256": "9a74feb9be25f21a45ca92af75451d9206ef62c7924840d0660c8acc8b334f95",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-lgb-shop664-anchor-blend-001/manifest.json": {
+      "size_bytes": 2957,
+      "sha256": "be4ec369caf7850c1259aee81b3344a738d62c51b9c547382fed9daa1cb6247c",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-lgb-shop664-anchor-blend-001/protocol.json": {
+      "size_bytes": 45754,
+      "sha256": "5513e67123a968ded3790ec6bcda898d50d3682685fa7f62020ea25108e322ad",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-lgb-shop664-anchor-blend-001/submission.csv": {
+      "size_bytes": 22506020,
+      "sha256": "1c1d173816127997e711d54c8269406830666af66b6f4eb6d24f4f227b70d496",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-lgb-shop664-anchor-blend-001/test_predictions.npy": {
+      "size_bytes": 13641728,
+      "sha256": "f76b90b68fe6f5085af5485c153eaa8afd8021f540e9421bf999e2727222bc51",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-lgb-shop664-independent-audit-001/audit_lgb_shop664_final.py": {
+      "size_bytes": 11540,
+      "sha256": "a84739888990f64d99ac1f0057c9b7ac28c75cdedbf0193880b9514f4486fe46",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-lgb-shop664-independent-audit-001/manifest.json": {
+      "size_bytes": 2650,
+      "sha256": "529c5b4e7a8bf1106882de2e0594c54de2d016ec979e5e69e84a723dbcfc3c99",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-lp-context-joint-blend-001/kaggle_observation.json": {
+      "size_bytes": 1130,
+      "sha256": "6fce5f401579aaf72adeb8e1a502d81aabd35f8c21afa355bab0cd7423f96075",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-lp-context-joint-blend-001/manifest.json": {
+      "size_bytes": 36628,
+      "sha256": "39dbd005e02d650f6a90d6a7205fd67c183f22580590ce12a44f20b7955320d6",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-lp-context-joint-blend-001/source/scripts/export_ensemble.py": {
+      "size_bytes": 18984,
+      "sha256": "4296237222c8d9eb9e3b51cb23cfb17922847132eef4753ffc709aa22be2b77b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-lp-context-joint-blend-001/source/scripts/export_selected_blend.py": {
+      "size_bytes": 7817,
+      "sha256": "de6d6bf90ca188787fc6607b62f14fcd44b5a7c02a231869e4f23b45e1da5e25",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-lp-context-joint-blend-001/source/sintef_project/postprocess.py": {
+      "size_bytes": 3600,
+      "sha256": "ffbfa7974df4d0363f655bed00da1778aebe485988bdaef0309ac488f17c903b",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-lp-context-joint-blend-001/submission.csv": {
+      "size_bytes": 22467139,
+      "sha256": "f7907cce9d7348a1c77959e64d5e6099303123846c0648b37c816bb495411fcf",
+      "group": "best",
+      "asset": "hydraulic-best-01.tar.gz"
+    },
+    "submission-lp-context-joint-blend-001/test_predictions.npy": {
+      "size_bytes": 13641728,
+      "sha256": "dd0bc40c2ca7a4fe84b57430b08f31a227f66ff4f8004f4f86b7284da8dbd580",
+      "group": "best",
+      "asset": "hydraulic-best-02.tar.gz"
+    },
+    "cuda-xgb-final-package-001/payload/launch_cuda_xgb.py": {
+      "sha256": "eda3e66ceb067c1a5f8eaaa25d2d8b8955303d9ee154af02a6345a952e89fed3",
+      "size_bytes": 1391,
+      "group": "research",
+      "asset": "hydraulic-research-09.tar.gz"
+    },
+    "cuda-xgb-final-package-001/payload/train_cuda_tcn.py": {
+      "sha256": "1afae39884da9d210a8ef695fb0c99636536bc688ce79961d502bf4c4b743e57",
+      "size_bytes": 31149,
+      "group": "research",
+      "asset": "hydraulic-research-09.tar.gz"
+    },
+    "cuda-xgb-final-package-001/payload/package_manifest.json": {
+      "sha256": "3029627856850fca4058c744b72c6cc15c58e82ce4a091a681e973784d9a79a4",
+      "size_bytes": 1265,
+      "group": "research",
+      "asset": "hydraulic-research-09.tar.gz"
+    },
+    "cuda-xgb-final-package-001/payload/train_cuda_xgb_final.py": {
+      "sha256": "99fb402ea3151f6c9775c91d4ecc85fca0c3801f937add0e1a2a8e1ad435c136",
+      "size_bytes": 10946,
+      "group": "research",
+      "asset": "hydraulic-research-09.tar.gz"
+    },
+    "cuda-xgb-final-package-001/payload/cuda_xgb_final_protocol.json": {
+      "sha256": "5033b6577b0142c8d6f38b290ac8119c45b65f0eb8b59a2d1b31b69debbf7a11",
+      "size_bytes": 39444,
+      "group": "research",
+      "asset": "hydraulic-research-09.tar.gz"
+    },
+    "cuda-xgb-final-package-001/payload/README.md": {
+      "sha256": "bddbe1eba87c51390494a4b7082060c9d7d2c84676585ccd37b37396f167d19a",
+      "size_bytes": 527,
+      "group": "research",
+      "asset": "hydraulic-research-09.tar.gz"
+    },
+    "cuda-xgb-final-package-001/payload/train_cuda_xgb.py": {
+      "sha256": "42d64d77f4317d9f146a76e556300f46dbb0560030b3fef2060907bb57fbcb29",
+      "size_bytes": 18765,
+      "group": "research",
+      "asset": "hydraulic-research-09.tar.gz"
+    },
+    "cuda-xgb-final-package-001/payload/cuda_xgb_protocol.json": {
+      "sha256": "7317e241c9a579531def94aec898b4cb3ae3192a5f5818062ee12b94db5b9b7c",
+      "size_bytes": 91935,
+      "group": "research",
+      "asset": "hydraulic-research-09.tar.gz"
+    },
+    "cuda-xgb608-final-package-001/payload/cuda_xgb608_protocol.json": {
+      "sha256": "789c2a6419c526079e18ea83ac5dd1143ef0b2c590e522b163ddf4e890a72401",
+      "size_bytes": 183597,
+      "group": "research",
+      "asset": "hydraulic-research-09.tar.gz"
+    },
+    "cuda-xgb608-final-package-001/payload/launch_cuda_xgb.py": {
+      "sha256": "eda3e66ceb067c1a5f8eaaa25d2d8b8955303d9ee154af02a6345a952e89fed3",
+      "size_bytes": 1391,
+      "group": "research",
+      "asset": "hydraulic-research-09.tar.gz"
+    },
+    "cuda-xgb608-final-package-001/payload/train_cuda_tcn.py": {
+      "sha256": "1afae39884da9d210a8ef695fb0c99636536bc688ce79961d502bf4c4b743e57",
+      "size_bytes": 31149,
+      "group": "research",
+      "asset": "hydraulic-research-09.tar.gz"
+    },
+    "cuda-xgb608-final-package-001/payload/package_manifest.json": {
+      "sha256": "f0c0722622f676a5f3a5601549e4e1cdf0b66ab328ba5150b2c5fa96b7198502",
+      "size_bytes": 1439,
+      "group": "research",
+      "asset": "hydraulic-research-09.tar.gz"
+    },
+    "cuda-xgb608-final-package-001/payload/cuda_xgb608_loader.py": {
+      "sha256": "4a3f7422989c49e830756bb9c660c2f6b601185be3989099616debb9a79aaf52",
+      "size_bytes": 6903,
+      "group": "research",
+      "asset": "hydraulic-research-09.tar.gz"
+    },
+    "cuda-xgb608-final-package-001/payload/train_cuda_xgb608_final.py": {
+      "sha256": "9e5a44abae95447cd672895d40669a7a90465a6a1cdaf3193c9ba1bd0451f492",
+      "size_bytes": 11172,
+      "group": "research",
+      "asset": "hydraulic-research-09.tar.gz"
+    },
+    "cuda-xgb608-final-package-001/payload/README.md": {
+      "sha256": "3303768163a1f5746010e4672dbfa382906d4e45f9f021ed96991c19fe47f4ef",
+      "size_bytes": 524,
+      "group": "research",
+      "asset": "hydraulic-research-09.tar.gz"
+    },
+    "cuda-xgb608-final-package-001/payload/train_cuda_xgb608.py": {
+      "sha256": "c2a8e083fb9d09a874bda148996af86ae892513e95a2bb1d48d3b3ad3f07def8",
+      "size_bytes": 19905,
+      "group": "research",
+      "asset": "hydraulic-research-09.tar.gz"
+    },
+    "cuda-xgb608-final-package-001/payload/cuda_xgb608_final_protocol.json": {
+      "sha256": "a5939edb8ec7f46dbdb4c6edd0c06909ea09ed0ac029709b06945a5c6434683b",
+      "size_bytes": 39480,
+      "group": "research",
+      "asset": "hydraulic-research-09.tar.gz"
+    },
+    "kaggle-neural-bundle-001/payload/bundle_manifest.json": {
+      "sha256": "6160e83f641dd3f311a1ebd96b2b3a05914b99b810e98ec262576be892563469",
+      "size_bytes": 8509,
+      "group": "research",
+      "asset": "hydraulic-research-09.tar.gz"
+    },
+    "cuda-xgb608-package-001/supplement/bundle_manifest.json": {
+      "sha256": "7f6e01e242e1b5485370f92fbbdad3c7b8ae37148f5e13e198a03920588a9f6d",
+      "size_bytes": 1846,
+      "group": "research",
+      "asset": "hydraulic-research-09.tar.gz"
+    }
+  },
+  "inventories": [
+    {
+      "name": "hydraulic-research-inventory.json.gz",
+      "group": "research",
+      "size_bytes": 560291,
+      "sha256": "0f0b8ded864f45e7ca4133362f7eb129e6ddeba2b1ad5a8f99884d2e11cf36d7",
+      "file_count": 12866,
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-research-inventory.json.gz"
+    },
+    {
+      "name": "hydraulic-physics-inventory.json.gz",
+      "group": "physics",
+      "size_bytes": 4662836,
+      "sha256": "7b9778eab17ad0a28fea70629b0cadc42473783fb6e2acdeac109cbcc8a42d0a",
+      "file_count": 146177,
+      "url": "https://github.com/ravinav1/deepthroatlearning/releases/download/hydraulic-surrogate-20261102/hydraulic-physics-inventory.json.gz"
+    }
+  ]
+}

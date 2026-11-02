@@ -1,0 +1,23 @@
+{
+  "version": "cuda_xgb745_standalone_predeclaration_v1",
+  "declared_utc": "2026-11-02T19:47:38.396812+00:00",
+  "authorization": "Root explicitly predeclared a separate standalone projected diagnostic before any branch2021 training or primary acceptance.",
+  "branch": "cuda_xgb745",
+  "validation_protocol_path": "docs/cuda_xgb745_protocol.json",
+  "validation_protocol_sha256": "4e8aaf0a32c7899cac0b0c95927af6b0bb764d49847069fcf4af5a5c8092b41e",
+  "protocol_state": "frozen",
+  "formula": "project_vinje(rawGPU745),float64",
+  "weights": "No blend or weight search.",
+  "requirements": [
+    "Actual frozen2021 selection and independently locked2022 both pass the primary strict anchor/control gates.",
+    "Actual final fullmodels pass original strict source/data/native-configuration/sample/schema/hash/checkpoint-replay verification.",
+    "Complete strict primary export exists and its manifest/artifact closure is independently audited.",
+    "A separate final diagnostic protocol pins this declaration, actual CV scores, accepted primary and all final model/export sources.",
+    "Actual diagnostic arrays and competition CSV pass independent verification before submission."
+  ],
+  "automatic_promotion": false,
+  "training": "No additional fit; reuse exactly the accepted primary final raw checkpoints.",
+  "public_score_use": "Record the actual score; no automatic promotion or leaderboard weight tuning.",
+  "cv_scores": null,
+  "final_export_enabled": false
+}

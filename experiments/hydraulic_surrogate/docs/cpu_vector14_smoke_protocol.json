@@ -1,0 +1,52 @@
+{
+  "version": "cpu_vector14_synthetic_capability_v1",
+  "created_utc": "2026-11-02T21:22:26.268010+00:00",
+  "source": {
+    "scripts/smoke_cpu_vector14.py": "1525c005b20eb1cf1083c96d64f63462b14603b97c887c1b2afbe89b1b98955b",
+    "scripts/run_cpu_vector14_smoke.py": "44f5fbb74ec1a3078a42738369fc33aa0c700f830fe1e1f9520c6e0642513e4b",
+    "scripts/verify_cuda_vector14_smoke_return.py": "53947eae534b6d1e45ee99ec4d781ce9ba1a31cae5eac70951fa0e95713b38e7"
+  },
+  "environment_manifest": "artifacts/xgb341-cpu-environment-001/manifest.json",
+  "environment_manifest_sha256": "2094900a418de72fa78499a0ad92b2fab2019c24002f60edfa048d17bec0b92e",
+  "model_parameters": {
+    "n_estimators": 8,
+    "max_depth": 3,
+    "learning_rate": 0.05,
+    "min_child_weight": 20,
+    "reg_lambda": 4.0,
+    "reg_alpha": 0.0,
+    "max_bin": 128,
+    "subsample": 0.9,
+    "colsample_bytree": 0.9,
+    "colsample_bylevel": 1.0,
+    "colsample_bynode": 1.0,
+    "random_state": 4173,
+    "n_jobs": 2,
+    "objective": "binary:logistic",
+    "tree_method": "hist",
+    "device": "cpu",
+    "eval_metric": "logloss",
+    "grow_policy": "depthwise",
+    "max_delta_step": 0.0,
+    "validate_parameters": true,
+    "verbosity": 1,
+    "multi_strategy": "multi_output_tree"
+  },
+  "shape": [
+    2048,
+    664
+  ],
+  "target_shape": [
+    2048,
+    14
+  ],
+  "seed": 4173,
+  "phase_timeout_seconds": 120,
+  "maximum_phase_rss_bytes": 2147483648,
+  "synthetic_only": true,
+  "competition_data_read": false,
+  "gpu_capability_tested": false,
+  "future_fold_authorized": false,
+  "authorization": "Root explicitly authorized this bounded isolated CPU capability test; no competition fold is authorized.",
+  "independent_json_parser_source_review_sha256": "6d2a04ad0046808de55435e3fbc89372860abef91220b43a215ad2aaf1b6b5cc"
+}

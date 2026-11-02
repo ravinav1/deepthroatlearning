@@ -1,0 +1,19 @@
+# Local CPU vector14 capability result
+
+The bounded synthetic test passed on native macOS ARM64 with XGBoost3.4.1 in `.venv-xgb341-cpu` and Python3.14.6. It fitted eight depth3 shared trees on2048×664 synthetic float32 inputs with14 binary labels. Actual tree JSON confirms eight trees, each storing14-value leaves; the native configuration confirms CPU histogram training and two threads. Fit took0.437176s; the complete fit/fresh-process replay/independent JSON check took2.398978s. Peak worker RSS was381075456bytes. UBJ and JSON replays were bitwise identical; independent JSON traversal error was0. This establishes CPU capability and serialization only, not GPU support, competition accuracy or full-fold performance.
+
+The official [PyPI3.4.1 release](https://pypi.org/project/xgboost/3.4.1/) supplies a macOS12+ARM64 wheel requiring Python>=3.12. Its published SHA256 is `a7afd7dbace0951c93aa85ffe046e54bc40893f5b51cd3e7991eb157bf9c7c7c`. The [official vector-leaf introduction](https://xgboost.ai/2026/08/25/introducing-the-xgboost-vector-leaf-model) describes CPU and CUDA histogram support, while the [installation guide](https://xgboost.readthedocs.io/en/stable/install.html) distinguishes the CPU-only macOS wheels. The local build reports USE_CUDA=false and USE_OPENMP=true.
+
+The separate environment pins NumPy2.4.6, SciPy1.17.1, scikit-learn1.9.1, joblib1.6.0, threadpoolctl3.7.0, narwhals2.26.0, cloudpickle3.1.2 and XGBoost3.4.1. Registry JSONs, every wheel and published hash, install reports, package RECORD hashes, actual loaded native-library hashes and Python binary/configuration are preserved under `artifacts/xgb341-cpu-environment-001`. Environment manifest SHA256 `2094900a418de72fa78499a0ad92b2fab2019c24002f60edfa048d17bec0b92e`. The original `.venv-ml` package list, configuration and XGBoost native bytes were verified unchanged. Both `.venv*/` and `artifacts/` are ignored by repository policy.
+
+Preparation preserved two operational failures: direct pip registry access failed DNS; official wheels were downloaded with curl, registry-checksummed and installed offline. The first offline dependency check identified missing narwhals/cloudpickle, which were then installed at pinned versions and the final check passed. Smoke001 failed before a completed model because a subprocess `ps` memory monitor was denied; its manifest SHA256 is `46aa4891f88084b2662075b23463ab1d1b27c7554fff3e3ffb1a8987c92d0a8a`. The child was terminated/joined. A separate wrapper revision retained identical model/data/package settings, enforced the original120s wall-clock phase cap, and checked worker OS ru_maxrss<=2GiB after each phase. It does not claim live RSS enforcement.
+
+Successful protocol `docs/cpu_vector14_smoke_protocol_v2.json` SHA256 `78ae3ad6da089b03b8b2c42dbcbc483735160ca3b07e6ad7282ae8caf07c3fb3`; complete manifest `artifacts/cpu-vector14-smoke-002/manifest.json` SHA256 `b160fb7ef6784a3e64a7ce6b5a326a6353f49291e46355b32cb799c5faac482f`. Fit/replay manifests are `bf803dddfa124d5e70a04c2975b6d604244e7813138cb6e14d6708ce94679cc1` and `59f0aae43e9f8ec5b5f04ecf21012aeee04b9554acaf011e2e146279b041a2af`. Actual fit/replay PIDs32084/32123 exited. Root's independent actual-result audit passed: `artifacts/cpu-vector14-smoke-result-independent-audit-001/manifest.json`, SHA256 `6bff707f56cc3deb552fbcf0c21afe9a86f15224da18f43db93c4cc5f1fefb2a`.
+
+Exact successful command (use a new immutable run ID for intentional reproduction):
+
+```sh
+.venv-xgb341-cpu/bin/python scripts/run_cpu_vector14_smoke_v2.py --protocol docs/cpu_vector14_smoke_protocol_v2.json --protocol-sha256 78ae3ad6da089b03b8b2c42dbcbc483735160ca3b07e6ad7282ae8caf07c3fb3 --run-id cpu-vector14-smoke-002
+```
+
+No competition input/label was opened. A realistic-depth bounded synthetic timing pilot and prospective data-portability/protocol work are authorized next; no full-fold fit is authorized. The LGB726 river branch keeps priority for the single large local slot.

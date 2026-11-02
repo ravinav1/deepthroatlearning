@@ -1,0 +1,15 @@
+# Complete integer-cache physical audit
+
+`scripts/audit_integer_water_budget_cache.py` accepts only an externally pinned finalized3647case cache. It rejects an incomplete aggregate before opening derived features. The command below is a template; substitute the actual final manifest hash only after the coordinator has exited successfully.
+
+```sh
+uv run --offline --no-project --python .venv-ml/bin/python python scripts/audit_integer_water_budget_cache.py --cache artifacts/integer-water-budget-full-four-worker-001 --manifest-sha256 ACTUAL_FINAL_MANIFEST_SHA256 --run-id integer-water-budget-full-physical-independent-audit-001
+```
+
+One audit process uses one numerical thread. It builds fresh physical inputs from metadata and historical inputs, checks every saved raw payload and complete receipt, preserves the636 compatible original receipts/payloads, and checks original pilot/canonical diagnostics/retry lineage. Both accepted native MILP incumbents must be feasible and backed by their frozen status0/bound records. Both saved conditional LP outputs per replica must match exactly and satisfy reconstructed primal, dual, complementarity and objective checks. Native solver bounds supply the global MILP certificate; independently reconstructed KKT certifies only the fixed-state continuous problem. No new literal-zero gap condition is imposed.
+
+The audit independently reconstructs six features for each of14units and requires exact float32bytes for every per-case feature array and the complete3647×168×84 file. All labels remain unopened; no optimizer, fitted model, validation score or Kaggle submission runs. It emits the exact fields required by the unsealed748builder: status=passed, cache_manifest_sha256, cache_protocol_sha256, features_sha256, case_count=3647, all_cases_physical_and_replay_verified=true, compatible_receipts_verified=true and the actual compatible_case_count. A failed audit preserves its evidence and cannot authorize training.
+
+Preparation evidence: four focused tests in `tests/test_integer_cache_physical_audit.py`; real preflight uses only the separately completed24case timing pilot, with48native/fixed-LP certificates, all replay arrays, independent feature reconstruction and rejected corrupt native status/dual/incumbent. `scripts/preflight_integer_cache_audit.py` never opens the live cache or its partial features. Preparation proof is not a full-cache approval. Exact run/source hashes are in artifacts/integer-cache-auditor-pilot-preflight-002/manifest.json; independent source review is separate.
+
+Independent source review passed: `artifacts/integer-cache-auditor-independent-source-review-001/manifest.json`, SHA `4d8d57e1c051493aadfcc1ca1f498c9b5f124a4e118539905cf55dddd542af9b`. The reviewer exercised a receipt fixture made only from the completed timing pilot and rejected duplicate/unapproved replicas. Actual24case preflight002 SHA `a34def0aac8bd6bce02abd4e22175c0b90020f7f58534eec593cba633df82cb0`;4focused tests passed. The full-cache audit has not run.

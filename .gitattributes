@@ -1,0 +1,2 @@
+# Preserve imported, hash-pinned research bytes, including historical whitespace.
+experiments/hydraulic_surrogate/** -whitespace

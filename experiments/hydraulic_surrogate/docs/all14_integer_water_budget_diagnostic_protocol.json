@@ -1,0 +1,264 @@
+{
+  "version": "all14_integer_water_budget_twelve_case_diagnostic_v1",
+  "created_utc": "2026-11-02T19:42:19.851454+00:00",
+  "revision_reason": "Unrun v1 exact-zero gate used signed maximum; v2 uses maximum absolute slack and rejects negative numerical residuals. Solver and physical inputs unchanged.",
+  "original_protocol_sha256": "9a4f29a1ad78204f391d1a4d4b100e1ea6d67519bdb0d0fa50c00a69d984b60b",
+  "source": {
+    "scripts/diagnose_integer_water_budget.py": "007986aa0b445b59b25a154edc6db871739eef2349f2018a54367a2c43bc3947",
+    "sintef_project/integer_water_budget.py": "a0a5de1695617641cc52b70292a67e071fccb096b2400770f791c96dc7b6eb7f",
+    "sintef_project/lp_shop_relaxation.py": "1ac82e04d2df6571c71acfbc6be6c4ac482ea69de441471804c2b1bce1ce1aaf",
+    "sintef_project/lp_features.py": "bd16e0b4e9e32976b7eb50d5334e05b94f2b074bc0d8eb83a787f26f95268720",
+    "sintef_project/physics.py": "c9b0b2b81399a49c88802613a3ee85ba29fe97d5b7a3681f041d866972f82f41",
+    "sintef_project/features.py": "d6dd97719c125ca9af859c3251ca408ef05af541743ea2f1524d31961f2fba30",
+    "scripts/diagnose_lp_shop_relaxation.py": "162c00f6974a81001873b69797fd4b97c8ddd73b470122b2624d514e79e5da4c",
+    "tests/test_integer_water_budget.py": "c10e58a3c26693e4c58ece554f42cb967bd21428807fb2abe3db78d715c1fb01",
+    "tests/test_lp_shop_relaxation.py": "2efc9332d86df40e1086fced1531d0af709a1c8647aebcfc4d6b22661803836b",
+    "docs/integer_water_budget.md": "07a620e62614076de4bc685f24492a429e435a04e4f3c142d8a75feaff1056c6",
+    "scripts/pilot_integer_water_budget.py": "96b63a586bd2643ad4e0e383808be494c3713cbb251265ace772b4f30f3889b9",
+    "scripts/probe_all14_integer_water_budget_v2.py": "536f1c3c0e79048f50858573380ed29acb6840e6f09c1a2520262ab56a38823c",
+    "tests/test_all14_integer_probe_v2.py": "da79e4fa9b73a808cd49436f0465d74bbbbc8ee26e30124e0fb162f36bad9b5a",
+    "docs/all14_integer_water_budget_probe_v2.md": "9d6976267bff93ff233a364d7fa7ee5947aefe3152c85de87b7ffa76fdf73609",
+    "scripts/diagnose_all14_integer_water_budget.py": "aec7bb115f2cfd733e58ed9981ec75c41ba35d7003a9388b00ad85efe23d9b27",
+    "tests/test_all14_integer_diagnostic.py": "8e80324da5f7d885ce5a6b8304c445edcd6d3bb53189c55fec2d23e41b33d6aa",
+    "docs/all14_integer_water_budget_diagnostic.md": "e5a09f12c1f2bc4c7d7908458080484c14116256bf1fc064f18647348a5e89b2",
+    "scripts/continue_integer_water_budget_cache_v2.py": "a410a3c8f13ed76e76888628b6cf7c4f79ba8a5241ad1c299f2f194f87cad632",
+    "scripts/build_integer_water_budget_cache.py": "a23f99e6815bf8d32dece26aba03eb58060ad195d358bc9342b55a0bb619116b",
+    "sintef_project/integer_water_budget_features.py": "b5e3fb01aa9674b9fa18a87ccced2a9abb7db563dc8132c58e2881880db340a7"
+  },
+  "data": {
+    "sintef_project/data/extended/Constraint_min_flow.csv": "146062702f58920440fc064d461d544e9cd7c503c8df74ce96e721bee04629ea",
+    "sintef_project/data/extended/Constraint_min_volume.csv": "8b639b8339b84c5ff7db34ba4b4618e99d05a03819bf99fa5032a54490278806",
+    "sintef_project/data/extended/Tokke_Vinje_topology.yaml": "29cfa233cec7fc4b5401d0d571a566e6e17b7bb7b46a175abcd37a53fe175497",
+    "sintef_project/data/kernel/Historical_day_ahead_price_2015_2025.csv": "e5edd141b34a61139f3ee3022305175446d4b4f74618df85552c4f2b5e556ee4",
+    "sintef_project/data/kernel/Historical_inflow_1958_2025.csv": "ff4f87d2768133b4a717c0ad366969244f7a86901695e1d4fef3c2ed8963ad66",
+    "sintef_project/data/kernel/Historical_volume_2015_2024.csv": "ef3d9c69699eef0d953b495ba69bf6676858e6b9c536087498135074912dd3b6",
+    "sintef_project/data/kernel/Synthetic_water_value_2015_2024.csv": "a5f09ff96b551d3c297d90ccf3a0bbe92d8814b537ad63a46579cb0ff44aa4cb",
+    "sintef_project/data/kernel/Unit_commitment_decisions.csv": "6d51f8cc6869cb82b44708168808c305c1e007cf79878ca1c1d316d07aae3ab3",
+    "sintef_project/prediction_mapping.csv": "c8b0e5bc500a5f1dec2337f5ac680847f6a7794a7c2b7a8fb19384910a029519",
+    "sintef_project/sample_submission.csv": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba"
+  },
+  "inputs": {
+    "artifacts/lp-shop-full-001/case_0001_inputs.npz": "1161a4e254a9ffa668c289e04af65d8720af1ce87873800d4a02f3e737ec880a",
+    "artifacts/lp-shop-full-001/case_0001_result.npz": "13388efb8e8fb4a36e946ba7cf15a2474b487472e2bfdd158ecd5330f321b123",
+    "artifacts/integer-water-budget-completion-001/case_0001_proof.json": "885e96ede0c502433fbd6812febb8fd0d712b3214ac07234678191fb93dfa284",
+    "artifacts/integer-water-budget-completion-001/case_0001_integer.npz": "4e96b7f8100264445dca75b783d4bcaa299d7f6530de29394caf4b955b1330bc",
+    "artifacts/lp-shop-full-001/case_1826_inputs.npz": "f8b675375d53545b3c3da977a44684c39ef1ac324bbdc39de0c0671518bd351a",
+    "artifacts/lp-shop-full-001/case_1826_result.npz": "7b4003f43229a01046390b149079f66e067e0892285177b44f78fcdbf2d143f8",
+    "artifacts/integer-water-budget-completion-001/case_1826_proof.json": "682ec5d7e5f47fa3e08f2e119e1b0807c3e6ef1c8d18c720946aaf74551cdef3",
+    "artifacts/integer-water-budget-completion-001/case_1826_integer.npz": "0a410b4771adfc771dc25468afe653cff58217017767944aed77ce7ccad91bab",
+    "artifacts/integer-water-budget-completion-independent-audit-001/manifest.json": "f428c3633d3fe7f5a83dffd06f0c2edf1324443a2cee465dc01052ab7c76b7d2",
+    "docs/all14_integer_water_budget_probe_protocol.json": "71988ecdbf020a8d44cecb1cd9cc298c1a98f7eb6f920ef5040306cfcc890bef",
+    "artifacts/all14-integer-water-budget-preflight-001/manifest.json": "89fe11543d3d575ee6b0b66c840e3d1d71acc0a7b627ea8299ddc3ecb0d5ddce",
+    "docs/integer_water_budget_protocol.json": "9a4f29a1ad78204f391d1a4d4b100e1ea6d67519bdb0d0fa50c00a69d984b60b",
+    "docs/all14_integer_water_budget_probe_protocol_v2.json": "d391f3c0cb7803e3946348d9f25e0c18502e1b914e94f1eb50ea0a20b0bc5af7",
+    "artifacts/lp-shop-full-001/case_0532_inputs.npz": "b769ad8389efca2895a14b790eb2424b12a0b445d3feee47184afba367602d57",
+    "artifacts/lp-shop-full-001/case_0532_result.npz": "22e4932b47f87991dd8f284621acd0e5093498ca99d1f62d7630b5e438a6e96a",
+    "artifacts/integer-water-budget-completion-001/case_0532_integer.npz": "0ba09b4ec152d207e96ecd02968213f9ce789df74a730ddd0de7bd720119b1e3",
+    "artifacts/integer-water-budget-completion-001/case_0532_proof.json": "17f5fd39990fc0a40d73bb0857807f483027b53781f3918ace104654870c9803",
+    "artifacts/lp-shop-full-001/case_0930_inputs.npz": "b4c2ff64aed47d24d0aa65610d33f9ad79865f289862fa1bb2f7620b2e58c43a",
+    "artifacts/lp-shop-full-001/case_0930_result.npz": "2334dc207bc4d5271701e3927ba66c6c7203303a9d65cd50e2c08bf76ad0bcd8",
+    "artifacts/integer-water-budget-completion-001/case_0930_integer.npz": "dc832f5302f879cae806d0ec0332280539ffcafd9628a6ab40a4c7b039ea37a8",
+    "artifacts/integer-water-budget-completion-001/case_0930_proof.json": "64a2bf4743b57089df6dc7d5eb6d78b199bf5dba37ba62aafbe4be437cb884b0",
+    "artifacts/lp-shop-full-001/case_1461_inputs.npz": "7593dd34baea4e5b64eaca00adeb17f310855a99779495573877c0362d4775e5",
+    "artifacts/lp-shop-full-001/case_1461_result.npz": "a5628c6c600bad7a2d2d5bb980fd0cbedd63aef0e2aec7e2e1daba21a7c9d40e",
+    "artifacts/integer-water-budget-completion-001/case_1461_integer.npz": "adff8316fa6371d4e1945fae6ae2ce9cf1dd23c1ec4d4a3a306b3c4e2996267f",
+    "artifacts/integer-water-budget-completion-001/case_1461_proof.json": "551eec8f0ef0ea33f9565d8065d7ceefb0c37b8fe72c5861c10a5d6230c879cf",
+    "artifacts/lp-shop-full-001/case_1462_inputs.npz": "6f6625c12637b3e813464b144f5fa9c18cbdc61b7446dc6b1567b8c290d8cf9d",
+    "artifacts/lp-shop-full-001/case_1462_result.npz": "cca06d9b7a73daf2b80d15ea770bbe18b868e3f75b8b2665bbcbb2779a3a2239",
+    "artifacts/integer-water-budget-completion-001/case_1462_integer.npz": "995e46bc5bee9cbe395238d12a117c30acca9f83d2261a42f2dd444a6421506a",
+    "artifacts/integer-water-budget-completion-001/case_1462_proof.json": "9a321b5c11fa857457745b339ed765ce4487c0bba787b31ae796352b7322729f",
+    "artifacts/lp-shop-full-001/case_1594_inputs.npz": "3ffb10590f7e9232b720473d543ae067f191d156d76f08629decb6ae15d6e655",
+    "artifacts/lp-shop-full-001/case_1594_result.npz": "2913e5fc1ec1ffcee015af92d00a0d24d51f2b8c23bc61f831e64e3f5399fd0b",
+    "artifacts/integer-water-budget-completion-001/case_1594_integer.npz": "3f8e756d864a6b0f8833cff51ead44372eb2919da1ce1c82839d221dd5dbe2fc",
+    "artifacts/integer-water-budget-completion-001/case_1594_proof.json": "38a57e4e75b0cf5f6f1944d546f7c981fefb2aa7e138513c9a3e7f49769ee912",
+    "artifacts/lp-shop-full-001/case_1694_inputs.npz": "bfecdc3baeccd8ce1e78eabd15c6cf71b04d4f4b7c974ed8528d692090f38b97",
+    "artifacts/lp-shop-full-001/case_1694_result.npz": "d59022e8fd71d7a2730e7e5c3300fdd549b53f605fca459cfb9af5d27d37fd94",
+    "artifacts/integer-water-budget-completion-001/case_1694_integer.npz": "97cfbbb57d17c87155c5c6e51c11d119bfa9b48c8c3269e0a4b6733e056c1b4c",
+    "artifacts/integer-water-budget-completion-001/case_1694_proof.json": "91ba22093caa9b61de79b7231f1801e967e2877fc981a6a647afc93efc01b942",
+    "artifacts/lp-shop-full-001/case_1827_inputs.npz": "c27d064dedf79c0734134aa10f03bce39c790ed9b4dfb59102cf200b990fd44d",
+    "artifacts/lp-shop-full-001/case_1827_result.npz": "f1f2f1388eb7048a7a246ffa235acd835fc0768d2e6074aa766587fd62e6fcb9",
+    "artifacts/integer-water-budget-completion-001/case_1827_integer.npz": "fdd570a96eea3864c5021fe731eeb1e33def6eb21b138b1ec0b5d535ded32e08",
+    "artifacts/integer-water-budget-completion-001/case_1827_proof.json": "b4eeb9e87e5e40b10038ebaee48f4ab652127915c62fb7d30c63652848e86a1b",
+    "artifacts/lp-shop-full-001/case_1958_inputs.npz": "acb894834856f69c69f90faedb9174a587aa716f79e6e5130200881ce3ff3980",
+    "artifacts/lp-shop-full-001/case_1958_result.npz": "f3c74e13feaa92055f92e904561d549ac33a465b87325a1653a8709732761964",
+    "artifacts/integer-water-budget-completion-001/case_1958_integer.npz": "158720f9887879bd5fb30eabc86bb29fbd69e90dd30b555b24440aecdeb2aabd",
+    "artifacts/integer-water-budget-completion-001/case_1958_proof.json": "89ce7c9134365b8d34ebf2c7261386837d30905782595a102f1fed3be72def94",
+    "artifacts/lp-shop-full-001/case_2055_inputs.npz": "27cc27884d42de642a9d4e4158a3c6ee84f1821c1277c80a359bf4944fd8e102",
+    "artifacts/lp-shop-full-001/case_2055_result.npz": "791d2583b4673eb25435a24fd39b91528b903670d14e22c731e1a4a1e94802e2",
+    "artifacts/integer-water-budget-completion-001/case_2055_integer.npz": "ab2ea7b0b0dfca9c633aca268ba90846b5e0de5ac0242f65200e8816850516f7",
+    "artifacts/integer-water-budget-completion-001/case_2055_proof.json": "0386bbce66e2254b52521a3b9e59fdcb6513b3b95a442bba05deb4e08e62dc42",
+    "artifacts/lp-shop-full-001/case_2186_inputs.npz": "8001910d3ad5865cfaea1d2a2843c876a7efabcb78977acc9578ecb330e42f74",
+    "artifacts/lp-shop-full-001/case_2186_result.npz": "962623d8d7e3c1488c9c8dfb0105e8c64068d41edd3e798c229dac8d64728236",
+    "artifacts/integer-water-budget-completion-001/case_2186_integer.npz": "c88fdbf6d2d77a54ce3bdc4868fe5aa18904fe6b7fd551c8812eb73e7aaa2cac",
+    "artifacts/integer-water-budget-completion-001/case_2186_proof.json": "b286d7ec0474e8ec5f8fe72bcf42ae57b7b1f3bf5d4ba729294499f7d75cf280",
+    "artifacts/all14-integer-water-budget-probe-001/manifest.json": "b29c685f193df82074ac389c5c5f1ebac6502860fb01443f3f3bcf6b6fb990c4",
+    "artifacts/all14-integer-water-budget-result-independent-audit-001/manifest.json": "97c1ff331fb7ad5fe87c7fd2ebd8de7e00d06c384bbb4fa5d0ee69e04a666e69"
+  },
+  "cache": "artifacts/lp-shop-full-001",
+  "cache_manifest_sha256": "e3d9f53ec7ac67a0afcc48c9630a215ad0a2be4abbfc07aa03cdc3a4345d8163",
+  "comparison": "artifacts/integer-water-budget-completion-001",
+  "cases": [
+    {
+      "case_id": 1,
+      "metadata_position": 0,
+      "date": "2015-01-01 00:00:00+00:00"
+    },
+    {
+      "case_id": 532,
+      "metadata_position": 531,
+      "date": "2016-06-15 00:00:00+00:00"
+    },
+    {
+      "case_id": 930,
+      "metadata_position": 929,
+      "date": "2017-07-18 00:00:00+00:00"
+    },
+    {
+      "case_id": 1461,
+      "metadata_position": 1460,
+      "date": "2018-12-31 00:00:00+00:00"
+    },
+    {
+      "case_id": 1462,
+      "metadata_position": 1461,
+      "date": "2019-01-01 00:00:00+00:00"
+    },
+    {
+      "case_id": 1594,
+      "metadata_position": 1593,
+      "date": "2019-05-13 00:00:00+00:00"
+    },
+    {
+      "case_id": 1694,
+      "metadata_position": 1693,
+      "date": "2019-08-21 00:00:00+00:00"
+    },
+    {
+      "case_id": 1826,
+      "metadata_position": 1825,
+      "date": "2019-12-31 00:00:00+00:00"
+    },
+    {
+      "case_id": 1827,
+      "metadata_position": 1826,
+      "date": "2020-01-01 00:00:00+00:00"
+    },
+    {
+      "case_id": 1958,
+      "metadata_position": 1957,
+      "date": "2020-05-11 00:00:00+00:00"
+    },
+    {
+      "case_id": 2055,
+      "metadata_position": 2054,
+      "date": "2020-08-16 00:00:00+00:00"
+    },
+    {
+      "case_id": 2186,
+      "metadata_position": 2185,
+      "date": "2020-12-25 00:00:00+00:00"
+    }
+  ],
+  "unit_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "unit_order": [
+    "Hogga_G1",
+    "Tokke_G1",
+    "Tokke_G2",
+    "Tokke_G3",
+    "Tokke_G4",
+    "Lio_G1",
+    "Byrte_G1",
+    "Vinje_G1",
+    "Vinje_G2",
+    "Vinje_G3",
+    "Haukeli_G1",
+    "Songa_G1",
+    "Kjela_G1",
+    "Vesle Kjela_G1"
+  ],
+  "milp_seconds": 60.0,
+  "fixed_lp_seconds_each": 1.0,
+  "mip_rel_gap": 0.0,
+  "workers": 1,
+  "attempts_per_case": 1,
+  "fresh_process_per_case": true,
+  "peak_rss_limit_bytes": 2147483648,
+  "environment": {
+    "python": "3.11.15 (main, Jun 23 2026, 15:46:51) [Clang 22.1.3 ]",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "cpu_count": 12,
+    "highs_version": "1.12.0",
+    "packages": {
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.9.1",
+      "PyYAML": "6.0.3"
+    },
+    "threads": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "labels_decoded": false,
+  "training": false,
+  "selection": "Exact original twelve metadata IDs and blocks; no case reselection from label errors.",
+  "formulation": "Only unit_indices changes from three prescribed units to all14. All curves, costs, network constraints, initial heads, terminal values, fixed-LP tolerances and native solver settings remain unchanged.",
+  "scope": "Descriptive twelve-case comparison only. Reuse two audited identical all14 results and solve the other ten once at60s; one fresh worker; no retries/fallback or learned promotion.",
+  "gate": "All twelve fixed cases must pass proven optimality, exact fixed-LP replay, zero absolute slack, subset objectives and measured peakRSS below2GiB before any target decoding. Scores remain descriptive with no acceptance threshold.",
+  "blocks": [
+    "2015_2018",
+    "2015_2018",
+    "2015_2018",
+    "2015_2018",
+    "2019",
+    "2019",
+    "2019",
+    "2019",
+    "2020",
+    "2020",
+    "2020",
+    "2020"
+  ],
+  "label_rule": "Only after every physical gate passes, decode selected targets whose seven-day intervals end by2021-01-01. No scored subset or2021+ targets.",
+  "resource_minimum_free_percent": 30,
+  "automatic_promotion": false,
+  "reuse": {
+    "directory": "artifacts/all14-integer-water-budget-probe-001",
+    "manifest_sha256": "b29c685f193df82074ac389c5c5f1ebac6502860fb01443f3f3bcf6b6fb990c4",
+    "audit": "artifacts/all14-integer-water-budget-result-independent-audit-001/manifest.json",
+    "audit_sha256": "97c1ff331fb7ad5fe87c7fd2ebd8de7e00d06c384bbb4fa5d0ee69e04a666e69",
+    "case_ids": [
+      1,
+      1826
+    ]
+  },
+  "metric_specification": {
+    "existing_proxy_metrics": "Original metrics helper with q/qmin and p/pmin; fixed p/pmin>=0.5 on cutoff",
+    "additional": "Full14 and weak3 on-hour counts and mismatch counts; per-case/per-unit oncounts; state>=0.5 counts/mismatch separately",
+    "comparisons": [
+      "continuous",
+      "three_binary",
+      "all14_binary"
+    ],
+    "interpretation": "Descriptive only on the original reused metadata cases; no score gates or automatic model promotion."
+  }
+}

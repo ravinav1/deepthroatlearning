@@ -1,0 +1,141 @@
+{
+  "version": "integer_case2012_exact_certificate_completion_v1",
+  "created_utc": "2026-11-02T21:04:02.891539+00:00",
+  "allowed_case_ids": [
+    2012
+  ],
+  "acceptance_basis": "case2012_dual_feasibility_certificate",
+  "original_protocol": "docs/integer_water_budget_four_worker_protocol_v2.json",
+  "original_protocol_sha256": "7571930990cadc542c7ad4f47e7f1195d7a239885c887ad45b051afd9b9377d9",
+  "original_attempts": [
+    {
+      "directory": "artifacts/integer-water-budget-full-four-worker-001/cases/case_2012/replica_1_60s",
+      "proof_sha256": "5384842f0a8ca6866293626f66389c13b7f1371165bd010a7cee929248137da1",
+      "payloads": {
+        "failed_incumbent.npz": "f29203fb51154add7139e873e2de0fd3fedb8efca24acdb2f03307e5d89a551d",
+        "fixed_lp_1.npz": "14a9895d73da7288657016b616d2b0661e6fd6a3890d1c90541fd9556b6cd42c",
+        "fixed_lp_2.npz": "14a9895d73da7288657016b616d2b0661e6fd6a3890d1c90541fd9556b6cd42c"
+      }
+    },
+    {
+      "directory": "artifacts/integer-water-budget-full-four-worker-001/cases/case_2012/replica_2_60s",
+      "proof_sha256": "131ca4e1a62df1f920ef6c5cbc558d2cee3cb459f026470dd5b25471a9584172",
+      "payloads": {
+        "failed_incumbent.npz": "f29203fb51154add7139e873e2de0fd3fedb8efca24acdb2f03307e5d89a551d",
+        "fixed_lp_1.npz": "14a9895d73da7288657016b616d2b0661e6fd6a3890d1c90541fd9556b6cd42c",
+        "fixed_lp_2.npz": "14a9895d73da7288657016b616d2b0661e6fd6a3890d1c90541fd9556b6cd42c"
+      }
+    }
+  ],
+  "original_status_preserved": "failed",
+  "source": {
+    "scripts/diagnose_integer_water_budget.py": "007986aa0b445b59b25a154edc6db871739eef2349f2018a54367a2c43bc3947",
+    "sintef_project/integer_water_budget.py": "a0a5de1695617641cc52b70292a67e071fccb096b2400770f791c96dc7b6eb7f",
+    "sintef_project/lp_shop_relaxation.py": "1ac82e04d2df6571c71acfbc6be6c4ac482ea69de441471804c2b1bce1ce1aaf",
+    "sintef_project/lp_features.py": "bd16e0b4e9e32976b7eb50d5334e05b94f2b074bc0d8eb83a787f26f95268720",
+    "sintef_project/physics.py": "c9b0b2b81399a49c88802613a3ee85ba29fe97d5b7a3681f041d866972f82f41",
+    "sintef_project/features.py": "d6dd97719c125ca9af859c3251ca408ef05af541743ea2f1524d31961f2fba30",
+    "scripts/diagnose_lp_shop_relaxation.py": "162c00f6974a81001873b69797fd4b97c8ddd73b470122b2624d514e79e5da4c",
+    "tests/test_integer_water_budget.py": "c10e58a3c26693e4c58ece554f42cb967bd21428807fb2abe3db78d715c1fb01",
+    "tests/test_lp_shop_relaxation.py": "2efc9332d86df40e1086fced1531d0af709a1c8647aebcfc4d6b22661803836b",
+    "docs/integer_water_budget.md": "07a620e62614076de4bc685f24492a429e435a04e4f3c142d8a75feaff1056c6",
+    "scripts/pilot_integer_water_budget.py": "96b63a586bd2643ad4e0e383808be494c3713cbb251265ace772b4f30f3889b9",
+    "docs/integer_water_budget_timing_pilot.md": "017ba31be9bdcc56fc40b5261aac232b8835ee569d9803d11a8cb7a21e93992f",
+    "tests/test_integer_water_budget_pilot.py": "94d4cb4d30009698529c282195dbbed8eb8fb7ce628fa64011b9c8156898a626",
+    "scripts/build_integer_water_budget_cache.py": "a23f99e6815bf8d32dece26aba03eb58060ad195d358bc9342b55a0bb619116b",
+    "docs/integer_water_budget_full_cache.md": "3e457a6d03ff0a46ef51f5ddc84f8e78d9274c71451cd1bf1d8fdd97a8e2d72c",
+    "sintef_project/integer_water_budget_features.py": "b5e3fb01aa9674b9fa18a87ccced2a9abb7db563dc8132c58e2881880db340a7",
+    "tests/test_integer_water_budget_features.py": "256c8ef8895da916b838800cb7f16b2751636d1dadac1cef14ca812ffe0100ae",
+    "tests/test_integer_water_budget_full_cache.py": "33cc9ebd607a711ac9089c6b5f26439ff5dd792da4f18bf20d0de39857488a9d",
+    "scripts/continue_integer_water_budget_cache_v2.py": "a410a3c8f13ed76e76888628b6cf7c4f79ba8a5241ad1c299f2f194f87cad632",
+    "scripts/check_integer_cache_transition_resources_v2.py": "5ced6cbb098b9156682941e41ff7f669b90f8b20cb21d002b44f67d7719e91be",
+    "tests/test_integer_cache_continuation_v2.py": "2db62bab73db35e0a56b75ebcd4ea11dd92dde3d215253b84e6989ba320c3d73",
+    "docs/integer_water_budget_four_worker_protocol_v2.md": "33c29cdc7315372bbc5febb26e7539b1fbf8f69fc98ba8751413ef75a9a0af6c",
+    "scripts/complete_integer_case2012.py": "5a739e4e78546098fb46751f7f81d84012d5bd71390700cd23ebba081b25638d",
+    "tests/test_integer_case2012_completion.py": "856d23673b46874d8eaa02dbb897521baae4b2bf500319666e127f3f483e5dda",
+    "docs/integer_case2012_completion.md": "ac11c8dabc87c5b1c018df51aa08ffbae01d1325fe9bb1007c37d91d42764f72",
+    "scripts/certify_integer_objective_gap.py": "57374b3bb6568d56ed5089a7483780ee23c9c86f893d9eb277709bcb6ef30fe9",
+    "scripts/audit_integer_water_budget_cache.py": "78ff7efe84b00129bafa112c9a2a6be8149100f99f456313af8178788f9660e9",
+    "scripts/audit_hyljelihyl_river_results.py": "fa9e397689fe0cc32b1faabecaa33d93593b2c33e82270e3e947385d13b43c42",
+    "scripts/audit_hyljelihyl_river_cost_v2.py": "86021f18454a0651c6ad8faf3bbb1633c106635c43fc70b37181ea8c3f68c488",
+    "scripts/diagnose_hyljelihyl_river_cost_v2.py": "398f8ac785035dd6183b9dfa6a408b8fefe59797baf6807773ea90894eec16b1",
+    "scripts/probe_all14_integer_water_budget_v2.py": "536f1c3c0e79048f50858573380ed29acb6840e6f09c1a2520262ab56a38823c",
+    "sintef_project/lp_hyljelihyl_v2.py": "d4362e0b174536f8e912461f93d9945666017612605b2b67b060579580770193"
+  },
+  "data": {
+    "sintef_project/data/extended/Constraint_min_flow.csv": "146062702f58920440fc064d461d544e9cd7c503c8df74ce96e721bee04629ea",
+    "sintef_project/data/extended/Constraint_min_volume.csv": "8b639b8339b84c5ff7db34ba4b4618e99d05a03819bf99fa5032a54490278806",
+    "sintef_project/data/extended/Tokke_Vinje_topology.yaml": "29cfa233cec7fc4b5401d0d571a566e6e17b7bb7b46a175abcd37a53fe175497",
+    "sintef_project/data/kernel/Historical_day_ahead_price_2015_2025.csv": "e5edd141b34a61139f3ee3022305175446d4b4f74618df85552c4f2b5e556ee4",
+    "sintef_project/data/kernel/Historical_inflow_1958_2025.csv": "ff4f87d2768133b4a717c0ad366969244f7a86901695e1d4fef3c2ed8963ad66",
+    "sintef_project/data/kernel/Historical_volume_2015_2024.csv": "ef3d9c69699eef0d953b495ba69bf6676858e6b9c536087498135074912dd3b6",
+    "sintef_project/data/kernel/Synthetic_water_value_2015_2024.csv": "a5f09ff96b551d3c297d90ccf3a0bbe92d8814b537ad63a46579cb0ff44aa4cb",
+    "sintef_project/data/kernel/Unit_commitment_decisions.csv": "6d51f8cc6869cb82b44708168808c305c1e007cf79878ca1c1d316d07aae3ab3",
+    "sintef_project/prediction_mapping.csv": "c8b0e5bc500a5f1dec2337f5ac680847f6a7794a7c2b7a8fb19384910a029519",
+    "sintef_project/sample_submission.csv": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba"
+  },
+  "environment": {
+    "python": "3.11.15 (main, Jun 23 2026, 15:46:51) [Clang 22.1.3 ]",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "cpu_count": 12,
+    "highs_version": "1.12.0",
+    "packages": {
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.9.1",
+      "PyYAML": "6.0.3"
+    },
+    "threads": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "cache": "artifacts/lp-shop-full-001",
+  "cache_manifest_sha256": "e3d9f53ec7ac67a0afcc48c9630a215ad0a2be4abbfc07aa03cdc3a4345d8163",
+  "certificate": "artifacts/integer-case2012-exact-certificate-001/manifest.json",
+  "certificate_manifest_sha256": "a6892f16ca3677f40f21ac24fd896b7202f5f5212fbd5b83488961c15c26916c",
+  "certificate_source_sha256": "57374b3bb6568d56ed5089a7483780ee23c9c86f893d9eb277709bcb6ef30fe9",
+  "certificate_audit": "artifacts/integer-case2012-exact-certificate-independent-audit-001/manifest.json",
+  "certificate_audit_sha256": "121b90dcf8394a9967aab609134b19cf29e8c99591d2fae4315a024317e7c926",
+  "certificate_inputs": {
+    "artifacts/lp-shop-full-001/case_2012_inputs.npz": "1d40620b8dd132f0a9e5ca3d5b4230ae507b7b2f6da3fd3e0dd52225c8c398d6",
+    "artifacts/integer-case2012-numerical-diagnostic-001/manifest.json": "44ae344854d7a58aa7f9e6dd8f5225e1f3b0ec4d1094db05e4f10c9b77eeb105",
+    "artifacts/integer-water-budget-full-four-worker-001/cases/case_2012/replica_1_60s/proof.json": "5384842f0a8ca6866293626f66389c13b7f1371165bd010a7cee929248137da1",
+    "artifacts/integer-water-budget-full-four-worker-001/cases/case_2012/replica_1_60s/failed_incumbent.npz": "f29203fb51154add7139e873e2de0fd3fedb8efca24acdb2f03307e5d89a551d",
+    "artifacts/integer-water-budget-full-four-worker-001/cases/case_2012/replica_1_60s/fixed_lp_1.npz": "14a9895d73da7288657016b616d2b0661e6fd6a3890d1c90541fd9556b6cd42c",
+    "artifacts/integer-water-budget-full-four-worker-001/cases/case_2012/replica_1_60s/fixed_lp_2.npz": "14a9895d73da7288657016b616d2b0661e6fd6a3890d1c90541fd9556b6cd42c",
+    "artifacts/integer-water-budget-full-four-worker-001/cases/case_2012/replica_2_60s/proof.json": "131ca4e1a62df1f920ef6c5cbc558d2cee3cb459f026470dd5b25471a9584172",
+    "artifacts/integer-water-budget-full-four-worker-001/cases/case_2012/replica_2_60s/failed_incumbent.npz": "f29203fb51154add7139e873e2de0fd3fedb8efca24acdb2f03307e5d89a551d",
+    "artifacts/integer-water-budget-full-four-worker-001/cases/case_2012/replica_2_60s/fixed_lp_1.npz": "14a9895d73da7288657016b616d2b0661e6fd6a3890d1c90541fd9556b6cd42c",
+    "artifacts/integer-water-budget-full-four-worker-001/cases/case_2012/replica_2_60s/fixed_lp_2.npz": "14a9895d73da7288657016b616d2b0661e6fd6a3890d1c90541fd9556b6cd42c"
+  },
+  "case_input_sha256": "1d40620b8dd132f0a9e5ca3d5b4230ae507b7b2f6da3fd3e0dd52225c8c398d6",
+  "case_control_sha256": "269e8e1a75761b90d91f9c66f3724a81abe2d3f4844ead45c401490c734b5e21",
+  "targets": [
+    "Hogga_G1",
+    "Lio_G1",
+    "Haukeli_G1"
+  ],
+  "replicas": 2,
+  "workers": 2,
+  "solver_threads": 1,
+  "milp_seconds": 60,
+  "conditional_lp_seconds_each": 1,
+  "retry": false,
+  "absolute_eur_bound": {
+    "numerator": "1",
+    "denominator": "100000"
+  },
+  "physical_contract": "Original solver and physical auditor unchanged; accept only the specific objective-guard failure after all preceding physical/KKT checks, then check the remaining subset condition. Exact certificate required separately.",
+  "replay_contract": "Every fresh NPZ file and array must match BOTH original failed replicas. Two newly spawned processes, one attempt each; no alternate solution selection.",
+  "aggregate_eligible": false,
+  "old_v2_eligible": false,
+  "aggregate_contract": "A later independently reviewed new aggregate namespace/protocol/loader/auditor must explicitly preserve ordinary/imported/exception lineage. No original proof or complete receipt may be rewritten.",
+  "execution_contract": "Preparation does not authorize solves. Root must authorize execution after independent source/protocol review; runtime also requires both externally pinned review manifests.",
+  "labels_decoded": false,
+  "training": false
+}

@@ -1,0 +1,9 @@
+# Fixed 36-case extension of the river diagnostic
+
+Use exactly the 36 case IDs and date blocks in the original `docs/lp_shop_relaxation_protocol.json`, including all twelve completed Hyljelihyl cases. The population was fixed before the recent river results; it is reused development data, not a new holdout. No case is chosen from errors or the negative 2019 block.
+
+Keep the v2 A/B/C formulation, all supplied coefficients, shared bypass cap, unbounded main-river tail, solver settings, 20-second native/60-second process caps, full KKT/projection/replay/RSS gates and fixed metric formulas unchanged. Do not alter the frozen module. Preserve all twelve approved case directories literally, including their input, network, jobs, logs, native output and proof bytes. Pin their original result manifest and independent actual-result audit. Freshly reconstruct every original and split input and matrix signature, including reused cases, before execution. Reuse only exactly matching completed cases; reject missing, extra or changed files.
+
+Only the remaining 24 cases require optimization: three arms and two fresh single-thread processes each, for 144 new worker calls. One worker runs at a time, with at least 30% free system memory and no swapout growth before every launch. No retry, fallback or scored completed subset is permitted. Retain all native failures and logs.
+
+After all 36 case records pass, seal every original or new proof hash before decoding only these selected pre-2021 target rows. Every seven-day interval ends by 2021-01-01. Report all fixed metrics by full population, unit and date block; do not select coefficients or add score gates from the previous twelve-case result. This extension authorizes no learned fit or full cache. Source/protocol/preflight independent review and root execution authorization precede real solves.

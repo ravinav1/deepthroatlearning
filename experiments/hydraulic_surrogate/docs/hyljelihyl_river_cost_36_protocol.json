@@ -1,0 +1,454 @@
+{
+  "version": "hyljelihyl_directed_river_cost_36_v1",
+  "created_utc": "2026-11-02T20:31:23.559637+00:00",
+  "source": {
+    "scripts/diagnose_integer_water_budget.py": "007986aa0b445b59b25a154edc6db871739eef2349f2018a54367a2c43bc3947",
+    "sintef_project/integer_water_budget.py": "a0a5de1695617641cc52b70292a67e071fccb096b2400770f791c96dc7b6eb7f",
+    "sintef_project/lp_shop_relaxation.py": "1ac82e04d2df6571c71acfbc6be6c4ac482ea69de441471804c2b1bce1ce1aaf",
+    "sintef_project/lp_features.py": "bd16e0b4e9e32976b7eb50d5334e05b94f2b074bc0d8eb83a787f26f95268720",
+    "sintef_project/physics.py": "c9b0b2b81399a49c88802613a3ee85ba29fe97d5b7a3681f041d866972f82f41",
+    "sintef_project/features.py": "d6dd97719c125ca9af859c3251ca408ef05af541743ea2f1524d31961f2fba30",
+    "scripts/diagnose_lp_shop_relaxation.py": "162c00f6974a81001873b69797fd4b97c8ddd73b470122b2624d514e79e5da4c",
+    "tests/test_integer_water_budget.py": "c10e58a3c26693e4c58ece554f42cb967bd21428807fb2abe3db78d715c1fb01",
+    "tests/test_lp_shop_relaxation.py": "2efc9332d86df40e1086fced1531d0af709a1c8647aebcfc4d6b22661803836b",
+    "docs/integer_water_budget.md": "07a620e62614076de4bc685f24492a429e435a04e4f3c142d8a75feaff1056c6",
+    "scripts/pilot_integer_water_budget.py": "96b63a586bd2643ad4e0e383808be494c3713cbb251265ace772b4f30f3889b9",
+    "scripts/probe_all14_integer_water_budget_v2.py": "536f1c3c0e79048f50858573380ed29acb6840e6f09c1a2520262ab56a38823c",
+    "tests/test_all14_integer_probe_v2.py": "da79e4fa9b73a808cd49436f0465d74bbbbc8ee26e30124e0fb162f36bad9b5a",
+    "docs/all14_integer_water_budget_probe_v2.md": "9d6976267bff93ff233a364d7fa7ee5947aefe3152c85de87b7ffa76fdf73609",
+    "scripts/diagnose_all14_integer_water_budget.py": "aec7bb115f2cfd733e58ed9981ec75c41ba35d7003a9388b00ad85efe23d9b27",
+    "tests/test_all14_integer_diagnostic.py": "8e80324da5f7d885ce5a6b8304c445edcd6d3bb53189c55fec2d23e41b33d6aa",
+    "docs/all14_integer_water_budget_diagnostic.md": "e5a09f12c1f2bc4c7d7908458080484c14116256bf1fc064f18647348a5e89b2",
+    "scripts/continue_integer_water_budget_cache_v2.py": "a410a3c8f13ed76e76888628b6cf7c4f79ba8a5241ad1c299f2f194f87cad632",
+    "scripts/build_integer_water_budget_cache.py": "a23f99e6815bf8d32dece26aba03eb58060ad195d358bc9342b55a0bb619116b",
+    "sintef_project/integer_water_budget_features.py": "b5e3fb01aa9674b9fa18a87ccced2a9abb7db563dc8132c58e2881880db340a7",
+    "sintef_project/lp_hyljelihyl_v2.py": "d4362e0b174536f8e912461f93d9945666017612605b2b67b060579580770193",
+    "scripts/diagnose_hyljelihyl_river_cost_v2.py": "398f8ac785035dd6183b9dfa6a408b8fefe59797baf6807773ea90894eec16b1",
+    "tests/test_lp_hyljelihyl_v2.py": "579867141a09e3903c5f92d27052eef3a548931325e87bdccca681f40eae5f27",
+    "docs/hyljelihyl_river_cost_diagnostic_v2.md": "c344064903e0938bdde2b192ecf7ef2850d4bb85d55935c3e75eecac4cf969ec",
+    "scripts/diagnose_hyljelihyl_river_cost_36.py": "cbe19e89cfc016827e4aeee6adef0a9f908b330759fe25536dfaced5b4a43fb3",
+    "tests/test_hyljelihyl_river_reuse.py": "6769e9df368a9e2414e703438596f5eea94cab29f0a66ba62d6db46d131476ef",
+    "docs/hyljelihyl_river_cost_36_diagnostic.md": "53d1de4682c5cb60bb602c8206c0f53bf8e33797be2830ac616424f6d4fc2d6a"
+  },
+  "data": {
+    "sintef_project/data/extended/Constraint_min_flow.csv": "146062702f58920440fc064d461d544e9cd7c503c8df74ce96e721bee04629ea",
+    "sintef_project/data/extended/Constraint_min_volume.csv": "8b639b8339b84c5ff7db34ba4b4618e99d05a03819bf99fa5032a54490278806",
+    "sintef_project/data/extended/Tokke_Vinje_topology.yaml": "29cfa233cec7fc4b5401d0d571a566e6e17b7bb7b46a175abcd37a53fe175497",
+    "sintef_project/data/kernel/Historical_day_ahead_price_2015_2025.csv": "e5edd141b34a61139f3ee3022305175446d4b4f74618df85552c4f2b5e556ee4",
+    "sintef_project/data/kernel/Historical_inflow_1958_2025.csv": "ff4f87d2768133b4a717c0ad366969244f7a86901695e1d4fef3c2ed8963ad66",
+    "sintef_project/data/kernel/Historical_volume_2015_2024.csv": "ef3d9c69699eef0d953b495ba69bf6676858e6b9c536087498135074912dd3b6",
+    "sintef_project/data/kernel/Synthetic_water_value_2015_2024.csv": "a5f09ff96b551d3c297d90ccf3a0bbe92d8814b537ad63a46579cb0ff44aa4cb",
+    "sintef_project/data/kernel/Unit_commitment_decisions.csv": "6d51f8cc6869cb82b44708168808c305c1e007cf79878ca1c1d316d07aae3ab3",
+    "sintef_project/prediction_mapping.csv": "c8b0e5bc500a5f1dec2337f5ac680847f6a7794a7c2b7a8fb19384910a029519",
+    "sintef_project/sample_submission.csv": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba"
+  },
+  "inputs": {
+    "docs/all14_integer_water_budget_diagnostic_protocol.json": "14711cf1aa752bcd0932932d59cad48371e1c0c9482d296301e67b2fd0207abc",
+    "docs/hyljelihyl_river_cost_protocol.json": "e406c65cdcc494314e28a1befd9171c4097b2078be173cf285651a2d270946d3",
+    "artifacts/lp-shop-full-001/case_0001_inputs.npz": "1161a4e254a9ffa668c289e04af65d8720af1ce87873800d4a02f3e737ec880a",
+    "artifacts/lp-shop-full-001/case_0001_result.npz": "13388efb8e8fb4a36e946ba7cf15a2474b487472e2bfdd158ecd5330f321b123",
+    "artifacts/lp-shop-full-001/case_0532_inputs.npz": "b769ad8389efca2895a14b790eb2424b12a0b445d3feee47184afba367602d57",
+    "artifacts/lp-shop-full-001/case_0532_result.npz": "22e4932b47f87991dd8f284621acd0e5093498ca99d1f62d7630b5e438a6e96a",
+    "artifacts/lp-shop-full-001/case_0930_inputs.npz": "b4c2ff64aed47d24d0aa65610d33f9ad79865f289862fa1bb2f7620b2e58c43a",
+    "artifacts/lp-shop-full-001/case_0930_result.npz": "2334dc207bc4d5271701e3927ba66c6c7203303a9d65cd50e2c08bf76ad0bcd8",
+    "artifacts/lp-shop-full-001/case_1461_inputs.npz": "7593dd34baea4e5b64eaca00adeb17f310855a99779495573877c0362d4775e5",
+    "artifacts/lp-shop-full-001/case_1461_result.npz": "a5628c6c600bad7a2d2d5bb980fd0cbedd63aef0e2aec7e2e1daba21a7c9d40e",
+    "artifacts/lp-shop-full-001/case_1462_inputs.npz": "6f6625c12637b3e813464b144f5fa9c18cbdc61b7446dc6b1567b8c290d8cf9d",
+    "artifacts/lp-shop-full-001/case_1462_result.npz": "cca06d9b7a73daf2b80d15ea770bbe18b868e3f75b8b2665bbcbb2779a3a2239",
+    "artifacts/lp-shop-full-001/case_1594_inputs.npz": "3ffb10590f7e9232b720473d543ae067f191d156d76f08629decb6ae15d6e655",
+    "artifacts/lp-shop-full-001/case_1594_result.npz": "2913e5fc1ec1ffcee015af92d00a0d24d51f2b8c23bc61f831e64e3f5399fd0b",
+    "artifacts/lp-shop-full-001/case_1694_inputs.npz": "bfecdc3baeccd8ce1e78eabd15c6cf71b04d4f4b7c974ed8528d692090f38b97",
+    "artifacts/lp-shop-full-001/case_1694_result.npz": "d59022e8fd71d7a2730e7e5c3300fdd549b53f605fca459cfb9af5d27d37fd94",
+    "artifacts/lp-shop-full-001/case_1826_inputs.npz": "f8b675375d53545b3c3da977a44684c39ef1ac324bbdc39de0c0671518bd351a",
+    "artifacts/lp-shop-full-001/case_1826_result.npz": "7b4003f43229a01046390b149079f66e067e0892285177b44f78fcdbf2d143f8",
+    "artifacts/lp-shop-full-001/case_1827_inputs.npz": "c27d064dedf79c0734134aa10f03bce39c790ed9b4dfb59102cf200b990fd44d",
+    "artifacts/lp-shop-full-001/case_1827_result.npz": "f1f2f1388eb7048a7a246ffa235acd835fc0768d2e6074aa766587fd62e6fcb9",
+    "artifacts/lp-shop-full-001/case_1958_inputs.npz": "acb894834856f69c69f90faedb9174a587aa716f79e6e5130200881ce3ff3980",
+    "artifacts/lp-shop-full-001/case_1958_result.npz": "f3c74e13feaa92055f92e904561d549ac33a465b87325a1653a8709732761964",
+    "artifacts/lp-shop-full-001/case_2055_inputs.npz": "27cc27884d42de642a9d4e4158a3c6ee84f1821c1277c80a359bf4944fd8e102",
+    "artifacts/lp-shop-full-001/case_2055_result.npz": "791d2583b4673eb25435a24fd39b91528b903670d14e22c731e1a4a1e94802e2",
+    "artifacts/lp-shop-full-001/case_2186_inputs.npz": "8001910d3ad5865cfaea1d2a2843c876a7efabcb78977acc9578ecb330e42f74",
+    "artifacts/lp-shop-full-001/case_2186_result.npz": "962623d8d7e3c1488c9c8dfb0105e8c64068d41edd3e798c229dac8d64728236",
+    "docs/hyljelihyl_river_cost_protocol_v2.json": "ba460ccb6085f9b032ea0647e9d19879801d0095ae5eece240ffbbdc33ab91f0",
+    "docs/lp_shop_relaxation_protocol.json": "583989ba708c304144c5e077e26e46ae772fd846af33fc66a6c5b736c3084734",
+    "artifacts/hyljelihyl-river-cost-v2-diagnostic-001/manifest.json": "fbb1ac2019fd0a8bf81695d7bc7959dc5d887c6149ecd55f74be60383e3ed401",
+    "artifacts/hyljelihyl-river-cost-v2-result-independent-audit-001/manifest.json": "783a1d687a3e8e4a9833c0e7b23ca0a688738784630a0ed8aef7559594a25496",
+    "artifacts/lp-shop-full-001/case_0134_inputs.npz": "f35ce23b61c048e75b916805406933b68f1ad1415a89fa5d4844a8629afdcc12",
+    "artifacts/lp-shop-full-001/case_0134_result.npz": "4ff4875b3e9fee3c4ea73a963ec258927226285ece3c183dc9084f028af94c98",
+    "artifacts/lp-shop-full-001/case_0266_inputs.npz": "53c93bbd048a2138b79a2d715c387db29583787a205a2d19f8eab00b3dcea5e1",
+    "artifacts/lp-shop-full-001/case_0266_result.npz": "1594a74579ca2770e2d0df5a4ae4118b3ce4eb60723b6a90d644978ba657269c",
+    "artifacts/lp-shop-full-001/case_0399_inputs.npz": "08f02d4d0143577e1bd360b43fc1a761443df09d16e01eb0daaf0323ba4620fa",
+    "artifacts/lp-shop-full-001/case_0399_result.npz": "1ef14be96d0ecee9397c5f8a5f8678825cec83b6333b00fa5fc799299dbc44f6",
+    "artifacts/lp-shop-full-001/case_0665_inputs.npz": "1052ac5514d46b27bb03d9c7ef299d5220c223b962111c652017b5021cce7823",
+    "artifacts/lp-shop-full-001/case_0665_result.npz": "9c7a00822889d603dc4966e13b7bb7c04aa2236e36610572e92ae36c0db8757f",
+    "artifacts/lp-shop-full-001/case_0797_inputs.npz": "9f88078e10bb63d7f167a9e86a738d3959d8f815cf601ee03767aaec33f193e2",
+    "artifacts/lp-shop-full-001/case_0797_result.npz": "d0e84850844196f83fc10c50bb49e25a0961d6128e39206bb8692604d7084a35",
+    "artifacts/lp-shop-full-001/case_1063_inputs.npz": "320a9dd2ece0f4576c4a4dffee5da37110f245ccebb6342b08918408318b801b",
+    "artifacts/lp-shop-full-001/case_1063_result.npz": "b3ad82cb167e005540b21e316177d9a2e2628f8604147c482154fe9a937e6699",
+    "artifacts/lp-shop-full-001/case_1196_inputs.npz": "50957992cc28ae48e602a6f4219aab528fa090c5442e3441ba6e81ea6181b72a",
+    "artifacts/lp-shop-full-001/case_1196_result.npz": "cce1d0fa88dbb1acb719d5a16ee9c6ed74606e34a6ccbb661e27a94f4430d386",
+    "artifacts/lp-shop-full-001/case_1328_inputs.npz": "97588c967cd452885ffe4cfe7303105f829987ed22b7c0458d0f78f4b37f857b",
+    "artifacts/lp-shop-full-001/case_1328_result.npz": "6889a514760ad40dee11850de1ea2d45f715ce293fffdc8a47251aaec69cfe52",
+    "artifacts/lp-shop-full-001/case_1495_inputs.npz": "bdaef188ae9585e6ab62c5f2d877a553743688fedcf675dfa5f893a0675bae30",
+    "artifacts/lp-shop-full-001/case_1495_result.npz": "544ff471d891cfe5450acd458b9545616fb487e3e7994f6160791f9d32a5aa7d",
+    "artifacts/lp-shop-full-001/case_1528_inputs.npz": "5b1530bd9ebfc2a1db385a1eea2533e549ee0d6a74c2112bcc2353ffa02593b9",
+    "artifacts/lp-shop-full-001/case_1528_result.npz": "00d3a8d0285814cb036177df1b5d367151de41c6e7035b503807525fc5c988f1",
+    "artifacts/lp-shop-full-001/case_1561_inputs.npz": "39167e0a3bee2eff2101924e537f9860dbbe4722e27d30e84d6494dac76c4a2d",
+    "artifacts/lp-shop-full-001/case_1561_result.npz": "50504132f76a9c30819bd5f645cff479355b8302b5b0eab761deb141b1249c65",
+    "artifacts/lp-shop-full-001/case_1627_inputs.npz": "33861d72761679e81899d02b882cc46b332038651dd7427cc62c78fc8c780328",
+    "artifacts/lp-shop-full-001/case_1627_result.npz": "71c258b10322e70ea7b0d8f4c0e14860fe29832d1a42b0ed47ca345d23fa05fe",
+    "artifacts/lp-shop-full-001/case_1661_inputs.npz": "4d25c429931f5e3ee48eb4bab997c0e71cd0eb2307e9a34fff70723448a7db66",
+    "artifacts/lp-shop-full-001/case_1661_result.npz": "75346ac576edb2345be10d03b9322ba3a46cf2f59b5f04955dc5ab335f50392f",
+    "artifacts/lp-shop-full-001/case_1727_inputs.npz": "1099fadb1c4981469e37b4197053b1e008220c1a76b9b8492d0b875f378c4273",
+    "artifacts/lp-shop-full-001/case_1727_result.npz": "2cabfeb569951bb4da46cf0c3c654163dfc9eaa6a8b08d3128ae0c7b33ac8612",
+    "artifacts/lp-shop-full-001/case_1760_inputs.npz": "d9ce7951ee3ee1127461fc19507d1a45d2c26f16d0da29553d0c4698b476e1f7",
+    "artifacts/lp-shop-full-001/case_1760_result.npz": "a26cc0214a4460046f6d99b28eeee89c6003346cd5832110844b68615a7d28a5",
+    "artifacts/lp-shop-full-001/case_1793_inputs.npz": "3ca6bde4a11bc3743fa6090dafe9a28d7e710ef749e126812278e75927edf1d7",
+    "artifacts/lp-shop-full-001/case_1793_result.npz": "5a4fd3e13e7de34ce7f19e753174fd580c38d44c88e5b5a714c01a810e9d09df",
+    "artifacts/lp-shop-full-001/case_1860_inputs.npz": "f3bef3360649b572d24bc6a889b2bc0b53e4d919609f0fd405dd002ee2caf3ae",
+    "artifacts/lp-shop-full-001/case_1860_result.npz": "aadfbdd9dea53ee0a6670119866f4d0bc6c0b66fd7b060b52b49ab7a54af581d",
+    "artifacts/lp-shop-full-001/case_1892_inputs.npz": "2cdbfbebf715e7d04e7401be72f99f69f45b87c20214b0162b27b6a2edfee4ea",
+    "artifacts/lp-shop-full-001/case_1892_result.npz": "7ecf79a83cb9d49f68ac129163c74b89bc3e17650c5e44683df09bcb5107b191",
+    "artifacts/lp-shop-full-001/case_1925_inputs.npz": "22a75068bd5b9b25ca9634d2b6c2716d8457cf6e01229fd16d505bb51fe946f2",
+    "artifacts/lp-shop-full-001/case_1925_result.npz": "39172abdb4086f30a56a9a5c4e7867ff434b24f6a4cca20227daaea5bd32891f",
+    "artifacts/lp-shop-full-001/case_1990_inputs.npz": "75f6474c3de18f10d9410eb5c946c29ee65e03521ae8764c1557ba2471d23b81",
+    "artifacts/lp-shop-full-001/case_1990_result.npz": "ac53ed1baadd84c256f0f455c9b83f56afde67f6c45c4b8f067cac8b28bdfa99",
+    "artifacts/lp-shop-full-001/case_2023_inputs.npz": "1b1f7290a593b6cbc47ae32a77036a6f47bda1f4c8acb2bae52acc04bf3ee7e3",
+    "artifacts/lp-shop-full-001/case_2023_result.npz": "f2aac92b49f29ccb4e0442b60ee2aaa762836de478e94b740e2acdb7a202e696",
+    "artifacts/lp-shop-full-001/case_2088_inputs.npz": "5978d23bb0d27448059517bde638a63eb7f5310998506a7ff1a77c3a4bc717f5",
+    "artifacts/lp-shop-full-001/case_2088_result.npz": "7c80add88d28141ddc04fc0e65c9a8a41ba2078e68fdbd72f63b6701e7a69274",
+    "artifacts/lp-shop-full-001/case_2121_inputs.npz": "1acae95d013e5a2133f4fa5a13c89ff16a34b237ec419b6cfc587e8fc1504ff2",
+    "artifacts/lp-shop-full-001/case_2121_result.npz": "2826b6d6b7d1d6c142e7291cd16331db4ad241d2bb0fc00cd03088ab2908ba8a",
+    "artifacts/lp-shop-full-001/case_2153_inputs.npz": "f7f81580fedf4a276b0b04707515c18a026bde2119328889d2204751a12c2721",
+    "artifacts/lp-shop-full-001/case_2153_result.npz": "d951c153c87819aa211aa9159c5bd7b94599c95eb259c0b4b1607a0cb831efe3"
+  },
+  "cases": [
+    {
+      "case_id": 1,
+      "metadata_position": 0,
+      "date": "2015-01-01 00:00:00+00:00"
+    },
+    {
+      "case_id": 134,
+      "metadata_position": 133,
+      "date": "2015-05-14 00:00:00+00:00"
+    },
+    {
+      "case_id": 266,
+      "metadata_position": 265,
+      "date": "2015-09-23 00:00:00+00:00"
+    },
+    {
+      "case_id": 399,
+      "metadata_position": 398,
+      "date": "2016-02-03 00:00:00+00:00"
+    },
+    {
+      "case_id": 532,
+      "metadata_position": 531,
+      "date": "2016-06-15 00:00:00+00:00"
+    },
+    {
+      "case_id": 665,
+      "metadata_position": 664,
+      "date": "2016-10-26 00:00:00+00:00"
+    },
+    {
+      "case_id": 797,
+      "metadata_position": 796,
+      "date": "2017-03-07 00:00:00+00:00"
+    },
+    {
+      "case_id": 930,
+      "metadata_position": 929,
+      "date": "2017-07-18 00:00:00+00:00"
+    },
+    {
+      "case_id": 1063,
+      "metadata_position": 1062,
+      "date": "2017-11-28 00:00:00+00:00"
+    },
+    {
+      "case_id": 1196,
+      "metadata_position": 1195,
+      "date": "2018-04-10 00:00:00+00:00"
+    },
+    {
+      "case_id": 1328,
+      "metadata_position": 1327,
+      "date": "2018-08-20 00:00:00+00:00"
+    },
+    {
+      "case_id": 1461,
+      "metadata_position": 1460,
+      "date": "2018-12-31 00:00:00+00:00"
+    },
+    {
+      "case_id": 1462,
+      "metadata_position": 1461,
+      "date": "2019-01-01 00:00:00+00:00"
+    },
+    {
+      "case_id": 1495,
+      "metadata_position": 1494,
+      "date": "2019-02-03 00:00:00+00:00"
+    },
+    {
+      "case_id": 1528,
+      "metadata_position": 1527,
+      "date": "2019-03-08 00:00:00+00:00"
+    },
+    {
+      "case_id": 1561,
+      "metadata_position": 1560,
+      "date": "2019-04-10 00:00:00+00:00"
+    },
+    {
+      "case_id": 1594,
+      "metadata_position": 1593,
+      "date": "2019-05-13 00:00:00+00:00"
+    },
+    {
+      "case_id": 1627,
+      "metadata_position": 1626,
+      "date": "2019-06-15 00:00:00+00:00"
+    },
+    {
+      "case_id": 1661,
+      "metadata_position": 1660,
+      "date": "2019-07-19 00:00:00+00:00"
+    },
+    {
+      "case_id": 1694,
+      "metadata_position": 1693,
+      "date": "2019-08-21 00:00:00+00:00"
+    },
+    {
+      "case_id": 1727,
+      "metadata_position": 1726,
+      "date": "2019-09-23 00:00:00+00:00"
+    },
+    {
+      "case_id": 1760,
+      "metadata_position": 1759,
+      "date": "2019-10-26 00:00:00+00:00"
+    },
+    {
+      "case_id": 1793,
+      "metadata_position": 1792,
+      "date": "2019-11-28 00:00:00+00:00"
+    },
+    {
+      "case_id": 1826,
+      "metadata_position": 1825,
+      "date": "2019-12-31 00:00:00+00:00"
+    },
+    {
+      "case_id": 1827,
+      "metadata_position": 1826,
+      "date": "2020-01-01 00:00:00+00:00"
+    },
+    {
+      "case_id": 1860,
+      "metadata_position": 1859,
+      "date": "2020-02-03 00:00:00+00:00"
+    },
+    {
+      "case_id": 1892,
+      "metadata_position": 1891,
+      "date": "2020-03-06 00:00:00+00:00"
+    },
+    {
+      "case_id": 1925,
+      "metadata_position": 1924,
+      "date": "2020-04-08 00:00:00+00:00"
+    },
+    {
+      "case_id": 1958,
+      "metadata_position": 1957,
+      "date": "2020-05-11 00:00:00+00:00"
+    },
+    {
+      "case_id": 1990,
+      "metadata_position": 1989,
+      "date": "2020-06-12 00:00:00+00:00"
+    },
+    {
+      "case_id": 2023,
+      "metadata_position": 2022,
+      "date": "2020-07-15 00:00:00+00:00"
+    },
+    {
+      "case_id": 2055,
+      "metadata_position": 2054,
+      "date": "2020-08-16 00:00:00+00:00"
+    },
+    {
+      "case_id": 2088,
+      "metadata_position": 2087,
+      "date": "2020-09-18 00:00:00+00:00"
+    },
+    {
+      "case_id": 2121,
+      "metadata_position": 2120,
+      "date": "2020-10-21 00:00:00+00:00"
+    },
+    {
+      "case_id": 2153,
+      "metadata_position": 2152,
+      "date": "2020-11-22 00:00:00+00:00"
+    },
+    {
+      "case_id": 2186,
+      "metadata_position": 2185,
+      "date": "2020-12-25 00:00:00+00:00"
+    }
+  ],
+  "blocks": [
+    "2015_2018",
+    "2015_2018",
+    "2015_2018",
+    "2015_2018",
+    "2015_2018",
+    "2015_2018",
+    "2015_2018",
+    "2015_2018",
+    "2015_2018",
+    "2015_2018",
+    "2015_2018",
+    "2015_2018",
+    "2019",
+    "2019",
+    "2019",
+    "2019",
+    "2019",
+    "2019",
+    "2019",
+    "2019",
+    "2019",
+    "2019",
+    "2019",
+    "2019",
+    "2020",
+    "2020",
+    "2020",
+    "2020",
+    "2020",
+    "2020",
+    "2020",
+    "2020",
+    "2020",
+    "2020",
+    "2020",
+    "2020"
+  ],
+  "cache": "artifacts/lp-shop-full-001",
+  "cache_manifest_sha256": "e3d9f53ec7ac67a0afcc48c9630a215ad0a2be4abbfc07aa03cdc3a4345d8163",
+  "arms": [
+    "A",
+    "B",
+    "C"
+  ],
+  "lp_seconds": 20.0,
+  "process_timeout_seconds": 60.0,
+  "replicas": 2,
+  "workers": 1,
+  "resource_minimum_free_percent": 30,
+  "peak_rss_limit_bytes": 2147483648,
+  "environment": {
+    "python": "3.11.15 (main, Jun 23 2026, 15:46:51) [Clang 22.1.3 ]",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "cpu_count": 12,
+    "highs_version": "1.12.0",
+    "packages": {
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.9.1",
+      "PyYAML": "6.0.3"
+    },
+    "threads": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "breakpoints_m3s": [
+    0.0,
+    40.0,
+    100.0,
+    200.0,
+    400.0,
+    700.0,
+    1000.0
+  ],
+  "marginal_costs": [
+    1.0,
+    65.0,
+    239.0,
+    564.0,
+    1107.0,
+    1758.0,
+    1758.0
+  ],
+  "hyljelihyl_capacity_mm3": 0.26,
+  "hyljelihyl_bypass_cap_m3s": 1000.0,
+  "main_river_cap": null,
+  "shared_hyljelihyl_lower_bypass_cap_m3s": 1000.0,
+  "revision": "Population extension only; exact twelve approved directories reused,24 new cases. A/B/C math, caps, gates and metric formulas unchanged.",
+  "currency": "Retain existing supplied-number/EUR numeraire assumption; no fitted conversion.",
+  "gate": "All36x3 arms optimal; both fresh-process full primal/dual/result arrays byte-identical; A exactly matches saved control; all absolute slacks zero; all KKT/projection residuals <=1e-5; objective A>=B>=C with1e-4 EUR allowance; worker RSS<2GiB. Seal all proofs before selected labels.",
+  "scope": "No retry/fallback, head adjustment, integer states, parameter sweep, learned model or full-cache promotion.",
+  "target_rule": "Original thirty-six metadata-selected windows end by2021-01-01; no2021+ targets; no scored subset.",
+  "metrics": "Original fixed q/qmin and p/pmin proxy metrics, plus affected units Vinje1/2/3,Kjela,VesleKjela; descriptive only.",
+  "automatic_promotion": false,
+  "selection": "Exact36 IDs/blocks from original relaxed-state protocol. Reused development data, no holdout claim or case selection from new errors.",
+  "reuse": {
+    "directory": "artifacts/hyljelihyl-river-cost-v2-diagnostic-001",
+    "manifest_sha256": "fbb1ac2019fd0a8bf81695d7bc7959dc5d887c6149ecd55f74be60383e3ed401",
+    "audit": "artifacts/hyljelihyl-river-cost-v2-result-independent-audit-001/manifest.json",
+    "audit_sha256": "783a1d687a3e8e4a9833c0e7b23ca0a688738784630a0ed8aef7559594a25496",
+    "case_ids": [
+      1,
+      532,
+      930,
+      1461,
+      1462,
+      1594,
+      1694,
+      1826,
+      1827,
+      1958,
+      2055,
+      2186
+    ]
+  },
+  "new_case_ids": [
+    134,
+    266,
+    399,
+    665,
+    797,
+    1063,
+    1196,
+    1328,
+    1495,
+    1528,
+    1561,
+    1627,
+    1661,
+    1727,
+    1760,
+    1793,
+    1860,
+    1892,
+    1925,
+    1990,
+    2023,
+    2088,
+    2121,
+    2153
+  ]
+}

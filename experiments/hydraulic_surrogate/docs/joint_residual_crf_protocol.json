@@ -1,0 +1,109 @@
+{
+  "version": "joint_residual_crf_pre2021_v1",
+  "created_utc": "2026-11-02T17:24:43.210944+00:00",
+  "source": {
+    "sintef_project/features.py": "d6dd97719c125ca9af859c3251ca408ef05af541743ea2f1524d31961f2fba30",
+    "sintef_project/physics.py": "c9b0b2b81399a49c88802613a3ee85ba29fe97d5b7a3681f041d866972f82f41",
+    "sintef_project/context_features.py": "5a9d544dff941a9e810426cfe01c91fb9045fb8a4281a606dbf1b578ae01d3c0",
+    "sintef_project/lp_features.py": "bd16e0b4e9e32976b7eb50d5334e05b94f2b074bc0d8eb83a787f26f95268720",
+    "sintef_project/lp_context.py": "44b329a78ec9271d00dbd7e6c57469c31d01bc307d9b45a176768ea8583fd291",
+    "sintef_project/normalized.py": "2836de6aeffd992bf530abd2643df26650ade7c02e1c70e9aae1319bb5c3e16c",
+    "sintef_project/lp_joint_plant.py": "475001f6f5e77a26c25aaa952b330760dce9bda5ae84b36ae55599b7ef7a3176",
+    "sintef_project/lp_head_update.py": "8f2a01f47f7c83307178e6ed030c13d174cb03a8d560d6109f5a59c35019421b",
+    "sintef_project/lp_shared_loss_update.py": "90bd01fda2952b9defdc2b9dd97fa5adc92d137997ccea3f142b6f0adc74c31a",
+    "sintef_project/nonlinear_pq.py": "9bea7ef0aef688ad534a5d8216cc60f33e634bd3b6fd0470fbbc3b60198a5e63",
+    "sintef_project/postprocess.py": "ffbfa7974df4d0363f655bed00da1778aebe485988bdaef0309ac488f17c903b",
+    "scripts/train_nonlinear_pq_specialists.py": "0ae195228eea25a89d55bffc3c525f7abd0fd7133db697fccc8374c6d3296e5b",
+    "scripts/train_cuda_tcn.py": "1afae39884da9d210a8ef695fb0c99636536bc688ce79961d502bf4c4b743e57",
+    "sintef_project/joint_residual_crf.py": "ba6f9cbc8bda1a9b7ea1cacd19b9caa8d3709049f8d9a2f3e20bce7f317d8733",
+    "scripts/screen_joint_residual_crf.py": "2e52f247c3953f0d3a028d75b58793dac1fd7b949b84a28209d4c17a17e32fc3",
+    "tests/test_joint_residual_crf.py": "0662d086305517284bd6605e803f483d6c964518c0754acad294da3f08090a22",
+    "docs/joint_residual_crf_protocol.md": "289d191911420c59cf6628123c773f5a6b8793eb0a6854821df1c41ea8405569"
+  },
+  "data": {
+    "sintef_project/data/extended/Constraint_min_flow.csv": "146062702f58920440fc064d461d544e9cd7c503c8df74ce96e721bee04629ea",
+    "sintef_project/data/extended/Constraint_min_volume.csv": "8b639b8339b84c5ff7db34ba4b4618e99d05a03819bf99fa5032a54490278806",
+    "sintef_project/data/extended/Tokke_Vinje_topology.yaml": "29cfa233cec7fc4b5401d0d571a566e6e17b7bb7b46a175abcd37a53fe175497",
+    "sintef_project/data/kernel/Historical_day_ahead_price_2015_2025.csv": "e5edd141b34a61139f3ee3022305175446d4b4f74618df85552c4f2b5e556ee4",
+    "sintef_project/data/kernel/Historical_inflow_1958_2025.csv": "ff4f87d2768133b4a717c0ad366969244f7a86901695e1d4fef3c2ed8963ad66",
+    "sintef_project/data/kernel/Historical_volume_2015_2024.csv": "ef3d9c69699eef0d953b495ba69bf6676858e6b9c536087498135074912dd3b6",
+    "sintef_project/data/kernel/Synthetic_water_value_2015_2024.csv": "a5f09ff96b551d3c297d90ccf3a0bbe92d8814b537ad63a46579cb0ff44aa4cb",
+    "sintef_project/data/kernel/Unit_commitment_decisions.csv": "6d51f8cc6869cb82b44708168808c305c1e007cf79878ca1c1d316d07aae3ab3",
+    "sintef_project/prediction_mapping.csv": "c8b0e5bc500a5f1dec2337f5ac680847f6a7794a7c2b7a8fb19384910a029519",
+    "sintef_project/sample_submission.csv": "83e72b9e7299aff61065911af67437c81e8be2b0491ff012761d897c334f1cba"
+  },
+  "inputs": {
+    "artifacts/lgb-normalized-lp-context-joint-001/manifest.json": "5bde64b56c5b789148eb2bc72b8296274e8a9e49e77ee75e977de3b6d8c02e88",
+    "artifacts/joint-residual-crf-preflight-001/manifest.json": "5e896c748eb395dc334c6164a97407f8fe33af800afc3e4516493a07e2087782"
+  },
+  "units": [
+    "Vinje_G1",
+    "Vinje_G2",
+    "Vinje_G3"
+  ],
+  "model_parameters": {
+    "boosting_type": "gbdt",
+    "class_weight": null,
+    "colsample_bytree": 0.9,
+    "importance_type": "split",
+    "learning_rate": 0.06,
+    "max_depth": -1,
+    "min_child_samples": 100,
+    "min_child_weight": 0.001,
+    "min_split_gain": 0.0,
+    "n_estimators": 350,
+    "n_jobs": 2,
+    "num_leaves": 31,
+    "objective": "binary",
+    "random_state": 4173,
+    "reg_alpha": 0.0,
+    "reg_lambda": 1.0,
+    "subsample": 1.0,
+    "subsample_for_bin": 200000,
+    "subsample_freq": 0,
+    "max_bin": 255,
+    "deterministic": true,
+    "force_col_wise": true,
+    "verbosity": -1
+  },
+  "base_fold_years": [
+    2018,
+    2019,
+    2020
+  ],
+  "sample_fraction": 0.4,
+  "seed": 4173,
+  "threads": 2,
+  "residual_parameters": {
+    "covariates": [
+      "intercept",
+      "delta_norm_price",
+      "mean_lpjoint_economic_margin_vinje",
+      "remaining_horizon_fraction"
+    ],
+    "normalization": "training-onlymean/populationstd,clip[-5,5]",
+    "states": 8,
+    "joint_parameters": 36,
+    "unary_parameters": 12,
+    "ridge": 0.01,
+    "maxiter": 150,
+    "ftol": 1e-10,
+    "gtol": 1e-06,
+    "initialization": 0.0,
+    "early_stopping": null
+  },
+  "residual_train_dates": [
+    "2018-01-01",
+    "2019-12-25"
+  ],
+  "residual_train_cases": 724,
+  "screen_dates": [
+    "2020-01-01",
+    "2020-12-25"
+  ],
+  "screen_cases": 360,
+  "purge_days": 6,
+  "gate": "joint projected Vinje-pooledAUC strictly greater andunprojectedsequenceNLL strictlylowerthanidentityandunarycontrol",
+  "scope": "pre2021Vinje-onlydiagnostic; nofull14,Kaggleorfinalfit",
+  "kaggle": null
+}

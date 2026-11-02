@@ -1,0 +1,26 @@
+# Fixed-head relaxed generator-state diagnostic
+
+Owner: `tcn_audit`. This is a new pre-2021 diagnostic, prepared for independent review before execution. It does not alter the frozen LP caches, rejected switching models, selected blends or GPU runners. Primary-source reasoning and version limits are in `docs/sintef_web_research.md` and `docs/source_dataset_audit.md`.
+
+The experiment isolates a continuous generator state jointly optimized with the base water balance. For each of all 14 units and 168 hours, use `0 <= u <= 1`, `Pmin*u <= P <= Pmax*u`, and `Qmin*u <= Q <= Qmax*u`. Power is the sum of fixed initial-head segment flow times energy conversion. Flow is Mm3 per one-hour interval; segment conversion is MWh/Mm3, hence power is numerically MW. Pmin is the nominal supplied YAML `p_min`; Qmin/Qmax/Pmax are the original base case's feasible limits. This is an explicit approximation to SHOP's effective limits, not an assertion that they are identical.
+
+For internal transitions, `s >= u[t]-u[t-1]` and `d >= u[t-1]-u[t]`, with `s,d` in `[0,1]`. Charge the supplied `startcost_const*s + stopcost_const*d` in the same monetary unit as price. Initial/final states remain free because they are absent from the inputs. No positive state is possible at zero power or zero flow. Raw transition variables and the cost recomputed from positive/negative state differences must agree.
+
+The base's origin-to-best-point PQ approximation is retained, including its existing negative-price average conversion. All routing, reservoir constraints, slack costs, terminal water conversion and heads remain fixed. There is no cutoff feedback, integer commitment, unit priority, river/tunnel change or iteration. This differs from the failed binary DP with fixed duals and from physical subset mixtures that force on-fraction to equal the mixture's active mask. It cannot identify the exact unknown SHOP 17.17 command sequence.
+
+Four arms are reported, in this fixed order:
+
+1. Preserve the original cached base result and hashes.
+2. Solve the original base once with natural inflow promoted to float64 before adding initial volume to the RHS.
+3. Solve the linked-state model with zero transition costs on the same float64 case.
+4. Solve the linked-state model with the supplied costs on that same case.
+
+The extra numerical control was added before the protocol was frozen: independent review found that the original LP performs its RHS addition in float32. Cached-versus-fresh differences are recorded separately and cannot be attributed to generator states. The linked zero-cost feasible set is a subset of the fresh base's. If the fresh solution admits a state interval `max(P/Pmax,Q/Qmax) <= min(1,P/Pmin,Q/Qmin)`, their financial objectives must match within `1e-5 + 2e-10*max(1,abs(base objective))`. Otherwise the restriction and objective difference are explicitly retained. Both the supplied-cost objective and its cost-excluded gross objective cannot exceed the zero-cost optimum.
+
+Case selection is metadata-only: 12 rounded-linspace starts in 2015–2018, 12 in 2019, 12 in 2020 ending by December 25. The exact 36 IDs, dates, source/data/cache hashes and parameters are frozen in `docs/lp_shop_relaxation_protocol.json` and an immutable source package. All physical inputs, per-case solutions, cached controls and a fresh repeated supplied-cost solve are retained. Every result array in the replay must match bitwise. Matrix equality/inequality/bound errors and total conservation are checked to `1e-5`; objective reconstruction uses `rtol=2e-11, atol=1e-5`.
+
+Only after all input-only controls pass does the runner decode labels for exactly those 36 rows and 14 units. It never reads 2021/2022 target values. The primary continuous diagnostic is the unchanged `r/(1+r)` proxy for `r=Q/Qmin`; secondary metrics use `P/Pmin`, .5 production-cutoff mismatch, on-fraction error, switch-count error, all per-unit scores and all three date blocks. A cutoff is descriptive and is never fed into a solve. Negative numerical proxy values are clipped to zero only for diagnostic scoring; raw solutions remain intact.
+
+A conservative screen flags the branch for further review only if the supplied-cost arm improves pooled Q-ratio AUC by at least .001 against each of the other three arms, loses no AUC in any date block or the prespecified Hogga/Lio/Haukeli group, and does not increase .5 power-cutoff mismatch against any control. This screen is not supervised validation, automatic full-cache authorization or leaderboard evidence. No metric or subset can be substituted after seeing outcomes.
+
+Seven synthetic tests cover a fractional state whose switching cost differs from binary and Q/Qmin costs, zero-cost equivalence on a feasible baseline, explicit isolation of float32 RHS rounding, zero-production linkage, free horizon boundaries, an incompatible-limit restriction, preserved negative-price conversion, asymmetric transition accounting, conservation, unchanged inputs and bitwise repeats. Independent review must check the source hashes and protocol before root launches the explicit command recorded in the package manifest. Use uv and one HiGHS thread; this occupies one local solver process while active.

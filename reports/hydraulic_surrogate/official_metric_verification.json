@@ -1,0 +1,20 @@
+{
+  "timestamp_utc": "2026-11-02T22:53:41.892484+00:00",
+  "official_metric_sha256": "6ba062eeb8c2983a490cad411071dfc77831e3f2233278e5a67b68810df90553",
+  "folds": {
+    "2021": {
+      "official_auc": 0.9951042081969695,
+      "recorded_auc": 0.9951042081969695,
+      "exact_agreement": true,
+      "reversed_submission_ids_aligned": true,
+      "prediction_sha256": "c4c1632b8567a99c07e02a7206126256da4a4eaa9398f8ebf584f8603041d586"
+    },
+    "2022": {
+      "official_auc": 0.9938717710733546,
+      "recorded_auc": 0.9938717710733546,
+      "exact_agreement": true,
+      "reversed_submission_ids_aligned": true,
+      "prediction_sha256": "d27bf00c32fbe63772dd35a0a0e9d85e05b6c0a7c11b9c41c22998eb219fe675"
+    }
+  }
+}

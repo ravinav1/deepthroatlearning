@@ -1,0 +1,9 @@
+# Canonical result-auditor numerical correction
+
+The initial unrun auditor is preserved as `scripts/audit_canonical_pooled_result.py`. Its independent generic isotonic projection can differ from the frozen three-value implementation by one floating-point unit. That difference is harmless for a probability-distance check but can split exact ties and alter rank-sum AUC. The reviewer preserved an explicit counterexample in `artifacts/canonical-pooled-result-auditor-independent-review-001`.
+
+The revised `scripts/audit_canonical_pooled_result_v2.py` independently states the three-value pool-adjacent-violators branches using the frozen float64 addition and division order. These exact reconstructed bytes feed every score. The generic min/max characterization remains a separate semantic check at probability tolerance `5e-16`; it does not feed ranking. The saved projected anchor and selected output must match the exact reconstruction byte-for-byte. Score tolerance remains `1e-13` for independent rank-sum arithmetic and is not widened.
+
+The native model checks additionally require ordinary unweighted BCE defaults (`is_unbalance=0`, `scale_pos_weight=1`, `sigmoid=1`, `boost_from_average=1`) and the original `bin_construct_sample_cnt=200000`. Seven focused synthetic tests include random triples, exact ties, adjacent floating-point values, endpoint cases, byte identity with the frozen transform and an AUC counterexample for the generic arithmetic.
+
+All input reconstruction, sample/target checks, checkpoint replay, trajectory-prefix proof, process-exit evidence and six-gate selection checks described in `canonical_pooled_result_audit.md` remain. This is an auditor-only revision. The approved screen producer, model recipe, protocol, weights and acceptance gates are unchanged. Actual result execution still waits a completed producer and independent source approval.

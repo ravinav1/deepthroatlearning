@@ -1,0 +1,13 @@
+# Completed label-free SHOP cache
+
+`lp-shop-full-001` completed all3,647 provided input cases in1,495.58seconds with one HiGHS thread and1.08GB peakRSS. It preserves the36 audited diagnostic cases and saves independent fresh-solver replays for the other3,611 cases. Every raw output/replay pair agrees bitwise; no commitment target value was decoded. The frozen cache protocol and original608feature sources remain unchanged.
+
+The56-column cache has shape `(3647,168,56)` and finite float32 values. Its compressed file is3,640,223bytes, SHA256 `0b079dc41472a822723fadf0d34c2e07f8301ed4f088612217537634c726b62d`. Cache manifest SHA256 is `e3d9f53ec7ac67a0afcc48c9630a215ad0a2be4abbfc07aa03cdc3a4345d8163`.
+
+The separate saved-array verifier recomputed every feature, reconstructed every original input, rechecked all saved replays, and independently reconstructed water balances, state/flow/power/storage/routing constraints, transition costs and objectives. It used no solvers or target values and completed in57.33seconds. Maximum hourly pool balance residual was1.419e-9Mm3; maximum aggregate residual1.420e-9Mm3; maximum inequality violation4.252e-8 in the corresponding constraint's units. All four soft-slack types were exactlyzero for everycase. Proof: `artifacts/verify-lp-shop-full-001/manifest.json`.
+
+The fixed664GPU ablation is packaged separately in `artifacts/cuda-xgb664-package-001/cuda-xgb664-private-dataset.zip`,4,160,455bytes, SHA256 `ff707c344cabd8a487b4be30793cb6c2af41ee39da6ef62b3e4c146dcafdb5bb`. Frozen protocol SHA256 is `4e09f0fe59973d7a9c2c5e5792feb30c29b8af04a67c27bafbe1386ae9da8182`. It appends56 columns to the exact608 prefix, keeps600treeGPU parameters and samples unchanged, and compares a fixed2021-selected global blend against both the accepted608GPU anchor and a matched raw608 control. Source preflight and five targetedtests passed independently.
+
+The final three-bundle package audit also passed. A fresh process verified every ZIP/member/source/input hash and built the612,696×664 feature matrix using only the2021 target cutoff. The original608 prefix remained exact, and all56 appendedcolumns matched the cache bitwise. Runtime was8.44seconds and peakRSS5.42GB. Proof: `artifacts/cuda-xgb664-package-feature-independent-audit-001/manifest.json`, SHA256 `126f72e716b59fa52e6f8fc5d4a416314f03b99a057bfd0d04d1a720d4e40953`. This clears the preflight gate for hosted synthetic smoke followed by2021 fitting.
+
+These cache and source checks establish reproducibility and physical consistency of the approximation. They establish no664 trained-model validation or leaderboard score. `docs/cuda_xgb664.md` describes the fixed selection protocol; no2022 training is permitted until an eligible2021 choice is locked.
