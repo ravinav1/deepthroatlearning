@@ -1,0 +1,22 @@
+{
+  "status": "complete",
+  "kind": "separate_kaggle_observation",
+  "recorded_utc": "2026-11-03T04:14:14.067488+00:00",
+  "observation_source": "Parent root verified the live Kaggle submission UI; this receipt records that observation without modifying the immutable experiment manifest.",
+  "submitted_timestamp_utc_from_ui": "2026-11-03T04:12:39Z",
+  "parent_observation_time_approx_utc": "2026-11-03T04:14:00Z",
+  "kaggle_submission_id": null,
+  "submission_file": "artifacts/provided-integer136-final-001/submission.csv",
+  "submission_sha256": "7900c238e458ce342950be4244cbefbe4ac963e153dd62d1d6beff05a2910a2f",
+  "experiment_manifest_sha256": "0150680a54ee321fbd451a73ccb3260c3269f421458388eaeaef25dff8d13643",
+  "independent_final_audit": "artifacts/metric-trick-provided-integer-final-audit-001/manifest.json",
+  "independent_final_audit_sha256": "909d8574bc2feb84ff63f56ab41fce4411553a9fd9716ab59321240c7b4e6747",
+  "public_score": 0.99645,
+  "private_score": null,
+  "provided_only": true,
+  "description_persisted": true,
+  "description_observation": "Parent reports accurate provided-only description persisted with CSV hash; exact text not independently captured here.",
+  "team_rank_from_this_submission": null,
+  "best_measured_provided_only_score_remains": 0.99653,
+  "rank_note": "Current rank1 derives from the prior external-data0.99952 submission; no first-place provided-only claim."
+}

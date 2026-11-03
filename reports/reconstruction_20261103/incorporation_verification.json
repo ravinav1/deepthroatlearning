@@ -1,0 +1,47 @@
+{
+  "recorded_utc": "2026-11-03T09:12:12.273178+00:00",
+  "scope": "Documentation/evidence incorporation only; reconstruction implementation deferred",
+  "base_commit": "6188e4605ea4684da83e7bebfd062be2c356dd37",
+  "environment": {
+    "os": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "metadata_python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
+    "test_python": "../.venv-ml/bin/python (Python3.11.15)"
+  },
+  "evidence_files_verified": 41,
+  "top_level_docs_link_checked": 8,
+  "json_files_parsed": 19,
+  "frozen_source_files_unchanged": 643,
+  "checks": [
+    {
+      "command": "../.venv-ml/bin/python -m unittest discover -s tests",
+      "cwd": "deepthroatlearning",
+      "exit_code": 0,
+      "tests": 26,
+      "runtime_seconds": 5.018
+    },
+    {
+      "command": "git diff --check",
+      "cwd": "deepthroatlearning",
+      "exit_code": 0
+    }
+  ],
+  "new_model_fit": false,
+  "new_solver_run": false,
+  "new_kaggle_submission": false,
+  "new_external_output_read": false,
+  "restricted_numerical_replay": false,
+  "organizer_question_sent": false,
+  "limitations": [
+    "Codex startup metadata service exited; requested Astra/ultra availability not verified.",
+    "sandbox-exec availability probe failed exit71; no isolation/canary/replay executed.",
+    "One historical latent receipt referenced by old docs was absent; recorded rather than reconstructed.",
+    "Copied research reports retain original workspace paths and historical status.",
+    "Later numerical artifacts remain in original workspace; no new release or portability claim."
+  ],
+  "independent_documentation_review": {
+    "status": "passed after timestamp correction",
+    "scope": "Scores/provenance, deferred execution, legacy adapter, evidence availability",
+    "correction": "Separate receipt capture timestamps from approximate observation timestamps and retain precision in seven ledger entries.",
+    "new_numerical_work": false
+  }
+}

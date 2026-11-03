@@ -1,0 +1,263 @@
+{
+  "snapshot_utc": "2026-11-03T09:07:56.634371+00:00",
+  "purpose": "Incorporate existing findings and preserve provenance; reconstruction execution deferred.",
+  "files": [
+    {
+      "original_workspace_path": "docs/best_result.md",
+      "repository_path": "reports/reconstruction_20261103/research/best_result.md",
+      "sha256": "44b95971eb75b711629e87461d1d5ca6cc80514cead63c01a88b8f196f5cf58b",
+      "size_bytes": 46648
+    },
+    {
+      "original_workspace_path": "docs/best_provided_only_result.md",
+      "repository_path": "reports/reconstruction_20261103/research/best_provided_only_result.md",
+      "sha256": "f978fd2300e86fd56abd7c734bf6e06db0f901e920c6ce068fdf2ee8d7da9aed",
+      "size_bytes": 11996
+    },
+    {
+      "original_workspace_path": "docs/provided_capacity_result.md",
+      "repository_path": "reports/reconstruction_20261103/research/provided_capacity_result.md",
+      "sha256": "b91844230b16dbb22e90774855da3c4c00640a9140d6d304db4ebff06dc63e1d",
+      "size_bytes": 4763
+    },
+    {
+      "original_workspace_path": "docs/provided_startup142_result.md",
+      "repository_path": "reports/reconstruction_20261103/research/provided_startup142_result.md",
+      "sha256": "48d03d843b9a77678b0daaf35bedfa59a525014fde62f447933c24a5a996f64d",
+      "size_bytes": 4936
+    },
+    {
+      "original_workspace_path": "docs/provided_busbar144_result.md",
+      "repository_path": "reports/reconstruction_20261103/research/provided_busbar144_result.md",
+      "sha256": "82c096e5bc8abaf4c24088d1e56e1833ef085cc0c0c29e8d662ca6a31499cff5",
+      "size_bytes": 8422
+    },
+    {
+      "original_workspace_path": "docs/provided_vinje_tunnel_equality_review.md",
+      "repository_path": "reports/reconstruction_20261103/research/provided_vinje_tunnel_equality_review.md",
+      "sha256": "13552a67406be00a7932355998d3a307e486b91e0224d3917cc432e16b7d8fd1",
+      "size_bytes": 3745
+    },
+    {
+      "original_workspace_path": "docs/provided-only-haukeli-tunnel-mechanism.md",
+      "repository_path": "reports/reconstruction_20261103/research/provided-only-haukeli-tunnel-mechanism.md",
+      "sha256": "a1df318c22c7ef6ebbf08aefbd7e4608c4cfe3d86f449693afd1750296b69021",
+      "size_bytes": 14684
+    },
+    {
+      "original_workspace_path": "docs/provided_pooled_cat144_local_workflow.md",
+      "repository_path": "reports/reconstruction_20261103/research/provided_pooled_cat144_local_workflow.md",
+      "sha256": "3bb16a9355dbb9a546134220607f9dfe68345d3c22b88e885b652ce71bde9568",
+      "size_bytes": 8969
+    },
+    {
+      "original_workspace_path": "artifacts/metric-trick-shop17151-submission-001/kaggle_observation.json",
+      "repository_path": "reports/reconstruction_20261103/receipts/metric-trick-shop17151-submission-001.json",
+      "sha256": "761cbc4a3b31da5e471779a5e6f4da7fadeee79e3d8dfa1c9f9b34858e0e55a4",
+      "size_bytes": 1083
+    },
+    {
+      "original_workspace_path": "artifacts/metric-trick-public-nomip17170-submission-001/kaggle_observation.json",
+      "repository_path": "reports/reconstruction_20261103/receipts/metric-trick-public-nomip17170-submission-001.json",
+      "sha256": "4abfd57a23a7e20491bd47a14fff13458d72c2aa6b0b29bc34d83824efd97a8c",
+      "size_bytes": 832
+    },
+    {
+      "original_workspace_path": "artifacts/metric-trick-public-mip17170-submission-001/kaggle_observation.json",
+      "repository_path": "reports/reconstruction_20261103/receipts/metric-trick-public-mip17170-submission-001.json",
+      "sha256": "11e9c702fc76b2b3cbae174b5532160fe2461b3517a442eb0aece5d9987a4c22",
+      "size_bytes": 1158
+    },
+    {
+      "original_workspace_path": "artifacts/metric-trick-retrospective-final-001/kaggle_observation.json",
+      "repository_path": "reports/reconstruction_20261103/receipts/metric-trick-retrospective-final-001.json",
+      "sha256": "1368c9e5525dfaf9c7b66afad0d6b5f1652b2674e856278e735c332be01d9c8f",
+      "size_bytes": 762
+    },
+    {
+      "original_workspace_path": "artifacts/provided-only-submission-001/kaggle_observation.json",
+      "repository_path": "reports/reconstruction_20261103/receipts/provided-only-submission-001.json",
+      "sha256": "ae93124fa4e964a51b05f933450b8f89628d7938b7a5ee23765788215214e225",
+      "size_bytes": 894
+    },
+    {
+      "original_workspace_path": "artifacts/provided-integer136-final-001/kaggle_observation.json",
+      "repository_path": "reports/reconstruction_20261103/receipts/provided-integer136-final-001.json",
+      "sha256": "4e98548a601e486e16916c1a6fbfc671d3c7cab65e3a955c323d4e46c3aff7e5",
+      "size_bytes": 1408
+    },
+    {
+      "original_workspace_path": "artifacts/metric-trick-provided-capacity-final-001/kaggle_observation.json",
+      "repository_path": "reports/reconstruction_20261103/receipts/metric-trick-provided-capacity-final-001.json",
+      "sha256": "e68bcdf66ea0398c9671879c97bfe4c41b51196370c9e1dedb72c3efb7dc3220",
+      "size_bytes": 1338
+    },
+    {
+      "original_workspace_path": "artifacts/provided-only-lineage-audit-002/manifest.json",
+      "repository_path": "reports/reconstruction_20261103/manifests/provided-only-lineage-audit-002.json",
+      "sha256": "6c017919db2e6879e718398bb0aec7fc59f79b73b68a439a73a9750885b61f92",
+      "size_bytes": 137085
+    },
+    {
+      "original_workspace_path": "artifacts/metric-trick-public-mip17170-submission-001/manifest.json",
+      "repository_path": "reports/reconstruction_20261103/manifests/metric-trick-public-mip17170-submission-001.json",
+      "sha256": "9c7e10ac441b1f4c5ed955c9b8538454531704a581d0385ea5db749c7c258767",
+      "size_bytes": 103809
+    },
+    {
+      "original_workspace_path": "artifacts/metric-trick-public-nomip17170-submission-001/manifest.json",
+      "repository_path": "reports/reconstruction_20261103/manifests/metric-trick-public-nomip17170-submission-001.json",
+      "sha256": "8540c2bb0b51bb61984d4f9d9810715a5062a45e583699ba6c23412a21f4ad1d",
+      "size_bytes": 103788
+    },
+    {
+      "original_workspace_path": "artifacts/provided-startup142-final-001/manifest.json",
+      "repository_path": "reports/reconstruction_20261103/manifests/provided-startup142-final-001.json",
+      "sha256": "728d0a0e046bab8867f2bc3d8b3c400d58078229c2c2f05eb2661f0bf40730f4",
+      "size_bytes": 56237
+    },
+    {
+      "original_workspace_path": "artifacts/provided-busbar144-final-001/manifest.json",
+      "repository_path": "reports/reconstruction_20261103/manifests/provided-busbar144-final-001.json",
+      "sha256": "b33d298ca36c6df1cdfbd4e0dfec6f1f2ecd33e391b9273374871fa62cf37433",
+      "size_bytes": 112429
+    },
+    {
+      "original_workspace_path": "artifacts/physics-vinje-equality-residuals-001/analysis.json",
+      "repository_path": "reports/reconstruction_20261103/manifests/physics-vinje-equality-residuals-001.json",
+      "sha256": "f7ca92ccf826c3f8927c28da0a64567a80d717ef588026fe8a7b7d25a0d6d025",
+      "size_bytes": 48966
+    },
+    {
+      "original_workspace_path": "docs/provided-only-lineage-review.md",
+      "repository_path": "reports/reconstruction_20261103/research/provided-only-lineage-review.md",
+      "sha256": "2f58de6eb7fa9f85b56dbf1185adb67bafe76ffe446c9484fe60b338a2220d05",
+      "size_bytes": 4428
+    },
+    {
+      "original_workspace_path": "docs/lp_shop_relaxation_protocol.json",
+      "repository_path": "reports/reconstruction_20261103/research/lp_shop_relaxation_protocol.json",
+      "sha256": "583989ba708c304144c5e077e26e46ae772fd846af33fc66a6c5b736c3084734",
+      "size_bytes": 10410
+    },
+    {
+      "original_workspace_path": "docs/modeling_recommendations.md",
+      "repository_path": "reports/reconstruction_20261103/research/modeling_recommendations.md",
+      "sha256": "cc7bc875f23ceb9f472d2d922bd91e5ba6d5c3891971c95a1b260c6b4ed04a7a",
+      "size_bytes": 9132
+    },
+    {
+      "original_workspace_path": "docs/historical_solver_mechanism_research.md",
+      "repository_path": "reports/reconstruction_20261103/research/historical_solver_mechanism_research.md",
+      "sha256": "277eb0a8cca2a57940de49dfbaa11033a492f52039c07dd014b77ede0658bfb7",
+      "size_bytes": 4609
+    },
+    {
+      "original_workspace_path": "docs/lp_shop_relaxation_result_audit.md",
+      "repository_path": "reports/reconstruction_20261103/research/lp_shop_relaxation_result_audit.md",
+      "sha256": "1de1b3c75d3e0c82c91d915f64498add6e9805a46dcd3d9a8645a15210209150",
+      "size_bytes": 4731
+    },
+    {
+      "original_workspace_path": "docs/provided-only-crossflow-gradient.md",
+      "repository_path": "reports/reconstruction_20261103/research/provided-only-crossflow-gradient.md",
+      "sha256": "2395ad2f378d0ca91176d1b4f28f0319a5e1d7098668cdbfa5af0e9637b9dece",
+      "size_bytes": 13230
+    },
+    {
+      "original_workspace_path": "docs/provided_physics144_results.md",
+      "repository_path": "reports/reconstruction_20261103/research/provided_physics144_results.md",
+      "sha256": "f9353148d6d1717b0def9035acb4684ba77b481c9f2877e3614c2ccd284d5e99",
+      "size_bytes": 9405
+    },
+    {
+      "original_workspace_path": "docs/hyljelihyl_river_cost_diagnostic.md",
+      "repository_path": "reports/reconstruction_20261103/research/hyljelihyl_river_cost_diagnostic.md",
+      "sha256": "221953561669c4cc80f813e0017babf6948876cc038f8496c875659c8d982957",
+      "size_bytes": 4339
+    },
+    {
+      "original_workspace_path": "docs/hyljelihyl_river_cost_36_results.md",
+      "repository_path": "reports/reconstruction_20261103/research/hyljelihyl_river_cost_36_results.md",
+      "sha256": "a637cfc6c0ac6fdef92bd2a49e2507d53eaa2d1aa5dbf2e26541317da26c4703",
+      "size_bytes": 2590
+    },
+    {
+      "original_workspace_path": "docs/physics_provided_only_20261103.md",
+      "repository_path": "reports/reconstruction_20261103/research/physics_provided_only_20261103.md",
+      "sha256": "47ae1e6f0d948601f1ae91310839d2c194e317aa234ff611a813465d4a0ebd81",
+      "size_bytes": 48453
+    },
+    {
+      "original_workspace_path": "docs/provided_active_domain_result.md",
+      "repository_path": "reports/reconstruction_20261103/research/provided_active_domain_result.md",
+      "sha256": "ad46b0554df46c038f3276b718678a07aab082eb55ab85a45d0c14ed1c564dc2",
+      "size_bytes": 6603
+    },
+    {
+      "original_workspace_path": "docs/provided-only-generator-conventions.md",
+      "repository_path": "reports/reconstruction_20261103/research/provided-only-generator-conventions.md",
+      "sha256": "5f5fa4685a17e41a87ed8fab2f5665426cf71c4c9b56dd5f7a3017f2822c7741",
+      "size_bytes": 7408
+    },
+    {
+      "original_workspace_path": "docs/reconstruction_organizer_question.md",
+      "repository_path": "docs/reconstruction_organizer_question.md",
+      "sha256": "36a390ddf804d7dc7ef4de3b7e030c3c70b677f3fb1137af32e3e5829328bd79",
+      "size_bytes": 635
+    },
+    {
+      "original_workspace_path": "docs/reconstruction_source_inventory.json",
+      "repository_path": "docs/reconstruction_source_inventory.json",
+      "sha256": "2f4d8704d8b9b20e82e4e31fa74be6dbdcca77d8d531314c3e5a1bad492b0e19",
+      "size_bytes": 154039
+    },
+    {
+      "original_workspace_path": "docs/web_research.md",
+      "repository_path": "reports/reconstruction_20261103/research/web_research.md",
+      "sha256": "8fb914634abea95da30be8e9e6b06fd8038f705f3e4d9c583eb70a82f2b917e2",
+      "size_bytes": 12119
+    },
+    {
+      "original_workspace_path": "docs/consultation.md",
+      "repository_path": "reports/reconstruction_20261103/research/consultation.md",
+      "sha256": "fe8228bc03b3b5d8347dc4fc9e72806383b8d3f23ca8429b4183549ba1a0ac12",
+      "size_bytes": 16825
+    },
+    {
+      "original_workspace_path": "docs/provided_startup142_recipe.json",
+      "repository_path": "reports/reconstruction_20261103/research/provided_startup142_recipe.json",
+      "sha256": "63b79ceaf39181b81aff1e775408e1fb0a511554a2e8ad90945228be2c962893",
+      "size_bytes": 9085
+    },
+    {
+      "original_workspace_path": "artifacts/physics-provided-startup142-final-inference-001/manifest.json",
+      "repository_path": "reports/reconstruction_20261103/manifests/physics-provided-startup142-final-inference-001.json",
+      "sha256": "3a24af261959f550cde839c991f9aa36874ba0235abeb249b41c515967d2e5e1",
+      "size_bytes": 2193
+    },
+    {
+      "original_workspace_path": "docs/reconstruction_information_boundary.md",
+      "repository_path": "reports/reconstruction_20261103/research/reconstruction_information_boundary.md",
+      "sha256": "f04d63af033e854600f0412d5af5d2bebb7a9710584fe08497bcb2f5847e9fd9",
+      "size_bytes": 12141
+    },
+    {
+      "original_workspace_path": "docs/reconstruction_mechanism_evidence.md",
+      "repository_path": "reports/reconstruction_20261103/research/reconstruction_mechanism_evidence.md",
+      "sha256": "5b1d33a8daadc40e53621c7126556f775cbf5855ebc310a9ad4a2b9ffcbaa6d3",
+      "size_bytes": 15490
+    }
+  ],
+  "missing_referenced_evidence": [
+    "artifacts/provided-only-latent-submission-001/kaggle_observation.json"
+  ],
+  "preservation": "Copies preserve original bytes. References inside research snapshots retain original workspace paths and historical status. Current docs supersede status only. Existing source/checkpoint archives were not changed.",
+  "artifact_availability": "New numerical checkpoints, arrays, external archives and CSVs remain in the original local workspace; not uploaded by this documentation incorporation. Existing 20261102 release remains unchanged.",
+  "incorporation_note": "Initial metadata copy stopped at a referenced but absent latent receipt; missing paths are explicit, not reconstructed or invented.",
+  "pre_incorporation_handoff": {
+    "repository_path": "reports/reconstruction_20261103/research/pre_incorporation_handoff.md",
+    "sha256": "31787d7e46fcc8a5f07be9bb0b3a06bff701415a44f94ad50e2814e53752cde8",
+    "source": "Repository HEAD docs/HANDOFF.md before this update"
+  }
+}

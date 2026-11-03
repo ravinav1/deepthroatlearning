@@ -1,0 +1,18 @@
+{
+  "status": "Complete",
+  "public_score": 0.99651,
+  "rank": null,
+  "team": "DeepthroatLearning",
+  "submission_id": null,
+  "submission_time_utc": null,
+  "observation_recorded_utc": "2026-11-03T03:23:30.115744+00:00",
+  "observed_time_utc_approximate": "2026-11-03T03:24:00+00:00",
+  "observed_by": "Root verified exact clean CSV before upload and latest authenticated Complete score; user apparently completed submit while UI changed",
+  "description_persisted": null,
+  "submission_sha256": "b422d6ca990b8d18e7d397060254af3a95fb3e5a0e1cdc191a88baa10c6f5783",
+  "final_manifest_sha256": "667f9229e0d521a47dfafce84e9a313797ec9f5225197f0f775ad8dafdfc5d1b",
+  "prior_best_provided_only_score": 0.99653,
+  "rank_note": "Team rank1 remains attributable to prior external-data0.99952 submission; no clean-only rank inferred.",
+  "external_numerical_data_used": false,
+  "private_score": null
+}

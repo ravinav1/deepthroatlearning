@@ -327,6 +327,114 @@
       "private_score": null,
       "family": "hydraulic_surrogate",
       "observation_artifact": "models/hydraulic_surrogate/submission-lgb-shop664-anchor-blend-001/kaggle_observation.json"
+    },
+    {
+      "submission": "original-workspace:artifacts/metric-trick-shop17151-submission-001/submission.csv",
+      "public_score": 0.9969,
+      "sha256": "bebfd120d72771c8806efe5edde01172afb8409651b8ba5e4b6ad64abc173409",
+      "rank_at_observation": 11,
+      "source": "Preserved completed Kaggle observation receipt; no fresh leaderboard refresh in this incorporation.",
+      "submission_id": null,
+      "private_score": null,
+      "family": "externally_informed_research",
+      "external_numerical_inputs": true,
+      "observation_artifact": "reports/reconstruction_20261103/receipts/metric-trick-shop17151-submission-001.json",
+      "observation_recorded_utc": "2026-11-03T02:53:18.805896+00:00",
+      "observation_time_utc": null,
+      "observation_time_precision": "not stated",
+      "observation_time_semantics": "Receipt capture after root verified leaderboard; exact submission time unavailable."
+    },
+    {
+      "submission": "original-workspace:artifacts/metric-trick-public-nomip17170-submission-001/submission.csv",
+      "public_score": 0.99795,
+      "sha256": "df1a37f736eb00ecf346b5f043b8bed0ae856c1c32b17265ba55dac05db63a4e",
+      "rank_at_observation": 5,
+      "source": "Preserved completed Kaggle observation receipt; no fresh leaderboard refresh in this incorporation.",
+      "submission_id": null,
+      "private_score": null,
+      "family": "externally_informed_research",
+      "external_numerical_inputs": true,
+      "observation_artifact": "reports/reconstruction_20261103/receipts/metric-trick-public-nomip17170-submission-001.json",
+      "observation_recorded_utc": "2026-11-03T03:07:44.402555+00:00",
+      "observation_time_utc": null,
+      "observation_time_precision": "not stated"
+    },
+    {
+      "submission": "original-workspace:artifacts/metric-trick-public-mip17170-submission-001/submission.csv",
+      "public_score": 0.99952,
+      "sha256": "5d9b58d4fa9153ed69d7a77ffb1f8ec2ad3e04c8894fda9329b6120d8b96f93e",
+      "rank_at_observation": 1,
+      "source": "Preserved completed Kaggle observation receipt; no fresh leaderboard refresh in this incorporation.",
+      "submission_id": null,
+      "private_score": null,
+      "family": "externally_informed_research",
+      "external_numerical_inputs": true,
+      "observation_artifact": "reports/reconstruction_20261103/receipts/metric-trick-public-mip17170-submission-001.json",
+      "observation_recorded_utc": "2026-11-03T03:12:59.969206+00:00",
+      "observation_time_utc_approximate": "2026-11-03T03:09:00+00:00",
+      "observation_time_precision": "minute, reported by root"
+    },
+    {
+      "submission": "original-workspace:artifacts/metric-trick-retrospective-final-001/submission.csv",
+      "public_score": 0.99653,
+      "sha256": "3b167ddabf634af78240a0ec9be740588028b3451bfe0c888d84f3279c6a3f5a",
+      "rank_at_observation": 18,
+      "source": "Preserved completed Kaggle observation receipt; no fresh leaderboard refresh in this incorporation.",
+      "submission_id": null,
+      "private_score": null,
+      "family": "externally_informed_research",
+      "external_numerical_inputs": false,
+      "observation_artifact": "reports/reconstruction_20261103/receipts/metric-trick-retrospective-final-001.json",
+      "observation_recorded_utc": "2026-11-03T02:47:41.763553+00:00",
+      "observation_time_utc": "2026-11-03T02:47:00+00:00",
+      "observation_time_precision": "minute"
+    },
+    {
+      "submission": "original-workspace:artifacts/provided-only-submission-001/submission.csv",
+      "public_score": 0.99651,
+      "sha256": "b422d6ca990b8d18e7d397060254af3a95fb3e5a0e1cdc191a88baa10c6f5783",
+      "rank_at_observation": null,
+      "source": "Preserved completed Kaggle observation receipt; no fresh leaderboard refresh in this incorporation.",
+      "submission_id": null,
+      "private_score": null,
+      "family": "externally_informed_research",
+      "external_numerical_inputs": false,
+      "observation_artifact": "reports/reconstruction_20261103/receipts/provided-only-submission-001.json",
+      "observation_recorded_utc": "2026-11-03T03:23:30.115744+00:00",
+      "observation_time_utc_approximate": "2026-11-03T03:24:00+00:00",
+      "observation_time_precision": "approximate, as recorded in source receipt"
+    },
+    {
+      "submission": "original-workspace:artifacts/provided-integer136-final-001/submission.csv",
+      "public_score": 0.99645,
+      "sha256": "7900c238e458ce342950be4244cbefbe4ac963e153dd62d1d6beff05a2910a2f",
+      "rank_at_observation": null,
+      "source": "Preserved completed Kaggle observation receipt; no fresh leaderboard refresh in this incorporation.",
+      "submission_id": null,
+      "private_score": null,
+      "family": "externally_informed_research",
+      "external_numerical_inputs": false,
+      "observation_artifact": "reports/reconstruction_20261103/receipts/provided-integer136-final-001.json",
+      "observation_recorded_utc": "2026-11-03T04:14:14.067488+00:00",
+      "observation_time_utc": null,
+      "observation_time_precision": "not stated",
+      "submission_time_utc": "2026-11-03T04:12:39Z"
+    },
+    {
+      "submission": "original-workspace:artifacts/metric-trick-provided-capacity-final-001/submission.csv",
+      "public_score": 0.9965,
+      "sha256": "efc9166cab6a5809625eabe65b958a0f13b8630c8a0a6a2315be9af434128f8d",
+      "rank_at_observation": null,
+      "source": "Preserved completed Kaggle observation receipt; no fresh leaderboard refresh in this incorporation.",
+      "submission_id": null,
+      "private_score": null,
+      "family": "externally_informed_research",
+      "external_numerical_inputs": false,
+      "observation_artifact": "reports/reconstruction_20261103/receipts/metric-trick-provided-capacity-final-001.json",
+      "observation_recorded_utc": "2026-11-03T04:16:44.859976+00:00",
+      "observation_time_utc": "2026-11-03T04:16:30Z",
+      "observation_time_precision": "not stated",
+      "submission_time_utc": "2026-11-03T04:15:15Z"
     }
   ],
   "unscored_candidates": [
@@ -341,14 +449,41 @@
       "evidence": "reports/round10_report_20261018.md"
     }
   ],
-  "note": "Recorded on 2026-11-02 from user-reported results and existing project reports; not independently fetched from Kaggle. A missing candidate score means no result is recorded here.",
+  "note": "Dated observations, not live ranks. The historical0.99952 result uses external solver outputs. Supplied numerical ancestry does not imply clean-room research or organizer approval. Reconstruction plan recorded but not launched by this incorporation.",
   "current_best": {
-    "public_score": 0.99652,
-    "rank_at_observation": 18,
-    "observation_time": "2026-11-02T22:04:37.100265+00:00",
-    "submission": "models/hydraulic_surrogate/submission-lgb-shop664-anchor-blend-001/submission.csv",
-    "sha256": "1c1d173816127997e711d54c8269406830666af66b6f4eb6d24f4f227b70d496",
-    "recipe": "configs/hydraulic_surrogate_best.json",
+    "public_score": 0.99952,
+    "rank_at_observation": 1,
+    "observation_time_utc_approximate": "2026-11-03T03:09:00+00:00",
+    "external_numerical_inputs": true,
+    "submission_sha256": "5d9b58d4fa9153ed69d7a77ffb1f8ec2ad3e04c8894fda9329b6120d8b96f93e",
+    "receipt": "reports/reconstruction_20261103/receipts/metric-trick-public-mip17170-submission-001.json",
     "private_score": null
-  }
+  },
+  "best_supplied_numerical_data": {
+    "public_score": 0.99653,
+    "receipt": "reports/reconstruction_20261103/receipts/metric-trick-retrospective-final-001.json",
+    "research_externally_informed": true,
+    "retrospective_supplied_covariates": true,
+    "admissibility_not_established_by_scoring": true
+  },
+  "latest_submitted_supplied_numerical_data": {
+    "public_score": 0.9965,
+    "receipt": "reports/reconstruction_20261103/receipts/metric-trick-provided-capacity-final-001.json"
+  },
+  "reconstruction_candidates": [
+    {
+      "run": "provided-startup142-final-001",
+      "public_score": null,
+      "submitted": false,
+      "development_auc_2021": 0.9953329489195831,
+      "development_auc_2022": 0.9940802862111509
+    },
+    {
+      "run": "provided-busbar144-final-001",
+      "public_score": null,
+      "submitted": false,
+      "development_auc_2021": 0.9952804039903538,
+      "development_auc_2022": 0.9940585327322639
+    }
+  ]
 }

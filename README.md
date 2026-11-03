@@ -11,22 +11,41 @@ supplied prices, water values, reservoir conditions and operating constraints.
 - [Data and artifact downloads](docs/DATA_AND_ARTIFACTS.md): raw-data sources, release assets, restore commands and checksums.
 - [Competition goals and Codex continuation](GOALS.md): durable objective and a fresh-session starting prompt.
 - [Automatic Codex startup and agents](docs/CODEX_AUTOSTART.md): Astra/ultra preference, model checks, agent roles and resource ownership.
-- [Best result and exact replay](docs/best_result.md): the hydraulic LGB664–SHOP ensemble.
+- [Results and provenance](docs/best_result.md): historical external-output winner and supplied-data models.
+- [Reconstruction plan](docs/RECONSTRUCTION_PLAN.md): recorded for later implementation; currently deferred.
+- [Mechanism findings](docs/reconstruction_mechanism_evidence.md): supported explanations, failures and open questions.
+- [Information boundary](docs/reconstruction_information_boundary.md): supplied numerical ancestry and external research exposure.
 - [Run on another computer](docs/REPRODUCING.md): setup, data placement and a new validation run.
 - [Supplied files](docs/PROJECT_FILES.md): original task, dataset and topology documents.
 - [Latest experiments](reports/round10_report_20261018.md): price ranks, temporal correction and hydraulic timing.
 
 ## Current status
 
-Latest stored observation: **2 November 2026, 22:04:37 UTC**. The best recorded
-public Kaggle score is **0.99652, rank 18**, from the hydraulic LGB664–SHOP nested
-ensemble. Reused purged 2021/2022 AUC is **0.995104208197 / 0.993871771073**.
-Private score is unknown; first place remains the objective. All 98 component
-checkpoints, predictions and useful research state are available through the
-[artifact release](https://github.com/ravinav1/deepthroatlearning/releases/tag/hydraulic-surrogate-20261102).
+The highest recorded public score is **0.99952**, observed at rank 1 around
+**3 November 2026, 03:09 UTC**. It directly uses external SINTEF SHOP solver
+outputs. The external dataset was discovered during autonomous experimentation
+and the Kaggle submission sequence. It is not an independently reconstructed
+optimizer or a supplied-data-only result.
+
+The best recorded model with supplied-only numerical ancestry scored **0.99653**;
+it uses retrospective historical covariates included in the supplied files. The
+latest submitted supplied-numerical-data model scored **0.99650**. Numerical
+ancestry does not establish organizer acceptance or clean-room research. The
+research has prior external-output exposure; private scores are unknown.
+
+This update incorporates findings and a **deferred reconstruction plan**. It
+launches no new training, optimizer experiment, hosted run or submission. The
+existing [artifact release](https://github.com/ravinav1/deepthroatlearning/releases/tag/hydraulic-surrogate-20261102)
+still contains the older 0.99652 baseline's 98 component checkpoints; it has not
+been relabelled as the 0.99952 winner or updated with the new numerical artifacts.
 
 | Candidate | Historical result | Public Kaggle result |
 | --- | --- | --- |
+| External SHOP AllMIP blend | Reused 2021/2022: 0.99929508 / 0.99961071 | **0.99952, rank 1** at the dated observation |
+| External SHOP NoMIP blend | Reused 2021/2022: 0.99680263 / 0.99796882 | **0.99795**, external outputs |
+| Supplied retrospective971 | Supplied numerical data; retrospective covariates | **0.99653**, best measured in that track |
+| Supplied canonical115 capacity | Latest submitted supplied-numerical-data model | **0.99650** |
+| Supplied startup142 / busbar144 | Completed and audited locally before this update | Unsubmitted; no public score |
 | Hydraulic LGB664–SHOP | Purged 2021/2022: 0.99510421 / 0.99387177 | **0.99652, rank 18**, dated UI observation |
 | Round5 reference | Established comparison baseline | 0.99172, user-reported |
 | Round10 price ranks | +0.00011 to +0.00016 AUC across three checks | Not recorded |
@@ -44,7 +63,7 @@ For a fresh Codex session, use `bash scripts/codex-start.sh check`, then
 the documented local improvement workflow. The configuration requests Astra/ultra;
 the startup guide explains project trust and actual runtime verification.
 
-For the current best, follow [REPRODUCING.md](docs/REPRODUCING.md) to set up the
+For the preserved **0.99652 baseline**, follow [REPRODUCING.md](docs/REPRODUCING.md) to set up the
 separate Python 3.11 environment and restore artifacts, then run:
 
 ```sh
@@ -52,7 +71,8 @@ separate Python 3.11 environment and restore artifacts, then run:
 .venv-hydraulic/bin/python src/hydraulic_surrogate.py replay-best --run-id first-replay-001
 ```
 
-Export reconstructs the submitted CSV from saved probabilities; replay rebuilds
+These legacy commands still target 0.99652, despite their `best` names.
+Export reconstructs that CSV from saved probabilities; replay rebuilds
 features and executes all 98 classifiers on CPU. Both require the original checksum.
 
 For the existing Round10 pipeline, use Python 3.12 and start from a

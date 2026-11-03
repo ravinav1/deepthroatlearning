@@ -1,0 +1,23 @@
+{
+  "status": "Complete",
+  "public_score": 0.99952,
+  "rank": 1,
+  "team": "DeepthroatLearning",
+  "submission_id": null,
+  "submission_time_utc": null,
+  "observed_time_utc_approximate": "2026-11-03T03:09:00+00:00",
+  "observation_time_precision": "minute, reported by root",
+  "observation_recorded_utc": "2026-11-03T03:12:59.969206+00:00",
+  "observed_by": "Root independently verified authenticated completed-submission view and live leaderboard",
+  "description_persisted": null,
+  "submission_sha256": "5d9b58d4fa9153ed69d7a77ffb1f8ec2ad3e04c8894fda9329b6120d8b96f93e",
+  "public_source_sha256": "d031b4913a668bafe1a7567ea60c8668d207a63fd30feb8c3ccb9ba069cb0dd7",
+  "prior_public_best": 0.99795,
+  "personal_best_ui_confirmed": true,
+  "prior_leader_public_score": 0.9982,
+  "team_submission_count_observed": null,
+  "private_score": null,
+  "final_manifest_sha256": "9c7e10ac441b1f4c5ed955c9b8538454531704a581d0385ea5db749c7c258767",
+  "independent_final_audit_sha256": "c9af7f216a08eeb198064fc7a886e7383b8971527977a0acc23ef5feba5e516b",
+  "goal_evidence": "Observed public first place; private leaderboard/final competition outcome not observed."
+}

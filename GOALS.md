@@ -1,21 +1,27 @@
 # Competition objective and continuation
 
-The objective is **first place with a reproducible, valid submission** in the
-[TDT4173 2026 competition](https://www.kaggle.com/competitions/machine-learning-task-tdt-4173-2026).
-This objective is **unmet**. The latest stored observation is public AUC **0.99652**,
-rank **18**, on 2026-11-02 at 22:04:37 UTC. Private score is unknown. The leaders
-at that observation were 0.99820, 0.99820, and 0.99805; these are dated observations,
-not claims about the live leaderboard.
+The reconstruction objective is to match or exceed historical **0.99952 public
+micro ROC-AUC**, using a reproducible numerical pipeline whose inputs, fitted
+parameters and teacher targets come only from supplied data and independent
+local computation. Research is externally informed, with prior external test-output
+exposure disclosed. This reconstruction objective is **unmet**.
 
-Milestones retained from the earlier work are an actual public score above 0.998
-and top-three rank, with 0.999 an earlier stretch target. The validation target is
-at least 0.998 on **both** purged 2021 and 2022 development years with one frozen
-selection rule. Current best scores are 0.9951042081969695 and 0.9938717710733546.
-Do not equate validation with the leaderboard or mark the objective complete
-because a smaller improvement or the repository migration is complete.
+The historical 0.99952 submission was observed at rank 1 around 2026-11-03 03:09 UTC
+and directly used external SHOP predictions. The best measured supplied-numerical-
+data score is 0.99653 (retrospective supplied covariates); latest submitted 0.99650.
+These are dated observations, not live ranks or organizer acceptance. Private
+scores remain unknown. See [results/provenance](docs/best_result.md).
 
-The user explicitly requested this migration before the old validation transfer
-gate was met. The migration is independent of achieving the competition target.
+**Current scope: incorporate findings and the deferred plan only.** Do not start
+training, reconstruction experiments, hosted jobs or submissions from this update.
+The full [reconstruction plan](docs/RECONSTRUCTION_PLAN.md) is ready for a later
+explicit resumption. Preserve the existing source, artifacts and release.
+
+On resumption, use supplied-label chronological development selection, purge
+six overlapping daily starts, and retain all negative/per-unit results. The 2021
+and 2022 years have been repeatedly reused. A score of 0.998 on both years remains
+a development target, not a transfer prohibition or proof of generalization.
+Successful Kaggle scoring is not a decision about external-research admissibility.
 
 ## Resume in a new Codex session
 
@@ -33,7 +39,7 @@ python src/hydraulic_surrogate.py --help
 
 After restoring data/artifacts as described in `docs/REPRODUCING.md`, use:
 
-> Continue the competition improvement work from AGENTS.md, GOALS.md and
+> When explicitly resuming the deferred reconstruction, continue from AGENTS.md, GOALS.md and
 > docs/HANDOFF.md. Verify the current best and inspect actual local/hosted job
 > state first. Pick up the highest-priority eligible experiment without repeating
 > rejected comparisons or changing frozen protocols. Preserve the best models,

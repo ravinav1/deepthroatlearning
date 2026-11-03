@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "timestamp_utc": "2026-11-03T06:09:09.605603+00:00",
+  "command": [
+    "/Users/heap/programming/tdt4173/.venv-ml/bin/python",
+    "scripts/infer_provided_startup142.py",
+    "--final-run",
+    "artifacts/provided-startup142-final-001",
+    "--final-manifest-sha256",
+    "728d0a0e046bab8867f2bc3d8b3c400d58078229c2c2f05eb2661f0bf40730f4",
+    "--audit",
+    "artifacts/physics-provided-startup142-final-audit-001/manifest.json",
+    "--audit-sha256",
+    "17d4fb4aab21ea4672af9c2930131e2d4fd81d29fb17d8bac39825be8ef612cb",
+    "--run-id",
+    "physics-provided-startup142-final-inference-001"
+  ],
+  "source_sha256": "7ef56301fd2f98b65dac4afe2e48489773a98cd52ad2fc45a4dddb2f6b3e5f97",
+  "training": false,
+  "target_values_decoded": false,
+  "external_numeric_inputs": false,
+  "environment": {
+    "python": "3.11.15 (main, Jun 23 2026, 15:46:51) [Clang 22.1.3 ]",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "numpy": "2.4.6",
+    "pandas": "3.0.6",
+    "lightgbm": "4.7.0"
+  },
+  "scope": "Rebuild all27 economics columns from supplied topology and pinned clean115 rows, replay every final row, compose the locked25% blend, reproduce actual CSV bytes. Original115 features/anchor remain pinned audited local caches; no raw-data rebuild or model refit.",
+  "final_manifest_sha256": "728d0a0e046bab8867f2bc3d8b3c400d58078229c2c2f05eb2661f0bf40730f4",
+  "audit_sha256": "17d4fb4aab21ea4672af9c2930131e2d4fd81d29fb17d8bac39825be8ef612cb",
+  "feature_data_bytes_sha256": "0a7dbf680cae45c7bd24e84c4305283808bfb586d2b3678e9c9f062993509cd8",
+  "all_economics_features_rebuilt_exact": true,
+  "full_native_prediction_replay_bitwise": true,
+  "locked_weight": 0.25,
+  "selected_prediction_bytes_exact": true,
+  "actual_csv_bytes_exact": true,
+  "submission_sha256": "498c2f7b9acd3a3974b855b816f94da4ba52ea6ce1de86153cd294cafb5b1953",
+  "runtime_seconds": 47.6469565840016,
+  "artifacts": {
+    "submission.csv": "498c2f7b9acd3a3974b855b816f94da4ba52ea6ce1de86153cd294cafb5b1953",
+    "test_predictions.npy": "3875c0cb16dce8d2dfe8c519306fff3301db4e57d517d611fdf201c697b86240",
+    "source.py": "7ef56301fd2f98b65dac4afe2e48489773a98cd52ad2fc45a4dddb2f6b3e5f97"
+  }
+}

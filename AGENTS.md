@@ -8,6 +8,15 @@ process/hosted-job state before starting a fit. `docs/HANDOFF.md` is the current
 checkpoint; historical agent names, process IDs, browser handles, and approvals
 inside archived research notes do not describe this session.
 
+The 3 November reconstruction plan is in `docs/RECONSTRUCTION_PLAN.md`. It was
+incorporated for later work, with execution explicitly deferred. Do not treat
+this incorporation or reading its checklist as authorization to launch it.
+When resumed, preserve the distinction between external research inspiration
+and supplied numerical ancestry; historical 0.99952 used external solver outputs.
+Do not use external competition-test-date outputs for further reconstruction
+development, selection or tuning. Preserve prior exposure instead of claiming
+clean-room research, and do not infer organizer approval from a scored submission.
+
 For automatic startup, model verification and reusable agent roles, follow
 `docs/CODEX_AUTOSTART.md` and run `bash scripts/codex-start.sh check`. The user
 authorizes independent agent deployment during improvement within the documented

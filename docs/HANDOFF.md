@@ -1,76 +1,82 @@
 # Current project handoff
 
-Read root `AGENTS.md`, `GOALS.md`, [best_result.md](best_result.md), and
-[DATA_AND_ARTIFACTS.md](DATA_AND_ARTIFACTS.md). The canonical repository is
-**ravinav1/deepthroatlearning**. This handoff supersedes live-status statements in
-the imported archive. The earlier Round pipeline handoff is preserved in
-[PRE_HYDRAULIC_HANDOFF.md](PRE_HYDRAULIC_HANDOFF.md).
+Updated 3 November 2026. This is a **findings and plan incorporation**, not a new
+reconstruction run. The latest instruction is to stop after adding this material
+to DeepthroatLearning. Do not launch the deferred work until it is resumed.
 
-## Ready to use
+## Recorded results
 
-The best recorded public result is **0.99652, rank 18**, observed 2026-11-02
-22:04:37 UTC. Its CSV SHA256 is
-`1c1d173816127997e711d54c8269406830666af66b6f4eb6d24f4f227b70d496`.
-Private score and numeric submission ID are unknown. The recipe is
-`configs/hydraulic_surrogate_best.json`; dated observations are merged into
-`reports/kaggle_scores.json`. The older Round5 reference and Round10 candidates
-remain intact with their code, configs and historical evidence.
+| Track | Public score | Evidence |
+| --- | --- | --- |
+| Historical external AllMIP blend | **0.99952**, rank 1 at approximately 03:09 UTC | Matching SHOP 17.17 envC solver states blended with the earlier external NoMIP ensemble |
+| Historical external NoMIP blend | **0.99795**, rank 5 at 03:07 UTC | Half prior 0.99690 predictions, half SHOP 17.17 envC relaxed commitment states |
+| Best supplied numerical ancestry | **0.99653** | Retrospective971; future historical covariates were supplied, but prospective availability/admissibility is not established |
+| Latest submitted supplied numerical ancestry | **0.99650** | Canonical115 63-leaf capacity blend, submitted 04:15:15 UTC |
+| Startup142 and busbar144 | Unsubmitted | Existing completed/audited final artifacts; no public score |
 
-`src/hydraulic_surrogate.py` provides setup, artifact restoration, exact export and
-CPU replay of all 98 component checkpoints. Frozen source and protocols live in
-`experiments/hydraulic_surrogate/`; restored artifacts use ignored
-`models/hydraulic_surrogate/`. Follow [REPRODUCING.md](REPRODUCING.md).
+See [best_result.md](best_result.md), the [score ledger](../reports/kaggle_scores.json),
+and [preserved evidence index](../reports/reconstruction_20261103/evidence_index.json).
+Private scores/current ranks are unknown; no leaderboard refresh was performed.
 
-## Latest measured outcomes
+The external dataset was discovered through autonomous experimentation and Kaggle
+submissions. The research is externally informed and previously exposed to
+external test-date outputs. Supplied numerical ancestry is a separate claim.
+No externally derived predictions or constants may silently enter the proposed
+reconstruction. No new external test-date inspection is part of that plan.
 
-| Experiment | Evidence and decision |
-| --- | --- |
-| LGB664–SHOP best | Public 0.99652; purged development 0.9951042081969695 / 0.9938717710733546. Retain. |
-| Earlier SHOP664 blend | Public 0.99651. It remains the frozen anchor for existing declared protocols. |
-| Fullsample608 final | Complete submissions: primary 0.99643, standalone 0.99631. Below the best. Do not repeat saved v10 or either submission. |
-| River726 | 2021 weight 0.25: 0.9951306250691139. Locked 2022: 0.9938778756239264, below matched LGB664 control 0.9938790447855327. Actual result and independent audit reject promotion. No conditional final fit. |
-| Fullsample608 blended into current SHOP | Rejected on locked 2022; no rescue weights or export. |
-| CPU vector14 | Synthetic capability passed. Timing pilot failed its declared 2 GiB limit; no full-fold result. |
+## Findings and next plan
 
-River726 finished after the older source handoff was written. Actual evidence is
-`lgb-river726-2022-001/manifest.json` and
-`lgb-river726-2022-independent-audit-001/manifest.json`; migration verification
-records the observed hashes. Archived statements that it is running are historical.
+- [Information boundary](reconstruction_information_boundary.md): supplied files,
+  verified artifact ancestry, external numerical use and research-selection exposure.
+- [Mechanism evidence](reconstruction_mechanism_evidence.md): empirical unit ordering,
+  startup economics, shared losses, water opportunity costs, pressure/tunnel routing,
+  integrality, measured counterexamples and per-unit limitations.
+- [Deferred reconstruction plan](RECONSTRUCTION_PLAN.md): full objective, numerical
+  search requirements, validation, restricted replay and deliverables.
+- [Organizer question](reconstruction_organizer_question.md): prepared, **not sent**.
 
-## Resume improvement
+The strongest unresolved hydraulic defect is unrestricted square-root tangent
+extrapolation in signed tunnel flow. Earlier five-update beginning/end diagnostics
+improved Q-ratio ranking but retained large nonlinear residuals and wrong-direction
+flow. Residual backtracking is only a proposal: no implementation, frozen protocol,
+tests or solver run was produced during this incorporation.
 
-1. Verify data/artifact/source hashes and inspect actual local or hosted jobs.
-   Historical process IDs, session handles, agent owners and browser state do not
-   transfer to a new session. Prepared notebooks do not establish a hosted launch.
-2. Reconcile `integer-water-budget-full-four-worker-001`. It was incomplete at the
-   snapshot. Per-case outputs are preserved for recovery; case 2012 has a separately
-   reviewed numerical exception. Read the exact continuation and aggregate
-   protocols, inspect original live state, and avoid duplicate workers. All cases,
-   receipts and independent physical audit must pass before using the cache as
-   features. The 748 model remains conditional.
-3. Check whether prepared **SHOP664 fullsample2021** and **additive745 2021** jobs
-   were launched after the saved checkpoint; the last recorded queue did not yet
-   observe launches. Read imported `docs/next_gpu_queue.md`,
-   `cuda_fullsample_parallel_execution.md`, and `cuda_xgb745_execution.md`.
-   Rebuild omitted private upload stages from supplied local inputs and preserved
-   caches. Keep at most two saved GPU VMs and the frozen smoke, return, and
-   2021-lock-before-2022 checks.
-4. Canonical pooled early-2020 and CPU vector14 work are prospective. Read their
-   v2 protocols, reviews and resource limits before deciding on a bounded next run.
-   Do not retune rejected river/calibration/smoothing/fullsample comparisons on 2022.
+Existing startup142 and busbar144 final recipes/audits are preserved as research
+records. The older Cat144 2021 GPU result selected 1,800 trees / 0.25; its 2022 bundle
+and notebook were prepared, but no 2022 launch/result is established by this update.
+Recheck actual hosted state on later resumption; do not duplicate historical jobs.
 
-Optional research/physics release groups preserve negative experiments, other
-models and predictions, hosted returns, completed river cache and partial integer
-state. The inventory and manifests distinguish preparation, failure, partial and
-completed runs. Migration starts no new background training or Kaggle submission.
+## Preservation and practical availability
 
-For difficult reasoning, earlier computer use showed “Pro” but did not verify a
-GPT-6 generation. A consultation was pending in the earlier session; recheck access
-and model identity. This migration session had no computer-use tool, so no new
-GPT-6 Pro consultation is claimed. Prompts and observations remain in the imported
-consultation records.
+The original imported `experiments/hydraulic_surrogate/`, its hash-pinned sources,
+`configs/hydraulic_surrogate_best.json`, all existing numerical artifacts and the
+20261102 release remain unchanged. The legacy adapter's `export-best` and
+`replay-best` commands still reproduce **0.99652**, not the external winner.
+Newer numerical artifacts remain in the original `tdt4173/artifacts/` workspace;
+this update imports documentation, source-map metadata and small receipts only.
+It does not claim new model portability or a restricted raw-input-to-model replay.
+Original workspace paths in copied reports are historical references.
 
-The 2021/2022 years are reused development sets. Preserve chronological purging,
-all-hour scoring, frozen controls and nested projections. First place remains
-unmet. The explicit migration request supersedes the older deferred-transfer rule.
-Use new run IDs and keep this handoff, the experiment ledger and best recipe current.
+The evidence index explicitly records one unavailable referenced receipt for the
+latent-model submission; no replacement was invented. A prior handoff is preserved
+as [historical context](../reports/reconstruction_20261103/research/pre_incorporation_handoff.md).
+
+## Work performed and stopped in this incorporation
+
+Existing sources, protocols and receipts were read; Git origin was fetched.
+The startup metadata checker failed (`Codex metadata service exited`), so its
+requested Astra/ultra catalog identity remains unverified. It reported 10/10 raw
+files and 504/504 baseline artifact files present, not a new numerical replay.
+An OS restriction availability probe failed with `sandbox_apply: Operation not
+permitted`; no restricted replay, guard/interposer, training or new physics solve
+was launched. The process-level fallback was deferred before implementation.
+
+Computer use located an existing research consultation, but no new prompt or
+verified GPT-6 Pro consultation occurred. No new external-output data was read
+for the incorporation. Agents stopped the proposed reconstruction work when the
+scope was narrowed. No organizer message or new Kaggle submission was sent.
+
+Run documentation/metadata checks before committing. On later resumption, read
+AGENTS.md and the deferred plan, verify actual jobs and model identity, and freeze
+one bounded experiment before implementation. Existing empirical gains alone do
+not establish reproduction of 0.99952.

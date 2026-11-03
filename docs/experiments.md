@@ -84,3 +84,31 @@ Release `hydraulic-surrogate-20261102` was published at 2026-11-02T23:06:58Z wit
 the committed index. The release targets the integration commit. Fresh remote
 checkout, anonymous release download and recovery verification are recorded in
 the final migration verification report.
+
+
+## Incorporate externally informed reconstruction findings — 2026-11-03T09:12:12.273178+00:00
+
+Documentation/evidence update from base commit `6188e4605ea4684da83e7bebfd062be2c356dd37`. Preserved the historical
+0.99952 external-output recipe, intermediate 0.99795, best supplied-numerical-data
+0.99653 and latest submitted 0.99650; imported dated receipts and explicit ancestry
+metadata. External archive discovery is recorded as a finding of autonomous
+experimentation and Kaggle submissions. Prior external test-output exposure and
+reused 2021/2022 development remain disclosed. The full reconstruction objective
+and organizer question are recorded as deferred/unsent. No new fit, hydraulic
+solve, external-output read, restricted replay or Kaggle submission was launched.
+
+Evidence index: `reports/reconstruction_20261103/evidence_index.json` (41 copied
+files with original hashes; one absent old latent receipt is explicit). Verification:
+`reports/reconstruction_20261103/incorporation_verification.json`. All 643 frozen
+research source files remain unchanged; eight main documents passed local-link
+checks and 19 JSON files parsed. Existing repository suite: 26 tests passed in 5.018s
+using `../.venv-ml/bin/python -m unittest discover -s tests`; `git diff --check`
+passed. No numerical score was recalculated. Existing protocols, data, caches,
+checkpoints, CSVs and the 20261102 artifact release remain unchanged.
+
+The startup metadata checker failed before model verification; its local receipt
+is `models/codex-session/preflight-20261103T090240Z-73975.json`. A separate
+`sandbox-exec` availability probe failed with `sandbox_apply: Operation not
+permitted`, exit 71; no new boundary or numerical replay followed. A browser
+consultation was located but no prompt was sent or GPT-6 Pro identity verified.
+Further reconstruction work was stopped at the documentation-only scope.

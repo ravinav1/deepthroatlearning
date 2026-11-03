@@ -1,0 +1,20 @@
+{
+  "status": "Complete",
+  "public_score": 0.9969,
+  "rank": 11,
+  "team": "DeepthroatLearning",
+  "submission_id": null,
+  "submission_time_utc": null,
+  "observation_recorded_utc": "2026-11-03T02:53:18.805896+00:00",
+  "observation_time_semantics": "Receipt capture after root verified leaderboard; exact submission time unavailable.",
+  "observed_by": "User reported0.99690; root independently verified authenticated live leaderboard and new-personal-best message",
+  "submitted_by": "User apparently completed submission click while root UI was active",
+  "description": null,
+  "description_note": "Persistence not verified because user clicked while root was setting description",
+  "submission_sha256": "bebfd120d72771c8806efe5edde01172afb8409651b8ba5e4b6ad64abc173409",
+  "public_source_csv_sha256": "07f6f7e4a8770c7ae49f7d2959bddd3160f3f81f19384c6fa2b672ab651c053e",
+  "prior_public_best": 0.99653,
+  "personal_best_ui_confirmed": true,
+  "team_submission_count_observed": 41,
+  "final_manifest_sha256": "c88ece7887f7a7b49104f07d4f302b5bd23ac29c59e17454108e6c78881167a4"
+}

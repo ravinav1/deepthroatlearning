@@ -1,0 +1,18 @@
+{
+  "status": "Complete",
+  "public_score": 0.99653,
+  "rank": 18,
+  "team": "DeepthroatLearning",
+  "submission_id": null,
+  "submission_time_utc": null,
+  "observation_time_utc": "2026-11-03T02:47:00+00:00",
+  "observation_precision": "minute",
+  "observed_by": "Root agent in authenticated Kaggle submission/leaderboard UI; reported to metric_trick agent",
+  "description": "Retrospective971global10",
+  "submission_sha256": "3b167ddabf634af78240a0ec9be740588028b3451bfe0c888d84f3279c6a3f5a",
+  "prior_public_best": 0.99652,
+  "personal_best_ui_confirmed": true,
+  "team_submission_count_observed": 40,
+  "final_manifest_sha256": "065d49d1ca40b614d2ad43fbbc4f5d302d3e87d9e8fb7a5fe063654330b6fe7c",
+  "record_created_utc": "2026-11-03T02:47:41.763553+00:00"
+}

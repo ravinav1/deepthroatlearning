@@ -1,5 +1,13 @@
 # Reproduce on another computer
 
+The existing adapter and release below reproduce the preserved **0.99652
+supplied-numerical-data baseline**. Their `best` command names have not changed.
+The later external-output 0.99952 result and newer supplied models are documented
+in [best_result.md](best_result.md), with checksums and original workspace paths.
+This findings-only update does not transfer their numerical artifacts or claim
+a new restricted raw-input-to-model replay. Further work is deferred under the
+[reconstruction plan](RECONSTRUCTION_PLAN.md).
+
 ```sh
 git clone https://github.com/ravinav1/deepthroatlearning.git
 cd deepthroatlearning
