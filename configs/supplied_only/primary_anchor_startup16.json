@@ -1,0 +1,9 @@
+{
+  "name": "Supplied-only primary: 0.99652 anchor + 0.25 startup16 pooled LightGBM, Vinje and Tokke projections",
+  "anchor_test": "models/hydraulic_surrogate/submission-lgb-shop664-anchor-blend-001/test_predictions.npy",
+  "stages": [
+    {"name": "startup16", "components": {"startup16": {"path": "models/supplied_only/startup16_final/raw_predictions.npy", "weight": 0.25}}}
+  ],
+  "tokke_projection": true,
+  "selection": "weight 0.25 selected on 2021 from [0,.1,.25,.5], evaluated unchanged on 2022; see reports/supplied_only/log.md"
+}

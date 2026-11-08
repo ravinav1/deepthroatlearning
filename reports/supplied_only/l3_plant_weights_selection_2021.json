@@ -1,0 +1,690 @@
+{
+ "year": 2021,
+ "base_score": 0.9952596524075921,
+ "selected_score": 0.9954885267514183,
+ "weights": {
+  "Hogga": {
+   "canonical_raw": 0.1,
+   "startup142_raw": 0.25
+  },
+  "Tokke": {
+   "startup142_raw": 0.25
+  },
+  "Lio": {
+   "startup142_raw": 0.25,
+   "busbar144_raw": 0.1
+  },
+  "Byrte": {
+   "startup142_raw": 0.25
+  },
+  "Vinje": {
+   "startup142_raw": 0.25
+  },
+  "Haukeli": {
+   "canonical_raw": 0.25,
+   "startup142_raw": 0.25,
+   "busbar144_raw": 0.1
+  },
+  "Songa": {},
+  "Kjela": {
+   "canonical_raw": 0.5,
+   "startup142_raw": 0.25
+  },
+  "Vesle Kjela": {
+   "busbar144_raw": 0.1
+  }
+ },
+ "history": [
+  {
+   "pass": 0,
+   "score": 0.9952596524075921,
+   "weights": {
+    "Hogga": {
+     "canonical_raw": 0.25
+    },
+    "Tokke": {
+     "canonical_raw": 0.25
+    },
+    "Lio": {
+     "canonical_raw": 0.25
+    },
+    "Byrte": {
+     "canonical_raw": 0.25
+    },
+    "Vinje": {
+     "canonical_raw": 0.25
+    },
+    "Haukeli": {
+     "canonical_raw": 0.25
+    },
+    "Songa": {
+     "canonical_raw": 0.25
+    },
+    "Kjela": {
+     "canonical_raw": 0.25
+    },
+    "Vesle Kjela": {
+     "canonical_raw": 0.25
+    }
+   }
+  },
+  {
+   "pass": 1,
+   "plant": "Hogga",
+   "best_so_far": 0.9952691780577387,
+   "chosen": {
+    "canonical_raw": 0.1,
+    "startup142_raw": 0.25
+   },
+   "top3": [
+    [
+     0.995269178,
+     {
+      "canonical_raw": 0.1,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0
+     }
+    ],
+    [
+     0.995268739,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0
+     }
+    ],
+    [
+     0.995268286,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0.1
+     }
+    ]
+   ]
+  },
+  {
+   "pass": 1,
+   "plant": "Tokke",
+   "best_so_far": 0.9953001740045888,
+   "chosen": {
+    "startup142_raw": 0.25
+   },
+   "top3": [
+    [
+     0.995300174,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0
+     }
+    ],
+    [
+     0.995298121,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.1,
+      "busbar144_raw": 0.1
+     }
+    ],
+    [
+     0.995296111,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0.1
+     }
+    ]
+   ]
+  },
+  {
+   "pass": 1,
+   "plant": "Lio",
+   "best_so_far": 0.9953293581565621,
+   "chosen": {
+    "startup142_raw": 0.25,
+    "busbar144_raw": 0.1
+   },
+   "top3": [
+    [
+     0.995329358,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0.1
+     }
+    ],
+    [
+     0.99532861,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0
+     }
+    ],
+    [
+     0.995325511,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0.25
+     }
+    ]
+   ]
+  },
+  {
+   "pass": 1,
+   "plant": "Byrte",
+   "best_so_far": 0.9953335832961789,
+   "chosen": {
+    "startup142_raw": 0.25
+   },
+   "top3": [
+    [
+     0.995333583,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0
+     }
+    ],
+    [
+     0.995333216,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.1,
+      "busbar144_raw": 0
+     }
+    ],
+    [
+     0.995333105,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.1,
+      "busbar144_raw": 0.1
+     }
+    ]
+   ]
+  },
+  {
+   "pass": 1,
+   "plant": "Vinje",
+   "best_so_far": 0.9953461521266307,
+   "chosen": {
+    "startup142_raw": 0.25
+   },
+   "top3": [
+    [
+     0.995346152,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0
+     }
+    ],
+    [
+     0.995344522,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.1,
+      "busbar144_raw": 0.1
+     }
+    ],
+    [
+     0.995342659,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0.1
+     }
+    ]
+   ]
+  },
+  {
+   "pass": 1,
+   "plant": "Haukeli",
+   "best_so_far": 0.9954103433621334,
+   "chosen": {
+    "canonical_raw": 0.25,
+    "startup142_raw": 0.25,
+    "busbar144_raw": 0.1
+   },
+   "top3": [
+    [
+     0.995410343,
+     {
+      "canonical_raw": 0.25,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0.1
+     }
+    ],
+    [
+     0.995408481,
+     {
+      "canonical_raw": 0.25,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0
+     }
+    ],
+    [
+     0.995404836,
+     {
+      "canonical_raw": 0.5,
+      "startup142_raw": 0.1,
+      "busbar144_raw": 0
+     }
+    ]
+   ]
+  },
+  {
+   "pass": 1,
+   "plant": "Songa",
+   "best_so_far": 0.9954493040863218,
+   "chosen": {},
+   "top3": [
+    [
+     0.995449304,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0,
+      "busbar144_raw": 0
+     }
+    ],
+    [
+     0.995439524,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0,
+      "busbar144_raw": 0.1
+     }
+    ],
+    [
+     0.995432239,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.1,
+      "busbar144_raw": 0
+     }
+    ]
+   ]
+  },
+  {
+   "pass": 1,
+   "plant": "Kjela",
+   "best_so_far": 0.9954821050712127,
+   "chosen": {
+    "canonical_raw": 0.5,
+    "startup142_raw": 0.25
+   },
+   "top3": [
+    [
+     0.995482105,
+     {
+      "canonical_raw": 0.5,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0
+     }
+    ],
+    [
+     0.995478596,
+     {
+      "canonical_raw": 0.25,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0.25
+     }
+    ],
+    [
+     0.995476273,
+     {
+      "canonical_raw": 0.5,
+      "startup142_raw": 0.1,
+      "busbar144_raw": 0.1
+     }
+    ]
+   ]
+  },
+  {
+   "pass": 1,
+   "plant": "Vesle Kjela",
+   "best_so_far": 0.9954885267514183,
+   "chosen": {
+    "busbar144_raw": 0.1
+   },
+   "top3": [
+    [
+     0.995488527,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0,
+      "busbar144_raw": 0.1
+     }
+    ],
+    [
+     0.995488281,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0,
+      "busbar144_raw": 0.25
+     }
+    ],
+    [
+     0.995487935,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.1,
+      "busbar144_raw": 0
+     }
+    ]
+   ]
+  },
+  {
+   "pass": 2,
+   "plant": "Hogga",
+   "best_so_far": 0.9954885267514183,
+   "chosen": {
+    "canonical_raw": 0.1,
+    "startup142_raw": 0.25
+   },
+   "top3": [
+    [
+     0.995488527,
+     {
+      "canonical_raw": 0.1,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0
+     }
+    ],
+    [
+     0.995487693,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0
+     }
+    ],
+    [
+     0.995487397,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0.1
+     }
+    ]
+   ]
+  },
+  {
+   "pass": 2,
+   "plant": "Tokke",
+   "best_so_far": 0.9954885267514183,
+   "chosen": {
+    "startup142_raw": 0.25
+   },
+   "top3": [
+    [
+     0.995488527,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0
+     }
+    ],
+    [
+     0.995486075,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.1,
+      "busbar144_raw": 0.1
+     }
+    ],
+    [
+     0.995484586,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0.1
+     }
+    ]
+   ]
+  },
+  {
+   "pass": 2,
+   "plant": "Lio",
+   "best_so_far": 0.9954885267514183,
+   "chosen": {
+    "startup142_raw": 0.25,
+    "busbar144_raw": 0.1
+   },
+   "top3": [
+    [
+     0.995488527,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0.1
+     }
+    ],
+    [
+     0.995487173,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0
+     }
+    ],
+    [
+     0.995484973,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0.25
+     }
+    ]
+   ]
+  },
+  {
+   "pass": 2,
+   "plant": "Byrte",
+   "best_so_far": 0.9954885267514183,
+   "chosen": {
+    "startup142_raw": 0.25
+   },
+   "top3": [
+    [
+     0.995488527,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0
+     }
+    ],
+    [
+     0.995488008,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0.1
+     }
+    ],
+    [
+     0.995487987,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.1,
+      "busbar144_raw": 0.1
+     }
+    ]
+   ]
+  },
+  {
+   "pass": 2,
+   "plant": "Vinje",
+   "best_so_far": 0.9954885267514183,
+   "chosen": {
+    "startup142_raw": 0.25
+   },
+   "top3": [
+    [
+     0.995488527,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0
+     }
+    ],
+    [
+     0.995487127,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.1,
+      "busbar144_raw": 0.1
+     }
+    ],
+    [
+     0.995484797,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0.1
+     }
+    ]
+   ]
+  },
+  {
+   "pass": 2,
+   "plant": "Haukeli",
+   "best_so_far": 0.9954885267514183,
+   "chosen": {
+    "canonical_raw": 0.25,
+    "startup142_raw": 0.25,
+    "busbar144_raw": 0.1
+   },
+   "top3": [
+    [
+     0.995488527,
+     {
+      "canonical_raw": 0.25,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0.1
+     }
+    ],
+    [
+     0.99548648,
+     {
+      "canonical_raw": 0.25,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0
+     }
+    ],
+    [
+     0.995483046,
+     {
+      "canonical_raw": 0.5,
+      "startup142_raw": 0.1,
+      "busbar144_raw": 0
+     }
+    ]
+   ]
+  },
+  {
+   "pass": 2,
+   "plant": "Songa",
+   "best_so_far": 0.9954885267514183,
+   "chosen": {},
+   "top3": [
+    [
+     0.995488527,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0,
+      "busbar144_raw": 0
+     }
+    ],
+    [
+     0.995479539,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0,
+      "busbar144_raw": 0.1
+     }
+    ],
+    [
+     0.995472328,
+     {
+      "canonical_raw": 0.1,
+      "startup142_raw": 0,
+      "busbar144_raw": 0
+     }
+    ]
+   ]
+  },
+  {
+   "pass": 2,
+   "plant": "Kjela",
+   "best_so_far": 0.9954885267514183,
+   "chosen": {
+    "canonical_raw": 0.5,
+    "startup142_raw": 0.25
+   },
+   "top3": [
+    [
+     0.995488527,
+     {
+      "canonical_raw": 0.5,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0
+     }
+    ],
+    [
+     0.995485102,
+     {
+      "canonical_raw": 0.25,
+      "startup142_raw": 0.25,
+      "busbar144_raw": 0.25
+     }
+    ],
+    [
+     0.99548273,
+     {
+      "canonical_raw": 0.5,
+      "startup142_raw": 0.1,
+      "busbar144_raw": 0.1
+     }
+    ]
+   ]
+  },
+  {
+   "pass": 2,
+   "plant": "Vesle Kjela",
+   "best_so_far": 0.9954885267514183,
+   "chosen": {
+    "busbar144_raw": 0.1
+   },
+   "top3": [
+    [
+     0.995488527,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0,
+      "busbar144_raw": 0.1
+     }
+    ],
+    [
+     0.995488281,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0,
+      "busbar144_raw": 0.25
+     }
+    ],
+    [
+     0.995487935,
+     {
+      "canonical_raw": 0,
+      "startup142_raw": 0.1,
+      "busbar144_raw": 0
+     }
+    ]
+   ]
+  }
+ ]
+}

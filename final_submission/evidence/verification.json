@@ -1,0 +1,89 @@
+{
+  "verification_date": "2026-11-08",
+  "checks": {
+    "anchor_all_nested_projections_exact": true,
+    "csv_0.99657": {
+      "sha256": "f7b0b52fc54e93e1db6171fdf85a7955486c3439897911291eef98c70a4f716a",
+      "matches": true,
+      "shape": [
+        725,
+        2353
+      ]
+    },
+    "csv_0.99656": {
+      "sha256": "a45f8001a87afbc67b17d95fb39c9f1982593d24f91887d5747fec1f3c367ceb",
+      "matches": true,
+      "shape": [
+        725,
+        2353
+      ]
+    },
+    "embedded_modules_compile": 15,
+    "raw_data_lp_case_checks": [
+      {
+        "case_id": 1,
+        "max_abs_feature_differences": {
+          "lp-full-001": 0.0,
+          "lp-joint-full-001": 0.0,
+          "lp-shop-full-001": 0.0
+        }
+      },
+      {
+        "case_id": 2922,
+        "max_abs_feature_differences": {
+          "lp-full-001": 0.0,
+          "lp-joint-full-001": 0.0,
+          "lp-shop-full-001": 0.0
+        }
+      },
+      {
+        "case_id": 2923,
+        "max_abs_feature_differences": {
+          "lp-full-001": 0.0,
+          "lp-joint-full-001": 0.0,
+          "lp-shop-full-001": 0.0
+        }
+      }
+    ],
+    "664_table_from_raw_covariates_and_archived_lp_exact": true,
+    "training_sample_regenerates_exactly": true,
+    "executed_notebook_runtime": {
+      "lp": {
+        "columns": 395,
+        "rows": 612696
+      },
+      "retrained_lp_Hogga_G1_max_abs_error": 0.0,
+      "context": {
+        "columns": 521,
+        "rows": 612696
+      },
+      "joint": {
+        "columns": 404,
+        "rows": 612696
+      },
+      "context_joint": {
+        "columns": 608,
+        "rows": 612696
+      },
+      "gpu608": {
+        "columns": 608,
+        "rows": 612696
+      },
+      "gpu664": {
+        "columns": 664,
+        "rows": 612696
+      },
+      "lgb664": {
+        "columns": 664,
+        "rows": 612696
+      },
+      "startup16_final_14000_predictions_exact": true,
+      "startup16_final_seed1_14000_predictions_exact": true
+    }
+  },
+  "limitations": [
+    "No full raw-data notebook run with the historical CUDA environment",
+    "Combined runtime and peak memory are not measured",
+    "Live Kaggle final-selection state not accessible"
+  ]
+}

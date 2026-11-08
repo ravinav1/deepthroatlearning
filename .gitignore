@@ -43,3 +43,11 @@ artifacts/
 .cache/
 .kaggle/
 *.key
+
+# Final delivery binaries are published as checksum-indexed release assets.
+/final_submission/**/*.csv
+/final_submission/**/*.pdf
+/final_submission/**/*.png
+/final_submission/*.zip
+/final_submission/qa/
+/reports/**/*.log

@@ -19,7 +19,19 @@ supplied prices, water values, reservoir conditions and operating constraints.
 - [Supplied files](docs/PROJECT_FILES.md): original task, dataset and topology documents.
 - [Latest experiments](reports/round10_report_20261018.md): price ranks, temporal correction and hydraulic timing.
 
+## Final submission package
+
+The [Group 167 submission materials](final_submission/READ_ME_FIRST.txt) include
+package-free LaTeX, two self-contained notebook implementations and verification
+evidence for the selected **0.99657 / 0.99656** recipes. Compiled PDFs, exact CSVs
+and importable ZIPs are release assets indexed in
+[the delivery asset manifest](final_submission/release_assets.json).
+Full names/student IDs and a complete CUDA raw-data retraining/resource check
+remain pending. No Canvas upload or Kaggle selection has been performed.
+
 ## Current status
+
+**Update, 3 November 2026 (later):** the organizer does not allow external data, so the external SHOP entries below are ineligible. The best eligible, supplied-only result is **public 0.99657**; see [the supplied-only attempt](docs/supplied_only_attempt_20261103.md).
 
 The highest recorded public score is **0.99952**, observed at rank 1 around
 **3 November 2026, 03:09 UTC**. It directly uses external SINTEF SHOP solver
@@ -41,6 +53,7 @@ been relabelled as the 0.99952 winner or updated with the new numerical artifact
 
 | Candidate | Historical result | Public Kaggle result |
 | --- | --- | --- |
+| **Supplied-only startup16 bag (3 Nov, later)** | 2021/2022: 0.9953148 / 0.9941981 | **0.99657**, best eligible entry; see [docs/supplied_only_attempt_20261103.md](docs/supplied_only_attempt_20261103.md) |
 | External SHOP AllMIP blend | Reused 2021/2022: 0.99929508 / 0.99961071 | **0.99952, rank 1** at the dated observation |
 | External SHOP NoMIP blend | Reused 2021/2022: 0.99680263 / 0.99796882 | **0.99795**, external outputs |
 | Supplied retrospective971 | Supplied numerical data; retrospective covariates | **0.99653**, best measured in that track |

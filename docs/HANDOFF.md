@@ -6,6 +6,8 @@ to DeepthroatLearning. Do not launch the deferred work until it is resumed.
 
 ## Recorded results
 
+**3 November 2026, later the same day:** a supplied-only attempt reached **public 0.99657** (anchor + startup16 pooled LightGBM two-seed bag). The organizer disallows external data, so the 0.99952/0.99795/0.99690 entries are ineligible. See [supplied_only_attempt_20261103.md](supplied_only_attempt_20261103.md).
+
 | Track | Public score | Evidence |
 | --- | --- | --- |
 | Historical external AllMIP blend | **0.99952**, rank 1 at approximately 03:09 UTC | Matching SHOP 17.17 envC solver states blended with the earlier external NoMIP ensemble |
@@ -80,3 +82,20 @@ Run documentation/metadata checks before committing. On later resumption, read
 AGENTS.md and the deferred plan, verify actual jobs and model identity, and freeze
 one bounded experiment before implementation. Existing empirical gains alone do
 not establish reproduction of 0.99952.
+
+## Final submission preparation, 8 November 2026
+
+The user selected the 0.99657 two-seed startup16 and 0.99656 single-seed startup16
+recipes for Group 167, team deepthroatlearning. This supersedes the earlier
+suggestion to pair 0.99657 with the 0.99652 anchor. See `final_submission/` for
+plain LaTeX (no added packages), two standalone notebooks, software requirements,
+verification receipts and the release asset index.
+
+Both selected historical CSVs recompose byte-for-byte. Representative fresh
+hydraulic solves, the rebuilt 664-column table using archived LP blocks, the
+training sample, one newly fitted LightGBM unit and sampled pooled-model
+predictions match their archived counterparts. Complete CUDA training of the
+consolidated notebooks and their combined time/memory limits remain unverified.
+Full names and student IDs are still placeholders. No Canvas submission or
+Kaggle final-selection state was changed. The ordinary deadline in the supplied
+guide is 8 November 2026 at 22:00 Oslo time.

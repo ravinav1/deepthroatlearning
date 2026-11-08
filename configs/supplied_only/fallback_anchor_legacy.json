@@ -1,0 +1,20 @@
+{
+  "name": "Supplied-only fallback: 0.99652 anchor + legacy Round10-style member",
+  "anchor_test": "models/hydraulic_surrogate/submission-lgb-shop664-anchor-blend-001/test_predictions.npy",
+  "stages": [
+    {
+      "name": "legacy",
+      "components": {
+        "legacy": {
+          "csv_mean": [
+            "data/processed/round10_legacy_so_seed299_final_predictions.csv",
+            "data/processed/round10_legacy_so_seed673_final_predictions.csv"
+          ],
+          "weight": 0.05
+        }
+      }
+    }
+  ],
+  "tokke_projection": true,
+  "selection": "weight grid [0,.05,.1,.15,.2,.3] on 2021 with the two-seed mean; evaluated unchanged on 2022; see reports/supplied_only/l5_legacy_*_on_anchor.json"
+}

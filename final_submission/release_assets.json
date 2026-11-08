@@ -1,0 +1,37 @@
+{
+  "tag": "tdt4173-submission-preparation-20261108",
+  "release_url": "https://github.com/ravinav1/deepthroatlearning/releases/tag/tdt4173-submission-preparation-20261108",
+  "status": "preparation; identities and complete CUDA reproduction pending",
+  "assets": [
+    {
+      "name": "TDT4173_Overleaf.zip",
+      "bytes": 10624,
+      "sha256": "42d3617ee32e0ce50fc9d19834d4b303eedce9d86e76a422f4529cf56868873c",
+      "download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/tdt4173-submission-preparation-20261108/TDT4173_Overleaf.zip"
+    },
+    {
+      "name": "TDT4173_submission_package.zip",
+      "bytes": 17208774,
+      "sha256": "9723f13c35e28565da615f3516c24d9ff396762cacb9044fce6e0c872ef77b87",
+      "download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/tdt4173-submission-preparation-20261108/TDT4173_submission_package.zip"
+    },
+    {
+      "name": "Report.pdf",
+      "bytes": 198619,
+      "sha256": "49f154a4099cc1d6dd34f13e7f3c96b44bf3553f188f40ab3fd73056f63eb476",
+      "download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/tdt4173-submission-preparation-20261108/Report.pdf"
+    },
+    {
+      "name": "Submission_checklist.pdf",
+      "bytes": 120083,
+      "sha256": "fdb5d7baab88d13ec5cee93466727cac7c2a0439bebbe042f8deb3daa2486821",
+      "download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/tdt4173-submission-preparation-20261108/Submission_checklist.pdf"
+    },
+    {
+      "name": "tdt4173-experiment-logs.tar.gz",
+      "bytes": 5640,
+      "sha256": "96489a11a29092c321a01d30c879fd345f941632a35b346a0211a474f7d699c9",
+      "download_url": "https://github.com/ravinav1/deepthroatlearning/releases/download/tdt4173-submission-preparation-20261108/tdt4173-experiment-logs.tar.gz"
+    }
+  ]
+}

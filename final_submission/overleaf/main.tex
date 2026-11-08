@@ -1,0 +1,259 @@
+\documentclass[a4paper,11pt]{article}
+% No additional LaTeX packages are used. Compile with pdfLaTeX.
+\setlength{\textwidth}{165mm}
+\setlength{\textheight}{245mm}
+\setlength{\oddsidemargin}{-2.9mm}
+\setlength{\evensidemargin}{-2.9mm}
+\setlength{\topmargin}{-14mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.15}
+\emergencystretch=1em
+\title{TDT4173 -- Course Project\\[5pt]\large Predicting Hydropower Unit Commitment}
+\author{Group 167 -- deepthroatlearning\\[5pt]\normalsize Full names and student IDs: TO BE COMPLETED}
+\date{November 8, 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We predict hourly on/off decisions for 14 generating units in the Tokke--Vinje hydropower system over a 168-hour scheduling horizon. The approach combines gradient-boosted trees with features computed from the supplied market, hydrological and system-configuration data. Local optimization approximations describe hydraulic opportunity costs, shared-plant dispatch and switching economics. A nested ensemble of per-unit LightGBM and XGBoost models provides the main prediction, supplemented by a pooled LightGBM model with generator-relative and startup-cost features. The two selected candidates have recorded public Kaggle micro ROC-AUC scores of \textbf{0.99657} and \textbf{0.99656}. They use a two-seed average and a single seed, respectively, for the pooled member. These results describe ranking performance; they do not establish calibrated probabilities, feasible dispatch or private-leaderboard performance.
+\end{abstract}
+
+\section{Task and data}
+Short-term hydropower scheduling balances immediate electricity revenue against the future value of stored water. Upstream dispatch also changes downstream water availability. The supplied task concerns the unit-commitment part of scheduling: producing an operating probability for each generating unit and hour. The system contains 17 reservoirs, nine power plants and 14 generating units \cite{task,data}.
+
+There are 3,647 daily rolling cases: 2,922 labelled training cases from 2015--2022 and 725 test cases from 2023--2024. Each case has $14\times168=2,352$ targets, giving 6,872,544 training labels and 1,705,200 test predictions. A case is a scheduling problem with its own initial state and horizon, rather than an independent observation of each physical hour it contains.
+
+Core inputs are hourly electricity prices and inflows, initial reservoir volumes and terminal water values. Extended data provide topology, physical configuration, minimum reservoir volumes and minimum river flows. Prices and inflows within the supplied scheduling week are known inputs under this task definition. Future realized reservoir storage, solver runtime and neighbouring cases' true commitments are excluded from the selected predictors.
+
+\section{Exploratory data analysis}
+\subsection*{Domain knowledge and data generation}
+The task description and topology distinguish stored water, natural inflow and water released through generating units. Energy value and water volume have different units and cannot be substituted directly. Our hydraulic features use explicit head/efficiency conversions and treat local water-value semantics as a modelling assumption. Targets are optimizer decisions, so similar total production can correspond to different active-unit allocations \cite{physics,structure}.
+
+\subsection*{Individual features and data quality}
+The raw price, inflow, volume and water-value tables were checked for missing cells and duplicate timestamps. The inspected copies contain zero missing cells and zero duplicate date entries in these four files. Feature construction additionally checks unique case IDs, complete hourly lookups, finite values and the supplied target-column ordering. A clean table and correct case alignment are separate requirements.
+
+Economic conditions change across years. Median within-week relative price standard deviation is 0.092 in 2015--2020, 0.182 in 2021, 0.219 in 2022 and 0.321 in the 2023--2024 test inputs. This descriptive test-covariate analysis uses no hidden targets and motivated robustness checks. Monetary normalization is described in Section~\ref{features}.
+
+\subsection*{Targets, feature groups and overlap}
+The overall training ON fraction is 51.64\%. Unit-specific frequencies differ substantially, as shown in Table~\ref{prevalence}. Earlier diagnostics found persistent within-case decisions and a near-nested commitment order at Vinje. Tokke has a less complete order because its generators interact through different penstocks \cite{structure}.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lr@{\qquad}lr}
+\hline
+Unit & ON (\%) & Unit & ON (\%)\\\hline
+Hogga G1 & 59.46 & Vinje G1 & 48.54\\
+Tokke G1 & 67.10 & Vinje G2 & 42.04\\
+Tokke G2 & 47.84 & Vinje G3 & 25.91\\
+Tokke G3 & 56.43 & Haukeli G1 & 54.68\\
+Tokke G4 & 49.82 & Songa G1 & 48.54\\
+Lio G1 & 74.65 & Kjela G1 & 47.05\\
+Byrte G1 & 54.20 & Vesle Kjela G1 & 46.69\\\hline
+\end{tabular}
+\caption{ON prevalence across all supplied training case-hours. Repeated physical hours in different rolling cases count as separate scheduling targets.}\label{prevalence}
+\end{table}
+
+One-day-separated cases agree on overlapping commitment targets only about 87.77\% of the time; at six days, agreement is about 74.2\%. This rejected a proposed cross-case label-consensus approach. The same calendar hour is not guaranteed to have the same decision under a shifted horizon and initial condition \cite{supplied}.
+
+We also examined relationships between input-derived dispatch and the labels. In the fixed 40\% training-hour sample, the Pearson correlation between LP discharge/minimum-flow ratio and ON status ranges from approximately 0.692 to 0.936 across units. This is descriptive association, not causal evidence or a calibrated probability rule. Different units and hydraulic connections require distinct representations.
+
+\subsection*{Preparation and cleaning decisions}
+Complete 168-hour weeks are constructed before sampling training rows. Unit and target identities are preserved, monetary fields are normalized within each case, and invalid lookups fail explicitly. No synthetic labels or forward-filled targets are used. Domain analysis, data-generation analysis, individual-feature inspection, relationship analysis and feature cleaning cover the EDA activities requested in the grading guide.
+
+\section{Feature engineering}\label{features}
+\subsection*{Temporal and economic representation}
+The case-hour table includes price ranks and weekly summaries, previous/next-hour context, initial reservoir state, terminal water values and physical quantities. Temporal windows stay inside the current case. Future positions within the known scheduling horizon are available covariates, not future observed target values.
+
+Let $p_{c,h}$ be the price in case $c$ at hour $h$. Monetary fields are normalized using
+\[
+ s_c=1+\frac{1}{168}\sum_{h=0}^{167}|p_{c,h}|,
+ \qquad \widetilde p_{c,h}=\frac{p_{c,h}}{s_c}.
+\]
+The inverse scale $1/s_c$ is retained. Fixed startup costs mean the complete scheduling problem is not invariant to a change in price scale. Relative ranks and existing dimensionless ratios are preserved.
+
+\subsection*{Input-only hydraulic approximations}
+\textbf{Independent-unit LP.} A network linear program represents reservoir balance, discharge, power conversion, terminal water value and supplied operating constraints. Its 78 derived fields include discharge relative to minimum flow, production fractions and economic margins based on water-balance dual variables. It is a relaxation, not an exact reconstruction of the generating optimizer.
+
+\textbf{Joint-plant LP.} Tokke and Vinje use convex mixtures of feasible sampled operating points for active generator subsets. This captures some shared hydraulic losses and unit allocation. Its 87 fields include joint on-fractions and active-unit counts. Convex mixtures permit fractional time sharing and do not produce integer schedules.
+
+\textbf{Linked-state LP.} Continuous unit states and supplied startup/stop costs add switching structure. Its 56 fields contain relaxed commitment state, changes in discharge and production relative to the original LP, and changes in economic margin. The historical ``SHOP'' label in these feature names denotes this locally computed approximation, not downloaded SHOP output \cite{source,physics}.
+
+\subsection*{Generator-relative pooling and startup16}
+The full 664-column case-hour table is transformed into 115 columns for each generator-hour. These describe the focal unit, system context, identity and economic conditions. Sixteen additional fields give a 131-column pooled table:
+\begin{itemize}
+\item Three capacity fields: minimum/maximum output ratio and both outputs scaled by the largest unit capacity.
+\item Six cost and margin fields: normalized startup and cycle costs; switching margins net of cost; and LP margins scaled by unit output.
+\item Two recovery-time fields: approximate hours to recover startup cost at minimum/maximum output, clipped to 0--168 hours.
+\item Five temporal margins: LP margin adjusted by next/previous 6-hour and 24-hour mean prices and mean remaining price.
+\end{itemize}
+These are engineered predictors. For example, the recovery-time feature does not imply that the original optimizer enforces that exact operating duration.
+
+\section{Predictors and final ensemble}
+\subsection*{Per-unit anchor}
+Seven groups each train one classifier per unit, giving 98 classifiers. They share a regenerated 40\% sample of training case-hours: 196,358 rows selected without replacement with NumPy seed 4173. LightGBM uses binary log loss, 350 trees, 31 leaves, learning rate 0.06, minimum leaf size 100, column fraction 0.9 and L2 penalty 1. XGBoost uses 600 trees, depth 6, learning rate 0.05, minimum child weight 20, L2 penalty 4, row/column fractions 0.9 and 128 histogram bins \cite{manifests}.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{p{40mm}rp{86mm}}
+\hline
+Group & Fields & Representation\\\hline
+LightGBM LP & 395 & Normalized inputs, physical context and independent-unit LP.\\
+LightGBM context & 521 & LP plus 126 within-case dispatch summaries.\\
+LightGBM joint & 404 & Normalized inputs and joint-plant LP.\\
+LightGBM context/joint & 608 & 521 columns plus 87 joint fields.\\
+XGBoost 608 & 608 & Same 608-column representation.\\
+XGBoost 664 & 664 & 608 columns plus 56 linked-state fields.\\
+LightGBM 664 & 664 & Same full representation.\\\hline
+\end{tabular}
+\caption{Component groups in the anchor. Each row denotes 14 per-unit models.}
+\end{table}
+
+Let $V$ denote Vinje probability-order projection. For the first four LightGBM groups, the base prediction is
+\[
+ B=V(0.140625L_1+0.421875L_2+0.1875L_3+0.25L_4).
+\]
+The anchor is then formed sequentially:
+\[
+ B_1=V(0.5B+0.5X_{608}),\qquad
+ B_2=V(0.75B_1+0.25X_{664}),
+\]
+\[
+ A_0=V(0.9B_2+0.1L_{664}).
+\]
+Each projection is retained at its original position. Collapsing the weights into one unprojected average would change the algorithm.
+
+\subsection*{Pooled model and selected predictions}
+The startup16 classifier uses 1,400 trees, 31 leaves, learning rate 0.06 and the same main LightGBM regularization. Unit and plant IDs are categorical. Expanding sampled hours across 14 units gives 2,749,012 training rows. Seed 4173 uses no row bagging; seed 1 uses a row fraction of 0.8 with bagging every iteration.
+
+Let $S_a$ and $S_b$ be their raw probabilities and $T$ the Tokke correction. The selected predictions are
+\[
+ \widehat y_1=T\left(V\left(0.75A_0+0.25\frac{S_a+S_b}{2}\right)\right),
+ \qquad
+ \widehat y_2=T\left(V(0.75A_0+0.25S_a)\right).
+\]
+Vinje enforces G1 $\geq$ G2 $\geq$ G3 using isotonic projection. Tokke uses iterative pairwise averaging for G1 $\geq$ G3 $\geq$ G4 and G3 $\geq$ G2, leaving G2/G4 unordered. Tokke's routine is an approximate projection and need not preserve the probability sum exactly. These corrections encode empirical tendencies with exceptions, not physical laws.
+
+\section{Validation and selection}
+\subsection*{Chronological evaluation}
+Validation uses all units and all 168 hours of cases beginning in the held-out year. Training removes the six daily case starts immediately before that year because their horizons overlap validation. For 2021, training ends on 25 December 2020; for 2022, it ends on 25 December 2021. The splits have 2,186 and 2,551 training cases, respectively, and 365 validation cases each.
+
+The metric is pooled micro ROC-AUC: flatten all unit-hour labels and probabilities before scoring. It includes comparisons between different units, so averaging per-unit AUCs gives a different metric. AUC neither chooses a classification threshold nor establishes calibration. It must not be described as the percentage of correct binary decisions.
+
+\subsection*{Hyperparameter and blend selection}
+The anchor inherits fixed training budgets and sequential mixture choices from chronological experiments. Earlier development investigated model capacity, regularization, price rescaling, temporal representations, neural predictors and ensembles. The final notebooks train frozen settings rather than repeating this search.
+
+For startup16, the weight was selected on 2021 from $\{0,0.10,0.25,0.50\}$. The reported 2022 comparison uses the unchanged weight 0.25. However, the single-seed 2022 script evaluated the grid, and later decisions also used 2022: the three-seed bag was rejected when its 2022 result fell below the two-seed result. Removing the legacy member was additionally informed by public Kaggle results \cite{supplied}.
+
+Both years are therefore \textbf{reused development sets}, not untouched estimates of generalization. ``Unchanged on 2022'' describes a particular weight comparison, not an entirely independent final-model selection procedure. Public leaderboard observations were also reused. The public difference of 0.00001 between the selected candidates is not a demonstrated statistically significant improvement.
+
+\subsection*{Other predictors and unsuccessful approaches}
+The project explored pooled LightGBM, XGBoost and CatBoost; binary and focal loss; topology features; separate-generator models; and capacity/regularization changes. Sequence models included a temporal CNN, bidirectional LSTM and Transformer, with rescaling, seed averages, EMA/SWA and specialist models. They contributed to earlier submissions but are absent from the selected final recipes \cite{history}.
+
+Additional trials included plant-specific mixtures, conditional gating, stacking, residual temporal corrections, plant-count predictors and alternative hydraulic features. Some improvements on reused validation did not transfer publicly. Later per-plant weights, cross-case LP-state features, volatility weighting and a third startup seed failed the chosen transfer checks. Probability smoothing was rejected despite persistent targets. More detailed optimization did not consistently improve learned ranking or establish exact solver equivalence \cite{structure,supplied,history}.
+
+\section{Results}
+\subsection*{Selected candidates}
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrrr}
+\hline
+Prediction & 2021 AUC & 2022 AUC & Public AUC\\\hline
+Anchor $A_0$ & 0.9951042 & 0.9938718 & 0.99652\\
+Single-seed startup16 & 0.9952952 & 0.9941764 & \textbf{0.99656}\\
+Two-seed startup16 & 0.9953148 & 0.9941981 & \textbf{0.99657}\\\hline
+\end{tabular}
+\caption{Pooled micro ROC-AUC for the final saved compositions, including ordering corrections. The single-seed log's 0.9952951 precedes the very small Tokke correction. Public scores are recorded Kaggle observations from 3 November, confirmed by the submission descriptions; private scores are unknown.}\label{results}
+\end{table}
+
+Relative to the anchor, the two-seed recipe improves development AUC by 0.0002106 in 2021 and 0.0003263 in 2022, and public AUC by 0.00005. Bagging adds only about 0.00002 on each development year over the single-seed recipe. The result supports a small complementary contribution from pooled switching economics; most of the final prediction remains the anchor.
+
+\subsection*{Earlier measured comparisons}
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrr}
+\hline
+Historical predictor & 2021 AUC & 2022 AUC\\\hline
+Unit-frequency baseline & 0.543516 & 0.554452\\
+XGBoost, early topology features & 0.964724 & 0.971527\\
+CatBoost, early topology features & 0.965148 & 0.966644\\
+Initial temporal CNN & -- & 0.953495\\
+Initial bidirectional LSTM & -- & 0.948601\\\hline
+\end{tabular}
+\caption{Historical runs with their own representations and selected training lengths. These are not controlled ablations of the final feature table. The dashes denote results not included in this comparison.}
+\end{table}
+
+Later neural variants and combinations improved on the initial CNN. Public milestones include an XGBoost/CNN blend at 0.98152, a rescaled neural blend at 0.98278, a Transformer/plant blend at 0.98717, Round5 separate-generator modelling at 0.99172 and the hydraulic anchor at 0.99652 \cite{scores,history}.
+
+\subsection*{Negative results and the optimization-only comparator}
+Adding 5\% of the legacy member to the single-seed composition increased development scores to approximately 0.9953725/0.9942156 but reduced the public score to 0.99654. An anchor-plus-legacy fallback reached 0.99649. These illustrate development gains failing to transfer.
+
+Per-plant weights improved 2021 but worsened 2022. Cross-case relaxed-state features and volatility weighting also lost on 2022. Three startup seeds reached about 0.9953157/0.9941790, below the two-seed score on 2022. A later optimization-only comparator, with no machine learning, achieved 0.962333/0.960947 and public 0.96516. Because it uses a different scoring rule, this comparison does not isolate the causal effect of one learned feature \cite{supplied}.
+
+\section{Model interpretation}
+Table~\ref{importance} reports measured split gain for the two final startup16 checkpoints. Gain is normalized within each model and then averaged equally. It describes the pooled component, not the complete 98-model anchor.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{lr}
+\hline
+Feature, relative to the focal unit & Mean normalized gain (\%)\\\hline
+Joint-LP power fraction & 43.88\\
+Joint-LP discharge/minimum-flow ratio & 26.76\\
+Linked-state LP commitment & 4.39\\
+Unit identity & 4.39\\
+Joint-LP economic margin & 3.29\\
+Independent-LP economic margin & 2.15\\
+Mean weekly LP discharge/minimum-flow ratio & 0.78\\
+Catchment inflow fraction & 0.77\\
+Weekly fraction of positive LP discharge & 0.71\\
+Joint-LP plant power fraction & 0.50\\\hline
+\end{tabular}
+\caption{Feature importance computed from the selected fitted startup16 models.}\label{importance}
+\end{table}
+
+The first two hydraulic quantities account for 70.65\% of gain. Thus the pooled learner relies mainly on the approximate dispatch and unit identity; the startup16 additions are complementary rather than dominant. Split gain measures improvement of the training objective. Correlated features can share or displace importance, and gain does not establish a causal effect or guarantee stability in a new regime.
+
+The economic interpretation is that favourable spot prices alone do not determine operation. Startup costs, water opportunity cost and competing dispatch can keep a unit off, while reservoir and downstream conditions can favour activity that a price-only rule misses. These mechanisms are available to the model through interacting predictors, rather than being imposed as an exact operating policy.
+
+Vinje's near-nested commitments provide a second, structural interpretation. The correction reconciles probabilities according to a strong observed tendency. Tokke's partial order preserves the real ambiguity between G2 and G4. Neither establishes the optimizer's precise tie-breaking rule. The negative smoothing result is also informative: persistence did not imply better smoothed predictions, since smoothing can blur correctly located starts and stops.
+
+\section{Limitations and information boundary}
+The selected numerical pipelines use the supplied competition files and computations derived from them. Earlier project research examined external solver material. Separate external-output submissions are excluded from the two selected results and are not inputs to these recipes. Prior exposure is disclosed rather than described as clean-room development \cite{boundary}.
+
+The hydraulic models approximate conversion, head and unit coupling. High AUC does not validate full physical fidelity. Probabilities are not feasible commitment schedules, and no downstream mixed-integer solve or operational speed benchmark was measured. The course uses the better private score of the two selected predictions; public ranking has no direct grading effect \cite{grading}.
+
+\section{Reproduction and submission}
+\subsection*{Offline notebooks}
+\texttt{Short notebook 1.ipynb} targets the two-seed 0.99657 recipe; \texttt{Short notebook 2.ipynb} targets the single-seed 0.99656 recipe. Both contain all source code for raw-data features, training and CSV export. Temporary modules and checkpoints are generated during execution, not supplied as external dependencies. The only numerical inputs are the ten supplied raw files, and package versions are specified in \texttt{requirements.txt}.
+
+The workflow solves all three hydraulic approximations, constructs complete-week features, regenerates the training sample, fits the seven anchor groups, preserves the nested projections, fits startup16 and exports the final composition. The CSV contains 725 rows and 2,353 columns including Run No, with 1,705,200 finite probabilities in $[0,1]$.
+
+\subsection*{Verified computations}
+Independent composition of the saved component arrays exactly reproduces the anchor and both selected CSV hashes. Fresh raw-data solves for cases 1, 2922 and 2923 match all three archived hydraulic feature blocks. The full 664-column table matches when rebuilt from raw covariates and archived LP blocks. The row sample also regenerates exactly.
+
+The notebook's setup and embedded source were executed locally, and all seven feature schemas were checked. A fresh 350-tree Hogga G1 LightGBM fit matched its archived test predictions exactly. The embedded startup transform and each saved pooled checkpoint matched 14,000 predictions exactly. These are targeted checks, not a complete fresh training run of both notebooks.
+
+\subsection*{Environment and remaining verification}
+Historical XGBoost fits used version 3.4.1 on one Tesla T4 per fit. The notebooks run the two XGBoost groups sequentially on one CUDA GPU and limit CPU threads to four. Other packages follow the archived hydraulic environment. Original XGBoost and LightGBM fits used separate Python environments; the consolidated notebook environment still needs a complete execution test. CPU retraining is not assumed equivalent to GPU training.
+
+\textbf{A complete raw-data-to-CSV run of the submitted notebooks, with measured runtime and peak memory, has not been completed.} The course limit is 12 hours per notebook on a reference PC with at most four CPU cores and 32 GB RAM; one specified GPU may be used. Historical component runtimes are not a measurement of the combined notebook \cite{grading}.
+
+\section{Conclusion}
+The selected method combines approximate hydraulic structure with learned corrections and a small pooled startup-cost component. Recorded public micro ROC-AUC is 0.99657 for the two-seed recipe and 0.99656 for the single-seed recipe. Reused-year validation and failed public transfers show why small gains need careful interpretation. The evidence verifies the saved numerical composition and selected raw-data computations; private performance and complete offline retraining remain separate checks.
+
+\begin{thebibliography}{10}
+\bibitem{task} SINTEF Energy Research. \emph{Machine Learning Task for TDT4173}. Supplied competition material.
+\bibitem{data} SINTEF Energy Research. \emph{Dataset definitions and explanation}. Supplied competition material.
+\bibitem{grading} TDT4173. \emph{Course Project: Submission and Grading}, 17 September 2026, pp.~1--3. Canvas course 24545, file 1310850; supplied local copy.
+\bibitem{source} Project implementation: feature construction, normalization, independent-unit LP, joint-plant LP, linked-state LP and canonical-unit modules. Full source embedded in the two short notebooks.
+\bibitem{physics} Project record. \emph{Optional physical features}, \texttt{physics\_features.md}, hydraulic-surrogate documentation.
+\bibitem{structure} Project record. \emph{Modeling review}, 2 November 2026, \texttt{modeling\_recommendations.md}, hydraulic-surrogate documentation.
+\bibitem{supplied} Project records. \emph{Supplied-data-only attempt}, 3 November 2026; running log through 4 November; saved single-seed and two-seed composition results.
+\bibitem{manifests} Saved model manifests; \texttt{hydraulic\_surrogate\_best.json}; \texttt{startup\_like.py}; final-export manifests for the two selected predictions.
+\bibitem{history} Project record. \texttt{docs/EXPERIMENT\_HISTORY.md}, and historical XGBoost, CatBoost, CNN and bidirectional LSTM metric reports.
+\bibitem{scores} Project score ledger, \texttt{reports/kaggle\_scores.json}; recorded public observations dated 3--4 November 2026 and the selected-submission descriptions.
+\bibitem{boundary} Project record. \texttt{reconstruction\_information\_boundary.md}. Supplied numerical ancestry and earlier external research are documented separately.
+\end{thebibliography}
+\end{document}

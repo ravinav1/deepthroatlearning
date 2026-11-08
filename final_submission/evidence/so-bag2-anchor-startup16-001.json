@@ -1,0 +1,38 @@
+{
+ "run_id": "so-bag2-anchor-startup16-001",
+ "timestamp_utc": "2026-11-03T12:59:33.697487+00:00",
+ "recipe": {
+  "name": "Supplied-only bag2: anchor + 0.25 mean(startup16 seed 4173, seed 1 with 0.8 row bagging), Vinje and Tokke projections",
+  "anchor_test": "models/hydraulic_surrogate/submission-lgb-shop664-anchor-blend-001/test_predictions.npy",
+  "stages": [
+   {
+    "name": "startup16_bag2",
+    "components": {
+     "startup16_bag2": {
+      "npy_mean": [
+       "models/supplied_only/startup16_final/raw_predictions.npy",
+       "models/supplied_only/startup16_final_seed1/raw_predictions.npy"
+      ],
+      "weight": 0.25
+     }
+    }
+   }
+  ],
+  "tokke_projection": true,
+  "selection": "two-seed mean at the 2021-selected weight 0.25; dev 0.9953148/0.9941981 (reports/supplied_only/compose_eval_seeds4173_1.json, su0.25_leg0_tokke1)"
+ },
+ "stages": [
+  {
+   "name": "startup16_bag2",
+   "weights": {
+    "startup16_bag2": 0.25
+   }
+  }
+ ],
+ "submission_sha256": "f7b0b52fc54e93e1db6171fdf85a7955486c3439897911291eef98c70a4f716a",
+ "rows": 725,
+ "columns": 2353,
+ "min": 1.3119540218441902e-06,
+ "max": 0.9999995620926296,
+ "mean": 0.46992550375203934
+}

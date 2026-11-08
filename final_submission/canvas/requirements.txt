@@ -1,0 +1,11 @@
+# Install before the offline grading run; Python 3.11.15.
+# Historical LightGBM/solver packages below; CUDA-enabled XGBoost 3.4.1.
+# The consolidated environment needs an end-to-end reproduction run.
+numpy==2.4.6
+pandas==3.0.6
+scipy==1.17.1
+PyYAML==6.0.3
+lightgbm==4.7.0
+xgboost==3.4.1
+scikit-learn==1.9.1
+threadpoolctl==3.7.0

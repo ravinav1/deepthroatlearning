@@ -1,0 +1,26 @@
+{
+ "inputs": {
+  "/Users/heap/deepthroatlearning/models/supplied_only/gpu/cuda-xgb608-2021-001/validation_2021.npz": "a59c05c9da12720d3349b915f42746b70d12e861a20f49334486b92235e365a0",
+  "/Users/heap/deepthroatlearning/models/supplied_only/gpu/cuda-xgb608-2022-001/validation_2022.npz": "7dde507df800668a4514d15a40c2ccdcbf9989f82d673ef28bb7ba8d14b58a4c",
+  "/Users/heap/deepthroatlearning/models/supplied_only/gpu/cuda-xgb664-2021-001/validation_2021.npz": "a24b9b86d8b9a1f6c9874f2b89df03650538a4c152023ee34916028feef255d1",
+  "/Users/heap/deepthroatlearning/models/supplied_only/gpu/cuda-xgb664-2022-001/validation_2022.npz": "a0121bbfad14a6a2a46c14be07896d5468e9ad4ade39cdb072a29666aef76eb0",
+  "/Users/heap/programming/tdt4173/artifacts/lgb-shop664-2021-001/selected_validation_2021.npz": "c4c1632b8567a99c07e02a7206126256da4a4eaa9398f8ebf584f8603041d586",
+  "/Users/heap/programming/tdt4173/artifacts/lgb-shop664-2021-001/validation_2021.npz": "b4c51e620be03f54b6b44ed1c795c8e415e3d308504e1d431176ab615272cec4",
+  "/Users/heap/programming/tdt4173/artifacts/lgb-shop664-2022-001/selected_validation_2022.npz": "d27bf00c32fbe63772dd35a0a0e9d85e05b6c0a7c11b9c41c22998eb219fe675",
+  "/Users/heap/programming/tdt4173/artifacts/lgb-shop664-2022-001/validation_2022.npz": "21af1a0aab0b23d3abf77aebdce5ffec25c917df067a1109d26f2df4cba261f6",
+  "/Users/heap/programming/tdt4173/artifacts/lp-context-joint-comparison-001/selected_validation_2021.npz": "ce86edfaa0b06d8cf359ddc08e8966ad0c44ad9eb6284e1b772d2f8137b8b6fe",
+  "/Users/heap/programming/tdt4173/artifacts/lp-context-joint-comparison-001/selected_validation_2022.npz": "3da48ee7d61ed24e923d6c48171eb25e9cd63d05b399c103d450dae8519a26cf",
+  "/Users/heap/programming/tdt4173/artifacts/physics-trick-canonical115-2021-001/raw_predictions.npy": "87a7af546afd6032d08e3ab8d84e8cfb9e90c96e4b1fb4b16d4e6ae6207bdc8d",
+  "/Users/heap/programming/tdt4173/artifacts/physics-trick-canonical115-2021-001/validation_2021.npz": "7bae8f0874c6701da4c973f05a9e6e088379c8b2331c48da53230ebf5dcdca31",
+  "/Users/heap/programming/tdt4173/artifacts/physics-trick-canonical115-2022-001/raw_predictions.npy": "fa6ade28a07e4a738e7e9ff94a5fa1424703160adec2457f33211d1cb302cfbb",
+  "/Users/heap/programming/tdt4173/artifacts/physics-trick-canonical115-2022-001/validation_2022.npz": "96bb89c8f664d50da5f359e08f7622058e3b6eac7ab2e70abfce6fbe99390fda",
+  "/Users/heap/programming/tdt4173/artifacts/provided-busbar144-2021-001/raw_predictions.npy": "70575b06e393e735765ce27d768c81aaf736ebb0383271fd059fa68057643079",
+  "/Users/heap/programming/tdt4173/artifacts/provided-busbar144-2021-001/validation_2021.npz": "85beecd6f6c0b601cc3120208445a5526f84e07daadca863bdfa5f6fea83376d",
+  "/Users/heap/programming/tdt4173/artifacts/provided-busbar144-2022-001/raw_predictions.npy": "745979514b708227c3d0ef82ddf86978a8743d9e724007fb634c120f98000ce5",
+  "/Users/heap/programming/tdt4173/artifacts/provided-busbar144-2022-001/validation_2022.npz": "4bdfa8efc82565d0e92c2d4527b47bdb42d7e8cdadf00c05413e640b5abdde62",
+  "/Users/heap/programming/tdt4173/artifacts/provided-startup142-2021-001/raw_predictions.npy": "a7a574044f1849288f263a254688c0c03a42efe0edac39f2ea4d698efc4a3893",
+  "/Users/heap/programming/tdt4173/artifacts/provided-startup142-2021-001/validation_2021.npz": "ee59f68284c532b0fda6643cf32cda8f006f01d3e03504133ebcee6fc7df0caa",
+  "/Users/heap/programming/tdt4173/artifacts/provided-startup142-2022-001/raw_predictions.npy": "b3df0326dbbef559c963a9294ae576d7e30aff9b82c989cb91f84b02c294d3e6",
+  "/Users/heap/programming/tdt4173/artifacts/provided-startup142-2022-001/validation_2022.npz": "bbf7921d4c4b0264010cfa9551b946a8fbd325c8d7d7dcfc586a910809520544"
+ }
+}
