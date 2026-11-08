@@ -1,0 +1,64 @@
+\documentclass[a4paper,11pt]{article}
+\setlength{\textwidth}{165mm}
+\setlength{\textheight}{245mm}
+\setlength{\oddsidemargin}{-2.9mm}
+\setlength{\topmargin}{-14mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\emergencystretch=1em
+\title{TDT4173 -- Final Submission Checklist}
+\author{Group 167 -- deepthroatlearning}
+\date{November 8, 2026}
+\begin{document}\maketitle
+\section{Deadline and destinations}
+The ordinary deadline is \textbf{8 November 2026 at 22:00 Oslo time}. The late deadline is 11 November at 14:00, with a 30-point deduction. The last attempt counts: a new attempt after the ordinary deadline is late.
+
+Submit predictions to Kaggle, and notebooks plus the report to Canvas. Select two predictions on Kaggle; the better private score of the two determines the base points. No upload or selection was performed while preparing this package.
+
+\section{Files for Canvas}
+\begin{itemize}
+\item \texttt{Report.pdf}: methods, exploratory analysis, experiments, results and measured feature importance.
+\item \texttt{Short notebook 1.ipynb}: raw-data pipeline for the 0.99657 two-seed recipe.
+\item \texttt{Short notebook 2.ipynb}: raw-data pipeline for the 0.99656 single-seed recipe.
+\item \texttt{requirements.txt}: software configuration, installed before offline execution.
+\end{itemize}
+These files are in \texttt{canvas/}. The editable LaTeX source is \texttt{main.tex} in the \texttt{overleaf/} folder. Import the Overleaf ZIP as a new project and compile with pdfLaTeX.
+
+\section{Required final checks}
+\begin{enumerate}
+\item Add every member's full name and student ID to the start of both notebooks and the report. Use student-card IDs, not exam candidate numbers.
+\item Include group number 167 in the Kaggle display name. Example:\\ \texttt{[167] deepthroatlearning}.
+\item Confirm exam registration and the current Canvas assignment instructions.
+\item Run both notebooks from the supplied raw data in the required single-GPU environment. Measure runtime and memory, and verify the resulting predictions. The complete combined run is not yet verified.
+\item Select the specific 0.99657 and 0.99656 entries on Kaggle. Check the final-selection indicators; do not rely on automatic selection of the highest public score.
+\item Upload the Canvas files and verify the submission receipt and all attached files before 22:00.
+\end{enumerate}
+
+\section{Identify the Kaggle predictions}
+\textbf{0.99657:} \texttt{so-bag2-anchor-startup16-001}. The 75\% anchor plus 25\% mean of startup16 seeds 4173 and 1, followed by Vinje and Tokke correction.
+\begin{quote}\small\ttfamily
+f7b0b52fc54e93e1db6171fdf85a7955486\\
+c3439897911291eef98c70a4f716a
+\end{quote}
+\textbf{0.99656:} \texttt{so-primary-anchor-startup16-001}. The 75\% anchor plus 25\% startup16 seed 4173, followed by the same corrections.
+\begin{quote}\small\ttfamily
+a45f8001a87afbc67b17d95fb39c9f198259\\
+3d24f91887d5747fec1f3c367ceb
+\end{quote}
+The two-line strings above are SHA256 hashes; concatenate each pair of lines. The matching historical CSVs are in \texttt{kaggle/}. They are backups, not inputs to offline notebook execution.
+
+\section{Verified and pending}
+Both saved predictions recompose byte-for-byte to the recorded hashes. The training sample regenerates exactly; three freshly solved cases match all three hydraulic feature blocks; the full feature table matches using the archived LP blocks. The actual notebook setup and embedded modules were exercised. One fresh per-unit LightGBM fit and 14,000 predictions from each pooled checkpoint match exactly.
+
+Full raw-data retraining on CUDA is still pending. The course allows 12 hours per notebook, at most four CPU cores and 32 GB RAM, and one specified GPU. The notebooks specify one Tesla T4 or comparable CUDA device. The consolidated package environment, combined runtime and peak memory need confirmation.
+
+\section{Grading coverage}
+Report section 2 addresses domain knowledge, data generation, individual features, relationships and cleaning. Section 3 explains feature engineering. Sections 4--6 cover multiple predictor types, experiments and selected results. Section 7 gives actual model interpretation. Section 9 states reproducibility evidence and its limits.
+
+The graders delete everything except the two notebooks and software configuration before running. Each notebook must start from the supplied raw data. Code may write intermediate files during execution, but may not depend on separately supplied modules, saved models, downloaded outputs or embedded prediction arrays.
+
+\section*{Source}
+\emph{TDT4173 Course Project: Submission and Grading}, 17 September 2026, pp.~1--3. Supplied PDF and locally synced Canvas course 24545. Live Canvas and Kaggle state could not be refreshed in this session.
+
+Canvas assignment: \texttt{canvas.ntnu.no/courses/24545/assignments/34968}.
+\end{document}

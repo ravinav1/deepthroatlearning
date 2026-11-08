@@ -1,0 +1,237 @@
+\documentclass[a4paper,11pt]{article}
+% No additional LaTeX packages are used. Compile with pdfLaTeX.
+% Revised from final_submission/overleaf/main.tex at commit 6ccab5c.
+\setlength{\textwidth}{165mm}
+\setlength{\textheight}{245mm}
+\setlength{\oddsidemargin}{-2.9mm}
+\setlength{\evensidemargin}{-2.9mm}
+\setlength{\topmargin}{-14mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.15}
+\emergencystretch=1em
+\clubpenalty=10000
+\widowpenalty=10000
+\title{TDT4173 -- Course Project\\[5pt]\large Predicting Hydropower Unit Commitment}
+\author{Group 167\\[5pt]
+\normalsize Hallvard Grundt -- 115526\\
+\normalsize Raviksan Navaratnarajah -- 109485\\
+\normalsize B\o{}ye Tvenge Einang -- 139410}
+\date{November 8, 2026}
+\begin{document}
+\maketitle
+
+\textbf{AI use:} We used AI tools to navigate the repository and help with the wording, structure and LaTeX formatting of this report.
+
+\begin{abstract}
+We predict hourly on/off decisions for 14 hydropower generators over seven days. We combine LightGBM and XGBoost with features from simplified hydraulic models and startup costs. Our two selected submissions scored 0.99657 and 0.99654 public micro ROC-AUC. The second adds a small contribution from models using different features.
+\end{abstract}
+
+\section{Task and data}
+Hydropower scheduling balances generating now against saving water for later, while accounting for downstream effects. We predict an optimizer's on/off decisions for the Tokke--Vinje system: 17 reservoirs, nine plants and 14 generators \cite{task,data}.
+
+The dataset has 3,647 daily starts, each covering 168 hours and $14\times168=2,352$ targets. There are 2,922 labelled cases starting in 2015--2022 and 725 test cases starting from 1 January 2023 to 25 December 2024. We use 2021 and 2022 for development checks, then fit the final models on sampled hours from 2015--2022.
+
+We predict all 725 test cases. The course slides assign the 2023 cases to the public leaderboard and the 2024 cases, through 25 December, to the private leaderboard, describing the split as 50\%/50\%. Both have hidden labels; the private score determines final judging \cite{slides,grading}.
+
+Inputs include hourly prices and inflows, initial reservoir volumes, terminal water values, topology and operating constraints. Prices and inflows over the scheduling week are provided inputs. We exclude future realized storage, solver runtime and other cases' true commitments.
+
+\section{Exploratory data analysis}
+\subsection*{Domain and data generation}
+We used the supplied topology to understand water flow between plants. The labels are optimizer decisions, rather than measured activity. Each daily case has its own initial storage and seven-day optimization horizon \cite{task,data}.
+
+\subsection*{Data quality and changing conditions}
+We checked prices, inflows, volumes and water values for missing cells and duplicate timestamps; none were found. Feature construction checks case IDs, hourly lookups and target order. We build complete weeks before sampling training rows.
+
+We measured within-week price variation as the standard deviation divided by one plus the mean absolute price. Its median is 0.092 in 2015--2020, 0.182 in 2021, 0.219 in 2022 and 0.321 in the test inputs. Later periods have larger price changes even after this scaling. The test comparison uses supplied inputs only.
+
+\subsection*{Generator activity and overlapping cases}
+Generators are on for 51.64\% of training targets overall, but frequencies vary considerably by unit (Table~\ref{prevalence}). Vinje's generators usually follow a consistent activation order. Tokke's order is less complete because its generators have different hydraulic connections.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lr@{\qquad}lr}
+\hline
+Unit & ON (\%) & Unit & ON (\%)\\\hline
+Hogga G1 & 59.46 & Vinje G1 & 48.54\\
+Tokke G1 & 67.10 & Vinje G2 & 42.04\\
+Tokke G2 & 47.84 & Vinje G3 & 25.91\\
+Tokke G3 & 56.43 & Haukeli G1 & 54.68\\
+Tokke G4 & 49.82 & Songa G1 & 48.54\\
+Lio G1 & 74.65 & Kjela G1 & 47.05\\
+Byrte G1 & 54.20 & Vesle Kjela G1 & 46.69\\\hline
+\end{tabular}
+\caption{Generator activity across training case-hours. Overlapping cases count separately.}\label{prevalence}
+\end{table}
+
+Cases one day apart agree on overlapping targets only about 87.77\% of the time; six days apart, agreement falls to about 74.2\%. A shifted horizon or initial state can change the decision for the same physical hour. We therefore rejected combining neighbouring cases' labels into a consensus target.
+
+Hydraulic features are strongly related to activity. In the fixed 40\% training-hour sample, the correlation between LP discharge/minimum-flow ratio and ON status ranges from 0.692 to 0.936 across units. Different generator combinations can produce similar power, so predicting each unit still requires information about the other units and their connections.
+
+\section{Feature engineering}\label{features}
+\subsection*{Prices and time context}
+The hourly features include price ranks, weekly summaries, nearby hours, initial storage, terminal water values and physical characteristics. Time windows stay within the supplied week. For the hydraulic models, we scale monetary inputs using the week's mean absolute price. With price $p_{c,h}$ in case $c$ and hour $h$,
+\[
+ s_c=1+\frac{1}{168}\sum_{h=0}^{167}|p_{c,h}|,
+ \qquad \widetilde p_{c,h}=\frac{p_{c,h}}{s_c}.
+\]
+We retain $1/s_c$ because fixed startup costs make the absolute price scale relevant. Existing ranks and dimensionless ratios are unchanged.
+
+\subsection*{Hydraulic features}
+We built three linear-programming (LP) approximations that relate water flow to power. They account for water balance, the height difference between reservoirs and generators, and conversion efficiency. Terminal water values represent the value of water left in storage at the end of the week \cite{data}.
+
+\textbf{Independent-unit LP:} represents discharge, power conversion, terminal water value and operating constraints. Its 78 features include discharge relative to minimum flow, production relative to capacity, and estimated profit margins after accounting for the value of water.
+
+\textbf{Joint-plant LP:} models different combinations of active generators at Tokke and Vinje. It accounts for shared water-flow losses and how production is divided between generators. It adds 87 features, including activity fractions and active-unit counts.
+
+\textbf{Linked-state LP:} adds startup and stop costs and allows activity between zero and one. Its 56 features describe activity and differences from the independent-unit LP in flow, production and economic margins.
+
+These models allow fractional activity. Their outputs are features, not feasible on/off schedules.
+
+\subsection*{Shared generator features and startup16}
+We convert the 664-column hourly table into 115 features for each generator-hour, describing the generator and its surroundings. Startup16 adds 16 features for output capacity, startup/stop costs, estimated startup-cost recovery time (0--168 hours), and profit margins using previous/next 6-hour and 24-hour prices and the remaining week's mean price. This gives 131 features in total.
+
+\section{Models and final ensemble}
+\subsection*{Per-generator ensemble}
+The main ensemble, called the anchor, contains seven groups of 14 models: 98 classifiers. They share a random 40\% sample of training case-hours, drawn without replacement with seed 4173, giving 196,358 hours.
+
+LightGBM uses binary log loss, 350 trees, 31 leaves, learning rate 0.06, minimum leaf size 100, column fraction 0.9 and L2 penalty 1. XGBoost uses 600 trees, depth 6, learning rate 0.05, minimum child weight 20, L2 penalty 4, row/column fractions 0.9 and 128 histogram bins.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{p{40mm}rp{86mm}}
+\hline
+Group & Features & Inputs\\\hline
+LightGBM LP & 395 & Normalized inputs, physical context and independent-unit LP.\\
+LightGBM context & 521 & LP plus 126 within-case dispatch summaries.\\
+LightGBM joint & 404 & Normalized inputs and joint-plant LP.\\
+LightGBM context/joint & 608 & 521 columns plus 87 joint features.\\
+XGBoost 608 & 608 & Same 608-column table.\\
+XGBoost 664 & 664 & 608 columns plus 56 linked-state features.\\
+LightGBM 664 & 664 & Same full table.\\\hline
+\end{tabular}
+\caption{The seven anchor groups, each containing one model per generator.}
+\end{table}
+
+We first combine the four LightGBM groups with weights 14.0625\% LP, 42.1875\% context, 18.75\% joint and 25\% context/joint. We then add XGBoost 608, XGBoost 664 and LightGBM 664 in that order, giving each new model 50\%, 25\% and 10\% of the updated blend. The existing blend receives the remaining weight at each step.
+
+In the training data, Vinje G1 is usually on whenever G2 is on, and G2 whenever G3 is on. After each blend, we adjust conflicting predictions to follow this order. For example, probabilities of 40\%, 70\% and 20\% become 55\%, 55\% and 20\%. This pattern has exceptions.
+
+\subsection*{Pooled model and selected submissions}
+Startup16 trains one LightGBM model across all generators, using unit and plant IDs. It has 1,400 trees, 31 leaves, learning rate 0.06 and the same regularization as above. The sampled hours give 2,749,012 generator-hour rows. Seed 4173 uses all sampled rows; seed 1 uses 80\% at each iteration.
+
+Our second submission also uses an earlier feature family, called the legacy models. These are separate-generator LightGBM models with 115 input, topology and price-context features, without LP inputs. They use 63 leaves, learning rate 0.04 and seeds 299 and 673. Training samples every fourth hour with a case- and seed-dependent offset. This branch scales price and water-value columns by the larger of the weekly mean absolute price and 10, and retains the logarithm of that scale.
+
+The two submissions combine these predictions as follows:
+\begin{itemize}
+\item \textbf{Submission 1:} 75\% anchor plus 25\% of the average startup16 prediction from seeds 4173 and 1, followed by the Vinje correction.
+\item \textbf{Submission 2:} 75\% anchor plus 25\% startup16 from seed 4173, followed by the Vinje correction. We then combine 95\% of this result with 5\% of the mean legacy prediction and apply the Vinje correction again.
+\end{itemize}
+Finally, both submissions receive a Tokke correction. It averages conflicting probabilities so G1 is at least as likely to run as G3, and G3 is at least as likely as G2 and G4. We do not require either G2 or G4 to have the higher probability.
+
+\section{Validation and selection}
+\subsection*{Chronological splits}
+We train on earlier cases and evaluate all generators and all 168 hours of each validation case. To avoid overlapping targets, we remove the six starts immediately before the validation year. Training ends on 25 December 2020 for the 2021 check (2,186 cases), and on 25 December 2021 for the 2022 check (2,551 cases). Each validation year has 365 cases.
+
+We calculate micro ROC-AUC using all generator-hour labels and predictions together, following the competition metric \cite{task}. Averaging per-generator AUCs would give a different result. AUC measures ranking, not the fraction of correct on/off decisions.
+
+\subsection*{Hyperparameter selection and reused validation years}
+The main tree and regularization settings were fixed presets from earlier experiments. We kept them unchanged when comparing feature sets, rather than searching them again. Startup16 used a fixed 1,400-tree budget. For each legacy generator, we took the median best tree count from the 2019 and 2020 checks, rounded half up and limited it to 100--1,800 trees.
+
+Anchor weights were chosen by 2021 micro AUC. An eight-candidate comparison selected 75\% context and 25\% LP base. Adding the joint and context/joint models separately selected 25\% each from $\{0,0.25,0.50,0.75,1\}$. The later XGBoost and LightGBM additions used $\{0,0.10,0.25,0.50\}$, selecting 50\%, 25\% and 10\%. These blends were also checked on 2022.
+
+For the final startup16 combinations, we compared weights 10\%, 25\% and 50\%, legacy contributions of 0\% and 5\%, and the Tokke correction on or off. The 25\% startup and 5\% legacy choices gave the best single-seed 2021 result. These composition grids were evaluated on both years, and public results also influenced the final pair. The years are reused development sets, not untouched tests; the small score differences do not establish that one selection will be better in 2024.
+
+\subsection*{Other approaches}
+Earlier work tested XGBoost, CatBoost, pooled and per-generator models, CNNs, bidirectional LSTMs and Transformers. We varied losses, capacity, regularization, price scaling and seed averages, and tried calibration, stacking, temporal corrections and specialist models. Neural models contributed to earlier submissions; the selected recipes use boosted trees.
+
+\section{Results}
+\subsection*{Selected models}
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrrr}
+\hline
+Prediction & 2021 AUC & 2022 AUC & Public AUC\\\hline
+Anchor & 0.9951042 & 0.9938718 & 0.99652\\
+Single-seed startup16 & 0.9952952 & 0.9941764 & 0.99656\\
+Selected 1: two-seed startup16 & 0.9953148 & 0.9941981 & \textbf{0.99657}\\
+Selected 2: single seed + 5\% legacy & 0.9953725 & 0.9942156 & \textbf{0.99654}\\\hline
+\end{tabular}
+\caption{Micro ROC-AUC after ordering corrections. Public scores were recorded on 2--3 November; private scores are unknown.}\label{results}
+\end{table}
+
+We selected the strongest public result and the small legacy blend. The latter scores slightly higher on both development years but lower publicly. It uses a different feature family, although most of the ensemble is shared.
+
+\subsection*{Earlier comparisons}
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrr}
+\hline
+Model & 2021 AUC & 2022 AUC\\\hline
+Unit-frequency baseline & 0.543516 & 0.554452\\
+Early XGBoost with topology features & 0.964724 & 0.971527\\
+Early CatBoost with topology features & 0.965148 & 0.966644\\
+Initial temporal CNN & -- & 0.953495\\
+Initial bidirectional LSTM & -- & 0.948601\\\hline
+\end{tabular}
+\caption{Historical runs with different features and training lengths, rather than controlled ablations. Dashes indicate results not included here.}
+\end{table}
+
+Later versions improved on these early models. Public milestones were 0.98152 for an XGBoost/CNN blend, 0.98717 for a Transformer/plant blend, 0.99172 for a Round5 blend with per-generator LightGBM, and 0.99652 for the hydraulic anchor.
+
+\subsection*{What did not work}
+The legacy addition lowered the single-seed recipe's public AUC from 0.99656 to 0.99654. An anchor-plus-legacy fallback scored 0.99649. Better development scores did not always transfer; we retain the small legacy contribution only in the second selection.
+
+Plant-specific weights improved 2021 but worsened 2022. Cross-case LP features, volatility weighting and a third startup seed also failed to improve 2022. The three-seed result was about 0.9953157/0.9941790. Smoothing probabilities did not help despite persistent on/off states, suggesting it can blur correctly placed starts and stops.
+
+A later optimization-only model scored 0.962333/0.960947 and 0.96516 publicly. Its prediction rule differs from the learned models, so this comparison does not isolate the effect of one feature.
+
+\section{Model interpretation}
+Table~\ref{importance} shows feature importance for submission 1's two startup16 models. We normalized each model's split gains and averaged them.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{lr}
+\hline
+Feature for the current generator & Mean gain (\%)\\\hline
+Joint-LP power fraction & 43.88\\
+Joint-LP discharge/minimum-flow ratio & 26.76\\
+Linked-state LP commitment & 4.39\\
+Unit identity & 4.39\\
+Joint-LP economic margin & 3.29\\
+Independent-LP economic margin & 2.15\\
+Mean weekly LP discharge/minimum-flow ratio & 0.78\\
+Catchment inflow fraction & 0.77\\
+Weekly fraction of positive LP discharge & 0.71\\
+Joint-LP plant power fraction & 0.50\\\hline
+\end{tabular}
+\caption{Feature importance from submission 1's startup16 models.}\label{importance}
+\end{table}
+
+The first two hydraulic features account for about 70.65\% of gain, showing that estimated dispatch dominates the shared model. Gain measures improvement in the training objective; correlated features can share importance, so it does not measure causal effects.
+
+Startup costs, stored water and competition between generators help explain why high prices alone do not determine whether a unit runs.
+
+\clearpage
+\section{Limitations and data sources}
+The two submitted models use the supplied course files and features computed from them.
+
+Our hydraulic approximations simplify head, conversion and interactions between units. High AUC does not establish physical accuracy or produce a feasible operating schedule. We did not measure the effect on a downstream scheduling optimizer or its runtime. We also have not tested the selected models with a skipped year between training and evaluation, as occurs between training through 2022 and private evaluation in 2024.
+
+\section{Reproduction and submission}
+\texttt{Short notebook 1.ipynb} implements submission 1 (0.99657); \texttt{Short notebook 2.ipynb} implements submission 2 (0.99654). Both contain all feature construction, training and export code and start from the ten supplied raw files. They require Python 3.11, the packages in \texttt{requirements.txt}, and one NVIDIA Tesla T4 GPU. XGBoost uses version 3.4.1; CPU threads are limited to four.
+
+Each notebook computes the hydraulic features, fits its models and writes 725 test rows with 2,352 probabilities per row. It creates any temporary code, models and intermediate files during execution; no saved prediction files are required as inputs.
+
+\section{Conclusion}
+Hydraulic features with boosted trees gave our strongest results, with a small further improvement from startup-cost features. The selected blends scored 0.99657 and 0.99654 publicly. The private 2024 results will show whether these improvements carry over to a later year.
+
+\begin{thebibliography}{10}
+\raggedright
+\bibitem{task} SINTEF Energy Research. \emph{Machine Learning Task for TDT4173}. Supplied competition material.
+\bibitem{data} SINTEF Energy Research. \emph{Data Table Documentation}. Supplied as \texttt{Dataset\_definitions\_and\_explanation.pdf}.
+\bibitem{grading} TDT4173 Modern Machine Learning in Practice. \emph{Course Project}, 17 September 2026. Supplied submission and grading guide.
+\bibitem{slides} TDT4173. \emph{Important Remarks: Model and leaderboard structure}. Course slides, supplied excerpt describing the chronological public/private split.
+\end{thebibliography}
+\end{document}

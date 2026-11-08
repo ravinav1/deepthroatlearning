@@ -1,0 +1,109 @@
+{
+  "utc": "2026-11-08T16:16:37.681603+00:00",
+  "run_id": "selected_pair_notebooks_20261108",
+  "reviewer_role": "independent_audit",
+  "verdict": "incomplete",
+  "code_audit_verdict": "pass",
+  "scope": "Pinned source, standalone code, sampling, rounding, projection, actual small raw-feature parity and lightweight synthetic tests; no model fits or AUC.",
+  "runtime_model": "unknown: not exposed",
+  "runtime_reasoning_effort": "unknown: not exposed",
+  "source_revision": "6ccab5c910be21d73bafd4a4536e9a9fe466dc51",
+  "checks": {
+    "pinned_source_hashes_and_function_AST_equivalence": true,
+    "source_hashes_checked": 32,
+    "seven_manifest_hashes_and_training_samples_match": true,
+    "training_sample_rows": 196358,
+    "training_sample_npy_sha256": "4e38d45e87950d4d84849224ddb64fa9b5bf7b21d20a7d9b998223ce5e0fa83d",
+    "legacy_case_hour_sampling_independently_verified": true,
+    "legacy_rescaling_synthetic_check": true,
+    "legacy_default_csv_roundtrip_and_axis_order_synthetic_check": true,
+    "selected_catalogue_ids_seeds_and_projection_composition": true,
+    "actual_raw_legacy_loader_and_feature_parity": {
+      "pass": true,
+      "case_ids": [
+        1,
+        2193,
+        2922,
+        2923,
+        3288,
+        3647
+      ],
+      "generators": 14,
+      "shape_per_generator": [
+        1008,
+        115
+      ],
+      "bitwise_feature_equality": true,
+      "all_float32": true,
+      "actual_test_seconds": 2.46551470895065,
+      "actual_test_peak_memory_bytes": 574062592,
+      "original_source_loader_all_raw_inputs_equal": true,
+      "labels_read_for_loader_parity_only": true
+    }
+  },
+  "notebooks": [
+    {
+      "path": "canvas/Short notebook 1.ipynb",
+      "catalogue_number": 3,
+      "sha256": "d3a6a4dc3cf7110c4bc6df56052713dd8c798769433ab116aeff6c5b5e14d43f",
+      "code_cells": 25,
+      "syntax_and_synthetic_composition_pass": true,
+      "full_execution": false
+    },
+    {
+      "path": "canvas/Short notebook 2.ipynb",
+      "catalogue_number": 4,
+      "sha256": "d5e9384fd300512ec84108dfb2fa23d47da6d828cc7bfe31c7db51a4ae5bf9f5",
+      "code_cells": 36,
+      "syntax_and_synthetic_composition_pass": true,
+      "full_execution": false
+    }
+  ],
+  "builder_sha256": "bcaa0962f5ff3e8989442ffdecffcbf4abed959fe27d7a7c12236112bf2fa768",
+  "fits_run": 0,
+  "auc_evaluations_run": 0,
+  "findings": [
+    {
+      "severity": "high",
+      "status": "open",
+      "finding": "Neither complete raw-data notebook has run on the pinned CUDA environment. Exact historical output hashes, total runtime under 12 hours and peak RAM under 32 GB remain unverified.",
+      "references": [
+        "canvas/Short notebook 1.ipynb:first markdown cell",
+        "canvas/Short notebook 2.ipynb:first markdown cell"
+      ]
+    },
+    {
+      "severity": "medium",
+      "status": "open",
+      "finding": "Candidate #4 final CSV and saved startup/legacy member arrays are unavailable locally for exact saved-component replay. Projection composition was tested with synthetic inputs against the pinned recipe.",
+      "references": [
+        "configs/supplied_only/secondary_anchor_startup16_legacy.json at 6ccab5c910be21d73bafd4a4536e9a9fe466dc51",
+        "authoring/build_notebooks.py:legacy_code"
+      ]
+    },
+    {
+      "severity": "info",
+      "status": "resolved_in_current_code",
+      "finding": "Preserves startup Vinje projection, legacy default CSV round-trip, second Vinje projection and final-only Tokke projection; complete weeks before seed-dependent sampling; global generator IDs; fixed per-generator trees."
+    },
+    {
+      "severity": "info",
+      "status": "scope_note",
+      "finding": "Final fits use all 2922 supplied training starts, matching historical recipes. Six-day purging belongs to prior chronological development folds, which these notebooks do not refit or score. 2021/2022 are reused development evidence."
+    }
+  ],
+  "resource_review": {
+    "audit_cpu_threads": 1,
+    "notebook_cpu_max_configured": 4,
+    "notebook_cuda_devices_configured": 1,
+    "notebook_training_sequential": true,
+    "large_tables_released_before_pooled_fit_and_legacy": true,
+    "notebook_peak_memory_measured": false,
+    "notebook_elapsed_time_measured": false
+  },
+  "inherited_evidence_note": "evidence/historical_verification_3_5.json is prior #3/#5 evidence, not execution evidence for new #4 notebook.",
+  "audit_check_history": [
+    "First AST comparison included docstrings and rejected the intentionally corrected Tokke comment. Repeated comparison excludes function docstrings and verifies unchanged executable AST. No numerical defect found."
+  ],
+  "required_completion": "Execute both complete notebooks on the pinned GPU environment, retain resource receipts and exact historical CSV matches before claiming fully reproduced."
+}

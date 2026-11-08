@@ -1,0 +1,56 @@
+{
+  "utc": "2026-11-08T16:17:53.661900+00:00",
+  "user_authorization": "Selected catalogue 3 and 4 and requested updated report/notebooks; Bøye student ID supplied as 139410.",
+  "source_revision": "6ccab5c910be21d73bafd4a4536e9a9fe466dc51",
+  "output_directory": "output/final_submission_selected_3_4_20261108",
+  "manifest_sha256": "a6ffcc7e291ebec3f52501628dd590035303e0e7fa7952df6548a8fda36c16f1",
+  "selected_catalogue_entries": [
+    {
+      "number": 3,
+      "public_score": 0.99657,
+      "historical_csv_sha256": "f7b0b52fc54e93e1db6171fdf85a7955486c3439897911291eef98c70a4f716a"
+    },
+    {
+      "number": 4,
+      "public_score": 0.99654,
+      "historical_csv_sha256": "38cf96b1165324ac6e63c77d5284e15d499dda534f3871ebea82f11471d78f67"
+    }
+  ],
+  "changes": [
+    "Eight-page plain-language report updated to 3/4, including nested formulas, scores, selection rationale, reproduction evidence and authors.",
+    "Standalone notebook2 adds exact legacy299/673 feature/training/CSV roundtrip path.",
+    "Both notebooks include correct author IDs and enforce final schema, resource and historical hash checks.",
+    "Removed comments from delivered requirements.txt and refreshed Canvas ZIP; eight package pins unchanged.",
+    "Final report audit: revised to7pages in plainerlanguage;4verified/relevant course references;tables unchanged;parameter origins clarified.",
+    "Added AI-use declaration; removed only outside-data discussion; retained earlier experiments, score table and unsuccessful approaches; synchronized PDF, LaTeX and ZIPs. Notebook files unchanged.",
+    "Removed requested verification paragraph; added Tvenge to Bøye’s name; replaced the old team name with Group 167 in report/notebook headings; refreshed all delivery copies and ZIPs. Notebook executable cells unchanged."
+  ],
+  "verification": {
+    "root_integration_tests": 5,
+    "affected_archived_tests": 55,
+    "independent_code_audit": "pass",
+    "legacy_feature_parity": "Six cases; all 14 generators; 1008 case-hours per generator and 115 columns; bitwise equal to original implementation.",
+    "notebook_syntax_schema_embedded_imports": "pass",
+    "pdf": "Seven pages after final audit;clean compile,visual inspection,allfive numerical tables preserved.",
+    "zip_contents": "Byte-checked against final source files.",
+    "latest_document_edit": "Clean seven-page PDF, revised pages visually checked, requested text/name changes checked, all five tables and notebook executable cells unchanged; all delivery archive bytes verified."
+  },
+  "limits": [
+    "No full raw-data CUDA training run; time/RAM and exact outputs remain unverified.",
+    "Catalogue4 saved CSV/components absent locally.",
+    "Consolidated pinned environment untested end to end."
+  ],
+  "new_training_runs": 0,
+  "new_auc_evaluations": 0,
+  "new_2022_looks": 0,
+  "kaggle_actions": 0,
+  "pushes": 0,
+  "next_step": "Run both complete notebooks on pinned Python3.11.15/CUDA XGBoost3.4.1 with one T4, maximum4CPU/32GB; inspect generated receipt and exact historical CSV hash. No new model selection needed.",
+  "evidence": [
+    "output/final_submission_selected_3_4_20261108/evidence/notebook_build.json",
+    "output/final_submission_selected_3_4_20261108/evidence/selected_pair_audit.json",
+    "output/final_submission_selected_3_4_20261108/evidence/local_verification.json",
+    "output/final_submission_selected_3_4_20261108/evidence/final_report_audit.json"
+  ],
+  "updated_utc": "2026-11-08T17:02:27.285467+00:00"
+}

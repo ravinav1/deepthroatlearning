@@ -1,0 +1,63 @@
+{
+  "utc": "2026-11-08T16:16:51.199779+00:00",
+  "scope": "Preparation of user-selected catalogue 3 and 4 notebooks and report; no training or new evaluation",
+  "platform": "macOS-15.7.2-arm64-arm-64bit",
+  "python": "3.11.13 (main, Jun  3 2025, 18:38:25) [Clang 16.0.0 (clang-1600.0.26.6)]",
+  "packages": {
+    "numpy": "2.4.6",
+    "pandas": "3.0.6",
+    "scipy": "1.17.1",
+    "lightgbm": "4.7.0",
+    "xgboost": "3.2.0"
+  },
+  "cuda_available_in_installed_xgboost": false,
+  "checks": {
+    "root_integration": {
+      "command": ".venv-hydraulic/bin/python -m unittest discover -s tests -p test_hydraulic_integration.py -v",
+      "tests": 5,
+      "status": "pass",
+      "elapsed_seconds": 0.006
+    },
+    "affected_archived": {
+      "working_directory": "experiments/hydraulic_surrogate",
+      "modules": [
+        "test_pipeline",
+        "test_physics",
+        "test_context_features",
+        "test_lp_features",
+        "test_lp_context",
+        "test_lp_head_update",
+        "test_lp_shared_loss_update",
+        "test_lp_joint_plant",
+        "test_lp_shop_relaxation",
+        "test_lp_shop_features",
+        "test_canonical_unit_features"
+      ],
+      "tests": 55,
+      "status": "pass",
+      "elapsed_seconds": 3.41
+    },
+    "pdf": {
+      "pages": 8,
+      "compiler": "pdfLaTeX",
+      "no_warnings_or_box_errors": true,
+      "visually_reviewed": true,
+      "author_ids": [
+        "115526",
+        "109485",
+        "139410"
+      ]
+    }
+  },
+  "full_root_suite": "Started, then interrupted during unrelated synthetic release/CSV tests to bound the task; no full-suite pass claimed. Root hydraulic integration tests were then run separately and passed.",
+  "full_notebook_execution": "Not performed: macOS CPU environment has XGBoost 3.2.0 without CUDA; historical notebooks require pinned CUDA XGBoost 3.4.1.",
+  "new_2022_looks": 0,
+  "new_auc_values": 0,
+  "training_runs": 0,
+  "kaggle_actions": 0,
+  "limitations": [
+    "Total raw-data runtime and peak RAM unmeasured.",
+    "Catalogue 4 historical CSV unavailable locally; no exact-output reproduction verified.",
+    "Consolidated pinned environment has not had a complete training run."
+  ]
+}

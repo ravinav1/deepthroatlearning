@@ -1,0 +1,28 @@
+{
+  "run_id": "submission_pair_review_20261108",
+  "kind": "read-only review plus label-free comparison of existing submitted predictions",
+  "declared_before_new_diagnostics": true,
+  "prior_exposure": "The user catalogue, existing 2021/2022/public scores, and archived audits were read before this protocol. The catalogue already reports correlation 0.999967 for submissions 3 and 5; its referenced review JSON is unavailable here.",
+  "hypothesis": "The highest eligible public-scoring model should occupy one slot; a second slot is useful only if credible performance, different predictions/mechanisms, and feasible offline reproduction justify it.",
+  "reference_scores_not_recomputed": {
+    "3": {"public_2023": 0.99657, "development_2021": 0.9953147883, "development_2022": 0.9941980552},
+    "4": {"public_2023": 0.99654, "development_2021": 0.9953725091, "development_2022": 0.9942155802},
+    "5": {"public_2023": 0.99656, "development_2021": 0.9952952358, "development_2022": 0.9941764361},
+    "2": {"public_2023": 0.99652, "development_2021_359_cases_not_comparable_to_365_case_scores": 0.9953813534301886, "development_2022": 0.9942270163099485}
+  },
+  "allowed_arrays": "Existing supplied-data-only prediction CSVs for catalogue 3, 5, 2, 17, 19, 25 and 32, with recorded hashes verified before diagnostics. No external-output or retrospective candidates are read.",
+  "missing_candidate": "Catalogue 4 CSV and cited final_selection_review_20261108.json are absent locally. Do not reconstruct it using a different Round10 recipe or substitute another submission.",
+  "data": "prediction_mapping.csv dates and sample_submission.csv schema only; no commitment labels",
+  "groups": ["all test cases", "public 2023", "private 2024"],
+  "comparisons": "Catalogue 3 against each other available candidate; pooled outputs and per-generator differences",
+  "diagnostics": ["Pearson prediction correlation", "Spearman rank correlation", "mean absolute difference", "95th and 99th percentile absolute difference", "fraction of 0.5-threshold decisions that differ", "fraction differing by more than 0.01 and 0.05", "same diagnostics on reference probabilities between 0.1 and 0.9"],
+  "parameter_grid": [],
+  "controls": "3-versus-5 near-sibling; 17 shared anchor; 32 structurally older ensemble",
+  "selection_rule": "No automated winner or tuning. Recommend two existing eligible submissions by jointly reviewing recorded evidence, prediction/mechanism diversity and raw-data notebook feasibility. Distinguish preferred statistical pair from ready-to-deliver fallback.",
+  "acceptance_criterion": "Diagnostics are accepted only after exact CSV hashes, schema, case IDs and finite [0,1] checks. They are descriptive and cannot establish private accuracy or error complementarity.",
+  "resources": {"cpu_threads": 1, "memory_limit_gb": 1, "wall_limit_minutes": 3, "fits": 0, "new_auc_evaluations": 0, "kaggle_actions": 0},
+  "bootstrap_intervals": null,
+  "bootstrap_reason": "No label-based performance statistic or experiment verdict is computed.",
+  "new_2022_looks": 0,
+  "known_limitations": ["2021 and 2022 scores are repeatedly reused development evidence", "Public 2023 has influenced prior selection", "Prediction correlation is not error correlation", "Raw-data notebook execution remains unverified", "Private scores and the user's approximate virtual-team threshold are not verified"]
+}

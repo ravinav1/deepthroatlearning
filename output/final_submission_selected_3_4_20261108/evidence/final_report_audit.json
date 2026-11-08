@@ -1,0 +1,192 @@
+{
+  "utc": "2026-11-08T16:45:19.272330+00:00",
+  "scope": "Final PDF reading, rubric audit, source verification and plain-language revision; later user-requested report/header edits; no model code changes or new scoring.",
+  "before_pdf_sha256": "cad42afc64b8501870e9f3306d68e37f86560add349dcb75065ab66413015b7f",
+  "after_pdf_sha256": "db896c725a9268e2636230001c20770f4ec8ba4bbf616111611a0154d9aa1ca2",
+  "report_content_verdict": "All stated report-content requirements covered; execution and actual submission conditions remain separate.",
+  "page_count": 7,
+  "rubric": [
+    {
+      "requirement": "At least4of6 EDA activities",
+      "status": "covered",
+      "evidence": "Section2: domain knowledge, data generation, individual-price features, relationships between features and activity. Missing/duplicate checks are additional; not needed to reachfour."
+    },
+    {
+      "requirement": "At leasttwo predictor types",
+      "status": "covered",
+      "evidence": "Sections5–6: boosted trees and CNN/LSTM/Transformer experiments; quantitative neural results retained."
+    },
+    {
+      "requirement": "Feature engineering",
+      "status": "covered",
+      "evidence": "Section3: economic scaling, three hydraulic feature families and generator/startup feature construction."
+    },
+    {
+      "requirement": "Model interpretation results",
+      "status": "covered",
+      "evidence": "Section7: quantitative split-gain table and explanation of limits; no requirement for SHAP/PDPspecifically."
+    },
+    {
+      "requirement": "How hyperparameters obtained",
+      "status": "covered_after_revision",
+      "evidence": "Section5: inherited fixed learner presets;2019/2020 legacy tree-count median rule; anchor and final-composition candidate grids, selection years and reuse disclosed."
+    },
+    {
+      "requirement": "Successful and unsuccessful methods",
+      "status": "covered",
+      "evidence": "Sections5–6 cover model families, historical comparisons and failed approaches."
+    },
+    {
+      "requirement": "Names, student IDs and team at beginning",
+      "status": "documented",
+      "evidence": "Hallvard Grundt 115526; Raviksan Navaratnarajah 109485; Bøye Tvenge Einang 139410; Group 167. User requested Group 167 only, replacing the old team display name in deliverables. Live Kaggle team name not changed or verified."
+    },
+    {
+      "requirement": "Clear section titles, correct report format",
+      "status": "covered",
+      "evidence": "Seven-page Report.pdf; distinct EDA,feature engineering,interpretation sections. Guide imposes no report length limit."
+    },
+    {
+      "requirement": "Full offline raw-data reproduction within limits",
+      "status": "not_verified",
+      "evidence": "Not established by report review; full CUDA execution/runtime/RAM and #4 output remain unverified. User is handling verification and requested removal of the report-status paragraph. No run performed during this edit."
+    },
+    {
+      "requirement": "Two Kaggle selections and actual delivery",
+      "status": "not_verified",
+      "evidence": "Report and notebooks map chosen#3/#4; live selection/team naming,Canvas delivery and exam registration not checked by this audit."
+    }
+  ],
+  "references": [
+    {
+      "key": "task",
+      "title": "Machine Learning Task for TDT4173",
+      "path": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/docs/ML_Task_TDT4173.pdf",
+      "in_repository": true,
+      "origin": "Supplied course material",
+      "sha256": "90a84ac45e16e1bc89f963d7846ca2a4e17c047247154e1f7f3947096e056804",
+      "pages": 2,
+      "citation_occurrences": 3,
+      "supports": "Hydropower system, task, case structure and official evaluation metric.",
+      "verification": "Actual PDF read; title and relevant contents checked."
+    },
+    {
+      "key": "data",
+      "title": "Data Table Documentation",
+      "path": "/Users/hallvardgrundt/projects/tdt4173-ml-prosjekt/deepthroatlearning/docs/Dataset_definitions_and_explanation.pdf",
+      "in_repository": true,
+      "origin": "Supplied course material",
+      "sha256": "256adf9a662446d391650dc1e8e764b819b38ddd435126b8c4ea93a613488cb8",
+      "pages": 3,
+      "citation_occurrences": 3,
+      "supports": "Supplied input schema, optimizer-generated labels, initial storage and terminal water values.",
+      "verification": "Actual PDF read; title and relevant contents checked."
+    },
+    {
+      "key": "grading",
+      "title": "TDT4173 Modern Machine Learning in Practice — Course Project",
+      "path": "/Users/hallvardgrundt/Downloads/TDT4173_Project_Submission_and_Grading (1).pdf",
+      "in_repository": false,
+      "origin": "Supplied course material",
+      "sha256": "a602329d68aa065f5de550addb28fd3285ca537cd1e9c6f98f1ff800a038cd14",
+      "pages": 4,
+      "citation_occurrences": 1,
+      "supports": "Private leaderboard determines final judging; citation moved to Section 1 after removing the verification-status paragraph.",
+      "verification": "Actual PDF read; title and relevant contents checked."
+    },
+    {
+      "key": "slides",
+      "title": "Important Remarks: Model and leaderboard structure",
+      "origin": "Course-slide excerpt quoted by user in this conversation",
+      "in_repository": false,
+      "original_slide_deck_available": false,
+      "citation_occurrences": 1,
+      "supports": "Training 2015-01-01 to2023-01-01; public2023; private2024 throughDecember25; described50/50split.",
+      "verification": "Checked against supplied quotation only; not independently verified against full deck."
+    }
+  ],
+  "unused_references": [],
+  "undefined_citations": [],
+  "removed_internal_reference_keys": [
+    "source",
+    "physics",
+    "structure",
+    "supplied",
+    "manifests",
+    "history",
+    "scores",
+    "boundary"
+  ],
+  "removed_reference_reason": "Real internal project records, verified but unnecessary as formal bibliography entries for the group’s own methods/results. Evidence remains in repository/package.",
+  "source_corrections": [
+    "Use printed Data Table Documentation title.",
+    "Use printed grading-guide title/date; remove unverified Canvas course/file IDs.",
+    "Mark split source as supplied slide excerpt; original deck unavailable.",
+    "Internal score ledger for#3/#4 was verified in packaged evidence and pinnedorigin/main, not stale current-branch ledger."
+  ],
+  "technical_corrections": [
+    "Clarified hydraulic versus legacy scaling.",
+    "Explained legacy count-selection rule and anchor/composition grids.",
+    "Disclosed composition grids onboth reused years.",
+    "Corrected public observation dates to2–3November.",
+    "Corrected Round5 attribution to ensembleblend.",
+    "Qualified blend verification as synthetic-input checks.",
+    "Removed unsupported implication that laterEDA motivated earliernormalization.",
+    "Added selectedmodels lack a skipped-year evaluation.",
+    "Clarified linked-state deltas compare against independentLP,not temporalchanges."
+  ],
+  "style_changes": [
+    "Replaced V/T notation and nested equations with plain-language weighted steps and a Vinje example.",
+    "Removed Let phrasing and long handover-style reproduction commentary.",
+    "Retained scientific caveats; later removed the verification-status paragraph at user request."
+  ],
+  "verification": {
+    "five_tables_preserved": true,
+    "authors_and_ids_checked": true,
+    "latex_compile_without_warnings_or_box_errors": true,
+    "all_pages_rendered_and_visually_reviewed": true,
+    "independent_rubric_review": "pass",
+    "independent_technical_review": "pass",
+    "independent_numeric_evidence_review": "pass"
+  },
+  "notebook_observation_not_changed": {
+    "exact_hash_assertion": "Current notebooks require exact historical hash. The grading guide allows small differences that do not affectVT ranking; this is a stricter project check and can fail after writing a potentially acceptable CSV. No notebook changes made in this report-only revision."
+  },
+  "new_fits": 0,
+  "new_auc": 0,
+  "new_2022_looks": 0,
+  "kaggle_actions": 0,
+  "updated_utc": "2026-11-08T17:02:27.285467+00:00",
+  "user_requested_final_edits": {
+    "ai_declaration": "Added near the top for repository navigation, wording, structure and LaTeX formatting.",
+    "outside_data_passage": "Removed only the report passage about prior external solver data, plus its unnecessary explanatory aside; historical provenance records unchanged.",
+    "earlier_model_work": "Retained Other approaches, Earlier comparisons and What did not work, including historical score table and milestones, after rereading the grading guide.",
+    "notebooks": "Unchanged."
+  },
+  "latest_user_requested_edits": {
+    "utc": "2026-11-08T17:02:27.285467+00:00",
+    "verification_paragraph_removed": true,
+    "full_name": "Bøye Tvenge Einang",
+    "display_identity": "Group 167",
+    "notebook_changes": {
+      "Short notebook 2.ipynb": {
+        "before_file_sha256": "d5e9384fd300512ec84108dfb2fa23d47da6d828cc7bfe31c7db51a4ae5bf9f5",
+        "after_file_sha256": "5efca2c1c45492ca7bb0ed73bddfdb239f1518df51e1f806f799354785796d84",
+        "code_cells_unchanged": true
+      },
+      "Short notebook 1.ipynb": {
+        "before_file_sha256": "d3a6a4dc3cf7110c4bc6df56052713dd8c798769433ab116aeff6c5b5e14d43f",
+        "after_file_sha256": "402903feb5aa5666ea2d53aa1eb15bb7a9595c4c6d0aaf928d47417ccd288bb0",
+        "code_cells_unchanged": true
+      }
+    },
+    "latex_clean_compile": true,
+    "changed_pages_visually_checked": [
+      1,
+      7
+    ],
+    "earlier_experiments_and_five_tables_preserved": true,
+    "all_four_references_cited": true,
+    "verification_performed_by_this_edit": "Document/layout, notebook code-cell equality and archive consistency only."
+  }
+}

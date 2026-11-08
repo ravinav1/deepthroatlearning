@@ -1,0 +1,9 @@
+{
+  "name": "Supplied-only bag2: anchor + 0.25 mean(startup16 seed 4173, seed 1 with 0.8 row bagging), Vinje and Tokke projections",
+  "anchor_test": "models/hydraulic_surrogate/submission-lgb-shop664-anchor-blend-001/test_predictions.npy",
+  "stages": [
+    {"name": "startup16_bag2", "components": {"startup16_bag2": {"npy_mean": ["models/supplied_only/startup16_final/raw_predictions.npy", "models/supplied_only/startup16_final_seed1/raw_predictions.npy"], "weight": 0.25}}}
+  ],
+  "tokke_projection": true,
+  "selection": "two-seed mean at the 2021-selected weight 0.25; dev 0.9953148/0.9941981 (reports/supplied_only/compose_eval_seeds4173_1.json, su0.25_leg0_tokke1)"
+}

@@ -1,5 +1,15 @@
 # TDT4173 hydropower scheduling
 
+## Final course submission — 8 November 2026
+
+The updated **Group 167** package selects submissions **#3 (0.99657)** and
+**#4 (0.99654)**. It supersedes the earlier pair in `final_submission/`.
+
+- [Updated report PDF](output/final_submission_selected_3_4_20261108/canvas/Report.pdf)
+- [Canvas ZIP: report, two notebooks and requirements](output/final_submission_selected_3_4_20261108/TDT4173_Canvas_selected_3_4.zip)
+- [Overleaf ZIP: editable LaTeX](output/final_submission_selected_3_4_20261108/TDT4173_Overleaf_selected_3_4.zip)
+- [Submission instructions and verification status](output/final_submission_selected_3_4_20261108/READ_ME_FIRST.txt)
+
 Predict hourly ON/OFF probabilities for **14 hydropower generators over a
 168-hour week**: **2,352 outputs per case**, evaluated with **micro ROC-AUC**.
 The labels are schedules produced by an optimizer, and the model receives the

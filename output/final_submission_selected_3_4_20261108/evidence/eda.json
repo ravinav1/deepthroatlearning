@@ -1,0 +1,94 @@
+{
+  "n_train_cases": 2922,
+  "n_test_cases": 725,
+  "n_units": 14,
+  "hours_per_case": 168,
+  "label_count": 6872544,
+  "positive_fraction": 0.5163875269478085,
+  "units": {
+    "Hogga_G1": 0.5945597438153907,
+    "Tokke_G1": 0.6709914116228285,
+    "Tokke_G2": 0.47835386721423684,
+    "Tokke_G3": 0.5642620840259444,
+    "Tokke_G4": 0.49819513705550666,
+    "Lio_G1": 0.7465328705061764,
+    "Byrte_G1": 0.5420027867409798,
+    "Vinje_G1": 0.4853859065871386,
+    "Vinje_G2": 0.4203680616668296,
+    "Vinje_G3": 0.25914857729539453,
+    "Haukeli_G1": 0.5468143965320557,
+    "Songa_G1": 0.48539201786121705,
+    "Kjela_G1": 0.47053551057657833,
+    "Vesle Kjela_G1": 0.46688300576904274
+  },
+  "by_year": {
+    "2015": 0.5236476097288231,
+    "2016": 0.5277452511059069,
+    "2017": 0.5463109216289256,
+    "2018": 0.6321778026279005,
+    "2019": 0.5104487000279564,
+    "2020": 0.5946526151444185,
+    "2021": 0.4553524834591371,
+    "2022": 0.34051928990774394
+  },
+  "top_gain_features": {
+    "own_lpjoint_power_fraction": 0.4388214909960213,
+    "own_lpjoint_qmin_ratio": 0.2676410885373102,
+    "own_shop_state": 0.043926018472392574,
+    "unit_id": 0.04391469862376127,
+    "own_lpjoint_economic_margin": 0.03286179211655695,
+    "own_lp_economic_margin": 0.02149439740462451,
+    "own_lp_context_qmin_week_mean": 0.007845515983560678,
+    "own_physics_catchment_inflow_fraction": 0.007665606001958539,
+    "own_lp_context_qmin_week_positive_fraction": 0.007101085508698375,
+    "own_lpjoint_plant_power_fraction": 0.004960533182410019,
+    "own_lp_context_qmin_previous_6h_mean": 0.0038158540503313125,
+    "own_physics_supply_fraction": 0.003756183615178966
+  },
+  "Historical_day_ahead_price_2015_2025.csv": {
+    "rows": 103062,
+    "columns": 2,
+    "missing_cells": 0,
+    "duplicate_dates": 0
+  },
+  "Historical_inflow_1958_2025.csv": {
+    "rows": 594224,
+    "columns": 19,
+    "missing_cells": 0,
+    "duplicate_dates": 0
+  },
+  "Historical_volume_2015_2024.csv": {
+    "rows": 3654,
+    "columns": 18,
+    "missing_cells": 0,
+    "duplicate_dates": 0
+  },
+  "Synthetic_water_value_2015_2024.csv": {
+    "rows": 3654,
+    "columns": 18,
+    "missing_cells": 0,
+    "duplicate_dates": 0
+  },
+  "relative_price_std_median": {
+    "2015-2020": 0.09217371046543121,
+    "2021": 0.18167099356651306,
+    "2022": 0.21917855739593506,
+    "2023-2024": 0.32135245203971863
+  },
+  "sampled_pair_correlations": {
+    "Hogga_G1": 0.7764599435114165,
+    "Tokke_G1": 0.8207445315812033,
+    "Tokke_G2": 0.8315765226822717,
+    "Tokke_G3": 0.9001756003542316,
+    "Tokke_G4": 0.8519346201172462,
+    "Lio_G1": 0.7385086908340109,
+    "Byrte_G1": 0.9361700175014235,
+    "Vinje_G1": 0.8103557092615564,
+    "Vinje_G2": 0.8150860237672983,
+    "Vinje_G3": 0.6923597415728293,
+    "Haukeli_G1": 0.8169321383227709,
+    "Songa_G1": 0.9227581357523454,
+    "Kjela_G1": 0.8824576909196792,
+    "Vesle Kjela_G1": 0.9034305687472918
+  }
+}

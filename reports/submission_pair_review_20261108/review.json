@@ -1,0 +1,172 @@
+{
+  "utc": "2026-11-08T16:04:58.702352+00:00",
+  "scope": "Bounded final-selection evidence review. No training, no new AUCs, no Kaggle selections or submissions, no change to report recipe.",
+  "user_target": {
+    "approximate_virtual_team_score": 0.9904,
+    "status": "User supplied planning benchmark; private 2024 performance is unknown",
+    "round5": "Explicitly excluded by user from final-selection shortlist"
+  },
+  "recommendation": {
+    "first": "catalogue 3, two-seed startup16, public 0.99657",
+    "second": "catalogue 4, single-seed startup16 plus 5% independently trained legacy LightGBM, public 0.99654",
+    "status": "Preferred practical pair, conditional on preparing and verifying the correct notebook for catalogue 4",
+    "fallback": "Catalogue 3 plus 5 if catalogue 4 cannot be made reproducible in time; prepared notebooks currently target this pair, but complete raw-data execution is still unverified",
+    "alternative": "Catalogue 2 is independently audited and more distinct from 3 than 5 is, but needs a materially more complex offline reproduction path including integer-Lio and the older Round10 ensemble"
+  },
+  "comparison": [
+    {
+      "catalogue": 3,
+      "public_2023": 0.99657,
+      "development_2021": 0.9953147883,
+      "development_2022": 0.9941980552,
+      "decision": "Keep first slot; strongest recorded eligible public score; tested blend"
+    },
+    {
+      "catalogue": 4,
+      "public_2023": 0.99654,
+      "development_2021": 0.9953725091,
+      "development_2022": 0.9942155802,
+      "decision": "Preferred second if notebook verified; only modest diversification; exact prediction array unavailable locally"
+    },
+    {
+      "catalogue": 5,
+      "public_2023": 0.99656,
+      "development_2021": 0.9952952358,
+      "development_2022": 0.9941764361,
+      "decision": "Delivery fallback; extremely close to 3"
+    },
+    {
+      "catalogue": 2,
+      "public_2023": 0.99652,
+      "development_2021_noncomparable_359_cases": 0.9953813534301886,
+      "development_2022": 0.9942270163099485,
+      "decision": "Credible alternative, stronger audit evidence than catalogue suggests; raw notebook integration harder"
+    },
+    {
+      "catalogue": 19,
+      "public_2023": 0.99647,
+      "development_2021": 0.99482676333,
+      "development_2022": 0.993646217242,
+      "decision": "Already a component of anchor; lower on all three periods, no demonstrated private hedge advantage"
+    },
+    {
+      "catalogue": 25,
+      "public_2023": 0.99631,
+      "development_2021": 0.994937718669,
+      "development_2022": 0.993691487954,
+      "decision": "Already a component family of anchor; no demonstrated benefit from removing later improvements"
+    },
+    {
+      "catalogue": 32,
+      "public_2023": 0.99172,
+      "existing_skipped_year_2022_jan7_onward": 0.9870453044407653,
+      "decision": "Excluded by user; existing aging result weakens safety-net argument at approximate 0.99040 target"
+    },
+    {
+      "catalogue": 1,
+      "public_2023": 0.96516,
+      "development_2021": 0.962333,
+      "development_2022": 0.960947,
+      "decision": "Substantially weaker and shares hydraulic approximations"
+    }
+  ],
+  "exact_recommendation_identity": {
+    "3": {
+      "submitted_utc": "2026-11-03 13:07:32",
+      "sha256": "f7b0b52fc54e93e1db6171fdf85a7955486c3439897911291eef98c70a4f716a",
+      "csv_verified_here": true
+    },
+    "4": {
+      "submitted_utc": "2026-11-03 12:53:37",
+      "sha256": "38cf96b1165324ac6e63c77d5284e15d499dda534f3871ebea82f11471d78f67",
+      "csv_verified_here": false
+    }
+  },
+  "reasoning": [
+    "3 and 4 differ by both startup seed averaging and the 5% legacy contribution; 4 is not simply 3 plus legacy.",
+    "4 exceeds 3 by about 0.00005772 in 2021 and 0.00001753 in 2022, but is 0.00003 lower publicly. No significant superiority of 4 over 3, 5 or 2 is established.",
+    "3 and 4 share most of the hydraulic anchor and are only a modest hedge against one another.",
+    "The legacy addition hurt public results in both 4-vs-5 and 6-vs-17 comparisons, so it should not replace 3 as first choice.",
+    "2 has stronger independent audit evidence than the catalogue states. Its 2021 score uses 359 cases and must not be ranked against 365-case 2021 scores.",
+    "2 exceeds 4 on comparable full 2022 by only about 0.0000114; bootstrap evidence is against A0, not 4. This does not establish 2 as superior to 4.",
+    "More different probabilities do not demonstrate complementary mistakes. There is no private-label evidence for any pair.",
+    "A matching reproducible notebook is more consequential than these tiny score differences."
+  ],
+  "fresh_label_free_diagnostics_2024": {
+    "5": {
+      "pearson": 0.9999658366634144,
+      "spearman": 0.9996925361951898,
+      "mean_absolute_difference": 0.001188023888117036,
+      "threshold_0_5_disagreement_fraction": 0.0008810468631897204
+    },
+    "2": {
+      "pearson": 0.9992509434676106,
+      "spearman": 0.9889448474285193,
+      "mean_absolute_difference": 0.005911519058755202,
+      "threshold_0_5_disagreement_fraction": 0.004343820861678005
+    },
+    "17": {
+      "pearson": 0.9994510488714222,
+      "spearman": 0.9941201418529877,
+      "mean_absolute_difference": 0.004815338915126543,
+      "threshold_0_5_disagreement_fraction": 0.003788737717309146
+    },
+    "19": {
+      "pearson": 0.9975645455882353,
+      "spearman": 0.9896439776927017,
+      "mean_absolute_difference": 0.010059172884943988,
+      "threshold_0_5_disagreement_fraction": 0.0073743386243386244
+    },
+    "25": {
+      "pearson": 0.9978760247271771,
+      "spearman": 0.991844562190002,
+      "mean_absolute_difference": 0.009155136459904406,
+      "threshold_0_5_disagreement_fraction": 0.00787509448223734
+    },
+    "32": {
+      "pearson": 0.9683425829201102,
+      "spearman": 0.9652856102053708,
+      "mean_absolute_difference": 0.046689882210914226,
+      "threshold_0_5_disagreement_fraction": 0.03629771352985639
+    }
+  },
+  "independent_checks": [
+    "Downloaded original release package and matched recorded SHA256; extracted 3 and 5 CSVs and matched recorded SHA256s.",
+    "All seven inspected CSVs matched expected hashes, schema, case IDs and finite [0,1] range.",
+    "Independent audit reconstructed catalogue 2 from its saved components and matched the exact submitted CSV hash.",
+    "Independent review checked date masks, unit/hour ordering, script/protocol hashes, and that diagnostics load no labels or compute AUC.",
+    "No new 2022 evaluation was performed; existing repeated-use limitations remain."
+  ],
+  "delivery": {
+    "current_prepared_notebooks": "Catalogue 3 and 5, as shown by origin/main:final_submission/authoring/build_notebooks.py",
+    "catalogue_4_work": "Add standalone legacy feature/training path for seeds 299/673 to notebook 2; verify against recorded hash; measure full runtime/memory; update shortened report to match selected pair.",
+    "catalogue_2_work": "Requires integer-Lio pipeline plus older Round10 ensemble, whose upstream training was not reproduced in the archived survivor audit.",
+    "all_notebooks": "Full raw-data CUDA execution remains unverified in archived preparation evidence.",
+    "selection_state": "User catalogue captured 0/2 selected with disabled controls; this review did not verify or change live state.",
+    "later_optional_robustness_test": "Freeze the selected pair and test a skipped-year fit on supplied labels only, under a new preregistered protocol, if separately requested. No fits started."
+  },
+  "exclusions": [
+    "11,12,13: external solver numerical outputs",
+    "14: retrospective future storage covariates",
+    "10: undescribed and insufficient identity evidence to replace a documented candidate"
+  ],
+  "source_revision": "d3e86249626e4d7b528f0309d91a3f1c8fdeb2fc",
+  "source_catalogue_sha256": "0ec17b2e442baf8189abb8a085c54442a474135b348c8c130579b212f38a0131",
+  "key_sources": [
+    "origin/main:reports/supplied_only/compose_eval_seeds4173.json",
+    "origin/main:reports/supplied_only/compose_eval_seeds4173_1.json",
+    "origin/main:configs/round10_legacy_so_seed299_final.json",
+    "origin/main:configs/round10_legacy_so_seed673_final.json",
+    "origin/main:final_submission/authoring/build_notebooks.py",
+    "origin/main:final_submission/evidence/verification.json",
+    "reports/survivor_combo_20261104/validation.md",
+    "reports/survivor_combo_20261104/recipe.json",
+    "reports/round5_selected_frozen_2022_diagnostics.json",
+    "reports/submission_pair_review_20261108/prediction_diagnostics.json"
+  ],
+  "missing_evidence": [
+    "reports/final_selection_review_20261108.json cited by catalogue",
+    "Catalogue 4 exact CSV and its legacy component arrays in this checkout"
+  ],
+  "new_2022_looks": 0
+}

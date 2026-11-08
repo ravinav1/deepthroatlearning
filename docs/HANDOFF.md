@@ -1,5 +1,63 @@
 # Current project handoff
 
+## Selected-pair delivery — 8 November 2026
+
+The user chose catalogue **#3 (0.99657)** and **#4 (0.99654)** and requested the
+report and notebooks to match. This supersedes the earlier prepared #3/#5 pair.
+New local deliverables are in `output/final_submission_selected_3_4_20261108/`:
+`canvas/` contains the seven-page `Report.pdf`, `Short notebook 1.ipynb`,
+`Short notebook 2.ipynb`, and `requirements.txt`; the two ZIPs package Canvas files
+and editable Overleaf source separately. The previous short-report paths under
+`output/pdf/report_plain_language_20261108/` are also updated to this pair.
+Authors: Hallvard Grundt 115526, Raviksan Navaratnarajah 109485,
+Bøye Tvenge Einang 139410. The report and notebook headings use **Group 167**
+only, at the user's request; the live Kaggle team name was not changed.
+
+The final report review checked the grading guide, source titles/claims, model
+settings, results and all citations. It now uses plainer explanations, clarifies
+hyperparameter selection, keeps four relevant course references, and includes the
+requested AI-use declaration. At the user's later request, the report's data-source
+statement concerns only the two submitted models; historical provenance records
+are unchanged. Earlier model comparisons, public milestones and unsuccessful
+approaches remain in Sections 5–6, as the user clarified; only the outside-data
+discussion was removed. See `output/final_submission_selected_3_4_20261108/evidence/final_report_audit.json`.
+The delivered requirements file has no comments. Both deliverable ZIPs contain
+the latest report/source; notebook code is unchanged by the final report review.
+The user subsequently requested removal of the report's verification-status
+paragraph and will handle that verification. The paragraph is removed; the actual
+remaining execution checks below are unchanged. Notebook author headings and the
+authoring template include Tvenge; executable notebook cells are unchanged.
+
+Notebook 2 now reproduces the recorded single-startup-seed plus 5% separate-generator
+legacy LightGBM recipe, including seeds 299/673, fixed tree counts, sampling,
+CSV round-trip and both Vinje projections before the final Tokke projection.
+Source is pinned to fetched `origin/main` revision `6ccab5c`. The selected-pair
+delivery is published on `experiment/final-submission-20261108`, a clean branch
+from that main revision. The separate experiment branch and historical
+pipelines/artifacts are unchanged.
+
+Code audit, notebook schema/import checks, five root hydraulic integration tests,
+and 55 affected archived tests pass. Independent comparison of legacy features
+across six cases and all 14 generators is bitwise equal to original source.
+The PDF compiles cleanly and was visually checked. See
+[`submission_pair_preparation_20261108.json`](../reports/submission_pair_preparation_20261108.json)
+for hashes, checks and the linked independent audit. No fits, new AUCs, 2022 looks or
+Kaggle actions were performed during preparation. The unrelated full release test suite
+was interrupted; no full-suite pass is claimed.
+
+**Remaining verification:** neither complete notebook has run from raw inputs
+in the consolidated CUDA environment. Total runtime/peak RAM and exact output
+reproduction remain unverified; #4's historical CSV/component arrays are absent
+locally. This Mac has CPU-only XGBoost 3.2.0. The next step is an unchanged full
+notebook run on pinned Python 3.11.15/CUDA XGBoost 3.4.1 with one T4, four CPU
+cores and 32 GB RAM, checking the generated receipts against the historical CSV
+hashes. Do not confuse these preparation checks with a successful complete replay
+or renewed authorization for competition improvement/automatic release.
+
+Runtime model identity/effort was not exposed by this client; the earlier startup
+catalogue/configuration check does not prove actual runtime settings. Old process
+and hosted-job records below remain historical; no hosted job was launched here.
+
 Updated 3 November 2026. This is a **findings and plan incorporation**, not a new
 reconstruction run. The latest instruction is to stop after adding this material
 to DeepthroatLearning. Do not launch the deferred work until it is resumed.

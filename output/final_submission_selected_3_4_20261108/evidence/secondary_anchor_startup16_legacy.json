@@ -1,0 +1,10 @@
+{
+  "name": "Supplied-only secondary: anchor + 0.25 startup16, then + 0.05 legacy Round10-style mean, Vinje and Tokke projections",
+  "anchor_test": "models/hydraulic_surrogate/submission-lgb-shop664-anchor-blend-001/test_predictions.npy",
+  "stages": [
+    {"name": "startup16", "components": {"startup16": {"path": "models/supplied_only/startup16_final/raw_predictions.npy", "weight": 0.25}}},
+    {"name": "legacy", "components": {"legacy": {"csv_mean": ["data/processed/round10_legacy_so_seed299_final_predictions.csv", "data/processed/round10_legacy_so_seed673_final_predictions.csv"], "weight": 0.05}}}
+  ],
+  "tokke_projection": true,
+  "selection": "startup16 weight selected on 2021 alone; legacy weight 0.05 selected on 2021 on top; both checked on 2022; see reports/supplied_only/compose_eval_seeds4173.json"
+}

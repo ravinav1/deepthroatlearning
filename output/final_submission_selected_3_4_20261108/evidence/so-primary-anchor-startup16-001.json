@@ -1,0 +1,35 @@
+{
+ "run_id": "so-primary-anchor-startup16-001",
+ "timestamp_utc": "2026-11-03T12:51:26.307513+00:00",
+ "recipe": {
+  "name": "Supplied-only primary: 0.99652 anchor + 0.25 startup16 pooled LightGBM, Vinje and Tokke projections",
+  "anchor_test": "models/hydraulic_surrogate/submission-lgb-shop664-anchor-blend-001/test_predictions.npy",
+  "stages": [
+   {
+    "name": "startup16",
+    "components": {
+     "startup16": {
+      "path": "models/supplied_only/startup16_final/raw_predictions.npy",
+      "weight": 0.25
+     }
+    }
+   }
+  ],
+  "tokke_projection": true,
+  "selection": "weight 0.25 selected on 2021 from [0,.1,.25,.5], evaluated unchanged on 2022; see reports/supplied_only/log.md"
+ },
+ "stages": [
+  {
+   "name": "startup16",
+   "weights": {
+    "startup16": 0.25
+   }
+  }
+ ],
+ "submission_sha256": "a45f8001a87afbc67b17d95fb39c9f1982593d24f91887d5747fec1f3c367ceb",
+ "rows": 725,
+ "columns": 2353,
+ "min": 1.33403422463057e-06,
+ "max": 0.999999581911327,
+ "mean": 0.470139304834231
+}

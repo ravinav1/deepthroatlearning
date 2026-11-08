@@ -1,0 +1,107 @@
+{
+  "source_revision": "6ccab5c910be21d73bafd4a4536e9a9fe466dc51",
+  "source_sha256": {
+    "scripts/supplied_only/startup_like.py": "6c2e7a27b5bd3dd7b43d7acd92331405c3a4993bb39d640a763d73de634a26ea",
+    "scripts/supplied_only/blend.py": "05edc7b23fb1dbdbd49bbfb24062a7e6faceda0441a52771f5a6309dfc319c4f",
+    "experiments/hydraulic_surrogate/sintef_project/features.py": "d6dd97719c125ca9af859c3251ca408ef05af541743ea2f1524d31961f2fba30",
+    "experiments/hydraulic_surrogate/sintef_project/physics.py": "c9b0b2b81399a49c88802613a3ee85ba29fe97d5b7a3681f041d866972f82f41",
+    "experiments/hydraulic_surrogate/sintef_project/context_features.py": "5a9d544dff941a9e810426cfe01c91fb9045fb8a4281a606dbf1b578ae01d3c0",
+    "experiments/hydraulic_surrogate/sintef_project/normalized.py": "2836de6aeffd992bf530abd2643df26650ade7c02e1c70e9aae1319bb5c3e16c",
+    "experiments/hydraulic_surrogate/sintef_project/lp_features.py": "bd16e0b4e9e32976b7eb50d5334e05b94f2b074bc0d8eb83a787f26f95268720",
+    "experiments/hydraulic_surrogate/sintef_project/lp_head_update.py": "8f2a01f47f7c83307178e6ed030c13d174cb03a8d560d6109f5a59c35019421b",
+    "experiments/hydraulic_surrogate/sintef_project/lp_shared_loss_update.py": "90bd01fda2952b9defdc2b9dd97fa5adc92d137997ccea3f142b6f0adc74c31a",
+    "experiments/hydraulic_surrogate/sintef_project/lp_joint_plant.py": "475001f6f5e77a26c25aaa952b330760dce9bda5ae84b36ae55599b7ef7a3176",
+    "experiments/hydraulic_surrogate/sintef_project/lp_shop_relaxation.py": "1ac82e04d2df6571c71acfbc6be6c4ac482ea69de441471804c2b1bce1ce1aaf",
+    "experiments/hydraulic_surrogate/sintef_project/lp_shop_features.py": "5d23c8df5d42794f9b0f62f1451ec36bafc1d5ada24f486b6ab0a27383064c1b",
+    "experiments/hydraulic_surrogate/sintef_project/lp_context.py": "44b329a78ec9271d00dbd7e6c57469c31d01bc307d9b45a176768ea8583fd291",
+    "experiments/hydraulic_surrogate/sintef_project/canonical_unit_features.py": "2f49150203e779ca4098afed429f9043f0b73626d58fa9c99c63bbd23a2e1b8f",
+    "experiments/hydraulic_surrogate/sintef_project/postprocess.py": "ffbfa7974df4d0363f655bed00da1778aebe485988bdaef0309ac488f17c903b",
+    "configs/hydraulic_surrogate_best.json": "7b92bebcee42b5de9df865a2ab6f7cbd5e36717e24a2e36c240312954ba4ca47",
+    "src/features.py": "6eea354fb4f7c80ff4c495ed3ac958777334b72a93ce1d19c14a4b0f41d66133",
+    "src/topology_features.py": "8e21092f5b558e0cd1ecf09b3570af88fb2ed62318f1f94a1040246972eff0a3",
+    "src/price_features.py": "82227af3aead6973dd6a566000d32555f8974eb42cb474c4ed181d3dbf135802",
+    "src/operating_features.py": "7aadf389d079da19a67a172a209586f33e9516469a34cde9a5361577ca5780db",
+    "src/hydraulic_features.py": "8a59eb1d309b104a2c790e58f4b7bb041684e7584b21a5a1c266c0db2555c983",
+    "src/water_budget_features.py": "2f457111746c846426b69ae4c7c715d834154f1e590f451c40e8c78de2766a83",
+    "src/temporal_features.py": "0d27872b46236e834e665e6d685520e0b42f1832da94c8f1a1f6813cc776c83a",
+    "src/tree_preprocessing.py": "21bfa82dce77473bd10faf83f8f72aec8af34246c0195a6062617868ff929235",
+    "src/round5_lightgbm.py": "e1d29e86f1dab9779206d68715a4011eb32e103e31cb9280e0dc4cd401c501b5",
+    "configs/round10_legacy_so_seed299_final.json": "f0338e4f12dd2ff77d3d1d6f2db703737a9434941e097907d8f36afdb78458f8",
+    "reports/round10_legacy_so_seed299_final_run.json": "7df1b4461e01de86d3c8ed006f21cbfcae2f07386c5a2225c2123dde3505403e",
+    "configs/round10_legacy_so_seed673_final.json": "533d20daac01d993b2eb8f639b95d3d9da994ce800f53232d6ae842488c64d61",
+    "reports/round10_legacy_so_seed673_final_run.json": "711a3fb63a6c70453e8257a33f005fa5a4872a1aa8013c91217788c1fe9d033a",
+    "scripts/supplied_only/export_candidate.py": "5c93a3ea26f470471d9d4d8f2e7a338657265a61616ca5cf0cf91c1ac9933ef2",
+    "configs/supplied_only/secondary_anchor_startup16_legacy.json": "afd10fdb81b17ba819e4432eea4d9b33268ed67a240c5b44b8aec07716881eba",
+    "scripts/supplied_only/legacy_member.py": "2b859e12c2ffc1be9f35bc4c2c8bc1015cd0ca99a40fa124900a8000715866eb"
+  },
+  "component_manifest_sha256": {
+    "models/hydraulic_surrogate/lgb-normalized-lp-final-001/manifest.json": "b6c55a407649ffee4729f49b7217d0e1233abb165da40c1fc71f6cedb8e995fd",
+    "models/hydraulic_surrogate/lgb-normalized-lp-context-final-001/manifest.json": "69e3db7e7c3d6a1af1be053d99537b4cf80b4a97bbc88e99515ec6bf69bab76e",
+    "models/hydraulic_surrogate/lgb-normalized-lp-joint-final-001/manifest.json": "fce2423ccd61702a8cb78dc3ba35ff16851f4971f82fdd432f73e554ecb226d3",
+    "models/hydraulic_surrogate/lgb-normalized-lp-context-joint-final-001/manifest.json": "bf14d938dc63270d2b5c1d1b47309dda08540176844b68e3fb049ee80376393f",
+    "models/hydraulic_surrogate/submission-cuda-xgb608-context-joint-blend-001/download/cuda-xgb608-final-003/manifest.json": "0177350df6a91f1d0d1eb5eb84f10bc27e01bfe6db3b7c8140a3dc6a63a286db",
+    "models/hydraulic_surrogate/submission-cuda-xgb664-anchor-blend-001/download/cuda-xgb664-final-001/manifest.json": "c914fc7f3b2c739e162eea8e9809ee0399713a378e036d8a175bc58e3e9cdec3",
+    "models/hydraulic_surrogate/lgb-shop664-final-001/manifest.json": "2d3e2f85e40a7bbf8d849664a063a09a61eb30306746018935689754a6295ada"
+  },
+  "notebooks": [
+    {
+      "path": "canvas/Short notebook 1.ipynb",
+      "catalogue_number": 3,
+      "historical_score": "0.99657",
+      "historical_csv_sha256": "f7b0b52fc54e93e1db6171fdf85a7955486c3439897911291eef98c70a4f716a",
+      "sha256": "d3a6a4dc3cf7110c4bc6df56052713dd8c798769433ab116aeff6c5b5e14d43f",
+      "code_cells": 25,
+      "syntax_checked": true,
+      "full_raw_training_executed": false,
+      "module_count": 15
+    },
+    {
+      "path": "canvas/Short notebook 2.ipynb",
+      "catalogue_number": 4,
+      "historical_score": "0.99654",
+      "historical_csv_sha256": "38cf96b1165324ac6e63c77d5284e15d499dda534f3871ebea82f11471d78f67",
+      "sha256": "d5e9384fd300512ec84108dfb2fa23d47da6d828cc7bfe31c7db51a4ae5bf9f5",
+      "code_cells": 36,
+      "syntax_checked": true,
+      "full_raw_training_executed": false,
+      "module_count": 24
+    }
+  ],
+  "builder_sha256": "bcaa0962f5ff3e8989442ffdecffcbf4abed959fe27d7a7c12236112bf2fa768",
+  "legacy_source_adaptations": [
+    "Package imports renamed to sintef_project.legacy_*.",
+    "Only the legacy raw-file paths and ROOT are adapted to the supplied project folder.",
+    "generator_features and training_rows are extracted unchanged from round5_lightgbm.py."
+  ],
+  "legacy_csv_policy": "Default pandas to_csv then default pd.read_csv before float64 mean; final output %.9g.",
+  "documentation_only_corrections": [
+    "Embedded Tokke docstring: pair averaging preserves totals up to roundoff; executable projection code unchanged."
+  ],
+  "resource_policy": "Sequential fits; max 4 CPU threads; one CUDA device; large tables released before legacy.",
+  "remaining_validation": [
+    "Independent notebook schema/import and source-equivalence audit.",
+    "Both complete raw-input notebooks on the pinned CUDA environment; measure runtime/RAM and compare historical hashes.",
+    "No new label scoring or training performed during authoring."
+  ],
+  "lightweight_validation": {
+    "Short notebook 1.ipynb": {
+      "nbformat_valid": true,
+      "code_syntax": true,
+      "unexecuted": true
+    },
+    "Short notebook 2.ipynb": {
+      "nbformat_valid": true,
+      "code_syntax": true,
+      "unexecuted": true
+    },
+    "embedded_modules": {
+      "count": 24,
+      "imported": true
+    }
+  },
+  "lightweight_validation_environment": {
+    "python": "3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 16.0.0 (clang-1600.0.26.6)]",
+    "training_executed": false,
+    "label_scores_computed": false
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "utc": "2026-11-08T16:17:53.661900+00:00",
+  "selection": [
+    3,
+    4
+  ],
+  "status": "Report and notebook authoring complete; code audit passes; complete CUDA reproduction unverified.",
+  "source_revision": "6ccab5c910be21d73bafd4a4536e9a9fe466dc51",
+  "authors": [
+    {
+      "name": "Hallvard Grundt",
+      "student_id": "115526"
+    },
+    {
+      "name": "Raviksan Navaratnarajah",
+      "student_id": "109485"
+    },
+    {
+      "name": "Bøye Tvenge Einang",
+      "student_id": "139410"
+    }
+  ],
+  "files": {
+    "canvas/Report.pdf": {
+      "bytes": 170771,
+      "sha256": "db896c725a9268e2636230001c20770f4ec8ba4bbf616111611a0154d9aa1ca2"
+    },
+    "canvas/Short notebook 1.ipynb": {
+      "bytes": 305128,
+      "sha256": "402903feb5aa5666ea2d53aa1eb15bb7a9595c4c6d0aaf928d47417ccd288bb0"
+    },
+    "canvas/Short notebook 2.ipynb": {
+      "bytes": 471190,
+      "sha256": "5efca2c1c45492ca7bb0ed73bddfdb239f1518df51e1f806f799354785796d84"
+    },
+    "canvas/requirements.txt": {
+      "bytes": 127,
+      "sha256": "884be7539fefa26937f29c2c5c125d5f6f81726ad6ce5e7e465fc4efabb7f566"
+    },
+    "overleaf/README_Overleaf.txt": {
+      "bytes": 661,
+      "sha256": "dc7c7e1240b7ee30ddc08a92a39f74d5f744216d28f826fad89cdaff3af3ef77"
+    },
+    "overleaf/main.tex": {
+      "bytes": 18766,
+      "sha256": "b9ad302262ab09b5bbd15e8655bcf686a4ebec660e7a13e8f06dc9f8d2f0272c"
+    },
+    "authoring/build_notebooks.py": {
+      "bytes": 28869,
+      "sha256": "e5c327c5fff3858df2c9e885ef527b5370932a08344ec4fa6d8aefdb0cf73483"
+    },
+    "authoring/runtime_sections.json": {
+      "bytes": 303030,
+      "sha256": "85837524a73f95a2f70f196c77f177900fbb1f0bdaf97e9c5c23ccdf4fb770e2"
+    },
+    "evidence/bag2_anchor_startup16.json": {
+      "bytes": 676,
+      "sha256": "e7007b49ba6b9a16ef3479a9fc81a5f641463907ccfd0c7eb14f371c15aa1d79"
+    },
+    "evidence/component_parameters.json": {
+      "bytes": 6722,
+      "sha256": "8f5806678d2c3b50be101f41c4441a6f4437690446646623b0f662044bdf55ce"
+    },
+    "evidence/compose_eval_seeds4173.json": {
+      "bytes": 1311,
+      "sha256": "1f3189ad999ec760a23a07516664dc931fab29a5cbe5114ba142cee9c6968813"
+    },
+    "evidence/compose_eval_seeds4173_1.json": {
+      "bytes": 1316,
+      "sha256": "b2326fb5a792125fe56ad942e9f2085ea43980cb03a8a9d45dfaf5599860a0a8"
+    },
+    "evidence/eda.json": {
+      "bytes": 2936,
+      "sha256": "4227c469a8b0bee522d1b9e8dec6402f0f524c5bee000d03e3ba9fb7c5430854"
+    },
+    "evidence/final_report_audit.json": {
+      "bytes": 9806,
+      "sha256": "be25971586f702063e93167a23f37375293884474166fd4db5abc8795a8ef94d"
+    },
+    "evidence/historical_authoring/check_notebook_runtime.py": {
+      "bytes": 3533,
+      "sha256": "73f02429b3fb72602a53e145610c56f9ce9f7b07abca17bb25e6306cb38b43d3"
+    },
+    "evidence/historical_authoring/checklist.tex": {
+      "bytes": 4863,
+      "sha256": "4722bf66612d1f2a2e784365e6f3cd5e768b853a4ae3b07bef31556be27ab3cd"
+    },
+    "evidence/historical_authoring/verify_and_figures.py": {
+      "bytes": 8742,
+      "sha256": "1af6314bb4189fc816cc9403490659600aba311fcf06748ea08e43c19b71cbd9"
+    },
+    "evidence/historical_verification_3_5.json": {
+      "bytes": 2181,
+      "sha256": "70dc381cde6d1529535ca0f37a299931ebbca51d1d1b417a3acf2e433da086c0"
+    },
+    "evidence/kaggle_scores.json": {
+      "bytes": 24072,
+      "sha256": "8dc574f6e49dcd0f5538b2842d5b9c54675ce023af622bc674768a57aaffb26f"
+    },
+    "evidence/local_verification.json": {
+      "bytes": 2191,
+      "sha256": "c415e1166bc84ef6f84a615da02ed68c32681767edbd2626bdb08143f2659aaf"
+    },
+    "evidence/log.md": {
+      "bytes": 10967,
+      "sha256": "312dd5e7bfcc2051b2198f3e52ced7fdfc7711a2e43d3ffbb909b16deb35b16d"
+    },
+    "evidence/notebook_build.json": {
+      "bytes": 7639,
+      "sha256": "aea14f3f204062cc904f7fa6d1886ee8425bdd53ee83c37e36a8e74f55048127"
+    },
+    "evidence/round10_legacy_so_seed299_final.json": {
+      "bytes": 1719,
+      "sha256": "f0338e4f12dd2ff77d3d1d6f2db703737a9434941e097907d8f36afdb78458f8"
+    },
+    "evidence/round10_legacy_so_seed299_final_run.json": {
+      "bytes": 180393,
+      "sha256": "7df1b4461e01de86d3c8ed006f21cbfcae2f07386c5a2225c2123dde3505403e"
+    },
+    "evidence/round10_legacy_so_seed673_final.json": {
+      "bytes": 1719,
+      "sha256": "533d20daac01d993b2eb8f639b95d3d9da994ce800f53232d6ae842488c64d61"
+    },
+    "evidence/round10_legacy_so_seed673_final_run.json": {
+      "bytes": 180397,
+      "sha256": "711a3fb63a6c70453e8257a33f005fa5a4872a1aa8013c91217788c1fe9d033a"
+    },
+    "evidence/secondary_anchor_startup16_legacy.json": {
+      "bytes": 822,
+      "sha256": "afd10fdb81b17ba819e4432eea4d9b33268ed67a240c5b44b8aec07716881eba"
+    },
+    "evidence/selected_pair_audit.json": {
+      "bytes": 4820,
+      "sha256": "90b75b9d15835294123b314e2ff07abb742d315f7fd38e8536a0087987597145"
+    },
+    "evidence/so-bag2-anchor-startup16-001.json": {
+      "bytes": 1166,
+      "sha256": "cd1d3eb8882df6a61a99e87fd5673ac0bed7b9aa416b9781fc45083efdcdca1e"
+    },
+    "evidence/so-primary-anchor-startup16-001.json": {
+      "bytes": 997,
+      "sha256": "60a2ca6ce5672b10ff78147932a4aa5a82a15d24b1398b03aa89cd2fafb8eac8"
+    },
+    "evidence/source_revision.txt": {
+      "bytes": 41,
+      "sha256": "2e3870b6936abf16bc636715083a4c68ce1bfb797f01806b457649b720eb2e0e"
+    },
+    "evidence/supplied_only_attempt_20261103.md": {
+      "bytes": 4455,
+      "sha256": "c78f464f3a9c23286967b5259948504b8c679fd769494cd65d97eea6b0eed7ae"
+    },
+    "READ_ME_FIRST.txt": {
+      "bytes": 2318,
+      "sha256": "430cd85b8d9a8eb401db0e07f4ba5e3cad2f9f738b70fe27c9638c34d580a6df"
+    },
+    "TDT4173_Canvas_selected_3_4.zip": {
+      "bytes": 276615,
+      "sha256": "a20cb1da338581b8c8d6954dd0935ed47e3c9f0c21267885fcec89f232adf3ae"
+    },
+    "TDT4173_Overleaf_selected_3_4.zip": {
+      "bytes": 8218,
+      "sha256": "2f5e9c54e61b4b52903a683fde5b05c2e3921ef8a1ab4d8b97584ff93776f6d1"
+    }
+  },
+  "delivery_revisions": [
+    {
+      "utc": "2026-11-08T16:28:52.770508+00:00",
+      "change": "Removed comments from delivered requirements.txt at user request; dependency pins unchanged. Updated Canvas ZIP. Authoring builder remains the audited original."
+    },
+    {
+      "utc": "2026-11-08T16:45:19.272330+00:00",
+      "change": "Final report audit and plain-language revision:7pages,4relevant course references,clarified selection methods,all5tables preserved;notebooks unchanged."
+    },
+    {
+      "utc": "2026-11-08T16:51:06.864332+00:00",
+      "change": "Added AI-use declaration; removed only outside-data discussion; retained earlier experiments, score table and unsuccessful approaches; synchronized PDF, LaTeX and ZIPs. Notebook files unchanged."
+    },
+    {
+      "utc": "2026-11-08T17:02:27.285467+00:00",
+      "change": "Removed requested verification paragraph; added Tvenge to Bøye’s name; replaced the old team name with Group 167 in report/notebook headings; refreshed all delivery copies and ZIPs. Notebook executable cells unchanged."
+    }
+  ],
+  "updated_utc": "2026-11-08T17:02:27.285467+00:00",
+  "display_identity": "Group 167"
+}
